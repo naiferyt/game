@@ -14,5 +14,6 @@ public class ApplyEffectDebugUtility : MonoBehaviour
 
 	private void Update()
 	{
+		RecoveryPending.Hit("ApplyEffectDebugUtility.Update");
 	}
 }

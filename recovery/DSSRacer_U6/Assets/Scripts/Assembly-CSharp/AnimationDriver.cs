@@ -21,33 +21,40 @@ public class AnimationDriver : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("AnimationDriver.get_Item");
+			return default(AnimationState);
 		}
 	}
 
 	public void SetAnimationTarget(GameObject targ)
 	{
+		RecoveryPending.Hit("AnimationDriver.SetAnimationTarget");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("AnimationDriver.Update");
 	}
 
 	public void Play(string anim, bool looping)
 	{
+		RecoveryPending.Hit("AnimationDriver.Play");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CrossFadeToNewAnimation(string anim, bool loop)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AnimationDriver.CrossFadeToNewAnimation");
+		yield break;
 	}
 
 	public void Blend(string anim, float weight)
 	{
+		RecoveryPending.Hit("AnimationDriver.Blend");
 	}
 
 	public void Lean(float offset)
 	{
+		RecoveryPending.Hit("AnimationDriver.Lean");
 	}
 }

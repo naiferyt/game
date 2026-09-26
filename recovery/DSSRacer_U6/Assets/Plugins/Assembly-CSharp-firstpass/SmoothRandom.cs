@@ -6,16 +6,19 @@ public class SmoothRandom
 
 	public static Vector3 GetVector3(float speed)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SmoothRandom.GetVector3");
+		return default(Vector3);
 	}
 
 	public static float Get(float speed)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SmoothRandom.Get");
+		return default(float);
 	}
 
 	private static FractalNoise Get()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SmoothRandom.Get");
+		return default(FractalNoise);
 	}
 }

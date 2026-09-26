@@ -10,19 +10,23 @@ public class EnumerableScript<T> : Script where T : Object
 
 	public virtual void Start()
 	{
+		RecoveryPending.Hit("EnumerableScript.Start");
 	}
 
 	public virtual void OnDisable()
 	{
+		RecoveryPending.Hit("EnumerableScript.OnDisable");
 	}
 
 	public static List<T> All()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EnumerableScript.All");
+		return default(List<T>);
 	}
 
 	public static IEnumerator<T> GetEnumerator()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EnumerableScript.GetEnumerator");
+		return default(IEnumerator<T>);
 	}
 }

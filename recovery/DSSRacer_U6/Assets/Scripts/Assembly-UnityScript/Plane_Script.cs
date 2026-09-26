@@ -26,13 +26,16 @@ public class Plane_Script : MonoBehaviour
 
 	public virtual void Start()
 	{
+		RecoveryPending.Hit("Plane_Script.Start");
 	}
 
 	public virtual void Update()
 	{
+		RecoveryPending.Hit("Plane_Script.Update");
 	}
 
 	public virtual void Main()
 	{
+		RecoveryPending.Hit("Plane_Script.Main");
 	}
 }

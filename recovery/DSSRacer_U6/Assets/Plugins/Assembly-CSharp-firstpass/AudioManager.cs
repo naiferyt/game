@@ -16,7 +16,8 @@ public class AudioManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("AudioManager.get_instance");
+			return default(AudioManager);
 		}
 	}
 
@@ -24,18 +25,22 @@ public class AudioManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("AudioManager.get_SoundEffectsVolume");
+			return default(float);
 		}
 		set
 		{
+			RecoveryPending.Hit("AudioManager.set_SoundEffectsVolume");
 		}
 	}
 
 	private void OnDisable()
 	{
+		RecoveryPending.Hit("AudioManager.OnDisable");
 	}
 
 	private void OnEnable()
 	{
+		RecoveryPending.Hit("AudioManager.OnEnable");
 	}
 }

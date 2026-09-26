@@ -18,35 +18,43 @@ public class RocketRideEffect : BaseEffect
 
 	public RocketRideEffect(GameObject owner)
 	{
+		RecoveryPending.Hit("RocketRideEffect..ctor");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("RocketRideEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("RocketRideEffect.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("RocketRideEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RocketRideEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RocketRideEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 
 	protected void LaunchRocket(GameObject target)
 	{
+		RecoveryPending.Hit("RocketRideEffect.LaunchRocket");
 	}
 
 	public void DetachFromRocket()
 	{
+		RecoveryPending.Hit("RocketRideEffect.DetachFromRocket");
 	}
 }

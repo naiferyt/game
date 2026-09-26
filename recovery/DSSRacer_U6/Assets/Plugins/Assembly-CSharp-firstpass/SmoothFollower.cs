@@ -14,29 +14,35 @@ public class SmoothFollower
 
 	public SmoothFollower(float smoothingTime)
 	{
+		RecoveryPending.Hit("SmoothFollower..ctor");
 	}
 
 	public SmoothFollower(float smoothingTime, float prediction)
 	{
+		RecoveryPending.Hit("SmoothFollower..ctor");
 	}
 
 	public Vector3 Update(Vector3 targetPositionNew, float deltaTime)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SmoothFollower.Update");
+		return default(Vector3);
 	}
 
 	public Vector3 Update(Vector3 targetPositionNew, float deltaTime, bool reset)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SmoothFollower.Update");
+		return default(Vector3);
 	}
 
 	public Vector3 GetPosition()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SmoothFollower.GetPosition");
+		return default(Vector3);
 	}
 
 	public Vector3 GetVelocity()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SmoothFollower.GetVelocity");
+		return default(Vector3);
 	}
 }

@@ -33,9 +33,11 @@ public class SpringConnection : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("SpringConnection.Start");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("SpringConnection.FixedUpdate");
 	}
 }

@@ -12,5 +12,6 @@ public class AudioCrumb
 
 	public void Play()
 	{
+		RecoveryPending.Hit("AudioCrumb.Play");
 	}
 }

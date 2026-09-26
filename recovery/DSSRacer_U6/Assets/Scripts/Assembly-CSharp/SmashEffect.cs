@@ -6,27 +6,33 @@ public class SmashEffect : BaseEffect
 
 	public SmashEffect(GameObject parent)
 	{
+		RecoveryPending.Hit("SmashEffect..ctor");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("SmashEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("SmashEffect.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("SmashEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SmashEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SmashEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 }

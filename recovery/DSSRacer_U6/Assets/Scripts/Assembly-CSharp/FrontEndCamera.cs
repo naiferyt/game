@@ -22,31 +22,38 @@ public class FrontEndCamera : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("FrontEndCamera.get_isTransitioning");
+			return default(bool);
 		}
 	}
 
 	private void StartTransition(FrontEndCameraTarget newTarget)
 	{
+		RecoveryPending.Hit("FrontEndCamera.StartTransition");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("FrontEndCamera.Start");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("FrontEndCamera.FixedUpdate");
 	}
 
 	private void SetCameraTarget(FrontEndCameraTarget newTarget)
 	{
+		RecoveryPending.Hit("FrontEndCamera.SetCameraTarget");
 	}
 
 	private void SetCameraTargetByIndex(int index)
 	{
+		RecoveryPending.Hit("FrontEndCamera.SetCameraTargetByIndex");
 	}
 
 	private void ForceCameraTarget(FrontEndCameraTarget newTarget)
 	{
+		RecoveryPending.Hit("FrontEndCamera.ForceCameraTarget");
 	}
 }

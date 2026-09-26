@@ -67,10 +67,12 @@ public class UghScrollView : UghControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghScrollView.get_HorizontalContents");
+			return default(Transform);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghScrollView.set_HorizontalContents");
 		}
 	}
 
@@ -78,10 +80,12 @@ public class UghScrollView : UghControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghScrollView.get_VerticalContents");
+			return default(Transform);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghScrollView.set_VerticalContents");
 		}
 	}
 
@@ -89,10 +93,12 @@ public class UghScrollView : UghControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghScrollView.get_SnapSpacing");
+			return default(Vector3);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghScrollView.set_SnapSpacing");
 		}
 	}
 
@@ -100,10 +106,12 @@ public class UghScrollView : UghControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghScrollView.get_ScrollPosition");
+			return default(Vector3);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghScrollView.set_ScrollPosition");
 		}
 	}
 
@@ -111,10 +119,12 @@ public class UghScrollView : UghControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghScrollView.get_ViewSize");
+			return default(Vector3);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghScrollView.set_ViewSize");
 		}
 	}
 
@@ -123,10 +133,12 @@ public class UghScrollView : UghControl
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		add
 		{
+			RecoveryPending.Hit("UghScrollView.add_ScrollSnapped");
 		}
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		remove
 		{
+			RecoveryPending.Hit("UghScrollView.remove_ScrollSnapped");
 		}
 	}
 
@@ -135,70 +147,84 @@ public class UghScrollView : UghControl
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		add
 		{
+			RecoveryPending.Hit("UghScrollView.add_ScrollSoftSnapped");
 		}
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		remove
 		{
+			RecoveryPending.Hit("UghScrollView.remove_ScrollSoftSnapped");
 		}
 	}
 
 	public void SnapScrollToIndex(int xIndex, int yIndex)
 	{
+		RecoveryPending.Hit("UghScrollView.SnapScrollToIndex");
 	}
 
 	public void SnapScrollByShift(int xShift, int yShift)
 	{
+		RecoveryPending.Hit("UghScrollView.SnapScrollByShift");
 	}
 
 	public void ScrollToPosition(float xPos, float yPos)
 	{
+		RecoveryPending.Hit("UghScrollView.ScrollToPosition");
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("UghScrollView.Awake");
 	}
 
 	[DebuggerHidden]
 	public override IEnumerator OnUghInputDown()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghScrollView.OnUghInputDown");
+		yield break;
 	}
 
 	private void UpdateRealDeltaTime()
 	{
+		RecoveryPending.Hit("UghScrollView.UpdateRealDeltaTime");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator HandleExplicitScrolling()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghScrollView.HandleExplicitScrolling");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator HandleVelocityScrolling()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghScrollView.HandleVelocityScrolling");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator HandleSnapScrolling()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghScrollView.HandleSnapScrolling");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator ForceSnapScrolling(Vector3 goalScrollPosition)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghScrollView.ForceSnapScrolling");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator SnapScroll(Vector3 goalScrollPosition)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghScrollView.SnapScroll");
+		yield break;
 	}
 
 	private void OnScrollPositionChanged()
 	{
+		RecoveryPending.Hit("UghScrollView.OnScrollPositionChanged");
 	}
 }

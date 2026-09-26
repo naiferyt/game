@@ -6,5 +6,6 @@ public class EnsureGlobals : MonoBehaviour
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("EnsureGlobals.Awake");
 	}
 }

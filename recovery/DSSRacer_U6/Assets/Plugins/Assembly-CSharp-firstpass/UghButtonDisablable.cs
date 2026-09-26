@@ -9,23 +9,28 @@ public class UghButtonDisablable : UghButton
 
 	public void Start()
 	{
+		RecoveryPending.Hit("UghButtonDisablable.Start");
 	}
 
 	[DebuggerHidden]
 	public override IEnumerator OnUghInputDown()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghButtonDisablable.OnUghInputDown");
+		yield break;
 	}
 
 	public override void OnUghInputUpAsButton()
 	{
+		RecoveryPending.Hit("UghButtonDisablable.OnUghInputUpAsButton");
 	}
 
 	public void SetLock(bool b)
 	{
+		RecoveryPending.Hit("UghButtonDisablable.SetLock");
 	}
 
 	public void ToggleLock()
 	{
+		RecoveryPending.Hit("UghButtonDisablable.ToggleLock");
 	}
 }

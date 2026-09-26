@@ -8,5 +8,6 @@ public class DebugTrackStrapper : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("DebugTrackStrapper.Start");
 	}
 }

@@ -18,22 +18,27 @@ public class CharacterVOController : MonoBehaviour
 
 	private AudioClip PickClip(List<AudioClip> queue, AudioClip[] clipList)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CharacterVOController.PickClip");
+		return default(AudioClip);
 	}
 
 	private void PlayClip(AudioClip clip)
 	{
+		RecoveryPending.Hit("CharacterVOController.PlayClip");
 	}
 
 	public void PlayCelebrate()
 	{
+		RecoveryPending.Hit("CharacterVOController.PlayCelebrate");
 	}
 
 	public void PlayPout()
 	{
+		RecoveryPending.Hit("CharacterVOController.PlayPout");
 	}
 
 	public void PlayCharacterSelect()
 	{
+		RecoveryPending.Hit("CharacterVOController.PlayCharacterSelect");
 	}
 }

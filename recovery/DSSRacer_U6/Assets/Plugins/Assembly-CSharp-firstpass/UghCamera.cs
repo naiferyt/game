@@ -21,7 +21,8 @@ public class UghCamera : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghCamera.get_Instance");
+			return default(UghCamera);
 		}
 	}
 
@@ -29,7 +30,8 @@ public class UghCamera : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghCamera.get_CameraPixelSize");
+			return default(Vector3);
 		}
 	}
 
@@ -37,7 +39,8 @@ public class UghCamera : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghCamera.get_ScreenSize");
+			return default(Vector3);
 		}
 	}
 
@@ -45,7 +48,8 @@ public class UghCamera : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghCamera.get_ScreenExtents");
+			return default(Vector3);
 		}
 	}
 
@@ -53,36 +57,44 @@ public class UghCamera : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghCamera.get_Aspect");
+			return default(float);
 		}
 	}
 
 	public Vector3 ScreenAnchorToPosition(UghSprite.Anchor anchor, Vector3 customAnchor)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghCamera.ScreenAnchorToPosition");
+		return default(Vector3);
 	}
 
 	private void OnLevelWasLoaded()
 	{
+		RecoveryPending.Hit("UghCamera.OnLevelWasLoaded");
 	}
 
 	private void Reset()
 	{
+		RecoveryPending.Hit("UghCamera.Reset");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("UghCamera.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("UghCamera.Update");
 	}
 
 	private void ResetCamera()
 	{
+		RecoveryPending.Hit("UghCamera.ResetCamera");
 	}
 
 	private void ResetCameraPosition()
 	{
+		RecoveryPending.Hit("UghCamera.ResetCameraPosition");
 	}
 }

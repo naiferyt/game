@@ -48,18 +48,22 @@ public class Car_Script : MonoBehaviour
 
 	public virtual WheelData SetWheelParams(Transform wheel, float maxSteer, bool motor, float rad)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Car_Script.SetWheelParams");
+		return default(WheelData);
 	}
 
 	public virtual void Start()
 	{
+		RecoveryPending.Hit("Car_Script.Start");
 	}
 
 	public virtual void FixedUpdate()
 	{
+		RecoveryPending.Hit("Car_Script.FixedUpdate");
 	}
 
 	public virtual void Main()
 	{
+		RecoveryPending.Hit("Car_Script.Main");
 	}
 }

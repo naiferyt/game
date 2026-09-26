@@ -8,19 +8,23 @@ public class WhoopieCushion : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("WhoopieCushion.Start");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator Explode()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("WhoopieCushion.Explode");
+		yield break;
 	}
 
 	private void OnCollisionEnter(Collision col)
 	{
+		RecoveryPending.Hit("WhoopieCushion.OnCollisionEnter");
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
+		RecoveryPending.Hit("WhoopieCushion.OnTriggerEnter");
 	}
 }

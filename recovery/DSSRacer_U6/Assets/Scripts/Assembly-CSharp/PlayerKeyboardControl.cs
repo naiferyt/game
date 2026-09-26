@@ -23,12 +23,14 @@ public class PlayerKeyboardControl : MonoBehaviour
 
 		public bool KeyDown()
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("PlayerKeyboardControl.KeyEventBinding.KeyDown");
+			return default(bool);
 		}
 
 		public bool Key()
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("PlayerKeyboardControl.KeyEventBinding.Key");
+			return default(bool);
 		}
 	}
 
@@ -36,23 +38,28 @@ public class PlayerKeyboardControl : MonoBehaviour
 
 	private static bool GetKeyDown(KeyEvents keyEvent)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PlayerKeyboardControl.GetKeyDown");
+		return default(bool);
 	}
 
 	private static bool GetKey(KeyEvents keyEvent)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PlayerKeyboardControl.GetKey");
+		return default(bool);
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("PlayerKeyboardControl.Awake");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("PlayerKeyboardControl.Update");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("PlayerKeyboardControl.FixedUpdate");
 	}
 }

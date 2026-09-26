@@ -8,31 +8,38 @@ public class PlaceWithNoPowerupsAchievementListener : AchievementListener
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PlaceWithNoPowerupsAchievementListener.Start");
 	}
 
 	public override bool IsAvailable()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PlaceWithNoPowerupsAchievementListener.IsAvailable");
+		return default(bool);
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("PlaceWithNoPowerupsAchievementListener.Update");
 	}
 
 	public override void Prerace()
 	{
+		RecoveryPending.Hit("PlaceWithNoPowerupsAchievementListener.Prerace");
 	}
 
 	public override void Postrace()
 	{
+		RecoveryPending.Hit("PlaceWithNoPowerupsAchievementListener.Postrace");
 	}
 
 	public override void Reward()
 	{
+		RecoveryPending.Hit("PlaceWithNoPowerupsAchievementListener.Reward");
 	}
 
 	private bool CheckPowerupPass()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PlaceWithNoPowerupsAchievementListener.CheckPowerupPass");
+		return default(bool);
 	}
 }

@@ -10,13 +10,16 @@ public class BasketBall : MonoBehaviour
 
 	private void Update()
 	{
+		RecoveryPending.Hit("BasketBall.Update");
 	}
 
 	private void PlayBounceSound()
 	{
+		RecoveryPending.Hit("BasketBall.PlayBounceSound");
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
+		RecoveryPending.Hit("BasketBall.OnTriggerEnter");
 	}
 }

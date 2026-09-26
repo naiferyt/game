@@ -7,10 +7,12 @@ public class CatchupNotify : MonoBehaviour
 	[DebuggerHidden]
 	private IEnumerator DeathCount()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CatchupNotify.DeathCount");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("CatchupNotify.Start");
 	}
 }

@@ -16,13 +16,16 @@ public class LocalOptionsData
 
 	public LocalOptionsData(float musicVolume, float sfxVolume, bool _appPurchases, RaceManager.RaceDifficultyLevel difficulty)
 	{
+		RecoveryPending.Hit("LocalOptionsData..ctor");
 	}
 
 	public void Save()
 	{
+		RecoveryPending.Hit("LocalOptionsData.Save");
 	}
 
 	public void Load()
 	{
+		RecoveryPending.Hit("LocalOptionsData.Load");
 	}
 }

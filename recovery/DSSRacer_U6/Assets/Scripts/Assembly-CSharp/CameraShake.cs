@@ -20,7 +20,8 @@ public class CameraShake : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CameraShake.get_IsShaking");
+			return default(bool);
 		}
 	}
 
@@ -28,30 +29,37 @@ public class CameraShake : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CameraShake.get_IsStationary");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("CameraShake.set_IsStationary");
 		}
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("CameraShake.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("CameraShake.Update");
 	}
 
 	public void TurnOnShake(float duration, float intensity)
 	{
+		RecoveryPending.Hit("CameraShake.TurnOnShake");
 	}
 
 	public void TurnOnStationaryShake(float duration, float intensity)
 	{
+		RecoveryPending.Hit("CameraShake.TurnOnStationaryShake");
 	}
 
 	public void TurnOffShake()
 	{
+		RecoveryPending.Hit("CameraShake.TurnOffShake");
 	}
 }

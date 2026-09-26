@@ -4,26 +4,31 @@ public class Rectx
 {
 	public static Vector3 GetCenter(Rect r)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Rectx.GetCenter");
+		return default(Vector3);
 	}
 
 	public static Vector3 GetBottomLeft(Rect r)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Rectx.GetBottomLeft");
+		return default(Vector3);
 	}
 
 	public static bool WillFitIn(Rect r, Rect toFitIn)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Rectx.WillFitIn");
+		return default(bool);
 	}
 
 	public static bool DoesContain(Rect r, Rect container)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Rectx.DoesContain");
+		return default(bool);
 	}
 
 	public static Rect AddScreenMargin(Rect r)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Rectx.AddScreenMargin");
+		return default(Rect);
 	}
 }

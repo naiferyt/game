@@ -17,52 +17,64 @@ public class ByteStream
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ByteStream.get_Bytes");
+			return default(byte[]);
 		}
 	}
 
 	public ByteStream()
 	{
+		RecoveryPending.Hit("ByteStream..ctor");
 	}
 
 	public ByteStream(byte[] bytes)
 	{
+		RecoveryPending.Hit("ByteStream..ctor");
 	}
 
 	public void Serialize(ref float a)
 	{
+		RecoveryPending.Hit("ByteStream.Serialize");
 	}
 
 	public void Serialize(ref bool a)
 	{
+		RecoveryPending.Hit("ByteStream.Serialize");
 	}
 
 	public void Serialize(ref uint a)
 	{
+		RecoveryPending.Hit("ByteStream.Serialize");
 	}
 
 	public void Serialize(ref int a)
 	{
+		RecoveryPending.Hit("ByteStream.Serialize");
 	}
 
 	public void Serialize(ref long a)
 	{
+		RecoveryPending.Hit("ByteStream.Serialize");
 	}
 
 	public void Serialize(ref ulong a)
 	{
+		RecoveryPending.Hit("ByteStream.Serialize");
 	}
 
 	public void Serialize(ref Vector3 a)
 	{
+		RecoveryPending.Hit("ByteStream.Serialize");
 	}
 
 	public void Serialize(ref Quaternion a)
 	{
+		RecoveryPending.Hit("ByteStream.Serialize");
 	}
 
 	public void Serialize(ref string a)
 	{
+		RecoveryPending.Hit("ByteStream.Serialize");
 	}
 
 	public void Serialize<T>(T a) where T : struct

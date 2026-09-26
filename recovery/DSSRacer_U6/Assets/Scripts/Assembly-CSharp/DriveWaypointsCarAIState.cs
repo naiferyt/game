@@ -10,22 +10,27 @@ public class DriveWaypointsCarAIState : BaseCarAIState
 
 	public override CarAI.AIStates GetAIStateEnum()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("DriveWaypointsCarAIState.GetAIStateEnum");
+		return default(CarAI.AIStates);
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("DriveWaypointsCarAIState.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("DriveWaypointsCarAIState.Update");
 	}
 
 	public override void FixedUpdate()
 	{
+		RecoveryPending.Hit("DriveWaypointsCarAIState.FixedUpdate");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("DriveWaypointsCarAIState.Shutdown");
 	}
 }

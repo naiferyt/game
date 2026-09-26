@@ -11,7 +11,8 @@ public class Rangef
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Rangef.get_Range");
+			return default(float);
 		}
 	}
 
@@ -19,30 +20,36 @@ public class Rangef
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Rangef.get_random");
+			return default(float);
 		}
 	}
 
 	public Rangef()
 	{
+		RecoveryPending.Hit("Rangef..ctor");
 	}
 
 	public Rangef(float min, float max)
 	{
+		RecoveryPending.Hit("Rangef..ctor");
 	}
 
 	public float Clamp(float value)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Rangef.Clamp");
+		return default(float);
 	}
 
 	public float Lerp(float value)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Rangef.Lerp");
+		return default(float);
 	}
 
 	public float InverseLerp(float value)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Rangef.InverseLerp");
+		return default(float);
 	}
 }

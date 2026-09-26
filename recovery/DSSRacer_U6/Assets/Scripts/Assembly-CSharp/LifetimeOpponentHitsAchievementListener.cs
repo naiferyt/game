@@ -9,37 +9,45 @@ public class LifetimeOpponentHitsAchievementListener : AchievementListener
 
 	private void Start()
 	{
+		RecoveryPending.Hit("LifetimeOpponentHitsAchievementListener.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("LifetimeOpponentHitsAchievementListener.Update");
 	}
 
 	public override bool IsAvailable()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LifetimeOpponentHitsAchievementListener.IsAvailable");
+		return default(bool);
 	}
 
 	public override void Prerace()
 	{
+		RecoveryPending.Hit("LifetimeOpponentHitsAchievementListener.Prerace");
 	}
 
 	public override void Postrace()
 	{
+		RecoveryPending.Hit("LifetimeOpponentHitsAchievementListener.Postrace");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CheckMetricsPump()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LifetimeOpponentHitsAchievementListener.CheckMetricsPump");
+		yield break;
 	}
 
 	private bool CheckMetrics()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LifetimeOpponentHitsAchievementListener.CheckMetrics");
+		return default(bool);
 	}
 
 	public override void Reward()
 	{
+		RecoveryPending.Hit("LifetimeOpponentHitsAchievementListener.Reward");
 	}
 }

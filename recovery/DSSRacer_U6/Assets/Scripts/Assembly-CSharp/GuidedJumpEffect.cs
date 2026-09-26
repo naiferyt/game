@@ -18,31 +18,38 @@ public class GuidedJumpEffect : BaseEffect
 
 	public GuidedJumpEffect(GameObject owner, Vector3 startPos, Vector3 targetPos, AnimationCurve curve)
 	{
+		RecoveryPending.Hit("GuidedJumpEffect..ctor");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("GuidedJumpEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("GuidedJumpEffect.Update");
 	}
 
 	public override void FixedUpdate()
 	{
+		RecoveryPending.Hit("GuidedJumpEffect.FixedUpdate");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("GuidedJumpEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("GuidedJumpEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("GuidedJumpEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 }

@@ -7,28 +7,34 @@ public class HitMaxSpeedAchievementListener : AchievementListener
 
 	public override bool IsAvailable()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("HitMaxSpeedAchievementListener.IsAvailable");
+		return default(bool);
 	}
 
 	public override void Prerace()
 	{
+		RecoveryPending.Hit("HitMaxSpeedAchievementListener.Prerace");
 	}
 
 	public override void Postrace()
 	{
+		RecoveryPending.Hit("HitMaxSpeedAchievementListener.Postrace");
 	}
 
 	public override void Reward()
 	{
+		RecoveryPending.Hit("HitMaxSpeedAchievementListener.Reward");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CheckMaxSpeedCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("HitMaxSpeedAchievementListener.CheckMaxSpeedCoroutine");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("HitMaxSpeedAchievementListener.Start");
 	}
 }

@@ -44,10 +44,12 @@ public abstract class BaseEffect
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("BaseEffect.get_ComboLookup");
+			return default(Dictionary<EffectTypes, Dictionary<EffectTypes, EffectTypes>>);
 		}
 		set
 		{
+			RecoveryPending.Hit("BaseEffect.set_ComboLookup");
 		}
 	}
 
@@ -55,10 +57,12 @@ public abstract class BaseEffect
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("BaseEffect.get_EffectType");
+			return default(EffectTypes);
 		}
 		set
 		{
+			RecoveryPending.Hit("BaseEffect.set_EffectType");
 		}
 	}
 
@@ -66,10 +70,12 @@ public abstract class BaseEffect
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("BaseEffect.get_IsMultiLevel");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("BaseEffect.set_IsMultiLevel");
 		}
 	}
 
@@ -77,26 +83,31 @@ public abstract class BaseEffect
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("BaseEffect.get_PowerLevel");
+			return default(int);
 		}
 		set
 		{
+			RecoveryPending.Hit("BaseEffect.set_PowerLevel");
 		}
 	}
 
 	public bool isBeneficial()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BaseEffect.isBeneficial");
+		return default(bool);
 	}
 
 	public static bool isBeneficial(EffectTypes effType)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BaseEffect.isBeneficial");
+		return default(bool);
 	}
 
 	public static BaseEffect GetEffectInstance(EffectTypes effectType, GameObject owner)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BaseEffect.GetEffectInstance");
+		return default(BaseEffect);
 	}
 
 	public abstract void Init();
@@ -111,22 +122,28 @@ public abstract class BaseEffect
 
 	public virtual void FixedUpdate()
 	{
+		RecoveryPending.Hit("BaseEffect.FixedUpdate");
 	}
 
 	public static void InitComboLookup()
 	{
+		RecoveryPending.Hit("BaseEffect.InitComboLookup");
 	}
 
 	public static void SetUpComboLookup(EffectTypes type1, EffectTypes type2, EffectTypes comboType)
 	{
+		RecoveryPending.Hit("BaseEffect.SetUpComboLookup");
 	}
 
 	public static bool GetComboEffectType(EffectTypes type1, EffectTypes type2, out EffectTypes comboType)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BaseEffect.GetComboEffectType");
+		comboType = default(EffectTypes);
+		return default(bool);
 	}
 
 	public void DebugDump()
 	{
+		RecoveryPending.Hit("BaseEffect.DebugDump");
 	}
 }

@@ -52,7 +52,8 @@ public class RaceSettings : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RaceSettings.get_AICarts");
+			return default(AICartSettings[]);
 		}
 	}
 
@@ -60,42 +61,51 @@ public class RaceSettings : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RaceSettings.get_RaceType");
+			return default(RaceModes);
 		}
 		set
 		{
+			RecoveryPending.Hit("RaceSettings.set_RaceType");
 		}
 	}
 
 	private StreamManager.AssetCluster GatherRequiredAssets()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceSettings.GatherRequiredAssets");
+		return default(StreamManager.AssetCluster);
 	}
 
 	private void DetermineAICars()
 	{
+		RecoveryPending.Hit("RaceSettings.DetermineAICars");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CleanupCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceSettings.CleanupCoroutine");
+		yield break;
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("RaceSettings.Awake");
 	}
 
 	public void StartBundleLoads()
 	{
+		RecoveryPending.Hit("RaceSettings.StartBundleLoads");
 	}
 
 	public void Launch()
 	{
+		RecoveryPending.Hit("RaceSettings.Launch");
 	}
 
 	public int GetCircuit()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceSettings.GetCircuit");
+		return default(int);
 	}
 }

@@ -48,7 +48,8 @@ public abstract class AchievementListener : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("AchievementListener.get_State");
+			return default(AchievementState);
 		}
 	}
 
@@ -62,28 +63,34 @@ public abstract class AchievementListener : MonoBehaviour
 
 	public AchievementFilterCategory FilterCategory()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AchievementListener.FilterCategory");
+		return default(AchievementFilterCategory);
 	}
 
 	protected void Activate()
 	{
+		RecoveryPending.Hit("AchievementListener.Activate");
 	}
 
 	protected void Achieve()
 	{
+		RecoveryPending.Hit("AchievementListener.Achieve");
 	}
 
 	protected void Fail()
 	{
+		RecoveryPending.Hit("AchievementListener.Fail");
 	}
 
 	public string GetUnlockName()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AchievementListener.GetUnlockName");
+		return default(string);
 	}
 
 	public bool HasAchieved()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AchievementListener.HasAchieved");
+		return default(bool);
 	}
 }

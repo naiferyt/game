@@ -22,10 +22,12 @@ public class LEDScroller : MonoBehaviour
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("LEDScroller.TextString.get_Text");
+				return default(string);
 			}
 			set
 			{
+				RecoveryPending.Hit("LEDScroller.TextString.set_Text");
 			}
 		}
 
@@ -33,10 +35,12 @@ public class LEDScroller : MonoBehaviour
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("LEDScroller.TextString.get_Scroll");
+				return default(bool);
 			}
 			set
 			{
+				RecoveryPending.Hit("LEDScroller.TextString.set_Scroll");
 			}
 		}
 
@@ -44,15 +48,18 @@ public class LEDScroller : MonoBehaviour
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("LEDScroller.TextString.get_Flash");
+				return default(bool);
 			}
 			set
 			{
+				RecoveryPending.Hit("LEDScroller.TextString.set_Flash");
 			}
 		}
 
 		public TextString(string text, bool scroll, bool flash)
 		{
+			RecoveryPending.Hit("LEDScroller.TextString..ctor");
 		}
 	}
 
@@ -96,10 +103,12 @@ public class LEDScroller : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("LEDScroller.get_CurrentString");
+			return default(int);
 		}
 		set
 		{
+			RecoveryPending.Hit("LEDScroller.set_CurrentString");
 		}
 	}
 
@@ -107,10 +116,12 @@ public class LEDScroller : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("LEDScroller.get_EndofSentence");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("LEDScroller.set_EndofSentence");
 		}
 	}
 
@@ -119,87 +130,107 @@ public class LEDScroller : MonoBehaviour
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		add
 		{
+			RecoveryPending.Hit("LEDScroller.add_HandleNewTextCheck");
 		}
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		remove
 		{
+			RecoveryPending.Hit("LEDScroller.remove_HandleNewTextCheck");
 		}
 	}
 
 	private void OnNewTextCheck()
 	{
+		RecoveryPending.Hit("LEDScroller.OnNewTextCheck");
 	}
 
 	private void OnEnable()
 	{
+		RecoveryPending.Hit("LEDScroller.OnEnable");
 	}
 
 	private void OnDisable()
 	{
+		RecoveryPending.Hit("LEDScroller.OnDisable");
 	}
 
 	private void CheckForNewText()
 	{
+		RecoveryPending.Hit("LEDScroller.CheckForNewText");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("LEDScroller.Start");
 	}
 
 	private void SetUpNewStringForDisplayHelper()
 	{
+		RecoveryPending.Hit("LEDScroller.SetUpNewStringForDisplayHelper");
 	}
 
 	public void OnResetScroller()
 	{
+		RecoveryPending.Hit("LEDScroller.OnResetScroller");
 	}
 
 	private void OnScroll()
 	{
+		RecoveryPending.Hit("LEDScroller.OnScroll");
 	}
 
 	private void OnFlash()
 	{
+		RecoveryPending.Hit("LEDScroller.OnFlash");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator OnScrollHelper()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LEDScroller.OnScrollHelper");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator OnFlashHelper()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LEDScroller.OnFlashHelper");
+		yield break;
 	}
 
 	private void OnStaticText()
 	{
+		RecoveryPending.Hit("LEDScroller.OnStaticText");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("LEDScroller.Update");
 	}
 
 	public void AddText(string text, bool scroll, bool flash)
 	{
+		RecoveryPending.Hit("LEDScroller.AddText");
 	}
 
 	public void RemoveText(int index)
 	{
+		RecoveryPending.Hit("LEDScroller.RemoveText");
 	}
 
 	public void ReplaceText(string text, int index, bool scroll, bool flash)
 	{
+		RecoveryPending.Hit("LEDScroller.ReplaceText");
 	}
 
 	public void ClearText()
 	{
+		RecoveryPending.Hit("LEDScroller.ClearText");
 	}
 
 	public int TextStringCount()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LEDScroller.TextStringCount");
+		return default(int);
 	}
 }

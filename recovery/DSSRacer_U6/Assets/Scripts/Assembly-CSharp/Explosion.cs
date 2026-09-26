@@ -6,15 +6,18 @@ public class Explosion : MonoBehaviour
 {
 	private void Start()
 	{
+		RecoveryPending.Hit("Explosion.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("Explosion.Update");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator ExplosionDeath()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Explosion.ExplosionDeath");
+		yield break;
 	}
 }

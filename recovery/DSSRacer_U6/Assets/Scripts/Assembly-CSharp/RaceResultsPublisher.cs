@@ -30,52 +30,63 @@ public class RaceResultsPublisher : UghPublisher
 	[DebuggerHidden]
 	private IEnumerator AnimateScreenCoroutine(RaceResults results)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceResultsPublisher.AnimateScreenCoroutine");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CheckForRewindTutorial(RaceResults results)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceResultsPublisher.CheckForRewindTutorial");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator AnimatePlaceResultsCoroutine(RaceResults results)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceResultsPublisher.AnimatePlaceResultsCoroutine");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator AnimateCoinsCoroutine(RaceResults results)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceResultsPublisher.AnimateCoinsCoroutine");
+		yield break;
 	}
 
 	private void FillRank(UghText nameText, UghText timeText, UghSprite iconSlot, CarProgress prog)
 	{
+		RecoveryPending.Hit("RaceResultsPublisher.FillRank");
 	}
 
 	private void FillRanks(RaceResults results)
 	{
+		RecoveryPending.Hit("RaceResultsPublisher.FillRanks");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("RaceResultsPublisher.Start");
 	}
 
 	private void PressedRewind()
 	{
+		RecoveryPending.Hit("RaceResultsPublisher.PressedRewind");
 	}
 
 	private void PressedDone()
 	{
+		RecoveryPending.Hit("RaceResultsPublisher.PressedDone");
 	}
 
 	private void PressedRetry()
 	{
+		RecoveryPending.Hit("RaceResultsPublisher.PressedRetry");
 	}
 
 	public static void NeedMoreCoins(string id, int cost)
 	{
+		RecoveryPending.Hit("RaceResultsPublisher.NeedMoreCoins");
 	}
 }

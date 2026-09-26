@@ -17,13 +17,16 @@ public class BlipTrackPublisher : UghPublisher
 
 	public void InitBlips()
 	{
+		RecoveryPending.Hit("BlipTrackPublisher.InitBlips");
 	}
 
 	public void InitValues()
 	{
+		RecoveryPending.Hit("BlipTrackPublisher.InitValues");
 	}
 
 	public void UpdateBlips()
 	{
+		RecoveryPending.Hit("BlipTrackPublisher.UpdateBlips");
 	}
 }

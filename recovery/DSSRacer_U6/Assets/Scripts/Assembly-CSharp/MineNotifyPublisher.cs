@@ -8,26 +8,31 @@ public class MineNotifyPublisher : UghPublisher
 	[DebuggerHidden]
 	private IEnumerator Lifetime()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MineNotifyPublisher.Lifetime");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator FadeIn()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MineNotifyPublisher.FadeIn");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator FadeOut()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MineNotifyPublisher.FadeOut");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("MineNotifyPublisher.Start");
 	}
 
 	public void SetDisplayName(string text)
 	{
+		RecoveryPending.Hit("MineNotifyPublisher.SetDisplayName");
 	}
 }

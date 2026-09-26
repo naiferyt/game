@@ -18,10 +18,12 @@ public class TriFoot : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("TriFoot.get_leadFoot");
+			return default(Vector3);
 		}
 		set
 		{
+			RecoveryPending.Hit("TriFoot.set_leadFoot");
 		}
 	}
 
@@ -29,10 +31,12 @@ public class TriFoot : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("TriFoot.get_leftFoot");
+			return default(Vector3);
 		}
 		set
 		{
+			RecoveryPending.Hit("TriFoot.set_leftFoot");
 		}
 	}
 
@@ -40,10 +44,12 @@ public class TriFoot : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("TriFoot.get_rightFoot");
+			return default(Vector3);
 		}
 		set
 		{
+			RecoveryPending.Hit("TriFoot.set_rightFoot");
 		}
 	}
 
@@ -51,10 +57,12 @@ public class TriFoot : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("TriFoot.get_forward");
+			return default(Vector3);
 		}
 		set
 		{
+			RecoveryPending.Hit("TriFoot.set_forward");
 		}
 	}
 
@@ -62,10 +70,12 @@ public class TriFoot : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("TriFoot.get_right");
+			return default(Vector3);
 		}
 		set
 		{
+			RecoveryPending.Hit("TriFoot.set_right");
 		}
 	}
 
@@ -73,36 +83,44 @@ public class TriFoot : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("TriFoot.get_up");
+			return default(Vector3);
 		}
 		set
 		{
+			RecoveryPending.Hit("TriFoot.set_up");
 		}
 	}
 
 	private void TriFootTest()
 	{
+		RecoveryPending.Hit("TriFoot.TriFootTest");
 	}
 
 	private void UpsideDownTest()
 	{
+		RecoveryPending.Hit("TriFoot.UpsideDownTest");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("TriFoot.Start");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("TriFoot.FixedUpdate");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator GimpedTrifootCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TriFoot.GimpedTrifootCoroutine");
+		yield break;
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("TriFoot.OnDrawGizmos");
 	}
 }

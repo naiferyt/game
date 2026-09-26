@@ -6,27 +6,33 @@ public class BoosterEffect : BaseEffect
 
 	public BoosterEffect(GameObject parent)
 	{
+		RecoveryPending.Hit("BoosterEffect..ctor");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("BoosterEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("BoosterEffect.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("BoosterEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BoosterEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BoosterEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 }

@@ -42,71 +42,87 @@ public class CarAI : MonoBehaviour
 	[DebuggerHidden]
 	private IEnumerator AIEvaluationPump()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarAI.AIEvaluationPump");
+		yield break;
 	}
 
 	private bool TestForNoticePickup(Collider collider)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarAI.TestForNoticePickup");
+		return default(bool);
 	}
 
 	private bool TestForPowerupUsage(Collider collider)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarAI.TestForPowerupUsage");
+		return default(bool);
 	}
 
 	private bool TestForAvoidBadTerrain(Collider collider)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarAI.TestForAvoidBadTerrain");
+		return default(bool);
 	}
 
 	private bool TestForHitBeneficialTerrain(Collider collider)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarAI.TestForHitBeneficialTerrain");
+		return default(bool);
 	}
 
 	private bool TestForHarassCar(Collider collider)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarAI.TestForHarassCar");
+		return default(bool);
 	}
 
 	private void EvaluateStates()
 	{
+		RecoveryPending.Hit("CarAI.EvaluateStates");
 	}
 
 	public void StateDone(BaseCarAIState state)
 	{
+		RecoveryPending.Hit("CarAI.StateDone");
 	}
 
 	private void AddState(AIStates state)
 	{
+		RecoveryPending.Hit("CarAI.AddState");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("CarAI.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("CarAI.Update");
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("CarAI.OnDrawGizmos");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("CarAI.FixedUpdate");
 	}
 
 	public void ClearStates()
 	{
+		RecoveryPending.Hit("CarAI.ClearStates");
 	}
 
 	public void DriveWithFacing(Vector3 desiredFacing)
 	{
+		RecoveryPending.Hit("CarAI.DriveWithFacing");
 	}
 
 	public void DriveTowardPoint(Vector3 desiredPoint)
 	{
+		RecoveryPending.Hit("CarAI.DriveTowardPoint");
 	}
 }

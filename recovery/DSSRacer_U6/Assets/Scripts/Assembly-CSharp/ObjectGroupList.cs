@@ -13,14 +13,17 @@ public class ObjectGroupList : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ObjectGroupList.get_CurrentState");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("ObjectGroupList.set_CurrentState");
 		}
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("ObjectGroupList.Awake");
 	}
 }

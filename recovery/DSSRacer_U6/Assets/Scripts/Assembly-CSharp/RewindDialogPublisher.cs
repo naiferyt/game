@@ -11,38 +11,46 @@ public class RewindDialogPublisher : UghPublisher
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RewindDialogPublisher.get_RewindCost");
+			return default(int);
 		}
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("RewindDialogPublisher.Start");
 	}
 
 	private void PressedExit()
 	{
+		RecoveryPending.Hit("RewindDialogPublisher.PressedExit");
 	}
 
 	private void PressedBuy()
 	{
+		RecoveryPending.Hit("RewindDialogPublisher.PressedBuy");
 	}
 
 	private bool MoneyCheck()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RewindDialogPublisher.MoneyCheck");
+		return default(bool);
 	}
 
 	private void NeedMoreCoins()
 	{
+		RecoveryPending.Hit("RewindDialogPublisher.NeedMoreCoins");
 	}
 
 	private void FinalizedRewind()
 	{
+		RecoveryPending.Hit("RewindDialogPublisher.FinalizedRewind");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator DestroyThis()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RewindDialogPublisher.DestroyThis");
+		yield break;
 	}
 }

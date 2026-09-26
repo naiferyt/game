@@ -10,22 +10,27 @@ public class DriveHitBeneficialAIState : BaseCarAIState
 
 	public override CarAI.AIStates GetAIStateEnum()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("DriveHitBeneficialAIState.GetAIStateEnum");
+		return default(CarAI.AIStates);
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("DriveHitBeneficialAIState.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("DriveHitBeneficialAIState.Update");
 	}
 
 	public override void FixedUpdate()
 	{
+		RecoveryPending.Hit("DriveHitBeneficialAIState.FixedUpdate");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("DriveHitBeneficialAIState.Shutdown");
 	}
 }

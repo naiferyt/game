@@ -21,57 +21,69 @@ public class Localize : SingletonScript<Localize>
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("Localize.Awake");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator WebLoadingHelper()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Localize.WebLoadingHelper");
+		yield break;
 	}
 
 	public void LoadDefaultLanguage()
 	{
+		RecoveryPending.Hit("Localize.LoadDefaultLanguage");
 	}
 
 	public void LoadLanguageAsset(LanguageAsset asset)
 	{
+		RecoveryPending.Hit("Localize.LoadLanguageAsset");
 	}
 
 	public void UseLocalizedLanguage(string url)
 	{
+		RecoveryPending.Hit("Localize.UseLocalizedLanguage");
 	}
 
 	[DebuggerHidden]
 	public IEnumerator UseLocalizedLanguageHelper(string url)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Localize.UseLocalizedLanguageHelper");
+		yield break;
 	}
 
 	public void LoadLanguage(string languageData)
 	{
+		RecoveryPending.Hit("Localize.LoadLanguage");
 	}
 
 	public void LoadKeys(string languageData)
 	{
+		RecoveryPending.Hit("Localize.LoadKeys");
 	}
 
 	public static string Get(string key)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Localize.Get");
+		return default(string);
 	}
 
 	public static KeyCode[] GetDynamicKeys(string keyEvent)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Localize.GetDynamicKeys");
+		return default(KeyCode[]);
 	}
 
 	public static string GetBaseURL()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Localize.GetBaseURL");
+		return default(string);
 	}
 
 	public static string GetURL(string key)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Localize.GetURL");
+		return default(string);
 	}
 }

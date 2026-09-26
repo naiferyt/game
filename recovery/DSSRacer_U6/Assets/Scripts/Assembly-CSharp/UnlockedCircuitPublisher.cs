@@ -31,34 +31,41 @@ public class UnlockedCircuitPublisher : AchievementWindowPublisher
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UnlockedCircuitPublisher.get_Circuit");
+			return default(string);
 		}
 		set
 		{
+			RecoveryPending.Hit("UnlockedCircuitPublisher.set_Circuit");
 		}
 	}
 
 	[DebuggerHidden]
 	private IEnumerator Start()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UnlockedCircuitPublisher.Start");
+		yield break;
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("UnlockedCircuitPublisher.Update");
 	}
 
 	private void ShowCircuitBanner()
 	{
+		RecoveryPending.Hit("UnlockedCircuitPublisher.ShowCircuitBanner");
 	}
 
 	public override void SetContent(AchievementListener listener)
 	{
+		RecoveryPending.Hit("UnlockedCircuitPublisher.SetContent");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator LoadCircuitTextures()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UnlockedCircuitPublisher.LoadCircuitTextures");
+		yield break;
 	}
 }

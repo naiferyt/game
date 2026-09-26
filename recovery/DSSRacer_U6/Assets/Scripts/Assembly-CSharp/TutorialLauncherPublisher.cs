@@ -8,23 +8,28 @@ public class TutorialLauncherPublisher : UghPublisher
 
 	private void Start()
 	{
+		RecoveryPending.Hit("TutorialLauncherPublisher.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("TutorialLauncherPublisher.Update");
 	}
 
 	private void PressedYes()
 	{
+		RecoveryPending.Hit("TutorialLauncherPublisher.PressedYes");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator StartTutLoad()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TutorialLauncherPublisher.StartTutLoad");
+		yield break;
 	}
 
 	private void PressedNo()
 	{
+		RecoveryPending.Hit("TutorialLauncherPublisher.PressedNo");
 	}
 }

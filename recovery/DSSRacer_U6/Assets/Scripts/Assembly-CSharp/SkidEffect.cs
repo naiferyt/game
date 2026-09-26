@@ -10,27 +10,33 @@ public class SkidEffect : BaseEffect
 
 	public SkidEffect(GameObject owner)
 	{
+		RecoveryPending.Hit("SkidEffect..ctor");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("SkidEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("SkidEffect.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("SkidEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SkidEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SkidEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 }

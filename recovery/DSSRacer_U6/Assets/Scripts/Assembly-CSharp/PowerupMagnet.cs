@@ -23,35 +23,43 @@ public class PowerupMagnet : BaseEffect
 
 	public PowerupMagnet(GameObject owner)
 	{
+		RecoveryPending.Hit("PowerupMagnet..ctor");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PowerupMagnet.Start");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("PowerupMagnet.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("PowerupMagnet.Update");
 	}
 
 	public override void FixedUpdate()
 	{
+		RecoveryPending.Hit("PowerupMagnet.FixedUpdate");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("PowerupMagnet.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PowerupMagnet.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PowerupMagnet.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 }

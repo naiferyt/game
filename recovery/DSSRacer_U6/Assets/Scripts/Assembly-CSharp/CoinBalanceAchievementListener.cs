@@ -7,28 +7,34 @@ public class CoinBalanceAchievementListener : AchievementListener
 
 	public override bool IsAvailable()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CoinBalanceAchievementListener.IsAvailable");
+		return default(bool);
 	}
 
 	public override void Prerace()
 	{
+		RecoveryPending.Hit("CoinBalanceAchievementListener.Prerace");
 	}
 
 	public override void Postrace()
 	{
+		RecoveryPending.Hit("CoinBalanceAchievementListener.Postrace");
 	}
 
 	public override void Reward()
 	{
+		RecoveryPending.Hit("CoinBalanceAchievementListener.Reward");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CheckCoinBalanceCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CoinBalanceAchievementListener.CheckCoinBalanceCoroutine");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("CoinBalanceAchievementListener.Start");
 	}
 }

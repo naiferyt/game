@@ -22,16 +22,19 @@ public class AlternateForm : MonoBehaviour
 
 	public int IndexOf(CartPart part)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AlternateForm.IndexOf");
+		return default(int);
 	}
 
 	public CartPart FindFirstWithForm(BodyForm form)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AlternateForm.FindFirstWithForm");
+		return default(CartPart);
 	}
 
 	public BodyForm GetBodyForm(CartPart part)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AlternateForm.GetBodyForm");
+		return default(BodyForm);
 	}
 }

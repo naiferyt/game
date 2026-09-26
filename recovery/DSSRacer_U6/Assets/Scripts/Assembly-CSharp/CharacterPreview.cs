@@ -29,33 +29,41 @@ public class CharacterPreview : MonoBehaviour
 
 	private void Update()
 	{
+		RecoveryPending.Hit("CharacterPreview.Update");
 	}
 
 	private void PlayRandomIdleAnimation(Animation anim)
 	{
+		RecoveryPending.Hit("CharacterPreview.PlayRandomIdleAnimation");
 	}
 
 	private void OnDestroy()
 	{
+		RecoveryPending.Hit("CharacterPreview.OnDestroy");
 	}
 
 	public static void SetCharacter(CartPart part, bool force)
 	{
+		RecoveryPending.Hit("CharacterPreview.SetCharacter");
 	}
 
 	public static void Refresh(bool force)
 	{
+		RecoveryPending.Hit("CharacterPreview.Refresh");
 	}
 
 	public static void Blackout(bool state)
 	{
+		RecoveryPending.Hit("CharacterPreview.Blackout");
 	}
 
 	public static void Unhide()
 	{
+		RecoveryPending.Hit("CharacterPreview.Unhide");
 	}
 
 	public static void Hide()
 	{
+		RecoveryPending.Hit("CharacterPreview.Hide");
 	}
 }

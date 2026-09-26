@@ -33,7 +33,8 @@ public class UghSprite : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghSprite.get_Offset");
+			return default(Vector3);
 		}
 	}
 
@@ -41,80 +42,97 @@ public class UghSprite : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghSprite.get_Prototype");
+			return default(UghSpritePrototype);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghSprite.set_Prototype");
 		}
 	}
 
 	public Vector3 GetLocalCenter()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSprite.GetLocalCenter");
+		return default(Vector3);
 	}
 
 	public Vector3 GetLocalOrigin()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSprite.GetLocalOrigin");
+		return default(Vector3);
 	}
 
 	private void OnEnable()
 	{
+		RecoveryPending.Hit("UghSprite.OnEnable");
 	}
 
 	private void OnDisable()
 	{
+		RecoveryPending.Hit("UghSprite.OnDisable");
 	}
 
 	protected virtual void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("UghSprite.OnDrawGizmos");
 	}
 
 	public void UpdateMesh()
 	{
+		RecoveryPending.Hit("UghSprite.UpdateMesh");
 	}
 
 	protected virtual void UpdateMeshWithSpritePrototype(UghSpritePrototype sprite)
 	{
+		RecoveryPending.Hit("UghSprite.UpdateMeshWithSpritePrototype");
 	}
 
 	public static TextAnchor AnchorToTextAnchor(Anchor anchor)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSprite.AnchorToTextAnchor");
+		return default(TextAnchor);
 	}
 
 	public static Anchor TextAnchorToAnchor(TextAnchor anchor)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSprite.TextAnchorToAnchor");
+		return default(Anchor);
 	}
 
 	public static Vector3 GetOffsetForAnchor(Anchor anchor, Vector3 customAnchorOffset)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSprite.GetOffsetForAnchor");
+		return default(Vector3);
 	}
 
 	private Vector2[] GetUVArray(UghSpritePrototype sprite)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSprite.GetUVArray");
+		return default(Vector2[]);
 	}
 
 	private int MeshRowCount()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSprite.MeshRowCount");
+		return default(int);
 	}
 
 	private int MeshColumnCount()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSprite.MeshColumnCount");
+		return default(int);
 	}
 
 	private int MeshVertexCount()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSprite.MeshVertexCount");
+		return default(int);
 	}
 
 	public UghPublisher GetParentPublisher()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSprite.GetParentPublisher");
+		return default(UghPublisher);
 	}
 }

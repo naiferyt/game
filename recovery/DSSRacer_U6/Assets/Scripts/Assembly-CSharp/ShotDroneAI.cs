@@ -18,21 +18,26 @@ public class ShotDroneAI : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("ShotDroneAI.Start");
 	}
 
 	public void SetParent(GameObject parent)
 	{
+		RecoveryPending.Hit("ShotDroneAI.SetParent");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("ShotDroneAI.Update");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("ShotDroneAI.FixedUpdate");
 	}
 
 	private void Shoot(GameObject target)
 	{
+		RecoveryPending.Hit("ShotDroneAI.Shoot");
 	}
 }

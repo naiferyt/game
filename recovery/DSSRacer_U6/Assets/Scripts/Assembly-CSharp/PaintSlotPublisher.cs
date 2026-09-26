@@ -19,17 +19,21 @@ public class PaintSlotPublisher : UghPublisher
 
 	private void PressedPaintButton()
 	{
+		RecoveryPending.Hit("PaintSlotPublisher.PressedPaintButton");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PaintSlotPublisher.Start");
 	}
 
 	public void SetPaint(PaintJob paint, int index)
 	{
+		RecoveryPending.Hit("PaintSlotPublisher.SetPaint");
 	}
 
 	private void OnDestroy()
 	{
+		RecoveryPending.Hit("PaintSlotPublisher.OnDestroy");
 	}
 }

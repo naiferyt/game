@@ -13,46 +13,57 @@ public class PlaySummaryPublisher : UghPublisher
 
 	private void Refresh()
 	{
+		RecoveryPending.Hit("PlaySummaryPublisher.Refresh");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PlaySummaryPublisher.Start");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("PlaySummaryPublisher.FixedUpdate");
 	}
 
 	private void PressedPlayButton()
 	{
+		RecoveryPending.Hit("PlaySummaryPublisher.PressedPlayButton");
 	}
 
 	private void PressedModeArrowLeft()
 	{
+		RecoveryPending.Hit("PlaySummaryPublisher.PressedModeArrowLeft");
 	}
 
 	private void PressedModeArrowRight()
 	{
+		RecoveryPending.Hit("PlaySummaryPublisher.PressedModeArrowRight");
 	}
 
 	private void PressedDifficultyArrowLeft()
 	{
+		RecoveryPending.Hit("PlaySummaryPublisher.PressedDifficultyArrowLeft");
 	}
 
 	private void PressedDifficultyArrowRight()
 	{
+		RecoveryPending.Hit("PlaySummaryPublisher.PressedDifficultyArrowRight");
 	}
 
 	private bool TestForUltraHard()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PlaySummaryPublisher.TestForUltraHard");
+		return default(bool);
 	}
 
 	private void PressedBackButton()
 	{
+		RecoveryPending.Hit("PlaySummaryPublisher.PressedBackButton");
 	}
 
 	private void UpdateTrackIcon()
 	{
+		RecoveryPending.Hit("PlaySummaryPublisher.UpdateTrackIcon");
 	}
 }

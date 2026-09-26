@@ -36,103 +36,124 @@ public class MiniJSON
 
 	public static object jsonDecode(string json)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.jsonDecode");
+		return default(object);
 	}
 
 	public static string jsonEncode(object json)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.jsonEncode");
+		return default(string);
 	}
 
 	public static bool lastDecodeSuccessful()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.lastDecodeSuccessful");
+		return default(bool);
 	}
 
 	public static int getLastErrorIndex()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.getLastErrorIndex");
+		return default(int);
 	}
 
 	public static string getLastErrorSnippet()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.getLastErrorSnippet");
+		return default(string);
 	}
 
 	protected static Hashtable parseObject(char[] json, ref int index)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.parseObject");
+		return default(Hashtable);
 	}
 
 	protected static ArrayList parseArray(char[] json, ref int index)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.parseArray");
+		return default(ArrayList);
 	}
 
 	protected static object parseValue(char[] json, ref int index, ref bool success)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.parseValue");
+		return default(object);
 	}
 
 	protected static string parseString(char[] json, ref int index)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.parseString");
+		return default(string);
 	}
 
 	protected static double parseNumber(char[] json, ref int index)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.parseNumber");
+		return default(double);
 	}
 
 	protected static int getLastIndexOfNumber(char[] json, int index)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.getLastIndexOfNumber");
+		return default(int);
 	}
 
 	protected static void eatWhitespace(char[] json, ref int index)
 	{
+		RecoveryPending.Hit("MiniJSON.eatWhitespace");
 	}
 
 	protected static int lookAhead(char[] json, int index)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.lookAhead");
+		return default(int);
 	}
 
 	protected static int nextToken(char[] json, ref int index)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.nextToken");
+		return default(int);
 	}
 
 	protected static bool serializeObjectOrArray(object objectOrArray, StringBuilder builder)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.serializeObjectOrArray");
+		return default(bool);
 	}
 
 	protected static bool serializeObject(Hashtable anObject, StringBuilder builder)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.serializeObject");
+		return default(bool);
 	}
 
 	protected static bool serializeDictionary(Dictionary<string, string> dict, StringBuilder builder)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.serializeDictionary");
+		return default(bool);
 	}
 
 	protected static bool serializeArray(ArrayList anArray, StringBuilder builder)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.serializeArray");
+		return default(bool);
 	}
 
 	protected static bool serializeValue(object value, StringBuilder builder)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJSON.serializeValue");
+		return default(bool);
 	}
 
 	protected static void serializeString(string aString, StringBuilder builder)
 	{
+		RecoveryPending.Hit("MiniJSON.serializeString");
 	}
 
 	protected static void serializeNumber(double number, StringBuilder builder)
 	{
+		RecoveryPending.Hit("MiniJSON.serializeNumber");
 	}
 }

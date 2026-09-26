@@ -20,24 +20,29 @@ public class ParticleLibrary : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ParticleLibrary.get_Instance");
+			return default(ParticleLibrary);
 		}
 	}
 
 	public GameObject GetPrefab(string name)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ParticleLibrary.GetPrefab");
+		return default(GameObject);
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("ParticleLibrary.Awake");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("ParticleLibrary.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("ParticleLibrary.Update");
 	}
 }

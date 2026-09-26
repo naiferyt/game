@@ -31,7 +31,8 @@ public class AchievementManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("AchievementManager.get_Instance");
+			return default(AchievementManager);
 		}
 	}
 
@@ -39,51 +40,63 @@ public class AchievementManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("AchievementManager.get_AllAchievements");
+			return default(AchievementListener[]);
 		}
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("AchievementManager.Awake");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("AchievementManager.Start");
 	}
 
 	private void OnEnable()
 	{
+		RecoveryPending.Hit("AchievementManager.OnEnable");
 	}
 
 	private void OnDisable()
 	{
+		RecoveryPending.Hit("AchievementManager.OnDisable");
 	}
 
 	private void OnRaceInit()
 	{
+		RecoveryPending.Hit("AchievementManager.OnRaceInit");
 	}
 
 	private void OnRaceEnd()
 	{
+		RecoveryPending.Hit("AchievementManager.OnRaceEnd");
 	}
 
 	public void Achieve(AchievementListener listener)
 	{
+		RecoveryPending.Hit("AchievementManager.Achieve");
 	}
 
 	public void Fail(AchievementListener listener)
 	{
+		RecoveryPending.Hit("AchievementManager.Fail");
 	}
 
 	public void ClearActiveListeners()
 	{
+		RecoveryPending.Hit("AchievementManager.ClearActiveListeners");
 	}
 
 	public void ChooseActiveListeners()
 	{
+		RecoveryPending.Hit("AchievementManager.ChooseActiveListeners");
 	}
 
 	public void InitFrontEndAchievements()
 	{
+		RecoveryPending.Hit("AchievementManager.InitFrontEndAchievements");
 	}
 }

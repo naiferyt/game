@@ -16,32 +16,39 @@ public class FractalNoise
 
 	public FractalNoise(FractalNoiseParams para)
 	{
+		RecoveryPending.Hit("FractalNoise..ctor");
 	}
 
 	public FractalNoise(float inH, float inLacunarity, float inOctaves)
 	{
+		RecoveryPending.Hit("FractalNoise..ctor");
 	}
 
 	public FractalNoise(float inH, float inLacunarity, float inOctaves, Perlin noise)
 	{
+		RecoveryPending.Hit("FractalNoise..ctor");
 	}
 
 	private void PrecalculateNOoise()
 	{
+		RecoveryPending.Hit("FractalNoise.PrecalculateNOoise");
 	}
 
 	public float HybridMultifractal(float x, float y, float offset)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FractalNoise.HybridMultifractal");
+		return default(float);
 	}
 
 	public float RidgedMultifractal(float x, float y, float offset, float gain)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FractalNoise.RidgedMultifractal");
+		return default(float);
 	}
 
 	public float BrownianMotion(float x, float y)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FractalNoise.BrownianMotion");
+		return default(float);
 	}
 }

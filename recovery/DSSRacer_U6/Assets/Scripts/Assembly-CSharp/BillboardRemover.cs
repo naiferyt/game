@@ -8,15 +8,18 @@ public class BillboardRemover : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("BillboardRemover.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("BillboardRemover.Update");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator RemoveBillboards()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BillboardRemover.RemoveBillboards");
+		yield break;
 	}
 }

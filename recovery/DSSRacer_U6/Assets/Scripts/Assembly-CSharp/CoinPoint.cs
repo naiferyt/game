@@ -31,31 +31,38 @@ public class CoinPoint : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CoinPoint.get_ShapeType");
+			return default(ShapeTypes);
 		}
 		set
 		{
+			RecoveryPending.Hit("CoinPoint.set_ShapeType");
 		}
 	}
 
 	public void SpawnCoins(int num)
 	{
+		RecoveryPending.Hit("CoinPoint.SpawnCoins");
 	}
 
 	private void SpawnCircleHelper(int num)
 	{
+		RecoveryPending.Hit("CoinPoint.SpawnCircleHelper");
 	}
 
 	private void SpawnTrailHelper(int num)
 	{
+		RecoveryPending.Hit("CoinPoint.SpawnTrailHelper");
 	}
 
 	private int ProperCoinNum(int num, float objDiam)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CoinPoint.ProperCoinNum");
+		return default(int);
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("CoinPoint.OnDrawGizmos");
 	}
 }

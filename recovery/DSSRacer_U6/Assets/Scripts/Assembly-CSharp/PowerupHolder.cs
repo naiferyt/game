@@ -21,7 +21,8 @@ public class PowerupHolder : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("PowerupHolder.get_Item");
+			return default(BaseEffect);
 		}
 	}
 
@@ -29,7 +30,8 @@ public class PowerupHolder : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("PowerupHolder.get_numEffects");
+			return default(int);
 		}
 	}
 
@@ -37,38 +39,46 @@ public class PowerupHolder : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("PowerupHolder.get_CanTakePowerup");
+			return default(bool);
 		}
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("PowerupHolder.Awake");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("PowerupHolder.Update");
 	}
 
 	public void AddEffect(BaseEffect newEffect)
 	{
+		RecoveryPending.Hit("PowerupHolder.AddEffect");
 	}
 
 	public bool HasEffect(BaseEffect.EffectTypes type)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PowerupHolder.HasEffect");
+		return default(bool);
 	}
 
 	public bool ClearEffectsInReserve()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PowerupHolder.ClearEffectsInReserve");
+		return default(bool);
 	}
 
 	public void ExecutePowerups()
 	{
+		RecoveryPending.Hit("PowerupHolder.ExecutePowerups");
 	}
 
 	private bool PowerupComboCheck()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PowerupHolder.PowerupComboCheck");
+		return default(bool);
 	}
 }

@@ -26,19 +26,23 @@ public class StreamedMultilayerTexture
 
 	public MultilayerTexture PrepareMultilayerTexture()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("StreamedMultilayerTexture.PrepareMultilayerTexture");
+		return default(MultilayerTexture);
 	}
 
 	public void RequestAssets()
 	{
+		RecoveryPending.Hit("StreamedMultilayerTexture.RequestAssets");
 	}
 
 	public void ReleaseAssets()
 	{
+		RecoveryPending.Hit("StreamedMultilayerTexture.ReleaseAssets");
 	}
 
 	public bool IsLoaded()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("StreamedMultilayerTexture.IsLoaded");
+		return default(bool);
 	}
 }

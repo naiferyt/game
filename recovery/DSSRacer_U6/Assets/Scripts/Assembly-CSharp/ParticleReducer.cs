@@ -6,7 +6,7 @@ public class ParticleReducer : MonoBehaviour
 	[Serializable]
 	public class PlatformProfile
 	{
-		public iPhoneGeneration generation;
+		public UnityEngine.iOS.DeviceGeneration generation; // ADAPTADO-U6: iPhoneGeneration -> iOS.DeviceGeneration (mismos valores)
 
 		public float minEmission;
 
@@ -17,5 +17,6 @@ public class ParticleReducer : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("ParticleReducer.Start");
 	}
 }

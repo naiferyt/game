@@ -16,11 +16,13 @@ public abstract class UghControl : UghSprite
 		[CompilerGenerated]
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghControl.get_HotFingerID");
+			return default(int);
 		}
 		[CompilerGenerated]
 		set
 		{
+			RecoveryPending.Hit("UghControl.set_HotFingerID");
 		}
 	}
 
@@ -28,42 +30,51 @@ public abstract class UghControl : UghSprite
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghControl.get_isLegalControl");
+			return default(bool);
 		}
 	}
 
 	[DebuggerHidden]
 	public virtual IEnumerator OnUghInputDown()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghControl.OnUghInputDown");
+		yield break;
 	}
 
 	public virtual void OnUghInputUp()
 	{
+		RecoveryPending.Hit("UghControl.OnUghInputUp");
 	}
 
 	public virtual void OnUghInputDrag()
 	{
+		RecoveryPending.Hit("UghControl.OnUghInputDrag");
 	}
 
 	public virtual void OnUghInputUpAsButton()
 	{
+		RecoveryPending.Hit("UghControl.OnUghInputUpAsButton");
 	}
 
 	public virtual void OnUghInputUpLate()
 	{
+		RecoveryPending.Hit("UghControl.OnUghInputUpLate");
 	}
 
 	[ContextMenu("Autosize Collider")]
 	public virtual void AutoSizeCollider()
 	{
+		RecoveryPending.Hit("UghControl.AutoSizeCollider");
 	}
 
 	protected override void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("UghControl.OnDrawGizmos");
 	}
 
 	protected virtual void Reset()
 	{
+		RecoveryPending.Hit("UghControl.Reset");
 	}
 }

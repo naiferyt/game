@@ -16,10 +16,12 @@ public class CarProgress
 
 	public CarProgress(string name)
 	{
+		RecoveryPending.Hit("CarProgress..ctor");
 	}
 
 	public CarProgress GetProgressCopy()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarProgress.GetProgressCopy");
+		return default(CarProgress);
 	}
 }

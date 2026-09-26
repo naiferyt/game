@@ -12,27 +12,33 @@ public class PieHitEffect : BaseEffect
 
 	public PieHitEffect(GameObject owner, HitDirection dir = HitDirection.Right)
 	{
+		RecoveryPending.Hit("PieHitEffect..ctor");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("PieHitEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("PieHitEffect.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("PieHitEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PieHitEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PieHitEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 }

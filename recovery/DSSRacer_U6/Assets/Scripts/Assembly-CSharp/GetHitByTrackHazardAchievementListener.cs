@@ -11,37 +11,45 @@ public class GetHitByTrackHazardAchievementListener : AchievementListener
 
 	private void Start()
 	{
+		RecoveryPending.Hit("GetHitByTrackHazardAchievementListener.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("GetHitByTrackHazardAchievementListener.Update");
 	}
 
 	public override bool IsAvailable()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("GetHitByTrackHazardAchievementListener.IsAvailable");
+		return default(bool);
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CheckMetricsPump()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("GetHitByTrackHazardAchievementListener.CheckMetricsPump");
+		yield break;
 	}
 
 	private bool CheckMetrics()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("GetHitByTrackHazardAchievementListener.CheckMetrics");
+		return default(bool);
 	}
 
 	public override void Prerace()
 	{
+		RecoveryPending.Hit("GetHitByTrackHazardAchievementListener.Prerace");
 	}
 
 	public override void Postrace()
 	{
+		RecoveryPending.Hit("GetHitByTrackHazardAchievementListener.Postrace");
 	}
 
 	public override void Reward()
 	{
+		RecoveryPending.Hit("GetHitByTrackHazardAchievementListener.Reward");
 	}
 }

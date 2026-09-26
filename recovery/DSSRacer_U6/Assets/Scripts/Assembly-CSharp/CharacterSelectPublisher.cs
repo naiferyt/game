@@ -37,64 +37,79 @@ public class CharacterSelectPublisher : UghPublisher
 
 	private new void Awake()
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.Awake");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator LoadInLocalizedAssets(bool web)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CharacterSelectPublisher.LoadInLocalizedAssets");
+		yield break;
 	}
 
 	private void SetCharacter()
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.SetCharacter");
 	}
 
 	private void RefreshCharacter(bool force)
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.RefreshCharacter");
 	}
 
 	private void SetStatBar(Transform stat, Transform positive, Transform negative, float currentRating)
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.SetStatBar");
 	}
 
 	private void RefreshStatBars(CartPart curPart, CartPart prevPart)
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.RefreshStatBars");
 	}
 
 	private void RefreshDisplay()
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.RefreshDisplay");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.Update");
 	}
 
 	private void OnDestroy()
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.OnDestroy");
 	}
 
 	private void PressedRightArrow()
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.PressedRightArrow");
 	}
 
 	private void PressedLeftArrow()
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.PressedLeftArrow");
 	}
 
 	private void PressedAction()
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.PressedAction");
 	}
 
 	public static bool IsTemporary(CartSlot.Slots slot)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CharacterSelectPublisher.IsTemporary");
+		return default(bool);
 	}
 
 	private void UpdateLogo(string character)
 	{
+		RecoveryPending.Hit("CharacterSelectPublisher.UpdateLogo");
 	}
 }

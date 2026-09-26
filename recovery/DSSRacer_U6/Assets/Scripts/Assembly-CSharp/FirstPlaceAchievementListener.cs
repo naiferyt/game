@@ -6,22 +6,27 @@ public class FirstPlaceAchievementListener : AchievementListener
 
 	private void Start()
 	{
+		RecoveryPending.Hit("FirstPlaceAchievementListener.Start");
 	}
 
 	public override bool IsAvailable()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FirstPlaceAchievementListener.IsAvailable");
+		return default(bool);
 	}
 
 	public override void Prerace()
 	{
+		RecoveryPending.Hit("FirstPlaceAchievementListener.Prerace");
 	}
 
 	public override void Postrace()
 	{
+		RecoveryPending.Hit("FirstPlaceAchievementListener.Postrace");
 	}
 
 	public override void Reward()
 	{
+		RecoveryPending.Hit("FirstPlaceAchievementListener.Reward");
 	}
 }

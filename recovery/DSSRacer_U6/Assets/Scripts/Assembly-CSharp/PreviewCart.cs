@@ -63,10 +63,12 @@ public class PreviewCart : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("PreviewCart.get_CachedPaint");
+			return default(Texture2D);
 		}
 		set
 		{
+			RecoveryPending.Hit("PreviewCart.set_CachedPaint");
 		}
 	}
 
@@ -74,7 +76,8 @@ public class PreviewCart : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("PreviewCart.get_IsUpdating");
+			return default(bool);
 		}
 	}
 
@@ -82,106 +85,128 @@ public class PreviewCart : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("PreviewCart.get_IsLoading");
+			return default(bool);
 		}
 	}
 
 	[DebuggerHidden]
 	private IEnumerator ApplyPaints()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PreviewCart.ApplyPaints");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator UpdateRenderers()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PreviewCart.UpdateRenderers");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator UpdateColorShift()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PreviewCart.UpdateColorShift");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator ComposeCart()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PreviewCart.ComposeCart");
+		yield break;
 	}
 
 	private void SetPartVisibility(GameObject obj, bool state)
 	{
+		RecoveryPending.Hit("PreviewCart.SetPartVisibility");
 	}
 
 	private void ShowLoadingObject(bool state)
 	{
+		RecoveryPending.Hit("PreviewCart.ShowLoadingObject");
 	}
 
 	private void CharacterVisibility(bool state)
 	{
+		RecoveryPending.Hit("PreviewCart.CharacterVisibility");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CheckLoadingCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PreviewCart.CheckLoadingCoroutine");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator UpdateCachedPaint()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PreviewCart.UpdateCachedPaint");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator DriveOutCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PreviewCart.DriveOutCoroutine");
+		yield break;
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("PreviewCart.Update");
 	}
 
 	private void OnDestroy()
 	{
+		RecoveryPending.Hit("PreviewCart.OnDestroy");
 	}
 
 	public void AddPart(CartPart part)
 	{
+		RecoveryPending.Hit("PreviewCart.AddPart");
 	}
 
 	public void RemovePart(CartPart part)
 	{
+		RecoveryPending.Hit("PreviewCart.RemovePart");
 	}
 
 	public void AddPaint(PaintJob paint)
 	{
+		RecoveryPending.Hit("PreviewCart.AddPaint");
 	}
 
 	public void RemovePaint(PaintJob paint)
 	{
+		RecoveryPending.Hit("PreviewCart.RemovePaint");
 	}
 
 	public static void GenerateCartPreview()
 	{
+		RecoveryPending.Hit("PreviewCart.GenerateCartPreview");
 	}
 
 	public static Transform GetPartTransform(CartSlot.Slots slot)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PreviewCart.GetPartTransform");
+		return default(Transform);
 	}
 
 	public static void StartDriveout()
 	{
+		RecoveryPending.Hit("PreviewCart.StartDriveout");
 	}
 
 	public static void ClearnTransparencies()
 	{
+		RecoveryPending.Hit("PreviewCart.ClearnTransparencies");
 	}
 
 	public static void SetSlotTransparent(CartSlot.Slots slot, bool state)
 	{
+		RecoveryPending.Hit("PreviewCart.SetSlotTransparent");
 	}
 }

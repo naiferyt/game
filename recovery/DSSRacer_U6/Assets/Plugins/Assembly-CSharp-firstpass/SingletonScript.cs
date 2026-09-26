@@ -11,29 +11,35 @@ public class SingletonScript<T> : Script where T : Object
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("SingletonScript.get_i");
+			return default(T);
 		}
 	}
 
 	public virtual void SingletonCreated()
 	{
+		RecoveryPending.Hit("SingletonScript.SingletonCreated");
 	}
 
 	public static bool Exists_VERY_EXPENSIVE()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SingletonScript.Exists_VERY_EXPENSIVE");
+		return default(bool);
 	}
 
 	public static bool Existed()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SingletonScript.Existed");
+		return default(bool);
 	}
 
 	public virtual void OnLevelWasLoaded()
 	{
+		RecoveryPending.Hit("SingletonScript.OnLevelWasLoaded");
 	}
 
 	public static void ForceReload()
 	{
+		RecoveryPending.Hit("SingletonScript.ForceReload");
 	}
 }

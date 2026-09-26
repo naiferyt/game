@@ -7,20 +7,24 @@ public class LoadSpin : MonoBehaviour
 	[DebuggerHidden]
 	private IEnumerator Start()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LoadSpin.Start");
+		yield break;
 	}
 
 	public void FadeOut()
 	{
+		RecoveryPending.Hit("LoadSpin.FadeOut");
 	}
 
 	public void FadeOut(float fadeDuration)
 	{
+		RecoveryPending.Hit("LoadSpin.FadeOut");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator FadeHelper(float fadeDuration)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LoadSpin.FadeHelper");
+		yield break;
 	}
 }

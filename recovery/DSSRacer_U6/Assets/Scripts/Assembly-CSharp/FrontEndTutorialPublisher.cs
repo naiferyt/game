@@ -17,66 +17,81 @@ public class FrontEndTutorialPublisher : UghPublisher
 	[DebuggerHidden]
 	private IEnumerator PulseArrowCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FrontEndTutorialPublisher.PulseArrowCoroutine");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator FadeInCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FrontEndTutorialPublisher.FadeInCoroutine");
+		yield break;
 	}
 
 	private void Resize()
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.Resize");
 	}
 
 	private void RegisterControlListeners()
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.RegisterControlListeners");
 	}
 
 	private void UnregisterControlListeners()
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.UnregisterControlListeners");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.Start");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator StartHelper()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FrontEndTutorialPublisher.StartHelper");
+		yield break;
 	}
 
 	public void OnPressedDismiss()
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.OnPressedDismiss");
 	}
 
 	private void OnTargetButtonPressed(UghButton btn)
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.OnTargetButtonPressed");
 	}
 
 	private void OnTargetTogglePressed(UghToggle tgl)
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.OnTargetTogglePressed");
 	}
 
 	private void OnEnabled()
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.OnEnabled");
 	}
 
 	private void OnDisabled()
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.OnDisabled");
 	}
 
 	public void SetText(string text)
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.SetText");
 	}
 
 	public void SetAnchorPoint(Transform newAnchor, Vector3 newAnchorOffset)
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.SetAnchorPoint");
 	}
 
 	public void SetTargetControls(UghControl[] ctrls)
 	{
+		RecoveryPending.Hit("FrontEndTutorialPublisher.SetTargetControls");
 	}
 }

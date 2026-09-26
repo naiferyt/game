@@ -25,9 +25,11 @@ public class CarSnapShot
 
 	public void AddToEffectList(BaseEffect eff)
 	{
+		RecoveryPending.Hit("CarSnapShot.AddToEffectList");
 	}
 
 	public void AddEffectToPowerUpholder(BaseEffect eff)
 	{
+		RecoveryPending.Hit("CarSnapShot.AddEffectToPowerUpholder");
 	}
 }

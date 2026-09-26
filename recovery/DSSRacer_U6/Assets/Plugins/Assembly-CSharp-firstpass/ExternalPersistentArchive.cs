@@ -29,43 +29,52 @@ public class ExternalPersistentArchive : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ExternalPersistentArchive.get_TextData");
+			return default(string);
 		}
 		set
 		{
+			RecoveryPending.Hit("ExternalPersistentArchive.set_TextData");
 		}
 	}
 
 	private void Serialize()
 	{
+		RecoveryPending.Hit("ExternalPersistentArchive.Serialize");
 	}
 
 	private byte[] Encode()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ExternalPersistentArchive.Encode");
+		return default(byte[]);
 	}
 
 	private void Decode(byte[] buffer)
 	{
+		RecoveryPending.Hit("ExternalPersistentArchive.Decode");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator LoadFromWebCoroutine(string url)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ExternalPersistentArchive.LoadFromWebCoroutine");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator ExternalPersistanceCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ExternalPersistentArchive.ExternalPersistanceCoroutine");
+		yield break;
 	}
 
 	private void DecryptLocal()
 	{
+		RecoveryPending.Hit("ExternalPersistentArchive.DecryptLocal");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("ExternalPersistentArchive.Start");
 	}
 }

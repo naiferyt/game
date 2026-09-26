@@ -23,35 +23,43 @@ public class CarMetrics : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("CarMetrics.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("CarMetrics.Update");
 	}
 
 	public void Signal(string signal, float value)
 	{
+		RecoveryPending.Hit("CarMetrics.Signal");
 	}
 
 	public void Signal(string signal)
 	{
+		RecoveryPending.Hit("CarMetrics.Signal");
 	}
 
 	public CarMetrics CloneToObject(GameObject go)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarMetrics.CloneToObject");
+		return default(CarMetrics);
 	}
 
 	public CarMetrics CopyMetrics()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarMetrics.CopyMetrics");
+		return default(CarMetrics);
 	}
 
 	public void DebugDump()
 	{
+		RecoveryPending.Hit("CarMetrics.DebugDump");
 	}
 
 	public static void CleanupCopiedMetrics()
 	{
+		RecoveryPending.Hit("CarMetrics.CleanupCopiedMetrics");
 	}
 }

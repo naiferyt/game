@@ -36,10 +36,12 @@ public class UghStretch : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghStretch.get_IsDirty");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghStretch.set_IsDirty");
 		}
 	}
 
@@ -48,30 +50,37 @@ public class UghStretch : MonoBehaviour
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		add
 		{
+			RecoveryPending.Hit("UghStretch.add_HandleMPDirtyAlign");
 		}
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		remove
 		{
+			RecoveryPending.Hit("UghStretch.remove_HandleMPDirtyAlign");
 		}
 	}
 
 	private void DoSignalDirtyAlign()
 	{
+		RecoveryPending.Hit("UghStretch.DoSignalDirtyAlign");
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("UghStretch.OnDrawGizmos");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("UghStretch.Start");
 	}
 
 	public void Align()
 	{
+		RecoveryPending.Hit("UghStretch.Align");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("UghStretch.Update");
 	}
 }

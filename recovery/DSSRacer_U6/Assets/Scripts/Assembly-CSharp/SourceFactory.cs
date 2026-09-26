@@ -13,23 +13,28 @@ public class SourceFactory
 
 	public AudioSource GetSource()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SourceFactory.GetSource");
+		return default(AudioSource);
 	}
 
 	public void RecycleSources()
 	{
+		RecoveryPending.Hit("SourceFactory.RecycleSources");
 	}
 
 	public List<AudioSource> GetUsedList()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SourceFactory.GetUsedList");
+		return default(List<AudioSource>);
 	}
 
 	public void Init(GameObject owner)
 	{
+		RecoveryPending.Hit("SourceFactory.Init");
 	}
 
 	public void SetPriority(int priority)
 	{
+		RecoveryPending.Hit("SourceFactory.SetPriority");
 	}
 }

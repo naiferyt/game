@@ -21,7 +21,8 @@ public class MissionManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("MissionManager.get_CurrentMissionComplete");
+			return default(bool);
 		}
 	}
 
@@ -29,47 +30,57 @@ public class MissionManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("MissionManager.get_AllMissionsComplete");
+			return default(bool);
 		}
 	}
 
 	public bool GetHasStartedFirstMission()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MissionManager.GetHasStartedFirstMission");
+		return default(bool);
 	}
 
 	[DebuggerHidden]
 	public IEnumerator WaitForNextMission(BaseMission mission)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MissionManager.WaitForNextMission");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("MissionManager.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("MissionManager.Update");
 	}
 
 	public void AddMission(BaseMission mission)
 	{
+		RecoveryPending.Hit("MissionManager.AddMission");
 	}
 
 	public void CompleteMission(BaseMission mission)
 	{
+		RecoveryPending.Hit("MissionManager.CompleteMission");
 	}
 
 	public void Signal(string signal)
 	{
+		RecoveryPending.Hit("MissionManager.Signal");
 	}
 
 	public void Signal(string signal, object value)
 	{
+		RecoveryPending.Hit("MissionManager.Signal");
 	}
 
 	public BaseMission GetCurrentMission()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MissionManager.GetCurrentMission");
+		return default(BaseMission);
 	}
 }

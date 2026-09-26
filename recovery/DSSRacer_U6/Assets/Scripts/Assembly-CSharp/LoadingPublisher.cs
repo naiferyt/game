@@ -12,52 +12,62 @@ public class LoadingPublisher : UghPublisher
 	[DebuggerHidden]
 	private IEnumerator WaitForAssetBundles()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LoadingPublisher.WaitForAssetBundles");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator WaitForCartConstruction()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LoadingPublisher.WaitForCartConstruction");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator WaitForLevelLoad()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LoadingPublisher.WaitForLevelLoad");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator SetupMissionText()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LoadingPublisher.SetupMissionText");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator LoadingProcess()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LoadingPublisher.LoadingProcess");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator FadeAndDestroyCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LoadingPublisher.FadeAndDestroyCoroutine");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("LoadingPublisher.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("LoadingPublisher.Update");
 	}
 
 	private void PressedGoButton()
 	{
+		RecoveryPending.Hit("LoadingPublisher.PressedGoButton");
 	}
 
 	public void SetAssetCluster(StreamManager.AssetCluster cluster)
 	{
+		RecoveryPending.Hit("LoadingPublisher.SetAssetCluster");
 	}
 }

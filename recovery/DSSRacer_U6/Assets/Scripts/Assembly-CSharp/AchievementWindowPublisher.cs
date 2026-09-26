@@ -10,33 +10,40 @@ public class AchievementWindowPublisher : UghPublisher
 
 	private new void Awake()
 	{
+		RecoveryPending.Hit("AchievementWindowPublisher.Awake");
 	}
 
 	private void PressedWindow()
 	{
+		RecoveryPending.Hit("AchievementWindowPublisher.PressedWindow");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator DestroyThis()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AchievementWindowPublisher.DestroyThis");
+		yield break;
 	}
 
 	public void TriggerAnimIn()
 	{
+		RecoveryPending.Hit("AchievementWindowPublisher.TriggerAnimIn");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator AnimInHelper()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AchievementWindowPublisher.AnimInHelper");
+		yield break;
 	}
 
 	public virtual void SetContent(AchievementListener listener)
 	{
+		RecoveryPending.Hit("AchievementWindowPublisher.SetContent");
 	}
 
 	public void SetNextWindow(GameObject window)
 	{
+		RecoveryPending.Hit("AchievementWindowPublisher.SetNextWindow");
 	}
 }

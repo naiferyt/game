@@ -18,47 +18,57 @@ public class PlayerInstance : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("PlayerInstance.get_Instance");
+			return default(PlayerInstance);
 		}
 	}
 
 	private PlayerInstance()
 	{
+		RecoveryPending.Hit("PlayerInstance..ctor");
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("PlayerInstance.Awake");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PlayerInstance.Start");
 	}
 
 	public static void Bootstrap()
 	{
+		RecoveryPending.Hit("PlayerInstance.Bootstrap");
 	}
 
 	public static CartSlot GetCartSlot(CartSlot.Slots slot)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PlayerInstance.GetCartSlot");
+		return default(CartSlot);
 	}
 
 	public static GameObject GetConstructedCart()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PlayerInstance.GetConstructedCart");
+		return default(GameObject);
 	}
 
 	[DebuggerHidden]
 	public static IEnumerator ConstructCart()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PlayerInstance.ConstructCart");
+		yield break;
 	}
 
 	public static void MatchAlternateForms()
 	{
+		RecoveryPending.Hit("PlayerInstance.MatchAlternateForms");
 	}
 
 	public static void ReleaseCart()
 	{
+		RecoveryPending.Hit("PlayerInstance.ReleaseCart");
 	}
 }

@@ -11,37 +11,45 @@ public class UseAPowerupAchievementListener : AchievementListener
 
 	private void Start()
 	{
+		RecoveryPending.Hit("UseAPowerupAchievementListener.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("UseAPowerupAchievementListener.Update");
 	}
 
 	private bool CheckCarMetrics()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UseAPowerupAchievementListener.CheckCarMetrics");
+		return default(bool);
 	}
 
 	[DebuggerHidden]
 	private IEnumerator PowerupUseCheckPump()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UseAPowerupAchievementListener.PowerupUseCheckPump");
+		yield break;
 	}
 
 	public override bool IsAvailable()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UseAPowerupAchievementListener.IsAvailable");
+		return default(bool);
 	}
 
 	public override void Prerace()
 	{
+		RecoveryPending.Hit("UseAPowerupAchievementListener.Prerace");
 	}
 
 	public override void Postrace()
 	{
+		RecoveryPending.Hit("UseAPowerupAchievementListener.Postrace");
 	}
 
 	public override void Reward()
 	{
+		RecoveryPending.Hit("UseAPowerupAchievementListener.Reward");
 	}
 }

@@ -16,23 +16,28 @@ public class ShadowBlob : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ShadowBlob.get_ShadowPosition");
+			return default(Vector3);
 		}
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("ShadowBlob.Start");
 	}
 
 	private void OnEnable()
 	{
+		RecoveryPending.Hit("ShadowBlob.OnEnable");
 	}
 
 	private void OnDisable()
 	{
+		RecoveryPending.Hit("ShadowBlob.OnDisable");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("ShadowBlob.Update");
 	}
 }

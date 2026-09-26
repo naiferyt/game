@@ -16,13 +16,16 @@ public class TerrainEffectTrigger : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("TerrainEffectTrigger.Start");
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
+		RecoveryPending.Hit("TerrainEffectTrigger.OnTriggerEnter");
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
+		RecoveryPending.Hit("TerrainEffectTrigger.OnTriggerExit");
 	}
 }

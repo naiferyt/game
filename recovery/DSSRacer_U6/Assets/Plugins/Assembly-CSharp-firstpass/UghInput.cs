@@ -19,7 +19,8 @@ public class UghInput : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghInput.get_Instance");
+			return default(UghInput);
 		}
 	}
 
@@ -27,7 +28,8 @@ public class UghInput : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghInput.get_UseTouchInput");
+			return default(bool);
 		}
 	}
 
@@ -35,7 +37,8 @@ public class UghInput : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghInput.get_InputPosition");
+			return default(Vector3);
 		}
 	}
 
@@ -43,7 +46,8 @@ public class UghInput : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghInput.get_InputPositionInWorldSpace");
+			return default(Vector3);
 		}
 	}
 
@@ -51,40 +55,49 @@ public class UghInput : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghInput.get_IsInputDown");
+			return default(bool);
 		}
 	}
 
 	public static Vector3 InputToWorldPoint(Vector3 point)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghInput.InputToWorldPoint");
+		return default(Vector3);
 	}
 
 	public void Touch()
 	{
+		RecoveryPending.Hit("UghInput.Touch");
 	}
 
 	private void TouchBeginEvent(Vector2 touch, int fingerId)
 	{
+		RecoveryPending.Hit("UghInput.TouchBeginEvent");
 	}
 
 	private void TouchPersistEvent(Vector2 touch, int fingerId)
 	{
+		RecoveryPending.Hit("UghInput.TouchPersistEvent");
 	}
 
 	private void TouchCanceledEvent(Vector2 touch, int fingerId)
 	{
+		RecoveryPending.Hit("UghInput.TouchCanceledEvent");
 	}
 
 	private void TouchEndedEvent(Vector2 touch, int fingerId)
 	{
+		RecoveryPending.Hit("UghInput.TouchEndedEvent");
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("UghInput.Awake");
 	}
 
 	private void LateUpdate()
 	{
+		RecoveryPending.Hit("UghInput.LateUpdate");
 	}
 }

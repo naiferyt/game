@@ -10,13 +10,16 @@ public class ActiveObjectListSwtich : MonoBehaviour
 
 	private void Fire()
 	{
+		RecoveryPending.Hit("ActiveObjectListSwtich.Fire");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("ActiveObjectListSwtich.Start");
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
+		RecoveryPending.Hit("ActiveObjectListSwtich.OnTriggerEnter");
 	}
 }

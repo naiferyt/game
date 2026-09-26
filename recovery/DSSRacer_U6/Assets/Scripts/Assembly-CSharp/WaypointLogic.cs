@@ -30,55 +30,67 @@ public class WaypointLogic : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("WaypointLogic.get_distanceToPrev");
+			return default(float);
 		}
 	}
 
 	private bool ProjectOnWPLine(WaypointLogic otherPoint, Vector3 pos, out Vector3 projPoint)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("WaypointLogic.ProjectOnWPLine");
+		projPoint = default(Vector3);
+		return default(bool);
 	}
 
 	public Vector3 GetTrackPoint(Vector3 pos)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("WaypointLogic.GetTrackPoint");
+		return default(Vector3);
 	}
 
 	public float GetWallDistanceAtPoint(Vector3 pos)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("WaypointLogic.GetWallDistanceAtPoint");
+		return default(float);
 	}
 
 	public Vector3 GetWallOffsetForPoint(Vector3 pos)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("WaypointLogic.GetWallOffsetForPoint");
+		return default(Vector3);
 	}
 
 	public static float GetTrackDistanceForPoint(Vector3 pos)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("WaypointLogic.GetTrackDistanceForPoint");
+		return default(float);
 	}
 
 	public static WaypointLogic FindClosestWaypoint(Vector3 pos, bool ignoreBranches)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("WaypointLogic.FindClosestWaypoint");
+		return default(WaypointLogic);
 	}
 
 	public static WaypointLogic FindNextWaypoint(Vector3 pos)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("WaypointLogic.FindNextWaypoint");
+		return default(WaypointLogic);
 	}
 
 	public static float FindWallDistance(Vector3 pos)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("WaypointLogic.FindWallDistance");
+		return default(float);
 	}
 
 	public static void WaypointPrecalculations(WaypointLogic first)
 	{
+		RecoveryPending.Hit("WaypointLogic.WaypointPrecalculations");
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("WaypointLogic.OnDrawGizmos");
 	}
 }

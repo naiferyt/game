@@ -79,7 +79,8 @@ public class RaceManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RaceManager.get_Instance");
+			return default(RaceManager);
 		}
 	}
 
@@ -87,7 +88,8 @@ public class RaceManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RaceManager.get_Exists");
+			return default(bool);
 		}
 	}
 
@@ -95,7 +97,8 @@ public class RaceManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RaceManager.get_isPaused");
+			return default(bool);
 		}
 	}
 
@@ -103,7 +106,8 @@ public class RaceManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RaceManager.get_allCars");
+			return default(GameObject[]);
 		}
 	}
 
@@ -111,7 +115,8 @@ public class RaceManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RaceManager.get_leadCar");
+			return default(GameObject);
 		}
 	}
 
@@ -119,7 +124,8 @@ public class RaceManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RaceManager.get_elapsedTime");
+			return default(int);
 		}
 	}
 
@@ -127,7 +133,8 @@ public class RaceManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RaceManager.get_totalNumLaps");
+			return default(int);
 		}
 	}
 
@@ -135,7 +142,8 @@ public class RaceManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RaceManager.get_lastWaypoint");
+			return default(WaypointLogic);
 		}
 	}
 
@@ -143,7 +151,8 @@ public class RaceManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("RaceManager.get_totalTrackLength");
+			return default(float);
 		}
 	}
 
@@ -152,164 +161,198 @@ public class RaceManager : MonoBehaviour
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		add
 		{
+			RecoveryPending.Hit("RaceManager.add_raceInitFinishedEvent");
 		}
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		remove
 		{
+			RecoveryPending.Hit("RaceManager.remove_raceInitFinishedEvent");
 		}
 	}
 
 	[DebuggerHidden]
 	private IEnumerator RaceOutCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.RaceOutCoroutine");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CalculateCarPositionPump()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.CalculateCarPositionPump");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator PreraceCountdown()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.PreraceCountdown");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	public IEnumerator DoFinishLineEffect(GameObject player, bool elimination)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.DoFinishLineEffect");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	public IEnumerator PostRaceCountdown(bool elimination)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.PostRaceCountdown");
+		yield break;
 	}
 
 	private void PlayRandomAnimation(GameObject car)
 	{
+		RecoveryPending.Hit("RaceManager.PlayRandomAnimation");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator PreLaunchCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.PreLaunchCoroutine");
+		yield break;
 	}
 
 	private void CalculateCarPositions()
 	{
+		RecoveryPending.Hit("RaceManager.CalculateCarPositions");
 	}
 
 	private void SpawnCoins()
 	{
+		RecoveryPending.Hit("RaceManager.SpawnCoins");
 	}
 
 	private void SpawnCoins(int numToSpawn)
 	{
+		RecoveryPending.Hit("RaceManager.SpawnCoins");
 	}
 
 	private void Init(bool rewind)
 	{
+		RecoveryPending.Hit("RaceManager.Init");
 	}
 
 	private void PlayAmbientNoise()
 	{
+		RecoveryPending.Hit("RaceManager.PlayAmbientNoise");
 	}
 
 	public void EndRace()
 	{
+		RecoveryPending.Hit("RaceManager.EndRace");
 	}
 
 	public static void CleanupRace()
 	{
+		RecoveryPending.Hit("RaceManager.CleanupRace");
 	}
 
 	public static int AdvanceCarLap(GameObject car)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.AdvanceCarLap");
+		return default(int);
 	}
 
 	[DebuggerHidden]
 	private IEnumerator EliminateCar(GameObject car)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.EliminateCar");
+		yield break;
 	}
 
 	public static int GetCarLap(GameObject car)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.GetCarLap");
+		return default(int);
 	}
 
 	public static void SetCarProgressTrigger(GameObject car, ProgressTriggerLogic progTrigger)
 	{
+		RecoveryPending.Hit("RaceManager.SetCarProgressTrigger");
 	}
 
 	public static ProgressTriggerLogic GetCarLastProgressTrigger(GameObject car)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.GetCarLastProgressTrigger");
+		return default(ProgressTriggerLogic);
 	}
 
 	public static int GetCarPosition(GameObject car)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.GetCarPosition");
+		return default(int);
 	}
 
 	public static GameObject GetCarInPosition(int position)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.GetCarInPosition");
+		return default(GameObject);
 	}
 
 	public static float GetCarLastTrackDistance(GameObject car)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.GetCarLastTrackDistance");
+		return default(float);
 	}
 
 	public static GameObject[] GetOrderedCarList()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.GetOrderedCarList");
+		return default(GameObject[]);
 	}
 
 	private void StartMusic(string levelName)
 	{
+		RecoveryPending.Hit("RaceManager.StartMusic");
 	}
 
 	public static void InitRace(int lapNum)
 	{
+		RecoveryPending.Hit("RaceManager.InitRace");
 	}
 
 	[DebuggerHidden]
 	public static IEnumerator StartRaceRewind(int lapNum)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.StartRaceRewind");
+		yield break;
 	}
 
 	public static void PauseRace(bool state)
 	{
+		RecoveryPending.Hit("RaceManager.PauseRace");
 	}
 
 	public static GameObject GetPlayerCar()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.GetPlayerCar");
+		return default(GameObject);
 	}
 
 	public static bool IsPlayerCar(GameObject obj)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.IsPlayerCar");
+		return default(bool);
 	}
 
 	public void RecordSnapshot()
 	{
+		RecoveryPending.Hit("RaceManager.RecordSnapshot");
 	}
 
 	public bool GetCarIsActive(GameObject car)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RaceManager.GetCarIsActive");
+		return default(bool);
 	}
 
 	public void RaceRewind(int lapNum)
 	{
+		RecoveryPending.Hit("RaceManager.RaceRewind");
 	}
 }

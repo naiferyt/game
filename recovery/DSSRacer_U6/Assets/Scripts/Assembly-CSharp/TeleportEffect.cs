@@ -16,27 +16,33 @@ public class TeleportEffect : BaseEffect
 
 	public TeleportEffect(GameObject owner, Vector3 target, bool isSnap)
 	{
+		RecoveryPending.Hit("TeleportEffect..ctor");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("TeleportEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("TeleportEffect.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("TeleportEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TeleportEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TeleportEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 }

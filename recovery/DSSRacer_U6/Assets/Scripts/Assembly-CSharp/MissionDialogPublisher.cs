@@ -14,21 +14,26 @@ public class MissionDialogPublisher : UghPublisher
 
 	private void Start()
 	{
+		RecoveryPending.Hit("MissionDialogPublisher.Start");
 	}
 
 	private void PressedTab()
 	{
+		RecoveryPending.Hit("MissionDialogPublisher.PressedTab");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("MissionDialogPublisher.FixedUpdate");
 	}
 
 	public void SetRollState(bool state)
 	{
+		RecoveryPending.Hit("MissionDialogPublisher.SetRollState");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("MissionDialogPublisher.Update");
 	}
 }

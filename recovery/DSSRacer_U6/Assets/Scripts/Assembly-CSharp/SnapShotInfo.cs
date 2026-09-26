@@ -8,9 +8,11 @@ public class SnapShotInfo
 
 	public void AddCarSnap(CarSnapShot carSnap)
 	{
+		RecoveryPending.Hit("SnapShotInfo.AddCarSnap");
 	}
 
 	public void DebugDump()
 	{
+		RecoveryPending.Hit("SnapShotInfo.DebugDump");
 	}
 }

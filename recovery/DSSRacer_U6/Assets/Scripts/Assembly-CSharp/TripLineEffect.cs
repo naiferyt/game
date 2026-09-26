@@ -12,31 +12,38 @@ public class TripLineEffect : BaseEffect
 
 	public TripLineEffect(GameObject owner)
 	{
+		RecoveryPending.Hit("TripLineEffect..ctor");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("TripLineEffect.Start");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("TripLineEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("TripLineEffect.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("TripLineEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TripLineEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TripLineEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 }

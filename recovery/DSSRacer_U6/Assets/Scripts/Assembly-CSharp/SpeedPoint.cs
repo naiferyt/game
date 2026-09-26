@@ -19,30 +19,37 @@ public class SpeedPoint : MonoBehaviour
 
 	private bool ProjectOnSPLine(SpeedPoint otherPoint, Vector3 pos, out Vector3 projPoint)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SpeedPoint.ProjectOnSPLine");
+		projPoint = default(Vector3);
+		return default(bool);
 	}
 
 	public Vector3 GetSPLinePoint(Vector3 pos)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SpeedPoint.GetSPLinePoint");
+		return default(Vector3);
 	}
 
 	public Vector3 GetSPLine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SpeedPoint.GetSPLine");
+		return default(Vector3);
 	}
 
 	public bool IsPointForward(Vector3 point)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SpeedPoint.IsPointForward");
+		return default(bool);
 	}
 
 	public static SpeedPoint FindClosestSpeedPoint(Vector3 pos)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SpeedPoint.FindClosestSpeedPoint");
+		return default(SpeedPoint);
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("SpeedPoint.OnDrawGizmos");
 	}
 }

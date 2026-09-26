@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class ShiftUIPublisher : UghPublisher
 {
+	// ELIMINADO (servicio iOS/externo, decision del usuario 2026-09-26, RECOVERY_REPORT.md 11.2): control parental (Age Gate) previo a compras y enlaces externos
+	//   - public AgeGatePopup ageGatePopupPrefab;
+
 	[Serializable]
 	public class Icon
 	{
@@ -23,11 +26,13 @@ public class ShiftUIPublisher : UghPublisher
 
 		public ShifterPosition(float _zRot, Vector3 _pos)
 		{
+			RecoveryPending.Hit("ShiftUIPublisher.ShifterPosition..ctor");
 		}
 
 		public static ShifterPosition Lerp(ShifterPosition from, ShifterPosition to, float delta)
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ShiftUIPublisher.ShifterPosition.Lerp");
+			return default(ShifterPosition);
 		}
 	}
 
@@ -39,6 +44,7 @@ public class ShiftUIPublisher : UghPublisher
 
 		public ShifterSlot(ShifterPosition _slot, ShifterPosition _approach)
 		{
+			RecoveryPending.Hit("ShiftUIPublisher.ShifterSlot..ctor");
 		}
 	}
 
@@ -50,6 +56,7 @@ public class ShiftUIPublisher : UghPublisher
 
 		public ShiftKeyframe(float _dur, ShifterPosition _pos)
 		{
+			RecoveryPending.Hit("ShiftUIPublisher.ShiftKeyframe..ctor");
 		}
 	}
 
@@ -80,87 +87,104 @@ public class ShiftUIPublisher : UghPublisher
 
 	private ShifterPosition lastShifterPosition;
 
-	public AgeGatePopup ageGatePopupPrefab;
-
 	public static event Action ChangedShifterSlot
 	{
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		add
 		{
+			RecoveryPending.Hit("ShiftUIPublisher.add_ChangedShifterSlot");
 		}
 		[MethodImpl(MethodImplOptions.Synchronized)]
 		remove
 		{
+			RecoveryPending.Hit("ShiftUIPublisher.remove_ChangedShifterSlot");
 		}
 	}
 
 	private void SetStickPosition(float zRot, Vector3 pos)
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.SetStickPosition");
 	}
 
 	private void SwitchSlot(UISlot newSlot)
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.SwitchSlot");
 	}
 
 	public static void PlayRandomShiftSound()
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.PlayRandomShiftSound");
 	}
 
 	private new void Awake()
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.Awake");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.Update");
 	}
 
 	public void PressedPlayButton()
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.PressedPlayButton");
 	}
 
 	public void PressedCartCustomizer()
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.PressedCartCustomizer");
 	}
 
 	private void PressedTrophy()
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.PressedTrophy");
 	}
 
 	private void PressedCharacter()
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.PressedCharacter");
 	}
 
 	private void PressedOptions()
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.PressedOptions");
 	}
 
 	private void PressedMoreDisney()
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.PressedMoreDisney");
 	}
 
 	private void PressedMoreCoins()
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.PressedMoreCoins");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator ShiftSurfaceCoroutine(Vector3 targetPos, float duration)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ShiftUIPublisher.ShiftSurfaceCoroutine");
+		yield break;
 	}
 
 	public void Hide(bool immediate)
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.Hide");
 	}
 
 	public void Show(bool immediate)
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.Show");
 	}
 
 	public static void UpdateCharacterIcon(string charName)
 	{
+		RecoveryPending.Hit("ShiftUIPublisher.UpdateCharacterIcon");
 	}
 }

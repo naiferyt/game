@@ -8,50 +8,61 @@ public class MissionCollection : BaseMission
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("MissionCollection.Init");
 	}
 
 	public new bool GetHasArrow()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MissionCollection.GetHasArrow");
+		return default(bool);
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("MissionCollection.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("MissionCollection.Shutdown");
 	}
 
 	public override void Signal(string signal)
 	{
+		RecoveryPending.Hit("MissionCollection.Signal");
 	}
 
 	public override void Signal(string signal, object value)
 	{
+		RecoveryPending.Hit("MissionCollection.Signal");
 	}
 
 	public bool getCheckCurrentMission()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MissionCollection.getCheckCurrentMission");
+		return default(bool);
 	}
 
 	public void setCheckCurrentMission(bool newValue)
 	{
+		RecoveryPending.Hit("MissionCollection.setCheckCurrentMission");
 	}
 
 	public bool GetAreThereAnyMissionsLeft()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MissionCollection.GetAreThereAnyMissionsLeft");
+		return default(bool);
 	}
 
 	public new string GetTaskDisplay()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MissionCollection.GetTaskDisplay");
+		return default(string);
 	}
 
 	public BaseMission GetCurrentMission()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MissionCollection.GetCurrentMission");
+		return default(BaseMission);
 	}
 }

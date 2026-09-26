@@ -17,22 +17,27 @@ public class BarrelSpawner : MonoBehaviour
 	[DebuggerHidden]
 	private IEnumerator SpawnCheck()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BarrelSpawner.SpawnCheck");
+		yield break;
 	}
 
 	private void SpawnBarrel()
 	{
+		RecoveryPending.Hit("BarrelSpawner.SpawnBarrel");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("BarrelSpawner.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("BarrelSpawner.Update");
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("BarrelSpawner.OnDrawGizmos");
 	}
 }

@@ -12,13 +12,16 @@ public class LiftControlAI : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("LiftControlAI.Start");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("LiftControlAI.FixedUpdate");
 	}
 
 	public void SetTransition(Vector3 newPosition, float time)
 	{
+		RecoveryPending.Hit("LiftControlAI.SetTransition");
 	}
 }

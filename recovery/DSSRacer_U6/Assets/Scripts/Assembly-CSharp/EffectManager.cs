@@ -23,64 +23,78 @@ public class EffectManager : MonoBehaviour
 
 	private void Update()
 	{
+		RecoveryPending.Hit("EffectManager.Update");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("EffectManager.Start");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("EffectManager.FixedUpdate");
 	}
 
 	public void AddEffect(BaseEffect newEffect)
 	{
+		RecoveryPending.Hit("EffectManager.AddEffect");
 	}
 
 	public void RemoveEffect(BaseEffect e)
 	{
+		RecoveryPending.Hit("EffectManager.RemoveEffect");
 	}
 
 	public void RemoveAllEffects()
 	{
+		RecoveryPending.Hit("EffectManager.RemoveAllEffects");
 	}
 
 	public bool HasEffect(Type effectType)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EffectManager.HasEffect");
+		return default(bool);
 	}
 
 	public int GetEffectCount(Type effectType)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EffectManager.GetEffectCount");
+		return default(int);
 	}
 
 	public int GetHighestPoweredEffect(Type effectType)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EffectManager.GetHighestPoweredEffect");
+		return default(int);
 	}
 
 	public BaseEffect GetStrongestEffect(Type effectType)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EffectManager.GetStrongestEffect");
+		return default(BaseEffect);
 	}
 
 	public bool HasEffectOfLevel(Type effectType, int level)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EffectManager.HasEffectOfLevel");
+		return default(bool);
 	}
 
 	public BaseEffect GetEffect(int index)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EffectManager.GetEffect");
+		return default(BaseEffect);
 	}
 
 	public List<BaseEffect> GetEffectListCopy()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EffectManager.GetEffectListCopy");
+		return default(List<BaseEffect>);
 	}
 
 	public void SetEffectList(List<BaseEffect> list)
 	{
+		RecoveryPending.Hit("EffectManager.SetEffectList");
 	}
 }

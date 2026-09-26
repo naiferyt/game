@@ -4,11 +4,13 @@ public static class DictionaryToString
 {
 	public static string ToString(Dictionary<string, string> dictionary)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("DictionaryToString.ToString");
+		return default(string);
 	}
 
 	public static Dictionary<string, string> Parse(string input)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("DictionaryToString.Parse");
+		return default(Dictionary<string, string>);
 	}
 }

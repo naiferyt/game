@@ -44,14 +44,17 @@ public class UghSpritePrototype : ScriptableObject
 
 	public GameObject CreateSprite(Type type)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSpritePrototype.CreateSprite");
+		return default(GameObject);
 	}
 
 	private void OnEnable()
 	{
+		RecoveryPending.Hit("UghSpritePrototype.OnEnable");
 	}
 
 	public void UpdatePrototype()
 	{
+		RecoveryPending.Hit("UghSpritePrototype.UpdatePrototype");
 	}
 }

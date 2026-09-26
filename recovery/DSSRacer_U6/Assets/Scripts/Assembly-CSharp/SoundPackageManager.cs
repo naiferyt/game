@@ -18,7 +18,8 @@ public class SoundPackageManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("SoundPackageManager.get_Instance");
+			return default(SoundPackageManager);
 		}
 	}
 
@@ -26,41 +27,49 @@ public class SoundPackageManager : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("SoundPackageManager.get_Present");
+			return default(bool);
 		}
 	}
 
 	[DebuggerHidden]
 	private IEnumerator LoadPackageCoroutine(SoundPackageLoadReference loadRef)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundPackageManager.LoadPackageCoroutine");
+		yield break;
 	}
 
 	public SoundPackageLoadReference LoadPackage(SoundPackageReference packageRef)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundPackageManager.LoadPackage");
+		return default(SoundPackageLoadReference);
 	}
 
 	public void UnloadPackage(SoundPackageReference packageRef)
 	{
+		RecoveryPending.Hit("SoundPackageManager.UnloadPackage");
 	}
 
 	public void CleaningPass()
 	{
+		RecoveryPending.Hit("SoundPackageManager.CleaningPass");
 	}
 
 	public bool IsClipLoaded(string name)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundPackageManager.IsClipLoaded");
+		return default(bool);
 	}
 
 	public bool IsPackageLoaded(SoundPackageReference packageRef)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundPackageManager.IsPackageLoaded");
+		return default(bool);
 	}
 
 	public AudioClip GetClip(string name)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundPackageManager.GetClip");
+		return default(AudioClip);
 	}
 }

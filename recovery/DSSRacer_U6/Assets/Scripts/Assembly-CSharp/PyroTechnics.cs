@@ -6,13 +6,16 @@ public class PyroTechnics : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PyroTechnics.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("PyroTechnics.Update");
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
+		RecoveryPending.Hit("PyroTechnics.OnTriggerEnter");
 	}
 }

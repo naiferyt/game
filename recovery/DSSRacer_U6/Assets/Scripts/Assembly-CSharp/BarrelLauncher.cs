@@ -15,14 +15,17 @@ public class BarrelLauncher : MonoBehaviour
 	[DebuggerHidden]
 	private IEnumerator LaunchPump()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BarrelLauncher.LaunchPump");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("BarrelLauncher.Start");
 	}
 
 	private void LaunchBarrel()
 	{
+		RecoveryPending.Hit("BarrelLauncher.LaunchBarrel");
 	}
 }

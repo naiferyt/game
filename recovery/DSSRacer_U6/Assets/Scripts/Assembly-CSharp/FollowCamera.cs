@@ -35,25 +35,31 @@ public class FollowCamera : MonoBehaviour
 
 	private void NoCarUpdate()
 	{
+		RecoveryPending.Hit("FollowCamera.NoCarUpdate");
 	}
 
 	private void WithCarUpdate()
 	{
+		RecoveryPending.Hit("FollowCamera.WithCarUpdate");
 	}
 
 	private void CrashCamUpdate()
 	{
+		RecoveryPending.Hit("FollowCamera.CrashCamUpdate");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("FollowCamera.Start");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("FollowCamera.FixedUpdate");
 	}
 
 	private void SetCrashCam(bool state)
 	{
+		RecoveryPending.Hit("FollowCamera.SetCrashCam");
 	}
 }

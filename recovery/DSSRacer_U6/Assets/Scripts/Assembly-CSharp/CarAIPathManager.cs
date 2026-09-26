@@ -9,41 +9,50 @@ public class CarAIPathManager : MonoBehaviour
 
 	private void OnEnable()
 	{
+		RecoveryPending.Hit("CarAIPathManager.OnEnable");
 	}
 
 	private void OnDisable()
 	{
+		RecoveryPending.Hit("CarAIPathManager.OnDisable");
 	}
 
 	public static int GetPathCount()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarAIPathManager.GetPathCount");
+		return default(int);
 	}
 
 	public static void AddPath(CarAIPath path)
 	{
+		RecoveryPending.Hit("CarAIPathManager.AddPath");
 	}
 
 	public static CarAIPath GetRandomPath()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarAIPathManager.GetRandomPath");
+		return default(CarAIPath);
 	}
 
 	public static int GetPathIndex(CarAIPath path)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarAIPathManager.GetPathIndex");
+		return default(int);
 	}
 
 	public static CarAIPath GetPathByIndex(int index)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CarAIPathManager.GetPathByIndex");
+		return default(CarAIPath);
 	}
 
 	public static void ProduceInstance()
 	{
+		RecoveryPending.Hit("CarAIPathManager.ProduceInstance");
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("CarAIPathManager.OnDrawGizmos");
 	}
 }

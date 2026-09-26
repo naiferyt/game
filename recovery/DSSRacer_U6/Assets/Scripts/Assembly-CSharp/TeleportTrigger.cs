@@ -6,9 +6,11 @@ public class TeleportTrigger : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+		RecoveryPending.Hit("TeleportTrigger.OnTriggerEnter");
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("TeleportTrigger.OnDrawGizmos");
 	}
 }

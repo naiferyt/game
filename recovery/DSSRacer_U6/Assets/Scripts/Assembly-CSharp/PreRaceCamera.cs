@@ -24,29 +24,36 @@ public class PreRaceCamera : MonoBehaviour
 
 	private void SetNextTargetIndex(int index)
 	{
+		RecoveryPending.Hit("PreRaceCamera.SetNextTargetIndex");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("PreRaceCamera.Update");
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("PreRaceCamera.Awake");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("PreRaceCamera.FixedUpdate");
 	}
 
 	public void StartCamera()
 	{
+		RecoveryPending.Hit("PreRaceCamera.StartCamera");
 	}
 
 	public void ShutdownPreRace()
 	{
+		RecoveryPending.Hit("PreRaceCamera.ShutdownPreRace");
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("PreRaceCamera.OnDrawGizmos");
 	}
 }

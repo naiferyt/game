@@ -16,27 +16,33 @@ public class FlipEffect : BaseEffect
 
 	public FlipEffect(GameObject parent)
 	{
+		RecoveryPending.Hit("FlipEffect..ctor");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("FlipEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("FlipEffect.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("FlipEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FlipEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FlipEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 }

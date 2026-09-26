@@ -19,9 +19,11 @@ public class UVScroller : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("UVScroller.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("UVScroller.Update");
 	}
 }

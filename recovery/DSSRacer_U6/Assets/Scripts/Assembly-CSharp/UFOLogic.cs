@@ -46,29 +46,36 @@ public class UFOLogic : MonoBehaviour
 
 	private void FireLaser(GameObject target)
 	{
+		RecoveryPending.Hit("UFOLogic.FireLaser");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("UFOLogic.Update");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("UFOLogic.FixedUpdate");
 	}
 
 	public void SetParent(GameObject parent)
 	{
+		RecoveryPending.Hit("UFOLogic.SetParent");
 	}
 
 	public void SetSecondUFO(bool state)
 	{
+		RecoveryPending.Hit("UFOLogic.SetSecondUFO");
 	}
 
 	public void StartFlyaway()
 	{
+		RecoveryPending.Hit("UFOLogic.StartFlyaway");
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("UFOLogic.OnDrawGizmos");
 	}
 }

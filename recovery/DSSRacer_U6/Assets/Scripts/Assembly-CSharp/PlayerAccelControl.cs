@@ -16,26 +16,32 @@ public class PlayerAccelControl : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("PlayerAccelControl.get_isReversing");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("PlayerAccelControl.set_isReversing");
 		}
 	}
 
 	private void ApplyReverse(bool state)
 	{
+		RecoveryPending.Hit("PlayerAccelControl.ApplyReverse");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PlayerAccelControl.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("PlayerAccelControl.Update");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("PlayerAccelControl.FixedUpdate");
 	}
 }

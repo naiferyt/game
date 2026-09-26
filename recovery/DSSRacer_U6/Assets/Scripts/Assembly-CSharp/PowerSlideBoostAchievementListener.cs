@@ -9,37 +9,45 @@ public class PowerSlideBoostAchievementListener : AchievementListener
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PowerSlideBoostAchievementListener.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("PowerSlideBoostAchievementListener.Update");
 	}
 
 	public override bool IsAvailable()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PowerSlideBoostAchievementListener.IsAvailable");
+		return default(bool);
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CheckMetricsPump()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PowerSlideBoostAchievementListener.CheckMetricsPump");
+		yield break;
 	}
 
 	private bool CheckMetrics()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PowerSlideBoostAchievementListener.CheckMetrics");
+		return default(bool);
 	}
 
 	public override void Postrace()
 	{
+		RecoveryPending.Hit("PowerSlideBoostAchievementListener.Postrace");
 	}
 
 	public override void Prerace()
 	{
+		RecoveryPending.Hit("PowerSlideBoostAchievementListener.Prerace");
 	}
 
 	public override void Reward()
 	{
+		RecoveryPending.Hit("PowerSlideBoostAchievementListener.Reward");
 	}
 }

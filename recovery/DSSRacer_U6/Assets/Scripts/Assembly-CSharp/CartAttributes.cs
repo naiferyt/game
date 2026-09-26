@@ -37,7 +37,8 @@ public class CartAttributes
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CartAttributes.get_MaxAttributes");
+			return default(CartAttributes);
 		}
 	}
 
@@ -45,57 +46,68 @@ public class CartAttributes
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CartAttributes.get_MinAttributes");
+			return default(CartAttributes);
 		}
 	}
 
 	public float GetSpeedRating()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartAttributes.GetSpeedRating");
+		return default(float);
 	}
 
 	public float CompareSpeed(CartAttributes other)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartAttributes.CompareSpeed");
+		return default(float);
 	}
 
 	public float GetAccelerationRating()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartAttributes.GetAccelerationRating");
+		return default(float);
 	}
 
 	public float CompareAcceleration(CartAttributes other)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartAttributes.CompareAcceleration");
+		return default(float);
 	}
 
 	public float GetHandlingRating()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartAttributes.GetHandlingRating");
+		return default(float);
 	}
 
 	public float CompareHandlingRating(CartAttributes other)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartAttributes.CompareHandlingRating");
+		return default(float);
 	}
 
 	public float GetPowerSlideRating()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartAttributes.GetPowerSlideRating");
+		return default(float);
 	}
 
 	public float ComparePowerSlide(CartAttributes other)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartAttributes.ComparePowerSlide");
+		return default(float);
 	}
 
 	public static CartAttributes operator +(CartAttributes a, CartAttributes b)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartAttributes.op_+");
+		return default(CartAttributes);
 	}
 
 	public static CartAttributes operator -(CartAttributes a, CartAttributes b)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartAttributes.op_-");
+		return default(CartAttributes);
 	}
 }

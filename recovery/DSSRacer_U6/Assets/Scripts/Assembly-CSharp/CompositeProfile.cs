@@ -27,10 +27,12 @@ public class CompositeProfile : MonoBehaviour
 
 	public CompositeSlot FindSlotByName(string slotName)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CompositeProfile.FindSlotByName");
+		return default(CompositeSlot);
 	}
 
 	public void SetSlotSource(string slotName, Texture2D sourceTexture, Rect sourceRect)
 	{
+		RecoveryPending.Hit("CompositeProfile.SetSlotSource");
 	}
 }

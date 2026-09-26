@@ -21,63 +21,77 @@ public class SoundSequencer : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("SoundSequencer.get_isPaused");
+			return default(bool);
 		}
 	}
 
 	public int RequestPlay(string clipName)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundSequencer.RequestPlay");
+		return default(int);
 	}
 
 	public void RequestPlayLoop(string clipName)
 	{
+		RecoveryPending.Hit("SoundSequencer.RequestPlayLoop");
 	}
 
 	public void StopLoopingSound(string clipName)
 	{
+		RecoveryPending.Hit("SoundSequencer.StopLoopingSound");
 	}
 
 	private void DetermineSoundsToPlay()
 	{
+		RecoveryPending.Hit("SoundSequencer.DetermineSoundsToPlay");
 	}
 
 	private bool SearchUsedList(int key)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundSequencer.SearchUsedList");
+		return default(bool);
 	}
 
 	private void GetNewSourceAndPlay(int key)
 	{
+		RecoveryPending.Hit("SoundSequencer.GetNewSourceAndPlay");
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("SoundSequencer.Awake");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("SoundSequencer.Update");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator Recycle()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundSequencer.Recycle");
+		yield break;
 	}
 
 	public void PauseSounds()
 	{
+		RecoveryPending.Hit("SoundSequencer.PauseSounds");
 	}
 
 	public void UnpauseSounds()
 	{
+		RecoveryPending.Hit("SoundSequencer.UnpauseSounds");
 	}
 
 	public void StopSounds()
 	{
+		RecoveryPending.Hit("SoundSequencer.StopSounds");
 	}
 
 	public void SetPriority(int priority)
 	{
+		RecoveryPending.Hit("SoundSequencer.SetPriority");
 	}
 }

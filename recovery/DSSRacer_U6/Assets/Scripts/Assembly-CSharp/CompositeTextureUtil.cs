@@ -11,37 +11,44 @@ public static class CompositeTextureUtil
 		[DebuggerHidden]
 		public IEnumerator GenerateCompositeTextureAsync(CompositeProfile profile)
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CompositeTextureUtil.AsyncTextureProcessor.GenerateCompositeTextureAsync");
+			yield break;
 		}
 	}
 
 	public static Color32[] ColorMultiply(Texture2D source, Color32 color)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CompositeTextureUtil.ColorMultiply");
+		return default(Color32[]);
 	}
 
 	public static Color32 AlphaBlendColor32(Color32 color1, Color32 color2)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CompositeTextureUtil.AlphaBlendColor32");
+		return default(Color32);
 	}
 
 	public static Color32[] BlitPixels(Texture2D destination, Vector2 destinationPosition, Texture2D source, Rect sourceRect, bool alphaBlend)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CompositeTextureUtil.BlitPixels");
+		return default(Color32[]);
 	}
 
 	public static Texture2D MergeLayers(Texture2D[] layers, Color32[] layerColorMultiply)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CompositeTextureUtil.MergeLayers");
+		return default(Texture2D);
 	}
 
 	public static Texture2D BlitToCachedTexture(CompositeProfile profile, PaintJob paint)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CompositeTextureUtil.BlitToCachedTexture");
+		return default(Texture2D);
 	}
 
 	public static Texture2D GenerateCompositeTexture(CompositeProfile profile)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CompositeTextureUtil.GenerateCompositeTexture");
+		return default(Texture2D);
 	}
 }

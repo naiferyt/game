@@ -8,13 +8,16 @@ public class ShiftContentsOnToggleDown : MonoBehaviour
 
 	private void OnEnable()
 	{
+		RecoveryPending.Hit("ShiftContentsOnToggleDown.OnEnable");
 	}
 
 	private void OnDisable()
 	{
+		RecoveryPending.Hit("ShiftContentsOnToggleDown.OnDisable");
 	}
 
 	private void OnDownHandler(UghToggle button, bool isDown)
 	{
+		RecoveryPending.Hit("ShiftContentsOnToggleDown.OnDownHandler");
 	}
 }

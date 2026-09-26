@@ -15,7 +15,8 @@ public class EdgePixels
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("EdgePixels.get_xSum");
+			return default(float);
 		}
 	}
 
@@ -23,12 +24,14 @@ public class EdgePixels
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("EdgePixels.get_ySum");
+			return default(float);
 		}
 	}
 
 	public EdgePixels DeepCopy()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EdgePixels.DeepCopy");
+		return default(EdgePixels);
 	}
 }

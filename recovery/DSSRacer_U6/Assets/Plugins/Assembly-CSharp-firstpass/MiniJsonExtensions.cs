@@ -5,21 +5,25 @@ public static class MiniJsonExtensions
 {
 	public static string toJson(this Hashtable obj)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJsonExtensions.toJson");
+		return default(string);
 	}
 
 	public static string toJson(this Dictionary<string, string> obj)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJsonExtensions.toJson");
+		return default(string);
 	}
 
 	public static ArrayList arrayListFromJson(this string json)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJsonExtensions.arrayListFromJson");
+		return default(ArrayList);
 	}
 
 	public static Hashtable hashtableFromJson(this string json)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MiniJsonExtensions.hashtableFromJson");
+		return default(Hashtable);
 	}
 }

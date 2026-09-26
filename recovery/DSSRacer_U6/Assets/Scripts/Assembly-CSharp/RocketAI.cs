@@ -41,41 +41,51 @@ public class RocketAI : MonoBehaviour
 
 	private void StrikeTarget(GameObject target)
 	{
+		RecoveryPending.Hit("RocketAI.StrikeTarget");
 	}
 
 	private void LaunchUpdate()
 	{
+		RecoveryPending.Hit("RocketAI.LaunchUpdate");
 	}
 
 	private void BurnUpdate()
 	{
+		RecoveryPending.Hit("RocketAI.BurnUpdate");
 	}
 
 	private void Explode()
 	{
+		RecoveryPending.Hit("RocketAI.Explode");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("RocketAI.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("RocketAI.Update");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("RocketAI.FixedUpdate");
 	}
 
 	public void SetOwner(GameObject obj)
 	{
+		RecoveryPending.Hit("RocketAI.SetOwner");
 	}
 
 	public void SetTarget(GameObject obj)
 	{
+		RecoveryPending.Hit("RocketAI.SetTarget");
 	}
 
 	public void SetRiderEffect(RocketRideEffect rre)
 	{
+		RecoveryPending.Hit("RocketAI.SetRiderEffect");
 	}
 }

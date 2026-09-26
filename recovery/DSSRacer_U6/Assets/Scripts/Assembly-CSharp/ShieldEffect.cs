@@ -12,33 +12,40 @@ public class ShieldEffect : BaseEffect
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ShieldEffect.get_Reflective");
+			return default(bool);
 		}
 	}
 
 	public ShieldEffect(GameObject parent)
 	{
+		RecoveryPending.Hit("ShieldEffect..ctor");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("ShieldEffect.Init");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("ShieldEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ShieldEffect.Stack");
+		return default(bool);
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("ShieldEffect.Update");
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ShieldEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 }

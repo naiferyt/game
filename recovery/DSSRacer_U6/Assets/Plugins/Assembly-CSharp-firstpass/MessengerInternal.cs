@@ -7,6 +7,7 @@ internal static class MessengerInternal
 	{
 		public BroadcastException(string msg)
 		{
+			RecoveryPending.Hit("MessengerInternal.BroadcastException..ctor");
 		}
 	}
 
@@ -14,6 +15,7 @@ internal static class MessengerInternal
 	{
 		public ListenerException(string msg)
 		{
+			RecoveryPending.Hit("MessengerInternal.ListenerException..ctor");
 		}
 	}
 
@@ -23,22 +25,27 @@ internal static class MessengerInternal
 
 	public static void OnListenerAdding(string eventType, Delegate listenerBeingAdded)
 	{
+		RecoveryPending.Hit("MessengerInternal.OnListenerAdding");
 	}
 
 	public static void OnListenerRemoving(string eventType, Delegate listenerBeingRemoved)
 	{
+		RecoveryPending.Hit("MessengerInternal.OnListenerRemoving");
 	}
 
 	public static void OnListenerRemoved(string eventType)
 	{
+		RecoveryPending.Hit("MessengerInternal.OnListenerRemoved");
 	}
 
 	public static void OnBroadcasting(string eventType, MessengerMode mode)
 	{
+		RecoveryPending.Hit("MessengerInternal.OnBroadcasting");
 	}
 
 	public static BroadcastException CreateBroadcastSignatureException(string eventType)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MessengerInternal.CreateBroadcastSignatureException");
+		return default(BroadcastException);
 	}
 }

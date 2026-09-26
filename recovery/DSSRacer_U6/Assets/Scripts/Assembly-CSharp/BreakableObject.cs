@@ -6,13 +6,16 @@ public class BreakableObject : MonoBehaviour
 
 	private void CollideBreak(float speed)
 	{
+		RecoveryPending.Hit("BreakableObject.CollideBreak");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("BreakableObject.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("BreakableObject.Update");
 	}
 }

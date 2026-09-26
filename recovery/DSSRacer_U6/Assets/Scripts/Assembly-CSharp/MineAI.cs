@@ -28,33 +28,40 @@ public class MineAI : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("MineAI.get_IsArmed");
+			return default(bool);
 		}
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
+		RecoveryPending.Hit("MineAI.OnTriggerEnter");
 	}
 
 	public void KillAI()
 	{
+		RecoveryPending.Hit("MineAI.KillAI");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator ArmMine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("MineAI.ArmMine");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("MineAI.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("MineAI.Update");
 	}
 
 	public void SetOwner(GameObject obj)
 	{
+		RecoveryPending.Hit("MineAI.SetOwner");
 	}
 }

@@ -24,13 +24,16 @@ public class PathMoverAI : MonoBehaviour
 
 	private void StartTransition(Vector3 desiredPos, Quaternion desiredRot)
 	{
+		RecoveryPending.Hit("PathMoverAI.StartTransition");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PathMoverAI.Start");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("PathMoverAI.FixedUpdate");
 	}
 }

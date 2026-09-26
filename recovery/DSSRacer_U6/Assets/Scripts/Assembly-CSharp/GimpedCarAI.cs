@@ -46,10 +46,12 @@ public class GimpedCarAI : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("GimpedCarAI.get_LinearVelocity");
+			return default(float);
 		}
 		set
 		{
+			RecoveryPending.Hit("GimpedCarAI.set_LinearVelocity");
 		}
 	}
 
@@ -57,7 +59,8 @@ public class GimpedCarAI : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("GimpedCarAI.get_Velocity");
+			return default(float);
 		}
 	}
 
@@ -65,7 +68,8 @@ public class GimpedCarAI : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("GimpedCarAI.get_Direction");
+			return default(Vector3);
 		}
 	}
 
@@ -73,63 +77,79 @@ public class GimpedCarAI : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("GimpedCarAI.get_IsInAir");
+			return default(bool);
 		}
 	}
 
 	private void SetNewPath()
 	{
+		RecoveryPending.Hit("GimpedCarAI.SetNewPath");
 	}
 
 	private void SetNextPoint()
 	{
+		RecoveryPending.Hit("GimpedCarAI.SetNextPoint");
 	}
 
 	private void DoRoadBoundaries()
 	{
+		RecoveryPending.Hit("GimpedCarAI.DoRoadBoundaries");
 	}
 
 	private void DoCarCollisions()
 	{
+		RecoveryPending.Hit("GimpedCarAI.DoCarCollisions");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator PowerupUseEvaluationCoroutinue()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("GimpedCarAI.PowerupUseEvaluationCoroutinue");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator AggressionTherapyCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("GimpedCarAI.AggressionTherapyCoroutine");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("GimpedCarAI.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("GimpedCarAI.Update");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("GimpedCarAI.FixedUpdate");
 	}
 
 	public void Bump(Vector3 force)
 	{
+		RecoveryPending.Hit("GimpedCarAI.Bump");
 	}
 
 	public void GetGimpedSnapShot(out int pathIndex, out int pointIndex)
 	{
+		RecoveryPending.Hit("GimpedCarAI.GetGimpedSnapShot");
+		pathIndex = default(int);
+		pointIndex = default(int);
 	}
 
 	public void SetGimpedSnapShot(int pathIndex, int pointIndex)
 	{
+		RecoveryPending.Hit("GimpedCarAI.SetGimpedSnapShot");
 	}
 
 	public void SetToClosestPathHead()
 	{
+		RecoveryPending.Hit("GimpedCarAI.SetToClosestPathHead");
 	}
 }

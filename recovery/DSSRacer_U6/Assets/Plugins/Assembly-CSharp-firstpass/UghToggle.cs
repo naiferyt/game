@@ -26,10 +26,12 @@ public class UghToggle : UghControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghToggle.get_State");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghToggle.set_State");
 		}
 	}
 
@@ -37,41 +39,50 @@ public class UghToggle : UghControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghToggle.get_HighlightState");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghToggle.set_HighlightState");
 		}
 	}
 
 	[DebuggerHidden]
 	public override IEnumerator OnUghInputDown()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghToggle.OnUghInputDown");
+		yield break;
 	}
 
 	public override void OnUghInputUp()
 	{
+		RecoveryPending.Hit("UghToggle.OnUghInputUp");
 	}
 
 	public override void OnUghInputUpAsButton()
 	{
+		RecoveryPending.Hit("UghToggle.OnUghInputUpAsButton");
 	}
 
 	private UghSpritePrototype GetUghSpritePrototypeForCurrentState()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghToggle.GetUghSpritePrototypeForCurrentState");
+		return default(UghSpritePrototype);
 	}
 
 	private void UpdateMeshForCurrentState()
 	{
+		RecoveryPending.Hit("UghToggle.UpdateMeshForCurrentState");
 	}
 
 	private void SendOnChanged()
 	{
+		RecoveryPending.Hit("UghToggle.SendOnChanged");
 	}
 
 	private void OnMouseExit()
 	{
+		RecoveryPending.Hit("UghToggle.OnMouseExit");
 	}
 }

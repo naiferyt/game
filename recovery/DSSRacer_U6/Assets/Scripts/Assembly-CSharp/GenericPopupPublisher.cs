@@ -5,23 +5,28 @@ public class GenericPopupPublisher : UghPublisher
 {
 	private void Start()
 	{
+		RecoveryPending.Hit("GenericPopupPublisher.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("GenericPopupPublisher.Update");
 	}
 
 	public void SetText(string text)
 	{
+		RecoveryPending.Hit("GenericPopupPublisher.SetText");
 	}
 
 	private void PressedBacking()
 	{
+		RecoveryPending.Hit("GenericPopupPublisher.PressedBacking");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator DestroyThis()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("GenericPopupPublisher.DestroyThis");
+		yield break;
 	}
 }

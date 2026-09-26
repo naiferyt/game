@@ -12,12 +12,14 @@ public class UghPublisher : Script
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("UghPublisher.TransformsDictionary.get_Item");
+				return default(Transform);
 			}
 		}
 
 		public TransformsDictionary(TransformReference[] refs)
 		{
+			RecoveryPending.Hit("UghPublisher.TransformsDictionary..ctor");
 		}
 	}
 
@@ -37,12 +39,14 @@ public class UghPublisher : Script
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("UghPublisher.UghTextsDictionary.get_Item");
+				return default(UghText);
 			}
 		}
 
 		public UghTextsDictionary(UghTextReference[] refs)
 		{
+			RecoveryPending.Hit("UghPublisher.UghTextsDictionary..ctor");
 		}
 	}
 
@@ -62,12 +66,14 @@ public class UghPublisher : Script
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("UghPublisher.LEDScrollersDictionary.get_Item");
+				return default(LEDScroller);
 			}
 		}
 
 		public LEDScrollersDictionary(LEDScrollerReference[] refs)
 		{
+			RecoveryPending.Hit("UghPublisher.LEDScrollersDictionary..ctor");
 		}
 	}
 
@@ -87,12 +93,14 @@ public class UghPublisher : Script
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("UghPublisher.UghButtonsDictionary.get_Item");
+				return default(UghButton);
 			}
 		}
 
 		public UghButtonsDictionary(UghButtonReference[] refs)
 		{
+			RecoveryPending.Hit("UghPublisher.UghButtonsDictionary..ctor");
 		}
 	}
 
@@ -114,12 +122,14 @@ public class UghPublisher : Script
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("UghPublisher.UghSlideToggleDictionary.get_Item");
+				return default(UghSlideToggle);
 			}
 		}
 
 		public UghSlideToggleDictionary(UghSlideToggleReference[] refs)
 		{
+			RecoveryPending.Hit("UghPublisher.UghSlideToggleDictionary..ctor");
 		}
 	}
 
@@ -139,12 +149,14 @@ public class UghPublisher : Script
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("UghPublisher.UghSliderDictionary.get_Item");
+				return default(UghSlider);
 			}
 		}
 
 		public UghSliderDictionary(UghSliderReference[] refs)
 		{
+			RecoveryPending.Hit("UghPublisher.UghSliderDictionary..ctor");
 		}
 	}
 
@@ -186,7 +198,8 @@ public class UghPublisher : Script
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghPublisher.get_transforms");
+			return default(TransformsDictionary);
 		}
 	}
 
@@ -194,7 +207,8 @@ public class UghPublisher : Script
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghPublisher.get_ughTexts");
+			return default(UghTextsDictionary);
 		}
 	}
 
@@ -202,7 +216,8 @@ public class UghPublisher : Script
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghPublisher.get_ledScrollers");
+			return default(LEDScrollersDictionary);
 		}
 	}
 
@@ -210,7 +225,8 @@ public class UghPublisher : Script
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghPublisher.get_ughButtons");
+			return default(UghButtonsDictionary);
 		}
 	}
 
@@ -218,7 +234,8 @@ public class UghPublisher : Script
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghPublisher.get_ughSlideToggles");
+			return default(UghSlideToggleDictionary);
 		}
 	}
 
@@ -226,25 +243,30 @@ public class UghPublisher : Script
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghPublisher.get_ughSliders");
+			return default(UghSliderDictionary);
 		}
 	}
 
 	public UghButton GetButton(string name)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghPublisher.GetButton");
+		return default(UghButton);
 	}
 
 	protected void Awake()
 	{
+		RecoveryPending.Hit("UghPublisher.Awake");
 	}
 
 	public void OnButtonPressed(UghButton button)
 	{
+		RecoveryPending.Hit("UghPublisher.OnButtonPressed");
 	}
 
 	public UghSprite GetSprite(string name)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghPublisher.GetSprite");
+		return default(UghSprite);
 	}
 }

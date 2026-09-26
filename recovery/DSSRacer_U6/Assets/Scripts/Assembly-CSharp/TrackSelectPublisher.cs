@@ -28,46 +28,57 @@ public class TrackSelectPublisher : UghPublisher
 
 	public static List<TrackIcon> GetTrackIconsList()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TrackSelectPublisher.GetTrackIconsList");
+		return default(List<TrackIcon>);
 	}
 
 	private void Refresh()
 	{
+		RecoveryPending.Hit("TrackSelectPublisher.Refresh");
 	}
 
 	private void RaceOrSummary()
 	{
+		RecoveryPending.Hit("TrackSelectPublisher.RaceOrSummary");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("TrackSelectPublisher.Start");
 	}
 
 	private void DetermineTrophies(GameObject[] trackList)
 	{
+		RecoveryPending.Hit("TrackSelectPublisher.DetermineTrophies");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("TrackSelectPublisher.FixedUpdate");
 	}
 
 	private void PressedTrackButton1()
 	{
+		RecoveryPending.Hit("TrackSelectPublisher.PressedTrackButton1");
 	}
 
 	private void PressedTrackButton2()
 	{
+		RecoveryPending.Hit("TrackSelectPublisher.PressedTrackButton2");
 	}
 
 	private void PressedTrackButton3()
 	{
+		RecoveryPending.Hit("TrackSelectPublisher.PressedTrackButton3");
 	}
 
 	private void PressedBackButton()
 	{
+		RecoveryPending.Hit("TrackSelectPublisher.PressedBackButton");
 	}
 
 	private void UpdateTrackSnapshots()
 	{
+		RecoveryPending.Hit("TrackSelectPublisher.UpdateTrackSnapshots");
 	}
 }

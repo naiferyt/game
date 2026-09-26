@@ -10,14 +10,17 @@ public class AchievementPanelPublisher : UghPublisher
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("AchievementPanelPublisher.get_Achievement");
+			return default(AchievementListener);
 		}
 		set
 		{
+			RecoveryPending.Hit("AchievementPanelPublisher.set_Achievement");
 		}
 	}
 
 	private void Refresh()
 	{
+		RecoveryPending.Hit("AchievementPanelPublisher.Refresh");
 	}
 }

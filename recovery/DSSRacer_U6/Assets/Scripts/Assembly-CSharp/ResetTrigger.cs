@@ -8,5 +8,6 @@ public class ResetTrigger : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+		RecoveryPending.Hit("ResetTrigger.OnTriggerEnter");
 	}
 }

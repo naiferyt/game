@@ -5,19 +5,23 @@ public class DailyBonusPublisher : UghPublisher
 {
 	private void Start()
 	{
+		RecoveryPending.Hit("DailyBonusPublisher.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("DailyBonusPublisher.Update");
 	}
 
 	private void OnPressed()
 	{
+		RecoveryPending.Hit("DailyBonusPublisher.OnPressed");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator DestroyThis()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("DailyBonusPublisher.DestroyThis");
+		yield break;
 	}
 }

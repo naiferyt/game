@@ -15,28 +15,34 @@ public class ExplodingBarrel : MonoBehaviour
 	[DebuggerHidden]
 	private IEnumerator LifeCountdown()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ExplodingBarrel.LifeCountdown");
+		yield break;
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("ExplodingBarrel.Update");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator Explode()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ExplodingBarrel.Explode");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("ExplodingBarrel.Start");
 	}
 
 	private void OnCollisionEnter(Collision col)
 	{
+		RecoveryPending.Hit("ExplodingBarrel.OnCollisionEnter");
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
+		RecoveryPending.Hit("ExplodingBarrel.OnTriggerEnter");
 	}
 }

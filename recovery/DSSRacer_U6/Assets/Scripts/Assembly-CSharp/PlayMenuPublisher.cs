@@ -8,35 +8,43 @@ public class PlayMenuPublisher : UghPublisher
 
 	private void Update()
 	{
+		RecoveryPending.Hit("PlayMenuPublisher.Update");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PlayMenuPublisher.Start");
 	}
 
 	private void PressedPlayButton()
 	{
+		RecoveryPending.Hit("PlayMenuPublisher.PressedPlayButton");
 	}
 
 	private void PressedMoreDisney()
 	{
+		RecoveryPending.Hit("PlayMenuPublisher.PressedMoreDisney");
 	}
 
 	private void PressedSettings()
 	{
+		RecoveryPending.Hit("PlayMenuPublisher.PressedSettings");
 	}
 
 	private void PressedInfo()
 	{
+		RecoveryPending.Hit("PlayMenuPublisher.PressedInfo");
 	}
 
 	private void StartTutorial()
 	{
+		RecoveryPending.Hit("PlayMenuPublisher.StartTutorial");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator StartTutLoad()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PlayMenuPublisher.StartTutLoad");
+		yield break;
 	}
 }

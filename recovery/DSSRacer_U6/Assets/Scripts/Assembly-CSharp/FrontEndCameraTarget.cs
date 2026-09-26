@@ -4,5 +4,6 @@ public class FrontEndCameraTarget : MonoBehaviour
 {
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("FrontEndCameraTarget.OnDrawGizmos");
 	}
 }

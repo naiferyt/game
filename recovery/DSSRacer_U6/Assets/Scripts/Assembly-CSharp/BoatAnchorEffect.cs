@@ -10,31 +10,38 @@ public class BoatAnchorEffect : BaseEffect
 
 	public BoatAnchorEffect(GameObject owner)
 	{
+		RecoveryPending.Hit("BoatAnchorEffect..ctor");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("BoatAnchorEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("BoatAnchorEffect.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("BoatAnchorEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BoatAnchorEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BoatAnchorEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 
 	protected void LaunchAnchor(GameObject target)
 	{
+		RecoveryPending.Hit("BoatAnchorEffect.LaunchAnchor");
 	}
 }

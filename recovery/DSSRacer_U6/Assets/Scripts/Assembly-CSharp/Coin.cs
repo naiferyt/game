@@ -10,9 +10,11 @@ public class Coin : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("Coin.Start");
 	}
 
 	private void OnTriggerEnter(Collider collider)
 	{
+		RecoveryPending.Hit("Coin.OnTriggerEnter");
 	}
 }

@@ -11,25 +11,31 @@ public class CarAIPathRecorder : MonoBehaviour
 
 	private void DeltaCompressPath()
 	{
+		RecoveryPending.Hit("CarAIPathRecorder.DeltaCompressPath");
 	}
 
 	private void DistanceCompressPath(List<CarAIPath.PathPoint> subpath)
 	{
+		RecoveryPending.Hit("CarAIPathRecorder.DistanceCompressPath");
 	}
 
 	private void DistanceCompressPathWithGroundChecking(List<CarAIPath.PathPoint> subpath)
 	{
+		RecoveryPending.Hit("CarAIPathRecorder.DistanceCompressPathWithGroundChecking");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("CarAIPathRecorder.Update");
 	}
 
 	public void StartRecording()
 	{
+		RecoveryPending.Hit("CarAIPathRecorder.StartRecording");
 	}
 
 	public void FinishRecording()
 	{
+		RecoveryPending.Hit("CarAIPathRecorder.FinishRecording");
 	}
 }

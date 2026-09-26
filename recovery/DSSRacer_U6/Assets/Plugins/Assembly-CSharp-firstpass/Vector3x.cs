@@ -6,31 +6,37 @@ public class Vector3x
 
 	public static Vector3 Sinerp(Vector3 start, Vector3 end, float value)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Vector3x.Sinerp");
+		return default(Vector3);
 	}
 
 	public static Vector3 Coserp(Vector3 start, Vector3 end, float value)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Vector3x.Coserp");
+		return default(Vector3);
 	}
 
 	public static Vector3 Hermite(Vector3 start, Vector3 end, float value)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Vector3x.Hermite");
+		return default(Vector3);
 	}
 
 	public static Vector3 Berp(Vector3 start, Vector3 end, float value)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Vector3x.Berp");
+		return default(Vector3);
 	}
 
 	public static Vector3 Inverse(Vector3 a)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Vector3x.Inverse");
+		return default(Vector3);
 	}
 
 	public static Vector3 FromString(string vectorString)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Vector3x.FromString");
+		return default(Vector3);
 	}
 }

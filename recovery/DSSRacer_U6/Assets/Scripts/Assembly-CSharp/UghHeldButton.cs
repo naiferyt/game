@@ -6,30 +6,37 @@ public class UghHeldButton : UghButton
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghHeldButton.get_isDown");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghHeldButton.set_isDown");
 		}
 	}
 
 	private void SetButtonVisualState(bool state)
 	{
+		RecoveryPending.Hit("UghHeldButton.SetButtonVisualState");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("UghHeldButton.Update");
 	}
 
 	public virtual void OnButtonDown()
 	{
+		RecoveryPending.Hit("UghHeldButton.OnButtonDown");
 	}
 
 	public virtual void OnButtonUp()
 	{
+		RecoveryPending.Hit("UghHeldButton.OnButtonUp");
 	}
 
 	public virtual void OnButtonHeld()
 	{
+		RecoveryPending.Hit("UghHeldButton.OnButtonHeld");
 	}
 }

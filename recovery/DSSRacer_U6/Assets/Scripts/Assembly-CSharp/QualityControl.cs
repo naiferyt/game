@@ -4,7 +4,8 @@ public static class QualityControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("QualityControl.get_IsGameHardcore");
+			return default(bool);
 		}
 	}
 
@@ -12,7 +13,8 @@ public static class QualityControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("QualityControl.get_DoPhysicsAt30fps");
+			return default(bool);
 		}
 	}
 
@@ -20,7 +22,8 @@ public static class QualityControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("QualityControl.get_DoPerFrameCollision");
+			return default(bool);
 		}
 	}
 
@@ -28,7 +31,8 @@ public static class QualityControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("QualityControl.get_DoDummiedPlayerCollision");
+			return default(bool);
 		}
 	}
 
@@ -36,7 +40,8 @@ public static class QualityControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("QualityControl.get_DoFullTriFoot");
+			return default(bool);
 		}
 	}
 
@@ -44,11 +49,13 @@ public static class QualityControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("QualityControl.get_DoFullAI");
+			return default(bool);
 		}
 	}
 
 	public static void Apply()
 	{
+		RecoveryPending.Hit("QualityControl.Apply");
 	}
 }

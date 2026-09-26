@@ -21,20 +21,24 @@ public class DriftScalePublisher : UghPublisher
 	[DebuggerHidden]
 	private IEnumerator BlinkLabelCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("DriftScalePublisher.BlinkLabelCoroutine");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator BlinkWarningCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("DriftScalePublisher.BlinkWarningCoroutine");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("DriftScalePublisher.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("DriftScalePublisher.Update");
 	}
 }

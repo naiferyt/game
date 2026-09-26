@@ -4,5 +4,6 @@ public class CharacterButtonPublisher : UghPublisher
 
 	private void OnPressedButton()
 	{
+		RecoveryPending.Hit("CharacterButtonPublisher.OnPressedButton");
 	}
 }

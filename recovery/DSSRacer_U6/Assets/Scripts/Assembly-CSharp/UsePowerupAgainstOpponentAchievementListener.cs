@@ -9,37 +9,45 @@ public class UsePowerupAgainstOpponentAchievementListener : AchievementListener
 
 	private void Start()
 	{
+		RecoveryPending.Hit("UsePowerupAgainstOpponentAchievementListener.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("UsePowerupAgainstOpponentAchievementListener.Update");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CheckMetricsPump()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UsePowerupAgainstOpponentAchievementListener.CheckMetricsPump");
+		yield break;
 	}
 
 	private bool CheckMetrics()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UsePowerupAgainstOpponentAchievementListener.CheckMetrics");
+		return default(bool);
 	}
 
 	public override bool IsAvailable()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UsePowerupAgainstOpponentAchievementListener.IsAvailable");
+		return default(bool);
 	}
 
 	public override void Prerace()
 	{
+		RecoveryPending.Hit("UsePowerupAgainstOpponentAchievementListener.Prerace");
 	}
 
 	public override void Postrace()
 	{
+		RecoveryPending.Hit("UsePowerupAgainstOpponentAchievementListener.Postrace");
 	}
 
 	public override void Reward()
 	{
+		RecoveryPending.Hit("UsePowerupAgainstOpponentAchievementListener.Reward");
 	}
 }

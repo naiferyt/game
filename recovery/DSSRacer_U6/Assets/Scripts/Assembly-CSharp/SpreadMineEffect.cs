@@ -6,35 +6,43 @@ public class SpreadMineEffect : BaseEffect
 
 	public SpreadMineEffect(GameObject owner)
 	{
+		RecoveryPending.Hit("SpreadMineEffect..ctor");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("SpreadMineEffect.Start");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("SpreadMineEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("SpreadMineEffect.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("SpreadMineEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SpreadMineEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SpreadMineEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 
 	protected void LaunchSpreader()
 	{
+		RecoveryPending.Hit("SpreadMineEffect.LaunchSpreader");
 	}
 }

@@ -10,35 +10,43 @@ public class RandomShotEffect : BaseEffect
 
 	public RandomShotEffect(GameObject owner)
 	{
+		RecoveryPending.Hit("RandomShotEffect..ctor");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("RandomShotEffect.Start");
 	}
 
 	public override void Init()
 	{
+		RecoveryPending.Hit("RandomShotEffect.Init");
 	}
 
 	public override void Update()
 	{
+		RecoveryPending.Hit("RandomShotEffect.Update");
 	}
 
 	public override void Shutdown()
 	{
+		RecoveryPending.Hit("RandomShotEffect.Shutdown");
 	}
 
 	public override bool Stack(BaseEffect second)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RandomShotEffect.Stack");
+		return default(bool);
 	}
 
 	public override BaseEffect GetEffectSnapShot()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("RandomShotEffect.GetEffectSnapShot");
+		return default(BaseEffect);
 	}
 
 	public override void FixedUpdate()
 	{
+		RecoveryPending.Hit("RandomShotEffect.FixedUpdate");
 	}
 }

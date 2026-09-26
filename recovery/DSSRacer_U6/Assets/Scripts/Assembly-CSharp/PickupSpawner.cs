@@ -19,22 +19,27 @@ public class PickupSpawner : MonoBehaviour
 	[DebuggerHidden]
 	private IEnumerator SpawnCheck()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PickupSpawner.SpawnCheck");
+		yield break;
 	}
 
 	private void SpawnPickup()
 	{
+		RecoveryPending.Hit("PickupSpawner.SpawnPickup");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PickupSpawner.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("PickupSpawner.Update");
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("PickupSpawner.OnDrawGizmos");
 	}
 }

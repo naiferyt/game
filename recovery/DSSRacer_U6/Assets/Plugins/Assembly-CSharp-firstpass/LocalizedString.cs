@@ -9,20 +9,24 @@ public class LocalizedString
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("LocalizedString.get_Text");
+			return default(string);
 		}
 	}
 
 	public LocalizedString()
 	{
+		RecoveryPending.Hit("LocalizedString..ctor");
 	}
 
 	public LocalizedString(string text)
 	{
+		RecoveryPending.Hit("LocalizedString..ctor");
 	}
 
 	public override string ToString()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("LocalizedString.ToString");
+		return default(string);
 	}
 }

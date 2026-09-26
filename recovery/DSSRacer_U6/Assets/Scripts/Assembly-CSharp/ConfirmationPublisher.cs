@@ -9,29 +9,35 @@ public class ConfirmationPublisher : UghPublisher
 
 	private void Start()
 	{
+		RecoveryPending.Hit("ConfirmationPublisher.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("ConfirmationPublisher.Update");
 	}
 
 	public void PressedYes()
 	{
+		RecoveryPending.Hit("ConfirmationPublisher.PressedYes");
 	}
 
 	public void PressedNo()
 	{
+		RecoveryPending.Hit("ConfirmationPublisher.PressedNo");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator Close()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ConfirmationPublisher.Close");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator DestroyThis()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ConfirmationPublisher.DestroyThis");
+		yield break;
 	}
 }

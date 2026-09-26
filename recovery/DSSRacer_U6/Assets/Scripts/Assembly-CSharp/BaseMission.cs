@@ -32,21 +32,25 @@ public abstract class BaseMission : MonoBehaviour
 
 	public bool GetHasArrow()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BaseMission.GetHasArrow");
+		return default(bool);
 	}
 
 	public string GetTaskDisplay()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BaseMission.GetTaskDisplay");
+		return default(string);
 	}
 
 	public string GetCurrentMissionName()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BaseMission.GetCurrentMissionName");
+		return default(string);
 	}
 
 	public string GetCurrentUntranslatedMissionName()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("BaseMission.GetCurrentUntranslatedMissionName");
+		return default(string);
 	}
 }

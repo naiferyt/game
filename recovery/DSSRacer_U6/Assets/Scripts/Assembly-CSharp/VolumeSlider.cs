@@ -19,30 +19,37 @@ public class VolumeSlider : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("VolumeSlider.get_percent");
+			return default(float);
 		}
 		set
 		{
+			RecoveryPending.Hit("VolumeSlider.set_percent");
 		}
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("VolumeSlider.Update");
 	}
 
 	private void OnMouseDown()
 	{
+		RecoveryPending.Hit("VolumeSlider.OnMouseDown");
 	}
 
 	private void OnMouseUp()
 	{
+		RecoveryPending.Hit("VolumeSlider.OnMouseUp");
 	}
 
 	private void MouseLogic()
 	{
+		RecoveryPending.Hit("VolumeSlider.MouseLogic");
 	}
 
 	private void TouchLogic()
 	{
+		RecoveryPending.Hit("VolumeSlider.TouchLogic");
 	}
 }

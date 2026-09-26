@@ -22,46 +22,56 @@ public class AchievementUI : UghPublisher
 	[DebuggerHidden]
 	private IEnumerator AnimatePanelOutCoroutine(GameObject surface, int direction)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AchievementUI.AnimatePanelOutCoroutine");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator AnimatePanelInCoroutine(GameObject surface, int direction)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AchievementUI.AnimatePanelInCoroutine");
+		yield break;
 	}
 
 	private AchievementPanelPublisher[] GetCurrentSurface()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AchievementUI.GetCurrentSurface");
+		return default(AchievementPanelPublisher[]);
 	}
 
 	private AchievementPanelPublisher[] SwapSurface()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("AchievementUI.SwapSurface");
+		return default(AchievementPanelPublisher[]);
 	}
 
 	private void SetPage(int num)
 	{
+		RecoveryPending.Hit("AchievementUI.SetPage");
 	}
 
 	private void BuildFilteredList()
 	{
+		RecoveryPending.Hit("AchievementUI.BuildFilteredList");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("AchievementUI.Start");
 	}
 
 	private void OnPressedNext()
 	{
+		RecoveryPending.Hit("AchievementUI.OnPressedNext");
 	}
 
 	private void OnPressedPrev()
 	{
+		RecoveryPending.Hit("AchievementUI.OnPressedPrev");
 	}
 
 	private void OnPressedBack()
 	{
+		RecoveryPending.Hit("AchievementUI.OnPressedBack");
 	}
 }

@@ -6,13 +6,16 @@ public class SoundLibraryAddendum : MonoBehaviour
 
 	private void OnEnable()
 	{
+		RecoveryPending.Hit("SoundLibraryAddendum.OnEnable");
 	}
 
 	private void OnDisable()
 	{
+		RecoveryPending.Hit("SoundLibraryAddendum.OnDisable");
 	}
 
 	public void Dispose()
 	{
+		RecoveryPending.Hit("SoundLibraryAddendum.Dispose");
 	}
 }

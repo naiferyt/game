@@ -33,35 +33,43 @@ public class FrontEndTutorialHandler : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("FrontEndTutorialHandler.get_ActiveTutorial");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("FrontEndTutorialHandler.set_ActiveTutorial");
 		}
 	}
 
 	private TutorialSettings GetNextTutorial()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FrontEndTutorialHandler.GetNextTutorial");
+		return default(TutorialSettings);
 	}
 
 	private void TriggerNext()
 	{
+		RecoveryPending.Hit("FrontEndTutorialHandler.TriggerNext");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("FrontEndTutorialHandler.Update");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("FrontEndTutorialHandler.Start");
 	}
 
 	private void OnDisable()
 	{
+		RecoveryPending.Hit("FrontEndTutorialHandler.OnDisable");
 	}
 
 	private void ChangedShifterUISlot()
 	{
+		RecoveryPending.Hit("FrontEndTutorialHandler.ChangedShifterUISlot");
 	}
 }

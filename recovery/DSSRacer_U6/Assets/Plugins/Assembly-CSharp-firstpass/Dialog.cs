@@ -41,85 +41,104 @@ public class Dialog : Script
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Dialog.get_On");
+			return default(bool);
 		}
 	}
 
 	public void Awake()
 	{
+		RecoveryPending.Hit("Dialog.Awake");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator Start()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Dialog.Start");
+		yield break;
 	}
 
 	public void Activate()
 	{
+		RecoveryPending.Hit("Dialog.Activate");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator ActivateHelper()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Dialog.ActivateHelper");
+		yield break;
 	}
 
 	protected virtual void OnActivateUpdate()
 	{
+		RecoveryPending.Hit("Dialog.OnActivateUpdate");
 	}
 
 	public void Deactivate()
 	{
+		RecoveryPending.Hit("Dialog.Deactivate");
 	}
 
 	[DebuggerHidden]
 	public IEnumerator DeactivateHelper()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Dialog.DeactivateHelper");
+		yield break;
 	}
 
 	protected virtual void OnDeactivateUpdate()
 	{
+		RecoveryPending.Hit("Dialog.OnDeactivateUpdate");
 	}
 
 	private void OnGUI()
 	{
+		RecoveryPending.Hit("Dialog.OnGUI");
 	}
 
 	public void RenderGUI()
 	{
+		RecoveryPending.Hit("Dialog.RenderGUI");
 	}
 
 	protected virtual void OnStart()
 	{
+		RecoveryPending.Hit("Dialog.OnStart");
 	}
 
 	protected virtual void OnDrawUnderlay()
 	{
+		RecoveryPending.Hit("Dialog.OnDrawUnderlay");
 	}
 
 	protected virtual void OnDraw()
 	{
+		RecoveryPending.Hit("Dialog.OnDraw");
 	}
 
 	protected virtual void DoWindow(int id)
 	{
+		RecoveryPending.Hit("Dialog.DoWindow");
 	}
 
 	protected virtual void OnActivating()
 	{
+		RecoveryPending.Hit("Dialog.OnActivating");
 	}
 
 	protected virtual void OnActivated()
 	{
+		RecoveryPending.Hit("Dialog.OnActivated");
 	}
 
 	protected virtual void OnDeactivating()
 	{
+		RecoveryPending.Hit("Dialog.OnDeactivating");
 	}
 
 	protected virtual void OnDeactivated()
 	{
+		RecoveryPending.Hit("Dialog.OnDeactivated");
 	}
 }

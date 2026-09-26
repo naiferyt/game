@@ -19,22 +19,27 @@ public class UghButton : UghControl
 	[DebuggerHidden]
 	public override IEnumerator OnUghInputDown()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghButton.OnUghInputDown");
+		yield break;
 	}
 
 	public override void OnUghInputUp()
 	{
+		RecoveryPending.Hit("UghButton.OnUghInputUp");
 	}
 
 	public override void OnUghInputUpAsButton()
 	{
+		RecoveryPending.Hit("UghButton.OnUghInputUpAsButton");
 	}
 
 	private void OnMouseEnter()
 	{
+		RecoveryPending.Hit("UghButton.OnMouseEnter");
 	}
 
 	private void OnMouseExit()
 	{
+		RecoveryPending.Hit("UghButton.OnMouseExit");
 	}
 }

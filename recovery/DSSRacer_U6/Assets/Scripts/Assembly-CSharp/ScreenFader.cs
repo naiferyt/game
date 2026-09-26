@@ -23,51 +23,62 @@ public class ScreenFader : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ScreenFader.get_Instance");
+			return default(ScreenFader);
 		}
 	}
 
 	public static void CreateScreenFader()
 	{
+		RecoveryPending.Hit("ScreenFader.CreateScreenFader");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("ScreenFader.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("ScreenFader.Update");
 	}
 
 	public void LoadLevel(string levelName)
 	{
+		RecoveryPending.Hit("ScreenFader.LoadLevel");
 	}
 
 	public void LoadLevel(int levelIndex)
 	{
+		RecoveryPending.Hit("ScreenFader.LoadLevel");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator FadeInHelper()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ScreenFader.FadeInHelper");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator FadeOutHelper()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ScreenFader.FadeOutHelper");
+		yield break;
 	}
 
 	public void FadeIn()
 	{
+		RecoveryPending.Hit("ScreenFader.FadeIn");
 	}
 
 	public void FadeOut()
 	{
+		RecoveryPending.Hit("ScreenFader.FadeOut");
 	}
 
 	private void OnLevelWasLoaded()
 	{
+		RecoveryPending.Hit("ScreenFader.OnLevelWasLoaded");
 	}
 }

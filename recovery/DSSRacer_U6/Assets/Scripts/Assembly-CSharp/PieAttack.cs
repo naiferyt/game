@@ -15,32 +15,39 @@ public class PieAttack : MonoBehaviour
 	[DebuggerHidden]
 	private IEnumerator LifeCountdown()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PieAttack.LifeCountdown");
+		yield break;
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("PieAttack.Update");
 	}
 
 	public void Explode()
 	{
+		RecoveryPending.Hit("PieAttack.Explode");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator ExplodeCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("PieAttack.ExplodeCoroutine");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("PieAttack.Start");
 	}
 
 	private void OnCollisionEnter(Collision col)
 	{
+		RecoveryPending.Hit("PieAttack.OnCollisionEnter");
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
+		RecoveryPending.Hit("PieAttack.OnTriggerEnter");
 	}
 }

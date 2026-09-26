@@ -26,7 +26,8 @@ public class ScreenFade : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ScreenFade.get_Instance");
+			return default(ScreenFade);
 		}
 	}
 
@@ -34,7 +35,8 @@ public class ScreenFade : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ScreenFade.get_IsFading");
+			return default(bool);
 		}
 	}
 
@@ -42,10 +44,12 @@ public class ScreenFade : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ScreenFade.get_IsFaded");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("ScreenFade.set_IsFaded");
 		}
 	}
 
@@ -53,40 +57,48 @@ public class ScreenFade : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("ScreenFade.get_FadedAmount");
+			return default(float);
 		}
 		set
 		{
+			RecoveryPending.Hit("ScreenFade.set_FadedAmount");
 		}
 	}
 
 	public Coroutine Fade(bool toBlack)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ScreenFade.Fade");
+		return default(Coroutine);
 	}
 
 	public Coroutine Fade(bool toBlack, float speed)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ScreenFade.Fade");
+		return default(Coroutine);
 	}
 
 	public void LoadLevelWithFade(string sceneName)
 	{
+		RecoveryPending.Hit("ScreenFade.LoadLevelWithFade");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("ScreenFade.Start");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator FadeHelper(bool toBlack, float speed)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ScreenFade.FadeHelper");
+		yield break;
 	}
 
 	[DebuggerHidden]
 	private IEnumerator LoadSceneHelper(string sceneName)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("ScreenFade.LoadSceneHelper");
+		yield break;
 	}
 }

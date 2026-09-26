@@ -7,32 +7,39 @@ public class EquipPaintJobAchievementListener : AchievementListener
 
 	private void Start()
 	{
+		RecoveryPending.Hit("EquipPaintJobAchievementListener.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("EquipPaintJobAchievementListener.Update");
 	}
 
 	public override bool IsAvailable()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EquipPaintJobAchievementListener.IsAvailable");
+		return default(bool);
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CheckPaintJobs()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("EquipPaintJobAchievementListener.CheckPaintJobs");
+		yield break;
 	}
 
 	public override void Postrace()
 	{
+		RecoveryPending.Hit("EquipPaintJobAchievementListener.Postrace");
 	}
 
 	public override void Prerace()
 	{
+		RecoveryPending.Hit("EquipPaintJobAchievementListener.Prerace");
 	}
 
 	public override void Reward()
 	{
+		RecoveryPending.Hit("EquipPaintJobAchievementListener.Reward");
 	}
 }

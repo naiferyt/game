@@ -24,26 +24,32 @@ public class Crab : MonoBehaviour
 	[DebuggerHidden]
 	private IEnumerator SleepRoutine(float time)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Crab.SleepRoutine");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("Crab.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("Crab.Update");
 	}
 
 	private void FixedUpdate()
 	{
+		RecoveryPending.Hit("Crab.FixedUpdate");
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
+		RecoveryPending.Hit("Crab.OnTriggerEnter");
 	}
 
 	private void OnDrawGizmos()
 	{
+		RecoveryPending.Hit("Crab.OnDrawGizmos");
 	}
 }

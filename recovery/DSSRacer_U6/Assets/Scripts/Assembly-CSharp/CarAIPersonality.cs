@@ -22,11 +22,13 @@ public class CarAIPersonality : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CarAIPersonality.get_stateWeightMap");
+			return default(Dictionary<CarAI.AIStates, float>);
 		}
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("CarAIPersonality.Start");
 	}
 }

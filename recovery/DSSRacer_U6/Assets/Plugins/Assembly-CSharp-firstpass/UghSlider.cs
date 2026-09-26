@@ -22,10 +22,12 @@ public class UghSlider : UghControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghSlider.get_Current");
+			return default(float);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghSlider.set_Current");
 		}
 	}
 
@@ -33,37 +35,45 @@ public class UghSlider : UghControl
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("UghSlider.get_CurrentNormalized");
+			return default(float);
 		}
 		set
 		{
+			RecoveryPending.Hit("UghSlider.set_CurrentNormalized");
 		}
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("UghSlider.Awake");
 	}
 
 	private Vector3 LocalPositionForInput(Vector3 input)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSlider.LocalPositionForInput");
+		return default(Vector3);
 	}
 
 	[DebuggerHidden]
 	public override IEnumerator OnUghInputDown()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("UghSlider.OnUghInputDown");
+		yield break;
 	}
 
 	public override void OnUghInputUp()
 	{
+		RecoveryPending.Hit("UghSlider.OnUghInputUp");
 	}
 
 	public override void OnUghInputUpAsButton()
 	{
+		RecoveryPending.Hit("UghSlider.OnUghInputUpAsButton");
 	}
 
 	private void UpdatePosition()
 	{
+		RecoveryPending.Hit("UghSlider.UpdatePosition");
 	}
 }

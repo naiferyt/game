@@ -14,26 +14,32 @@ public class DifficultyMenuPublisher : UghPublisher
 
 	private float CalculateCompletion(MetaMissionGroupAchievementListener listener)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("DifficultyMenuPublisher.CalculateCompletion");
+		return default(float);
 	}
 
 	private void ShowPopover(string text)
 	{
+		RecoveryPending.Hit("DifficultyMenuPublisher.ShowPopover");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("DifficultyMenuPublisher.Start");
 	}
 
 	private void PushedEasy()
 	{
+		RecoveryPending.Hit("DifficultyMenuPublisher.PushedEasy");
 	}
 
 	private void PushedMedium()
 	{
+		RecoveryPending.Hit("DifficultyMenuPublisher.PushedMedium");
 	}
 
 	private void PushedHard()
 	{
+		RecoveryPending.Hit("DifficultyMenuPublisher.PushedHard");
 	}
 }

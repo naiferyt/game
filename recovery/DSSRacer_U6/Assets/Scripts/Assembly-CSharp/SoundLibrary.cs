@@ -23,10 +23,12 @@ public class SoundLibrary : MonoBehaviour
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("SoundLibrary.SoundClipDictionary.get_Item");
+				return default(AudioClip);
 			}
 			set
 			{
+				RecoveryPending.Hit("SoundLibrary.SoundClipDictionary.set_Item");
 			}
 		}
 
@@ -34,12 +36,14 @@ public class SoundLibrary : MonoBehaviour
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("SoundLibrary.SoundClipDictionary.get_Count");
+				return default(int);
 			}
 		}
 
 		public SoundClipDictionary(SoundClipReference[] refs)
 		{
+			RecoveryPending.Hit("SoundLibrary.SoundClipDictionary..ctor");
 		}
 	}
 
@@ -51,15 +55,18 @@ public class SoundLibrary : MonoBehaviour
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("SoundLibrary.ClipHashDictionary.get_Item");
+				return default(int);
 			}
 			set
 			{
+				RecoveryPending.Hit("SoundLibrary.ClipHashDictionary.set_Item");
 			}
 		}
 
 		public ClipHashDictionary(SoundClipReference[] refs)
 		{
+			RecoveryPending.Hit("SoundLibrary.ClipHashDictionary..ctor");
 		}
 	}
 
@@ -71,15 +78,18 @@ public class SoundLibrary : MonoBehaviour
 		{
 			get
 			{
-				/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+				RecoveryPending.Hit("SoundLibrary.HashClipDictionary.get_Item");
+				return default(string);
 			}
 			set
 			{
+				RecoveryPending.Hit("SoundLibrary.HashClipDictionary.set_Item");
 			}
 		}
 
 		public HashClipDictionary(SoundClipReference[] refs)
 		{
+			RecoveryPending.Hit("SoundLibrary.HashClipDictionary..ctor");
 		}
 	}
 
@@ -99,7 +109,8 @@ public class SoundLibrary : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("SoundLibrary.get_Instance");
+			return default(SoundLibrary);
 		}
 	}
 
@@ -107,7 +118,8 @@ public class SoundLibrary : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("SoundLibrary.get_Present");
+			return default(bool);
 		}
 	}
 
@@ -115,7 +127,8 @@ public class SoundLibrary : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("SoundLibrary.get_SoundBank");
+			return default(SoundClipDictionary);
 		}
 	}
 
@@ -123,7 +136,8 @@ public class SoundLibrary : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("SoundLibrary.get_NameToHashBank");
+			return default(ClipHashDictionary);
 		}
 	}
 
@@ -131,81 +145,99 @@ public class SoundLibrary : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("SoundLibrary.get_HashToNameBank");
+			return default(HashClipDictionary);
 		}
 	}
 
 	private void Awake()
 	{
+		RecoveryPending.Hit("SoundLibrary.Awake");
 	}
 
 	public static AudioClip GetClip(string name)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundLibrary.GetClip");
+		return default(AudioClip);
 	}
 
 	public static int GetClipHash(string name)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundLibrary.GetClipHash");
+		return default(int);
 	}
 
 	public static string GetClipName(int hash)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundLibrary.GetClipName");
+		return default(string);
 	}
 
 	public static void ManuallyAddClip(string name, AudioClip clip)
 	{
+		RecoveryPending.Hit("SoundLibrary.ManuallyAddClip");
 	}
 
 	public static void ManuallyRemoveClip(string name)
 	{
+		RecoveryPending.Hit("SoundLibrary.ManuallyRemoveClip");
 	}
 
 	public static AudioClip PlayClipOnSource(string clipName, AudioSource source, bool loop)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundLibrary.PlayClipOnSource");
+		return default(AudioClip);
 	}
 
 	public static AudioClip PlayOneShotClipOnSource(string clipName, AudioSource source)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundLibrary.PlayOneShotClipOnSource");
+		return default(AudioClip);
 	}
 
 	public static void StopClipOnSource(AudioSource source)
 	{
+		RecoveryPending.Hit("SoundLibrary.StopClipOnSource");
 	}
 
 	public static AudioSource GetInstanceOfSource(GameObject owner, GameObject parent)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SoundLibrary.GetInstanceOfSource");
+		return default(AudioSource);
 	}
 
 	public static void ButtonClickPlay(string soundName)
 	{
+		RecoveryPending.Hit("SoundLibrary.ButtonClickPlay");
 	}
 
 	public static void PlayRandomWhoosh()
 	{
+		RecoveryPending.Hit("SoundLibrary.PlayRandomWhoosh");
 	}
 
 	public static void PlaySoundOnPlayer(string soundName, bool oneShot)
 	{
+		RecoveryPending.Hit("SoundLibrary.PlaySoundOnPlayer");
 	}
 
 	public static void PlaySoundOnCamera(string soundName, bool loop)
 	{
+		RecoveryPending.Hit("SoundLibrary.PlaySoundOnCamera");
 	}
 
 	public static void StopSoundOnCamera()
 	{
+		RecoveryPending.Hit("SoundLibrary.StopSoundOnCamera");
 	}
 
 	public static void PauseCameraSound(bool pause)
 	{
+		RecoveryPending.Hit("SoundLibrary.PauseCameraSound");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("SoundLibrary.Update");
 	}
 }

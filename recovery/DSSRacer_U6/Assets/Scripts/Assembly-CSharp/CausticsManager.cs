@@ -9,11 +9,13 @@ public class CausticsManager : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("CausticsManager.Start");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator UpdateCausticsCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CausticsManager.UpdateCausticsCoroutine");
+		yield break;
 	}
 }

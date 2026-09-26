@@ -49,68 +49,83 @@ public class FrontEndLogic : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("FrontEndLogic.get_CurrentMenu");
+			return default(MenuStruct);
 		}
 	}
 
 	private static FrontEndLogic GetInstance()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FrontEndLogic.GetInstance");
+		return default(FrontEndLogic);
 	}
 
 	public static void HideMenu()
 	{
+		RecoveryPending.Hit("FrontEndLogic.HideMenu");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator HideMenuHelper()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FrontEndLogic.HideMenuHelper");
+		yield break;
 	}
 
 	private void StartMenuTransition(MenuStruct menu)
 	{
+		RecoveryPending.Hit("FrontEndLogic.StartMenuTransition");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CheckMenuTransitionOK(MenuStruct menu)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("FrontEndLogic.CheckMenuTransitionOK");
+		yield break;
 	}
 
 	public static void PlayRandomWhoosh()
 	{
+		RecoveryPending.Hit("FrontEndLogic.PlayRandomWhoosh");
 	}
 
 	private void CheckForDailyBonus()
 	{
+		RecoveryPending.Hit("FrontEndLogic.CheckForDailyBonus");
 	}
 
 	private void PopupDailyBonusNote()
 	{
+		RecoveryPending.Hit("FrontEndLogic.PopupDailyBonusNote");
 	}
 
 	private void GiveDailyBonus(bool shouldReset)
 	{
+		RecoveryPending.Hit("FrontEndLogic.GiveDailyBonus");
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("FrontEndLogic.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("FrontEndLogic.Update");
 	}
 
 	private void OnApplicationPause(bool pause)
 	{
+		RecoveryPending.Hit("FrontEndLogic.OnApplicationPause");
 	}
 
 	public static void RequestMenuChange(string menuName)
 	{
+		RecoveryPending.Hit("FrontEndLogic.RequestMenuChange");
 	}
 
 	public static void NeedMoreCoins(string id, int cost, bool forceBuy = false)
 	{
+		RecoveryPending.Hit("FrontEndLogic.NeedMoreCoins");
 	}
 }

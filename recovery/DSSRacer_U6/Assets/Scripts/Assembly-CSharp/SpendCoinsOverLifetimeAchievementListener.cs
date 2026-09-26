@@ -7,28 +7,34 @@ public class SpendCoinsOverLifetimeAchievementListener : AchievementListener
 
 	public override bool IsAvailable()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SpendCoinsOverLifetimeAchievementListener.IsAvailable");
+		return default(bool);
 	}
 
 	public override void Prerace()
 	{
+		RecoveryPending.Hit("SpendCoinsOverLifetimeAchievementListener.Prerace");
 	}
 
 	public override void Postrace()
 	{
+		RecoveryPending.Hit("SpendCoinsOverLifetimeAchievementListener.Postrace");
 	}
 
 	public override void Reward()
 	{
+		RecoveryPending.Hit("SpendCoinsOverLifetimeAchievementListener.Reward");
 	}
 
 	[DebuggerHidden]
 	private IEnumerator CheckSpentCoinsCoroutine()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("SpendCoinsOverLifetimeAchievementListener.CheckSpentCoinsCoroutine");
+		yield break;
 	}
 
 	private void Start()
 	{
+		RecoveryPending.Hit("SpendCoinsOverLifetimeAchievementListener.Start");
 	}
 }

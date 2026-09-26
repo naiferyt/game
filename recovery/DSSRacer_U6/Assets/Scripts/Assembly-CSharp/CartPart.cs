@@ -22,7 +22,8 @@ public class CartPart : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CartPart.get_IsLocked");
+			return default(bool);
 		}
 	}
 
@@ -30,7 +31,8 @@ public class CartPart : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CartPart.get_AreAllAlternateFormsLocked");
+			return default(bool);
 		}
 	}
 
@@ -38,12 +40,14 @@ public class CartPart : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CartPart.get_bodyFormType");
+			return default(AlternateForm.BodyForm);
 		}
 	}
 
 	public CartPart GetAlternatePartOfForm(AlternateForm.BodyForm form)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartPart.GetAlternatePartOfForm");
+		return default(CartPart);
 	}
 }

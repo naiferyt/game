@@ -12,9 +12,11 @@ public class AnimationTire : MonoBehaviour
 
 	private void Start()
 	{
+		RecoveryPending.Hit("AnimationTire.Start");
 	}
 
 	private void Update()
 	{
+		RecoveryPending.Hit("AnimationTire.Update");
 	}
 }

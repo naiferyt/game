@@ -31,10 +31,12 @@ public class TrackUnlockHelper : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("TrackUnlockHelper.get_DebugUnlock");
+			return default(bool);
 		}
 		set
 		{
+			RecoveryPending.Hit("TrackUnlockHelper.set_DebugUnlock");
 		}
 	}
 
@@ -42,61 +44,73 @@ public class TrackUnlockHelper : MonoBehaviour
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("TrackUnlockHelper.get_CanPranksgiving");
+			return default(bool);
 		}
 	}
 
 	[DebuggerHidden]
 	private IEnumerator Start()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TrackUnlockHelper.Start");
+		yield break;
 	}
 
 	public bool GetHasEnoughMedals(string circuitName, int medals)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TrackUnlockHelper.GetHasEnoughMedals");
+		return default(bool);
 	}
 
 	public int GetCircuitMedalCount(string circuitName)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TrackUnlockHelper.GetCircuitMedalCount");
+		return default(int);
 	}
 
 	public bool IsCircuitUnlocked(string circuitName)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TrackUnlockHelper.IsCircuitUnlocked");
+		return default(bool);
 	}
 
 	public bool CheckForPreraceSetupUnlock(string circuitName)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TrackUnlockHelper.CheckForPreraceSetupUnlock");
+		return default(bool);
 	}
 
 	private void UnlockAllEverything()
 	{
+		RecoveryPending.Hit("TrackUnlockHelper.UnlockAllEverything");
 	}
 
 	public void RelockEverything()
 	{
+		RecoveryPending.Hit("TrackUnlockHelper.RelockEverything");
 	}
 
 	public int GetHighestTrackPlace(string trackName)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TrackUnlockHelper.GetHighestTrackPlace");
+		return default(int);
 	}
 
 	public bool TestForUltraHard()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TrackUnlockHelper.TestForUltraHard");
+		return default(bool);
 	}
 
 	public int GetTrackMedalCount(string trackName)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TrackUnlockHelper.GetTrackMedalCount");
+		return default(int);
 	}
 
 	public GameObject[] GetCircuitTracks(string circuitName)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("TrackUnlockHelper.GetCircuitTracks");
+		return default(GameObject[]);
 	}
 }

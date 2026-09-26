@@ -4,5 +4,6 @@ public class RewindLapSlotPublisher : UghPublisher
 
 	private void PressedRewind()
 	{
+		RecoveryPending.Hit("RewindLapSlotPublisher.PressedRewind");
 	}
 }

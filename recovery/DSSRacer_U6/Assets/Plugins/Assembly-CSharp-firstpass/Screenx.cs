@@ -10,7 +10,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_baseAspectRatio");
+			return default(float);
 		}
 	}
 
@@ -18,7 +19,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_aspectRatio");
+			return default(float);
 		}
 	}
 
@@ -26,7 +28,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_scaleWithCutoff");
+			return default(float);
 		}
 	}
 
@@ -34,7 +37,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_scale");
+			return default(float);
 		}
 	}
 
@@ -42,7 +46,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_center");
+			return default(Vector3);
 		}
 	}
 
@@ -50,7 +55,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_bottomLeft");
+			return default(Vector2);
 		}
 	}
 
@@ -58,7 +64,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_bottomCenter");
+			return default(Vector2);
 		}
 	}
 
@@ -66,7 +73,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_bottomRight");
+			return default(Vector2);
 		}
 	}
 
@@ -74,7 +82,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_topCenter");
+			return default(Vector2);
 		}
 	}
 
@@ -82,7 +91,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_topLeft");
+			return default(Vector2);
 		}
 	}
 
@@ -90,7 +100,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_topRight");
+			return default(Vector2);
 		}
 	}
 
@@ -98,7 +109,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_middleCenter");
+			return default(Vector2);
 		}
 	}
 
@@ -106,7 +118,8 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_middleRight");
+			return default(Vector2);
 		}
 	}
 
@@ -114,31 +127,37 @@ public class Screenx
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("Screenx.get_middleLeft");
+			return default(Vector2);
 		}
 	}
 
 	public static void ScaleGUI()
 	{
+		RecoveryPending.Hit("Screenx.ScaleGUI");
 	}
 
 	public static Vector2 TouchToScreenCords(Vector2 pos)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Screenx.TouchToScreenCords");
+		return default(Vector2);
 	}
 
 	public static Vector2 TouchToiPadScreenCoords(Vector2 pos)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Screenx.TouchToiPadScreenCoords");
+		return default(Vector2);
 	}
 
 	public static float ScaleGUIToHeight()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Screenx.ScaleGUIToHeight");
+		return default(float);
 	}
 
 	public static float ScaleGUIToWidth()
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("Screenx.ScaleGUIToWidth");
+		return default(float);
 	}
 }

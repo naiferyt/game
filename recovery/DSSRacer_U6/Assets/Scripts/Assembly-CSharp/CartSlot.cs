@@ -34,7 +34,8 @@ public class CartSlot
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CartSlot.get_name");
+			return default(string);
 		}
 	}
 
@@ -42,7 +43,8 @@ public class CartSlot
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CartSlot.get_targetGameObjectName");
+			return default(string);
 		}
 	}
 
@@ -50,36 +52,43 @@ public class CartSlot
 	{
 		get
 		{
-			/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+			RecoveryPending.Hit("CartSlot.get_required");
+			return default(bool);
 		}
 	}
 
 	public CartSlot(Slots _slot)
 	{
+		RecoveryPending.Hit("CartSlot..ctor");
 	}
 
 	public static string GetSlotName(Slots slot)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartSlot.GetSlotName");
+		return default(string);
 	}
 
 	public static string GetSlotTargetGameObjectName(Slots slot)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartSlot.GetSlotTargetGameObjectName");
+		return default(string);
 	}
 
 	public static bool GetIsSlotRequired(Slots slot)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartSlot.GetIsSlotRequired");
+		return default(bool);
 	}
 
 	public static Vector3 GetCustomizerCameraTarget(Slots slot)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartSlot.GetCustomizerCameraTarget");
+		return default(Vector3);
 	}
 
 	public static Vector3 GetCustomizerCameraPosition(Slots slot)
 	{
-		/*Error: Method body consists only of 'ret', but nothing is being returned. Decompiled assembly might be a reference assembly.*/;
+		RecoveryPending.Hit("CartSlot.GetCustomizerCameraPosition");
+		return default(Vector3);
 	}
 }
