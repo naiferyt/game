@@ -17,14 +17,14 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 | Etapa | Pendientes | ARM pendiente | Recuperados | Llamados antes de su etapa |
 |---|---:|---:|---:|---:|
-| Etapa 1 — Arranque → Menú principal | 145 | 39 KB | 713 | 0 |
+| Etapa 1 — Arranque → Menú principal | 0 | 0 KB | 713 | 0 |
 | Etapa 2 — Menú → selección → carga de la carrera | 476 | 123 KB | 18 | 11 |
 | Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados) | 436 | 157 KB | 56 | 7 |
 | Etapa 4 — Sistemas completos | 1382 | 271 KB | 93 | 69 |
 | Port Android (después de la Fase 4) | 8 | 1 KB | 0 | 0 |
 | Opcional — herramientas de depuración del equipo original | 19 | 3 KB | 0 | 0 |
 | Sin uso detectado (no se traducen salvo que aparezcan en el log) | 269 | 78 KB | 0 | 0 |
-| Sin uso (scripts UnityScript sin referencias) | 10 | 10 KB | 0 | 0 |
+| Sin uso (scripts UnityScript sin referencias) | 155 | 49 KB | 0 | 0 |
 | Eliminados (servicios iOS/externos) | 0 | 0 KB | 0 | 0 |
 | Sin código nativo (abstract / extern) | 0 | 0 KB | 0 | 0 |
 
@@ -47,26 +47,18 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 - Etapa 4 · `MusicPlayer`: `PlayMusic`, `UpdateVolume`, `get_Instance`
 - Etapa 4 · `SoundLibrary`: `ButtonClickPlay`, `PlayRandomWhoosh`
 
-### Framework UI propio (Ugh) — 430 métodos, 116.7 KB ARM
+### Framework UI propio (Ugh) — 285 métodos, 77.8 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
 | `ConfirmationPublisher` | ✅ `.ctor` (52), ✅ `Close` (72), ✅ `DestroyThis` (72), ✅ `PressedNo` (88), ✅ `PressedYes` (88), ✅ `Start` (48), ✅ `Update` (44) |
 | `ConfirmationPublisher/<Close>c__Iterator55` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (264), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `ConfirmationPublisher/<DestroyThis>c__Iterator56` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (340), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `Dialog` | `.ctor` (260), `Activate` (92), `ActivateHelper` (72), `Awake` (80), `Deactivate` (92), `DeactivateHelper` (72), `DoWindow` (48), `OnActivateUpdate` (664), `OnActivated` (64), `OnActivating` (44), `OnDeactivateUpdate` (44), `OnDeactivated` (64), `OnDeactivating` (44), `OnDraw` (308), `OnDrawUnderlay` (44), `OnGUI` (44), `OnStart` (296), `RenderGUI` (2176), `Start` (72), `get_On` (52) |
-| `Dialog/<ActivateHelper>c__Iterator3` | `.ctor` (44), `Dispose` (56), `MoveNext` (596), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `Dialog/<DeactivateHelper>c__Iterator4` | `.ctor` (44), `Dispose` (56), `MoveNext` (584), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `Dialog/<Start>c__Iterator2` | `.ctor` (44), `Dispose` (56), `MoveNext` (268), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `GenericPopupPublisher` | ✅ `.ctor` (52), ✅ `DestroyThis` (72), ✅ `PressedBacking` (104), ✅ `SetText` (100), ✅ `Start` (48), ✅ `Update` (44) |
 | `GenericPopupPublisher/<DestroyThis>c__Iterator5D` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (340), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `InputBlocker` | ✅ `.ctor` (52), ✅ `FadeOut` (80), ✅ `FadeOutHelper` (72), ✅ `Start` (72) |
 | `InputBlocker/<FadeOutHelper>c__Iterator2B` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (832), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `InputBlocker/<Start>c__Iterator2A` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (832), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `LEDScroller` | `.ctor` (184), `AddText` (120), `CheckForNewText` (240), `ClearText` (64), `OnDisable` (256), `OnEnable` (256), `OnFlash` (80), `OnFlashHelper` (72), `OnNewTextCheck` (104), `OnResetScroller` (112), `OnScroll` (80), `OnScrollHelper` (72), `OnStaticText` (264), `RemoveText` (116), `ReplaceText` (172), `SetUpNewStringForDisplayHelper` (308), `Start` (108), `TextStringCount` (64), `Update` (340), `add_HandleNewTextCheck` (160), `get_CurrentString` (52), `get_EndofSentence` (52), `remove_HandleNewTextCheck` (160), `set_CurrentString` (60), `set_EndofSentence` (60) |
-| `LEDScroller/<OnFlashHelper>c__Iterator27` | `.ctor` (44), `Dispose` (56), `MoveNext` (504), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LEDScroller/<OnScrollHelper>c__Iterator26` | `.ctor` (44), `Dispose` (56), `MoveNext` (764), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LEDScroller/TextString` | `.ctor` (80), `get_Flash` (52), `get_Scroll` (52), `get_Text` (52), `set_Flash` (60), `set_Scroll` (60), `set_Text` (60) |
 | `PopoverPublisher` | ✅ `.ctor` (268), ✅ `FixedUpdate` (824), ✅ `PressedBacking` (80), ✅ `SetText` (100), ✅ `Start` (224) |
 | `ShiftContentsOnButtonDown` | ✅ `.ctor` (220), ✅ `OnDisable` (272), ✅ `OnDownHandler` (1236), ✅ `OnEnable` (272) |
 | `ShiftContentsOnToggleDown` | ✅ `.ctor` (220), ✅ `OnDisable` (272), ✅ `OnDownHandler` (1216), ✅ `OnEnable` (272) |
@@ -94,13 +86,6 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `UghPublisher/UghSliderReference` | ✅ `.ctor` (44) |
 | `UghPublisher/UghTextReference` | ✅ `.ctor` (44) |
 | `UghPublisher/UghTextsDictionary` | ✅ `.ctor` (188), ✅ `get_Item` (72) |
-| `UghScrollView` | `.ctor` (188), `Awake` (208), `ForceSnapScrolling` (140), `HandleExplicitScrolling` (72), `HandleSnapScrolling` (72), `HandleVelocityScrolling` (72), `OnScrollPositionChanged` (940), `OnUghInputDown` (72), `ScrollToPosition` (536), `SnapScroll` (140), `SnapScrollByShift` (556), `SnapScrollToIndex` (1540), `UpdateRealDeltaTime` (132), `add_ScrollSnapped` (148), `add_ScrollSoftSnapped` (148), `get_HorizontalContents` (52), `get_ScrollPosition` (108), `get_SnapSpacing` (108), `get_VerticalContents` (52), `get_ViewSize` (108), `remove_ScrollSnapped` (148), `remove_ScrollSoftSnapped` (148), `set_HorizontalContents` (64), `set_ScrollPosition` (188), `set_SnapSpacing` (88), `set_VerticalContents` (64), `set_ViewSize` (88) |
-| `UghScrollView/<ForceSnapScrolling>c__Iterator21` | `.ctor` (44), `Dispose` (56), `MoveNext` (264), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghScrollView/<HandleExplicitScrolling>c__Iterator1E` | `.ctor` (44), `Dispose` (56), `MoveNext` (4524), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghScrollView/<HandleSnapScrolling>c__Iterator20` | `.ctor` (44), `Dispose` (56), `MoveNext` (5184), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghScrollView/<HandleVelocityScrolling>c__Iterator1F` | `.ctor` (44), `Dispose` (56), `MoveNext` (4908), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghScrollView/<OnUghInputDown>c__Iterator1D` | `.ctor` (44), `Dispose` (56), `MoveNext` (1536), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghScrollView/<SnapScroll>c__Iterator22` | `.ctor` (44), `Dispose` (56), `MoveNext` (3024), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `UghSlideToggle` | ✅ `.ctor` (76), ✅ `AutoSizeCollider` (44), ✅ `Awake` (84), ✅ `LocalPositionForInput` (488), ✅ `OnUghInputDown` (72), ✅ `OnUghInputUp` (56), ✅ `OnUghInputUpAsButton` (56), ✅ `SendOnChanged` (76), ✅ `Update` (64), ✅ `UpdateMeshWithSpritePrototype` (2936), ✅ `UpdateRealDeltaTime` (132), ✅ `get_State` (52), ✅ `set_State` (160) |
 | `UghSlideToggle/<OnUghInputDown>c__Iterator23` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (2464), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `UghSlider` | ✅ `.ctor` (76), ✅ `Awake` (104), ✅ `LocalPositionForInput` (488), ✅ `OnUghInputDown` (72), ✅ `OnUghInputUp` (64), ✅ `OnUghInputUpAsButton` (64), ✅ `UpdatePosition` (484), ✅ `get_Current` (100), ✅ `get_CurrentNormalized` (64), ✅ `set_Current` (116), ✅ `set_CurrentNormalized` (128) |
@@ -814,6 +799,26 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 ## Sin uso (scripts UnityScript sin referencias)
 
+### Framework UI: componentes sin instancias ni llamadas en el juego — 145 métodos, 39.0 KB ARM
+
+| Clase | Métodos (bytes ARM) |
+|---|---|
+| `Dialog` | `.ctor` (260), `Activate` (92), `ActivateHelper` (72), `Awake` (80), `Deactivate` (92), `DeactivateHelper` (72), `DoWindow` (48), `OnActivateUpdate` (664), `OnActivated` (64), `OnActivating` (44), `OnDeactivateUpdate` (44), `OnDeactivated` (64), `OnDeactivating` (44), `OnDraw` (308), `OnDrawUnderlay` (44), `OnGUI` (44), `OnStart` (296), `RenderGUI` (2176), `Start` (72), `get_On` (52) |
+| `Dialog/<ActivateHelper>c__Iterator3` | `.ctor` (44), `Dispose` (56), `MoveNext` (596), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `Dialog/<DeactivateHelper>c__Iterator4` | `.ctor` (44), `Dispose` (56), `MoveNext` (584), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `Dialog/<Start>c__Iterator2` | `.ctor` (44), `Dispose` (56), `MoveNext` (268), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `LEDScroller` | `.ctor` (184), `AddText` (120), `CheckForNewText` (240), `ClearText` (64), `OnDisable` (256), `OnEnable` (256), `OnFlash` (80), `OnFlashHelper` (72), `OnNewTextCheck` (104), `OnResetScroller` (112), `OnScroll` (80), `OnScrollHelper` (72), `OnStaticText` (264), `RemoveText` (116), `ReplaceText` (172), `SetUpNewStringForDisplayHelper` (308), `Start` (108), `TextStringCount` (64), `Update` (340), `add_HandleNewTextCheck` (160), `get_CurrentString` (52), `get_EndofSentence` (52), `remove_HandleNewTextCheck` (160), `set_CurrentString` (60), `set_EndofSentence` (60) |
+| `LEDScroller/<OnFlashHelper>c__Iterator27` | `.ctor` (44), `Dispose` (56), `MoveNext` (504), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `LEDScroller/<OnScrollHelper>c__Iterator26` | `.ctor` (44), `Dispose` (56), `MoveNext` (764), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `LEDScroller/TextString` | `.ctor` (80), `get_Flash` (52), `get_Scroll` (52), `get_Text` (52), `set_Flash` (60), `set_Scroll` (60), `set_Text` (60) |
+| `UghScrollView` | `.ctor` (188), `Awake` (208), `ForceSnapScrolling` (140), `HandleExplicitScrolling` (72), `HandleSnapScrolling` (72), `HandleVelocityScrolling` (72), `OnScrollPositionChanged` (940), `OnUghInputDown` (72), `ScrollToPosition` (536), `SnapScroll` (140), `SnapScrollByShift` (556), `SnapScrollToIndex` (1540), `UpdateRealDeltaTime` (132), `add_ScrollSnapped` (148), `add_ScrollSoftSnapped` (148), `get_HorizontalContents` (52), `get_ScrollPosition` (108), `get_SnapSpacing` (108), `get_VerticalContents` (52), `get_ViewSize` (108), `remove_ScrollSnapped` (148), `remove_ScrollSoftSnapped` (148), `set_HorizontalContents` (64), `set_ScrollPosition` (188), `set_SnapSpacing` (88), `set_VerticalContents` (64), `set_ViewSize` (88) |
+| `UghScrollView/<ForceSnapScrolling>c__Iterator21` | `.ctor` (44), `Dispose` (56), `MoveNext` (264), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `UghScrollView/<HandleExplicitScrolling>c__Iterator1E` | `.ctor` (44), `Dispose` (56), `MoveNext` (4524), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `UghScrollView/<HandleSnapScrolling>c__Iterator20` | `.ctor` (44), `Dispose` (56), `MoveNext` (5184), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `UghScrollView/<HandleVelocityScrolling>c__Iterator1F` | `.ctor` (44), `Dispose` (56), `MoveNext` (4908), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `UghScrollView/<OnUghInputDown>c__Iterator1D` | `.ctor` (44), `Dispose` (56), `MoveNext` (1536), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `UghScrollView/<SnapScroll>c__Iterator22` | `.ctor` (44), `Dispose` (56), `MoveNext` (3024), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+
 ### Sin uso (UnityScript, 0 referencias) — 10 métodos, 10.5 KB ARM
 
 | Clase | Métodos (bytes ARM) |
@@ -924,14 +929,19 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `StoreKitBinding` | `_storeKitCanMakePayments` (0), `_storeKitGetAllSavedTransactions` (0), `_storeKitPurchaseProduct` (0), `_storeKitRequestProductData` (0), `_storeKitRestoreCompletedTransactions` (0), `_storeKitValidateAutoRenewableReceipt` (0), `_storeKitValidateReceipt` (0) |
 | `iCloudBinding` | `_iCloudAddFile` (0), `_iCloudBoolForKey` (0), `_iCloudDictionaryForKey` (0), `_iCloudDocumentStoreAvailable` (0), `_iCloudDocumentsDirectory` (0), `_iCloudDoubleForKey` (0), `_iCloudEvictFile` (0), `_iCloudHasKey` (0), `_iCloudIntForKey` (0), `_iCloudIsFileDownloaded` (0), `_iCloudIsFileInCloud` (0), `_iCloudIsiCloudAvailable` (0), `_iCloudRemoveObjectForKey` (0), `_iCloudSetBool` (0), `_iCloudSetDictionary` (0), `_iCloudSetDouble` (0), `_iCloudSetInt` (0), `_iCloudSetString` (0), `_iCloudStringForKey` (0), `_iCloudSynchronize` (0) |
 
-### Framework UI propio (Ugh) — 16 métodos, 0.0 KB ARM
+### Framework UI propio (Ugh) — 4 métodos, 0.0 KB ARM
+
+| Clase | Métodos (bytes ARM) |
+|---|---|
+| `UghStretch/MPDirtyAlignHandler` | `.ctor` (0), `BeginInvoke` (0), `EndInvoke` (0), `Invoke` (0) |
+
+### Framework UI: componentes sin instancias ni llamadas en el juego — 12 métodos, 0.0 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
 | `LEDScroller/NewTextCheckHandler` | `.ctor` (0), `BeginInvoke` (0), `EndInvoke` (0), `Invoke` (0) |
 | `UghScrollView/ScrollSnappedHandler` | `.ctor` (0), `BeginInvoke` (0), `EndInvoke` (0), `Invoke` (0) |
 | `UghScrollView/ScrollSoftSnappedHandler` | `.ctor` (0), `BeginInvoke` (0), `EndInvoke` (0), `Invoke` (0) |
-| `UghStretch/MPDirtyAlignHandler` | `.ctor` (0), `BeginInvoke` (0), `EndInvoke` (0), `Invoke` (0) |
 
 ### Gestión de carrera — 4 métodos, 0.0 KB ARM
 

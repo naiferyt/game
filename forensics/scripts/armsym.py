@@ -1,4 +1,9 @@
 # Tiny symbolic evaluator for Mono AOT ARM float code (straight-line per listing order).
+# Stage 1 helper used to decode long float-heavy methods (UghSprite's nine-slice mesh builder): it walks a
+# condensed listing (forensics/scripts/condense.py output) and prints, for each call, the symbolic expressions
+# held in its argument registers / stack slots, so Vector3/Rect constructors and MakeQuad arguments can be read
+# as formulas instead of register traffic. Conditional stores are not tracked (object-field stores are ignored).
+# Usage: python3 forensics/scripts/armsym.py <condensed listing> [first line] [last line]
 import re, sys
 lines = open(sys.argv[1]).read().split('\n')
 start = int(sys.argv[2]) if len(sys.argv) > 2 else 0

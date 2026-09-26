@@ -21,6 +21,7 @@ RULES = [
     (r'^(Car_Script|Plane_Script|WheelData)$', 'Sin uso (UnityScript, 0 referencias)', 'SIN USO'),
     (r'^(Debug\w*Publisher|RuntimeEditorUtils|StreamTest|ApplyEffectDebugUtility)$', 'Depuración (herramientas del equipo original)', 'OPCIONAL'),
     (r'^(TouchTurnTrack|PlayerAccelControl)$', 'Input táctil/inclinación (Android)', 'ANDROID'),
+    (r'^(UghScrollView|LEDScroller|Dialog)$', 'Framework UI: componentes sin instancias ni llamadas en el juego', 'SIN USO'),
     # ---- Etapa 1
     (r'^(CloudStrap|LocalizeCloudStrap|EnsureGlobals|SingletonScript|PreFrontEndHoop|ScreenFader|ScreenFade|FadeHelper|RotatorAI|ScreenTimeoutController|QualityControl|LowEndInhibitor|PlatformProfile)', 'Arranque y globales', 1),
     (r'^(Ugh|LEDScroller|TransformReference|TransformsDictionary|TextString|ShiftContentsOn|Dialog$|PopoverPublisher|GenericPopupPublisher|ConfirmationPublisher|InputBlocker$)', 'Framework UI propio (Ugh)', 1),
