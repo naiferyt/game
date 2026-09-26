@@ -1,0 +1,433 @@
+####################################################################################################
+# TYPE MessengerInternal  (instance size 0x8)
+#   static System.Collections.Generic.Dictionary`2<string,System.Delegate> eventTable
+#   static MessengerMode DEFAULT_MODE
+#   vtable slots: 
+####################################################################################################
+== MessengerInternal::.cctor  token 0x06000157 @0x0001cd34 (116 bytes) static
+   args: 
+           0001cd34  mov      ip, sp                       
+           0001cd38  push     {r7, lr}                     
+           0001cd3c  mov      r7, sp                       
+           0001cd40  push     {r8, fp, ip, lr}             
+           0001cd44  sub      sp, sp, #8                   
+           0001cd48  mov      fp, sp                       
+           0001cd4c  ldr      r0, [pc]                     
+           0001cd50  b        #0x1cd58                     ; -> L_1cd58
+           0001cd54  .word    0x00f7fc74                   ; literal 16252020 / 
+L_1cd58:   0001cd58  ldr      r0, [pc, r0]                 ; GOT[235] VTABLE System.Collections.Generic.Dictionary`2<string,System.Delegate>
+           0001cd5c  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0001cd60  str      r0, [fp]                     
+           0001cd64  bl       #0xbaa30                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::.ctor
+           0001cd68  ldr      r1, [fp]                     
+           0001cd6c  ldr      r0, [pc]                     
+           0001cd70  b        #0x1cd78                     ; -> L_1cd78
+           0001cd74  .word    0x00f7fc58                   ; literal 16251992 / 
+L_1cd78:   0001cd78  ldr      r0, [pc, r0]                 ; GOT[236] SFLDA MessengerInternal::eventTable
+           0001cd7c  str      r1, [r0]                     
+           0001cd80  ldr      r0, [pc]                     
+           0001cd84  b        #0x1cd8c                     ; -> L_1cd8c
+           0001cd88  .word    0x00f7fc48                   ; literal 16251976 / 
+L_1cd8c:   0001cd8c  ldr      r0, [pc, r0]                 ; GOT[237] SFLDA MessengerInternal::DEFAULT_MODE
+           0001cd90  mov      r1, #1                       
+           0001cd94  str      r1, [r0]                     
+           0001cd98  add      sp, fp, #8                   
+           0001cd9c  pop      {r8, fp}                     
+           0001cda0  ldr      r7, [sp, #8]                 
+           0001cda4  ldm      sp, {sp, pc}                 
+
+== MessengerInternal::OnListenerAdding  token 0x06000158 @0x0001cda8 (360 bytes) static
+   args: eventType, listenerBeingAdded
+           0001cda8  mov      ip, sp                       
+           0001cdac  push     {r7, lr}                     
+           0001cdb0  mov      r7, sp                       
+           0001cdb4  push     {r5, r6, r8, fp, ip, lr}     
+           0001cdb8  sub      sp, sp, #0x18                
+           0001cdbc  mov      fp, sp                       
+           0001cdc0  mov      r6, r0                       
+           0001cdc4  str      r1, [fp]                     
+           0001cdc8  ldr      r0, [pc]                     
+           0001cdcc  b        #0x1cdd4                     ; -> L_1cdd4
+           0001cdd0  .word    0x00f7fbfc                   ; literal 16251900 / 
+L_1cdd4:   0001cdd4  ldr      r0, [pc, r0]                 ; GOT[236] SFLDA MessengerInternal::eventTable
+           0001cdd8  ldr      r2, [r0]                     
+           0001cddc  mov      r0, r2                       
+           0001cde0  mov      r1, r6                       
+           0001cde4  ldr      lr, [r2]                     
+           0001cde8  bl       #0xbaa40                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::ContainsKey
+           0001cdec  cmp      r0, #0                       
+           0001cdf0  bne      #0x1ce1c                     ; -> L_1ce1c
+           0001cdf4  ldr      r0, [pc]                     
+           0001cdf8  b        #0x1ce00                     ; -> L_1ce00
+           0001cdfc  .word    0x00f7fbd0                   ; literal 16251856 / 
+L_1ce00:   0001ce00  ldr      r0, [pc, r0]                 ; GOT[236] SFLDA MessengerInternal::eventTable
+           0001ce04  ldr      r3, [r0]                     
+           0001ce08  mov      r0, r3                       
+           0001ce0c  mov      r1, r6                       
+           0001ce10  mov      r2, #0                       
+           0001ce14  ldr      lr, [r3]                     
+           0001ce18  bl       #0xbaa50                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::Add
+L_1ce1c:   0001ce1c  ldr      r0, [pc]                     
+           0001ce20  b        #0x1ce28                     ; -> L_1ce28
+           0001ce24  .word    0x00f7fba8                   ; literal 16251816 / 
+L_1ce28:   0001ce28  ldr      r0, [pc, r0]                 ; GOT[236] SFLDA MessengerInternal::eventTable
+           0001ce2c  ldr      r2, [r0]                     
+           0001ce30  mov      r0, r2                       
+           0001ce34  mov      r1, r6                       
+           0001ce38  ldr      lr, [r2]                     
+           0001ce3c  bl       #0xbaa60                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::get_Item
+           0001ce40  mov      r5, r0                       
+           0001ce44  cmp      r0, #0                       
+           0001ce48  beq      #0x1ce68                     ; -> L_1ce68
+           0001ce4c  ldr      r0, [r5]                     
+           0001ce50  ldr      r0, [r0, #0x10]              ; field+0x10 
+           0001ce54  ldr      r1, [fp]                     
+           0001ce58  ldr      r1, [r1]                     
+           0001ce5c  ldr      r1, [r1, #0x10]              ; field+0x10 
+           0001ce60  cmp      r0, r1                       
+           0001ce64  bne      #0x1ce78                     ; -> L_1ce78
+L_1ce68:   0001ce68  add      sp, fp, #0x18                
+           0001ce6c  pop      {r5, r6, r8, fp}             
+           0001ce70  ldr      r7, [sp, #8]                 
+           0001ce74  ldm      sp, {sp, pc}                 
+L_1ce78:   0001ce78  ldr      r0, [pc]                     
+           0001ce7c  b        #0x1ce84                     ; -> L_1ce84
+           0001ce80  .word    0x00f7f79c                   ; literal 16250780 / 
+L_1ce84:   0001ce84  ldr      r0, [pc, r0]                 ; GOT[0] IMAGE Assembly-CSharp-firstpass
+           0001ce88  mov      r1, #0xf8                    
+           0001ce8c  add      r1, r1, #16, #24             
+           0001ce90  bl       #0xbaa70                     ; CALL [INTERNAL_METHOD] helper_ldstr
+           0001ce94  str      r0, [fp, #0x10]              
+           0001ce98  ldr      r0, [r5]                     
+           0001ce9c  ldr      r1, [r0, #0x10]              ; field+0x10 
+           0001cea0  mov      r0, r1                       
+           0001cea4  ldr      r1, [r1]                     
+           0001cea8  mov      lr, pc                       
+           0001ceac  ldr      pc, [r1, #0x64]              ; VIRTUAL CALL slot +0x64: System.Exception::get_InnerException | System.IConvertible::ToSingle
+           0001ceb0  str      r0, [fp, #0x14]              
+           0001ceb4  ldr      r0, [fp]                     
+           0001ceb8  ldr      r0, [r0]                     
+           0001cebc  ldr      r1, [r0, #0x10]              ; field+0x10 
+           0001cec0  mov      r0, r1                       
+           0001cec4  ldr      r1, [r1]                     
+           0001cec8  mov      lr, pc                       
+           0001cecc  ldr      pc, [r1, #0x64]              ; VIRTUAL CALL slot +0x64: System.Exception::get_InnerException | System.IConvertible::ToSingle
+           0001ced0  mov      r3, r0                       
+           0001ced4  ldr      r0, [fp, #0x10]              
+           0001ced8  ldr      r2, [fp, #0x14]              
+           0001cedc  mov      r1, r6                       
+           0001cee0  bl       #0xb9da0                     ; CALL System.String::Format
+           0001cee4  str      r0, [fp, #0xc]               
+           0001cee8  ldr      r0, [pc]                     
+           0001ceec  b        #0x1cef4                     ; -> L_1cef4
+           0001cef0  .word    0x00f7fae4                   ; literal 16251620 / 
+L_1cef4:   0001cef4  ldr      r0, [pc, r0]                 ; GOT[238] VTABLE MessengerInternal/ListenerException
+           0001cef8  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0001cefc  ldr      r1, [fp, #0xc]               
+           0001cf00  str      r0, [fp, #8]                 
+           0001cf04  bl       #0x1d2d0                     ; CALL MessengerInternal/ListenerException::.ctor (direct)
+           0001cf08  ldr      r0, [fp, #8]                 
+           0001cf0c  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+
+== MessengerInternal::OnListenerRemoving  token 0x06000159 @0x0001cf10 (484 bytes) static
+   args: eventType, listenerBeingRemoved
+           0001cf10  mov      ip, sp                       
+           0001cf14  push     {r7, lr}                     
+           0001cf18  mov      r7, sp                       
+           0001cf1c  push     {r5, r6, r8, fp, ip, lr}     
+           0001cf20  sub      sp, sp, #0x18                
+           0001cf24  mov      fp, sp                       
+           0001cf28  mov      r6, r0                       
+           0001cf2c  str      r1, [fp]                     
+           0001cf30  ldr      r0, [pc]                     
+           0001cf34  b        #0x1cf3c                     ; -> L_1cf3c
+           0001cf38  .word    0x00f7fa94                   ; literal 16251540 / 
+L_1cf3c:   0001cf3c  ldr      r0, [pc, r0]                 ; GOT[236] SFLDA MessengerInternal::eventTable
+           0001cf40  ldr      r2, [r0]                     
+           0001cf44  mov      r0, r2                       
+           0001cf48  mov      r1, r6                       
+           0001cf4c  ldr      lr, [r2]                     
+           0001cf50  bl       #0xbaa40                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::ContainsKey
+           0001cf54  cmp      r0, #0                       
+           0001cf58  beq      #0x1cfac                     ; -> L_1cfac
+           0001cf5c  ldr      r0, [pc]                     
+           0001cf60  b        #0x1cf68                     ; -> L_1cf68
+           0001cf64  .word    0x00f7fa68                   ; literal 16251496 / 
+L_1cf68:   0001cf68  ldr      r0, [pc, r0]                 ; GOT[236] SFLDA MessengerInternal::eventTable
+           0001cf6c  ldr      r2, [r0]                     
+           0001cf70  mov      r0, r2                       
+           0001cf74  mov      r1, r6                       
+           0001cf78  ldr      lr, [r2]                     
+           0001cf7c  bl       #0xbaa60                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::get_Item
+           0001cf80  mov      r5, r0                       
+           0001cf84  cmp      r0, #0                       
+           0001cf88  beq      #0x1d00c                     ; -> L_1d00c
+           0001cf8c  ldr      r0, [r5]                     
+           0001cf90  ldr      r0, [r0, #0x10]              ; field+0x10 
+           0001cf94  ldr      r1, [fp]                     
+           0001cf98  ldr      r1, [r1]                     
+           0001cf9c  ldr      r1, [r1, #0x10]              ; field+0x10 
+           0001cfa0  cmp      r0, r1                       
+           0001cfa4  bne      #0x1d05c                     ; -> L_1d05c
+           0001cfa8  b        #0x1cffc                     ; -> L_1cffc
+L_1cfac:   0001cfac  ldr      r0, [pc]                     
+           0001cfb0  b        #0x1cfb8                     ; -> L_1cfb8
+           0001cfb4  .word    0x00f7f668                   ; literal 16250472 / 
+L_1cfb8:   0001cfb8  ldr      r0, [pc, r0]                 ; GOT[0] IMAGE Assembly-CSharp-firstpass
+           0001cfbc  mov      r1, #0xf1                    
+           0001cfc0  add      r1, r1, #0x1300              
+           0001cfc4  bl       #0xbaa70                     ; CALL [INTERNAL_METHOD] helper_ldstr
+           0001cfc8  mov      r1, r6                       
+           0001cfcc  bl       #0xbaa90                     ; CALL System.String::Format
+           0001cfd0  str      r0, [fp, #0xc]               
+           0001cfd4  ldr      r0, [pc]                     
+           0001cfd8  b        #0x1cfe0                     ; -> L_1cfe0
+           0001cfdc  .word    0x00f7f9f8                   ; literal 16251384 / 
+L_1cfe0:   0001cfe0  ldr      r0, [pc, r0]                 ; GOT[238] VTABLE MessengerInternal/ListenerException
+           0001cfe4  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0001cfe8  ldr      r1, [fp, #0xc]               
+           0001cfec  str      r0, [fp, #8]                 
+           0001cff0  bl       #0x1d2d0                     ; CALL MessengerInternal/ListenerException::.ctor (direct)
+           0001cff4  ldr      r0, [fp, #8]                 
+           0001cff8  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_1cffc:   0001cffc  add      sp, fp, #0x18                
+           0001d000  pop      {r5, r6, r8, fp}             
+           0001d004  ldr      r7, [sp, #8]                 
+           0001d008  ldm      sp, {sp, pc}                 
+L_1d00c:   0001d00c  ldr      r0, [pc]                     
+           0001d010  b        #0x1d018                     ; -> L_1d018
+           0001d014  .word    0x00f7f608                   ; literal 16250376 / 
+L_1d018:   0001d018  ldr      r0, [pc, r0]                 ; GOT[0] IMAGE Assembly-CSharp-firstpass
+           0001d01c  mov      r1, #0x1b                    
+           0001d020  add      r1, r1, #0x1200              
+           0001d024  bl       #0xbaa70                     ; CALL [INTERNAL_METHOD] helper_ldstr
+           0001d028  mov      r1, r6                       
+           0001d02c  bl       #0xbaa90                     ; CALL System.String::Format
+           0001d030  str      r0, [fp, #0xc]               
+           0001d034  ldr      r0, [pc]                     
+           0001d038  b        #0x1d040                     ; -> L_1d040
+           0001d03c  .word    0x00f7f998                   ; literal 16251288 / 
+L_1d040:   0001d040  ldr      r0, [pc, r0]                 ; GOT[238] VTABLE MessengerInternal/ListenerException
+           0001d044  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0001d048  ldr      r1, [fp, #0xc]               
+           0001d04c  str      r0, [fp, #8]                 
+           0001d050  bl       #0x1d2d0                     ; CALL MessengerInternal/ListenerException::.ctor (direct)
+           0001d054  ldr      r0, [fp, #8]                 
+           0001d058  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_1d05c:   0001d05c  ldr      r0, [pc]                     
+           0001d060  b        #0x1d068                     ; -> L_1d068
+           0001d064  .word    0x00f7f5b8                   ; literal 16250296 / 
+L_1d068:   0001d068  ldr      r0, [pc, r0]                 ; GOT[0] IMAGE Assembly-CSharp-firstpass
+           0001d06c  mov      r1, #0xc4                    
+           0001d070  add      r1, r1, #0x1200              
+           0001d074  bl       #0xbaa70                     ; CALL [INTERNAL_METHOD] helper_ldstr
+           0001d078  str      r0, [fp, #0x10]              
+           0001d07c  ldr      r0, [r5]                     
+           0001d080  ldr      r1, [r0, #0x10]              ; field+0x10 
+           0001d084  mov      r0, r1                       
+           0001d088  ldr      r1, [r1]                     
+           0001d08c  mov      lr, pc                       
+           0001d090  ldr      pc, [r1, #0x64]              ; VIRTUAL CALL slot +0x64: System.Exception::get_InnerException | System.IConvertible::ToSingle
+           0001d094  str      r0, [fp, #0x14]              
+           0001d098  ldr      r0, [fp]                     
+           0001d09c  ldr      r0, [r0]                     
+           0001d0a0  ldr      r1, [r0, #0x10]              ; field+0x10 
+           0001d0a4  mov      r0, r1                       
+           0001d0a8  ldr      r1, [r1]                     
+           0001d0ac  mov      lr, pc                       
+           0001d0b0  ldr      pc, [r1, #0x64]              ; VIRTUAL CALL slot +0x64: System.Exception::get_InnerException | System.IConvertible::ToSingle
+           0001d0b4  mov      r3, r0                       
+           0001d0b8  ldr      r0, [fp, #0x10]              
+           0001d0bc  ldr      r2, [fp, #0x14]              
+           0001d0c0  mov      r1, r6                       
+           0001d0c4  bl       #0xb9da0                     ; CALL System.String::Format
+           0001d0c8  str      r0, [fp, #0xc]               
+           0001d0cc  ldr      r0, [pc]                     
+           0001d0d0  b        #0x1d0d8                     ; -> L_1d0d8
+           0001d0d4  .word    0x00f7f900                   ; literal 16251136 / 
+L_1d0d8:   0001d0d8  ldr      r0, [pc, r0]                 ; GOT[238] VTABLE MessengerInternal/ListenerException
+           0001d0dc  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0001d0e0  ldr      r1, [fp, #0xc]               
+           0001d0e4  str      r0, [fp, #8]                 
+           0001d0e8  bl       #0x1d2d0                     ; CALL MessengerInternal/ListenerException::.ctor (direct)
+           0001d0ec  ldr      r0, [fp, #8]                 
+           0001d0f0  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+
+== MessengerInternal::OnListenerRemoved  token 0x0600015a @0x0001d0f4 (124 bytes) static
+   args: eventType
+           0001d0f4  mov      ip, sp                       
+           0001d0f8  push     {r7, lr}                     
+           0001d0fc  mov      r7, sp                       
+           0001d100  push     {r8, fp, ip, lr}             
+           0001d104  sub      sp, sp, #8                   
+           0001d108  mov      fp, sp                       
+           0001d10c  str      r0, [fp]                     
+           0001d110  ldr      r0, [pc]                     
+           0001d114  b        #0x1d11c                     ; -> L_1d11c
+           0001d118  .word    0x00f7f8b4                   ; literal 16251060 / 
+L_1d11c:   0001d11c  ldr      r0, [pc, r0]                 ; GOT[236] SFLDA MessengerInternal::eventTable
+           0001d120  ldr      r2, [r0]                     
+           0001d124  mov      r0, r2                       
+           0001d128  ldr      r1, [fp]                     
+           0001d12c  ldr      lr, [r2]                     
+           0001d130  bl       #0xbaa60                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::get_Item
+           0001d134  cmp      r0, #0                       
+           0001d138  bne      #0x1d160                     ; -> L_1d160
+           0001d13c  ldr      r0, [pc]                     
+           0001d140  b        #0x1d148                     ; -> L_1d148
+           0001d144  .word    0x00f7f888                   ; literal 16251016 / 
+L_1d148:   0001d148  ldr      r0, [pc, r0]                 ; GOT[236] SFLDA MessengerInternal::eventTable
+           0001d14c  ldr      r2, [r0]                     
+           0001d150  mov      r0, r2                       
+           0001d154  ldr      r1, [fp]                     
+           0001d158  ldr      lr, [r2]                     
+           0001d15c  bl       #0xbaaa0                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::Remove
+L_1d160:   0001d160  add      sp, fp, #8                   
+           0001d164  pop      {r8, fp}                     
+           0001d168  ldr      r7, [sp, #8]                 
+           0001d16c  ldm      sp, {sp, pc}                 
+
+== MessengerInternal::OnBroadcasting  token 0x0600015b @0x0001d170 (184 bytes) static
+   args: eventType, mode
+           0001d170  mov      ip, sp                       
+           0001d174  push     {r7, lr}                     
+           0001d178  mov      r7, sp                       
+           0001d17c  push     {r8, fp, ip, lr}             
+           0001d180  sub      sp, sp, #0x10                
+           0001d184  mov      fp, sp                       
+           0001d188  str      r0, [fp]                     
+           0001d18c  str      r1, [fp, #4]                 
+           0001d190  ldr      r0, [fp, #4]                 
+           0001d194  cmp      r0, #1                       
+           0001d198  bne      #0x1d1c8                     ; -> L_1d1c8
+           0001d19c  ldr      r0, [pc]                     
+           0001d1a0  b        #0x1d1a8                     ; -> L_1d1a8
+           0001d1a4  .word    0x00f7f828                   ; literal 16250920 / 
+L_1d1a8:   0001d1a8  ldr      r0, [pc, r0]                 ; GOT[236] SFLDA MessengerInternal::eventTable
+           0001d1ac  ldr      r2, [r0]                     
+           0001d1b0  mov      r0, r2                       
+           0001d1b4  ldr      r1, [fp]                     
+           0001d1b8  ldr      lr, [r2]                     
+           0001d1bc  bl       #0xbaa40                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::ContainsKey
+           0001d1c0  cmp      r0, #0                       
+           0001d1c4  beq      #0x1d1d8                     ; -> L_1d1d8
+L_1d1c8:   0001d1c8  add      sp, fp, #0x10                
+           0001d1cc  pop      {r8, fp}                     
+           0001d1d0  ldr      r7, [sp, #8]                 
+           0001d1d4  ldm      sp, {sp, pc}                 
+L_1d1d8:   0001d1d8  ldr      r0, [pc]                     
+           0001d1dc  b        #0x1d1e4                     ; -> L_1d1e4
+           0001d1e0  .word    0x00f7f43c                   ; literal 16249916 / 
+L_1d1e4:   0001d1e4  ldr      r0, [pc, r0]                 ; GOT[0] IMAGE Assembly-CSharp-firstpass
+           0001d1e8  mov      r1, #0xac                    
+           0001d1ec  add      r1, r1, #20, #24             
+           0001d1f0  bl       #0xbaa70                     ; CALL [INTERNAL_METHOD] helper_ldstr
+           0001d1f4  ldr      r1, [fp]                     
+           0001d1f8  bl       #0xbaa90                     ; CALL System.String::Format
+           0001d1fc  str      r0, [fp, #0xc]               
+           0001d200  ldr      r0, [pc]                     
+           0001d204  b        #0x1d20c                     ; -> L_1d20c
+           0001d208  .word    0x00f7f7d0                   ; literal 16250832 / 
+L_1d20c:   0001d20c  ldr      r0, [pc, r0]                 ; GOT[239] VTABLE MessengerInternal/BroadcastException
+           0001d210  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0001d214  ldr      r1, [fp, #0xc]               
+           0001d218  str      r0, [fp, #8]                 
+           0001d21c  bl       #0x1d294                     ; CALL MessengerInternal/BroadcastException::.ctor (direct)
+           0001d220  ldr      r0, [fp, #8]                 
+           0001d224  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+
+== MessengerInternal::CreateBroadcastSignatureException  token 0x0600015c @0x0001d228 (108 bytes) static
+   args: eventType
+           0001d228  mov      ip, sp                       
+           0001d22c  push     {r7, lr}                     
+           0001d230  mov      r7, sp                       
+           0001d234  push     {r8, fp, ip, lr}             
+           0001d238  sub      sp, sp, #0x10                
+           0001d23c  mov      fp, sp                       
+           0001d240  str      r0, [fp]                     
+           0001d244  ldr      r0, [pc]                     
+           0001d248  b        #0x1d250                     ; -> L_1d250
+           0001d24c  .word    0x00f7f790                   ; literal 16250768 / 
+L_1d250:   0001d250  ldr      r0, [pc, r0]                 ; GOT[240] LDSTR 'Broadcasting message {0} but listeners have a different signature than the broadcaster.'
+           0001d254  ldr      r1, [fp]                     
+           0001d258  bl       #0xbaa90                     ; CALL System.String::Format
+           0001d25c  str      r0, [fp, #0xc]               
+           0001d260  ldr      r0, [pc]                     
+           0001d264  b        #0x1d26c                     ; -> L_1d26c
+           0001d268  .word    0x00f7f770                   ; literal 16250736 / 
+L_1d26c:   0001d26c  ldr      r0, [pc, r0]                 ; GOT[239] VTABLE MessengerInternal/BroadcastException
+           0001d270  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0001d274  ldr      r1, [fp, #0xc]               
+           0001d278  str      r0, [fp, #8]                 
+           0001d27c  bl       #0x1d294                     ; CALL MessengerInternal/BroadcastException::.ctor (direct)
+           0001d280  ldr      r0, [fp, #8]                 
+           0001d284  add      sp, fp, #0x10                
+           0001d288  pop      {r8, fp}                     
+           0001d28c  ldr      r7, [sp, #8]                 
+           0001d290  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE MessengerInternal/BroadcastException  (instance size 0x34)
+#   +0x08 trace_ips                      IntPtr[]
+#   +0x0c inner_exception                System.Exception
+#   +0x10 message                        string
+#   +0x14 help_link                      string
+#   +0x18 class_name                     string
+#   +0x1c stack_trace                    string
+#   +0x20 _remoteStackTraceString        string
+#   +0x24 source                         string
+#   +0x28 _data                          System.Collections.IDictionary
+#   +0x2c remote_stack_index             int
+#   +0x30 hresult                        int
+#   vtable slots: 
+####################################################################################################
+== MessengerInternal/BroadcastException::.ctor  token 0x0600015d @0x0001d294 (60 bytes)
+   args: r0=this, msg
+           0001d294  mov      ip, sp                       
+           0001d298  push     {r7, lr}                     
+           0001d29c  mov      r7, sp                       
+           0001d2a0  push     {r8, fp, ip, lr}             
+           0001d2a4  sub      sp, sp, #8                   
+           0001d2a8  mov      fp, sp                       
+           0001d2ac  str      r0, [fp]                     
+           0001d2b0  str      r1, [fp, #4]                 
+           0001d2b4  ldr      r0, [fp]                     
+           0001d2b8  ldr      r1, [fp, #4]                 
+           0001d2bc  bl       #0xbaab0                     ; CALL System.Exception::.ctor
+           0001d2c0  add      sp, fp, #8                   
+           0001d2c4  pop      {r8, fp}                     
+           0001d2c8  ldr      r7, [sp, #8]                 
+           0001d2cc  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE MessengerInternal/ListenerException  (instance size 0x34)
+#   +0x08 trace_ips                      IntPtr[]
+#   +0x0c inner_exception                System.Exception
+#   +0x10 message                        string
+#   +0x14 help_link                      string
+#   +0x18 class_name                     string
+#   +0x1c stack_trace                    string
+#   +0x20 _remoteStackTraceString        string
+#   +0x24 source                         string
+#   +0x28 _data                          System.Collections.IDictionary
+#   +0x2c remote_stack_index             int
+#   +0x30 hresult                        int
+#   vtable slots: 
+####################################################################################################
+== MessengerInternal/ListenerException::.ctor  token 0x0600015e @0x0001d2d0 (60 bytes)
+   args: r0=this, msg
+           0001d2d0  mov      ip, sp                       
+           0001d2d4  push     {r7, lr}                     
+           0001d2d8  mov      r7, sp                       
+           0001d2dc  push     {r8, fp, ip, lr}             
+           0001d2e0  sub      sp, sp, #8                   
+           0001d2e4  mov      fp, sp                       
+           0001d2e8  str      r0, [fp]                     
+           0001d2ec  str      r1, [fp, #4]                 
+           0001d2f0  ldr      r0, [fp]                     
+           0001d2f4  ldr      r1, [fp, #4]                 
+           0001d2f8  bl       #0xbaab0                     ; CALL System.Exception::.ctor
+           0001d2fc  add      sp, fp, #8                   
+           0001d300  pop      {r8, fp}                     
+           0001d304  ldr      r7, [sp, #8]                 
+           0001d308  ldm      sp, {sp, pc}                 

@@ -1,0 +1,227 @@
+####################################################################################################
+# TYPE MultilayerTexture  (instance size 0xc)
+#   +0x08 layers                         MultilayerTexture/Layer[]
+#   vtable slots: 
+####################################################################################################
+== MultilayerTexture::.ctor  token 0x060001fc @0x000e0494 (44 bytes)
+   args: r0=this, 
+           000e0494  mov      ip, sp                       
+           000e0498  push     {r7, lr}                     
+           000e049c  mov      r7, sp                       
+           000e04a0  push     {r8, fp, ip, lr}             
+           000e04a4  sub      sp, sp, #8                   
+           000e04a8  mov      fp, sp                       
+           000e04ac  str      r0, [fp]                     
+           000e04b0  add      sp, fp, #8                   
+           000e04b4  pop      {r8, fp}                     
+           000e04b8  ldr      r7, [sp, #8]                 
+           000e04bc  ldm      sp, {sp, pc}                 
+
+== MultilayerTexture::FindLayerByName  token 0x060001fd @0x000e04c0 (152 bytes)
+   args: r0=this, name
+           000e04c0  mov      ip, sp                       
+           000e04c4  push     {r7, lr}                     
+           000e04c8  mov      r7, sp                       
+           000e04cc  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e04d0  mov      fp, sp                       
+           000e04d4  mov      r6, r0                       
+           000e04d8  mov      sl, r1                       
+           000e04dc  ldr      r6, [r6, #8]                 ; field+0x8 (this-class: layers)
+           000e04e0  mov      r4, #0                       
+           000e04e4  b        #0xe0528                     ; -> L_e0528
+L_e04e8:   000e04e8  ldr      r0, [r6, #0xc]               ; field+0xc 
+           000e04ec  cmp      r0, r4                       
+           000e04f0  blls     #0xe0548                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e04f4  lsl      r0, r4, #2                   
+           000e04f8  add      r0, r6, r0                   
+           000e04fc  add      r0, r0, #0x10                
+           000e0500  ldr      r5, [r0]                     
+           000e0504  mov      r0, r5                       
+           000e0508  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: layers)
+           000e050c  mov      r1, sl                       
+           000e0510  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000e0514  cmp      r0, #0                       
+           000e0518  beq      #0xe0524                     ; -> L_e0524
+           000e051c  mov      r0, r5                       
+           000e0520  b        #0xe0538                     ; -> L_e0538
+L_e0524:   000e0524  add      r4, r4, #1                   
+L_e0528:   000e0528  ldr      r0, [r6, #0xc]               ; field+0xc 
+           000e052c  cmp      r4, r0                       
+           000e0530  blt      #0xe04e8                     ; -> L_e04e8
+           000e0534  mov      r0, #0                       
+L_e0538:   000e0538  add      sp, fp, #0                   
+           000e053c  pop      {r4, r5, r6, r8, sl, fp}     
+           000e0540  ldr      r7, [sp, #8]                 
+           000e0544  ldm      sp, {sp, pc}                 
+           000e0548  mov      r1, lr                       
+           000e054c  ldr      r0, [pc]                     
+           000e0550  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e0554  andeq    r0, r0, #0xf8                
+
+== MultilayerTexture::ComposeTexture  token 0x060001fe @0x000e0558 (320 bytes)
+   args: r0=this, 
+           000e0558  mov      ip, sp                       
+           000e055c  push     {r7, lr}                     
+           000e0560  mov      r7, sp                       
+           000e0564  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e0568  sub      sp, sp, #8                   
+           000e056c  mov      fp, sp                       
+           000e0570  mov      sl, r0                       
+           000e0574  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: layers)
+           000e0578  cmp      r0, #0                       
+           000e057c  beq      #0xe0590                     ; -> L_e0590
+           000e0580  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: layers)
+           000e0584  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e0588  cmp      r0, #0                       
+           000e058c  bne      #0xe0598                     ; -> L_e0598
+L_e0590:   000e0590  mov      r0, #0                       
+           000e0594  b        #0xe0678                     ; -> L_e0678
+L_e0598:   000e0598  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: layers)
+           000e059c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e05a0  ldr      r0, [pc]                     
+           000e05a4  b        #0xe05ac                     ; -> L_e05ac
+           000e05a8  .word    0x00ec4d70                   ; literal 15486320 / 
+L_e05ac:   000e05ac  ldr      r0, [pc, r0]                 ; GOT[367] VTABLE UnityEngine.Texture2D[]
+           000e05b0  bl       #0x22a7c0                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           000e05b4  mov      r6, r0                       
+           000e05b8  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: layers)
+           000e05bc  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e05c0  ldr      r0, [pc]                     
+           000e05c4  b        #0xe05cc                     ; -> L_e05cc
+           000e05c8  .word    0x00ec4d28                   ; literal 15486248 / 
+L_e05cc:   000e05cc  ldr      r0, [pc, r0]                 ; GOT[357] VTABLE UnityEngine.Color32[]
+           000e05d0  bl       #0x22a7c0                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           000e05d4  mov      r5, r0                       
+           000e05d8  mov      r4, #0                       
+           000e05dc  b        #0xe065c                     ; -> L_e065c
+L_e05e0:   000e05e0  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: layers)
+           000e05e4  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e05e8  cmp      r1, r4                       
+           000e05ec  blls     #0xe0688                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e05f0  lsl      r1, r4, #2                   
+           000e05f4  add      r0, r0, r1                   
+           000e05f8  add      r0, r0, #0x10                
+           000e05fc  ldr      r0, [r0]                     
+           000e0600  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000e0604  mov      r0, r6                       
+           000e0608  mov      r1, r4                       
+           000e060c  bl       #0x22a7f0                    ; CALL wrapper stelemref
+           000e0610  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000e0614  cmp      r0, r4                       
+           000e0618  blls     #0xe0688                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e061c  lsl      r0, r4, #2                   
+           000e0620  add      r0, r5, r0                   
+           000e0624  add      r0, r0, #0x10                
+           000e0628  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: layers)
+           000e062c  ldr      r2, [r1, #0xc]               ; field+0xc 
+           000e0630  cmp      r2, r4                       
+           000e0634  blls     #0xe0688                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e0638  lsl      r2, r4, #2                   
+           000e063c  add      r1, r1, r2                   
+           000e0640  add      r1, r1, #0x10                
+           000e0644  ldr      r1, [r1]                     
+           000e0648  add      r1, r1, #0x10                
+           000e064c  ldr      r1, [r1]                     
+           000e0650  str      r1, [fp]                     
+           000e0654  str      r1, [r0]                     
+           000e0658  add      r4, r4, #1                   
+L_e065c:   000e065c  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: layers)
+           000e0660  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e0664  cmp      r4, r0                       
+           000e0668  blt      #0xe05e0                     ; -> L_e05e0
+           000e066c  mov      r0, r6                       
+           000e0670  mov      r1, r5                       
+           000e0674  bl       #0x22c0c0                    ; CALL CompositeTextureUtil::MergeLayers
+L_e0678:   000e0678  add      sp, fp, #8                   
+           000e067c  pop      {r4, r5, r6, r8, sl, fp}     
+           000e0680  ldr      r7, [sp, #8]                 
+           000e0684  ldm      sp, {sp, pc}                 
+           000e0688  mov      r1, lr                       
+           000e068c  ldr      r0, [pc]                     
+           000e0690  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e0694  andeq    r0, r0, #0xf8                
+
+== MultilayerTexture::SetLayerTexture  token 0x060001ff @0x000e0698 (84 bytes)
+   args: r0=this, name, texture
+           000e0698  mov      ip, sp                       
+           000e069c  push     {r7, lr}                     
+           000e06a0  mov      r7, sp                       
+           000e06a4  push     {r6, r8, fp, ip, lr}         
+           000e06a8  sub      sp, sp, #0xc                 
+           000e06ac  mov      fp, sp                       
+           000e06b0  str      r0, [fp]                     
+           000e06b4  mov      r6, r1                       
+           000e06b8  str      r2, [fp, #4]                 
+           000e06bc  ldr      r0, [fp]                     
+           000e06c0  mov      r1, r6                       
+           000e06c4  bl       #0xe04c0                     ; CALL MultilayerTexture::FindLayerByName (direct)
+           000e06c8  mov      r6, r0                       
+           000e06cc  cmp      r0, #0                       
+           000e06d0  beq      #0xe06dc                     ; -> L_e06dc
+           000e06d4  ldr      r0, [fp, #4]                 
+           000e06d8  str      r0, [r6, #0xc]               ; field+0xc 
+L_e06dc:   000e06dc  add      sp, fp, #0xc                 
+           000e06e0  pop      {r6, r8, fp}                 
+           000e06e4  ldr      r7, [sp, #8]                 
+           000e06e8  ldm      sp, {sp, pc}                 
+
+== MultilayerTexture::SetLayerColor  token 0x06000200 @0x000e06ec (88 bytes)
+   args: r0=this, name, color
+           000e06ec  mov      ip, sp                       
+           000e06f0  push     {r7, lr}                     
+           000e06f4  mov      r7, sp                       
+           000e06f8  push     {r8, sl, fp, ip, lr}         
+           000e06fc  sub      sp, sp, #0xc                 
+           000e0700  mov      fp, sp                       
+           000e0704  str      r0, [fp]                     
+           000e0708  mov      sl, r1                       
+           000e070c  str      r2, [fp, #4]                 
+           000e0710  ldr      r0, [fp]                     
+           000e0714  mov      r1, sl                       
+           000e0718  bl       #0xe04c0                     ; CALL MultilayerTexture::FindLayerByName (direct)
+           000e071c  mov      sl, r0                       
+           000e0720  cmp      r0, #0                       
+           000e0724  beq      #0xe0734                     ; -> L_e0734
+           000e0728  add      r0, sl, #0x10                
+           000e072c  ldr      r1, [fp, #4]                 
+           000e0730  str      r1, [r0]                     
+L_e0734:   000e0734  add      sp, fp, #0xc                 
+           000e0738  pop      {r8, sl, fp}                 
+           000e073c  ldr      r7, [sp, #8]                 
+           000e0740  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE MultilayerTexture/Layer  (instance size 0x14)
+#   +0x08 name                           string
+#   +0x0c texture                        UnityEngine.Texture2D
+#   +0x10 colorMultiplier                UnityEngine.Color32
+#   vtable slots: 
+####################################################################################################
+== MultilayerTexture/Layer::.ctor  token 0x06000201 @0x000e0744 (104 bytes)
+   args: r0=this, 
+           000e0744  mov      ip, sp                       
+           000e0748  push     {r7, lr}                     
+           000e074c  mov      r7, sp                       
+           000e0750  push     {r8, fp, ip, lr}             
+           000e0754  sub      sp, sp, #0x18                
+           000e0758  mov      fp, sp                       
+           000e075c  str      r0, [fp, #0x10]              
+           000e0760  mov      r0, #0                       
+           000e0764  str      r0, [fp, #8]                 
+           000e0768  add      r0, fp, #8                   
+           000e076c  mov      r1, #0xff                    
+           000e0770  mov      r2, #0xff                    
+           000e0774  mov      r3, #0xff                    
+           000e0778  mov      ip, #0xff                    
+           000e077c  str      ip, [sp]                     
+           000e0780  bl       #0x22c0d0                    ; CALL UnityEngine.Color32::.ctor
+           000e0784  ldr      r0, [fp, #8]                 
+           000e0788  str      r0, [fp, #0xc]               
+           000e078c  ldr      r0, [fp, #0x10]              
+           000e0790  add      r0, r0, #0x10                
+           000e0794  ldr      r1, [fp, #0xc]               
+           000e0798  str      r1, [r0]                     
+           000e079c  add      sp, fp, #0x18                
+           000e07a0  pop      {r8, fp}                     
+           000e07a4  ldr      r7, [sp, #8]                 
+           000e07a8  ldm      sp, {sp, pc}                 

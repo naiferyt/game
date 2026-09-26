@@ -1,0 +1,126 @@
+####################################################################################################
+# TYPE UsePowerupMission  (instance size 0x34)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 missionName                    LocalizedString
+#   +0x14 missionInstructions            LocalizedString
+#   +0x18 missionInstructionsWeb         LocalizedString
+#   +0x1c manager                        MissionManager
+#   +0x20 missionCollection              MissionCollection
+#   +0x24 hasArrow                       bool
+#   +0x28 arrowRotation                  float
+#   +0x2c arrowXOffset                   float
+#   +0x30 arrowYOffset                   float
+#   vtable slots: 5:Signal, 6:Shutdown, 7:Update, 8:Init
+####################################################################################################
+== UsePowerupMission::.ctor  token 0x060002e5 @0x000ecb04 (52 bytes)
+   args: r0=this, 
+           000ecb04  mov      ip, sp                       
+           000ecb08  push     {r7, lr}                     
+           000ecb0c  mov      r7, sp                       
+           000ecb10  push     {r8, fp, ip, lr}             
+           000ecb14  sub      sp, sp, #8                   
+           000ecb18  mov      fp, sp                       
+           000ecb1c  str      r0, [fp]                     
+           000ecb20  ldr      r0, [fp]                     
+           000ecb24  bl       #0x22ca40                    ; CALL BaseMission::.ctor
+           000ecb28  add      sp, fp, #8                   
+           000ecb2c  pop      {r8, fp}                     
+           000ecb30  ldr      r7, [sp, #8]                 
+           000ecb34  ldm      sp, {sp, pc}                 
+
+== UsePowerupMission::Init  token 0x060002e6 @0x000ecb38 (44 bytes)
+   args: r0=this, 
+           000ecb38  mov      ip, sp                       
+           000ecb3c  push     {r7, lr}                     
+           000ecb40  mov      r7, sp                       
+           000ecb44  push     {r8, fp, ip, lr}             
+           000ecb48  sub      sp, sp, #8                   
+           000ecb4c  mov      fp, sp                       
+           000ecb50  str      r0, [fp]                     
+           000ecb54  add      sp, fp, #8                   
+           000ecb58  pop      {r8, fp}                     
+           000ecb5c  ldr      r7, [sp, #8]                 
+           000ecb60  ldm      sp, {sp, pc}                 
+
+== UsePowerupMission::Update  token 0x060002e7 @0x000ecb64 (44 bytes)
+   args: r0=this, 
+           000ecb64  mov      ip, sp                       
+           000ecb68  push     {r7, lr}                     
+           000ecb6c  mov      r7, sp                       
+           000ecb70  push     {r8, fp, ip, lr}             
+           000ecb74  sub      sp, sp, #8                   
+           000ecb78  mov      fp, sp                       
+           000ecb7c  str      r0, [fp]                     
+           000ecb80  add      sp, fp, #8                   
+           000ecb84  pop      {r8, fp}                     
+           000ecb88  ldr      r7, [sp, #8]                 
+           000ecb8c  ldm      sp, {sp, pc}                 
+
+== UsePowerupMission::Shutdown  token 0x060002e8 @0x000ecb90 (44 bytes)
+   args: r0=this, 
+           000ecb90  mov      ip, sp                       
+           000ecb94  push     {r7, lr}                     
+           000ecb98  mov      r7, sp                       
+           000ecb9c  push     {r8, fp, ip, lr}             
+           000ecba0  sub      sp, sp, #8                   
+           000ecba4  mov      fp, sp                       
+           000ecba8  str      r0, [fp]                     
+           000ecbac  add      sp, fp, #8                   
+           000ecbb0  pop      {r8, fp}                     
+           000ecbb4  ldr      r7, [sp, #8]                 
+           000ecbb8  ldm      sp, {sp, pc}                 
+
+== UsePowerupMission::Signal  token 0x060002e9 @0x000ecbbc (144 bytes)
+   args: r0=this, signal
+           000ecbbc  mov      ip, sp                       
+           000ecbc0  push     {r7, lr}                     
+           000ecbc4  mov      r7, sp                       
+           000ecbc8  push     {r6, r8, fp, ip, lr}         
+           000ecbcc  sub      sp, sp, #0xc                 
+           000ecbd0  mov      fp, sp                       
+           000ecbd4  mov      r6, r0                       
+           000ecbd8  str      r1, [fp]                     
+           000ecbdc  ldr      r1, [pc]                     
+           000ecbe0  b        #0xecbe8                     ; -> L_ecbe8
+           000ecbe4  .word    0x00eb8a6c                   ; literal 15436396 / 
+L_ecbe8:   000ecbe8  ldr      r1, [pc, r1]                 ; GOT[573] LDSTR 'Used Powerup'
+           000ecbec  ldr      r0, [fp]                     
+           000ecbf0  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000ecbf4  cmp      r0, #0                       
+           000ecbf8  beq      #0xecc3c                     ; -> L_ecc3c
+           000ecbfc  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: missionCollection)
+           000ecc00  mov      r1, #0                       
+           000ecc04  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000ecc08  cmp      r0, #0                       
+           000ecc0c  bne      #0xecc28                     ; -> L_ecc28
+           000ecc10  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: missionCollection)
+           000ecc14  mov      r1, r0                       
+           000ecc18  ldr      lr, [r1]                     
+           000ecc1c  ldrb     r0, [r0, #0x3c]              ; field+0x3c 
+           000ecc20  cmp      r0, #0                       
+           000ecc24  beq      #0xecc3c                     ; -> L_ecc3c
+L_ecc28:   000ecc28  ldr      r2, [r6, #0x1c]              ; field+0x1c (this-class: manager)
+           000ecc2c  mov      r0, r2                       
+           000ecc30  mov      r1, r6                       
+           000ecc34  ldr      lr, [r2]                     
+           000ecc38  bl       #0x22ca50                    ; CALL MissionManager::CompleteMission
+L_ecc3c:   000ecc3c  add      sp, fp, #0xc                 
+           000ecc40  pop      {r6, r8, fp}                 
+           000ecc44  ldr      r7, [sp, #8]                 
+           000ecc48  ldm      sp, {sp, pc}                 
+
+== UsePowerupMission::Signal  token 0x060002ea @0x000ecc4c (52 bytes)
+   args: r0=this, signal, value
+           000ecc4c  mov      ip, sp                       
+           000ecc50  push     {r7, lr}                     
+           000ecc54  mov      r7, sp                       
+           000ecc58  push     {r8, fp, ip, lr}             
+           000ecc5c  sub      sp, sp, #0x10                
+           000ecc60  mov      fp, sp                       
+           000ecc64  str      r0, [fp]                     
+           000ecc68  str      r1, [fp, #4]                 
+           000ecc6c  str      r2, [fp, #8]                 
+           000ecc70  add      sp, fp, #0x10                
+           000ecc74  pop      {r8, fp}                     
+           000ecc78  ldr      r7, [sp, #8]                 
+           000ecc7c  ldm      sp, {sp, pc}                 

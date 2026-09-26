@@ -1,0 +1,252 @@
+####################################################################################################
+# TYPE MineEffect  (instance size 0x28)
+#   +0x08 time                           float
+#   +0x0c power                          int
+#   +0x10 effectType                     BaseEffect/EffectTypes
+#   +0x14 isMultiLevel                   bool
+#   +0x18 powerLevel                     int
+#   +0x1c parentObject                   UnityEngine.GameObject
+#   +0x20 dropDelay                      float
+#   +0x24 dropCountdown                  float
+#   vtable slots: 5:GetEffectSnapShot, 6:Stack, 7:Shutdown, 8:Update, 9:Init
+####################################################################################################
+== MineEffect::.ctor  token 0x06000385 @0x000f4ae4 (112 bytes)
+   args: r0=this, parent
+           000f4ae4  mov      ip, sp                       
+           000f4ae8  push     {r7, lr}                     
+           000f4aec  mov      r7, sp                       
+           000f4af0  push     {r6, r8, fp, ip, lr}         
+           000f4af4  sub      sp, sp, #0xc                 
+           000f4af8  mov      fp, sp                       
+           000f4afc  mov      r6, r0                       
+           000f4b00  str      r1, [fp]                     
+           000f4b04  mov      r0, #1                       
+           000f4b08  str      r0, [r6, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f4b0c  ldr      r0, [fp]                     
+           000f4b10  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4b14  mov      r0, #5                       
+           000f4b18  str      r0, [r6, #0x10]              ; field+0x10 (this-class: effectType)
+           000f4b1c  mov      r0, #1                       
+           000f4b20  str      r0, [r6, #0xc]               ; field+0xc (this-class: power)
+           000f4b24  vldr     s4, [pc]                     ; float 1.0
+           000f4b28  b        #0xf4b30                     ; -> L_f4b30
+           000f4b2c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_f4b30:   000f4b30  vcvt.f64.f32 d2, s4                       
+           000f4b34  vcvt.f32.f64 s0, d2                       
+           000f4b38  vstr     s0, [r6, #8]                 ; field+0x8 (this-class: time)
+           000f4b3c  mov      r0, #1                       
+           000f4b40  strb     r0, [r6, #0x14]              ; field+0x14 (this-class: isMultiLevel)
+           000f4b44  add      sp, fp, #0xc                 
+           000f4b48  pop      {r6, r8, fp}                 
+           000f4b4c  ldr      r7, [sp, #8]                 
+           000f4b50  ldm      sp, {sp, pc}                 
+
+== MineEffect::Init  token 0x06000386 @0x000f4b54 (148 bytes)
+   args: r0=this, 
+           000f4b54  mov      ip, sp                       
+           000f4b58  push     {r7, lr}                     
+           000f4b5c  mov      r7, sp                       
+           000f4b60  push     {r8, sl, fp, ip, lr}         
+           000f4b64  sub      sp, sp, #4                   
+           000f4b68  mov      fp, sp                       
+           000f4b6c  mov      sl, r0                       
+           000f4b70  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f4b74  cmp      r0, #1                       
+           000f4b78  ble      #0xf4b9c                     ; -> L_f4b9c
+           000f4b7c  vldr     s4, [pc]                     ; float 3.0
+           000f4b80  b        #0xf4b88                     ; -> L_f4b88
+           000f4b84  .word    0x40400000                   ; literal 1077936128 / 3
+L_f4b88:   000f4b88  vcvt.f64.f32 d2, s4                       
+           000f4b8c  vcvt.f32.f64 s0, d2                       
+           000f4b90  vstr     s0, [sl, #8]                 ; field+0x8 (this-class: time)
+           000f4b94  mov      r0, #3                       
+           000f4b98  str      r0, [sl, #0xc]               ; field+0xc (this-class: power)
+L_f4b9c:   000f4b9c  vldr     s0, [sl, #8]                 ; field+0x8 (this-class: time)
+           000f4ba0  vcvt.f64.f32 d2, s0                       
+           000f4ba4  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: power)
+           000f4ba8  vmov     s0, r0                       
+           000f4bac  vcvt.f32.s32 s0, s0                       
+           000f4bb0  vcvt.f64.f32 d3, s0                       
+           000f4bb4  vdiv.f64 d2, d2, d3                   
+           000f4bb8  vcvt.f32.f64 s0, d2                       
+           000f4bbc  vstr     s0, [sl, #0x20]              ; field+0x20 (this-class: dropDelay)
+           000f4bc0  vldr     s4, [pc]                     ; float 0.0
+           000f4bc4  b        #0xf4bcc                     ; -> L_f4bcc
+           000f4bc8  .word    0x00000000                   ; literal 0 / 0
+L_f4bcc:   000f4bcc  vcvt.f64.f32 d2, s4                       
+           000f4bd0  vcvt.f32.f64 s0, d2                       
+           000f4bd4  vstr     s0, [sl, #0x24]              ; field+0x24 (this-class: dropCountdown)
+           000f4bd8  add      sp, fp, #4                   
+           000f4bdc  pop      {r8, sl, fp}                 
+           000f4be0  ldr      r7, [sp, #8]                 
+           000f4be4  ldm      sp, {sp, pc}                 
+
+== MineEffect::Shutdown  token 0x06000387 @0x000f4be8 (44 bytes)
+   args: r0=this, 
+           000f4be8  mov      ip, sp                       
+           000f4bec  push     {r7, lr}                     
+           000f4bf0  mov      r7, sp                       
+           000f4bf4  push     {r8, fp, ip, lr}             
+           000f4bf8  sub      sp, sp, #8                   
+           000f4bfc  mov      fp, sp                       
+           000f4c00  str      r0, [fp]                     
+           000f4c04  add      sp, fp, #8                   
+           000f4c08  pop      {r8, fp}                     
+           000f4c0c  ldr      r7, [sp, #8]                 
+           000f4c10  ldm      sp, {sp, pc}                 
+
+== MineEffect::Stack  token 0x06000388 @0x000f4c14 (112 bytes)
+   args: r0=this, second
+           000f4c14  mov      ip, sp                       
+           000f4c18  push     {r7, lr}                     
+           000f4c1c  mov      r7, sp                       
+           000f4c20  push     {r8, sl, fp, ip, lr}         
+           000f4c24  sub      sp, sp, #0xc                 
+           000f4c28  mov      fp, sp                       
+           000f4c2c  str      r0, [fp]                     
+           000f4c30  mov      sl, r1                       
+           000f4c34  ldr      lr, [sl]                     
+           000f4c38  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f4c3c  ldr      r1, [fp]                     
+           000f4c40  ldr      r1, [r1, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f4c44  cmp      r0, r1                       
+           000f4c48  blt      #0xf4c70                     ; -> L_f4c70
+           000f4c4c  vldr     s4, [pc]                     ; float 0.0
+           000f4c50  b        #0xf4c58                     ; -> L_f4c58
+           000f4c54  .word    0x00000000                   ; literal 0 / 0
+L_f4c58:   000f4c58  vcvt.f64.f32 d2, s4                       
+           000f4c5c  ldr      r0, [fp]                     
+           000f4c60  vcvt.f32.f64 s0, d2                       
+           000f4c64  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f4c68  mov      r0, #1                       
+           000f4c6c  b        #0xf4c74                     ; -> L_f4c74
+L_f4c70:   000f4c70  mov      r0, #0                       
+L_f4c74:   000f4c74  add      sp, fp, #0xc                 
+           000f4c78  pop      {r8, sl, fp}                 
+           000f4c7c  ldr      r7, [sp, #8]                 
+           000f4c80  ldm      sp, {sp, pc}                 
+
+== MineEffect::Update  token 0x06000389 @0x000f4c84 (428 bytes)
+   args: r0=this, 
+           000f4c84  mov      ip, sp                       
+           000f4c88  push     {r7, lr}                     
+           000f4c8c  mov      r7, sp                       
+           000f4c90  push     {r4, r8, sl, fp, ip, lr}     
+           000f4c94  sub      sp, sp, #0x68                
+           000f4c98  mov      fp, sp                       
+           000f4c9c  mov      sl, r0                       
+           000f4ca0  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4ca4  ldr      r1, [pc]                     
+           000f4ca8  b        #0xf4cb0                     ; -> L_f4cb0
+           000f4cac  .word    0x00eb0228                   ; literal 15401512 / 
+L_f4cb0:   000f4cb0  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f4cb4  ldr      lr, [r0]                     
+           000f4cb8  mov      r8, r1                       
+           000f4cbc  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f4cc0  mov      r4, r0                       
+           000f4cc4  vldr     s0, [sl, #0x24]              ; field+0x24 (this-class: dropCountdown)
+           000f4cc8  vcvt.f64.f32 d2, s0                       
+           000f4ccc  vstr     d2, [fp, #0x58]              
+           000f4cd0  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000f4cd4  vmov     s6, r0                       
+           000f4cd8  vcvt.f64.f32 d3, s6                       
+           000f4cdc  vldr     d2, [fp, #0x58]              
+           000f4ce0  vsub.f64 d2, d2, d3                   
+           000f4ce4  vcvt.f32.f64 s0, d2                       
+           000f4ce8  vstr     s0, [sl, #0x24]              ; field+0x24 (this-class: dropCountdown)
+           000f4cec  vldr     s0, [sl, #0x24]              ; field+0x24 (this-class: dropCountdown)
+           000f4cf0  vcvt.f64.f32 d3, s0                       
+           000f4cf4  vldr     s4, [pc]                     ; float 0.0
+           000f4cf8  b        #0xf4d00                     ; -> L_f4d00
+           000f4cfc  .word    0x00000000                   ; literal 0 / 0
+L_f4d00:   000f4d00  vcvt.f64.f32 d2, s4                       
+           000f4d04  vcmp.f64 d2, d3                       
+           000f4d08  vmrs     apsr_nzcv, fpscr             
+           000f4d0c  bvs      #0xf4e20                     ; -> L_f4e20
+           000f4d10  bmi      #0xf4e20                     ; -> L_f4e20
+           000f4d14  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: dropDelay)
+           000f4d18  vcvt.f64.f32 d2, s0                       
+           000f4d1c  vcvt.f32.f64 s0, d2                       
+           000f4d20  vstr     s0, [sl, #0x24]              ; field+0x24 (this-class: dropCountdown)
+           000f4d24  ldr      r0, [r4, #0x14]              ; field+0x14 (this-class: isMultiLevel)
+           000f4d28  str      r0, [fp, #0x60]              
+           000f4d2c  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4d30  mov      r0, r1                       
+           000f4d34  ldr      lr, [r1]                     
+           000f4d38  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f4d3c  mov      r2, r0                       
+           000f4d40  add      r0, fp, #0x38                
+           000f4d44  mov      r1, r2                       
+           000f4d48  ldr      lr, [r2]                     
+           000f4d4c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f4d50  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4d54  mov      r0, r1                       
+           000f4d58  ldr      lr, [r1]                     
+           000f4d5c  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f4d60  mov      r2, r0                       
+           000f4d64  add      r0, fp, #0x44                
+           000f4d68  mov      r1, r2                       
+           000f4d6c  ldr      lr, [r2]                     
+           000f4d70  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000f4d74  ldr      r0, [fp, #0x60]              
+           000f4d78  ldr      r1, [fp, #0x38]              
+           000f4d7c  ldr      r2, [fp, #0x3c]              
+           000f4d80  ldr      r3, [fp, #0x40]              
+           000f4d84  ldr      ip, [fp, #0x44]              
+           000f4d88  str      ip, [sp]                     
+           000f4d8c  ldr      ip, [fp, #0x48]              
+           000f4d90  str      ip, [sp, #4]                 
+           000f4d94  ldr      ip, [fp, #0x4c]              
+           000f4d98  str      ip, [sp, #8]                 
+           000f4d9c  ldr      ip, [fp, #0x50]              
+           000f4da0  str      ip, [sp, #0xc]               
+           000f4da4  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           000f4da8  mov      r4, r0                       
+           000f4dac  str      r4, [fp, #0x34]              
+           000f4db0  cmp      r4, #0                       
+           000f4db4  beq      #0xf4de8                     ; -> L_f4de8
+           000f4db8  ldr      r0, [r4]                     
+           000f4dbc  ldr      r0, [r0]                     
+           000f4dc0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f4dc4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f4dc8  ldr      r1, [pc]                     
+           000f4dcc  b        #0xf4dd4                     ; -> L_f4dd4
+           000f4dd0  .word    0x00eb0178                   ; literal 15401336 / 
+L_f4dd4:   000f4dd4  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           000f4dd8  cmp      r0, r1                       
+           000f4ddc  beq      #0xf4de8                     ; -> L_f4de8
+           000f4de0  mov      r0, #0                       
+           000f4de4  str      r0, [fp, #0x34]              
+L_f4de8:   000f4de8  ldr      r0, [fp, #0x34]              
+           000f4dec  str      r0, [fp, #0x10]              
+           000f4df0  ldr      r1, [pc]                     
+           000f4df4  b        #0xf4dfc                     ; -> L_f4dfc
+           000f4df8  .word    0x00eb016c                   ; literal 15401324 / 
+L_f4dfc:   000f4dfc  ldr      r1, [pc, r1]                 ; GOT[130] METHOD_RGCTX UnityEngine.GameObject::GetComponent<MineAI>
+           000f4e00  ldr      r0, [fp, #0x34]              
+           000f4e04  ldr      lr, [r0]                     
+           000f4e08  mov      r8, r1                       
+           000f4e0c  bl       #0x22b3a0                    ; CALL UnityEngine.GameObject::GetComponent<MineAI>
+           000f4e10  str      r0, [fp, #0x14]              
+           000f4e14  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4e18  ldr      lr, [r0]                     
+           000f4e1c  str      r1, [r0, #0x10]              ; field+0x10 (this-class: effectType)
+L_f4e20:   000f4e20  add      sp, fp, #0x68                
+           000f4e24  pop      {r4, r8, sl, fp}             
+           000f4e28  ldr      r7, [sp, #8]                 
+           000f4e2c  ldm      sp, {sp, pc}                 
+
+== MineEffect::GetEffectSnapShot  token 0x0600038a @0x000f4e30 (48 bytes)
+   args: r0=this, 
+           000f4e30  mov      ip, sp                       
+           000f4e34  push     {r7, lr}                     
+           000f4e38  mov      r7, sp                       
+           000f4e3c  push     {r8, fp, ip, lr}             
+           000f4e40  sub      sp, sp, #8                   
+           000f4e44  mov      fp, sp                       
+           000f4e48  str      r0, [fp]                     
+           000f4e4c  ldr      r0, [fp]                     
+           000f4e50  add      sp, fp, #8                   
+           000f4e54  pop      {r8, fp}                     
+           000f4e58  ldr      r7, [sp, #8]                 
+           000f4e5c  ldm      sp, {sp, pc}                 

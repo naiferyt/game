@@ -1,0 +1,839 @@
+####################################################################################################
+# TYPE Mathfx  (instance size 0x8)
+#   vtable slots: 
+####################################################################################################
+== Mathfx::.ctor  token 0x06000141 @0x0001a9b0 (44 bytes)
+   args: r0=this, 
+           0001a9b0  mov      ip, sp                       
+           0001a9b4  push     {r7, lr}                     
+           0001a9b8  mov      r7, sp                       
+           0001a9bc  push     {r8, fp, ip, lr}             
+           0001a9c0  sub      sp, sp, #8                   
+           0001a9c4  mov      fp, sp                       
+           0001a9c8  str      r0, [fp]                     
+           0001a9cc  add      sp, fp, #8                   
+           0001a9d0  pop      {r8, fp}                     
+           0001a9d4  ldr      r7, [sp, #8]                 
+           0001a9d8  ldm      sp, {sp, pc}                 
+
+== Mathfx::Hermite  token 0x06000142 @0x0001a9dc (196 bytes) static
+   args: start, end, value
+           0001a9dc  mov      ip, sp                       
+           0001a9e0  push     {r7, lr}                     
+           0001a9e4  mov      r7, sp                       
+           0001a9e8  push     {r8, fp, ip, lr}             
+           0001a9ec  sub      sp, sp, #0x28                
+           0001a9f0  mov      fp, sp                       
+           0001a9f4  str      r0, [fp, #0x18]              
+           0001a9f8  str      r1, [fp, #0x1c]              
+           0001a9fc  str      r2, [fp, #0x20]              
+           0001aa00  vldr     s0, [fp, #0x18]              
+           0001aa04  vcvt.f64.f32 d4, s0                       
+           0001aa08  vldr     s0, [fp, #0x1c]              
+           0001aa0c  vcvt.f64.f32 d3, s0                       
+           0001aa10  vldr     s0, [fp, #0x20]              
+           0001aa14  vcvt.f64.f32 d2, s0                       
+           0001aa18  vldr     s0, [fp, #0x20]              
+           0001aa1c  vcvt.f64.f32 d5, s0                       
+           0001aa20  vmul.f64 d2, d2, d5                   
+           0001aa24  vldr     s10, [pc]                    ; float 3.0
+           0001aa28  b        #0x1aa30                     ; -> L_1aa30
+           0001aa2c  .word    0x40400000                   ; literal 1077936128 / 3
+L_1aa30:   0001aa30  vcvt.f64.f32 d5, s10                      
+           0001aa34  vldr     s12, [pc]                    ; float 2.0
+           0001aa38  b        #0x1aa40                     ; -> L_1aa40
+           0001aa3c  .word    0x40000000                   ; literal 1073741824 / 2
+L_1aa40:   0001aa40  vcvt.f64.f32 d6, s12                      
+           0001aa44  vldr     s0, [fp, #0x20]              
+           0001aa48  vcvt.f64.f32 d7, s0                       
+           0001aa4c  vmul.f64 d6, d6, d7                   
+           0001aa50  vsub.f64 d5, d5, d6                   
+           0001aa54  vmul.f64 d2, d2, d5                   
+           0001aa58  vcvt.f32.f64 s0, d4                       
+           0001aa5c  vstr     s0, [sp, #-8]                
+           0001aa60  ldr      r0, [sp, #-8]                
+           0001aa64  vcvt.f32.f64 s0, d3                       
+           0001aa68  vstr     s0, [sp, #-8]                
+           0001aa6c  ldr      r1, [sp, #-8]                
+           0001aa70  vcvt.f32.f64 s0, d2                       
+           0001aa74  vstr     s0, [sp, #-8]                
+           0001aa78  ldr      r2, [sp, #-8]                
+           0001aa7c  bl       #0xba9a0                     ; CALL UnityEngine.Mathf::Lerp
+           0001aa80  vmov     s4, r0                       
+           0001aa84  vcvt.f64.f32 d2, s4                       
+           0001aa88  vcvt.f32.f64 s0, d2                       
+           0001aa8c  vmov     r0, s0                       
+           0001aa90  add      sp, fp, #0x28                
+           0001aa94  pop      {r8, fp}                     
+           0001aa98  ldr      r7, [sp, #8]                 
+           0001aa9c  ldm      sp, {sp, pc}                 
+
+== Mathfx::Sinerp  token 0x06000143 @0x0001aaa0 (212 bytes) static
+   args: start, end, value
+           0001aaa0  mov      ip, sp                       
+           0001aaa4  push     {r7, lr}                     
+           0001aaa8  mov      r7, sp                       
+           0001aaac  push     {r8, fp, ip, lr}             
+           0001aab0  sub      sp, sp, #0x40                
+           0001aab4  mov      fp, sp                       
+           0001aab8  str      r0, [fp, #0x20]              
+           0001aabc  str      r1, [fp, #0x24]              
+           0001aac0  str      r2, [fp, #0x28]              
+           0001aac4  vldr     s0, [fp, #0x20]              
+           0001aac8  vcvt.f64.f32 d2, s0                       
+           0001aacc  vstr     d2, [fp, #0x38]              
+           0001aad0  vldr     s0, [fp, #0x24]              
+           0001aad4  vcvt.f64.f32 d2, s0                       
+           0001aad8  vstr     d2, [fp, #0x30]              
+           0001aadc  vldr     s0, [fp, #0x28]              
+           0001aae0  vcvt.f64.f32 d2, s0                       
+           0001aae4  vldr     s6, [pc]                     ; float 3.1415927410125732
+           0001aae8  b        #0x1aaf0                     ; -> L_1aaf0
+           0001aaec  .word    0x40490fdb                   ; literal 1078530011 / 3.14159
+L_1aaf0:   0001aaf0  vcvt.f64.f32 d3, s6                       
+           0001aaf4  vmul.f64 d2, d2, d3                   
+           0001aaf8  vldr     s6, [pc]                     ; float 0.5
+           0001aafc  b        #0x1ab04                     ; -> L_1ab04
+           0001ab00  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_1ab04:   0001ab04  vcvt.f64.f32 d3, s6                       
+           0001ab08  vmul.f64 d2, d2, d3                   
+           0001ab0c  vcvt.f32.f64 s0, d2                       
+           0001ab10  vstr     s0, [sp, #-8]                
+           0001ab14  ldr      r0, [sp, #-8]                
+           0001ab18  bl       #0xba9b0                     ; CALL UnityEngine.Mathf::Sin
+           0001ab1c  vmov     s4, r0                       
+           0001ab20  vcvt.f64.f32 d2, s4                       
+           0001ab24  vldr     d3, [fp, #0x30]              
+           0001ab28  vldr     d4, [fp, #0x38]              
+           0001ab2c  vcvt.f32.f64 s0, d4                       
+           0001ab30  vstr     s0, [sp, #-8]                
+           0001ab34  ldr      r0, [sp, #-8]                
+           0001ab38  vcvt.f32.f64 s0, d3                       
+           0001ab3c  vstr     s0, [sp, #-8]                
+           0001ab40  ldr      r1, [sp, #-8]                
+           0001ab44  vcvt.f32.f64 s0, d2                       
+           0001ab48  vstr     s0, [sp, #-8]                
+           0001ab4c  ldr      r2, [sp, #-8]                
+           0001ab50  bl       #0xba9a0                     ; CALL UnityEngine.Mathf::Lerp
+           0001ab54  vmov     s4, r0                       
+           0001ab58  vcvt.f64.f32 d2, s4                       
+           0001ab5c  vcvt.f32.f64 s0, d2                       
+           0001ab60  vmov     r0, s0                       
+           0001ab64  add      sp, fp, #0x40                
+           0001ab68  pop      {r8, fp}                     
+           0001ab6c  ldr      r7, [sp, #8]                 
+           0001ab70  ldm      sp, {sp, pc}                 
+
+== Mathfx::Coserp  token 0x06000144 @0x0001ab74 (240 bytes) static
+   args: start, end, value
+           0001ab74  mov      ip, sp                       
+           0001ab78  push     {r7, lr}                     
+           0001ab7c  mov      r7, sp                       
+           0001ab80  push     {r8, fp, ip, lr}             
+           0001ab84  sub      sp, sp, #0x48                
+           0001ab88  mov      fp, sp                       
+           0001ab8c  str      r0, [fp, #0x20]              
+           0001ab90  str      r1, [fp, #0x24]              
+           0001ab94  str      r2, [fp, #0x28]              
+           0001ab98  vldr     s0, [fp, #0x20]              
+           0001ab9c  vcvt.f64.f32 d2, s0                       
+           0001aba0  vstr     d2, [fp, #0x40]              
+           0001aba4  vldr     s0, [fp, #0x24]              
+           0001aba8  vcvt.f64.f32 d2, s0                       
+           0001abac  vstr     d2, [fp, #0x38]              
+           0001abb0  vldr     s4, [pc]                     ; float 1.0
+           0001abb4  b        #0x1abbc                     ; -> L_1abbc
+           0001abb8  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1abbc:   0001abbc  vcvt.f64.f32 d2, s4                       
+           0001abc0  vstr     d2, [fp, #0x30]              
+           0001abc4  vldr     s0, [fp, #0x28]              
+           0001abc8  vcvt.f64.f32 d2, s0                       
+           0001abcc  vldr     s6, [pc]                     ; float 3.1415927410125732
+           0001abd0  b        #0x1abd8                     ; -> L_1abd8
+           0001abd4  .word    0x40490fdb                   ; literal 1078530011 / 3.14159
+L_1abd8:   0001abd8  vcvt.f64.f32 d3, s6                       
+           0001abdc  vmul.f64 d2, d2, d3                   
+           0001abe0  vldr     s6, [pc]                     ; float 0.5
+           0001abe4  b        #0x1abec                     ; -> L_1abec
+           0001abe8  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_1abec:   0001abec  vcvt.f64.f32 d3, s6                       
+           0001abf0  vmul.f64 d2, d2, d3                   
+           0001abf4  vcvt.f32.f64 s0, d2                       
+           0001abf8  vstr     s0, [sp, #-8]                
+           0001abfc  ldr      r0, [sp, #-8]                
+           0001ac00  bl       #0xba9c0                     ; CALL UnityEngine.Mathf::Cos
+           0001ac04  vmov     s10, r0                      
+           0001ac08  vcvt.f64.f32 d5, s10                      
+           0001ac0c  vldr     d2, [fp, #0x30]              
+           0001ac10  vldr     d3, [fp, #0x38]              
+           0001ac14  vldr     d4, [fp, #0x40]              
+           0001ac18  vsub.f64 d2, d2, d5                   
+           0001ac1c  vcvt.f32.f64 s0, d4                       
+           0001ac20  vstr     s0, [sp, #-8]                
+           0001ac24  ldr      r0, [sp, #-8]                
+           0001ac28  vcvt.f32.f64 s0, d3                       
+           0001ac2c  vstr     s0, [sp, #-8]                
+           0001ac30  ldr      r1, [sp, #-8]                
+           0001ac34  vcvt.f32.f64 s0, d2                       
+           0001ac38  vstr     s0, [sp, #-8]                
+           0001ac3c  ldr      r2, [sp, #-8]                
+           0001ac40  bl       #0xba9a0                     ; CALL UnityEngine.Mathf::Lerp
+           0001ac44  vmov     s4, r0                       
+           0001ac48  vcvt.f64.f32 d2, s4                       
+           0001ac4c  vcvt.f32.f64 s0, d2                       
+           0001ac50  vmov     r0, s0                       
+           0001ac54  add      sp, fp, #0x48                
+           0001ac58  pop      {r8, fp}                     
+           0001ac5c  ldr      r7, [sp, #8]                 
+           0001ac60  ldm      sp, {sp, pc}                 
+
+== Mathfx::Berp  token 0x06000145 @0x0001ac64 (460 bytes) static
+   args: start, end, value
+           0001ac64  mov      ip, sp                       
+           0001ac68  push     {r7, lr}                     
+           0001ac6c  mov      r7, sp                       
+           0001ac70  push     {r8, fp, ip, lr}             
+           0001ac74  sub      sp, sp, #0x30                
+           0001ac78  mov      fp, sp                       
+           0001ac7c  str      r0, [fp, #0x1c]              
+           0001ac80  str      r1, [fp, #0x20]              
+           0001ac84  str      r2, [fp, #0x24]              
+           0001ac88  vldr     s0, [fp, #0x24]              
+           0001ac8c  vcvt.f64.f32 d2, s0                       
+           0001ac90  vcvt.f32.f64 s0, d2                       
+           0001ac94  vstr     s0, [sp, #-8]                
+           0001ac98  ldr      r0, [sp, #-8]                
+           0001ac9c  bl       #0xba9d0                     ; CALL UnityEngine.Mathf::Clamp01
+           0001aca0  vmov     s4, r0                       
+           0001aca4  vcvt.f64.f32 d2, s4                       
+           0001aca8  vcvt.f32.f64 s0, d2                       
+           0001acac  vstr     s0, [fp, #0x24]              
+           0001acb0  vldr     s0, [fp, #0x24]              
+           0001acb4  vcvt.f64.f32 d2, s0                       
+           0001acb8  vldr     s6, [pc]                     ; float 3.1415927410125732
+           0001acbc  b        #0x1acc4                     ; -> L_1acc4
+           0001acc0  .word    0x40490fdb                   ; literal 1078530011 / 3.14159
+L_1acc4:   0001acc4  vcvt.f64.f32 d3, s6                       
+           0001acc8  vmul.f64 d2, d2, d3                   
+           0001accc  vldr     s6, [pc]                     ; float 0.20000000298023224
+           0001acd0  b        #0x1acd8                     ; -> L_1acd8
+           0001acd4  .word    0x3e4ccccd                   ; literal 1045220557 / 0.2
+L_1acd8:   0001acd8  vcvt.f64.f32 d3, s6                       
+           0001acdc  vldr     s8, [pc]                     ; float 2.5
+           0001ace0  b        #0x1ace8                     ; -> L_1ace8
+           0001ace4  .word    0x40200000                   ; literal 1075838976 / 2.5
+L_1ace8:   0001ace8  vcvt.f64.f32 d4, s8                       
+           0001acec  vldr     s0, [fp, #0x24]              
+           0001acf0  vcvt.f64.f32 d5, s0                       
+           0001acf4  vmul.f64 d4, d4, d5                   
+           0001acf8  vldr     s0, [fp, #0x24]              
+           0001acfc  vcvt.f64.f32 d5, s0                       
+           0001ad00  vmul.f64 d4, d4, d5                   
+           0001ad04  vldr     s0, [fp, #0x24]              
+           0001ad08  vcvt.f64.f32 d5, s0                       
+           0001ad0c  vmul.f64 d4, d4, d5                   
+           0001ad10  vadd.f64 d3, d3, d4                   
+           0001ad14  vmul.f64 d2, d2, d3                   
+           0001ad18  vcvt.f32.f64 s0, d2                       
+           0001ad1c  vstr     s0, [sp, #-8]                
+           0001ad20  ldr      r0, [sp, #-8]                
+           0001ad24  bl       #0xba9b0                     ; CALL UnityEngine.Mathf::Sin
+           0001ad28  vmov     s4, r0                       
+           0001ad2c  vcvt.f64.f32 d2, s4                       
+           0001ad30  vstr     d2, [fp, #0x28]              
+           0001ad34  vldr     s4, [pc]                     ; float 1.0
+           0001ad38  b        #0x1ad40                     ; -> L_1ad40
+           0001ad3c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1ad40:   0001ad40  vcvt.f64.f32 d2, s4                       
+           0001ad44  vldr     s0, [fp, #0x24]              
+           0001ad48  vcvt.f64.f32 d4, s0                       
+           0001ad4c  vmov.f64 d3, d2                       
+           0001ad50  vsub.f64 d3, d3, d4                   
+           0001ad54  vldr     s4, [pc]                     ; float 2.200000047683716
+           0001ad58  b        #0x1ad60                     ; -> L_1ad60
+           0001ad5c  .word    0x400ccccd                   ; literal 1074580685 / 2.2
+L_1ad60:   0001ad60  vcvt.f64.f32 d2, s4                       
+           0001ad64  vcvt.f32.f64 s0, d3                       
+           0001ad68  vstr     s0, [sp, #-8]                
+           0001ad6c  ldr      r0, [sp, #-8]                
+           0001ad70  vcvt.f32.f64 s0, d2                       
+           0001ad74  vstr     s0, [sp, #-8]                
+           0001ad78  ldr      r1, [sp, #-8]                
+           0001ad7c  bl       #0xba9e0                     ; CALL UnityEngine.Mathf::Pow
+           0001ad80  vmov     s6, r0                       
+           0001ad84  vcvt.f64.f32 d3, s6                       
+           0001ad88  vldr     d2, [fp, #0x28]              
+           0001ad8c  vmul.f64 d2, d2, d3                   
+           0001ad90  vldr     s0, [fp, #0x24]              
+           0001ad94  vcvt.f64.f32 d3, s0                       
+           0001ad98  vadd.f64 d2, d2, d3                   
+           0001ad9c  vldr     s6, [pc]                     ; float 1.0
+           0001ada0  b        #0x1ada8                     ; -> L_1ada8
+           0001ada4  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1ada8:   0001ada8  vcvt.f64.f32 d3, s6                       
+           0001adac  vldr     s8, [pc]                     ; float 1.2000000476837158
+           0001adb0  b        #0x1adb8                     ; -> L_1adb8
+           0001adb4  .word    0x3f99999a                   ; literal 1067030938 / 1.2
+L_1adb8:   0001adb8  vcvt.f64.f32 d4, s8                       
+           0001adbc  vldr     s10, [pc]                    ; float 1.0
+           0001adc0  b        #0x1adc8                     ; -> L_1adc8
+           0001adc4  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1adc8:   0001adc8  vcvt.f64.f32 d5, s10                      
+           0001adcc  vldr     s0, [fp, #0x24]              
+           0001add0  vcvt.f64.f32 d6, s0                       
+           0001add4  vsub.f64 d5, d5, d6                   
+           0001add8  vmul.f64 d4, d4, d5                   
+           0001addc  vadd.f64 d3, d3, d4                   
+           0001ade0  vmul.f64 d2, d2, d3                   
+           0001ade4  vcvt.f32.f64 s0, d2                       
+           0001ade8  vstr     s0, [fp, #0x24]              
+           0001adec  vldr     s0, [fp, #0x1c]              
+           0001adf0  vcvt.f64.f32 d2, s0                       
+           0001adf4  vldr     s0, [fp, #0x20]              
+           0001adf8  vcvt.f64.f32 d3, s0                       
+           0001adfc  vldr     s0, [fp, #0x1c]              
+           0001ae00  vcvt.f64.f32 d4, s0                       
+           0001ae04  vsub.f64 d3, d3, d4                   
+           0001ae08  vldr     s0, [fp, #0x24]              
+           0001ae0c  vcvt.f64.f32 d4, s0                       
+           0001ae10  vmul.f64 d3, d3, d4                   
+           0001ae14  vadd.f64 d2, d2, d3                   
+           0001ae18  vcvt.f32.f64 s0, d2                       
+           0001ae1c  vmov     r0, s0                       
+           0001ae20  add      sp, fp, #0x30                
+           0001ae24  pop      {r8, fp}                     
+           0001ae28  ldr      r7, [sp, #8]                 
+           0001ae2c  ldm      sp, {sp, pc}                 
+
+== Mathfx::Lerp  token 0x06000146 @0x0001ae30 (124 bytes) static
+   args: start, end, value
+           0001ae30  mov      ip, sp                       
+           0001ae34  push     {r7, lr}                     
+           0001ae38  mov      r7, sp                       
+           0001ae3c  push     {r8, fp, ip, lr}             
+           0001ae40  sub      sp, sp, #0x10                
+           0001ae44  mov      fp, sp                       
+           0001ae48  str      r0, [fp]                     
+           0001ae4c  str      r1, [fp, #4]                 
+           0001ae50  str      r2, [fp, #8]                 
+           0001ae54  vldr     s4, [pc]                     ; float 1.0
+           0001ae58  b        #0x1ae60                     ; -> L_1ae60
+           0001ae5c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1ae60:   0001ae60  vcvt.f64.f32 d2, s4                       
+           0001ae64  vldr     s0, [fp, #8]                 
+           0001ae68  vcvt.f64.f32 d3, s0                       
+           0001ae6c  vsub.f64 d2, d2, d3                   
+           0001ae70  vldr     s0, [fp]                     
+           0001ae74  vcvt.f64.f32 d3, s0                       
+           0001ae78  vmul.f64 d2, d2, d3                   
+           0001ae7c  vldr     s0, [fp, #8]                 
+           0001ae80  vcvt.f64.f32 d3, s0                       
+           0001ae84  vldr     s0, [fp, #4]                 
+           0001ae88  vcvt.f64.f32 d4, s0                       
+           0001ae8c  vmul.f64 d3, d3, d4                   
+           0001ae90  vadd.f64 d2, d2, d3                   
+           0001ae94  vcvt.f32.f64 s0, d2                       
+           0001ae98  vmov     r0, s0                       
+           0001ae9c  add      sp, fp, #0x10                
+           0001aea0  pop      {r8, fp}                     
+           0001aea4  ldr      r7, [sp, #8]                 
+           0001aea8  ldm      sp, {sp, pc}                 
+
+== Mathfx::Exponential  token 0x06000147 @0x0001aeac (196 bytes) static
+   args: start, end, value, power
+           0001aeac  mov      ip, sp                       
+           0001aeb0  push     {r7, lr}                     
+           0001aeb4  mov      r7, sp                       
+           0001aeb8  push     {r8, fp, ip, lr}             
+           0001aebc  sub      sp, sp, #0x48                
+           0001aec0  mov      fp, sp                       
+           0001aec4  str      r0, [fp, #0x24]              
+           0001aec8  str      r1, [fp, #0x28]              
+           0001aecc  str      r2, [fp, #0x2c]              
+           0001aed0  str      r3, [fp, #0x30]              
+           0001aed4  vldr     s0, [fp, #0x24]              
+           0001aed8  vcvt.f64.f32 d2, s0                       
+           0001aedc  vstr     d2, [fp, #0x40]              
+           0001aee0  vldr     s0, [fp, #0x28]              
+           0001aee4  vcvt.f64.f32 d2, s0                       
+           0001aee8  vstr     d2, [fp, #0x38]              
+           0001aeec  vldr     s0, [fp, #0x2c]              
+           0001aef0  vcvt.f64.f32 d3, s0                       
+           0001aef4  vldr     s0, [fp, #0x30]              
+           0001aef8  vcvt.f64.f32 d2, s0                       
+           0001aefc  vcvt.f32.f64 s0, d3                       
+           0001af00  vstr     s0, [sp, #-8]                
+           0001af04  ldr      r0, [sp, #-8]                
+           0001af08  vcvt.f32.f64 s0, d2                       
+           0001af0c  vstr     s0, [sp, #-8]                
+           0001af10  ldr      r1, [sp, #-8]                
+           0001af14  bl       #0xba9e0                     ; CALL UnityEngine.Mathf::Pow
+           0001af18  vmov     s4, r0                       
+           0001af1c  vcvt.f64.f32 d2, s4                       
+           0001af20  vldr     d3, [fp, #0x38]              
+           0001af24  vldr     d4, [fp, #0x40]              
+           0001af28  vcvt.f32.f64 s0, d4                       
+           0001af2c  vstr     s0, [sp, #-8]                
+           0001af30  ldr      r0, [sp, #-8]                
+           0001af34  vcvt.f32.f64 s0, d3                       
+           0001af38  vstr     s0, [sp, #-8]                
+           0001af3c  ldr      r1, [sp, #-8]                
+           0001af40  vcvt.f32.f64 s0, d2                       
+           0001af44  vstr     s0, [sp, #-8]                
+           0001af48  ldr      r2, [sp, #-8]                
+           0001af4c  bl       #0xba9a0                     ; CALL UnityEngine.Mathf::Lerp
+           0001af50  vmov     s4, r0                       
+           0001af54  vcvt.f64.f32 d2, s4                       
+           0001af58  vcvt.f32.f64 s0, d2                       
+           0001af5c  vmov     r0, s0                       
+           0001af60  add      sp, fp, #0x48                
+           0001af64  pop      {r8, fp}                     
+           0001af68  ldr      r7, [sp, #8]                 
+           0001af6c  ldm      sp, {sp, pc}                 
+
+== Mathfx::Exponential  token 0x06000148 @0x0001af70 (160 bytes) static
+   args: start, end, value
+           0001af70  mov      ip, sp                       
+           0001af74  push     {r7, lr}                     
+           0001af78  mov      r7, sp                       
+           0001af7c  push     {r8, fp, ip, lr}             
+           0001af80  sub      sp, sp, #0x38                
+           0001af84  mov      fp, sp                       
+           0001af88  str      r0, [fp, #0x28]              
+           0001af8c  str      r1, [fp, #0x2c]              
+           0001af90  str      r2, [fp, #0x30]              
+           0001af94  vldr     s0, [fp, #0x28]              
+           0001af98  vcvt.f64.f32 d5, s0                       
+           0001af9c  vldr     s0, [fp, #0x2c]              
+           0001afa0  vcvt.f64.f32 d4, s0                       
+           0001afa4  vldr     s0, [fp, #0x30]              
+           0001afa8  vcvt.f64.f32 d3, s0                       
+           0001afac  vldr     s4, [pc]                     ; float 2.0
+           0001afb0  b        #0x1afb8                     ; -> L_1afb8
+           0001afb4  .word    0x40000000                   ; literal 1073741824 / 2
+L_1afb8:   0001afb8  vcvt.f64.f32 d2, s4                       
+           0001afbc  vcvt.f32.f64 s0, d5                       
+           0001afc0  vstr     s0, [sp, #-8]                
+           0001afc4  ldr      r0, [sp, #-8]                
+           0001afc8  vcvt.f32.f64 s0, d4                       
+           0001afcc  vstr     s0, [sp, #-8]                
+           0001afd0  ldr      r1, [sp, #-8]                
+           0001afd4  vcvt.f32.f64 s0, d3                       
+           0001afd8  vstr     s0, [sp, #-8]                
+           0001afdc  ldr      r2, [sp, #-8]                
+           0001afe0  vcvt.f32.f64 s0, d2                       
+           0001afe4  vstr     s0, [sp, #-8]                
+           0001afe8  ldr      r3, [sp, #-8]                
+           0001afec  bl       #0x1aeac                     ; CALL Mathfx::Exponential (direct)
+           0001aff0  vmov     s4, r0                       
+           0001aff4  vcvt.f64.f32 d2, s4                       
+           0001aff8  vcvt.f32.f64 s0, d2                       
+           0001affc  vmov     r0, s0                       
+           0001b000  add      sp, fp, #0x38                
+           0001b004  pop      {r8, fp}                     
+           0001b008  ldr      r7, [sp, #8]                 
+           0001b00c  ldm      sp, {sp, pc}                 
+
+== Mathfx::DragBounce  token 0x06000149 @0x0001b010 (256 bytes) static
+   args: start, end, value
+           0001b010  mov      ip, sp                       
+           0001b014  push     {r7, lr}                     
+           0001b018  mov      r7, sp                       
+           0001b01c  push     {r8, fp, ip, lr}             
+           0001b020  sub      sp, sp, #0x28                
+           0001b024  mov      fp, sp                       
+           0001b028  str      r0, [fp, #0x18]              
+           0001b02c  str      r1, [fp, #0x1c]              
+           0001b030  str      r2, [fp, #0x20]              
+           0001b034  vldr     s0, [fp, #0x20]              
+           0001b038  vcvt.f64.f32 d2, s0                       
+           0001b03c  vcvt.f32.f64 s0, d2                       
+           0001b040  vstr     s0, [sp, #-8]                
+           0001b044  ldr      r0, [sp, #-8]                
+           0001b048  bl       #0xba9d0                     ; CALL UnityEngine.Mathf::Clamp01
+           0001b04c  vmov     s4, r0                       
+           0001b050  vcvt.f64.f32 d2, s4                       
+           0001b054  vcvt.f32.f64 s0, d2                       
+           0001b058  vstr     s0, [fp, #0x20]              
+           0001b05c  vldr     s0, [fp, #0x18]              
+           0001b060  vcvt.f64.f32 d4, s0                       
+           0001b064  vldr     s0, [fp, #0x1c]              
+           0001b068  vcvt.f64.f32 d3, s0                       
+           0001b06c  vldr     s4, [pc]                     ; float 6.75
+           0001b070  b        #0x1b078                     ; -> L_1b078
+           0001b074  .word    0x40d80000                   ; literal 1087897600 / 6.75
+L_1b078:   0001b078  vcvt.f64.f32 d2, s4                       
+           0001b07c  vldr     s0, [fp, #0x20]              
+           0001b080  vcvt.f64.f32 d5, s0                       
+           0001b084  vmul.f64 d2, d2, d5                   
+           0001b088  vldr     s10, [pc]                    ; float 1.0
+           0001b08c  b        #0x1b094                     ; -> L_1b094
+           0001b090  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1b094:   0001b094  vcvt.f64.f32 d5, s10                      
+           0001b098  vldr     s0, [fp, #0x20]              
+           0001b09c  vcvt.f64.f32 d6, s0                       
+           0001b0a0  vsub.f64 d5, d5, d6                   
+           0001b0a4  vmul.f64 d2, d2, d5                   
+           0001b0a8  vldr     s10, [pc]                    ; float 1.0
+           0001b0ac  b        #0x1b0b4                     ; -> L_1b0b4
+           0001b0b0  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1b0b4:   0001b0b4  vcvt.f64.f32 d5, s10                      
+           0001b0b8  vldr     s0, [fp, #0x20]              
+           0001b0bc  vcvt.f64.f32 d6, s0                       
+           0001b0c0  vsub.f64 d5, d5, d6                   
+           0001b0c4  vmul.f64 d2, d2, d5                   
+           0001b0c8  vcvt.f32.f64 s0, d4                       
+           0001b0cc  vstr     s0, [sp, #-8]                
+           0001b0d0  ldr      r0, [sp, #-8]                
+           0001b0d4  vcvt.f32.f64 s0, d3                       
+           0001b0d8  vstr     s0, [sp, #-8]                
+           0001b0dc  ldr      r1, [sp, #-8]                
+           0001b0e0  vcvt.f32.f64 s0, d2                       
+           0001b0e4  vstr     s0, [sp, #-8]                
+           0001b0e8  ldr      r2, [sp, #-8]                
+           0001b0ec  bl       #0xba9a0                     ; CALL UnityEngine.Mathf::Lerp
+           0001b0f0  vmov     s4, r0                       
+           0001b0f4  vcvt.f64.f32 d2, s4                       
+           0001b0f8  vcvt.f32.f64 s0, d2                       
+           0001b0fc  vmov     r0, s0                       
+           0001b100  add      sp, fp, #0x28                
+           0001b104  pop      {r8, fp}                     
+           0001b108  ldr      r7, [sp, #8]                 
+           0001b10c  ldm      sp, {sp, pc}                 
+
+== Mathfx::ClampAngle  token 0x0600014a @0x0001b110 (284 bytes) static
+   args: angle, min, max
+           0001b110  mov      ip, sp                       
+           0001b114  push     {r7, lr}                     
+           0001b118  mov      r7, sp                       
+           0001b11c  push     {r8, fp, ip, lr}             
+           0001b120  sub      sp, sp, #0x18                
+           0001b124  mov      fp, sp                       
+           0001b128  str      r0, [fp, #8]                 
+           0001b12c  str      r1, [fp, #0xc]               
+           0001b130  str      r2, [fp, #0x10]              
+           0001b134  b        #0x1b15c                     ; -> L_1b15c
+L_1b138:   0001b138  vldr     s0, [fp, #8]                 
+           0001b13c  vcvt.f64.f32 d2, s0                       
+           0001b140  vldr     s6, [pc]                     ; float 360.0
+           0001b144  b        #0x1b14c                     ; -> L_1b14c
+           0001b148  .word    0x43b40000                   ; literal 1135869952 / 360
+L_1b14c:   0001b14c  vcvt.f64.f32 d3, s6                       
+           0001b150  vadd.f64 d2, d2, d3                   
+           0001b154  vcvt.f32.f64 s0, d2                       
+           0001b158  vstr     s0, [fp, #8]                 
+L_1b15c:   0001b15c  vldr     s0, [fp, #8]                 
+           0001b160  vcvt.f64.f32 d2, s0                       
+           0001b164  vldr     s6, [pc]                     ; float -360.0
+           0001b168  b        #0x1b170                     ; -> L_1b170
+           0001b16c  .word    0xc3b40000                   ; literal -1011613696 / -360
+L_1b170:   0001b170  vcvt.f64.f32 d3, s6                       
+           0001b174  vcmp.f64 d2, d3                       
+           0001b178  vmrs     apsr_nzcv, fpscr             
+           0001b17c  bmi      #0x1b138                     ; -> L_1b138
+           0001b180  b        #0x1b1a8                     ; -> L_1b1a8
+L_1b184:   0001b184  vldr     s0, [fp, #8]                 
+           0001b188  vcvt.f64.f32 d2, s0                       
+           0001b18c  vldr     s6, [pc]                     ; float 360.0
+           0001b190  b        #0x1b198                     ; -> L_1b198
+           0001b194  .word    0x43b40000                   ; literal 1135869952 / 360
+L_1b198:   0001b198  vcvt.f64.f32 d3, s6                       
+           0001b19c  vsub.f64 d2, d2, d3                   
+           0001b1a0  vcvt.f32.f64 s0, d2                       
+           0001b1a4  vstr     s0, [fp, #8]                 
+L_1b1a8:   0001b1a8  vldr     s0, [fp, #8]                 
+           0001b1ac  vcvt.f64.f32 d3, s0                       
+           0001b1b0  vldr     s4, [pc]                     ; float 360.0
+           0001b1b4  b        #0x1b1bc                     ; -> L_1b1bc
+           0001b1b8  .word    0x43b40000                   ; literal 1135869952 / 360
+L_1b1bc:   0001b1bc  vcvt.f64.f32 d2, s4                       
+           0001b1c0  vcmp.f64 d2, d3                       
+           0001b1c4  vmrs     apsr_nzcv, fpscr             
+           0001b1c8  bmi      #0x1b184                     ; -> L_1b184
+           0001b1cc  vldr     s0, [fp, #8]                 
+           0001b1d0  vcvt.f64.f32 d4, s0                       
+           0001b1d4  vldr     s0, [fp, #0xc]               
+           0001b1d8  vcvt.f64.f32 d3, s0                       
+           0001b1dc  vldr     s0, [fp, #0x10]              
+           0001b1e0  vcvt.f64.f32 d2, s0                       
+           0001b1e4  vcvt.f32.f64 s0, d4                       
+           0001b1e8  vstr     s0, [sp, #-8]                
+           0001b1ec  ldr      r0, [sp, #-8]                
+           0001b1f0  vcvt.f32.f64 s0, d3                       
+           0001b1f4  vstr     s0, [sp, #-8]                
+           0001b1f8  ldr      r1, [sp, #-8]                
+           0001b1fc  vcvt.f32.f64 s0, d2                       
+           0001b200  vstr     s0, [sp, #-8]                
+           0001b204  ldr      r2, [sp, #-8]                
+           0001b208  bl       #0xba9f0                     ; CALL UnityEngine.Mathf::Clamp
+           0001b20c  vmov     s4, r0                       
+           0001b210  vcvt.f64.f32 d2, s4                       
+           0001b214  vcvt.f32.f64 s0, d2                       
+           0001b218  vmov     r0, s0                       
+           0001b21c  add      sp, fp, #0x18                
+           0001b220  pop      {r8, fp}                     
+           0001b224  ldr      r7, [sp, #8]                 
+           0001b228  ldm      sp, {sp, pc}                 
+
+== Mathfx::Parameter  token 0x0600014b @0x0001b22c (340 bytes) static
+   args: start, middle, end, value
+           0001b22c  mov      ip, sp                       
+           0001b230  push     {r7, lr}                     
+           0001b234  mov      r7, sp                       
+           0001b238  push     {r8, fp, ip, lr}             
+           0001b23c  sub      sp, sp, #0x38                
+           0001b240  mov      fp, sp                       
+           0001b244  str      r0, [fp, #0x28]              
+           0001b248  str      r1, [fp, #0x2c]              
+           0001b24c  str      r2, [fp, #0x30]              
+           0001b250  str      r3, [fp, #0x34]              
+           0001b254  vldr     s0, [fp, #0x34]              
+           0001b258  vcvt.f64.f32 d2, s0                       
+           0001b25c  vldr     s6, [pc]                     ; float 0.5
+           0001b260  b        #0x1b268                     ; -> L_1b268
+           0001b264  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_1b268:   0001b268  vcvt.f64.f32 d3, s6                       
+           0001b26c  vcmp.f64 d2, d3                       
+           0001b270  vmrs     apsr_nzcv, fpscr             
+           0001b274  bvs      #0x1b2f8                     ; -> L_1b2f8
+           0001b278  bge      #0x1b2f8                     ; -> L_1b2f8
+           0001b27c  vldr     s0, [fp, #0x28]              
+           0001b280  vcvt.f64.f32 d4, s0                       
+           0001b284  vldr     s0, [fp, #0x2c]              
+           0001b288  vcvt.f64.f32 d3, s0                       
+           0001b28c  vldr     s4, [pc]                     ; float 0.5
+           0001b290  b        #0x1b298                     ; -> L_1b298
+           0001b294  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_1b298:   0001b298  vcvt.f64.f32 d2, s4                       
+           0001b29c  vldr     s0, [fp, #0x34]              
+           0001b2a0  vcvt.f64.f32 d5, s0                       
+           0001b2a4  vsub.f64 d2, d2, d5                   
+           0001b2a8  vldr     s10, [pc]                    ; float 2.0
+           0001b2ac  b        #0x1b2b4                     ; -> L_1b2b4
+           0001b2b0  .word    0x40000000                   ; literal 1073741824 / 2
+L_1b2b4:   0001b2b4  vcvt.f64.f32 d5, s10                      
+           0001b2b8  vmul.f64 d2, d2, d5                   
+           0001b2bc  vcvt.f32.f64 s0, d4                       
+           0001b2c0  vstr     s0, [sp, #-8]                
+           0001b2c4  ldr      r0, [sp, #-8]                
+           0001b2c8  vcvt.f32.f64 s0, d3                       
+           0001b2cc  vstr     s0, [sp, #-8]                
+           0001b2d0  ldr      r1, [sp, #-8]                
+           0001b2d4  vcvt.f32.f64 s0, d2                       
+           0001b2d8  vstr     s0, [sp, #-8]                
+           0001b2dc  ldr      r2, [sp, #-8]                
+           0001b2e0  bl       #0xba9a0                     ; CALL UnityEngine.Mathf::Lerp
+           0001b2e4  vmov     s4, r0                       
+           0001b2e8  vcvt.f64.f32 d2, s4                       
+           0001b2ec  vcvt.f32.f64 s0, d2                       
+           0001b2f0  vmov     r0, s0                       
+           0001b2f4  b        #0x1b370                     ; -> L_1b370
+L_1b2f8:   0001b2f8  vldr     s0, [fp, #0x2c]              
+           0001b2fc  vcvt.f64.f32 d4, s0                       
+           0001b300  vldr     s0, [fp, #0x30]              
+           0001b304  vcvt.f64.f32 d3, s0                       
+           0001b308  vldr     s0, [fp, #0x34]              
+           0001b30c  vcvt.f64.f32 d2, s0                       
+           0001b310  vldr     s10, [pc]                    ; float 0.5
+           0001b314  b        #0x1b31c                     ; -> L_1b31c
+           0001b318  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_1b31c:   0001b31c  vcvt.f64.f32 d5, s10                      
+           0001b320  vsub.f64 d2, d2, d5                   
+           0001b324  vldr     s10, [pc]                    ; float 2.0
+           0001b328  b        #0x1b330                     ; -> L_1b330
+           0001b32c  .word    0x40000000                   ; literal 1073741824 / 2
+L_1b330:   0001b330  vcvt.f64.f32 d5, s10                      
+           0001b334  vmul.f64 d2, d2, d5                   
+           0001b338  vcvt.f32.f64 s0, d4                       
+           0001b33c  vstr     s0, [sp, #-8]                
+           0001b340  ldr      r0, [sp, #-8]                
+           0001b344  vcvt.f32.f64 s0, d3                       
+           0001b348  vstr     s0, [sp, #-8]                
+           0001b34c  ldr      r1, [sp, #-8]                
+           0001b350  vcvt.f32.f64 s0, d2                       
+           0001b354  vstr     s0, [sp, #-8]                
+           0001b358  ldr      r2, [sp, #-8]                
+           0001b35c  bl       #0xba9a0                     ; CALL UnityEngine.Mathf::Lerp
+           0001b360  vmov     s4, r0                       
+           0001b364  vcvt.f64.f32 d2, s4                       
+           0001b368  vcvt.f32.f64 s0, d2                       
+           0001b36c  vmov     r0, s0                       
+L_1b370:   0001b370  add      sp, fp, #0x38                
+           0001b374  pop      {r8, fp}                     
+           0001b378  ldr      r7, [sp, #8]                 
+           0001b37c  ldm      sp, {sp, pc}                 
+
+== Mathfx::Bounce  token 0x0600014c @0x0001b380 (688 bytes) static
+   args: start, end, value
+           0001b380  mov      ip, sp                       
+           0001b384  push     {r7, lr}                     
+           0001b388  mov      r7, sp                       
+           0001b38c  push     {r8, fp, ip, lr}             
+           0001b390  sub      sp, sp, #0x28                
+           0001b394  mov      fp, sp                       
+           0001b398  str      r0, [fp, #0x1c]              
+           0001b39c  str      r1, [fp, #0x20]              
+           0001b3a0  str      r2, [fp, #0x24]              
+           0001b3a4  vldr     s0, [fp, #0x24]              
+           0001b3a8  vcvt.f64.f32 d2, s0                       
+           0001b3ac  vcvt.f32.f64 s0, d2                       
+           0001b3b0  vstr     s0, [sp, #-8]                
+           0001b3b4  ldr      r0, [sp, #-8]                
+           0001b3b8  bl       #0xba9d0                     ; CALL UnityEngine.Mathf::Clamp01
+           0001b3bc  vmov     s4, r0                       
+           0001b3c0  vcvt.f64.f32 d2, s4                       
+           0001b3c4  vcvt.f32.f64 s0, d2                       
+           0001b3c8  vstr     s0, [fp, #0x24]              
+           0001b3cc  vldr     s4, [pc]                     ; float 0.0
+           0001b3d0  b        #0x1b3d8                     ; -> L_1b3d8
+           0001b3d4  .word    0x00000000                   ; literal 0 / 0
+L_1b3d8:   0001b3d8  vcvt.f64.f32 d2, s4                       
+           0001b3dc  vcvt.f32.f64 s0, d2                       
+           0001b3e0  vstr     s0, [fp, #8]                 
+           0001b3e4  vldr     s0, [fp, #0x24]              
+           0001b3e8  vcvt.f64.f32 d2, s0                       
+           0001b3ec  vldr     s6, [pc]                     ; float 0.3636363744735718
+           0001b3f0  b        #0x1b3f8                     ; -> L_1b3f8
+           0001b3f4  .word    0x3eba2e8c                   ; literal 1052389004 / 0.363636
+L_1b3f8:   0001b3f8  vcvt.f64.f32 d3, s6                       
+           0001b3fc  vcmp.f64 d2, d3                       
+           0001b400  vmrs     apsr_nzcv, fpscr             
+           0001b404  bvs      #0x1b440                     ; -> L_1b440
+           0001b408  bge      #0x1b440                     ; -> L_1b440
+           0001b40c  vldr     s4, [pc]                     ; float 7.5625
+           0001b410  b        #0x1b418                     ; -> L_1b418
+           0001b414  .word    0x40f20000                   ; literal 1089601536 / 7.5625
+L_1b418:   0001b418  vcvt.f64.f32 d2, s4                       
+           0001b41c  vldr     s0, [fp, #0x24]              
+           0001b420  vcvt.f64.f32 d3, s0                       
+           0001b424  vmul.f64 d2, d2, d3                   
+           0001b428  vldr     s0, [fp, #0x24]              
+           0001b42c  vcvt.f64.f32 d3, s0                       
+           0001b430  vmul.f64 d2, d2, d3                   
+           0001b434  vcvt.f32.f64 s0, d2                       
+           0001b438  vstr     s0, [fp, #8]                 
+           0001b43c  b        #0x1b5d0                     ; -> L_1b5d0
+L_1b440:   0001b440  vldr     s0, [fp, #0x24]              
+           0001b444  vcvt.f64.f32 d2, s0                       
+           0001b448  vldr     s6, [pc]                     ; float 0.7272727489471436
+           0001b44c  b        #0x1b454                     ; -> L_1b454
+           0001b450  .word    0x3f3a2e8c                   ; literal 1060777612 / 0.727273
+L_1b454:   0001b454  vcvt.f64.f32 d3, s6                       
+           0001b458  vcmp.f64 d2, d3                       
+           0001b45c  vmrs     apsr_nzcv, fpscr             
+           0001b460  bvs      #0x1b4d4                     ; -> L_1b4d4
+           0001b464  bge      #0x1b4d4                     ; -> L_1b4d4
+           0001b468  vldr     s0, [fp, #0x24]              
+           0001b46c  vcvt.f64.f32 d2, s0                       
+           0001b470  vldr     s6, [pc]                     ; float 0.5454545617103577
+           0001b474  b        #0x1b47c                     ; -> L_1b47c
+           0001b478  .word    0x3f0ba2e9                   ; literal 1057727209 / 0.545455
+L_1b47c:   0001b47c  vcvt.f64.f32 d3, s6                       
+           0001b480  vsub.f64 d2, d2, d3                   
+           0001b484  vcvt.f32.f64 s0, d2                       
+           0001b488  vstr     s0, [fp, #0x24]              
+           0001b48c  vldr     s4, [pc]                     ; float 7.5625
+           0001b490  b        #0x1b498                     ; -> L_1b498
+           0001b494  .word    0x40f20000                   ; literal 1089601536 / 7.5625
+L_1b498:   0001b498  vcvt.f64.f32 d2, s4                       
+           0001b49c  vldr     s0, [fp, #0x24]              
+           0001b4a0  vcvt.f64.f32 d3, s0                       
+           0001b4a4  vmul.f64 d2, d2, d3                   
+           0001b4a8  vldr     s0, [fp, #0x24]              
+           0001b4ac  vcvt.f64.f32 d3, s0                       
+           0001b4b0  vmul.f64 d2, d2, d3                   
+           0001b4b4  vldr     s6, [pc]                     ; float 0.75
+           0001b4b8  b        #0x1b4c0                     ; -> L_1b4c0
+           0001b4bc  .word    0x3f400000                   ; literal 1061158912 / 0.75
+L_1b4c0:   0001b4c0  vcvt.f64.f32 d3, s6                       
+           0001b4c4  vadd.f64 d2, d2, d3                   
+           0001b4c8  vcvt.f32.f64 s0, d2                       
+           0001b4cc  vstr     s0, [fp, #8]                 
+           0001b4d0  b        #0x1b5d0                     ; -> L_1b5d0
+L_1b4d4:   0001b4d4  vldr     s0, [fp, #0x24]              
+           0001b4d8  vcvt.f64.f32 d2, s0                       
+           0001b4dc  vldr     s6, [pc]                     ; float 0.9090908765792847
+           0001b4e0  b        #0x1b4e8                     ; -> L_1b4e8
+           0001b4e4  .word    0x3f68ba2e                   ; literal 1063828014 / 0.909091
+L_1b4e8:   0001b4e8  vcvt.f64.f32 d3, s6                       
+           0001b4ec  vcmp.f64 d2, d3                       
+           0001b4f0  vmrs     apsr_nzcv, fpscr             
+           0001b4f4  bvs      #0x1b568                     ; -> L_1b568
+           0001b4f8  bge      #0x1b568                     ; -> L_1b568
+           0001b4fc  vldr     s0, [fp, #0x24]              
+           0001b500  vcvt.f64.f32 d2, s0                       
+           0001b504  vldr     s6, [pc]                     ; float 0.8181818127632141
+           0001b508  b        #0x1b510                     ; -> L_1b510
+           0001b50c  .word    0x3f51745d                   ; literal 1062302813 / 0.818182
+L_1b510:   0001b510  vcvt.f64.f32 d3, s6                       
+           0001b514  vsub.f64 d2, d2, d3                   
+           0001b518  vcvt.f32.f64 s0, d2                       
+           0001b51c  vstr     s0, [fp, #0x24]              
+           0001b520  vldr     s4, [pc]                     ; float 7.5625
+           0001b524  b        #0x1b52c                     ; -> L_1b52c
+           0001b528  .word    0x40f20000                   ; literal 1089601536 / 7.5625
+L_1b52c:   0001b52c  vcvt.f64.f32 d2, s4                       
+           0001b530  vldr     s0, [fp, #0x24]              
+           0001b534  vcvt.f64.f32 d3, s0                       
+           0001b538  vmul.f64 d2, d2, d3                   
+           0001b53c  vldr     s0, [fp, #0x24]              
+           0001b540  vcvt.f64.f32 d3, s0                       
+           0001b544  vmul.f64 d2, d2, d3                   
+           0001b548  vldr     s6, [pc]                     ; float 0.9375
+           0001b54c  b        #0x1b554                     ; -> L_1b554
+           0001b550  .word    0x3f700000                   ; literal 1064304640 / 0.9375
+L_1b554:   0001b554  vcvt.f64.f32 d3, s6                       
+           0001b558  vadd.f64 d2, d2, d3                   
+           0001b55c  vcvt.f32.f64 s0, d2                       
+           0001b560  vstr     s0, [fp, #8]                 
+           0001b564  b        #0x1b5d0                     ; -> L_1b5d0
+L_1b568:   0001b568  vldr     s0, [fp, #0x24]              
+           0001b56c  vcvt.f64.f32 d2, s0                       
+           0001b570  vldr     s6, [pc]                     ; float 0.9545453786849976
+           0001b574  b        #0x1b57c                     ; -> L_1b57c
+           0001b578  .word    0x3f745d16                   ; literal 1064590614 / 0.954545
+L_1b57c:   0001b57c  vcvt.f64.f32 d3, s6                       
+           0001b580  vsub.f64 d2, d2, d3                   
+           0001b584  vcvt.f32.f64 s0, d2                       
+           0001b588  vstr     s0, [fp, #0x24]              
+           0001b58c  vldr     s4, [pc]                     ; float 7.5625
+           0001b590  b        #0x1b598                     ; -> L_1b598
+           0001b594  .word    0x40f20000                   ; literal 1089601536 / 7.5625
+L_1b598:   0001b598  vcvt.f64.f32 d2, s4                       
+           0001b59c  vldr     s0, [fp, #0x24]              
+           0001b5a0  vcvt.f64.f32 d3, s0                       
+           0001b5a4  vmul.f64 d2, d2, d3                   
+           0001b5a8  vldr     s0, [fp, #0x24]              
+           0001b5ac  vcvt.f64.f32 d3, s0                       
+           0001b5b0  vmul.f64 d2, d2, d3                   
+           0001b5b4  vldr     s6, [pc]                     ; float 0.984375
+           0001b5b8  b        #0x1b5c0                     ; -> L_1b5c0
+           0001b5bc  .word    0x3f7c0000                   ; literal 1065091072 / 0.984375
+L_1b5c0:   0001b5c0  vcvt.f64.f32 d3, s6                       
+           0001b5c4  vadd.f64 d2, d2, d3                   
+           0001b5c8  vcvt.f32.f64 s0, d2                       
+           0001b5cc  vstr     s0, [fp, #8]                 
+L_1b5d0:   0001b5d0  vldr     s0, [fp, #0x1c]              
+           0001b5d4  vcvt.f64.f32 d4, s0                       
+           0001b5d8  vldr     s0, [fp, #0x20]              
+           0001b5dc  vcvt.f64.f32 d3, s0                       
+           0001b5e0  vldr     s0, [fp, #8]                 
+           0001b5e4  vcvt.f64.f32 d2, s0                       
+           0001b5e8  vcvt.f32.f64 s0, d4                       
+           0001b5ec  vstr     s0, [sp, #-8]                
+           0001b5f0  ldr      r0, [sp, #-8]                
+           0001b5f4  vcvt.f32.f64 s0, d3                       
+           0001b5f8  vstr     s0, [sp, #-8]                
+           0001b5fc  ldr      r1, [sp, #-8]                
+           0001b600  vcvt.f32.f64 s0, d2                       
+           0001b604  vstr     s0, [sp, #-8]                
+           0001b608  ldr      r2, [sp, #-8]                
+           0001b60c  bl       #0xba9a0                     ; CALL UnityEngine.Mathf::Lerp
+           0001b610  vmov     s4, r0                       
+           0001b614  vcvt.f64.f32 d2, s4                       
+           0001b618  vcvt.f32.f64 s0, d2                       
+           0001b61c  vmov     r0, s0                       
+           0001b620  add      sp, fp, #0x28                
+           0001b624  pop      {r8, fp}                     
+           0001b628  ldr      r7, [sp, #8]                 
+           0001b62c  ldm      sp, {sp, pc}                 

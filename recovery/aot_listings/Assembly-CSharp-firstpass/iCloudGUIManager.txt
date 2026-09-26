@@ -1,0 +1,1355 @@
+####################################################################################################
+# TYPE iCloudGUIManager  (instance size 0x14)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 _filename                      string
+#   vtable slots: 
+####################################################################################################
+== iCloudGUIManager::.ctor  token 0x060004ed @0x0004f468 (72 bytes)
+   args: r0=this, 
+           0004f468  mov      ip, sp                       
+           0004f46c  push     {r7, lr}                     
+           0004f470  mov      r7, sp                       
+           0004f474  push     {r8, fp, ip, lr}             
+           0004f478  sub      sp, sp, #8                   
+           0004f47c  mov      fp, sp                       
+           0004f480  str      r0, [fp]                     
+           0004f484  ldr      r1, [pc]                     
+           0004f488  b        #0x4f490                     ; -> L_4f490
+           0004f48c  .word    0x00f4dbd4                   ; literal 16047060 / 
+L_4f490:   0004f490  ldr      r1, [pc, r1]                 ; GOT[657] LDSTR 'myCloudFile.txt'
+           0004f494  ldr      r0, [fp]                     
+           0004f498  str      r1, [r0, #0x10]              ; field+0x10 (this-class: _filename)
+           0004f49c  bl       #0xb98f0                     ; CALL UnityEngine.MonoBehaviour::.ctor
+           0004f4a0  add      sp, fp, #8                   
+           0004f4a4  pop      {r8, fp}                     
+           0004f4a8  ldr      r7, [sp, #8]                 
+           0004f4ac  ldm      sp, {sp, pc}                 
+
+== iCloudGUIManager::OnGUI  token 0x060004ee @0x0004f4b0 (5304 bytes)
+   args: r0=this, 
+           0004f4b0  mov      ip, sp                       
+           0004f4b4  push     {r7, lr}                     
+           0004f4b8  mov      r7, sp                       
+           0004f4bc  push     {r4, r6, r8, sl, fp, ip, lr} 
+           0004f4c0  sub      sp, sp, #0x224               
+           0004f4c4  mov      fp, sp                       
+           0004f4c8  mov      sl, r0                       
+           0004f4cc  vldr     s4, [pc]                     ; float 5.0
+           0004f4d0  b        #0x4f4d8                     ; -> L_4f4d8
+           0004f4d4  .word    0x40a00000                   ; literal 1084227584 / 5
+L_4f4d8:   0004f4d8  vcvt.f64.f32 d2, s4                       
+           0004f4dc  vcvt.f32.f64 s0, d2                       
+           0004f4e0  vstr     s0, [fp, #0x10]              
+           0004f4e4  vldr     s4, [pc]                     ; float 5.0
+           0004f4e8  b        #0x4f4f0                     ; -> L_4f4f0
+           0004f4ec  .word    0x40a00000                   ; literal 1084227584 / 5
+L_4f4f0:   0004f4f0  vcvt.f64.f32 d2, s4                       
+           0004f4f4  vcvt.f32.f64 s0, d2                       
+           0004f4f8  vstr     s0, [fp, #0x14]              
+           0004f4fc  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           0004f500  cmp      r0, #240, #30                
+           0004f504  bge      #0x4f514                     ; -> L_4f514
+           0004f508  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           0004f50c  cmp      r0, #240, #30                
+           0004f510  blt      #0x4f51c                     ; -> L_4f51c
+L_4f514:   0004f514  mov      r4, #80, #30                 
+           0004f518  b        #0x4f520                     ; -> L_4f520
+L_4f51c:   0004f51c  mov      r4, #0xa0                    
+L_4f520:   0004f520  vmov     s0, r4                       
+           0004f524  vcvt.f32.s32 s0, s0                       
+           0004f528  vcvt.f64.f32 d2, s0                       
+           0004f52c  vcvt.f32.f64 s0, d2                       
+           0004f530  vstr     s0, [fp, #0x18]              
+           0004f534  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           0004f538  cmp      r0, #240, #30                
+           0004f53c  bge      #0x4f54c                     ; -> L_4f54c
+           0004f540  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           0004f544  cmp      r0, #240, #30                
+           0004f548  blt      #0x4f554                     ; -> L_4f554
+L_4f54c:   0004f54c  mov      r4, #0x50                    
+           0004f550  b        #0x4f558                     ; -> L_4f558
+L_4f554:   0004f554  mov      r4, #0x28                    
+L_4f558:   0004f558  vmov     s0, r4                       
+           0004f55c  vcvt.f32.s32 s0, s0                       
+           0004f560  vcvt.f64.f32 d2, s0                       
+           0004f564  vcvt.f32.f64 s0, d2                       
+           0004f568  vstr     s0, [fp, #0x1c]              
+           0004f56c  vldr     s0, [fp, #0x1c]              
+           0004f570  vcvt.f64.f32 d2, s0                       
+           0004f574  vldr     s6, [pc]                     ; float 10.0
+           0004f578  b        #0x4f580                     ; -> L_4f580
+           0004f57c  .word    0x41200000                   ; literal 1092616192 / 10
+L_4f580:   0004f580  vcvt.f64.f32 d3, s6                       
+           0004f584  vadd.f64 d2, d2, d3                   
+           0004f588  vcvt.f32.f64 s0, d2                       
+           0004f58c  vstr     s0, [fp, #0x20]              
+           0004f590  vldr     s0, [fp, #0x14]              
+           0004f594  vcvt.f64.f32 d5, s0                       
+           0004f598  vldr     s0, [fp, #0x10]              
+           0004f59c  vcvt.f64.f32 d4, s0                       
+           0004f5a0  vldr     s0, [fp, #0x18]              
+           0004f5a4  vcvt.f64.f32 d3, s0                       
+           0004f5a8  vldr     s0, [fp, #0x1c]              
+           0004f5ac  vcvt.f64.f32 d2, s0                       
+           0004f5b0  mov      r0, #0                       
+           0004f5b4  str      r0, [fp, #0x2c]              
+           0004f5b8  mov      r0, #0                       
+           0004f5bc  str      r0, [fp, #0x30]              
+           0004f5c0  mov      r0, #0                       
+           0004f5c4  str      r0, [fp, #0x34]              
+           0004f5c8  mov      r0, #0                       
+           0004f5cc  str      r0, [fp, #0x38]              
+           0004f5d0  add      r0, fp, #0x2c                
+           0004f5d4  vcvt.f32.f64 s0, d5                       
+           0004f5d8  vstr     s0, [sp, #-8]                
+           0004f5dc  ldr      r1, [sp, #-8]                
+           0004f5e0  vcvt.f32.f64 s0, d4                       
+           0004f5e4  vstr     s0, [sp, #-8]                
+           0004f5e8  ldr      r2, [sp, #-8]                
+           0004f5ec  vcvt.f32.f64 s0, d3                       
+           0004f5f0  vstr     s0, [sp, #-8]                
+           0004f5f4  ldr      r3, [sp, #-8]                
+           0004f5f8  vcvt.f32.f64 s0, d2                       
+           0004f5fc  vstr     s0, [sp]                     
+           0004f600  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0004f604  ldr      r0, [fp, #0x2c]              
+           0004f608  str      r0, [fp, #0x110]             
+           0004f60c  ldr      r0, [fp, #0x30]              
+           0004f610  str      r0, [fp, #0x114]             
+           0004f614  ldr      r0, [fp, #0x34]              
+           0004f618  str      r0, [fp, #0x118]             
+           0004f61c  ldr      r0, [fp, #0x38]              
+           0004f620  str      r0, [fp, #0x11c]             
+           0004f624  ldr      ip, [pc]                     
+           0004f628  b        #0x4f630                     ; -> L_4f630
+           0004f62c  .word    0x00f4da38                   ; literal 16046648 / 
+L_4f630:   0004f630  ldr      ip, [pc, ip]                 ; GOT[658] LDSTR 'Synchronize'
+           0004f634  ldr      r0, [fp, #0x110]             
+           0004f638  ldr      r1, [fp, #0x114]             
+           0004f63c  ldr      r2, [fp, #0x118]             
+           0004f640  ldr      r3, [fp, #0x11c]             
+           0004f644  str      ip, [sp]                     
+           0004f648  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0004f64c  cmp      r0, #0                       
+           0004f650  beq      #0x4f6c0                     ; -> L_4f6c0
+           0004f654  bl       #0xbd4e0                     ; CALL P31Prefs::get_iCloudAvailable
+           0004f658  cmp      r0, #0                       
+           0004f65c  beq      #0x4f6ac                     ; -> L_4f6ac
+           0004f660  bl       #0xbd4f0                     ; CALL P31Prefs::synchronize
+           0004f664  strb     r0, [fp, #0x24]              
+           0004f668  ldr      r0, [pc]                     
+           0004f66c  b        #0x4f674                     ; -> L_4f674
+           0004f670  .word    0x00f4d9f8                   ; literal 16046584 / 
+L_4f674:   0004f674  ldr      r0, [pc, r0]                 ; GOT[659] LDSTR 'did synchronize: '
+           0004f678  str      r0, [fp, #0x1f0]             
+           0004f67c  ldr      r0, [pc]                     
+           0004f680  b        #0x4f688                     ; -> L_4f688
+           0004f684  .word    0x00f4cfe8                   ; literal 16044008 / 
+L_4f688:   0004f688  ldr      r0, [pc, r0]                 ; GOT[20] VTABLE System.Boolean
+           0004f68c  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0004f690  mov      r1, r0                       
+           0004f694  ldr      r0, [fp, #0x1f0]             
+           0004f698  ldrb     r2, [fp, #0x24]              
+           0004f69c  strb     r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0004f6a0  bl       #0xb9e60                     ; CALL System.String::Concat
+           0004f6a4  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+           0004f6a8  b        #0x4f6c0                     ; -> L_4f6c0
+L_4f6ac:   0004f6ac  ldr      r0, [pc]                     
+           0004f6b0  b        #0x4f6b8                     ; -> L_4f6b8
+           0004f6b4  .word    0x00f4d9b8                   ; literal 16046520 / 
+L_4f6b8:   0004f6b8  ldr      r0, [pc, r0]                 ; GOT[660] LDSTR 'iCloud is not available'
+           0004f6bc  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_4f6c0:   0004f6c0  vldr     s0, [fp, #0x14]              
+           0004f6c4  vcvt.f64.f32 d5, s0                       
+           0004f6c8  vldr     s0, [fp, #0x10]              
+           0004f6cc  vcvt.f64.f32 d2, s0                       
+           0004f6d0  vldr     s0, [fp, #0x20]              
+           0004f6d4  vcvt.f64.f32 d3, s0                       
+           0004f6d8  vadd.f64 d2, d2, d3                   
+           0004f6dc  vmov.f64 d2, d2                       
+           0004f6e0  vmov.f64 d4, d2                       
+           0004f6e4  vmov.f64 d4, d4                       
+           0004f6e8  vmov.f64 d2, d2                       
+           0004f6ec  vcvt.f32.f64 s0, d2                       
+           0004f6f0  vstr     s0, [fp, #0x10]              
+           0004f6f4  vldr     s0, [fp, #0x18]              
+           0004f6f8  vcvt.f64.f32 d3, s0                       
+           0004f6fc  vldr     s0, [fp, #0x1c]              
+           0004f700  vcvt.f64.f32 d2, s0                       
+           0004f704  mov      r0, #0                       
+           0004f708  str      r0, [fp, #0x3c]              
+           0004f70c  mov      r0, #0                       
+           0004f710  str      r0, [fp, #0x40]              
+           0004f714  mov      r0, #0                       
+           0004f718  str      r0, [fp, #0x44]              
+           0004f71c  mov      r0, #0                       
+           0004f720  str      r0, [fp, #0x48]              
+           0004f724  add      r0, fp, #0x3c                
+           0004f728  vcvt.f32.f64 s0, d5                       
+           0004f72c  vstr     s0, [sp]                     
+           0004f730  ldr      r1, [sp]                     
+           0004f734  vcvt.f32.f64 s0, d4                       
+           0004f738  vstr     s0, [sp]                     
+           0004f73c  ldr      r2, [sp]                     
+           0004f740  vcvt.f32.f64 s0, d3                       
+           0004f744  vstr     s0, [sp]                     
+           0004f748  ldr      r3, [sp]                     
+           0004f74c  vcvt.f32.f64 s0, d2                       
+           0004f750  vstr     s0, [sp]                     
+           0004f754  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0004f758  ldr      r0, [fp, #0x3c]              
+           0004f75c  str      r0, [fp, #0x120]             
+           0004f760  ldr      r0, [fp, #0x40]              
+           0004f764  str      r0, [fp, #0x124]             
+           0004f768  ldr      r0, [fp, #0x44]              
+           0004f76c  str      r0, [fp, #0x128]             
+           0004f770  ldr      r0, [fp, #0x48]              
+           0004f774  str      r0, [fp, #0x12c]             
+           0004f778  ldr      ip, [pc]                     
+           0004f77c  b        #0x4f784                     ; -> L_4f784
+           0004f780  .word    0x00f4d8f0                   ; literal 16046320 / 
+L_4f784:   0004f784  ldr      ip, [pc, ip]                 ; GOT[661] LDSTR 'Set Int 29'
+           0004f788  ldr      r0, [fp, #0x120]             
+           0004f78c  ldr      r1, [fp, #0x124]             
+           0004f790  ldr      r2, [fp, #0x128]             
+           0004f794  ldr      r3, [fp, #0x12c]             
+           0004f798  str      ip, [sp]                     
+           0004f79c  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0004f7a0  cmp      r0, #0                       
+           0004f7a4  beq      #0x4f818                     ; -> L_4f818
+           0004f7a8  ldr      r0, [pc]                     
+           0004f7ac  b        #0x4f7b4                     ; -> L_4f7b4
+           0004f7b0  .word    0x00f4d8c4                   ; literal 16046276 / 
+L_4f7b4:   0004f7b4  ldr      r0, [pc, r0]                 ; GOT[662] LDSTR 'theInt'
+           0004f7b8  mov      r1, #0x1d                    
+           0004f7bc  bl       #0xbd500                     ; CALL P31Prefs::setInt
+           0004f7c0  ldr      r0, [pc]                     
+           0004f7c4  b        #0x4f7cc                     ; -> L_4f7cc
+           0004f7c8  .word    0x00f4d8b0                   ; literal 16046256 / 
+L_4f7cc:   0004f7cc  ldr      r0, [pc, r0]                 ; GOT[663] LDSTR 'int: '
+           0004f7d0  str      r0, [fp, #0x1f0]             
+           0004f7d4  ldr      r0, [pc]                     
+           0004f7d8  b        #0x4f7e0                     ; -> L_4f7e0
+           0004f7dc  .word    0x00f4d898                   ; literal 16046232 / 
+L_4f7e0:   0004f7e0  ldr      r0, [pc, r0]                 ; GOT[662] LDSTR 'theInt'
+           0004f7e4  bl       #0xbd510                     ; CALL P31Prefs::getInt
+           0004f7e8  str      r0, [fp, #0x1f4]             
+           0004f7ec  ldr      r0, [pc]                     
+           0004f7f0  b        #0x4f7f8                     ; -> L_4f7f8
+           0004f7f4  .word    0x00f4cea4                   ; literal 16043684 / 
+L_4f7f8:   0004f7f8  ldr      r0, [pc, r0]                 ; GOT[31] VTABLE System.Int32
+           0004f7fc  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0004f800  mov      r1, r0                       
+           0004f804  ldr      r0, [fp, #0x1f0]             
+           0004f808  ldr      r2, [fp, #0x1f4]             
+           0004f80c  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0004f810  bl       #0xb9e60                     ; CALL System.String::Concat
+           0004f814  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_4f818:   0004f818  vldr     s0, [fp, #0x14]              
+           0004f81c  vcvt.f64.f32 d5, s0                       
+           0004f820  vldr     s0, [fp, #0x10]              
+           0004f824  vcvt.f64.f32 d2, s0                       
+           0004f828  vldr     s0, [fp, #0x20]              
+           0004f82c  vcvt.f64.f32 d3, s0                       
+           0004f830  vadd.f64 d2, d2, d3                   
+           0004f834  vmov.f64 d2, d2                       
+           0004f838  vmov.f64 d4, d2                       
+           0004f83c  vmov.f64 d4, d4                       
+           0004f840  vmov.f64 d2, d2                       
+           0004f844  vcvt.f32.f64 s0, d2                       
+           0004f848  vstr     s0, [fp, #0x10]              
+           0004f84c  vldr     s0, [fp, #0x18]              
+           0004f850  vcvt.f64.f32 d3, s0                       
+           0004f854  vldr     s0, [fp, #0x1c]              
+           0004f858  vcvt.f64.f32 d2, s0                       
+           0004f85c  mov      r0, #0                       
+           0004f860  str      r0, [fp, #0x4c]              
+           0004f864  mov      r0, #0                       
+           0004f868  str      r0, [fp, #0x50]              
+           0004f86c  mov      r0, #0                       
+           0004f870  str      r0, [fp, #0x54]              
+           0004f874  mov      r0, #0                       
+           0004f878  str      r0, [fp, #0x58]              
+           0004f87c  add      r0, fp, #0x4c                
+           0004f880  vcvt.f32.f64 s0, d5                       
+           0004f884  vstr     s0, [sp]                     
+           0004f888  ldr      r1, [sp]                     
+           0004f88c  vcvt.f32.f64 s0, d4                       
+           0004f890  vstr     s0, [sp]                     
+           0004f894  ldr      r2, [sp]                     
+           0004f898  vcvt.f32.f64 s0, d3                       
+           0004f89c  vstr     s0, [sp]                     
+           0004f8a0  ldr      r3, [sp]                     
+           0004f8a4  vcvt.f32.f64 s0, d2                       
+           0004f8a8  vstr     s0, [sp]                     
+           0004f8ac  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0004f8b0  ldr      r0, [fp, #0x4c]              
+           0004f8b4  str      r0, [fp, #0x130]             
+           0004f8b8  ldr      r0, [fp, #0x50]              
+           0004f8bc  str      r0, [fp, #0x134]             
+           0004f8c0  ldr      r0, [fp, #0x54]              
+           0004f8c4  str      r0, [fp, #0x138]             
+           0004f8c8  ldr      r0, [fp, #0x58]              
+           0004f8cc  str      r0, [fp, #0x13c]             
+           0004f8d0  ldr      ip, [pc]                     
+           0004f8d4  b        #0x4f8dc                     ; -> L_4f8dc
+           0004f8d8  .word    0x00f4d7a4                   ; literal 16045988 / 
+L_4f8dc:   0004f8dc  ldr      ip, [pc, ip]                 ; GOT[664] LDSTR "Set string 'word'"
+           0004f8e0  ldr      r0, [fp, #0x130]             
+           0004f8e4  ldr      r1, [fp, #0x134]             
+           0004f8e8  ldr      r2, [fp, #0x138]             
+           0004f8ec  ldr      r3, [fp, #0x13c]             
+           0004f8f0  str      ip, [sp]                     
+           0004f8f4  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0004f8f8  cmp      r0, #0                       
+           0004f8fc  beq      #0x4f95c                     ; -> L_4f95c
+           0004f900  ldr      r0, [pc]                     
+           0004f904  b        #0x4f90c                     ; -> L_4f90c
+           0004f908  .word    0x00f4d778                   ; literal 16045944 / 
+L_4f90c:   0004f90c  ldr      r0, [pc, r0]                 ; GOT[665] LDSTR 'theString'
+           0004f910  ldr      r1, [pc]                     
+           0004f914  b        #0x4f91c                     ; -> L_4f91c
+           0004f918  .word    0x00f4d76c                   ; literal 16045932 / 
+L_4f91c:   0004f91c  ldr      r1, [pc, r1]                 ; GOT[666] LDSTR 'word'
+           0004f920  bl       #0xbd520                     ; CALL P31Prefs::setString
+           0004f924  ldr      r0, [pc]                     
+           0004f928  b        #0x4f930                     ; -> L_4f930
+           0004f92c  .word    0x00f4d75c                   ; literal 16045916 / 
+L_4f930:   0004f930  ldr      r0, [pc, r0]                 ; GOT[667] LDSTR 'string: '
+           0004f934  str      r0, [fp, #0x1f0]             
+           0004f938  ldr      r0, [pc]                     
+           0004f93c  b        #0x4f944                     ; -> L_4f944
+           0004f940  .word    0x00f4d740                   ; literal 16045888 / 
+L_4f944:   0004f944  ldr      r0, [pc, r0]                 ; GOT[665] LDSTR 'theString'
+           0004f948  bl       #0xbd530                     ; CALL P31Prefs::getString
+           0004f94c  mov      r1, r0                       
+           0004f950  ldr      r0, [fp, #0x1f0]             
+           0004f954  bl       #0xb9be0                     ; CALL System.String::Concat
+           0004f958  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_4f95c:   0004f95c  vldr     s0, [fp, #0x14]              
+           0004f960  vcvt.f64.f32 d5, s0                       
+           0004f964  vldr     s0, [fp, #0x10]              
+           0004f968  vcvt.f64.f32 d2, s0                       
+           0004f96c  vldr     s0, [fp, #0x20]              
+           0004f970  vcvt.f64.f32 d3, s0                       
+           0004f974  vadd.f64 d2, d2, d3                   
+           0004f978  vmov.f64 d2, d2                       
+           0004f97c  vmov.f64 d4, d2                       
+           0004f980  vmov.f64 d4, d4                       
+           0004f984  vmov.f64 d2, d2                       
+           0004f988  vcvt.f32.f64 s0, d2                       
+           0004f98c  vstr     s0, [fp, #0x10]              
+           0004f990  vldr     s0, [fp, #0x18]              
+           0004f994  vcvt.f64.f32 d3, s0                       
+           0004f998  vldr     s0, [fp, #0x1c]              
+           0004f99c  vcvt.f64.f32 d2, s0                       
+           0004f9a0  mov      r0, #0                       
+           0004f9a4  str      r0, [fp, #0x5c]              
+           0004f9a8  mov      r0, #0                       
+           0004f9ac  str      r0, [fp, #0x60]              
+           0004f9b0  mov      r0, #0                       
+           0004f9b4  str      r0, [fp, #0x64]              
+           0004f9b8  mov      r0, #0                       
+           0004f9bc  str      r0, [fp, #0x68]              
+           0004f9c0  add      r0, fp, #0x5c                
+           0004f9c4  vcvt.f32.f64 s0, d5                       
+           0004f9c8  vstr     s0, [sp]                     
+           0004f9cc  ldr      r1, [sp]                     
+           0004f9d0  vcvt.f32.f64 s0, d4                       
+           0004f9d4  vstr     s0, [sp]                     
+           0004f9d8  ldr      r2, [sp]                     
+           0004f9dc  vcvt.f32.f64 s0, d3                       
+           0004f9e0  vstr     s0, [sp]                     
+           0004f9e4  ldr      r3, [sp]                     
+           0004f9e8  vcvt.f32.f64 s0, d2                       
+           0004f9ec  vstr     s0, [sp]                     
+           0004f9f0  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0004f9f4  ldr      r0, [fp, #0x5c]              
+           0004f9f8  str      r0, [fp, #0x140]             
+           0004f9fc  ldr      r0, [fp, #0x60]              
+           0004fa00  str      r0, [fp, #0x144]             
+           0004fa04  ldr      r0, [fp, #0x64]              
+           0004fa08  str      r0, [fp, #0x148]             
+           0004fa0c  ldr      r0, [fp, #0x68]              
+           0004fa10  str      r0, [fp, #0x14c]             
+           0004fa14  ldr      ip, [pc]                     
+           0004fa18  b        #0x4fa20                     ; -> L_4fa20
+           0004fa1c  .word    0x00f4d670                   ; literal 16045680 / 
+L_4fa20:   0004fa20  ldr      ip, [pc, ip]                 ; GOT[668] LDSTR 'Set Bool'
+           0004fa24  ldr      r0, [fp, #0x140]             
+           0004fa28  ldr      r1, [fp, #0x144]             
+           0004fa2c  ldr      r2, [fp, #0x148]             
+           0004fa30  ldr      r3, [fp, #0x14c]             
+           0004fa34  str      ip, [sp]                     
+           0004fa38  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0004fa3c  cmp      r0, #0                       
+           0004fa40  beq      #0x4fab4                     ; -> L_4fab4
+           0004fa44  ldr      r0, [pc]                     
+           0004fa48  b        #0x4fa50                     ; -> L_4fa50
+           0004fa4c  .word    0x00f4d644                   ; literal 16045636 / 
+L_4fa50:   0004fa50  ldr      r0, [pc, r0]                 ; GOT[669] LDSTR 'theBool'
+           0004fa54  mov      r1, #1                       
+           0004fa58  bl       #0xbd540                     ; CALL P31Prefs::setBool
+           0004fa5c  ldr      r0, [pc]                     
+           0004fa60  b        #0x4fa68                     ; -> L_4fa68
+           0004fa64  .word    0x00f4d630                   ; literal 16045616 / 
+L_4fa68:   0004fa68  ldr      r0, [pc, r0]                 ; GOT[670] LDSTR 'bool: '
+           0004fa6c  str      r0, [fp, #0x1f0]             
+           0004fa70  ldr      r0, [pc]                     
+           0004fa74  b        #0x4fa7c                     ; -> L_4fa7c
+           0004fa78  .word    0x00f4d618                   ; literal 16045592 / 
+L_4fa7c:   0004fa7c  ldr      r0, [pc, r0]                 ; GOT[669] LDSTR 'theBool'
+           0004fa80  bl       #0xbd550                     ; CALL P31Prefs::getBool
+           0004fa84  str      r0, [fp, #0x1f4]             
+           0004fa88  ldr      r0, [pc]                     
+           0004fa8c  b        #0x4fa94                     ; -> L_4fa94
+           0004fa90  .word    0x00f4cbdc                   ; literal 16042972 / 
+L_4fa94:   0004fa94  ldr      r0, [pc, r0]                 ; GOT[20] VTABLE System.Boolean
+           0004fa98  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0004fa9c  mov      r1, r0                       
+           0004faa0  ldr      r0, [fp, #0x1f0]             
+           0004faa4  ldr      r2, [fp, #0x1f4]             
+           0004faa8  strb     r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0004faac  bl       #0xb9e60                     ; CALL System.String::Concat
+           0004fab0  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_4fab4:   0004fab4  vldr     s0, [fp, #0x14]              
+           0004fab8  vcvt.f64.f32 d5, s0                       
+           0004fabc  vldr     s0, [fp, #0x10]              
+           0004fac0  vcvt.f64.f32 d2, s0                       
+           0004fac4  vldr     s0, [fp, #0x20]              
+           0004fac8  vcvt.f64.f32 d3, s0                       
+           0004facc  vadd.f64 d2, d2, d3                   
+           0004fad0  vmov.f64 d2, d2                       
+           0004fad4  vmov.f64 d4, d2                       
+           0004fad8  vmov.f64 d4, d4                       
+           0004fadc  vmov.f64 d2, d2                       
+           0004fae0  vcvt.f32.f64 s0, d2                       
+           0004fae4  vstr     s0, [fp, #0x10]              
+           0004fae8  vldr     s0, [fp, #0x18]              
+           0004faec  vcvt.f64.f32 d3, s0                       
+           0004faf0  vldr     s0, [fp, #0x1c]              
+           0004faf4  vcvt.f64.f32 d2, s0                       
+           0004faf8  mov      r0, #0                       
+           0004fafc  str      r0, [fp, #0x6c]              
+           0004fb00  mov      r0, #0                       
+           0004fb04  str      r0, [fp, #0x70]              
+           0004fb08  mov      r0, #0                       
+           0004fb0c  str      r0, [fp, #0x74]              
+           0004fb10  mov      r0, #0                       
+           0004fb14  str      r0, [fp, #0x78]              
+           0004fb18  add      r0, fp, #0x6c                
+           0004fb1c  vcvt.f32.f64 s0, d5                       
+           0004fb20  vstr     s0, [sp]                     
+           0004fb24  ldr      r1, [sp]                     
+           0004fb28  vcvt.f32.f64 s0, d4                       
+           0004fb2c  vstr     s0, [sp]                     
+           0004fb30  ldr      r2, [sp]                     
+           0004fb34  vcvt.f32.f64 s0, d3                       
+           0004fb38  vstr     s0, [sp]                     
+           0004fb3c  ldr      r3, [sp]                     
+           0004fb40  vcvt.f32.f64 s0, d2                       
+           0004fb44  vstr     s0, [sp]                     
+           0004fb48  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0004fb4c  ldr      r0, [fp, #0x6c]              
+           0004fb50  str      r0, [fp, #0x150]             
+           0004fb54  ldr      r0, [fp, #0x70]              
+           0004fb58  str      r0, [fp, #0x154]             
+           0004fb5c  ldr      r0, [fp, #0x74]              
+           0004fb60  str      r0, [fp, #0x158]             
+           0004fb64  ldr      r0, [fp, #0x78]              
+           0004fb68  str      r0, [fp, #0x15c]             
+           0004fb6c  ldr      ip, [pc]                     
+           0004fb70  b        #0x4fb78                     ; -> L_4fb78
+           0004fb74  .word    0x00f4d524                   ; literal 16045348 / 
+L_4fb78:   0004fb78  ldr      ip, [pc, ip]                 ; GOT[671] LDSTR 'Set Float 13.68'
+           0004fb7c  ldr      r0, [fp, #0x150]             
+           0004fb80  ldr      r1, [fp, #0x154]             
+           0004fb84  ldr      r2, [fp, #0x158]             
+           0004fb88  ldr      r3, [fp, #0x15c]             
+           0004fb8c  str      ip, [sp]                     
+           0004fb90  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0004fb94  cmp      r0, #0                       
+           0004fb98  beq      #0x4fc30                     ; -> L_4fc30
+           0004fb9c  ldr      r0, [pc]                     
+           0004fba0  b        #0x4fba8                     ; -> L_4fba8
+           0004fba4  .word    0x00f4d4f8                   ; literal 16045304 / 
+L_4fba8:   0004fba8  ldr      r0, [pc, r0]                 ; GOT[672] LDSTR 'theFloat'
+           0004fbac  vldr     s4, [pc]                     ; float 13.680000305175781
+           0004fbb0  b        #0x4fbb8                     ; -> L_4fbb8
+           0004fbb4  .word    0x415ae148                   ; literal 1096474952 / 13.68
+L_4fbb8:   0004fbb8  vcvt.f64.f32 d2, s4                       
+           0004fbbc  vcvt.f32.f64 s0, d2                       
+           0004fbc0  vstr     s0, [sp]                     
+           0004fbc4  ldr      r1, [sp]                     
+           0004fbc8  bl       #0xbd560                     ; CALL P31Prefs::setFloat
+           0004fbcc  ldr      r0, [pc]                     
+           0004fbd0  b        #0x4fbd8                     ; -> L_4fbd8
+           0004fbd4  .word    0x00f4d4cc                   ; literal 16045260 / 
+L_4fbd8:   0004fbd8  ldr      r0, [pc, r0]                 ; GOT[673] LDSTR 'float: '
+           0004fbdc  str      r0, [fp, #0x1f0]             
+           0004fbe0  ldr      r0, [pc]                     
+           0004fbe4  b        #0x4fbec                     ; -> L_4fbec
+           0004fbe8  .word    0x00f4d4b4                   ; literal 16045236 / 
+L_4fbec:   0004fbec  ldr      r0, [pc, r0]                 ; GOT[672] LDSTR 'theFloat'
+           0004fbf0  bl       #0xbd570                     ; CALL P31Prefs::getFloat
+           0004fbf4  vmov     s4, r0                       
+           0004fbf8  vcvt.f64.f32 d2, s4                       
+           0004fbfc  vstr     d2, [fp, #0x1f8]             
+           0004fc00  ldr      r0, [pc]                     
+           0004fc04  b        #0x4fc0c                     ; -> L_4fc0c
+           0004fc08  .word    0x00f4ca68                   ; literal 16042600 / 
+L_4fc0c:   0004fc0c  ldr      r0, [pc, r0]                 ; GOT[21] VTABLE System.Single
+           0004fc10  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0004fc14  mov      r1, r0                       
+           0004fc18  ldr      r0, [fp, #0x1f0]             
+           0004fc1c  vldr     d2, [fp, #0x1f8]             
+           0004fc20  vcvt.f32.f64 s0, d2                       
+           0004fc24  vstr     s0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0004fc28  bl       #0xb9e60                     ; CALL System.String::Concat
+           0004fc2c  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_4fc30:   0004fc30  vldr     s0, [fp, #0x14]              
+           0004fc34  vcvt.f64.f32 d5, s0                       
+           0004fc38  vldr     s0, [fp, #0x10]              
+           0004fc3c  vcvt.f64.f32 d2, s0                       
+           0004fc40  vldr     s0, [fp, #0x20]              
+           0004fc44  vcvt.f64.f32 d3, s0                       
+           0004fc48  vadd.f64 d2, d2, d3                   
+           0004fc4c  vmov.f64 d2, d2                       
+           0004fc50  vmov.f64 d4, d2                       
+           0004fc54  vmov.f64 d4, d4                       
+           0004fc58  vmov.f64 d2, d2                       
+           0004fc5c  vcvt.f32.f64 s0, d2                       
+           0004fc60  vstr     s0, [fp, #0x10]              
+           0004fc64  vldr     s0, [fp, #0x18]              
+           0004fc68  vcvt.f64.f32 d3, s0                       
+           0004fc6c  vldr     s0, [fp, #0x1c]              
+           0004fc70  vcvt.f64.f32 d2, s0                       
+           0004fc74  mov      r0, #0                       
+           0004fc78  str      r0, [fp, #0x7c]              
+           0004fc7c  mov      r0, #0                       
+           0004fc80  str      r0, [fp, #0x80]              
+           0004fc84  mov      r0, #0                       
+           0004fc88  str      r0, [fp, #0x84]              
+           0004fc8c  mov      r0, #0                       
+           0004fc90  str      r0, [fp, #0x88]              
+           0004fc94  add      r0, fp, #0x7c                
+           0004fc98  vcvt.f32.f64 s0, d5                       
+           0004fc9c  vstr     s0, [sp]                     
+           0004fca0  ldr      r1, [sp]                     
+           0004fca4  vcvt.f32.f64 s0, d4                       
+           0004fca8  vstr     s0, [sp]                     
+           0004fcac  ldr      r2, [sp]                     
+           0004fcb0  vcvt.f32.f64 s0, d3                       
+           0004fcb4  vstr     s0, [sp]                     
+           0004fcb8  ldr      r3, [sp]                     
+           0004fcbc  vcvt.f32.f64 s0, d2                       
+           0004fcc0  vstr     s0, [sp]                     
+           0004fcc4  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0004fcc8  ldr      r0, [fp, #0x7c]              
+           0004fccc  str      r0, [fp, #0x160]             
+           0004fcd0  ldr      r0, [fp, #0x80]              
+           0004fcd4  str      r0, [fp, #0x164]             
+           0004fcd8  ldr      r0, [fp, #0x84]              
+           0004fcdc  str      r0, [fp, #0x168]             
+           0004fce0  ldr      r0, [fp, #0x88]              
+           0004fce4  str      r0, [fp, #0x16c]             
+           0004fce8  ldr      ip, [pc]                     
+           0004fcec  b        #0x4fcf4                     ; -> L_4fcf4
+           0004fcf0  .word    0x00f4d3b4                   ; literal 16044980 / 
+L_4fcf4:   0004fcf4  ldr      ip, [pc, ip]                 ; GOT[674] LDSTR 'Set Dictionary'
+           0004fcf8  ldr      r0, [fp, #0x160]             
+           0004fcfc  ldr      r1, [fp, #0x164]             
+           0004fd00  ldr      r2, [fp, #0x168]             
+           0004fd04  ldr      r3, [fp, #0x16c]             
+           0004fd08  str      ip, [sp]                     
+           0004fd0c  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0004fd10  cmp      r0, #0                       
+           0004fd14  beq      #0x4fe4c                     ; -> L_4fe4c
+           0004fd18  ldr      r0, [pc]                     
+           0004fd1c  b        #0x4fd24                     ; -> L_4fd24
+           0004fd20  .word    0x00f4cf50                   ; literal 16043856 / 
+L_4fd24:   0004fd24  ldr      r0, [pc, r0]                 ; GOT[405] VTABLE System.Collections.Hashtable
+           0004fd28  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0004fd2c  str      r0, [fp, #0x210]             
+           0004fd30  bl       #0xbc410                     ; CALL System.Collections.Hashtable::.ctor
+           0004fd34  ldr      r0, [fp, #0x210]             
+           0004fd38  mov      r6, r0                       
+           0004fd3c  str      r0, [fp, #0x200]             
+           0004fd40  ldr      r0, [pc]                     
+           0004fd44  b        #0x4fd4c                     ; -> L_4fd4c
+           0004fd48  .word    0x00f4d360                   ; literal 16044896 / 
+L_4fd4c:   0004fd4c  ldr      r0, [pc, r0]                 ; GOT[675] LDSTR 'aFloat'
+           0004fd50  str      r0, [fp, #0x1f4]             
+           0004fd54  vldr     s4, [pc]                     ; float 25.5
+           0004fd58  b        #0x4fd60                     ; -> L_4fd60
+           0004fd5c  .word    0x41cc0000                   ; literal 1103888384 / 25.5
+L_4fd60:   0004fd60  vcvt.f64.f32 d2, s4                       
+           0004fd64  vstr     d2, [fp, #0x208]             
+           0004fd68  ldr      r0, [pc]                     
+           0004fd6c  b        #0x4fd74                     ; -> L_4fd74
+           0004fd70  .word    0x00f4c900                   ; literal 16042240 / 
+L_4fd74:   0004fd74  ldr      r0, [pc, r0]                 ; GOT[21] VTABLE System.Single
+           0004fd78  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0004fd7c  mov      r2, r0                       
+           0004fd80  ldr      r1, [fp, #0x1f4]             
+           0004fd84  ldr      r3, [fp, #0x200]             
+           0004fd88  vldr     d2, [fp, #0x208]             
+           0004fd8c  vcvt.f32.f64 s0, d2                       
+           0004fd90  vstr     s0, [r2, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0004fd94  mov      r0, r3                       
+           0004fd98  ldr      r3, [r3]                     
+           0004fd9c  mov      lr, pc                       
+           0004fda0  ldr      pc, [r3, #0xa8]              ; VIRTUAL CALL slot +0xa8: System.Enum::System.IConvertible.ToInt64
+           0004fda4  ldr      r1, [pc]                     
+           0004fda8  b        #0x4fdb0                     ; -> L_4fdb0
+           0004fdac  .word    0x00f4d300                   ; literal 16044800 / 
+L_4fdb0:   0004fdb0  ldr      r1, [pc, r1]                 ; GOT[676] LDSTR 'aString'
+           0004fdb4  ldr      r2, [pc]                     
+           0004fdb8  b        #0x4fdc0                     ; -> L_4fdc0
+           0004fdbc  .word    0x00f4d2f4                   ; literal 16044788 / 
+L_4fdc0:   0004fdc0  ldr      r2, [pc, r2]                 ; GOT[677] LDSTR 'dogma'
+           0004fdc4  mov      r0, r6                       
+           0004fdc8  ldr      r3, [r6]                     
+           0004fdcc  mov      lr, pc                       
+           0004fdd0  ldr      pc, [r3, #0xa8]              ; VIRTUAL CALL slot +0xa8: System.Enum::System.IConvertible.ToInt64
+           0004fdd4  ldr      r0, [pc]                     
+           0004fdd8  b        #0x4fde0                     ; -> L_4fde0
+           0004fddc  .word    0x00f4d2d8                   ; literal 16044760 / 
+L_4fde0:   0004fde0  ldr      r0, [pc, r0]                 ; GOT[678] LDSTR 'anInt'
+           0004fde4  str      r0, [fp, #0x1f0]             
+           0004fde8  ldr      r0, [pc]                     
+           0004fdec  b        #0x4fdf4                     ; -> L_4fdf4
+           0004fdf0  .word    0x00f4c8a8                   ; literal 16042152 / 
+L_4fdf4:   0004fdf4  ldr      r0, [pc, r0]                 ; GOT[31] VTABLE System.Int32
+           0004fdf8  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0004fdfc  mov      r2, r0                       
+           0004fe00  ldr      r1, [fp, #0x1f0]             
+           0004fe04  mov      r0, #0x10                    
+           0004fe08  str      r0, [r2, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0004fe0c  mov      r0, r6                       
+           0004fe10  ldr      r3, [r6]                     
+           0004fe14  mov      lr, pc                       
+           0004fe18  ldr      pc, [r3, #0xa8]              ; VIRTUAL CALL slot +0xa8: System.Enum::System.IConvertible.ToInt64
+           0004fe1c  ldr      r0, [pc]                     
+           0004fe20  b        #0x4fe28                     ; -> L_4fe28
+           0004fe24  .word    0x00f4d294                   ; literal 16044692 / 
+L_4fe28:   0004fe28  ldr      r0, [pc, r0]                 ; GOT[679] LDSTR 'theDict'
+           0004fe2c  mov      r1, r6                       
+           0004fe30  bl       #0xbd580                     ; CALL P31Prefs::setDictionary
+           0004fe34  ldr      r0, [pc]                     
+           0004fe38  b        #0x4fe40                     ; -> L_4fe40
+           0004fe3c  .word    0x00f4d27c                   ; literal 16044668 / 
+L_4fe40:   0004fe40  ldr      r0, [pc, r0]                 ; GOT[679] LDSTR 'theDict'
+           0004fe44  bl       #0xbd590                     ; CALL P31Prefs::getDictionary
+           0004fe48  bl       #0xbd5a0                     ; CALL ResultLogger::logObject
+L_4fe4c:   0004fe4c  vldr     s0, [fp, #0x14]              
+           0004fe50  vcvt.f64.f32 d5, s0                       
+           0004fe54  vldr     s0, [fp, #0x10]              
+           0004fe58  vcvt.f64.f32 d2, s0                       
+           0004fe5c  vldr     s0, [fp, #0x20]              
+           0004fe60  vcvt.f64.f32 d3, s0                       
+           0004fe64  vadd.f64 d2, d2, d3                   
+           0004fe68  vmov.f64 d2, d2                       
+           0004fe6c  vmov.f64 d4, d2                       
+           0004fe70  vmov.f64 d4, d4                       
+           0004fe74  vmov.f64 d2, d2                       
+           0004fe78  vcvt.f32.f64 s0, d2                       
+           0004fe7c  vstr     s0, [fp, #0x10]              
+           0004fe80  vldr     s0, [fp, #0x18]              
+           0004fe84  vcvt.f64.f32 d3, s0                       
+           0004fe88  vldr     s0, [fp, #0x1c]              
+           0004fe8c  vcvt.f64.f32 d2, s0                       
+           0004fe90  mov      r0, #0                       
+           0004fe94  str      r0, [fp, #0x90]              
+           0004fe98  mov      r0, #0                       
+           0004fe9c  str      r0, [fp, #0x94]              
+           0004fea0  mov      r0, #0                       
+           0004fea4  str      r0, [fp, #0x98]              
+           0004fea8  mov      r0, #0                       
+           0004feac  str      r0, [fp, #0x9c]              
+           0004feb0  add      r0, fp, #0x90                
+           0004feb4  vcvt.f32.f64 s0, d5                       
+           0004feb8  vstr     s0, [sp]                     
+           0004febc  ldr      r1, [sp]                     
+           0004fec0  vcvt.f32.f64 s0, d4                       
+           0004fec4  vstr     s0, [sp]                     
+           0004fec8  ldr      r2, [sp]                     
+           0004fecc  vcvt.f32.f64 s0, d3                       
+           0004fed0  vstr     s0, [sp]                     
+           0004fed4  ldr      r3, [sp]                     
+           0004fed8  vcvt.f32.f64 s0, d2                       
+           0004fedc  vstr     s0, [sp]                     
+           0004fee0  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0004fee4  ldr      r0, [fp, #0x90]              
+           0004fee8  str      r0, [fp, #0x170]             
+           0004feec  ldr      r0, [fp, #0x94]              
+           0004fef0  str      r0, [fp, #0x174]             
+           0004fef4  ldr      r0, [fp, #0x98]              
+           0004fef8  str      r0, [fp, #0x178]             
+           0004fefc  ldr      r0, [fp, #0x9c]              
+           0004ff00  str      r0, [fp, #0x17c]             
+           0004ff04  ldr      ip, [pc]                     
+           0004ff08  b        #0x4ff10                     ; -> L_4ff10
+           0004ff0c  .word    0x00f4d1b0                   ; literal 16044464 / 
+L_4ff10:   0004ff10  ldr      ip, [pc, ip]                 ; GOT[680] LDSTR 'Get All Values'
+           0004ff14  ldr      r0, [fp, #0x170]             
+           0004ff18  ldr      r1, [fp, #0x174]             
+           0004ff1c  ldr      r2, [fp, #0x178]             
+           0004ff20  ldr      r3, [fp, #0x17c]             
+           0004ff24  str      ip, [sp]                     
+           0004ff28  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0004ff2c  cmp      r0, #0                       
+           0004ff30  beq      #0x50098                     ; -> L_50098
+           0004ff34  ldr      r0, [pc]                     
+           0004ff38  b        #0x4ff40                     ; -> L_4ff40
+           0004ff3c  .word    0x00f4d13c                   ; literal 16044348 / 
+L_4ff40:   0004ff40  ldr      r0, [pc, r0]                 ; GOT[663] LDSTR 'int: '
+           0004ff44  str      r0, [fp, #0x218]             
+           0004ff48  ldr      r0, [pc]                     
+           0004ff4c  b        #0x4ff54                     ; -> L_4ff54
+           0004ff50  .word    0x00f4d124                   ; literal 16044324 / 
+L_4ff54:   0004ff54  ldr      r0, [pc, r0]                 ; GOT[662] LDSTR 'theInt'
+           0004ff58  bl       #0xbd510                     ; CALL P31Prefs::getInt
+           0004ff5c  str      r0, [fp, #0x21c]             
+           0004ff60  ldr      r0, [pc]                     
+           0004ff64  b        #0x4ff6c                     ; -> L_4ff6c
+           0004ff68  .word    0x00f4c730                   ; literal 16041776 / 
+L_4ff6c:   0004ff6c  ldr      r0, [pc, r0]                 ; GOT[31] VTABLE System.Int32
+           0004ff70  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0004ff74  mov      r1, r0                       
+           0004ff78  ldr      r0, [fp, #0x218]             
+           0004ff7c  ldr      r2, [fp, #0x21c]             
+           0004ff80  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0004ff84  bl       #0xb9e60                     ; CALL System.String::Concat
+           0004ff88  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+           0004ff8c  ldr      r0, [pc]                     
+           0004ff90  b        #0x4ff98                     ; -> L_4ff98
+           0004ff94  .word    0x00f4d0f4                   ; literal 16044276 / 
+L_4ff98:   0004ff98  ldr      r0, [pc, r0]                 ; GOT[667] LDSTR 'string: '
+           0004ff9c  str      r0, [fp, #0x210]             
+           0004ffa0  ldr      r0, [pc]                     
+           0004ffa4  b        #0x4ffac                     ; -> L_4ffac
+           0004ffa8  .word    0x00f4d0d8                   ; literal 16044248 / 
+L_4ffac:   0004ffac  ldr      r0, [pc, r0]                 ; GOT[665] LDSTR 'theString'
+           0004ffb0  bl       #0xbd530                     ; CALL P31Prefs::getString
+           0004ffb4  mov      r1, r0                       
+           0004ffb8  ldr      r0, [fp, #0x210]             
+           0004ffbc  bl       #0xb9be0                     ; CALL System.String::Concat
+           0004ffc0  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+           0004ffc4  ldr      r0, [pc]                     
+           0004ffc8  b        #0x4ffd0                     ; -> L_4ffd0
+           0004ffcc  .word    0x00f4d0c8                   ; literal 16044232 / 
+L_4ffd0:   0004ffd0  ldr      r0, [pc, r0]                 ; GOT[670] LDSTR 'bool: '
+           0004ffd4  str      r0, [fp, #0x200]             
+           0004ffd8  ldr      r0, [pc]                     
+           0004ffdc  b        #0x4ffe4                     ; -> L_4ffe4
+           0004ffe0  .word    0x00f4d0b0                   ; literal 16044208 / 
+L_4ffe4:   0004ffe4  ldr      r0, [pc, r0]                 ; GOT[669] LDSTR 'theBool'
+           0004ffe8  bl       #0xbd550                     ; CALL P31Prefs::getBool
+           0004ffec  str      r0, [fp, #0x214]             
+           0004fff0  ldr      r0, [pc]                     
+           0004fff4  b        #0x4fffc                     ; -> L_4fffc
+           0004fff8  .word    0x00f4c674                   ; literal 16041588 / 
+L_4fffc:   0004fffc  ldr      r0, [pc, r0]                 ; GOT[20] VTABLE System.Boolean
+           00050000  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00050004  mov      r1, r0                       
+           00050008  ldr      r0, [fp, #0x200]             
+           0005000c  ldr      r2, [fp, #0x214]             
+           00050010  strb     r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00050014  bl       #0xb9e60                     ; CALL System.String::Concat
+           00050018  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+           0005001c  ldr      r0, [pc]                     
+           00050020  b        #0x50028                     ; -> L_50028
+           00050024  .word    0x00f4d094                   ; literal 16044180 / 
+L_50028:   00050028  ldr      r0, [pc, r0]                 ; GOT[679] LDSTR 'theDict'
+           0005002c  bl       #0xbd590                     ; CALL P31Prefs::getDictionary
+           00050030  bl       #0xbd5a0                     ; CALL ResultLogger::logObject
+           00050034  ldr      r0, [pc]                     
+           00050038  b        #0x50040                     ; -> L_50040
+           0005003c  .word    0x00f4d064                   ; literal 16044132 / 
+L_50040:   00050040  ldr      r0, [pc, r0]                 ; GOT[673] LDSTR 'float: '
+           00050044  str      r0, [fp, #0x1f0]             
+           00050048  ldr      r0, [pc]                     
+           0005004c  b        #0x50054                     ; -> L_50054
+           00050050  .word    0x00f4d04c                   ; literal 16044108 / 
+L_50054:   00050054  ldr      r0, [pc, r0]                 ; GOT[672] LDSTR 'theFloat'
+           00050058  bl       #0xbd570                     ; CALL P31Prefs::getFloat
+           0005005c  vmov     s4, r0                       
+           00050060  vcvt.f64.f32 d2, s4                       
+           00050064  vstr     d2, [fp, #0x1f8]             
+           00050068  ldr      r0, [pc]                     
+           0005006c  b        #0x50074                     ; -> L_50074
+           00050070  .word    0x00f4c600                   ; literal 16041472 / 
+L_50074:   00050074  ldr      r0, [pc, r0]                 ; GOT[21] VTABLE System.Single
+           00050078  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0005007c  mov      r1, r0                       
+           00050080  ldr      r0, [fp, #0x1f0]             
+           00050084  vldr     d2, [fp, #0x1f8]             
+           00050088  vcvt.f32.f64 s0, d2                       
+           0005008c  vstr     s0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00050090  bl       #0xb9e60                     ; CALL System.String::Concat
+           00050094  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_50098:   00050098  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           0005009c  vmov     s0, r0                       
+           000500a0  vcvt.f32.s32 s0, s0                       
+           000500a4  vcvt.f64.f32 d2, s0                       
+           000500a8  vldr     s0, [fp, #0x18]              
+           000500ac  vcvt.f64.f32 d3, s0                       
+           000500b0  vsub.f64 d2, d2, d3                   
+           000500b4  vldr     s6, [pc]                     ; float 5.0
+           000500b8  b        #0x500c0                     ; -> L_500c0
+           000500bc  .word    0x40a00000                   ; literal 1084227584 / 5
+L_500c0:   000500c0  vcvt.f64.f32 d3, s6                       
+           000500c4  vsub.f64 d2, d2, d3                   
+           000500c8  vcvt.f32.f64 s0, d2                       
+           000500cc  vstr     s0, [fp, #0x14]              
+           000500d0  vldr     s4, [pc]                     ; float 5.0
+           000500d4  b        #0x500dc                     ; -> L_500dc
+           000500d8  .word    0x40a00000                   ; literal 1084227584 / 5
+L_500dc:   000500dc  vcvt.f64.f32 d2, s4                       
+           000500e0  vcvt.f32.f64 s0, d2                       
+           000500e4  vstr     s0, [fp, #0x10]              
+           000500e8  vldr     s0, [fp, #0x14]              
+           000500ec  vcvt.f64.f32 d5, s0                       
+           000500f0  vldr     s0, [fp, #0x10]              
+           000500f4  vcvt.f64.f32 d4, s0                       
+           000500f8  vldr     s0, [fp, #0x18]              
+           000500fc  vcvt.f64.f32 d3, s0                       
+           00050100  vldr     s0, [fp, #0x1c]              
+           00050104  vcvt.f64.f32 d2, s0                       
+           00050108  mov      r0, #0                       
+           0005010c  str      r0, [fp, #0xa0]              
+           00050110  mov      r0, #0                       
+           00050114  str      r0, [fp, #0xa4]              
+           00050118  mov      r0, #0                       
+           0005011c  str      r0, [fp, #0xa8]              
+           00050120  mov      r0, #0                       
+           00050124  str      r0, [fp, #0xac]              
+           00050128  add      r0, fp, #0xa0                
+           0005012c  vcvt.f32.f64 s0, d5                       
+           00050130  vstr     s0, [sp]                     
+           00050134  ldr      r1, [sp]                     
+           00050138  vcvt.f32.f64 s0, d4                       
+           0005013c  vstr     s0, [sp]                     
+           00050140  ldr      r2, [sp]                     
+           00050144  vcvt.f32.f64 s0, d3                       
+           00050148  vstr     s0, [sp]                     
+           0005014c  ldr      r3, [sp]                     
+           00050150  vcvt.f32.f64 s0, d2                       
+           00050154  vstr     s0, [sp]                     
+           00050158  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0005015c  ldr      r0, [fp, #0xa0]              
+           00050160  str      r0, [fp, #0x180]             
+           00050164  ldr      r0, [fp, #0xa4]              
+           00050168  str      r0, [fp, #0x184]             
+           0005016c  ldr      r0, [fp, #0xa8]              
+           00050170  str      r0, [fp, #0x188]             
+           00050174  ldr      r0, [fp, #0xac]              
+           00050178  str      r0, [fp, #0x18c]             
+           0005017c  ldr      ip, [pc]                     
+           00050180  b        #0x50188                     ; -> L_50188
+           00050184  .word    0x00f4cf3c                   ; literal 16043836 / 
+L_50188:   00050188  ldr      ip, [pc, ip]                 ; GOT[681] LDSTR 'Is Document Store Available'
+           0005018c  ldr      r0, [fp, #0x180]             
+           00050190  ldr      r1, [fp, #0x184]             
+           00050194  ldr      r2, [fp, #0x188]             
+           00050198  ldr      r3, [fp, #0x18c]             
+           0005019c  str      ip, [sp]                     
+           000501a0  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           000501a4  cmp      r0, #0                       
+           000501a8  beq      #0x501f4                     ; -> L_501f4
+           000501ac  ldr      r0, [pc]                     
+           000501b0  b        #0x501b8                     ; -> L_501b8
+           000501b4  .word    0x00f4cf10                   ; literal 16043792 / 
+L_501b8:   000501b8  ldr      r0, [pc, r0]                 ; GOT[682] LDSTR 'Is document store available: '
+           000501bc  str      r0, [fp, #0x1f0]             
+           000501c0  bl       #0xbd240                     ; CALL P31Prefs::get_iCloudDocumentStoreAvailable
+           000501c4  str      r0, [fp, #0x1f4]             
+           000501c8  ldr      r0, [pc]                     
+           000501cc  b        #0x501d4                     ; -> L_501d4
+           000501d0  .word    0x00f4c49c                   ; literal 16041116 / 
+L_501d4:   000501d4  ldr      r0, [pc, r0]                 ; GOT[20] VTABLE System.Boolean
+           000501d8  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           000501dc  mov      r1, r0                       
+           000501e0  ldr      r0, [fp, #0x1f0]             
+           000501e4  ldr      r2, [fp, #0x1f4]             
+           000501e8  strb     r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000501ec  bl       #0xb9e60                     ; CALL System.String::Concat
+           000501f0  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_501f4:   000501f4  vldr     s0, [fp, #0x14]              
+           000501f8  vcvt.f64.f32 d5, s0                       
+           000501fc  vldr     s0, [fp, #0x10]              
+           00050200  vcvt.f64.f32 d2, s0                       
+           00050204  vldr     s0, [fp, #0x20]              
+           00050208  vcvt.f64.f32 d3, s0                       
+           0005020c  vadd.f64 d2, d2, d3                   
+           00050210  vmov.f64 d2, d2                       
+           00050214  vmov.f64 d4, d2                       
+           00050218  vmov.f64 d4, d4                       
+           0005021c  vmov.f64 d2, d2                       
+           00050220  vcvt.f32.f64 s0, d2                       
+           00050224  vstr     s0, [fp, #0x10]              
+           00050228  vldr     s0, [fp, #0x18]              
+           0005022c  vcvt.f64.f32 d3, s0                       
+           00050230  vldr     s0, [fp, #0x1c]              
+           00050234  vcvt.f64.f32 d2, s0                       
+           00050238  mov      r0, #0                       
+           0005023c  str      r0, [fp, #0xb0]              
+           00050240  mov      r0, #0                       
+           00050244  str      r0, [fp, #0xb4]              
+           00050248  mov      r0, #0                       
+           0005024c  str      r0, [fp, #0xb8]              
+           00050250  mov      r0, #0                       
+           00050254  str      r0, [fp, #0xbc]              
+           00050258  add      r0, fp, #0xb0                
+           0005025c  vcvt.f32.f64 s0, d5                       
+           00050260  vstr     s0, [sp]                     
+           00050264  ldr      r1, [sp]                     
+           00050268  vcvt.f32.f64 s0, d4                       
+           0005026c  vstr     s0, [sp]                     
+           00050270  ldr      r2, [sp]                     
+           00050274  vcvt.f32.f64 s0, d3                       
+           00050278  vstr     s0, [sp]                     
+           0005027c  ldr      r3, [sp]                     
+           00050280  vcvt.f32.f64 s0, d2                       
+           00050284  vstr     s0, [sp]                     
+           00050288  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0005028c  ldr      r0, [fp, #0xb0]              
+           00050290  str      r0, [fp, #0x190]             
+           00050294  ldr      r0, [fp, #0xb4]              
+           00050298  str      r0, [fp, #0x194]             
+           0005029c  ldr      r0, [fp, #0xb8]              
+           000502a0  str      r0, [fp, #0x198]             
+           000502a4  ldr      r0, [fp, #0xbc]              
+           000502a8  str      r0, [fp, #0x19c]             
+           000502ac  ldr      ip, [pc]                     
+           000502b0  b        #0x502b8                     ; -> L_502b8
+           000502b4  .word    0x00f4ce14                   ; literal 16043540 / 
+L_502b8:   000502b8  ldr      ip, [pc, ip]                 ; GOT[683] LDSTR 'Is File in iCloud?'
+           000502bc  ldr      r0, [fp, #0x190]             
+           000502c0  ldr      r1, [fp, #0x194]             
+           000502c4  ldr      r2, [fp, #0x198]             
+           000502c8  ldr      r3, [fp, #0x19c]             
+           000502cc  str      ip, [sp]                     
+           000502d0  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           000502d4  cmp      r0, #0                       
+           000502d8  beq      #0x50328                     ; -> L_50328
+           000502dc  ldr      r0, [pc]                     
+           000502e0  b        #0x502e8                     ; -> L_502e8
+           000502e4  .word    0x00f4cde8                   ; literal 16043496 / 
+L_502e8:   000502e8  ldr      r0, [pc, r0]                 ; GOT[684] LDSTR 'Is file in iCloud: '
+           000502ec  str      r0, [fp, #0x1f0]             
+           000502f0  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: _filename)
+           000502f4  bl       #0x4e2c0                     ; CALL iCloudBinding::isFileInCloud (direct)
+           000502f8  str      r0, [fp, #0x1f4]             
+           000502fc  ldr      r0, [pc]                     
+           00050300  b        #0x50308                     ; -> L_50308
+           00050304  .word    0x00f4c368                   ; literal 16040808 / 
+L_50308:   00050308  ldr      r0, [pc, r0]                 ; GOT[20] VTABLE System.Boolean
+           0005030c  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00050310  mov      r1, r0                       
+           00050314  ldr      r0, [fp, #0x1f0]             
+           00050318  ldr      r2, [fp, #0x1f4]             
+           0005031c  strb     r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00050320  bl       #0xb9e60                     ; CALL System.String::Concat
+           00050324  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_50328:   00050328  vldr     s0, [fp, #0x14]              
+           0005032c  vcvt.f64.f32 d5, s0                       
+           00050330  vldr     s0, [fp, #0x10]              
+           00050334  vcvt.f64.f32 d2, s0                       
+           00050338  vldr     s0, [fp, #0x20]              
+           0005033c  vcvt.f64.f32 d3, s0                       
+           00050340  vadd.f64 d2, d2, d3                   
+           00050344  vmov.f64 d2, d2                       
+           00050348  vmov.f64 d4, d2                       
+           0005034c  vmov.f64 d4, d4                       
+           00050350  vmov.f64 d2, d2                       
+           00050354  vcvt.f32.f64 s0, d2                       
+           00050358  vstr     s0, [fp, #0x10]              
+           0005035c  vldr     s0, [fp, #0x18]              
+           00050360  vcvt.f64.f32 d3, s0                       
+           00050364  vldr     s0, [fp, #0x1c]              
+           00050368  vcvt.f64.f32 d2, s0                       
+           0005036c  mov      r0, #0                       
+           00050370  str      r0, [fp, #0xc0]              
+           00050374  mov      r0, #0                       
+           00050378  str      r0, [fp, #0xc4]              
+           0005037c  mov      r0, #0                       
+           00050380  str      r0, [fp, #0xc8]              
+           00050384  mov      r0, #0                       
+           00050388  str      r0, [fp, #0xcc]              
+           0005038c  add      r0, fp, #0xc0                
+           00050390  vcvt.f32.f64 s0, d5                       
+           00050394  vstr     s0, [sp]                     
+           00050398  ldr      r1, [sp]                     
+           0005039c  vcvt.f32.f64 s0, d4                       
+           000503a0  vstr     s0, [sp]                     
+           000503a4  ldr      r2, [sp]                     
+           000503a8  vcvt.f32.f64 s0, d3                       
+           000503ac  vstr     s0, [sp]                     
+           000503b0  ldr      r3, [sp]                     
+           000503b4  vcvt.f32.f64 s0, d2                       
+           000503b8  vstr     s0, [sp]                     
+           000503bc  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           000503c0  ldr      r0, [fp, #0xc0]              
+           000503c4  str      r0, [fp, #0x1a0]             
+           000503c8  ldr      r0, [fp, #0xc4]              
+           000503cc  str      r0, [fp, #0x1a4]             
+           000503d0  ldr      r0, [fp, #0xc8]              
+           000503d4  str      r0, [fp, #0x1a8]             
+           000503d8  ldr      r0, [fp, #0xcc]              
+           000503dc  str      r0, [fp, #0x1ac]             
+           000503e0  ldr      ip, [pc]                     
+           000503e4  b        #0x503ec                     ; -> L_503ec
+           000503e8  .word    0x00f4cce8                   ; literal 16043240 / 
+L_503ec:   000503ec  ldr      ip, [pc, ip]                 ; GOT[685] LDSTR 'Is File Downloaded?'
+           000503f0  ldr      r0, [fp, #0x1a0]             
+           000503f4  ldr      r1, [fp, #0x1a4]             
+           000503f8  ldr      r2, [fp, #0x1a8]             
+           000503fc  ldr      r3, [fp, #0x1ac]             
+           00050400  str      ip, [sp]                     
+           00050404  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           00050408  cmp      r0, #0                       
+           0005040c  beq      #0x5045c                     ; -> L_5045c
+           00050410  ldr      r0, [pc]                     
+           00050414  b        #0x5041c                     ; -> L_5041c
+           00050418  .word    0x00f4ccbc                   ; literal 16043196 / 
+L_5041c:   0005041c  ldr      r0, [pc, r0]                 ; GOT[686] LDSTR 'Is file downloaded: '
+           00050420  str      r0, [fp, #0x1f0]             
+           00050424  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: _filename)
+           00050428  bl       #0x4e308                     ; CALL iCloudBinding::isFileDownloaded (direct)
+           0005042c  str      r0, [fp, #0x1f4]             
+           00050430  ldr      r0, [pc]                     
+           00050434  b        #0x5043c                     ; -> L_5043c
+           00050438  .word    0x00f4c234                   ; literal 16040500 / 
+L_5043c:   0005043c  ldr      r0, [pc, r0]                 ; GOT[20] VTABLE System.Boolean
+           00050440  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00050444  mov      r1, r0                       
+           00050448  ldr      r0, [fp, #0x1f0]             
+           0005044c  ldr      r2, [fp, #0x1f4]             
+           00050450  strb     r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00050454  bl       #0xb9e60                     ; CALL System.String::Concat
+           00050458  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_5045c:   0005045c  vldr     s0, [fp, #0x14]              
+           00050460  vcvt.f64.f32 d5, s0                       
+           00050464  vldr     s0, [fp, #0x10]              
+           00050468  vcvt.f64.f32 d2, s0                       
+           0005046c  vldr     s0, [fp, #0x20]              
+           00050470  vcvt.f64.f32 d3, s0                       
+           00050474  vadd.f64 d2, d2, d3                   
+           00050478  vmov.f64 d2, d2                       
+           0005047c  vmov.f64 d4, d2                       
+           00050480  vmov.f64 d4, d4                       
+           00050484  vmov.f64 d2, d2                       
+           00050488  vcvt.f32.f64 s0, d2                       
+           0005048c  vstr     s0, [fp, #0x10]              
+           00050490  vldr     s0, [fp, #0x18]              
+           00050494  vcvt.f64.f32 d3, s0                       
+           00050498  vldr     s0, [fp, #0x1c]              
+           0005049c  vcvt.f64.f32 d2, s0                       
+           000504a0  mov      r0, #0                       
+           000504a4  str      r0, [fp, #0xd0]              
+           000504a8  mov      r0, #0                       
+           000504ac  str      r0, [fp, #0xd4]              
+           000504b0  mov      r0, #0                       
+           000504b4  str      r0, [fp, #0xd8]              
+           000504b8  mov      r0, #0                       
+           000504bc  str      r0, [fp, #0xdc]              
+           000504c0  add      r0, fp, #0xd0                
+           000504c4  vcvt.f32.f64 s0, d5                       
+           000504c8  vstr     s0, [sp]                     
+           000504cc  ldr      r1, [sp]                     
+           000504d0  vcvt.f32.f64 s0, d4                       
+           000504d4  vstr     s0, [sp]                     
+           000504d8  ldr      r2, [sp]                     
+           000504dc  vcvt.f32.f64 s0, d3                       
+           000504e0  vstr     s0, [sp]                     
+           000504e4  ldr      r3, [sp]                     
+           000504e8  vcvt.f32.f64 s0, d2                       
+           000504ec  vstr     s0, [sp]                     
+           000504f0  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           000504f4  ldr      r0, [fp, #0xd0]              
+           000504f8  str      r0, [fp, #0x1b0]             
+           000504fc  ldr      r0, [fp, #0xd4]              
+           00050500  str      r0, [fp, #0x1b4]             
+           00050504  ldr      r0, [fp, #0xd8]              
+           00050508  str      r0, [fp, #0x1b8]             
+           0005050c  ldr      r0, [fp, #0xdc]              
+           00050510  str      r0, [fp, #0x1bc]             
+           00050514  ldr      ip, [pc]                     
+           00050518  b        #0x50520                     ; -> L_50520
+           0005051c  .word    0x00f4cbbc                   ; literal 16042940 / 
+L_50520:   00050520  ldr      ip, [pc, ip]                 ; GOT[687] LDSTR 'Save File to iCloud'
+           00050524  ldr      r0, [fp, #0x1b0]             
+           00050528  ldr      r1, [fp, #0x1b4]             
+           0005052c  ldr      r2, [fp, #0x1b8]             
+           00050530  ldr      r3, [fp, #0x1bc]             
+           00050534  str      ip, [sp]                     
+           00050538  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0005053c  cmp      r0, #0                       
+           00050540  beq      #0x505f0                     ; -> L_505f0
+           00050544  ldr      r0, [pc]                     
+           00050548  b        #0x50550                     ; -> L_50550
+           0005054c  .word    0x00f4cb90                   ; literal 16042896 / 
+L_50550:   00050550  ldr      r0, [pc, r0]                 ; GOT[688] LDSTR 'myCloudFile{0}.txt'
+           00050554  str      r0, [fp, #0x1f4]             
+           00050558  mov      r0, #0                       
+           0005055c  mov      r1, #0x10                    
+           00050560  add      r1, r1, #0x2700              
+           00050564  bl       #0xb9e50                     ; CALL UnityEngine.Random::Range
+           00050568  str      r0, [fp, #0x200]             
+           0005056c  ldr      r0, [pc]                     
+           00050570  b        #0x50578                     ; -> L_50578
+           00050574  .word    0x00f4c124                   ; literal 16040228 / 
+L_50578:   00050578  ldr      r0, [pc, r0]                 ; GOT[31] VTABLE System.Int32
+           0005057c  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00050580  mov      r1, r0                       
+           00050584  ldr      r0, [fp, #0x1f4]             
+           00050588  ldr      r2, [fp, #0x200]             
+           0005058c  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00050590  bl       #0xbaa90                     ; CALL System.String::Format
+           00050594  str      r0, [sl, #0x10]              ; field+0x10 (this-class: _filename)
+           00050598  ldr      r1, [pc]                     
+           0005059c  b        #0x505a4                     ; -> L_505a4
+           000505a0  .word    0x00f4cb40                   ; literal 16042816 / 
+L_505a4:   000505a4  ldr      r1, [pc, r1]                 ; GOT[689] LDSTR 'going to write some text'
+           000505a8  bl       #0xbd5b0                     ; CALL P31CloudFile::writeAllText
+           000505ac  strb     r0, [fp, #0x25]              
+           000505b0  ldr      r0, [pc]                     
+           000505b4  b        #0x505bc                     ; -> L_505bc
+           000505b8  .word    0x00f4cb2c                   ; literal 16042796 / 
+L_505bc:   000505bc  ldr      r0, [pc, r0]                 ; GOT[690] LDSTR 'Did write file to iCloud: '
+           000505c0  str      r0, [fp, #0x1f0]             
+           000505c4  ldr      r0, [pc]                     
+           000505c8  b        #0x505d0                     ; -> L_505d0
+           000505cc  .word    0x00f4c0a0                   ; literal 16040096 / 
+L_505d0:   000505d0  ldr      r0, [pc, r0]                 ; GOT[20] VTABLE System.Boolean
+           000505d4  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           000505d8  mov      r1, r0                       
+           000505dc  ldr      r0, [fp, #0x1f0]             
+           000505e0  ldrb     r2, [fp, #0x25]              
+           000505e4  strb     r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000505e8  bl       #0xb9e60                     ; CALL System.String::Concat
+           000505ec  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_505f0:   000505f0  vldr     s0, [fp, #0x14]              
+           000505f4  vcvt.f64.f32 d5, s0                       
+           000505f8  vldr     s0, [fp, #0x10]              
+           000505fc  vcvt.f64.f32 d2, s0                       
+           00050600  vldr     s0, [fp, #0x20]              
+           00050604  vcvt.f64.f32 d3, s0                       
+           00050608  vadd.f64 d2, d2, d3                   
+           0005060c  vmov.f64 d2, d2                       
+           00050610  vmov.f64 d4, d2                       
+           00050614  vmov.f64 d4, d4                       
+           00050618  vmov.f64 d2, d2                       
+           0005061c  vcvt.f32.f64 s0, d2                       
+           00050620  vstr     s0, [fp, #0x10]              
+           00050624  vldr     s0, [fp, #0x18]              
+           00050628  vcvt.f64.f32 d3, s0                       
+           0005062c  vldr     s0, [fp, #0x1c]              
+           00050630  vcvt.f64.f32 d2, s0                       
+           00050634  mov      r0, #0                       
+           00050638  str      r0, [fp, #0xe0]              
+           0005063c  mov      r0, #0                       
+           00050640  str      r0, [fp, #0xe4]              
+           00050644  mov      r0, #0                       
+           00050648  str      r0, [fp, #0xe8]              
+           0005064c  mov      r0, #0                       
+           00050650  str      r0, [fp, #0xec]              
+           00050654  add      r0, fp, #0xe0                
+           00050658  vcvt.f32.f64 s0, d5                       
+           0005065c  vstr     s0, [sp]                     
+           00050660  ldr      r1, [sp]                     
+           00050664  vcvt.f32.f64 s0, d4                       
+           00050668  vstr     s0, [sp]                     
+           0005066c  ldr      r2, [sp]                     
+           00050670  vcvt.f32.f64 s0, d3                       
+           00050674  vstr     s0, [sp]                     
+           00050678  ldr      r3, [sp]                     
+           0005067c  vcvt.f32.f64 s0, d2                       
+           00050680  vstr     s0, [sp]                     
+           00050684  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           00050688  ldr      r0, [fp, #0xe0]              
+           0005068c  str      r0, [fp, #0x1c0]             
+           00050690  ldr      r0, [fp, #0xe4]              
+           00050694  str      r0, [fp, #0x1c4]             
+           00050698  ldr      r0, [fp, #0xe8]              
+           0005069c  str      r0, [fp, #0x1c8]             
+           000506a0  ldr      r0, [fp, #0xec]              
+           000506a4  str      r0, [fp, #0x1cc]             
+           000506a8  ldr      ip, [pc]                     
+           000506ac  b        #0x506b4                     ; -> L_506b4
+           000506b0  .word    0x00f4ca38                   ; literal 16042552 / 
+L_506b4:   000506b4  ldr      ip, [pc, ip]                 ; GOT[691] LDSTR 'Modify File'
+           000506b8  ldr      r0, [fp, #0x1c0]             
+           000506bc  ldr      r1, [fp, #0x1c4]             
+           000506c0  ldr      r2, [fp, #0x1c8]             
+           000506c4  ldr      r3, [fp, #0x1cc]             
+           000506c8  str      ip, [sp]                     
+           000506cc  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           000506d0  cmp      r0, #0                       
+           000506d4  beq      #0x50734                     ; -> L_50734
+           000506d8  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: _filename)
+           000506dc  ldr      r1, [pc]                     
+           000506e0  b        #0x506e8                     ; -> L_506e8
+           000506e4  .word    0x00f4ca08                   ; literal 16042504 / 
+L_506e8:   000506e8  ldr      r1, [pc, r1]                 ; GOT[692] LDSTR 'changed up the text and now its this'
+           000506ec  bl       #0xbd5b0                     ; CALL P31CloudFile::writeAllText
+           000506f0  strb     r0, [fp, #0x26]              
+           000506f4  ldr      r0, [pc]                     
+           000506f8  b        #0x50700                     ; -> L_50700
+           000506fc  .word    0x00f4c9e8                   ; literal 16042472 / 
+L_50700:   00050700  ldr      r0, [pc, r0]                 ; GOT[690] LDSTR 'Did write file to iCloud: '
+           00050704  str      r0, [fp, #0x1f0]             
+           00050708  ldr      r0, [pc]                     
+           0005070c  b        #0x50714                     ; -> L_50714
+           00050710  .word    0x00f4bf5c                   ; literal 16039772 / 
+L_50714:   00050714  ldr      r0, [pc, r0]                 ; GOT[20] VTABLE System.Boolean
+           00050718  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0005071c  mov      r1, r0                       
+           00050720  ldr      r0, [fp, #0x1f0]             
+           00050724  ldrb     r2, [fp, #0x26]              
+           00050728  strb     r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0005072c  bl       #0xb9e60                     ; CALL System.String::Concat
+           00050730  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_50734:   00050734  vldr     s0, [fp, #0x14]              
+           00050738  vcvt.f64.f32 d5, s0                       
+           0005073c  vldr     s0, [fp, #0x10]              
+           00050740  vcvt.f64.f32 d2, s0                       
+           00050744  vldr     s0, [fp, #0x20]              
+           00050748  vcvt.f64.f32 d3, s0                       
+           0005074c  vadd.f64 d2, d2, d3                   
+           00050750  vmov.f64 d2, d2                       
+           00050754  vmov.f64 d4, d2                       
+           00050758  vmov.f64 d4, d4                       
+           0005075c  vmov.f64 d2, d2                       
+           00050760  vcvt.f32.f64 s0, d2                       
+           00050764  vstr     s0, [fp, #0x10]              
+           00050768  vldr     s0, [fp, #0x18]              
+           0005076c  vcvt.f64.f32 d3, s0                       
+           00050770  vldr     s0, [fp, #0x1c]              
+           00050774  vcvt.f64.f32 d2, s0                       
+           00050778  mov      r0, #0                       
+           0005077c  str      r0, [fp, #0xf0]              
+           00050780  mov      r0, #0                       
+           00050784  str      r0, [fp, #0xf4]              
+           00050788  mov      r0, #0                       
+           0005078c  str      r0, [fp, #0xf8]              
+           00050790  mov      r0, #0                       
+           00050794  str      r0, [fp, #0xfc]              
+           00050798  add      r0, fp, #0xf0                
+           0005079c  vcvt.f32.f64 s0, d5                       
+           000507a0  vstr     s0, [sp]                     
+           000507a4  ldr      r1, [sp]                     
+           000507a8  vcvt.f32.f64 s0, d4                       
+           000507ac  vstr     s0, [sp]                     
+           000507b0  ldr      r2, [sp]                     
+           000507b4  vcvt.f32.f64 s0, d3                       
+           000507b8  vstr     s0, [sp]                     
+           000507bc  ldr      r3, [sp]                     
+           000507c0  vcvt.f32.f64 s0, d2                       
+           000507c4  vstr     s0, [sp]                     
+           000507c8  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           000507cc  ldr      r0, [fp, #0xf0]              
+           000507d0  str      r0, [fp, #0x1d0]             
+           000507d4  ldr      r0, [fp, #0xf4]              
+           000507d8  str      r0, [fp, #0x1d4]             
+           000507dc  ldr      r0, [fp, #0xf8]              
+           000507e0  str      r0, [fp, #0x1d8]             
+           000507e4  ldr      r0, [fp, #0xfc]              
+           000507e8  str      r0, [fp, #0x1dc]             
+           000507ec  ldr      ip, [pc]                     
+           000507f0  b        #0x507f8                     ; -> L_507f8
+           000507f4  .word    0x00f4c8fc                   ; literal 16042236 / 
+L_507f8:   000507f8  ldr      ip, [pc, ip]                 ; GOT[693] LDSTR 'Get Contents of File'
+           000507fc  ldr      r0, [fp, #0x1d0]             
+           00050800  ldr      r1, [fp, #0x1d4]             
+           00050804  ldr      r2, [fp, #0x1d8]             
+           00050808  ldr      r3, [fp, #0x1dc]             
+           0005080c  str      ip, [sp]                     
+           00050810  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           00050814  cmp      r0, #0                       
+           00050818  beq      #0x50868                     ; -> L_50868
+           0005081c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: _filename)
+           00050820  bl       #0xbd5c0                     ; CALL P31CloudFile::readAllLines
+           00050824  str      r0, [fp, #0x28]              
+           00050828  ldr      r0, [pc]                     
+           0005082c  b        #0x50834                     ; -> L_50834
+           00050830  .word    0x00f4c8c4                   ; literal 16042180 / 
+L_50834:   00050834  ldr      r0, [pc, r0]                 ; GOT[694] LDSTR 'File contents: '
+           00050838  str      r0, [fp, #0x1f0]             
+           0005083c  ldr      r0, [pc]                     
+           00050840  b        #0x50848                     ; -> L_50848
+           00050844  .word    0x00f4be58                   ; literal 16039512 / 
+L_50848:   00050848  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           0005084c  ldr      r0, [r0]                     
+           00050850  ldr      r1, [fp, #0x28]              
+           00050854  bl       #0xb97e0                     ; CALL System.String::Join
+           00050858  mov      r1, r0                       
+           0005085c  ldr      r0, [fp, #0x1f0]             
+           00050860  bl       #0xb9be0                     ; CALL System.String::Concat
+           00050864  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_50868:   00050868  vldr     s0, [fp, #0x14]              
+           0005086c  vcvt.f64.f32 d5, s0                       
+           00050870  vldr     s0, [fp, #0x10]              
+           00050874  vcvt.f64.f32 d2, s0                       
+           00050878  vldr     s0, [fp, #0x20]              
+           0005087c  vcvt.f64.f32 d3, s0                       
+           00050880  vadd.f64 d2, d2, d3                   
+           00050884  vmov.f64 d2, d2                       
+           00050888  vmov.f64 d4, d2                       
+           0005088c  vmov.f64 d4, d4                       
+           00050890  vmov.f64 d2, d2                       
+           00050894  vcvt.f32.f64 s0, d2                       
+           00050898  vstr     s0, [fp, #0x10]              
+           0005089c  vldr     s0, [fp, #0x18]              
+           000508a0  vcvt.f64.f32 d3, s0                       
+           000508a4  vldr     s0, [fp, #0x1c]              
+           000508a8  vcvt.f64.f32 d2, s0                       
+           000508ac  mov      r0, #0                       
+           000508b0  str      r0, [fp, #0x100]             
+           000508b4  mov      r0, #0                       
+           000508b8  str      r0, [fp, #0x104]             
+           000508bc  mov      r0, #0                       
+           000508c0  str      r0, [fp, #0x108]             
+           000508c4  mov      r0, #0                       
+           000508c8  str      r0, [fp, #0x10c]             
+           000508cc  add      r0, fp, #64, #30             
+           000508d0  vcvt.f32.f64 s0, d5                       
+           000508d4  vstr     s0, [sp]                     
+           000508d8  ldr      r1, [sp]                     
+           000508dc  vcvt.f32.f64 s0, d4                       
+           000508e0  vstr     s0, [sp]                     
+           000508e4  ldr      r2, [sp]                     
+           000508e8  vcvt.f32.f64 s0, d3                       
+           000508ec  vstr     s0, [sp]                     
+           000508f0  ldr      r3, [sp]                     
+           000508f4  vcvt.f32.f64 s0, d2                       
+           000508f8  vstr     s0, [sp]                     
+           000508fc  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           00050900  ldr      r0, [fp, #0x100]             
+           00050904  str      r0, [fp, #0x1e0]             
+           00050908  ldr      r0, [fp, #0x104]             
+           0005090c  str      r0, [fp, #0x1e4]             
+           00050910  ldr      r0, [fp, #0x108]             
+           00050914  str      r0, [fp, #0x1e8]             
+           00050918  ldr      r0, [fp, #0x10c]             
+           0005091c  str      r0, [fp, #0x1ec]             
+           00050920  ldr      ip, [pc]                     
+           00050924  b        #0x5092c                     ; -> L_5092c
+           00050928  .word    0x00f4c7d0                   ; literal 16041936 / 
+L_5092c:   0005092c  ldr      ip, [pc, ip]                 ; GOT[695] LDSTR 'Evict File'
+           00050930  ldr      r0, [fp, #0x1e0]             
+           00050934  ldr      r1, [fp, #0x1e4]             
+           00050938  ldr      r2, [fp, #0x1e8]             
+           0005093c  ldr      r3, [fp, #0x1ec]             
+           00050940  str      ip, [sp]                     
+           00050944  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           00050948  cmp      r0, #0                       
+           0005094c  beq      #0x50958                     ; -> L_50958
+           00050950  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: _filename)
+           00050954  bl       #0x4e398                     ; CALL iCloudBinding::evictFile (direct)
+L_50958:   00050958  add      sp, fp, #0x224               
+           0005095c  pop      {r4, r6, r8, sl, fp}         
+           00050960  ldr      r7, [sp, #8]                 
+           00050964  ldm      sp, {sp, pc}                 

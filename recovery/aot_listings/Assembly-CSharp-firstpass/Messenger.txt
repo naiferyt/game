@@ -1,0 +1,249 @@
+####################################################################################################
+# TYPE Messenger  (instance size 0x8)
+#   static System.Collections.Generic.Dictionary`2<string,System.Delegate> eventTable
+#   vtable slots: 
+####################################################################################################
+== Messenger::.cctor  token 0x0600015f @0x0001d30c (76 bytes) static
+   args: 
+           0001d30c  mov      ip, sp                       
+           0001d310  push     {r7, lr}                     
+           0001d314  mov      r7, sp                       
+           0001d318  push     {r8, fp, ip, lr}             
+           0001d31c  mov      fp, sp                       
+           0001d320  ldr      r0, [pc]                     
+           0001d324  b        #0x1d32c                     ; -> L_1d32c
+           0001d328  .word    0x00f7f6a4                   ; literal 16250532 / 
+L_1d32c:   0001d32c  ldr      r0, [pc, r0]                 ; GOT[236] SFLDA MessengerInternal::eventTable
+           0001d330  ldr      r1, [r0]                     
+           0001d334  ldr      r0, [pc]                     
+           0001d338  b        #0x1d340                     ; -> L_1d340
+           0001d33c  .word    0x00f7f6a4                   ; literal 16250532 / 
+L_1d340:   0001d340  ldr      r0, [pc, r0]                 ; GOT[241] SFLDA Messenger::eventTable
+           0001d344  str      r1, [r0]                     
+           0001d348  add      sp, fp, #0                   
+           0001d34c  pop      {r8, fp}                     
+           0001d350  ldr      r7, [sp, #8]                 
+           0001d354  ldm      sp, {sp, pc}                 
+
+== Messenger::AddListener  token 0x06000160 @0x0001d358 (272 bytes) static
+   args: eventType, handler
+           0001d358  mov      ip, sp                       
+           0001d35c  push     {r7, lr}                     
+           0001d360  mov      r7, sp                       
+           0001d364  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0001d368  sub      sp, sp, #0xc                 
+           0001d36c  mov      fp, sp                       
+           0001d370  mov      r6, r0                       
+           0001d374  str      r1, [fp, #4]                 
+           0001d378  mov      r0, r6                       
+           0001d37c  ldr      r1, [fp, #4]                 
+           0001d380  bl       #0xbaac0                     ; CALL MessengerInternal::OnListenerAdding
+           0001d384  ldr      r0, [pc]                     
+           0001d388  b        #0x1d390                     ; -> L_1d390
+           0001d38c  .word    0x00f7f654                   ; literal 16250452 / 
+L_1d390:   0001d390  ldr      r0, [pc, r0]                 ; GOT[241] SFLDA Messenger::eventTable
+           0001d394  ldr      r5, [r0]                     
+           0001d398  str      r6, [fp]                     
+           0001d39c  ldr      r0, [pc]                     
+           0001d3a0  b        #0x1d3a8                     ; -> L_1d3a8
+           0001d3a4  .word    0x00f7f63c                   ; literal 16250428 / 
+L_1d3a8:   0001d3a8  ldr      r0, [pc, r0]                 ; GOT[241] SFLDA Messenger::eventTable
+           0001d3ac  ldr      r2, [r0]                     
+           0001d3b0  mov      r0, r2                       
+           0001d3b4  mov      r1, r6                       
+           0001d3b8  ldr      lr, [r2]                     
+           0001d3bc  bl       #0xbaa60                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::get_Item
+           0001d3c0  mov      r6, r0                       
+           0001d3c4  cmp      r6, #0                       
+           0001d3c8  beq      #0x1d3f4                     ; -> L_1d3f4
+           0001d3cc  ldr      r0, [r6]                     
+           0001d3d0  ldr      r0, [r0]                     
+           0001d3d4  ldr      r0, [r0, #8]                 ; field+0x8 
+           0001d3d8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0001d3dc  ldr      r1, [pc]                     
+           0001d3e0  b        #0x1d3e8                     ; -> L_1d3e8
+           0001d3e4  .word    0x00f7f600                   ; literal 16250368 / 
+L_1d3e8:   0001d3e8  ldr      r1, [pc, r1]                 ; GOT[242] CLASS Callback
+           0001d3ec  cmp      r0, r1                       
+           0001d3f0  blne     #0x1d458                     ; THROW System.InvalidCastException (if ne)
+L_1d3f4:   0001d3f4  mov      r0, r6                       
+           0001d3f8  ldr      r1, [fp, #4]                 
+           0001d3fc  bl       #0xb9cc0                     ; CALL System.Delegate::Combine
+           0001d400  mov      sl, r0                       
+           0001d404  cmp      sl, #0                       
+           0001d408  beq      #0x1d434                     ; -> L_1d434
+           0001d40c  ldr      r0, [sl]                     
+           0001d410  ldr      r0, [r0]                     
+           0001d414  ldr      r0, [r0, #8]                 ; field+0x8 
+           0001d418  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0001d41c  ldr      r1, [pc]                     
+           0001d420  b        #0x1d428                     ; -> L_1d428
+           0001d424  .word    0x00f7f5c0                   ; literal 16250304 / 
+L_1d428:   0001d428  ldr      r1, [pc, r1]                 ; GOT[242] CLASS Callback
+           0001d42c  cmp      r0, r1                       
+           0001d430  blne     #0x1d458                     ; THROW System.InvalidCastException (if ne)
+L_1d434:   0001d434  mov      r0, r5                       
+           0001d438  ldr      r1, [fp]                     
+           0001d43c  mov      r2, sl                       
+           0001d440  ldr      lr, [r5]                     
+           0001d444  bl       #0xbaad0                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::set_Item
+           0001d448  add      sp, fp, #0xc                 
+           0001d44c  pop      {r5, r6, r8, sl, fp}         
+           0001d450  ldr      r7, [sp, #8]                 
+           0001d454  ldm      sp, {sp, pc}                 
+           0001d458  mov      r1, lr                       
+           0001d45c  ldr      r0, [pc]                     
+           0001d460  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0001d464  andeq    r0, r0, #0xfd                
+
+== Messenger::RemoveListener  token 0x06000161 @0x0001d468 (284 bytes) static
+   args: eventType, handler
+           0001d468  mov      ip, sp                       
+           0001d46c  push     {r7, lr}                     
+           0001d470  mov      r7, sp                       
+           0001d474  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0001d478  sub      sp, sp, #0x14                
+           0001d47c  mov      fp, sp                       
+           0001d480  mov      r6, r0                       
+           0001d484  str      r1, [fp, #8]                 
+           0001d488  mov      r0, r6                       
+           0001d48c  ldr      r1, [fp, #8]                 
+           0001d490  bl       #0xbaae0                     ; CALL MessengerInternal::OnListenerRemoving
+           0001d494  ldr      r0, [pc]                     
+           0001d498  b        #0x1d4a0                     ; -> L_1d4a0
+           0001d49c  .word    0x00f7f544                   ; literal 16250180 / 
+L_1d4a0:   0001d4a0  ldr      r0, [pc, r0]                 ; GOT[241] SFLDA Messenger::eventTable
+           0001d4a4  ldr      r5, [r0]                     
+           0001d4a8  str      r6, [fp, #4]                 
+           0001d4ac  ldr      r0, [pc]                     
+           0001d4b0  b        #0x1d4b8                     ; -> L_1d4b8
+           0001d4b4  .word    0x00f7f52c                   ; literal 16250156 / 
+L_1d4b8:   0001d4b8  ldr      r0, [pc, r0]                 ; GOT[241] SFLDA Messenger::eventTable
+           0001d4bc  ldr      r2, [r0]                     
+           0001d4c0  mov      r0, r2                       
+           0001d4c4  mov      r1, r6                       
+           0001d4c8  ldr      lr, [r2]                     
+           0001d4cc  bl       #0xbaa60                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::get_Item
+           0001d4d0  mov      sl, r0                       
+           0001d4d4  cmp      sl, #0                       
+           0001d4d8  beq      #0x1d504                     ; -> L_1d504
+           0001d4dc  ldr      r0, [sl]                     
+           0001d4e0  ldr      r0, [r0]                     
+           0001d4e4  ldr      r0, [r0, #8]                 ; field+0x8 
+           0001d4e8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0001d4ec  ldr      r1, [pc]                     
+           0001d4f0  b        #0x1d4f8                     ; -> L_1d4f8
+           0001d4f4  .word    0x00f7f4f0                   ; literal 16250096 / 
+L_1d4f8:   0001d4f8  ldr      r1, [pc, r1]                 ; GOT[242] CLASS Callback
+           0001d4fc  cmp      r0, r1                       
+           0001d500  blne     #0x1d574                     ; THROW System.InvalidCastException (if ne)
+L_1d504:   0001d504  mov      r0, sl                       
+           0001d508  ldr      r1, [fp, #8]                 
+           0001d50c  bl       #0xb9cd0                     ; CALL System.Delegate::Remove
+           0001d510  str      r0, [fp]                     
+           0001d514  cmp      r0, #0                       
+           0001d518  beq      #0x1d548                     ; -> L_1d548
+           0001d51c  ldr      r0, [fp]                     
+           0001d520  ldr      r0, [r0]                     
+           0001d524  ldr      r0, [r0]                     
+           0001d528  ldr      r0, [r0, #8]                 ; field+0x8 
+           0001d52c  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0001d530  ldr      r1, [pc]                     
+           0001d534  b        #0x1d53c                     ; -> L_1d53c
+           0001d538  .word    0x00f7f4ac                   ; literal 16250028 / 
+L_1d53c:   0001d53c  ldr      r1, [pc, r1]                 ; GOT[242] CLASS Callback
+           0001d540  cmp      r0, r1                       
+           0001d544  blne     #0x1d574                     ; THROW System.InvalidCastException (if ne)
+L_1d548:   0001d548  mov      r0, r5                       
+           0001d54c  ldr      r1, [fp, #4]                 
+           0001d550  ldr      r2, [fp]                     
+           0001d554  ldr      lr, [r5]                     
+           0001d558  bl       #0xbaad0                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::set_Item
+           0001d55c  mov      r0, r6                       
+           0001d560  bl       #0xbaaf0                     ; CALL MessengerInternal::OnListenerRemoved
+           0001d564  add      sp, fp, #0x14                
+           0001d568  pop      {r5, r6, r8, sl, fp}         
+           0001d56c  ldr      r7, [sp, #8]                 
+           0001d570  ldm      sp, {sp, pc}                 
+           0001d574  mov      r1, lr                       
+           0001d578  ldr      r0, [pc]                     
+           0001d57c  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0001d580  andeq    r0, r0, #0xfd                
+
+== Messenger::Broadcast  token 0x06000162 @0x0001d584 (72 bytes) static
+   args: eventType
+           0001d584  mov      ip, sp                       
+           0001d588  push     {r7, lr}                     
+           0001d58c  mov      r7, sp                       
+           0001d590  push     {r8, fp, ip, lr}             
+           0001d594  sub      sp, sp, #8                   
+           0001d598  mov      fp, sp                       
+           0001d59c  str      r0, [fp]                     
+           0001d5a0  ldr      r0, [pc]                     
+           0001d5a4  b        #0x1d5ac                     ; -> L_1d5ac
+           0001d5a8  .word    0x00f7f428                   ; literal 16249896 / 
+L_1d5ac:   0001d5ac  ldr      r0, [pc, r0]                 ; GOT[237] SFLDA MessengerInternal::DEFAULT_MODE
+           0001d5b0  ldr      r1, [r0]                     
+           0001d5b4  ldr      r0, [fp]                     
+           0001d5b8  bl       #0xbab00                     ; CALL Messenger::Broadcast
+           0001d5bc  add      sp, fp, #8                   
+           0001d5c0  pop      {r8, fp}                     
+           0001d5c4  ldr      r7, [sp, #8]                 
+           0001d5c8  ldm      sp, {sp, pc}                 
+
+== Messenger::Broadcast  token 0x06000163 @0x0001d5cc (216 bytes) static
+   args: eventType, mode
+           0001d5cc  mov      ip, sp                       
+           0001d5d0  push     {r7, lr}                     
+           0001d5d4  mov      r7, sp                       
+           0001d5d8  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0001d5dc  sub      sp, sp, #8                   
+           0001d5e0  mov      fp, sp                       
+           0001d5e4  mov      r6, r0                       
+           0001d5e8  mov      sl, r1                       
+           0001d5ec  mov      r0, #0                       
+           0001d5f0  str      r0, [fp]                     
+           0001d5f4  mov      r0, r6                       
+           0001d5f8  mov      r1, sl                       
+           0001d5fc  bl       #0xbab10                     ; CALL MessengerInternal::OnBroadcasting
+           0001d600  ldr      r0, [pc]                     
+           0001d604  b        #0x1d60c                     ; -> L_1d60c
+           0001d608  .word    0x00f7f3d8                   ; literal 16249816 / 
+L_1d60c:   0001d60c  ldr      r0, [pc, r0]                 ; GOT[241] SFLDA Messenger::eventTable
+           0001d610  ldr      r3, [r0]                     
+           0001d614  mov      r0, r3                       
+           0001d618  mov      r1, r6                       
+           0001d61c  mov      r2, fp                       
+           0001d620  ldr      lr, [r3]                     
+           0001d624  bl       #0xbab20                     ; CALL System.Collections.Generic.Dictionary`2<string,System.Delegate>::TryGetValue
+           0001d628  cmp      r0, #0                       
+           0001d62c  beq      #0x1d694                     ; -> L_1d694
+           0001d630  ldr      sl, [fp]                     
+           0001d634  mov      r4, sl                       
+           0001d638  cmp      sl, #0                       
+           0001d63c  beq      #0x1d66c                     ; -> L_1d66c
+           0001d640  ldr      r0, [sl]                     
+           0001d644  ldr      r0, [r0]                     
+           0001d648  ldr      r0, [r0, #8]                 ; field+0x8 
+           0001d64c  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0001d650  ldr      r1, [pc]                     
+           0001d654  b        #0x1d65c                     ; -> L_1d65c
+           0001d658  .word    0x00f7f38c                   ; literal 16249740 / 
+L_1d65c:   0001d65c  ldr      r1, [pc, r1]                 ; GOT[242] CLASS Callback
+           0001d660  cmp      r0, r1                       
+           0001d664  beq      #0x1d66c                     ; -> L_1d66c
+           0001d668  mov      r4, #0                       
+L_1d66c:   0001d66c  mov      r5, r4                       
+           0001d670  cmp      r4, #0                       
+           0001d674  beq      #0x1d688                     ; -> L_1d688
+           0001d678  mov      r0, r5                       
+           0001d67c  mov      lr, pc                       
+           0001d680  ldr      pc, [r5, #0xc]               ; VIRTUAL CALL slot +0xc: 
+           0001d684  b        #0x1d694                     ; -> L_1d694
+L_1d688:   0001d688  mov      r0, r6                       
+           0001d68c  bl       #0xbab30                     ; CALL MessengerInternal::CreateBroadcastSignatureException
+           0001d690  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_1d694:   0001d694  add      sp, fp, #8                   
+           0001d698  pop      {r4, r5, r6, r8, sl, fp}     
+           0001d69c  ldr      r7, [sp, #8]                 
+           0001d6a0  ldm      sp, {sp, pc}                 

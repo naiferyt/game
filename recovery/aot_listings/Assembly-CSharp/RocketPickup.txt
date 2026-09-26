@@ -1,0 +1,60 @@
+####################################################################################################
+# TYPE RocketPickup  (instance size 0x1c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 pickupPUPEffectPrefab          UnityEngine.GameObject
+#   +0x14 particles                      UnityEngine.ParticleEmitter[]
+#   +0x18 isPaused                       bool
+#   static float rocketDuration  = const 0000c040
+#   vtable slots: 4:GetTriggeredEffect
+####################################################################################################
+== RocketPickup::.ctor  token 0x06000450 @0x00100d70 (52 bytes)
+   args: r0=this, 
+           00100d70  mov      ip, sp                       
+           00100d74  push     {r7, lr}                     
+           00100d78  mov      r7, sp                       
+           00100d7c  push     {r8, fp, ip, lr}             
+           00100d80  sub      sp, sp, #8                   
+           00100d84  mov      fp, sp                       
+           00100d88  str      r0, [fp]                     
+           00100d8c  ldr      r0, [fp]                     
+           00100d90  bl       #0x100088                    ; CALL BasePickup::.ctor (direct)
+           00100d94  add      sp, fp, #8                   
+           00100d98  pop      {r8, fp}                     
+           00100d9c  ldr      r7, [sp, #8]                 
+           00100da0  ldm      sp, {sp, pc}                 
+
+== RocketPickup::GetTriggeredEffect  token 0x06000451 @0x00100da4 (132 bytes)
+   args: r0=this, obj
+           00100da4  mov      ip, sp                       
+           00100da8  push     {r7, lr}                     
+           00100dac  mov      r7, sp                       
+           00100db0  push     {r8, fp, ip, lr}             
+           00100db4  sub      sp, sp, #0x10                
+           00100db8  mov      fp, sp                       
+           00100dbc  str      r0, [fp]                     
+           00100dc0  str      r1, [fp, #4]                 
+           00100dc4  ldr      r0, [pc]                     
+           00100dc8  b        #0x100dd0                    ; -> L_100dd0
+           00100dcc  .word    0x00ea419c                   ; literal 15352220 / 
+L_100dd0:  00100dd0  ldr      r0, [pc, r0]                 ; GOT[131] VTABLE RocketEffect
+           00100dd4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00100dd8  str      r0, [fp, #8]                 
+           00100ddc  ldr      r1, [fp, #4]                 
+           00100de0  bl       #0x22b3b0                    ; CALL RocketEffect::.ctor
+           00100de4  ldr      r1, [fp, #8]                 
+           00100de8  mov      r0, r1                       
+           00100dec  mov      r2, #1                       
+           00100df0  str      r2, [r1, #0xc]               ; field+0xc 
+           00100df4  vldr     s4, [pc]                     ; float 30.0
+           00100df8  b        #0x100e00                    ; -> L_100e00
+           00100dfc  .word    0x41f00000                   ; literal 1106247680 / 30
+L_100e00:  00100e00  vcvt.f64.f32 d2, s4                       
+           00100e04  vcvt.f32.f64 s0, d2                       
+           00100e08  vstr     s0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00100e0c  ldr      lr, [r0]                     
+           00100e10  mov      r2, #1                       
+           00100e14  strb     r2, [r1, #0x14]              ; field+0x14 (this-class: particles)
+           00100e18  add      sp, fp, #0x10                
+           00100e1c  pop      {r8, fp}                     
+           00100e20  ldr      r7, [sp, #8]                 
+           00100e24  ldm      sp, {sp, pc}                 

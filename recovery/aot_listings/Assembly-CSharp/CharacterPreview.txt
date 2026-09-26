@@ -1,0 +1,1263 @@
+####################################################################################################
+# TYPE CharacterPreview  (instance size 0x2c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 blackoutMaterial               UnityEngine.Material
+#   +0x14 previewCharacter               CharacterPreview/PreviewPart
+#   +0x18 curAnimName                    string
+#   +0x1c blackedOut                     bool
+#   +0x20 idleTime                       float
+#   +0x24 hidden                         bool
+#   +0x28 randomTime                     int
+#   static float IDLE_TIMER  = const 00002041
+#   vtable slots: 
+####################################################################################################
+== CharacterPreview::.ctor  token 0x06000621 @0x00125af0 (104 bytes)
+   args: r0=this, 
+           00125af0  mov      ip, sp                       
+           00125af4  push     {r7, lr}                     
+           00125af8  mov      r7, sp                       
+           00125afc  push     {r8, sl, fp, ip, lr}         
+           00125b00  sub      sp, sp, #4                   
+           00125b04  mov      fp, sp                       
+           00125b08  mov      sl, r0                       
+           00125b0c  vldr     s4, [pc]                     ; float 10.0
+           00125b10  b        #0x125b18                    ; -> L_125b18
+           00125b14  .word    0x41200000                   ; literal 1092616192 / 10
+L_125b18:  00125b18  vcvt.f64.f32 d2, s4                       
+           00125b1c  vcvt.f32.f64 s0, d2                       
+           00125b20  vstr     s0, [sl, #0x20]              ; field+0x20 (this-class: idleTime)
+           00125b24  ldr      r0, [pc]                     
+           00125b28  b        #0x125b30                    ; -> L_125b30
+           00125b2c  .word    0x00e7f644                   ; literal 15201860 / 
+L_125b30:  00125b30  ldr      r0, [pc, r0]                 ; GOT[261] LDSTR 'idle'
+           00125b34  str      r0, [sl, #0x18]              ; field+0x18 (this-class: curAnimName)
+           00125b38  mov      r0, #1                       
+           00125b3c  strb     r0, [sl, #0x24]              ; field+0x24 (this-class: hidden)
+           00125b40  mov      r0, sl                       
+           00125b44  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00125b48  add      sp, fp, #4                   
+           00125b4c  pop      {r8, sl, fp}                 
+           00125b50  ldr      r7, [sp, #8]                 
+           00125b54  ldm      sp, {sp, pc}                 
+
+== CharacterPreview::Update  token 0x06000622 @0x00125b58 (2176 bytes)
+   args: r0=this, 
+           00125b58  mov      ip, sp                       
+           00125b5c  push     {r7, lr}                     
+           00125b60  mov      r7, sp                       
+           00125b64  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00125b68  sub      sp, sp, #0xd0                
+           00125b6c  mov      fp, sp                       
+           00125b70  mov      sl, r0                       
+           00125b74  mov      r0, #0                       
+           00125b78  str      r0, [fp, #0x10]              
+           00125b7c  mov      r0, #0                       
+           00125b80  str      r0, [fp, #0x18]              
+           00125b84  mov      r0, #0                       
+           00125b88  str      r0, [fp, #0x1c]              
+           00125b8c  mov      r0, #0                       
+           00125b90  str      r0, [fp, #0x20]              
+           00125b94  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00125b98  cmp      r0, #0                       
+           00125b9c  beq      #0x1263b8                    ; -> L_1263b8
+           00125ba0  mov      r0, sl                       
+           00125ba4  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00125ba8  ldr      r1, [pc]                     
+           00125bac  b        #0x125bb4                    ; -> L_125bb4
+           00125bb0  .word    0x00e7f5f4                   ; literal 15201780 / 
+L_125bb4:  00125bb4  ldr      r1, [pc, r1]                 ; GOT[274] METHOD_RGCTX UnityEngine.GameObject::GetComponentInChildren<UnityEngine.Animation>
+           00125bb8  ldr      lr, [r0]                     
+           00125bbc  mov      r8, r1                       
+           00125bc0  bl       #0x22b8c0                    ; CALL UnityEngine.GameObject::GetComponentInChildren<UnityEngine.Animation>
+           00125bc4  mov      r6, r0                       
+           00125bc8  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00125bcc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00125bd0  mov      r1, #0                       
+           00125bd4  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           00125bd8  cmp      r0, #0                       
+           00125bdc  beq      #0x126070                    ; -> L_126070
+           00125be0  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00125be4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00125be8  cmp      r0, #0                       
+           00125bec  beq      #0x126070                    ; -> L_126070
+           00125bf0  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00125bf4  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00125bf8  mov      r0, r1                       
+           00125bfc  ldr      lr, [r1]                     
+           00125c00  bl       #0x1060ec                    ; CALL StreamManager/Asset::get_isDone (direct)
+           00125c04  cmp      r0, #0                       
+           00125c08  beq      #0x126070                    ; -> L_126070
+           00125c0c  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00125c10  str      r0, [fp, #0x80]              
+           00125c14  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00125c18  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00125c1c  mov      r0, r1                       
+           00125c20  ldr      lr, [r1]                     
+           00125c24  bl       #0x10625c                    ; CALL StreamManager/Asset::get_mainAsset (direct)
+           00125c28  str      r0, [fp, #0xc0]              
+           00125c2c  mov      r0, sl                       
+           00125c30  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00125c34  mov      r2, r0                       
+           00125c38  add      r0, fp, #0xa0                
+           00125c3c  mov      r1, r2                       
+           00125c40  ldr      lr, [r2]                     
+           00125c44  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00125c48  mov      r0, sl                       
+           00125c4c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00125c50  mov      r2, r0                       
+           00125c54  add      r0, fp, #0xac                
+           00125c58  mov      r1, r2                       
+           00125c5c  ldr      lr, [r2]                     
+           00125c60  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           00125c64  ldr      r0, [fp, #0xc0]              
+           00125c68  ldr      r1, [fp, #0xa0]              
+           00125c6c  ldr      r2, [fp, #0xa4]              
+           00125c70  ldr      r3, [fp, #0xa8]              
+           00125c74  ldr      ip, [fp, #0xac]              
+           00125c78  str      ip, [sp]                     
+           00125c7c  ldr      ip, [fp, #0xb0]              
+           00125c80  str      ip, [sp, #4]                 
+           00125c84  ldr      ip, [fp, #0xb4]              
+           00125c88  str      ip, [sp, #8]                 
+           00125c8c  ldr      ip, [fp, #0xb8]              
+           00125c90  str      ip, [sp, #0xc]               
+           00125c94  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           00125c98  str      r0, [fp, #0x7c]              
+           00125c9c  cmp      r0, #0                       
+           00125ca0  beq      #0x125cd0                    ; -> L_125cd0
+           00125ca4  ldr      r0, [fp, #0x7c]              
+           00125ca8  ldr      r0, [r0]                     
+           00125cac  ldr      r0, [r0]                     
+           00125cb0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00125cb4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00125cb8  ldr      r1, [pc]                     
+           00125cbc  b        #0x125cc4                    ; -> L_125cc4
+           00125cc0  .word    0x00e7f288                   ; literal 15200904 / 
+L_125cc4:  00125cc4  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           00125cc8  cmp      r0, r1                       
+           00125ccc  blne     #0x1263c8                    ; THROW System.InvalidCastException (if ne)
+L_125cd0:  00125cd0  ldr      r1, [fp, #0x7c]              
+           00125cd4  ldr      r0, [fp, #0x80]              
+           00125cd8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00125cdc  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00125ce0  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00125ce4  mov      r0, r1                       
+           00125ce8  ldr      lr, [r1]                     
+           00125cec  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00125cf0  str      r0, [fp, #0xc0]              
+           00125cf4  mov      r0, sl                       
+           00125cf8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00125cfc  mov      r1, r0                       
+           00125d00  ldr      r2, [fp, #0xc0]              
+           00125d04  mov      r0, r2                       
+           00125d08  ldr      lr, [r2]                     
+           00125d0c  bl       #0x22b2d0                    ; CALL UnityEngine.Transform::set_parent
+           00125d10  ldr      r0, [pc]                     
+           00125d14  b        #0x125d1c                    ; -> L_125d1c
+           00125d18  .word    0x00e7f458                   ; literal 15201368 / 
+L_125d1c:  00125d1c  ldr      r0, [pc, r0]                 ; GOT[261] LDSTR 'idle'
+           00125d20  str      r0, [sl, #0x18]              ; field+0x18 (this-class: curAnimName)
+           00125d24  mov      r0, #0                       
+           00125d28  mov      r1, #0xb                     
+           00125d2c  bl       #0x22a800                    ; CALL UnityEngine.Random::Range
+           00125d30  mov      r1, #2                       
+           00125d34  bl       #0x22b350                    ; CALL [INTERNAL_METHOD] __emul_op_irem
+           00125d38  cmp      r0, #0                       
+           00125d3c  bne      #0x125d5c                    ; -> L_125d5c
+           00125d40  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: curAnimName)
+           00125d44  ldr      r1, [pc]                     
+           00125d48  b        #0x125d50                    ; -> L_125d50
+           00125d4c  .word    0x00e80388                   ; literal 15205256 / 
+L_125d50:  00125d50  ldr      r1, [pc, r1]                 ; GOT[1246] LDSTR '2'
+           00125d54  bl       #0x22adc0                    ; CALL System.String::Concat
+           00125d58  str      r0, [sl, #0x18]              ; field+0x18 (this-class: curAnimName)
+L_125d5c:  00125d5c  mov      r0, r6                       
+           00125d60  mov      r1, #0                       
+           00125d64  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00125d68  cmp      r0, #0                       
+           00125d6c  beq      #0x125fe8                    ; -> L_125fe8
+           00125d70  mov      r0, r6                       
+           00125d74  ldr      lr, [r6]                     
+           00125d78  bl       #0x22b8e0                    ; CALL UnityEngine.Animation::GetEnumerator
+           00125d7c  str      r0, [fp, #0x10]              
+           00125d80  b        #0x125e48                    ; -> L_125e48
+L_125d84:  00125d84  ldr      r1, [fp, #0x10]              
+           00125d88  mov      r0, r1                       
+           00125d8c  ldr      r1, [r1]                     
+           00125d90  ldr      r8, [pc]                     
+           00125d94  b        #0x125d9c                    ; -> L_125d9c
+           00125d98  .word    0x00e7f11c                   ; literal 15200540 / 
+L_125d9c:  00125d9c  ldr      r8, [pc, r8]                 ; GOT[86] METHODCONST System.Collections.IEnumerator::get_Current
+           00125da0  add      lr, pc, #4                   
+           00125da4  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           00125da8  andeq    r0, r0, r0                   
+           00125dac  mov      r4, r0                       
+           00125db0  cmp      r4, #0                       
+           00125db4  beq      #0x125de0                    ; -> L_125de0
+           00125db8  ldr      r0, [r4]                     
+           00125dbc  ldr      r0, [r0]                     
+           00125dc0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00125dc4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00125dc8  ldr      r1, [pc]                     
+           00125dcc  b        #0x125dd4                    ; -> L_125dd4
+           00125dd0  .word    0x00e7f3e0                   ; literal 15201248 / 
+L_125dd4:  00125dd4  ldr      r1, [pc, r1]                 ; GOT[277] CLASS UnityEngine.AnimationState
+           00125dd8  cmp      r0, r1                       
+           00125ddc  blne     #0x1263c8                    ; THROW System.InvalidCastException (if ne)
+L_125de0:  00125de0  mov      r5, r4                       
+           00125de4  mov      r0, r4                       
+           00125de8  ldr      lr, [r4]                     
+           00125dec  bl       #0x22b8f0                    ; CALL UnityEngine.AnimationState::get_name
+           00125df0  mov      r1, r0                       
+           00125df4  ldr      lr, [r1]                     
+           00125df8  bl       #0x22b900                    ; CALL System.String::ToLower
+           00125dfc  mov      r2, r0                       
+           00125e00  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: curAnimName)
+           00125e04  mov      r0, r2                       
+           00125e08  ldr      lr, [r2]                     
+           00125e0c  bl       #0x22b910                    ; CALL System.String::EndsWith
+           00125e10  cmp      r0, #0                       
+           00125e14  beq      #0x125e48                    ; -> L_125e48
+           00125e18  mov      r0, r5                       
+           00125e1c  ldr      lr, [r5]                     
+           00125e20  bl       #0x22b8f0                    ; CALL UnityEngine.AnimationState::get_name
+           00125e24  mov      r1, r0                       
+           00125e28  mov      r0, r6                       
+           00125e2c  ldr      lr, [r6]                     
+           00125e30  bl       #0x22e6f0                    ; CALL UnityEngine.Animation::Play
+           00125e34  mov      r0, r6                       
+           00125e38  mov      r1, #2                       
+           00125e3c  ldr      lr, [r6]                     
+           00125e40  bl       #0x22e700                    ; CALL UnityEngine.Animation::set_wrapMode
+           00125e44  b        #0x125e78                    ; -> L_125e78
+L_125e48:  00125e48  ldr      r1, [fp, #0x10]              
+           00125e4c  mov      r0, r1                       
+           00125e50  ldr      r1, [r1]                     
+           00125e54  ldr      r8, [pc]                     
+           00125e58  b        #0x125e60                    ; -> L_125e60
+           00125e5c  .word    0x00e7f060                   ; literal 15200352 / 
+L_125e60:  00125e60  ldr      r8, [pc, r8]                 ; GOT[88] METHODCONST System.Collections.IEnumerator::MoveNext
+           00125e64  add      lr, pc, #4                   
+           00125e68  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           00125e6c  andeq    r0, r0, r0                   
+           00125e70  cmp      r0, #0                       
+           00125e74  bne      #0x125d84                    ; -> L_125d84
+L_125e78:  00125e78  bl       #0x125e80                    ; CALL 0x125e80
+           00125e7c  b        #0x125fe8                    ; -> L_125fe8
+           00125e80  str      lr, [fp, #0x70]              
+           00125e84  ldr      r0, [fp, #0x10]              
+           00125e88  str      r0, [fp, #0x44]              
+           00125e8c  ldr      r0, [fp, #0x44]              
+           00125e90  str      r0, [fp, #0x84]              
+           00125e94  cmp      r0, #0                       
+           00125e98  beq      #0x125f30                    ; -> L_125f30
+           00125e9c  ldr      r0, [fp, #0x84]              
+           00125ea0  ldr      r0, [r0]                     
+           00125ea4  str      r0, [fp, #0x88]              
+           00125ea8  ldrh     r0, [r0, #0x18]              ; field+0x18 (this-class: curAnimName)
+           00125eac  ldr      r1, [pc]                     
+           00125eb0  b        #0x125eb8                    ; -> L_125eb8
+           00125eb4  .word    0x00e7f00c                   ; literal 15200268 / 
+L_125eb8:  00125eb8  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           00125ebc  cmp      r0, r1                       
+           00125ec0  blo      #0x125f00                    ; -> L_125f00
+           00125ec4  ldr      r0, [fp, #0x88]              
+           00125ec8  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00125ecc  ldr      r1, [pc]                     
+           00125ed0  b        #0x125ed8                    ; -> L_125ed8
+           00125ed4  .word    0x00e7efec                   ; literal 15200236 / 
+L_125ed8:  00125ed8  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           00125edc  asr      r2, r1, #3                   
+           00125ee0  add      r0, r0, r2                   
+           00125ee4  ldrb     r0, [r0]                     
+           00125ee8  and      r2, r1, #7                   
+           00125eec  mov      r1, #1                       
+           00125ef0  lsl      r1, r1, r2                   
+           00125ef4  and      r0, r0, r1                   
+           00125ef8  cmp      r0, #0                       
+           00125efc  bne      #0x125f48                    ; -> L_125f48
+L_125f00:  00125f00  ldr      r0, [fp, #0x88]              
+           00125f04  ldr      r0, [r0]                     
+           00125f08  ldr      r1, [pc]                     
+           00125f0c  b        #0x125f14                    ; -> L_125f14
+           00125f10  .word    0x00e7efb4                   ; literal 15200180 / 
+L_125f14:  00125f14  ldr      r1, [pc, r1]                 ; GOT[90] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           00125f18  cmp      r0, r1                       
+           00125f1c  bne      #0x125f30                    ; -> L_125f30
+           00125f20  ldr      r0, [fp, #0x84]              
+           00125f24  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00125f28  cmp      r0, #0                       
+           00125f2c  bne      #0x125f3c                    ; -> L_125f3c
+L_125f30:  00125f30  mov      r0, #1                       
+           00125f34  str      r0, [fp, #0x8c]              
+           00125f38  b        #0x125f50                    ; -> L_125f50
+L_125f3c:  00125f3c  mov      r0, #2                       
+           00125f40  str      r0, [fp, #0x8c]              
+           00125f44  b        #0x125f50                    ; -> L_125f50
+L_125f48:  00125f48  mov      r0, #0                       
+           00125f4c  str      r0, [fp, #0x8c]              
+L_125f50:  00125f50  ldr      r0, [fp, #0x8c]              
+           00125f54  str      r0, [fp, #0x48]              
+           00125f58  mov      r1, r0                       
+           00125f5c  ldr      r0, [fp, #0x48]              
+           00125f60  str      r1, [fp, #0x4c]              
+           00125f64  cmp      r0, #0                       
+           00125f68  beq      #0x125f94                    ; -> L_125f94
+           00125f6c  ldr      r0, [fp, #0x4c]              
+           00125f70  cmp      r0, #2                       
+           00125f74  bne      #0x125f88                    ; -> L_125f88
+           00125f78  ldr      r0, [fp, #0x44]              
+           00125f7c  bl       #0x22af60                    ; CALL wrapper wrapper20(System.IDisposable)
+           00125f80  str      r0, [fp, #0x50]              
+           00125f84  b        #0x125f9c                    ; -> L_125f9c
+L_125f88:  00125f88  mov      r0, #0                       
+           00125f8c  str      r0, [fp, #0x50]              
+           00125f90  b        #0x125f9c                    ; -> L_125f9c
+L_125f94:  00125f94  ldr      r0, [fp, #0x44]              
+           00125f98  str      r0, [fp, #0x50]              
+L_125f9c:  00125f9c  ldr      r0, [fp, #0x50]              
+           00125fa0  str      r0, [fp, #0x40]              
+           00125fa4  str      r0, [fp, #0x1c]              
+           00125fa8  cmp      r0, #0                       
+           00125fac  bne      #0x125fb8                    ; -> L_125fb8
+           00125fb0  ldr      ip, [fp, #0x70]              
+           00125fb4  mov      pc, ip                       
+L_125fb8:  00125fb8  ldr      r1, [fp, #0x1c]              
+           00125fbc  mov      r0, r1                       
+           00125fc0  ldr      r1, [r1]                     
+           00125fc4  ldr      r8, [pc]                     
+           00125fc8  b        #0x125fd0                    ; -> L_125fd0
+           00125fcc  .word    0x00e7edd8                   ; literal 15199704 / 
+L_125fd0:  00125fd0  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           00125fd4  add      lr, pc, #4                   
+           00125fd8  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           00125fdc  andeq    r0, r0, r0                   
+           00125fe0  ldr      ip, [fp, #0x70]              
+           00125fe4  mov      pc, ip                       
+L_125fe8:  00125fe8  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00125fec  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00125ff0  mov      r0, r1                       
+           00125ff4  ldr      lr, [r1]                     
+           00125ff8  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00125ffc  mov      r2, r0                       
+           00126000  mov      r1, #0                       
+           00126004  ldr      lr, [r2]                     
+           00126008  bl       #0x22e710                    ; CALL UnityEngine.Transform::GetChild
+           0012600c  mov      r2, r0                       
+           00126010  ldr      r1, [pc]                     
+           00126014  b        #0x12601c                    ; -> L_12601c
+           00126018  .word    0x00e800c0                   ; literal 15204544 / 
+L_12601c:  0012601c  ldr      r1, [pc, r1]                 ; GOT[1247] LDSTR 'belt'
+           00126020  mov      r0, r2                       
+           00126024  ldr      lr, [r2]                     
+           00126028  bl       #0x22b290                    ; CALL UnityEngine.Transform::FindChild
+           0012602c  mov      r4, r0                       
+           00126030  mov      r1, #0                       
+           00126034  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00126038  cmp      r0, #0                       
+           0012603c  beq      #0x12605c                    ; -> L_12605c
+           00126040  mov      r0, r4                       
+           00126044  ldr      lr, [r4]                     
+           00126048  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012604c  mov      r2, r0                       
+           00126050  mov      r1, #0                       
+           00126054  ldr      lr, [r2]                     
+           00126058  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+L_12605c:  0012605c  ldrb     r0, [sl, #0x1c]              ; field+0x1c (this-class: blackedOut)
+           00126060  cmp      r0, #0                       
+           00126064  beq      #0x126070                    ; -> L_126070
+           00126068  mov      r0, #1                       
+           0012606c  bl       #0x22e720                    ; CALL CharacterPreview::Blackout
+L_126070:  00126070  mov      r0, r6                       
+           00126074  mov      r1, #0                       
+           00126078  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012607c  cmp      r0, #0                       
+           00126080  beq      #0x126334                    ; -> L_126334
+           00126084  mov      r0, r6                       
+           00126088  mov      r1, #1                       
+           0012608c  ldr      lr, [r6]                     
+           00126090  bl       #0x22e700                    ; CALL UnityEngine.Animation::set_wrapMode
+           00126094  mov      r0, r6                       
+           00126098  ldr      lr, [r6]                     
+           0012609c  bl       #0x22b8e0                    ; CALL UnityEngine.Animation::GetEnumerator
+           001260a0  str      r0, [fp, #0x18]              
+           001260a4  b        #0x126194                    ; -> L_126194
+L_1260a8:  001260a8  ldr      r1, [fp, #0x18]              
+           001260ac  mov      r0, r1                       
+           001260b0  ldr      r1, [r1]                     
+           001260b4  ldr      r8, [pc]                     
+           001260b8  b        #0x1260c0                    ; -> L_1260c0
+           001260bc  .word    0x00e7edf8                   ; literal 15199736 / 
+L_1260c0:  001260c0  ldr      r8, [pc, r8]                 ; GOT[86] METHODCONST System.Collections.IEnumerator::get_Current
+           001260c4  add      lr, pc, #4                   
+           001260c8  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           001260cc  andeq    r0, r0, r0                   
+           001260d0  str      r0, [fp, #0x90]              
+           001260d4  cmp      r0, #0                       
+           001260d8  beq      #0x126108                    ; -> L_126108
+           001260dc  ldr      r0, [fp, #0x90]              
+           001260e0  ldr      r0, [r0]                     
+           001260e4  ldr      r0, [r0]                     
+           001260e8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001260ec  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001260f0  ldr      r1, [pc]                     
+           001260f4  b        #0x1260fc                    ; -> L_1260fc
+           001260f8  .word    0x00e7f0b8                   ; literal 15200440 / 
+L_1260fc:  001260fc  ldr      r1, [pc, r1]                 ; GOT[277] CLASS UnityEngine.AnimationState
+           00126100  cmp      r0, r1                       
+           00126104  blne     #0x1263c8                    ; THROW System.InvalidCastException (if ne)
+L_126108:  00126108  ldr      r0, [fp, #0x90]              
+           0012610c  str      r0, [fp, #0x14]              
+           00126110  ldr      r0, [fp, #0x90]              
+           00126114  mov      r1, r0                       
+           00126118  ldr      lr, [r1]                     
+           0012611c  bl       #0x22b8f0                    ; CALL UnityEngine.AnimationState::get_name
+           00126120  mov      r1, r0                       
+           00126124  ldr      lr, [r1]                     
+           00126128  bl       #0x22b900                    ; CALL System.String::ToLower
+           0012612c  mov      r2, r0                       
+           00126130  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: curAnimName)
+           00126134  mov      r0, r2                       
+           00126138  ldr      lr, [r2]                     
+           0012613c  bl       #0x22b910                    ; CALL System.String::EndsWith
+           00126140  cmp      r0, #0                       
+           00126144  beq      #0x126194                    ; -> L_126194
+           00126148  ldr      r0, [fp, #0x14]              
+           0012614c  mov      r1, r0                       
+           00126150  ldr      lr, [r1]                     
+           00126154  bl       #0x22b8f0                    ; CALL UnityEngine.AnimationState::get_name
+           00126158  mov      r1, r0                       
+           0012615c  mov      r0, r6                       
+           00126160  ldr      lr, [r6]                     
+           00126164  bl       #0x22b980                    ; CALL UnityEngine.Animation::IsPlaying
+           00126168  cmp      r0, #0                       
+           0012616c  bne      #0x126190                    ; -> L_126190
+           00126170  ldr      r0, [fp, #0x14]              
+           00126174  mov      r1, r0                       
+           00126178  ldr      lr, [r1]                     
+           0012617c  bl       #0x22b8f0                    ; CALL UnityEngine.AnimationState::get_name
+           00126180  mov      r1, r0                       
+           00126184  mov      r0, r6                       
+           00126188  ldr      lr, [r6]                     
+           0012618c  bl       #0x22e730                    ; CALL UnityEngine.Animation::CrossFadeQueued
+L_126190:  00126190  b        #0x1261c4                    ; -> L_1261c4
+L_126194:  00126194  ldr      r1, [fp, #0x18]              
+           00126198  mov      r0, r1                       
+           0012619c  ldr      r1, [r1]                     
+           001261a0  ldr      r8, [pc]                     
+           001261a4  b        #0x1261ac                    ; -> L_1261ac
+           001261a8  .word    0x00e7ed14                   ; literal 15199508 / 
+L_1261ac:  001261ac  ldr      r8, [pc, r8]                 ; GOT[88] METHODCONST System.Collections.IEnumerator::MoveNext
+           001261b0  add      lr, pc, #4                   
+           001261b4  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           001261b8  andeq    r0, r0, r0                   
+           001261bc  cmp      r0, #0                       
+           001261c0  bne      #0x1260a8                    ; -> L_1260a8
+L_1261c4:  001261c4  bl       #0x1261cc                    ; CALL 0x1261cc
+           001261c8  b        #0x126334                    ; -> L_126334
+           001261cc  str      lr, [fp, #0x78]              
+           001261d0  ldr      r0, [fp, #0x18]              
+           001261d4  str      r0, [fp, #0x58]              
+           001261d8  ldr      r0, [fp, #0x58]              
+           001261dc  str      r0, [fp, #0x94]              
+           001261e0  cmp      r0, #0                       
+           001261e4  beq      #0x12627c                    ; -> L_12627c
+           001261e8  ldr      r0, [fp, #0x94]              
+           001261ec  ldr      r0, [r0]                     
+           001261f0  str      r0, [fp, #0x98]              
+           001261f4  ldrh     r0, [r0, #0x18]              ; field+0x18 (this-class: curAnimName)
+           001261f8  ldr      r1, [pc]                     
+           001261fc  b        #0x126204                    ; -> L_126204
+           00126200  .word    0x00e7ecc0                   ; literal 15199424 / 
+L_126204:  00126204  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           00126208  cmp      r0, r1                       
+           0012620c  blo      #0x12624c                    ; -> L_12624c
+           00126210  ldr      r0, [fp, #0x98]              
+           00126214  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126218  ldr      r1, [pc]                     
+           0012621c  b        #0x126224                    ; -> L_126224
+           00126220  .word    0x00e7eca0                   ; literal 15199392 / 
+L_126224:  00126224  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           00126228  asr      r2, r1, #3                   
+           0012622c  add      r0, r0, r2                   
+           00126230  ldrb     r0, [r0]                     
+           00126234  and      r2, r1, #7                   
+           00126238  mov      r1, #1                       
+           0012623c  lsl      r1, r1, r2                   
+           00126240  and      r0, r0, r1                   
+           00126244  cmp      r0, #0                       
+           00126248  bne      #0x126294                    ; -> L_126294
+L_12624c:  0012624c  ldr      r0, [fp, #0x98]              
+           00126250  ldr      r0, [r0]                     
+           00126254  ldr      r1, [pc]                     
+           00126258  b        #0x126260                    ; -> L_126260
+           0012625c  .word    0x00e7ec68                   ; literal 15199336 / 
+L_126260:  00126260  ldr      r1, [pc, r1]                 ; GOT[90] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           00126264  cmp      r0, r1                       
+           00126268  bne      #0x12627c                    ; -> L_12627c
+           0012626c  ldr      r0, [fp, #0x94]              
+           00126270  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00126274  cmp      r0, #0                       
+           00126278  bne      #0x126288                    ; -> L_126288
+L_12627c:  0012627c  mov      r0, #1                       
+           00126280  str      r0, [fp, #0x9c]              
+           00126284  b        #0x12629c                    ; -> L_12629c
+L_126288:  00126288  mov      r0, #2                       
+           0012628c  str      r0, [fp, #0x9c]              
+           00126290  b        #0x12629c                    ; -> L_12629c
+L_126294:  00126294  mov      r0, #0                       
+           00126298  str      r0, [fp, #0x9c]              
+L_12629c:  0012629c  ldr      r0, [fp, #0x9c]              
+           001262a0  str      r0, [fp, #0x5c]              
+           001262a4  mov      r1, r0                       
+           001262a8  ldr      r0, [fp, #0x5c]              
+           001262ac  str      r1, [fp, #0x60]              
+           001262b0  cmp      r0, #0                       
+           001262b4  beq      #0x1262e0                    ; -> L_1262e0
+           001262b8  ldr      r0, [fp, #0x60]              
+           001262bc  cmp      r0, #2                       
+           001262c0  bne      #0x1262d4                    ; -> L_1262d4
+           001262c4  ldr      r0, [fp, #0x58]              
+           001262c8  bl       #0x22af60                    ; CALL wrapper wrapper20(System.IDisposable)
+           001262cc  str      r0, [fp, #0x64]              
+           001262d0  b        #0x1262e8                    ; -> L_1262e8
+L_1262d4:  001262d4  mov      r0, #0                       
+           001262d8  str      r0, [fp, #0x64]              
+           001262dc  b        #0x1262e8                    ; -> L_1262e8
+L_1262e0:  001262e0  ldr      r0, [fp, #0x58]              
+           001262e4  str      r0, [fp, #0x64]              
+L_1262e8:  001262e8  ldr      r0, [fp, #0x64]              
+           001262ec  str      r0, [fp, #0x54]              
+           001262f0  str      r0, [fp, #0x20]              
+           001262f4  cmp      r0, #0                       
+           001262f8  bne      #0x126304                    ; -> L_126304
+           001262fc  ldr      ip, [fp, #0x78]              
+           00126300  mov      pc, ip                       
+L_126304:  00126304  ldr      r1, [fp, #0x20]              
+           00126308  mov      r0, r1                       
+           0012630c  ldr      r1, [r1]                     
+           00126310  ldr      r8, [pc]                     
+           00126314  b        #0x12631c                    ; -> L_12631c
+           00126318  .word    0x00e7ea8c                   ; literal 15198860 / 
+L_12631c:  0012631c  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           00126320  add      lr, pc, #4                   
+           00126324  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           00126328  andeq    r0, r0, r0                   
+           0012632c  ldr      ip, [fp, #0x78]              
+           00126330  mov      pc, ip                       
+L_126334:  00126334  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: idleTime)
+           00126338  vcvt.f64.f32 d2, s0                       
+           0012633c  vstr     d2, [fp, #0xc8]              
+           00126340  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           00126344  vmov     s6, r0                       
+           00126348  vcvt.f64.f32 d3, s6                       
+           0012634c  vldr     d2, [fp, #0xc8]              
+           00126350  vsub.f64 d2, d2, d3                   
+           00126354  vcvt.f32.f64 s0, d2                       
+           00126358  vstr     s0, [sl, #0x20]              ; field+0x20 (this-class: idleTime)
+           0012635c  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: idleTime)
+           00126360  vcvt.f64.f32 d3, s0                       
+           00126364  ldr      r0, [sl, #0x28]              ; field+0x28 (this-class: randomTime)
+           00126368  vmov     s0, r0                       
+           0012636c  vcvt.f32.s32 s0, s0                       
+           00126370  vcvt.f64.f32 d2, s0                       
+           00126374  vcmp.f64 d2, d3                       
+           00126378  vmrs     apsr_nzcv, fpscr             
+           0012637c  bvs      #0x1263b8                    ; -> L_1263b8
+           00126380  bmi      #0x1263b8                    ; -> L_1263b8
+           00126384  mov      r0, sl                       
+           00126388  mov      r1, r6                       
+           0012638c  bl       #0x22e740                    ; CALL CharacterPreview::PlayRandomIdleAnimation
+           00126390  vldr     s4, [pc]                     ; float 10.0
+           00126394  b        #0x12639c                    ; -> L_12639c
+           00126398  .word    0x41200000                   ; literal 1092616192 / 10
+L_12639c:  0012639c  vcvt.f64.f32 d2, s4                       
+           001263a0  vcvt.f32.f64 s0, d2                       
+           001263a4  vstr     s0, [sl, #0x20]              ; field+0x20 (this-class: idleTime)
+           001263a8  mov      r0, #0                       
+           001263ac  mov      r1, #5                       
+           001263b0  bl       #0x22a800                    ; CALL UnityEngine.Random::Range
+           001263b4  str      r0, [sl, #0x28]              ; field+0x28 (this-class: randomTime)
+L_1263b8:  001263b8  add      sp, fp, #0xd0                
+           001263bc  pop      {r4, r5, r6, r8, sl, fp}     
+           001263c0  ldr      r7, [sp, #8]                 
+           001263c4  ldm      sp, {sp, pc}                 
+           001263c8  mov      r1, lr                       
+           001263cc  ldr      r0, [pc]                     
+           001263d0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           001263d4  andeq    r0, r0, #0xfd                
+
+== CharacterPreview::PlayRandomIdleAnimation  token 0x06000623 @0x001263d8 (780 bytes)
+   args: r0=this, anim
+           001263d8  mov      ip, sp                       
+           001263dc  push     {r7, lr}                     
+           001263e0  mov      r7, sp                       
+           001263e4  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           001263e8  sub      sp, sp, #0x40                
+           001263ec  mov      fp, sp                       
+           001263f0  str      r0, [fp, #0x38]              
+           001263f4  mov      sl, r1                       
+           001263f8  mov      r0, #0                       
+           001263fc  str      r0, [fp]                     
+           00126400  mov      r0, #0                       
+           00126404  str      r0, [fp, #4]                 
+           00126408  mov      r0, sl                       
+           0012640c  mov      r1, #0                       
+           00126410  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00126414  cmp      r0, #0                       
+           00126418  beq      #0x1266c4                    ; -> L_1266c4
+           0012641c  mov      r0, sl                       
+           00126420  mov      r1, #1                       
+           00126424  ldr      lr, [sl]                     
+           00126428  bl       #0x22e700                    ; CALL UnityEngine.Animation::set_wrapMode
+           0012642c  ldr      r6, [pc]                     
+           00126430  b        #0x126438                    ; -> L_126438
+           00126434  .word    0x00e7ed44                   ; literal 15199556 / 
+L_126438:  00126438  ldr      r6, [pc, r6]                 ; GOT[263] LDSTR 'idle3'
+           0012643c  mov      r0, sl                       
+           00126440  ldr      lr, [sl]                     
+           00126444  bl       #0x22b8e0                    ; CALL UnityEngine.Animation::GetEnumerator
+           00126448  str      r0, [fp]                     
+           0012644c  b        #0x126524                    ; -> L_126524
+L_126450:  00126450  ldr      r1, [fp]                     
+           00126454  mov      r0, r1                       
+           00126458  ldr      r1, [r1]                     
+           0012645c  ldr      r8, [pc]                     
+           00126460  b        #0x126468                    ; -> L_126468
+           00126464  .word    0x00e7ea50                   ; literal 15198800 / 
+L_126468:  00126468  ldr      r8, [pc, r8]                 ; GOT[86] METHODCONST System.Collections.IEnumerator::get_Current
+           0012646c  add      lr, pc, #4                   
+           00126470  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           00126474  andeq    r0, r0, r0                   
+           00126478  mov      r4, r0                       
+           0012647c  cmp      r4, #0                       
+           00126480  beq      #0x1264ac                    ; -> L_1264ac
+           00126484  ldr      r0, [r4]                     
+           00126488  ldr      r0, [r0]                     
+           0012648c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126490  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126494  ldr      r1, [pc]                     
+           00126498  b        #0x1264a0                    ; -> L_1264a0
+           0012649c  .word    0x00e7ed14                   ; literal 15199508 / 
+L_1264a0:  001264a0  ldr      r1, [pc, r1]                 ; GOT[277] CLASS UnityEngine.AnimationState
+           001264a4  cmp      r0, r1                       
+           001264a8  blne     #0x1266d4                    ; THROW System.InvalidCastException (if ne)
+L_1264ac:  001264ac  mov      r5, r4                       
+           001264b0  mov      r0, r4                       
+           001264b4  ldr      lr, [r4]                     
+           001264b8  bl       #0x22b8f0                    ; CALL UnityEngine.AnimationState::get_name
+           001264bc  mov      r1, r0                       
+           001264c0  ldr      lr, [r1]                     
+           001264c4  bl       #0x22b900                    ; CALL System.String::ToLower
+           001264c8  mov      r2, r0                       
+           001264cc  mov      r1, r6                       
+           001264d0  ldr      lr, [r2]                     
+           001264d4  bl       #0x22d2c0                    ; CALL System.String::Contains
+           001264d8  cmp      r0, #0                       
+           001264dc  beq      #0x126524                    ; -> L_126524
+           001264e0  mov      r0, r5                       
+           001264e4  ldr      lr, [r5]                     
+           001264e8  bl       #0x22b8f0                    ; CALL UnityEngine.AnimationState::get_name
+           001264ec  mov      r1, r0                       
+           001264f0  mov      r0, sl                       
+           001264f4  ldr      lr, [sl]                     
+           001264f8  bl       #0x22b980                    ; CALL UnityEngine.Animation::IsPlaying
+           001264fc  cmp      r0, #0                       
+           00126500  bne      #0x126520                    ; -> L_126520
+           00126504  mov      r0, r5                       
+           00126508  ldr      lr, [r5]                     
+           0012650c  bl       #0x22b8f0                    ; CALL UnityEngine.AnimationState::get_name
+           00126510  mov      r1, r0                       
+           00126514  mov      r0, sl                       
+           00126518  ldr      lr, [sl]                     
+           0012651c  bl       #0x22e750                    ; CALL UnityEngine.Animation::CrossFade
+L_126520:  00126520  b        #0x126554                    ; -> L_126554
+L_126524:  00126524  ldr      r1, [fp]                     
+           00126528  mov      r0, r1                       
+           0012652c  ldr      r1, [r1]                     
+           00126530  ldr      r8, [pc]                     
+           00126534  b        #0x12653c                    ; -> L_12653c
+           00126538  .word    0x00e7e984                   ; literal 15198596 / 
+L_12653c:  0012653c  ldr      r8, [pc, r8]                 ; GOT[88] METHODCONST System.Collections.IEnumerator::MoveNext
+           00126540  add      lr, pc, #4                   
+           00126544  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           00126548  andeq    r0, r0, r0                   
+           0012654c  cmp      r0, #0                       
+           00126550  bne      #0x126450                    ; -> L_126450
+L_126554:  00126554  bl       #0x12655c                    ; CALL 0x12655c
+           00126558  b        #0x1266c4                    ; -> L_1266c4
+           0012655c  str      lr, [fp, #0x28]              
+           00126560  ldr      r0, [fp]                     
+           00126564  str      r0, [fp, #0x10]              
+           00126568  ldr      r0, [fp, #0x10]              
+           0012656c  str      r0, [fp, #0x2c]              
+           00126570  cmp      r0, #0                       
+           00126574  beq      #0x12660c                    ; -> L_12660c
+           00126578  ldr      r0, [fp, #0x2c]              
+           0012657c  ldr      r0, [r0]                     
+           00126580  str      r0, [fp, #0x30]              
+           00126584  ldrh     r0, [r0, #0x18]              ; field+0x18 (this-class: curAnimName)
+           00126588  ldr      r1, [pc]                     
+           0012658c  b        #0x126594                    ; -> L_126594
+           00126590  .word    0x00e7e930                   ; literal 15198512 / 
+L_126594:  00126594  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           00126598  cmp      r0, r1                       
+           0012659c  blo      #0x1265dc                    ; -> L_1265dc
+           001265a0  ldr      r0, [fp, #0x30]              
+           001265a4  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           001265a8  ldr      r1, [pc]                     
+           001265ac  b        #0x1265b4                    ; -> L_1265b4
+           001265b0  .word    0x00e7e910                   ; literal 15198480 / 
+L_1265b4:  001265b4  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           001265b8  asr      r2, r1, #3                   
+           001265bc  add      r0, r0, r2                   
+           001265c0  ldrb     r0, [r0]                     
+           001265c4  and      r2, r1, #7                   
+           001265c8  mov      r1, #1                       
+           001265cc  lsl      r1, r1, r2                   
+           001265d0  and      r0, r0, r1                   
+           001265d4  cmp      r0, #0                       
+           001265d8  bne      #0x126624                    ; -> L_126624
+L_1265dc:  001265dc  ldr      r0, [fp, #0x30]              
+           001265e0  ldr      r0, [r0]                     
+           001265e4  ldr      r1, [pc]                     
+           001265e8  b        #0x1265f0                    ; -> L_1265f0
+           001265ec  .word    0x00e7e8d8                   ; literal 15198424 / 
+L_1265f0:  001265f0  ldr      r1, [pc, r1]                 ; GOT[90] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           001265f4  cmp      r0, r1                       
+           001265f8  bne      #0x12660c                    ; -> L_12660c
+           001265fc  ldr      r0, [fp, #0x2c]              
+           00126600  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00126604  cmp      r0, #0                       
+           00126608  bne      #0x126618                    ; -> L_126618
+L_12660c:  0012660c  mov      r0, #1                       
+           00126610  str      r0, [fp, #0x34]              
+           00126614  b        #0x12662c                    ; -> L_12662c
+L_126618:  00126618  mov      r0, #2                       
+           0012661c  str      r0, [fp, #0x34]              
+           00126620  b        #0x12662c                    ; -> L_12662c
+L_126624:  00126624  mov      r0, #0                       
+           00126628  str      r0, [fp, #0x34]              
+L_12662c:  0012662c  ldr      r0, [fp, #0x34]              
+           00126630  str      r0, [fp, #0x14]              
+           00126634  mov      r1, r0                       
+           00126638  ldr      r0, [fp, #0x14]              
+           0012663c  str      r1, [fp, #0x18]              
+           00126640  cmp      r0, #0                       
+           00126644  beq      #0x126670                    ; -> L_126670
+           00126648  ldr      r0, [fp, #0x18]              
+           0012664c  cmp      r0, #2                       
+           00126650  bne      #0x126664                    ; -> L_126664
+           00126654  ldr      r0, [fp, #0x10]              
+           00126658  bl       #0x22af60                    ; CALL wrapper wrapper20(System.IDisposable)
+           0012665c  str      r0, [fp, #0x1c]              
+           00126660  b        #0x126678                    ; -> L_126678
+L_126664:  00126664  mov      r0, #0                       
+           00126668  str      r0, [fp, #0x1c]              
+           0012666c  b        #0x126678                    ; -> L_126678
+L_126670:  00126670  ldr      r0, [fp, #0x10]              
+           00126674  str      r0, [fp, #0x1c]              
+L_126678:  00126678  ldr      r0, [fp, #0x1c]              
+           0012667c  str      r0, [fp, #0xc]               
+           00126680  str      r0, [fp, #4]                 
+           00126684  cmp      r0, #0                       
+           00126688  bne      #0x126694                    ; -> L_126694
+           0012668c  ldr      ip, [fp, #0x28]              
+           00126690  mov      pc, ip                       
+L_126694:  00126694  ldr      r1, [fp, #4]                 
+           00126698  mov      r0, r1                       
+           0012669c  ldr      r1, [r1]                     
+           001266a0  ldr      r8, [pc]                     
+           001266a4  b        #0x1266ac                    ; -> L_1266ac
+           001266a8  .word    0x00e7e6fc                   ; literal 15197948 / 
+L_1266ac:  001266ac  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           001266b0  add      lr, pc, #4                   
+           001266b4  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           001266b8  andeq    r0, r0, r0                   
+           001266bc  ldr      ip, [fp, #0x28]              
+           001266c0  mov      pc, ip                       
+L_1266c4:  001266c4  add      sp, fp, #0x40                
+           001266c8  pop      {r4, r5, r6, r8, sl, fp}     
+           001266cc  ldr      r7, [sp, #8]                 
+           001266d0  ldm      sp, {sp, pc}                 
+           001266d4  mov      r1, lr                       
+           001266d8  ldr      r0, [pc]                     
+           001266dc  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           001266e0  andeq    r0, r0, #0xfd                
+
+== CharacterPreview::OnDestroy  token 0x06000624 @0x001266e4 (100 bytes)
+   args: r0=this, 
+           001266e4  mov      ip, sp                       
+           001266e8  push     {r7, lr}                     
+           001266ec  mov      r7, sp                       
+           001266f0  push     {r8, sl, fp, ip, lr}         
+           001266f4  sub      sp, sp, #4                   
+           001266f8  mov      fp, sp                       
+           001266fc  mov      sl, r0                       
+           00126700  bl       #0x22e760                    ; CALL StreamManager::get_isAvailable
+           00126704  cmp      r0, #0                       
+           00126708  beq      #0x126738                    ; -> L_126738
+           0012670c  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126710  cmp      r0, #0                       
+           00126714  beq      #0x126738                    ; -> L_126738
+           00126718  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           0012671c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00126720  cmp      r0, #0                       
+           00126724  beq      #0x126738                    ; -> L_126738
+           00126728  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           0012672c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00126730  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126734  bl       #0x22c150                    ; CALL StreamManager::ReleaseAsset
+L_126738:  00126738  add      sp, fp, #4                   
+           0012673c  pop      {r8, sl, fp}                 
+           00126740  ldr      r7, [sp, #8]                 
+           00126744  ldm      sp, {sp, pc}                 
+
+== CharacterPreview::SetCharacter  token 0x06000625 @0x00126748 (576 bytes) static
+   args: part, force
+           00126748  mov      ip, sp                       
+           0012674c  push     {r7, lr}                     
+           00126750  mov      r7, sp                       
+           00126754  push     {r5, r6, r8, sl, fp, ip, lr} 
+           00126758  sub      sp, sp, #0x14                
+           0012675c  mov      fp, sp                       
+           00126760  mov      sl, r0                       
+           00126764  strb     r1, [fp, #4]                 
+           00126768  ldr      r0, [pc]                     
+           0012676c  b        #0x126774                    ; -> L_126774
+           00126770  .word    0x00e7f96c                   ; literal 15202668 / 
+L_126774:  00126774  ldr      r0, [pc, r0]                 ; GOT[1248] TYPE_FROM_HANDLE typeof(CharacterPreview)
+           00126778  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           0012677c  mov      r5, r0                       
+           00126780  cmp      r5, #0                       
+           00126784  beq      #0x1267b0                    ; -> L_1267b0
+           00126788  ldr      r0, [r5]                     
+           0012678c  ldr      r0, [r0]                     
+           00126790  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126794  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126798  ldr      r1, [pc]                     
+           0012679c  b        #0x1267a4                    ; -> L_1267a4
+           001267a0  .word    0x00e7f940                   ; literal 15202624 / 
+L_1267a4:  001267a4  ldr      r1, [pc, r1]                 ; GOT[1249] CLASS CharacterPreview
+           001267a8  cmp      r0, r1                       
+           001267ac  blne     #0x126978                    ; THROW System.InvalidCastException (if ne)
+L_1267b0:  001267b0  mov      r6, r5                       
+           001267b4  mov      r0, r5                       
+           001267b8  mov      r1, #0                       
+           001267bc  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           001267c0  cmp      r0, #0                       
+           001267c4  beq      #0x1267e0                    ; -> L_1267e0
+           001267c8  ldr      r0, [pc]                     
+           001267cc  b        #0x1267d4                    ; -> L_1267d4
+           001267d0  .word    0x00e7f914                   ; literal 15202580 / 
+L_1267d4:  001267d4  ldr      r0, [pc, r0]                 ; GOT[1250] LDSTR 'Character Preview required!'
+           001267d8  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           001267dc  b        #0x126968                    ; -> L_126968
+L_1267e0:  001267e0  ldrb     r0, [r6, #0x24]              ; field+0x24 (this-class: hidden)
+           001267e4  cmp      r0, #0                       
+           001267e8  bne      #0x126968                    ; -> L_126968
+           001267ec  ldrb     r0, [fp, #4]                 
+           001267f0  cmp      r0, #0                       
+           001267f4  bne      #0x126828                    ; -> L_126828
+           001267f8  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           001267fc  cmp      r0, #0                       
+           00126800  beq      #0x126828                    ; -> L_126828
+           00126804  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126808  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0012680c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00126810  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126814  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00126818  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012681c  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           00126820  cmp      r0, #0                       
+           00126824  bne      #0x126968                    ; -> L_126968
+L_126828:  00126828  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           0012682c  cmp      r0, #0                       
+           00126830  beq      #0x126880                    ; -> L_126880
+           00126834  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126838  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012683c  mov      r1, #0                       
+           00126840  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00126844  cmp      r0, #0                       
+           00126848  beq      #0x126858                    ; -> L_126858
+           0012684c  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126850  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126854  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_126858:  00126858  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           0012685c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00126860  cmp      r0, #0                       
+           00126864  beq      #0x126878                    ; -> L_126878
+           00126868  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           0012686c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00126870  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126874  bl       #0x22c150                    ; CALL StreamManager::ReleaseAsset
+L_126878:  00126878  bl       #0x22d9b0                    ; CALL UnityEngine.Resources::UnloadUnusedAssets
+           0012687c  bl       #0x22e770                    ; CALL System.GC::Collect
+L_126880:  00126880  ldrb     r0, [r6, #0x24]              ; field+0x24 (this-class: hidden)
+           00126884  cmp      r0, #0                       
+           00126888  bne      #0x126968                    ; -> L_126968
+           0012688c  ldr      r0, [pc]                     
+           00126890  b        #0x126898                    ; -> L_126898
+           00126894  .word    0x00e7f854                   ; literal 15202388 / 
+L_126898:  00126898  ldr      r0, [pc, r0]                 ; GOT[1251] VTABLE CharacterPreview/PreviewPart
+           0012689c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           001268a0  str      r0, [r6, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           001268a4  str      sl, [r0, #0xc]               ; field+0xc 
+           001268a8  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           001268ac  cmp      r0, #0                       
+           001268b0  beq      #0x126968                    ; -> L_126968
+           001268b4  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           001268b8  mov      r1, r0                       
+           001268bc  ldr      lr, [r1]                     
+           001268c0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001268c4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001268c8  cmp      r0, #0                       
+           001268cc  ble      #0x126968                    ; -> L_126968
+           001268d0  bl       #0x22c0e0                    ; CALL UnityEngine.Application::get_isWebPlayer
+           001268d4  cmp      r0, #0                       
+           001268d8  bne      #0x1268ec                    ; -> L_1268ec
+           001268dc  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           001268e0  ldrb     r0, [r0, #0x30]              ; field+0x30 
+           001268e4  cmp      r0, #0                       
+           001268e8  beq      #0x126934                    ; -> L_126934
+L_1268ec:  001268ec  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           001268f0  str      r0, [fp, #8]                 
+           001268f4  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           001268f8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001268fc  str      r0, [fp, #0xc]               
+           00126900  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126904  mov      r1, r0                       
+           00126908  ldr      lr, [r1]                     
+           0012690c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126910  bl       #0x22c140                    ; CALL DataUtility::PrependBundlePath
+           00126914  mov      r1, r0                       
+           00126918  ldr      r0, [fp, #0xc]               
+           0012691c  mov      r2, #1                       
+           00126920  bl       #0x22c130                    ; CALL StreamManager::RequestAsset
+           00126924  mov      r1, r0                       
+           00126928  ldr      r0, [fp, #8]                 
+           0012692c  str      r1, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00126930  b        #0x126968                    ; -> L_126968
+L_126934:  00126934  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126938  str      r0, [fp, #8]                 
+           0012693c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00126940  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126944  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: curAnimName)
+           00126948  mov      r2, r1                       
+           0012694c  ldr      lr, [r2]                     
+           00126950  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126954  mov      r2, #2                       
+           00126958  bl       #0x22c130                    ; CALL StreamManager::RequestAsset
+           0012695c  mov      r1, r0                       
+           00126960  ldr      r0, [fp, #8]                 
+           00126964  str      r1, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+L_126968:  00126968  add      sp, fp, #0x14                
+           0012696c  pop      {r5, r6, r8, sl, fp}         
+           00126970  ldr      r7, [sp, #8]                 
+           00126974  ldm      sp, {sp, pc}                 
+           00126978  mov      r1, lr                       
+           0012697c  ldr      r0, [pc]                     
+           00126980  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00126984  andeq    r0, r0, #0xfd                
+
+== CharacterPreview::Refresh  token 0x06000626 @0x00126988 (88 bytes) static
+   args: force
+           00126988  mov      ip, sp                       
+           0012698c  push     {r7, lr}                     
+           00126990  mov      r7, sp                       
+           00126994  push     {r8, sl, fp, ip, lr}         
+           00126998  sub      sp, sp, #0xc                 
+           0012699c  mov      fp, sp                       
+           001269a0  strb     r0, [fp]                     
+           001269a4  mov      r0, #5                       
+           001269a8  bl       #0xe57c4                     ; CALL PlayerInstance::GetCartSlot (direct)
+           001269ac  ldr      sl, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001269b0  mov      r0, sl                       
+           001269b4  mov      r1, #0                       
+           001269b8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           001269bc  cmp      r0, #0                       
+           001269c0  beq      #0x1269d0                    ; -> L_1269d0
+           001269c4  mov      r0, sl                       
+           001269c8  ldrb     r1, [fp]                     
+           001269cc  bl       #0x22e780                    ; CALL CharacterPreview::SetCharacter
+L_1269d0:  001269d0  add      sp, fp, #0xc                 
+           001269d4  pop      {r8, sl, fp}                 
+           001269d8  ldr      r7, [sp, #8]                 
+           001269dc  ldm      sp, {sp, pc}                 
+
+== CharacterPreview::Blackout  token 0x06000627 @0x001269e0 (428 bytes) static
+   args: state
+           001269e0  mov      ip, sp                       
+           001269e4  push     {r7, lr}                     
+           001269e8  mov      r7, sp                       
+           001269ec  push     {r4, r5, r8, sl, fp, ip, lr} 
+           001269f0  sub      sp, sp, #0x14                
+           001269f4  mov      fp, sp                       
+           001269f8  strb     r0, [fp, #0xc]               
+           001269fc  ldr      r0, [pc]                     
+           00126a00  b        #0x126a08                    ; -> L_126a08
+           00126a04  .word    0x00e7f6d8                   ; literal 15202008 / 
+L_126a08:  00126a08  ldr      r0, [pc, r0]                 ; GOT[1248] TYPE_FROM_HANDLE typeof(CharacterPreview)
+           00126a0c  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           00126a10  str      r0, [fp, #8]                 
+           00126a14  cmp      r0, #0                       
+           00126a18  beq      #0x126a48                    ; -> L_126a48
+           00126a1c  ldr      r0, [fp, #8]                 
+           00126a20  ldr      r0, [r0]                     
+           00126a24  ldr      r0, [r0]                     
+           00126a28  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126a2c  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126a30  ldr      r1, [pc]                     
+           00126a34  b        #0x126a3c                    ; -> L_126a3c
+           00126a38  .word    0x00e7f6a8                   ; literal 15201960 / 
+L_126a3c:  00126a3c  ldr      r1, [pc, r1]                 ; GOT[1249] CLASS CharacterPreview
+           00126a40  cmp      r0, r1                       
+           00126a44  blne     #0x126b7c                    ; THROW System.InvalidCastException (if ne)
+L_126a48:  00126a48  ldr      r0, [fp, #8]                 
+           00126a4c  str      r0, [fp]                     
+           00126a50  ldr      r0, [fp, #8]                 
+           00126a54  mov      r1, #0                       
+           00126a58  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           00126a5c  cmp      r0, #0                       
+           00126a60  beq      #0x126a7c                    ; -> L_126a7c
+           00126a64  ldr      r0, [pc]                     
+           00126a68  b        #0x126a70                    ; -> L_126a70
+           00126a6c  .word    0x00e7f678                   ; literal 15201912 / 
+L_126a70:  00126a70  ldr      r0, [pc, r0]                 ; GOT[1250] LDSTR 'Character Preview required!'
+           00126a74  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           00126a78  b        #0x126b5c                    ; -> L_126b5c
+L_126a7c:  00126a7c  ldrb     r0, [fp, #0xc]               
+           00126a80  cmp      r0, #0                       
+           00126a84  beq      #0x126b2c                    ; -> L_126b2c
+           00126a88  ldr      r0, [fp]                     
+           00126a8c  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126a90  cmp      r0, #0                       
+           00126a94  beq      #0x126b2c                    ; -> L_126b2c
+           00126a98  ldr      r0, [fp]                     
+           00126a9c  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126aa0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126aa4  mov      r1, #0                       
+           00126aa8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00126aac  cmp      r0, #0                       
+           00126ab0  beq      #0x126b2c                    ; -> L_126b2c
+           00126ab4  ldr      r1, [pc]                     
+           00126ab8  b        #0x126ac0                    ; -> L_126ac0
+           00126abc  .word    0x00e7f630                   ; literal 15201840 / 
+L_126ac0:  00126ac0  ldr      r1, [pc, r1]                 ; GOT[1252] METHOD_RGCTX UnityEngine.Component::GetComponentsInChildren<UnityEngine.Renderer>
+           00126ac4  ldr      r0, [fp]                     
+           00126ac8  ldr      lr, [r0]                     
+           00126acc  mov      r8, r1                       
+           00126ad0  bl       #0x22e790                    ; CALL UnityEngine.Component::GetComponentsInChildren<UnityEngine.Renderer>
+           00126ad4  str      r0, [fp, #4]                 
+           00126ad8  mov      r4, r0                       
+           00126adc  mov      sl, #0                       
+           00126ae0  b        #0x126b1c                    ; -> L_126b1c
+L_126ae4:  00126ae4  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00126ae8  cmp      r0, sl                       
+           00126aec  blls     #0x126b6c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00126af0  lsl      r0, sl, #2                   
+           00126af4  add      r0, r4, r0                   
+           00126af8  add      r0, r0, #0x10                
+           00126afc  ldr      r5, [r0]                     
+           00126b00  mov      r2, r5                       
+           00126b04  ldr      r0, [fp]                     
+           00126b08  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: blackoutMaterial)
+           00126b0c  mov      r0, r2                       
+           00126b10  ldr      lr, [r2]                     
+           00126b14  bl       #0x22e7a0                    ; CALL UnityEngine.Renderer::set_material
+           00126b18  add      sl, sl, #1                   
+L_126b1c:  00126b1c  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00126b20  cmp      sl, r0                       
+           00126b24  blt      #0x126ae4                    ; -> L_126ae4
+           00126b28  b        #0x126b50                    ; -> L_126b50
+L_126b2c:  00126b2c  ldrb     r0, [fp, #0xc]               
+           00126b30  cmp      r0, #0                       
+           00126b34  bne      #0x126b50                    ; -> L_126b50
+           00126b38  ldr      r0, [fp]                     
+           00126b3c  ldrb     r0, [r0, #0x1c]              ; field+0x1c (this-class: blackedOut)
+           00126b40  cmp      r0, #0                       
+           00126b44  beq      #0x126b50                    ; -> L_126b50
+           00126b48  mov      r0, #1                       
+           00126b4c  bl       #0x126988                    ; CALL CharacterPreview::Refresh (direct)
+L_126b50:  00126b50  ldrb     r1, [fp, #0xc]               
+           00126b54  ldr      r0, [fp]                     
+           00126b58  strb     r1, [r0, #0x1c]              ; field+0x1c (this-class: blackedOut)
+L_126b5c:  00126b5c  add      sp, fp, #0x14                
+           00126b60  pop      {r4, r5, r8, sl, fp}         
+           00126b64  ldr      r7, [sp, #8]                 
+           00126b68  ldm      sp, {sp, pc}                 
+           00126b6c  mov      r1, lr                       
+           00126b70  ldr      r0, [pc]                     
+           00126b74  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00126b78  andeq    r0, r0, #0xf8                
+           00126b7c  mov      r1, lr                       
+           00126b80  ldr      r0, [pc]                     
+           00126b84  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00126b88  andeq    r0, r0, #0xfd                
+
+== CharacterPreview::Unhide  token 0x06000628 @0x00126b8c (284 bytes) static
+   args: 
+           00126b8c  mov      ip, sp                       
+           00126b90  push     {r7, lr}                     
+           00126b94  mov      r7, sp                       
+           00126b98  push     {r5, r6, r8, sl, fp, ip, lr} 
+           00126b9c  sub      sp, sp, #4                   
+           00126ba0  mov      fp, sp                       
+           00126ba4  ldr      r0, [pc]                     
+           00126ba8  b        #0x126bb0                    ; -> L_126bb0
+           00126bac  .word    0x00e7f530                   ; literal 15201584 / 
+L_126bb0:  00126bb0  ldr      r0, [pc, r0]                 ; GOT[1248] TYPE_FROM_HANDLE typeof(CharacterPreview)
+           00126bb4  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           00126bb8  mov      r5, r0                       
+           00126bbc  cmp      r5, #0                       
+           00126bc0  beq      #0x126bec                    ; -> L_126bec
+           00126bc4  ldr      r0, [r5]                     
+           00126bc8  ldr      r0, [r0]                     
+           00126bcc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126bd0  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126bd4  ldr      r1, [pc]                     
+           00126bd8  b        #0x126be0                    ; -> L_126be0
+           00126bdc  .word    0x00e7f504                   ; literal 15201540 / 
+L_126be0:  00126be0  ldr      r1, [pc, r1]                 ; GOT[1249] CLASS CharacterPreview
+           00126be4  cmp      r0, r1                       
+           00126be8  blne     #0x126c98                    ; THROW System.InvalidCastException (if ne)
+L_126bec:  00126bec  mov      sl, r5                       
+           00126bf0  mov      r0, r5                       
+           00126bf4  mov      r1, #0                       
+           00126bf8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00126bfc  cmp      r0, #0                       
+           00126c00  beq      #0x126c88                    ; -> L_126c88
+           00126c04  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126c08  cmp      r0, #0                       
+           00126c0c  beq      #0x126c78                    ; -> L_126c78
+           00126c10  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126c14  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126c18  mov      r1, #0                       
+           00126c1c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00126c20  cmp      r0, #0                       
+           00126c24  beq      #0x126c78                    ; -> L_126c78
+           00126c28  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126c2c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126c30  mov      r1, r0                       
+           00126c34  ldr      lr, [r1]                     
+           00126c38  ldr      r1, [pc]                     
+           00126c3c  b        #0x126c44                    ; -> L_126c44
+           00126c40  .word    0x00e7e520                   ; literal 15197472 / 
+L_126c44:  00126c44  ldr      r1, [pc, r1]                 ; GOT[257] METHOD_RGCTX UnityEngine.GameObject::GetComponentInChildren<UnityEngine.Renderer>
+           00126c48  ldr      lr, [r0]                     
+           00126c4c  mov      r8, r1                       
+           00126c50  bl       #0x22b880                    ; CALL UnityEngine.GameObject::GetComponentInChildren<UnityEngine.Renderer>
+           00126c54  mov      r6, r0                       
+           00126c58  mov      r1, #0                       
+           00126c5c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00126c60  cmp      r0, #0                       
+           00126c64  beq      #0x126c78                    ; -> L_126c78
+           00126c68  mov      r0, r6                       
+           00126c6c  mov      r1, #1                       
+           00126c70  ldr      lr, [r6]                     
+           00126c74  bl       #0x22d7e0                    ; CALL UnityEngine.Renderer::set_enabled
+L_126c78:  00126c78  mov      r0, #0                       
+           00126c7c  strb     r0, [sl, #0x24]              ; field+0x24 (this-class: hidden)
+           00126c80  mov      r0, #1                       
+           00126c84  bl       #0x126988                    ; CALL CharacterPreview::Refresh (direct)
+L_126c88:  00126c88  add      sp, fp, #4                   
+           00126c8c  pop      {r5, r6, r8, sl, fp}         
+           00126c90  ldr      r7, [sp, #8]                 
+           00126c94  ldm      sp, {sp, pc}                 
+           00126c98  mov      r1, lr                       
+           00126c9c  ldr      r0, [pc]                     
+           00126ca0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00126ca4  andeq    r0, r0, #0xfd                
+
+== CharacterPreview::Hide  token 0x06000629 @0x00126ca8 (276 bytes) static
+   args: 
+           00126ca8  mov      ip, sp                       
+           00126cac  push     {r7, lr}                     
+           00126cb0  mov      r7, sp                       
+           00126cb4  push     {r5, r6, r8, sl, fp, ip, lr} 
+           00126cb8  sub      sp, sp, #4                   
+           00126cbc  mov      fp, sp                       
+           00126cc0  ldr      r0, [pc]                     
+           00126cc4  b        #0x126ccc                    ; -> L_126ccc
+           00126cc8  .word    0x00e7f414                   ; literal 15201300 / 
+L_126ccc:  00126ccc  ldr      r0, [pc, r0]                 ; GOT[1248] TYPE_FROM_HANDLE typeof(CharacterPreview)
+           00126cd0  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           00126cd4  mov      r5, r0                       
+           00126cd8  cmp      r5, #0                       
+           00126cdc  beq      #0x126d08                    ; -> L_126d08
+           00126ce0  ldr      r0, [r5]                     
+           00126ce4  ldr      r0, [r0]                     
+           00126ce8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126cec  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126cf0  ldr      r1, [pc]                     
+           00126cf4  b        #0x126cfc                    ; -> L_126cfc
+           00126cf8  .word    0x00e7f3e8                   ; literal 15201256 / 
+L_126cfc:  00126cfc  ldr      r1, [pc, r1]                 ; GOT[1249] CLASS CharacterPreview
+           00126d00  cmp      r0, r1                       
+           00126d04  blne     #0x126dac                    ; THROW System.InvalidCastException (if ne)
+L_126d08:  00126d08  mov      sl, r5                       
+           00126d0c  mov      r0, r5                       
+           00126d10  mov      r1, #0                       
+           00126d14  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00126d18  cmp      r0, #0                       
+           00126d1c  beq      #0x126d9c                    ; -> L_126d9c
+           00126d20  mov      r0, #1                       
+           00126d24  strb     r0, [sl, #0x24]              ; field+0x24 (this-class: hidden)
+           00126d28  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126d2c  cmp      r0, #0                       
+           00126d30  beq      #0x126d9c                    ; -> L_126d9c
+           00126d34  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126d38  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126d3c  mov      r1, #0                       
+           00126d40  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00126d44  cmp      r0, #0                       
+           00126d48  beq      #0x126d9c                    ; -> L_126d9c
+           00126d4c  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: previewCharacter)
+           00126d50  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00126d54  mov      r1, r0                       
+           00126d58  ldr      lr, [r1]                     
+           00126d5c  ldr      r1, [pc]                     
+           00126d60  b        #0x126d68                    ; -> L_126d68
+           00126d64  .word    0x00e7e3fc                   ; literal 15197180 / 
+L_126d68:  00126d68  ldr      r1, [pc, r1]                 ; GOT[257] METHOD_RGCTX UnityEngine.GameObject::GetComponentInChildren<UnityEngine.Renderer>
+           00126d6c  ldr      lr, [r0]                     
+           00126d70  mov      r8, r1                       
+           00126d74  bl       #0x22b880                    ; CALL UnityEngine.GameObject::GetComponentInChildren<UnityEngine.Renderer>
+           00126d78  mov      r6, r0                       
+           00126d7c  mov      r1, #0                       
+           00126d80  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00126d84  cmp      r0, #0                       
+           00126d88  beq      #0x126d9c                    ; -> L_126d9c
+           00126d8c  mov      r0, r6                       
+           00126d90  mov      r1, #0                       
+           00126d94  ldr      lr, [r6]                     
+           00126d98  bl       #0x22d7e0                    ; CALL UnityEngine.Renderer::set_enabled
+L_126d9c:  00126d9c  add      sp, fp, #4                   
+           00126da0  pop      {r5, r6, r8, sl, fp}         
+           00126da4  ldr      r7, [sp, #8]                 
+           00126da8  ldm      sp, {sp, pc}                 
+           00126dac  mov      r1, lr                       
+           00126db0  ldr      r0, [pc]                     
+           00126db4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00126db8  andeq    r0, r0, #0xfd                
+
+####################################################################################################
+# TYPE CharacterPreview/PreviewPart  (instance size 0x14)
+#   +0x08 mesh                           UnityEngine.GameObject
+#   +0x0c part                           CartPart
+#   +0x10 asset                          StreamManager/Asset
+#   vtable slots: 
+####################################################################################################
+== CharacterPreview/PreviewPart::.ctor  token 0x0600062a @0x00126dbc (44 bytes)
+   args: r0=this, 
+           00126dbc  mov      ip, sp                       
+           00126dc0  push     {r7, lr}                     
+           00126dc4  mov      r7, sp                       
+           00126dc8  push     {r8, fp, ip, lr}             
+           00126dcc  sub      sp, sp, #8                   
+           00126dd0  mov      fp, sp                       
+           00126dd4  str      r0, [fp]                     
+           00126dd8  add      sp, fp, #8                   
+           00126ddc  pop      {r8, fp}                     
+           00126de0  ldr      r7, [sp, #8]                 
+           00126de4  ldm      sp, {sp, pc}                 

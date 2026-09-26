@@ -1,0 +1,138 @@
+####################################################################################################
+# TYPE ActiveObjectListSwtich  (instance size 0x1c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 putToActive                    ObjectGroupList[]
+#   +0x14 putToPassive                   ObjectGroupList[]
+#   +0x18 fireAtStart                    bool
+#   vtable slots: 
+####################################################################################################
+== ActiveObjectListSwtich::.ctor  token 0x06000509 @0x0010ce14 (52 bytes)
+   args: r0=this, 
+           0010ce14  mov      ip, sp                       
+           0010ce18  push     {r7, lr}                     
+           0010ce1c  mov      r7, sp                       
+           0010ce20  push     {r8, fp, ip, lr}             
+           0010ce24  sub      sp, sp, #8                   
+           0010ce28  mov      fp, sp                       
+           0010ce2c  str      r0, [fp]                     
+           0010ce30  ldr      r0, [fp]                     
+           0010ce34  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0010ce38  add      sp, fp, #8                   
+           0010ce3c  pop      {r8, fp}                     
+           0010ce40  ldr      r7, [sp, #8]                 
+           0010ce44  ldm      sp, {sp, pc}                 
+
+== ActiveObjectListSwtich::Fire  token 0x0600050a @0x0010ce48 (276 bytes)
+   args: r0=this, 
+           0010ce48  mov      ip, sp                       
+           0010ce4c  push     {r7, lr}                     
+           0010ce50  mov      r7, sp                       
+           0010ce54  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0010ce58  sub      sp, sp, #0x18                
+           0010ce5c  mov      fp, sp                       
+           0010ce60  str      r0, [fp, #8]                 
+           0010ce64  ldr      r0, [pc]                     
+           0010ce68  b        #0x10ce70                    ; -> L_10ce70
+           0010ce6c  .word    0x00e98c9c                   ; literal 15305884 / 
+L_10ce70:  0010ce70  ldr      r0, [pc, r0]                 ; GOT[875] LDSTR 'ActiveObjectListSwtich : '
+           0010ce74  str      r0, [fp, #0x10]              
+           0010ce78  ldr      r0, [fp, #8]                 
+           0010ce7c  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           0010ce80  mov      r1, r0                       
+           0010ce84  ldr      r0, [fp, #0x10]              
+           0010ce88  bl       #0x22adc0                    ; CALL System.String::Concat
+           0010ce8c  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           0010ce90  ldr      r0, [fp, #8]                 
+           0010ce94  ldr      r5, [r0, #0x14]              ; field+0x14 (this-class: putToPassive)
+           0010ce98  mov      sl, #0                       
+           0010ce9c  b        #0x10ced4                    ; -> L_10ced4
+L_10cea0:  0010cea0  ldr      r0, [r5, #0xc]               ; field+0xc 
+           0010cea4  cmp      r0, sl                       
+           0010cea8  blls     #0x10cf4c                    ; THROW System.IndexOutOfRangeException (if ls)
+           0010ceac  lsl      r0, sl, #2                   
+           0010ceb0  add      r0, r5, r0                   
+           0010ceb4  add      r0, r0, #0x10                
+           0010ceb8  ldr      r6, [r0]                     
+           0010cebc  mov      r2, r6                       
+           0010cec0  mov      r0, r2                       
+           0010cec4  mov      r1, #0                       
+           0010cec8  ldr      lr, [r2]                     
+           0010cecc  bl       #0x22db80                    ; CALL ObjectGroupList::set_CurrentState
+           0010ced0  add      sl, sl, #1                   
+L_10ced4:  0010ced4  ldr      r0, [r5, #0xc]               ; field+0xc 
+           0010ced8  cmp      sl, r0                       
+           0010cedc  blt      #0x10cea0                    ; -> L_10cea0
+           0010cee0  ldr      r0, [fp, #8]                 
+           0010cee4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: putToActive)
+           0010cee8  str      r0, [fp, #4]                 
+           0010ceec  mov      r4, #0                       
+           0010cef0  b        #0x10cf2c                    ; -> L_10cf2c
+L_10cef4:  0010cef4  ldr      r0, [fp, #4]                 
+           0010cef8  ldr      r1, [r0, #0xc]               ; field+0xc 
+           0010cefc  cmp      r1, r4                       
+           0010cf00  blls     #0x10cf4c                    ; THROW System.IndexOutOfRangeException (if ls)
+           0010cf04  lsl      r1, r4, #2                   
+           0010cf08  add      r0, r0, r1                   
+           0010cf0c  add      r0, r0, #0x10                
+           0010cf10  ldr      r2, [r0]                     
+           0010cf14  str      r2, [fp]                     
+           0010cf18  mov      r0, r2                       
+           0010cf1c  mov      r1, #1                       
+           0010cf20  ldr      lr, [r2]                     
+           0010cf24  bl       #0x22db80                    ; CALL ObjectGroupList::set_CurrentState
+           0010cf28  add      r4, r4, #1                   
+L_10cf2c:  0010cf2c  ldr      r0, [fp, #4]                 
+           0010cf30  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0010cf34  cmp      r4, r0                       
+           0010cf38  blt      #0x10cef4                    ; -> L_10cef4
+           0010cf3c  add      sp, fp, #0x18                
+           0010cf40  pop      {r4, r5, r6, r8, sl, fp}     
+           0010cf44  ldr      r7, [sp, #8]                 
+           0010cf48  ldm      sp, {sp, pc}                 
+           0010cf4c  mov      r1, lr                       
+           0010cf50  ldr      r0, [pc]                     
+           0010cf54  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0010cf58  andeq    r0, r0, #0xf8                
+
+== ActiveObjectListSwtich::Start  token 0x0600050b @0x0010cf5c (68 bytes)
+   args: r0=this, 
+           0010cf5c  mov      ip, sp                       
+           0010cf60  push     {r7, lr}                     
+           0010cf64  mov      r7, sp                       
+           0010cf68  push     {r8, fp, ip, lr}             
+           0010cf6c  sub      sp, sp, #8                   
+           0010cf70  mov      fp, sp                       
+           0010cf74  str      r0, [fp]                     
+           0010cf78  ldr      r0, [fp]                     
+           0010cf7c  ldrb     r0, [r0, #0x18]              ; field+0x18 (this-class: fireAtStart)
+           0010cf80  cmp      r0, #0                       
+           0010cf84  beq      #0x10cf90                    ; -> L_10cf90
+           0010cf88  ldr      r0, [fp]                     
+           0010cf8c  bl       #0x22db90                    ; CALL ActiveObjectListSwtich::Fire
+L_10cf90:  0010cf90  add      sp, fp, #8                   
+           0010cf94  pop      {r8, fp}                     
+           0010cf98  ldr      r7, [sp, #8]                 
+           0010cf9c  ldm      sp, {sp, pc}                 
+
+== ActiveObjectListSwtich::OnTriggerEnter  token 0x0600050c @0x0010cfa0 (80 bytes)
+   args: r0=this, other
+           0010cfa0  mov      ip, sp                       
+           0010cfa4  push     {r7, lr}                     
+           0010cfa8  mov      r7, sp                       
+           0010cfac  push     {r8, sl, fp, ip, lr}         
+           0010cfb0  sub      sp, sp, #0xc                 
+           0010cfb4  mov      fp, sp                       
+           0010cfb8  str      r0, [fp]                     
+           0010cfbc  mov      sl, r1                       
+           0010cfc0  mov      r0, sl                       
+           0010cfc4  ldr      lr, [sl]                     
+           0010cfc8  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010cfcc  bl       #0x1129f8                    ; CALL RaceManager::IsPlayerCar (direct)
+           0010cfd0  cmp      r0, #0                       
+           0010cfd4  beq      #0x10cfe0                    ; -> L_10cfe0
+           0010cfd8  ldr      r0, [fp]                     
+           0010cfdc  bl       #0x22db90                    ; CALL ActiveObjectListSwtich::Fire
+L_10cfe0:  0010cfe0  add      sp, fp, #0xc                 
+           0010cfe4  pop      {r8, sl, fp}                 
+           0010cfe8  ldr      r7, [sp, #8]                 
+           0010cfec  ldm      sp, {sp, pc}                 

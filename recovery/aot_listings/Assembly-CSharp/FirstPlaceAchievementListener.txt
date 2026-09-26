@@ -1,0 +1,278 @@
+####################################################################################################
+# TYPE FirstPlaceAchievementListener  (instance size 0x3c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 UIName                         LocalizedString
+#   +0x14 description                    LocalizedString
+#   +0x18 rewardDescription              LocalizedString
+#   +0x1c rewardUnlocks                  string[]
+#   +0x20 gcIdentifier                   UnlocalizedString
+#   +0x24 areaType                       AchievementListener/AchievementAreaType
+#   +0x28 rewardCoins                    int
+#   +0x2c categoryFilter                 AchievementListener/AchievementFilterCategory
+#   +0x30 state                          AchievementListener/AchievementState
+#   +0x34 trackName                      UnlocalizedString
+#   +0x38 mode                           RaceSettings/RaceModes
+#   vtable slots: 4:Reward, 5:Postrace, 6:Prerace, 7:IsAvailable
+####################################################################################################
+== FirstPlaceAchievementListener::.ctor  token 0x060000f3 @0x000d1808 (52 bytes)
+   args: r0=this, 
+           000d1808  mov      ip, sp                       
+           000d180c  push     {r7, lr}                     
+           000d1810  mov      r7, sp                       
+           000d1814  push     {r8, fp, ip, lr}             
+           000d1818  sub      sp, sp, #8                   
+           000d181c  mov      fp, sp                       
+           000d1820  str      r0, [fp]                     
+           000d1824  ldr      r0, [fp]                     
+           000d1828  bl       #0xcf738                     ; CALL AchievementListener::.ctor (direct)
+           000d182c  add      sp, fp, #8                   
+           000d1830  pop      {r8, fp}                     
+           000d1834  ldr      r7, [sp, #8]                 
+           000d1838  ldm      sp, {sp, pc}                 
+
+== FirstPlaceAchievementListener::Start  token 0x060000f4 @0x000d183c (56 bytes)
+   args: r0=this, 
+           000d183c  mov      ip, sp                       
+           000d1840  push     {r7, lr}                     
+           000d1844  mov      r7, sp                       
+           000d1848  push     {r8, fp, ip, lr}             
+           000d184c  sub      sp, sp, #8                   
+           000d1850  mov      fp, sp                       
+           000d1854  str      r0, [fp]                     
+           000d1858  ldr      r0, [fp]                     
+           000d185c  mov      r1, #1                       
+           000d1860  str      r1, [r0, #0x30]              ; field+0x30 (this-class: state)
+           000d1864  add      sp, fp, #8                   
+           000d1868  pop      {r8, fp}                     
+           000d186c  ldr      r7, [sp, #8]                 
+           000d1870  ldm      sp, {sp, pc}                 
+
+== FirstPlaceAchievementListener::IsAvailable  token 0x060000f5 @0x000d1874 (248 bytes)
+   args: r0=this, 
+           000d1874  mov      ip, sp                       
+           000d1878  push     {r7, lr}                     
+           000d187c  mov      r7, sp                       
+           000d1880  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000d1884  sub      sp, sp, #4                   
+           000d1888  mov      fp, sp                       
+           000d188c  mov      sl, r0                       
+           000d1890  mov      r0, sl                       
+           000d1894  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           000d1898  cmp      r0, #0                       
+           000d189c  beq      #0xd18a8                     ; -> L_d18a8
+           000d18a0  mov      r0, #0                       
+           000d18a4  b        #0xd195c                     ; -> L_d195c
+L_d18a8:   000d18a8  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000d18ac  mov      r1, r0                       
+           000d18b0  ldr      lr, [r1]                     
+           000d18b4  ldr      r6, [r0, #0x24]              ; field+0x24 (this-class: areaType)
+           000d18b8  mov      r0, r6                       
+           000d18bc  mov      r1, #0                       
+           000d18c0  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000d18c4  cmp      r0, #0                       
+           000d18c8  beq      #0xd18d4                     ; -> L_d18d4
+           000d18cc  mov      r0, #0                       
+           000d18d0  b        #0xd195c                     ; -> L_d195c
+L_d18d4:   000d18d4  ldr      r0, [r6, #0x18]              ; field+0x18 (this-class: rewardDescription)
+           000d18d8  mov      r1, r0                       
+           000d18dc  ldr      lr, [r1]                     
+           000d18e0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d18e4  ldr      r1, [sl, #0x34]              ; field+0x34 (this-class: trackName)
+           000d18e8  mov      r2, r1                       
+           000d18ec  ldr      lr, [r2]                     
+           000d18f0  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d18f4  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000d18f8  cmp      r0, #0                       
+           000d18fc  bne      #0xd1954                     ; -> L_d1954
+           000d1900  ldr      r0, [sl, #0x34]              ; field+0x34 (this-class: trackName)
+           000d1904  mov      r1, r0                       
+           000d1908  ldr      lr, [r1]                     
+           000d190c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d1910  ldr      r1, [pc]                     
+           000d1914  b        #0xd191c                     ; -> L_d191c
+           000d1918  .word    0x00ed36e8                   ; literal 15546088 / 
+L_d191c:   000d191c  ldr      r1, [pc, r1]                 ; GOT[169] SFLDA System.String::Empty
+           000d1920  ldr      r1, [r1]                     
+           000d1924  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000d1928  cmp      r0, #0                       
+           000d192c  beq      #0xd194c                     ; -> L_d194c
+           000d1930  ldr      lr, [r6]                     
+           000d1934  ldr      r0, [r6, #0x24]              ; field+0x24 (this-class: areaType)
+           000d1938  ldr      r1, [sl, #0x38]              ; field+0x38 (this-class: mode)
+           000d193c  cmp      r0, r1                       
+           000d1940  movne    r5, #0                       
+           000d1944  moveq    r5, #1                       
+           000d1948  b        #0xd1950                     ; -> L_d1950
+L_d194c:   000d194c  mov      r5, #0                       
+L_d1950:   000d1950  b        #0xd1958                     ; -> L_d1958
+L_d1954:   000d1954  mov      r5, #1                       
+L_d1958:   000d1958  mov      r0, r5                       
+L_d195c:   000d195c  add      sp, fp, #4                   
+           000d1960  pop      {r5, r6, r8, sl, fp}         
+           000d1964  ldr      r7, [sp, #8]                 
+           000d1968  ldm      sp, {sp, pc}                 
+
+== FirstPlaceAchievementListener::Prerace  token 0x060000f6 @0x000d196c (44 bytes)
+   args: r0=this, 
+           000d196c  mov      ip, sp                       
+           000d1970  push     {r7, lr}                     
+           000d1974  mov      r7, sp                       
+           000d1978  push     {r8, fp, ip, lr}             
+           000d197c  sub      sp, sp, #8                   
+           000d1980  mov      fp, sp                       
+           000d1984  str      r0, [fp]                     
+           000d1988  add      sp, fp, #8                   
+           000d198c  pop      {r8, fp}                     
+           000d1990  ldr      r7, [sp, #8]                 
+           000d1994  ldm      sp, {sp, pc}                 
+
+== FirstPlaceAchievementListener::Postrace  token 0x060000f7 @0x000d1998 (516 bytes)
+   args: r0=this, 
+           000d1998  mov      ip, sp                       
+           000d199c  push     {r7, lr}                     
+           000d19a0  mov      r7, sp                       
+           000d19a4  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000d19a8  sub      sp, sp, #0x18                
+           000d19ac  mov      fp, sp                       
+           000d19b0  str      r0, [fp, #0xc]               
+           000d19b4  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000d19b8  mov      r1, r0                       
+           000d19bc  ldr      lr, [r1]                     
+           000d19c0  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: areaType)
+           000d19c4  mov      r1, r0                       
+           000d19c8  ldr      lr, [r1]                     
+           000d19cc  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: areaType)
+           000d19d0  ldr      r1, [fp, #0xc]               
+           000d19d4  ldr      r1, [r1, #0x38]              ; field+0x38 (this-class: mode)
+           000d19d8  cmp      r0, r1                       
+           000d19dc  bne      #0xd1b6c                     ; -> L_d1b6c
+           000d19e0  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000d19e4  mov      r1, r0                       
+           000d19e8  ldr      lr, [r1]                     
+           000d19ec  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: areaType)
+           000d19f0  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: rewardDescription)
+           000d19f4  mov      r1, r0                       
+           000d19f8  ldr      lr, [r1]                     
+           000d19fc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d1a00  ldr      r1, [fp, #0xc]               
+           000d1a04  ldr      r1, [r1, #0x34]              ; field+0x34 (this-class: trackName)
+           000d1a08  mov      r2, r1                       
+           000d1a0c  ldr      lr, [r2]                     
+           000d1a10  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d1a14  bl       #0x22ab40                    ; CALL System.String::op_Inequality
+           000d1a18  cmp      r0, #0                       
+           000d1a1c  beq      #0xd1a30                     ; -> L_d1a30
+           000d1a20  ldr      r0, [fp, #0xc]               
+           000d1a24  ldr      r0, [r0, #0x38]              ; field+0x38 (this-class: mode)
+           000d1a28  cmp      r0, #0                       
+           000d1a2c  beq      #0xd1b6c                     ; -> L_d1b6c
+L_d1a30:   000d1a30  ldr      r0, [pc]                     
+           000d1a34  b        #0xd1a3c                     ; -> L_d1a3c
+           000d1a38  .word    0x00ed3640                   ; literal 15545920 / 
+L_d1a3c:   000d1a3c  ldr      r0, [pc, r0]                 ; GOT[199] TYPE_FROM_HANDLE typeof(RaceResults)
+           000d1a40  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           000d1a44  mov      r6, r0                       
+           000d1a48  cmp      r6, #0                       
+           000d1a4c  beq      #0xd1a78                     ; -> L_d1a78
+           000d1a50  ldr      r0, [r6]                     
+           000d1a54  ldr      r0, [r0]                     
+           000d1a58  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d1a5c  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: description)
+           000d1a60  ldr      r1, [pc]                     
+           000d1a64  b        #0xd1a6c                     ; -> L_d1a6c
+           000d1a68  .word    0x00ed3614                   ; literal 15545876 / 
+L_d1a6c:   000d1a6c  ldr      r1, [pc, r1]                 ; GOT[200] CLASS RaceResults
+           000d1a70  cmp      r0, r1                       
+           000d1a74  blne     #0xd1b8c                     ; THROW System.InvalidCastException (if ne)
+L_d1a78:   000d1a78  str      r6, [fp]                     
+           000d1a7c  mov      r0, r6                       
+           000d1a80  mov      r1, #0                       
+           000d1a84  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000d1a88  cmp      r0, #0                       
+           000d1a8c  beq      #0xd1aa8                     ; -> L_d1aa8
+           000d1a90  ldr      r0, [pc]                     
+           000d1a94  b        #0xd1a9c                     ; -> L_d1a9c
+           000d1a98  .word    0x00ed35e8                   ; literal 15545832 / 
+L_d1a9c:   000d1a9c  ldr      r0, [pc, r0]                 ; GOT[201] LDSTR 'Could not find a RaceResults!'
+           000d1aa0  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           000d1aa4  b        #0xd1b6c                     ; -> L_d1b6c
+L_d1aa8:   000d1aa8  bl       #0x1129cc                    ; CALL RaceManager::GetPlayerCar (direct)
+           000d1aac  str      r0, [fp, #4]                 
+           000d1ab0  mvn      r0, #0                       
+           000d1ab4  str      r0, [fp, #8]                 
+           000d1ab8  ldr      r0, [fp]                     
+           000d1abc  ldr      r4, [r0, #0x10]              ; field+0x10 (this-class: UIName)
+           000d1ac0  mov      r5, #0                       
+           000d1ac4  b        #0xd1b24                     ; -> L_d1b24
+L_d1ac8:   000d1ac8  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000d1acc  cmp      r0, r5                       
+           000d1ad0  blls     #0xd1b7c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d1ad4  lsl      r0, r5, #2                   
+           000d1ad8  add      r0, r4, r0                   
+           000d1adc  add      r0, r0, #0x10                
+           000d1ae0  ldr      sl, [r0]                     
+           000d1ae4  mov      r0, sl                       
+           000d1ae8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d1aec  str      r0, [fp, #0x10]              
+           000d1af0  ldr      r0, [fp, #4]                 
+           000d1af4  mov      r1, r0                       
+           000d1af8  ldr      lr, [r1]                     
+           000d1afc  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           000d1b00  mov      r1, r0                       
+           000d1b04  ldr      r0, [fp, #0x10]              
+           000d1b08  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000d1b0c  cmp      r0, #0                       
+           000d1b10  beq      #0xd1b20                     ; -> L_d1b20
+           000d1b14  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: rewardUnlocks)
+           000d1b18  str      r0, [fp, #8]                 
+           000d1b1c  b        #0xd1b30                     ; -> L_d1b30
+L_d1b20:   000d1b20  add      r5, r5, #1                   
+L_d1b24:   000d1b24  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000d1b28  cmp      r5, r0                       
+           000d1b2c  blt      #0xd1ac8                     ; -> L_d1ac8
+L_d1b30:   000d1b30  ldr      r0, [fp, #8]                 
+           000d1b34  cmp      r0, #1                       
+           000d1b38  bne      #0xd1b48                     ; -> L_d1b48
+           000d1b3c  ldr      r0, [fp, #0xc]               
+           000d1b40  bl       #0xcf80c                     ; CALL AchievementListener::Achieve (direct)
+           000d1b44  b        #0xd1b6c                     ; -> L_d1b6c
+L_d1b48:   000d1b48  ldr      r0, [fp, #8]                 
+           000d1b4c  mvn      r1, #0                       
+           000d1b50  cmp      r0, r1                       
+           000d1b54  bne      #0xd1b6c                     ; -> L_d1b6c
+           000d1b58  ldr      r0, [pc]                     
+           000d1b5c  b        #0xd1b64                     ; -> L_d1b64
+           000d1b60  .word    0x00ed3524                   ; literal 15545636 / 
+L_d1b64:   000d1b64  ldr      r0, [pc, r0]                 ; GOT[202] LDSTR 'Could not find player position!'
+           000d1b68  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+L_d1b6c:   000d1b6c  add      sp, fp, #0x18                
+           000d1b70  pop      {r4, r5, r6, r8, sl, fp}     
+           000d1b74  ldr      r7, [sp, #8]                 
+           000d1b78  ldm      sp, {sp, pc}                 
+           000d1b7c  mov      r1, lr                       
+           000d1b80  ldr      r0, [pc]                     
+           000d1b84  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d1b88  andeq    r0, r0, #0xf8                
+           000d1b8c  mov      r1, lr                       
+           000d1b90  ldr      r0, [pc]                     
+           000d1b94  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d1b98  andeq    r0, r0, #0xfd                
+
+== FirstPlaceAchievementListener::Reward  token 0x060000f8 @0x000d1b9c (64 bytes)
+   args: r0=this, 
+           000d1b9c  mov      ip, sp                       
+           000d1ba0  push     {r7, lr}                     
+           000d1ba4  mov      r7, sp                       
+           000d1ba8  push     {r8, fp, ip, lr}             
+           000d1bac  sub      sp, sp, #8                   
+           000d1bb0  mov      fp, sp                       
+           000d1bb4  str      r0, [fp]                     
+           000d1bb8  ldr      r0, [pc]                     
+           000d1bbc  b        #0xd1bc4                     ; -> L_d1bc4
+           000d1bc0  .word    0x00ed34c8                   ; literal 15545544 / 
+L_d1bc4:   000d1bc4  ldr      r0, [pc, r0]                 ; GOT[203] LDSTR 'TODO: fired FirstPlaceAchievementListener reward'
+           000d1bc8  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           000d1bcc  add      sp, fp, #8                   
+           000d1bd0  pop      {r8, fp}                     
+           000d1bd4  ldr      r7, [sp, #8]                 
+           000d1bd8  ldm      sp, {sp, pc}                 

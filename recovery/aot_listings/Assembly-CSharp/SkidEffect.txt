@@ -1,0 +1,169 @@
+####################################################################################################
+# TYPE SkidEffect  (instance size 0x24)
+#   +0x08 time                           float
+#   +0x0c power                          int
+#   +0x10 effectType                     BaseEffect/EffectTypes
+#   +0x14 isMultiLevel                   bool
+#   +0x18 powerLevel                     int
+#   +0x1c parentObject                   UnityEngine.GameObject
+#   +0x20 carCollider                    CarCollider
+#   static float SKID_EQUALIZE_ANGLE  = const 00002041
+#   vtable slots: 5:GetEffectSnapShot, 6:Stack, 7:Shutdown, 8:Update, 9:Init
+####################################################################################################
+== SkidEffect::.ctor  token 0x060003c7 @0x000f846c (88 bytes)
+   args: r0=this, owner
+           000f846c  mov      ip, sp                       
+           000f8470  push     {r7, lr}                     
+           000f8474  mov      r7, sp                       
+           000f8478  push     {r6, r8, fp, ip, lr}         
+           000f847c  sub      sp, sp, #0xc                 
+           000f8480  mov      fp, sp                       
+           000f8484  mov      r6, r0                       
+           000f8488  str      r1, [fp]                     
+           000f848c  mov      r0, #1                       
+           000f8490  str      r0, [r6, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f8494  ldr      r0, [fp]                     
+           000f8498  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f849c  vldr     s4, [pc]                     ; float -3.4028234663852886e+38
+           000f84a0  b        #0xf84a8                     ; -> L_f84a8
+           000f84a4  .word    0xff7fffff                   ; literal -8388609 / 
+L_f84a8:   000f84a8  vcvt.f64.f32 d2, s4                       
+           000f84ac  vcvt.f32.f64 s0, d2                       
+           000f84b0  vstr     s0, [r6, #8]                 ; field+0x8 (this-class: time)
+           000f84b4  add      sp, fp, #0xc                 
+           000f84b8  pop      {r6, r8, fp}                 
+           000f84bc  ldr      r7, [sp, #8]                 
+           000f84c0  ldm      sp, {sp, pc}                 
+
+== SkidEffect::Init  token 0x060003c8 @0x000f84c4 (92 bytes)
+   args: r0=this, 
+           000f84c4  mov      ip, sp                       
+           000f84c8  push     {r7, lr}                     
+           000f84cc  mov      r7, sp                       
+           000f84d0  push     {r8, fp, ip, lr}             
+           000f84d4  sub      sp, sp, #8                   
+           000f84d8  mov      fp, sp                       
+           000f84dc  str      r0, [fp]                     
+           000f84e0  ldr      r0, [fp]                     
+           000f84e4  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f84e8  ldr      r1, [pc]                     
+           000f84ec  b        #0xf84f4                     ; -> L_f84f4
+           000f84f0  .word    0x00eaca10                   ; literal 15387152 / 
+L_f84f4:   000f84f4  ldr      r1, [pc, r1]                 ; GOT[105] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarCollider>
+           000f84f8  ldr      lr, [r0]                     
+           000f84fc  mov      r8, r1                       
+           000f8500  bl       #0x22b100                    ; CALL UnityEngine.GameObject::GetComponent<CarCollider>
+           000f8504  mov      r1, r0                       
+           000f8508  ldr      r0, [fp]                     
+           000f850c  str      r1, [r0, #0x20]              ; field+0x20 (this-class: carCollider)
+           000f8510  add      sp, fp, #8                   
+           000f8514  pop      {r8, fp}                     
+           000f8518  ldr      r7, [sp, #8]                 
+           000f851c  ldm      sp, {sp, pc}                 
+
+== SkidEffect::Update  token 0x060003c9 @0x000f8520 (236 bytes)
+   args: r0=this, 
+           000f8520  mov      ip, sp                       
+           000f8524  push     {r7, lr}                     
+           000f8528  mov      r7, sp                       
+           000f852c  push     {r8, sl, fp, ip, lr}         
+           000f8530  sub      sp, sp, #0x3c                
+           000f8534  mov      fp, sp                       
+           000f8538  mov      sl, r0                       
+           000f853c  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8540  mov      r0, r1                       
+           000f8544  ldr      lr, [r1]                     
+           000f8548  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f854c  mov      r2, r0                       
+           000f8550  add      r0, fp, #0x1c                
+           000f8554  mov      r1, r2                       
+           000f8558  ldr      lr, [r2]                     
+           000f855c  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000f8560  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: carCollider)
+           000f8564  mov      r1, r0                       
+           000f8568  ldr      lr, [r1]                     
+           000f856c  add      r0, r0, #0x48                
+           000f8570  ldr      r1, [r0]                     
+           000f8574  str      r1, [fp, #0x28]              
+           000f8578  ldr      r1, [r0, #4]                 ; field+0x4 
+           000f857c  str      r1, [fp, #0x2c]              
+           000f8580  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f8584  str      r0, [fp, #0x30]              
+           000f8588  ldr      r0, [fp, #0x1c]              
+           000f858c  ldr      r1, [fp, #0x20]              
+           000f8590  ldr      r2, [fp, #0x24]              
+           000f8594  ldr      r3, [fp, #0x28]              
+           000f8598  ldr      ip, [fp, #0x2c]              
+           000f859c  str      ip, [sp]                     
+           000f85a0  ldr      ip, [fp, #0x30]              
+           000f85a4  str      ip, [sp, #4]                 
+           000f85a8  bl       #0x22aeb0                    ; CALL UnityEngine.Vector3::Angle
+           000f85ac  vmov     s4, r0                       
+           000f85b0  vcvt.f64.f32 d2, s4                       
+           000f85b4  vcvt.f32.f64 s0, d2                       
+           000f85b8  vstr     s0, [fp, #8]                 
+           000f85bc  vldr     s0, [fp, #8]                 
+           000f85c0  vcvt.f64.f32 d3, s0                       
+           000f85c4  vldr     s4, [pc]                     ; float 10.0
+           000f85c8  b        #0xf85d0                     ; -> L_f85d0
+           000f85cc  .word    0x41200000                   ; literal 1092616192 / 10
+L_f85d0:   000f85d0  vcvt.f64.f32 d2, s4                       
+           000f85d4  vcmp.f64 d2, d3                       
+           000f85d8  vmrs     apsr_nzcv, fpscr             
+           000f85dc  bvs      #0xf85fc                     ; -> L_f85fc
+           000f85e0  bmi      #0xf85fc                     ; -> L_f85fc
+           000f85e4  vldr     s4, [pc]                     ; float 0.0
+           000f85e8  b        #0xf85f0                     ; -> L_f85f0
+           000f85ec  .word    0x00000000                   ; literal 0 / 0
+L_f85f0:   000f85f0  vcvt.f64.f32 d2, s4                       
+           000f85f4  vcvt.f32.f64 s0, d2                       
+           000f85f8  vstr     s0, [sl, #8]                 ; field+0x8 (this-class: time)
+L_f85fc:   000f85fc  add      sp, fp, #0x3c                
+           000f8600  pop      {r8, sl, fp}                 
+           000f8604  ldr      r7, [sp, #8]                 
+           000f8608  ldm      sp, {sp, pc}                 
+
+== SkidEffect::Shutdown  token 0x060003ca @0x000f860c (44 bytes)
+   args: r0=this, 
+           000f860c  mov      ip, sp                       
+           000f8610  push     {r7, lr}                     
+           000f8614  mov      r7, sp                       
+           000f8618  push     {r8, fp, ip, lr}             
+           000f861c  sub      sp, sp, #8                   
+           000f8620  mov      fp, sp                       
+           000f8624  str      r0, [fp]                     
+           000f8628  add      sp, fp, #8                   
+           000f862c  pop      {r8, fp}                     
+           000f8630  ldr      r7, [sp, #8]                 
+           000f8634  ldm      sp, {sp, pc}                 
+
+== SkidEffect::Stack  token 0x060003cb @0x000f8638 (52 bytes)
+   args: r0=this, second
+           000f8638  mov      ip, sp                       
+           000f863c  push     {r7, lr}                     
+           000f8640  mov      r7, sp                       
+           000f8644  push     {r8, fp, ip, lr}             
+           000f8648  sub      sp, sp, #8                   
+           000f864c  mov      fp, sp                       
+           000f8650  str      r0, [fp]                     
+           000f8654  str      r1, [fp, #4]                 
+           000f8658  mov      r0, #0                       
+           000f865c  add      sp, fp, #8                   
+           000f8660  pop      {r8, fp}                     
+           000f8664  ldr      r7, [sp, #8]                 
+           000f8668  ldm      sp, {sp, pc}                 
+
+== SkidEffect::GetEffectSnapShot  token 0x060003cc @0x000f866c (48 bytes)
+   args: r0=this, 
+           000f866c  mov      ip, sp                       
+           000f8670  push     {r7, lr}                     
+           000f8674  mov      r7, sp                       
+           000f8678  push     {r8, fp, ip, lr}             
+           000f867c  sub      sp, sp, #8                   
+           000f8680  mov      fp, sp                       
+           000f8684  str      r0, [fp]                     
+           000f8688  ldr      r0, [fp]                     
+           000f868c  add      sp, fp, #8                   
+           000f8690  pop      {r8, fp}                     
+           000f8694  ldr      r7, [sp, #8]                 
+           000f8698  ldm      sp, {sp, pc}                 

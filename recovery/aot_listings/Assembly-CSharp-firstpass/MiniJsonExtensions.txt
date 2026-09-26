@@ -1,0 +1,97 @@
+####################################################################################################
+# TYPE MiniJsonExtensions  (instance size 0x8)
+#   vtable slots: 
+####################################################################################################
+== MiniJsonExtensions::toJson  token 0x06000336 @0x000365a0 (52 bytes) static
+   args: obj
+           000365a0  mov      ip, sp                       
+           000365a4  push     {r7, lr}                     
+           000365a8  mov      r7, sp                       
+           000365ac  push     {r8, fp, ip, lr}             
+           000365b0  sub      sp, sp, #8                   
+           000365b4  mov      fp, sp                       
+           000365b8  str      r0, [fp]                     
+           000365bc  ldr      r0, [fp]                     
+           000365c0  bl       #0xb9f30                     ; CALL MiniJSON::jsonEncode
+           000365c4  add      sp, fp, #8                   
+           000365c8  pop      {r8, fp}                     
+           000365cc  ldr      r7, [sp, #8]                 
+           000365d0  ldm      sp, {sp, pc}                 
+
+== MiniJsonExtensions::toJson  token 0x06000337 @0x000365d4 (52 bytes) static
+   args: obj
+           000365d4  mov      ip, sp                       
+           000365d8  push     {r7, lr}                     
+           000365dc  mov      r7, sp                       
+           000365e0  push     {r8, fp, ip, lr}             
+           000365e4  sub      sp, sp, #8                   
+           000365e8  mov      fp, sp                       
+           000365ec  str      r0, [fp]                     
+           000365f0  ldr      r0, [fp]                     
+           000365f4  bl       #0xb9f30                     ; CALL MiniJSON::jsonEncode
+           000365f8  add      sp, fp, #8                   
+           000365fc  pop      {r8, fp}                     
+           00036600  ldr      r7, [sp, #8]                 
+           00036604  ldm      sp, {sp, pc}                 
+
+== MiniJsonExtensions::arrayListFromJson  token 0x06000338 @0x00036608 (112 bytes) static
+   args: json
+           00036608  mov      ip, sp                       
+           0003660c  push     {r7, lr}                     
+           00036610  mov      r7, sp                       
+           00036614  push     {r6, r8, sl, fp, ip, lr}     
+           00036618  mov      fp, sp                       
+           0003661c  mov      sl, r0                       
+           00036620  mov      r0, sl                       
+           00036624  bl       #0xbb330                     ; CALL MiniJSON::jsonDecode
+           00036628  mov      sl, r0                       
+           0003662c  mov      r6, sl                       
+           00036630  cmp      sl, #0                       
+           00036634  beq      #0x36664                     ; -> L_36664
+           00036638  ldr      r0, [sl]                     
+           0003663c  ldr      r0, [r0]                     
+           00036640  ldr      r0, [r0, #8]                 ; field+0x8 
+           00036644  ldr      r0, [r0, #4]                 ; field+0x4 
+           00036648  ldr      r1, [pc]                     
+           0003664c  b        #0x36654                     ; -> L_36654
+           00036650  .word    0x00f664b8                   ; literal 16147640 / 
+L_36654:   00036654  ldr      r1, [pc, r1]                 ; GOT[315] CLASS System.Collections.ArrayList
+           00036658  cmp      r0, r1                       
+           0003665c  beq      #0x36664                     ; -> L_36664
+           00036660  mov      r6, #0                       
+L_36664:   00036664  mov      r0, r6                       
+           00036668  add      sp, fp, #0                   
+           0003666c  pop      {r6, r8, sl, fp}             
+           00036670  ldr      r7, [sp, #8]                 
+           00036674  ldm      sp, {sp, pc}                 
+
+== MiniJsonExtensions::hashtableFromJson  token 0x06000339 @0x00036678 (112 bytes) static
+   args: json
+           00036678  mov      ip, sp                       
+           0003667c  push     {r7, lr}                     
+           00036680  mov      r7, sp                       
+           00036684  push     {r6, r8, sl, fp, ip, lr}     
+           00036688  mov      fp, sp                       
+           0003668c  mov      sl, r0                       
+           00036690  mov      r0, sl                       
+           00036694  bl       #0xbb330                     ; CALL MiniJSON::jsonDecode
+           00036698  mov      sl, r0                       
+           0003669c  mov      r6, sl                       
+           000366a0  cmp      sl, #0                       
+           000366a4  beq      #0x366d4                     ; -> L_366d4
+           000366a8  ldr      r0, [sl]                     
+           000366ac  ldr      r0, [r0]                     
+           000366b0  ldr      r0, [r0, #8]                 ; field+0x8 
+           000366b4  ldr      r0, [r0, #4]                 ; field+0x4 
+           000366b8  ldr      r1, [pc]                     
+           000366bc  b        #0x366c4                     ; -> L_366c4
+           000366c0  .word    0x00f65f8c                   ; literal 16146316 / 
+L_366c4:   000366c4  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           000366c8  cmp      r0, r1                       
+           000366cc  beq      #0x366d4                     ; -> L_366d4
+           000366d0  mov      r6, #0                       
+L_366d4:   000366d4  mov      r0, r6                       
+           000366d8  add      sp, fp, #0                   
+           000366dc  pop      {r6, r8, sl, fp}             
+           000366e0  ldr      r7, [sp, #8]                 
+           000366e4  ldm      sp, {sp, pc}                 

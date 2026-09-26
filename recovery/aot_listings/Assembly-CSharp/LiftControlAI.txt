@@ -1,0 +1,222 @@
+####################################################################################################
+# TYPE LiftControlAI  (instance size 0x30)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 desiredPosition                UnityEngine.Vector3
+#   +0x1c duration                       float
+#   +0x20 initialPosition                UnityEngine.Vector3
+#   +0x2c timer                          float
+#   vtable slots: 
+####################################################################################################
+== LiftControlAI::.ctor  token 0x06000095 @0x000ce480 (124 bytes)
+   args: r0=this, 
+           000ce480  mov      ip, sp                       
+           000ce484  push     {r7, lr}                     
+           000ce488  mov      r7, sp                       
+           000ce48c  push     {r8, sl, fp, ip, lr}         
+           000ce490  sub      sp, sp, #0x1c                
+           000ce494  mov      fp, sp                       
+           000ce498  mov      sl, r0                       
+           000ce49c  mov      r0, fp                       
+           000ce4a0  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           000ce4a4  add      r0, sl, #0x10                
+           000ce4a8  ldr      r1, [fp]                     
+           000ce4ac  str      r1, [r0]                     
+           000ce4b0  ldr      r1, [fp, #4]                 
+           000ce4b4  str      r1, [r0, #4]                 ; field+0x4 
+           000ce4b8  ldr      r1, [fp, #8]                 
+           000ce4bc  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce4c0  add      r0, fp, #0xc                 
+           000ce4c4  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           000ce4c8  add      r0, sl, #0x20                
+           000ce4cc  ldr      r1, [fp, #0xc]               
+           000ce4d0  str      r1, [r0]                     
+           000ce4d4  ldr      r1, [fp, #0x10]              
+           000ce4d8  str      r1, [r0, #4]                 ; field+0x4 
+           000ce4dc  ldr      r1, [fp, #0x14]              
+           000ce4e0  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce4e4  mov      r0, sl                       
+           000ce4e8  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000ce4ec  add      sp, fp, #0x1c                
+           000ce4f0  pop      {r8, sl, fp}                 
+           000ce4f4  ldr      r7, [sp, #8]                 
+           000ce4f8  ldm      sp, {sp, pc}                 
+
+== LiftControlAI::Start  token 0x06000096 @0x000ce4fc (104 bytes)
+   args: r0=this, 
+           000ce4fc  mov      ip, sp                       
+           000ce500  push     {r7, lr}                     
+           000ce504  mov      r7, sp                       
+           000ce508  push     {r8, fp, ip, lr}             
+           000ce50c  sub      sp, sp, #0x20                
+           000ce510  mov      fp, sp                       
+           000ce514  str      r0, [fp, #0x18]              
+           000ce518  ldr      r0, [fp, #0x18]              
+           000ce51c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ce520  mov      r2, r0                       
+           000ce524  add      r0, fp, #0xc                 
+           000ce528  mov      r1, r2                       
+           000ce52c  ldr      lr, [r2]                     
+           000ce530  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000ce534  ldr      r0, [fp, #0x18]              
+           000ce538  add      r0, r0, #0x20                
+           000ce53c  ldr      r1, [fp, #0xc]               
+           000ce540  str      r1, [r0]                     
+           000ce544  ldr      r1, [fp, #0x10]              
+           000ce548  str      r1, [r0, #4]                 ; field+0x4 
+           000ce54c  ldr      r1, [fp, #0x14]              
+           000ce550  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce554  add      sp, fp, #0x20                
+           000ce558  pop      {r8, fp}                     
+           000ce55c  ldr      r7, [sp, #8]                 
+           000ce560  ldm      sp, {sp, pc}                 
+
+== LiftControlAI::FixedUpdate  token 0x06000097 @0x000ce564 (372 bytes)
+   args: r0=this, 
+           000ce564  mov      ip, sp                       
+           000ce568  push     {r7, lr}                     
+           000ce56c  mov      r7, sp                       
+           000ce570  push     {r8, sl, fp, ip, lr}         
+           000ce574  sub      sp, sp, #0x5c                
+           000ce578  mov      fp, sp                       
+           000ce57c  mov      sl, r0                       
+           000ce580  vldr     s0, [sl, #0x2c]              ; field+0x2c (this-class: timer)
+           000ce584  vcvt.f64.f32 d3, s0                       
+           000ce588  vldr     s4, [pc]                     ; float 0.0
+           000ce58c  b        #0xce594                     ; -> L_ce594
+           000ce590  .word    0x00000000                   ; literal 0 / 0
+L_ce594:   000ce594  vcvt.f64.f32 d2, s4                       
+           000ce598  vcmp.f64 d2, d3                       
+           000ce59c  vmrs     apsr_nzcv, fpscr             
+           000ce5a0  bvs      #0xce6c8                     ; -> L_ce6c8
+           000ce5a4  bge      #0xce6c8                     ; -> L_ce6c8
+           000ce5a8  vldr     s0, [sl, #0x2c]              ; field+0x2c (this-class: timer)
+           000ce5ac  vcvt.f64.f32 d2, s0                       
+           000ce5b0  vstr     d2, [fp, #0x48]              
+           000ce5b4  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000ce5b8  vmov     s6, r0                       
+           000ce5bc  vcvt.f64.f32 d3, s6                       
+           000ce5c0  vldr     d2, [fp, #0x48]              
+           000ce5c4  vsub.f64 d2, d2, d3                   
+           000ce5c8  vcvt.f32.f64 s0, d2                       
+           000ce5cc  vstr     s0, [sl, #0x2c]              ; field+0x2c (this-class: timer)
+           000ce5d0  vldr     s0, [sl, #0x2c]              ; field+0x2c (this-class: timer)
+           000ce5d4  vcvt.f64.f32 d2, s0                       
+           000ce5d8  vldr     s6, [pc]                     ; float 0.0
+           000ce5dc  b        #0xce5e4                     ; -> L_ce5e4
+           000ce5e0  .word    0x00000000                   ; literal 0 / 0
+L_ce5e4:   000ce5e4  vcvt.f64.f32 d3, s6                       
+           000ce5e8  vcmp.f64 d2, d3                       
+           000ce5ec  vmrs     apsr_nzcv, fpscr             
+           000ce5f0  bvs      #0xce610                     ; -> L_ce610
+           000ce5f4  bge      #0xce610                     ; -> L_ce610
+           000ce5f8  vldr     s4, [pc]                     ; float 0.0
+           000ce5fc  b        #0xce604                     ; -> L_ce604
+           000ce600  .word    0x00000000                   ; literal 0 / 0
+L_ce604:   000ce604  vcvt.f64.f32 d2, s4                       
+           000ce608  vcvt.f32.f64 s0, d2                       
+           000ce60c  vstr     s0, [sl, #0x2c]              ; field+0x2c (this-class: timer)
+L_ce610:   000ce610  vldr     s0, [sl, #0x2c]              ; field+0x2c (this-class: timer)
+           000ce614  vcvt.f64.f32 d2, s0                       
+           000ce618  vldr     s0, [sl, #0x1c]              ; field+0x1c (this-class: duration)
+           000ce61c  vcvt.f64.f32 d3, s0                       
+           000ce620  vdiv.f64 d2, d2, d3                   
+           000ce624  vcvt.f32.f64 s0, d2                       
+           000ce628  vstr     s0, [fp, #0x10]              
+           000ce62c  mov      r0, sl                       
+           000ce630  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ce634  str      r0, [fp, #0x50]              
+           000ce638  add      r0, sl, #0x10                
+           000ce63c  ldr      r1, [r0]                     
+           000ce640  str      r1, [fp, #0x20]              
+           000ce644  ldr      r1, [r0, #4]                 ; field+0x4 
+           000ce648  str      r1, [fp, #0x24]              
+           000ce64c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce650  str      r0, [fp, #0x28]              
+           000ce654  add      r0, sl, #0x20                
+           000ce658  ldr      r1, [r0]                     
+           000ce65c  str      r1, [fp, #0x2c]              
+           000ce660  ldr      r1, [r0, #4]                 ; field+0x4 
+           000ce664  str      r1, [fp, #0x30]              
+           000ce668  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce66c  str      r0, [fp, #0x34]              
+           000ce670  vldr     s0, [fp, #0x10]              
+           000ce674  vcvt.f64.f32 d2, s0                       
+           000ce678  add      r0, fp, #0x38                
+           000ce67c  ldr      r1, [fp, #0x20]              
+           000ce680  ldr      r2, [fp, #0x24]              
+           000ce684  ldr      r3, [fp, #0x28]              
+           000ce688  ldr      ip, [fp, #0x2c]              
+           000ce68c  str      ip, [sp]                     
+           000ce690  ldr      ip, [fp, #0x30]              
+           000ce694  str      ip, [sp, #4]                 
+           000ce698  ldr      ip, [fp, #0x34]              
+           000ce69c  str      ip, [sp, #8]                 
+           000ce6a0  vcvt.f32.f64 s0, d2                       
+           000ce6a4  vstr     s0, [sp, #0xc]               
+           000ce6a8  bl       #0x22afa0                    ; CALL UnityEngine.Vector3::Lerp
+           000ce6ac  ldr      ip, [fp, #0x50]              
+           000ce6b0  mov      r0, ip                       
+           000ce6b4  ldr      r1, [fp, #0x38]              
+           000ce6b8  ldr      r2, [fp, #0x3c]              
+           000ce6bc  ldr      r3, [fp, #0x40]              
+           000ce6c0  ldr      lr, [ip]                     
+           000ce6c4  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+L_ce6c8:   000ce6c8  add      sp, fp, #0x5c                
+           000ce6cc  pop      {r8, sl, fp}                 
+           000ce6d0  ldr      r7, [sp, #8]                 
+           000ce6d4  ldm      sp, {sp, pc}                 
+
+== LiftControlAI::SetTransition  token 0x06000098 @0x000ce6d8 (208 bytes)
+   args: r0=this, newPosition, time
+           000ce6d8  mov      ip, sp                       
+           000ce6dc  push     {r7, lr}                     
+           000ce6e0  mov      r7, sp                       
+           000ce6e4  push     {r8, sl, fp, ip, lr}         
+           000ce6e8  sub      sp, sp, #0x34                
+           000ce6ec  mov      fp, sp                       
+           000ce6f0  mov      sl, r0                       
+           000ce6f4  str      r1, [fp, #0x1c]              
+           000ce6f8  str      r2, [fp, #0x20]              
+           000ce6fc  str      r3, [fp, #0x24]              
+           000ce700  ldr      lr, [sp, #0x50]              
+           000ce704  str      lr, [fp, #0x28]              
+           000ce708  vldr     s0, [fp, #0x28]              
+           000ce70c  vcvt.f64.f32 d2, s0                       
+           000ce710  vmov.f64 d3, d2                       
+           000ce714  vmov.f64 d3, d3                       
+           000ce718  vmov.f64 d2, d3                       
+           000ce71c  vmov.f64 d2, d2                       
+           000ce720  vmov.f64 d3, d3                       
+           000ce724  vcvt.f32.f64 s0, d3                       
+           000ce728  vstr     s0, [fp]                     
+           000ce72c  vcvt.f32.f64 s0, d2                       
+           000ce730  vstr     s0, [sl, #0x1c]              ; field+0x1c (this-class: duration)
+           000ce734  vldr     s0, [fp]                     
+           000ce738  vcvt.f64.f32 d2, s0                       
+           000ce73c  vcvt.f32.f64 s0, d2                       
+           000ce740  vstr     s0, [sl, #0x2c]              ; field+0x2c (this-class: timer)
+           000ce744  add      r0, sl, #0x10                
+           000ce748  ldr      r1, [fp, #0x1c]              
+           000ce74c  str      r1, [r0]                     
+           000ce750  ldr      r1, [fp, #0x20]              
+           000ce754  str      r1, [r0, #4]                 ; field+0x4 
+           000ce758  ldr      r1, [fp, #0x24]              
+           000ce75c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce760  mov      r0, sl                       
+           000ce764  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ce768  mov      r2, r0                       
+           000ce76c  add      r0, fp, #0x10                
+           000ce770  mov      r1, r2                       
+           000ce774  ldr      lr, [r2]                     
+           000ce778  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000ce77c  add      r0, sl, #0x20                
+           000ce780  ldr      r1, [fp, #0x10]              
+           000ce784  str      r1, [r0]                     
+           000ce788  ldr      r1, [fp, #0x14]              
+           000ce78c  str      r1, [r0, #4]                 ; field+0x4 
+           000ce790  ldr      r1, [fp, #0x18]              
+           000ce794  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce798  add      sp, fp, #0x34                
+           000ce79c  pop      {r8, sl, fp}                 
+           000ce7a0  ldr      r7, [sp, #8]                 
+           000ce7a4  ldm      sp, {sp, pc}                 

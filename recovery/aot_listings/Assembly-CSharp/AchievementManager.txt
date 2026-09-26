@@ -1,0 +1,1191 @@
+####################################################################################################
+# TYPE AchievementManager  (instance size 0x2c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 WindowPrefab                   UnityEngine.GameObject
+#   +0x14 WindowUnlockPrefab             UnityEngine.GameObject
+#   +0x18 linearAchievements             AchievementListener[]
+#   +0x1c randomAchievements             AchievementListener[]
+#   +0x20 frontEndAchievements           AchievementListener[]
+#   +0x24 activeListeners                AchievementListener[]
+#   +0x28 activeAchievementNotificationWindow UnityEngine.GameObject
+#   static int NUMBER_OF_ACHIEVEMENTS_PER_RACE  = const 03000000
+#   static int NUMBER_OF_LINEAR_ACHIEVEMENTS  = const 02000000
+#   static System.Action`1<string> achievementPassedCallback
+#   static System.Action`1<string> achievementFailedCallback
+#   static AchievementListener/AchievementFilterCategory achievementUIFilter
+#   vtable slots: 
+####################################################################################################
+== AchievementManager::.ctor  token 0x060000b8 @0x000cf9fc (52 bytes)
+   args: r0=this, 
+           000cf9fc  mov      ip, sp                       
+           000cfa00  push     {r7, lr}                     
+           000cfa04  mov      r7, sp                       
+           000cfa08  push     {r8, fp, ip, lr}             
+           000cfa0c  sub      sp, sp, #8                   
+           000cfa10  mov      fp, sp                       
+           000cfa14  str      r0, [fp]                     
+           000cfa18  ldr      r0, [fp]                     
+           000cfa1c  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000cfa20  add      sp, fp, #8                   
+           000cfa24  pop      {r8, fp}                     
+           000cfa28  ldr      r7, [sp, #8]                 
+           000cfa2c  ldm      sp, {sp, pc}                 
+
+== AchievementManager::.cctor  token 0x060000b9 @0x000cfa30 (36 bytes) static
+   args: 
+           000cfa30  mov      ip, sp                       
+           000cfa34  push     {r7, lr}                     
+           000cfa38  mov      r7, sp                       
+           000cfa3c  push     {r8, fp, ip, lr}             
+           000cfa40  mov      fp, sp                       
+           000cfa44  add      sp, fp, #0                   
+           000cfa48  pop      {r8, fp}                     
+           000cfa4c  ldr      r7, [sp, #8]                 
+           000cfa50  ldm      sp, {sp, pc}                 
+
+== AchievementManager::get_Instance  token 0x060000ba @0x000cfa54 (176 bytes) static
+   args: 
+           000cfa54  mov      ip, sp                       
+           000cfa58  push     {r7, lr}                     
+           000cfa5c  mov      r7, sp                       
+           000cfa60  push     {r6, r8, fp, ip, lr}         
+           000cfa64  sub      sp, sp, #0xc                 
+           000cfa68  mov      fp, sp                       
+           000cfa6c  ldr      r0, [pc]                     
+           000cfa70  b        #0xcfa78                     ; -> L_cfa78
+           000cfa74  .word    0x00ed5550                   ; literal 15553872 / 
+L_cfa78:   000cfa78  ldr      r0, [pc, r0]                 ; GOT[154] TYPE_FROM_HANDLE typeof(AchievementManager)
+           000cfa7c  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           000cfa80  mov      r6, r0                       
+           000cfa84  cmp      r6, #0                       
+           000cfa88  beq      #0xcfab4                     ; -> L_cfab4
+           000cfa8c  ldr      r0, [r6]                     
+           000cfa90  ldr      r0, [r0]                     
+           000cfa94  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000cfa98  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: WindowUnlockPrefab)
+           000cfa9c  ldr      r1, [pc]                     
+           000cfaa0  b        #0xcfaa8                     ; -> L_cfaa8
+           000cfaa4  .word    0x00ed5524                   ; literal 15553828 / 
+L_cfaa8:   000cfaa8  ldr      r1, [pc, r1]                 ; GOT[155] CLASS AchievementManager
+           000cfaac  cmp      r0, r1                       
+           000cfab0  blne     #0xcfaf4                     ; THROW System.InvalidCastException (if ne)
+L_cfab4:   000cfab4  str      r6, [fp]                     
+           000cfab8  mov      r0, r6                       
+           000cfabc  mov      r1, #0                       
+           000cfac0  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000cfac4  cmp      r0, #0                       
+           000cfac8  beq      #0xcfae0                     ; -> L_cfae0
+           000cfacc  ldr      r0, [pc]                     
+           000cfad0  b        #0xcfad8                     ; -> L_cfad8
+           000cfad4  .word    0x00ed54f8                   ; literal 15553784 / 
+L_cfad8:   000cfad8  ldr      r0, [pc, r0]                 ; GOT[156] LDSTR 'Scene requires an AchievementManager!'
+           000cfadc  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+L_cfae0:   000cfae0  ldr      r0, [fp]                     
+           000cfae4  add      sp, fp, #0xc                 
+           000cfae8  pop      {r6, r8, fp}                 
+           000cfaec  ldr      r7, [sp, #8]                 
+           000cfaf0  ldm      sp, {sp, pc}                 
+           000cfaf4  mov      r1, lr                       
+           000cfaf8  ldr      r0, [pc]                     
+           000cfafc  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000cfb00  andeq    r0, r0, #0xfd                
+
+== AchievementManager::get_AllAchievements  token 0x060000bb @0x000cfb04 (180 bytes)
+   args: r0=this, 
+           000cfb04  mov      ip, sp                       
+           000cfb08  push     {r7, lr}                     
+           000cfb0c  mov      r7, sp                       
+           000cfb10  push     {r8, sl, fp, ip, lr}         
+           000cfb14  sub      sp, sp, #0x14                
+           000cfb18  mov      fp, sp                       
+           000cfb1c  mov      sl, r0                       
+           000cfb20  ldr      r0, [pc]                     
+           000cfb24  b        #0xcfb2c                     ; -> L_cfb2c
+           000cfb28  .word    0x00ed54a8                   ; literal 15553704 / 
+L_cfb2c:   000cfb2c  ldr      r0, [pc, r0]                 ; GOT[157] VTABLE System.Collections.Generic.List`1<AchievementListener>
+           000cfb30  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000cfb34  mov      r2, r0                       
+           000cfb38  ldr      r0, [pc]                     
+           000cfb3c  b        #0xcfb44                     ; -> L_cfb44
+           000cfb40  .word    0x00ed5494                   ; literal 15553684 / 
+L_cfb44:   000cfb44  ldr      r0, [pc, r0]                 ; GOT[158] SFLDA System.Collections.Generic.List`1<AchievementListener>::EmptyArray
+           000cfb48  ldr      r0, [r0]                     
+           000cfb4c  str      r0, [r2, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000cfb50  mov      r0, r2                       
+           000cfb54  str      r0, [fp, #8]                 
+           000cfb58  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: linearAchievements)
+           000cfb5c  mov      r0, r2                       
+           000cfb60  ldr      lr, [r2]                     
+           000cfb64  bl       #0x22b620                    ; CALL System.Collections.Generic.List`1<AchievementListener>::AddRange
+           000cfb68  ldr      r2, [fp, #8]                 
+           000cfb6c  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: randomAchievements)
+           000cfb70  mov      r0, r2                       
+           000cfb74  ldr      lr, [r2]                     
+           000cfb78  str      r2, [fp, #4]                 
+           000cfb7c  bl       #0x22b620                    ; CALL System.Collections.Generic.List`1<AchievementListener>::AddRange
+           000cfb80  ldr      r2, [fp, #4]                 
+           000cfb84  ldr      r1, [sl, #0x20]              ; field+0x20 (this-class: frontEndAchievements)
+           000cfb88  mov      r0, r2                       
+           000cfb8c  ldr      lr, [r2]                     
+           000cfb90  str      r2, [fp]                     
+           000cfb94  bl       #0x22b620                    ; CALL System.Collections.Generic.List`1<AchievementListener>::AddRange
+           000cfb98  ldr      r1, [fp]                     
+           000cfb9c  mov      r0, r1                       
+           000cfba0  ldr      lr, [r1]                     
+           000cfba4  bl       #0x22b630                    ; CALL System.Collections.Generic.List`1<AchievementListener>::ToArray
+           000cfba8  add      sp, fp, #0x14                
+           000cfbac  pop      {r8, sl, fp}                 
+           000cfbb0  ldr      r7, [sp, #8]                 
+           000cfbb4  ldm      sp, {sp, pc}                 
+
+== AchievementManager::Awake  token 0x060000bc @0x000cfbb8 (56 bytes)
+   args: r0=this, 
+           000cfbb8  mov      ip, sp                       
+           000cfbbc  push     {r7, lr}                     
+           000cfbc0  mov      r7, sp                       
+           000cfbc4  push     {r8, fp, ip, lr}             
+           000cfbc8  sub      sp, sp, #8                   
+           000cfbcc  mov      fp, sp                       
+           000cfbd0  str      r0, [fp]                     
+           000cfbd4  ldr      r0, [fp]                     
+           000cfbd8  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000cfbdc  bl       #0x22b640                    ; CALL UnityEngine.Object::DontDestroyOnLoad
+           000cfbe0  add      sp, fp, #8                   
+           000cfbe4  pop      {r8, fp}                     
+           000cfbe8  ldr      r7, [sp, #8]                 
+           000cfbec  ldm      sp, {sp, pc}                 
+
+== AchievementManager::Start  token 0x060000bd @0x000cfbf0 (88 bytes)
+   args: r0=this, 
+           000cfbf0  mov      ip, sp                       
+           000cfbf4  push     {r7, lr}                     
+           000cfbf8  mov      r7, sp                       
+           000cfbfc  push     {r8, fp, ip, lr}             
+           000cfc00  sub      sp, sp, #8                   
+           000cfc04  mov      fp, sp                       
+           000cfc08  str      r0, [fp, #4]                 
+           000cfc0c  ldr      r0, [pc]                     
+           000cfc10  b        #0xcfc18                     ; -> L_cfc18
+           000cfc14  .word    0x00ed53b0                   ; literal 15553456 / 
+L_cfc18:   000cfc18  ldr      r0, [pc, r0]                 ; GOT[154] TYPE_FROM_HANDLE typeof(AchievementManager)
+           000cfc1c  bl       #0x22b650                    ; CALL UnityEngine.Object::FindObjectsOfType
+           000cfc20  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000cfc24  cmp      r0, #1                       
+           000cfc28  ble      #0xcfc38                     ; -> L_cfc38
+           000cfc2c  ldr      r0, [fp, #4]                 
+           000cfc30  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000cfc34  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_cfc38:   000cfc38  add      sp, fp, #8                   
+           000cfc3c  pop      {r8, fp}                     
+           000cfc40  ldr      r7, [sp, #8]                 
+           000cfc44  ldm      sp, {sp, pc}                 
+
+== AchievementManager::OnEnable  token 0x060000be @0x000cfc48 (332 bytes)
+   args: r0=this, 
+           000cfc48  mov      ip, sp                       
+           000cfc4c  push     {r7, lr}                     
+           000cfc50  mov      r7, sp                       
+           000cfc54  push     {r8, sl, fp, ip, lr}         
+           000cfc58  sub      sp, sp, #0xc                 
+           000cfc5c  mov      fp, sp                       
+           000cfc60  mov      sl, r0                       
+           000cfc64  cmp      sl, #0                       
+           000cfc68  bleq     #0xcfd84                     ; THROW System.ArgumentException (if eq)
+           000cfc6c  ldr      r0, [pc]                     
+           000cfc70  b        #0xcfc78                     ; -> L_cfc78
+           000cfc74  .word    0x00ed5364                   ; literal 15553380 / 
+L_cfc78:   000cfc78  ldr      r0, [pc, r0]                 ; GOT[159] VTABLE RaceManager/RaceInitHandler
+           000cfc7c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000cfc80  str      sl, [r0, #0x10]              ; field+0x10 (this-class: WindowPrefab)
+           000cfc84  ldr      r1, [pc]                     
+           000cfc88  b        #0xcfc90                     ; -> L_cfc90
+           000cfc8c  .word    0x00ed5350                   ; literal 15553360 / 
+L_cfc90:   000cfc90  ldr      r1, [pc, r1]                 ; GOT[160] METHODCONST AchievementManager::OnRaceInit
+           000cfc94  str      r1, [r0, #0x14]              ; field+0x14 (this-class: WindowUnlockPrefab)
+           000cfc98  ldr      r1, [pc]                     
+           000cfc9c  b        #0xcfca4                     ; -> L_cfca4
+           000cfca0  .word    0x00ed5340                   ; literal 15553344 / 
+L_cfca4:   000cfca4  ldr      r1, [pc, r1]                 ; GOT[161] DELEGATE_TRAMPOLINE RaceManager/RaceInitHandler
+           000cfca8  str      r1, [r0, #0xc]               ; field+0xc 
+           000cfcac  bl       #0x22b660                    ; CALL RaceManager::add_raceInitFinishedEvent
+           000cfcb0  ldr      r0, [pc]                     
+           000cfcb4  b        #0xcfcbc                     ; -> L_cfcbc
+           000cfcb8  .word    0x00ed532c                   ; literal 15553324 / 
+L_cfcbc:   000cfcbc  ldr      r0, [pc, r0]                 ; GOT[162] SFLDA RaceManager::raceEndEvent
+           000cfcc0  ldr      r0, [r0]                     
+           000cfcc4  str      r0, [fp]                     
+           000cfcc8  cmp      sl, #0                       
+           000cfccc  bleq     #0xcfd84                     ; THROW System.ArgumentException (if eq)
+           000cfcd0  ldr      r0, [pc]                     
+           000cfcd4  b        #0xcfcdc                     ; -> L_cfcdc
+           000cfcd8  .word    0x00ed5310                   ; literal 15553296 / 
+L_cfcdc:   000cfcdc  ldr      r0, [pc, r0]                 ; GOT[163] VTABLE System.Action
+           000cfce0  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000cfce4  mov      r1, r0                       
+           000cfce8  ldr      r0, [fp]                     
+           000cfcec  str      sl, [r1, #0x10]              ; field+0x10 (this-class: WindowPrefab)
+           000cfcf0  ldr      r2, [pc]                     
+           000cfcf4  b        #0xcfcfc                     ; -> L_cfcfc
+           000cfcf8  .word    0x00ed52f4                   ; literal 15553268 / 
+L_cfcfc:   000cfcfc  ldr      r2, [pc, r2]                 ; GOT[164] METHODCONST AchievementManager::OnRaceEnd
+           000cfd00  str      r2, [r1, #0x14]              ; field+0x14 (this-class: WindowUnlockPrefab)
+           000cfd04  ldr      r2, [pc]                     
+           000cfd08  b        #0xcfd10                     ; -> L_cfd10
+           000cfd0c  .word    0x00ed52e4                   ; literal 15553252 / 
+L_cfd10:   000cfd10  ldr      r2, [pc, r2]                 ; GOT[165] DELEGATE_TRAMPOLINE System.Action
+           000cfd14  str      r2, [r1, #0xc]               ; field+0xc 
+           000cfd18  bl       #0x22b670                    ; CALL System.Delegate::Combine
+           000cfd1c  mov      sl, r0                       
+           000cfd20  cmp      sl, #0                       
+           000cfd24  beq      #0xcfd50                     ; -> L_cfd50
+           000cfd28  ldr      r0, [sl]                     
+           000cfd2c  ldr      r0, [r0]                     
+           000cfd30  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000cfd34  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000cfd38  ldr      r1, [pc]                     
+           000cfd3c  b        #0xcfd44                     ; -> L_cfd44
+           000cfd40  .word    0x00ed52b4                   ; literal 15553204 / 
+L_cfd44:   000cfd44  ldr      r1, [pc, r1]                 ; GOT[166] CLASS System.Action
+           000cfd48  cmp      r0, r1                       
+           000cfd4c  blne     #0xcfd74                     ; THROW System.InvalidCastException (if ne)
+L_cfd50:   000cfd50  ldr      r0, [pc]                     
+           000cfd54  b        #0xcfd5c                     ; -> L_cfd5c
+           000cfd58  .word    0x00ed528c                   ; literal 15553164 / 
+L_cfd5c:   000cfd5c  ldr      r0, [pc, r0]                 ; GOT[162] SFLDA RaceManager::raceEndEvent
+           000cfd60  str      sl, [r0]                     
+           000cfd64  add      sp, fp, #0xc                 
+           000cfd68  pop      {r8, sl, fp}                 
+           000cfd6c  ldr      r7, [sp, #8]                 
+           000cfd70  ldm      sp, {sp, pc}                 
+           000cfd74  mov      r1, lr                       
+           000cfd78  ldr      r0, [pc]                     
+           000cfd7c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000cfd80  andeq    r0, r0, #0xfd                
+           000cfd84  mov      r1, lr                       
+           000cfd88  ldr      r0, [pc]                     
+           000cfd8c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000cfd90  andeq    r0, r0, #0x4d                
+
+== AchievementManager::OnDisable  token 0x060000bf @0x000cfd94 (332 bytes)
+   args: r0=this, 
+           000cfd94  mov      ip, sp                       
+           000cfd98  push     {r7, lr}                     
+           000cfd9c  mov      r7, sp                       
+           000cfda0  push     {r8, sl, fp, ip, lr}         
+           000cfda4  sub      sp, sp, #0xc                 
+           000cfda8  mov      fp, sp                       
+           000cfdac  mov      sl, r0                       
+           000cfdb0  cmp      sl, #0                       
+           000cfdb4  bleq     #0xcfed0                     ; THROW System.ArgumentException (if eq)
+           000cfdb8  ldr      r0, [pc]                     
+           000cfdbc  b        #0xcfdc4                     ; -> L_cfdc4
+           000cfdc0  .word    0x00ed5218                   ; literal 15553048 / 
+L_cfdc4:   000cfdc4  ldr      r0, [pc, r0]                 ; GOT[159] VTABLE RaceManager/RaceInitHandler
+           000cfdc8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000cfdcc  str      sl, [r0, #0x10]              ; field+0x10 (this-class: WindowPrefab)
+           000cfdd0  ldr      r1, [pc]                     
+           000cfdd4  b        #0xcfddc                     ; -> L_cfddc
+           000cfdd8  .word    0x00ed5204                   ; literal 15553028 / 
+L_cfddc:   000cfddc  ldr      r1, [pc, r1]                 ; GOT[160] METHODCONST AchievementManager::OnRaceInit
+           000cfde0  str      r1, [r0, #0x14]              ; field+0x14 (this-class: WindowUnlockPrefab)
+           000cfde4  ldr      r1, [pc]                     
+           000cfde8  b        #0xcfdf0                     ; -> L_cfdf0
+           000cfdec  .word    0x00ed51f4                   ; literal 15553012 / 
+L_cfdf0:   000cfdf0  ldr      r1, [pc, r1]                 ; GOT[161] DELEGATE_TRAMPOLINE RaceManager/RaceInitHandler
+           000cfdf4  str      r1, [r0, #0xc]               ; field+0xc 
+           000cfdf8  bl       #0x22b680                    ; CALL RaceManager::remove_raceInitFinishedEvent
+           000cfdfc  ldr      r0, [pc]                     
+           000cfe00  b        #0xcfe08                     ; -> L_cfe08
+           000cfe04  .word    0x00ed51e0                   ; literal 15552992 / 
+L_cfe08:   000cfe08  ldr      r0, [pc, r0]                 ; GOT[162] SFLDA RaceManager::raceEndEvent
+           000cfe0c  ldr      r0, [r0]                     
+           000cfe10  str      r0, [fp]                     
+           000cfe14  cmp      sl, #0                       
+           000cfe18  bleq     #0xcfed0                     ; THROW System.ArgumentException (if eq)
+           000cfe1c  ldr      r0, [pc]                     
+           000cfe20  b        #0xcfe28                     ; -> L_cfe28
+           000cfe24  .word    0x00ed51c4                   ; literal 15552964 / 
+L_cfe28:   000cfe28  ldr      r0, [pc, r0]                 ; GOT[163] VTABLE System.Action
+           000cfe2c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000cfe30  mov      r1, r0                       
+           000cfe34  ldr      r0, [fp]                     
+           000cfe38  str      sl, [r1, #0x10]              ; field+0x10 (this-class: WindowPrefab)
+           000cfe3c  ldr      r2, [pc]                     
+           000cfe40  b        #0xcfe48                     ; -> L_cfe48
+           000cfe44  .word    0x00ed51a8                   ; literal 15552936 / 
+L_cfe48:   000cfe48  ldr      r2, [pc, r2]                 ; GOT[164] METHODCONST AchievementManager::OnRaceEnd
+           000cfe4c  str      r2, [r1, #0x14]              ; field+0x14 (this-class: WindowUnlockPrefab)
+           000cfe50  ldr      r2, [pc]                     
+           000cfe54  b        #0xcfe5c                     ; -> L_cfe5c
+           000cfe58  .word    0x00ed5198                   ; literal 15552920 / 
+L_cfe5c:   000cfe5c  ldr      r2, [pc, r2]                 ; GOT[165] DELEGATE_TRAMPOLINE System.Action
+           000cfe60  str      r2, [r1, #0xc]               ; field+0xc 
+           000cfe64  bl       #0x22b690                    ; CALL System.Delegate::Remove
+           000cfe68  mov      sl, r0                       
+           000cfe6c  cmp      sl, #0                       
+           000cfe70  beq      #0xcfe9c                     ; -> L_cfe9c
+           000cfe74  ldr      r0, [sl]                     
+           000cfe78  ldr      r0, [r0]                     
+           000cfe7c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000cfe80  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000cfe84  ldr      r1, [pc]                     
+           000cfe88  b        #0xcfe90                     ; -> L_cfe90
+           000cfe8c  .word    0x00ed5168                   ; literal 15552872 / 
+L_cfe90:   000cfe90  ldr      r1, [pc, r1]                 ; GOT[166] CLASS System.Action
+           000cfe94  cmp      r0, r1                       
+           000cfe98  blne     #0xcfec0                     ; THROW System.InvalidCastException (if ne)
+L_cfe9c:   000cfe9c  ldr      r0, [pc]                     
+           000cfea0  b        #0xcfea8                     ; -> L_cfea8
+           000cfea4  .word    0x00ed5140                   ; literal 15552832 / 
+L_cfea8:   000cfea8  ldr      r0, [pc, r0]                 ; GOT[162] SFLDA RaceManager::raceEndEvent
+           000cfeac  str      sl, [r0]                     
+           000cfeb0  add      sp, fp, #0xc                 
+           000cfeb4  pop      {r8, sl, fp}                 
+           000cfeb8  ldr      r7, [sp, #8]                 
+           000cfebc  ldm      sp, {sp, pc}                 
+           000cfec0  mov      r1, lr                       
+           000cfec4  ldr      r0, [pc]                     
+           000cfec8  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000cfecc  andeq    r0, r0, #0xfd                
+           000cfed0  mov      r1, lr                       
+           000cfed4  ldr      r0, [pc]                     
+           000cfed8  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000cfedc  andeq    r0, r0, #0x4d                
+
+== AchievementManager::OnRaceInit  token 0x060000c0 @0x000cfee0 (160 bytes)
+   args: r0=this, 
+           000cfee0  mov      ip, sp                       
+           000cfee4  push     {r7, lr}                     
+           000cfee8  mov      r7, sp                       
+           000cfeec  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000cfef0  mov      fp, sp                       
+           000cfef4  mov      sl, r0                       
+           000cfef8  ldr      r0, [sl, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000cfefc  cmp      r0, #0                       
+           000cff00  beq      #0xcff60                     ; -> L_cff60
+           000cff04  ldr      r0, [sl, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000cff08  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000cff0c  cmp      r0, #0                       
+           000cff10  beq      #0xcff60                     ; -> L_cff60
+           000cff14  ldr      r5, [sl, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000cff18  mov      r4, #0                       
+           000cff1c  b        #0xcff54                     ; -> L_cff54
+L_cff20:   000cff20  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000cff24  cmp      r0, r4                       
+           000cff28  blls     #0xcff70                     ; THROW System.IndexOutOfRangeException (if ls)
+           000cff2c  lsl      r0, r4, #2                   
+           000cff30  add      r0, r5, r0                   
+           000cff34  add      r0, r0, #0x10                
+           000cff38  ldr      r6, [r0]                     
+           000cff3c  mov      r1, r6                       
+           000cff40  mov      r0, r1                       
+           000cff44  ldr      r1, [r1]                     
+           000cff48  mov      lr, pc                       
+           000cff4c  ldr      pc, [r1, #0x3c]              ; VIRTUAL CALL slot +0x3c: AchievementListener::Prerace | BaseCarAIState::Update | BaseEffect::Stack | BaseMission::Shutdown | BoatAnchorEffect::Stack | BoosterEffect::Stack | BrakeMission::Shutdown | BuyPowerupMission::Shutdown ...(74)
+           000cff50  add      r4, r4, #1                   
+L_cff54:   000cff54  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000cff58  cmp      r4, r0                       
+           000cff5c  blt      #0xcff20                     ; -> L_cff20
+L_cff60:   000cff60  add      sp, fp, #0                   
+           000cff64  pop      {r4, r5, r6, r8, sl, fp}     
+           000cff68  ldr      r7, [sp, #8]                 
+           000cff6c  ldm      sp, {sp, pc}                 
+           000cff70  mov      r1, lr                       
+           000cff74  ldr      r0, [pc]                     
+           000cff78  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000cff7c  andeq    r0, r0, #0xf8                
+
+== AchievementManager::OnRaceEnd  token 0x060000c1 @0x000cff80 (160 bytes)
+   args: r0=this, 
+           000cff80  mov      ip, sp                       
+           000cff84  push     {r7, lr}                     
+           000cff88  mov      r7, sp                       
+           000cff8c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000cff90  mov      fp, sp                       
+           000cff94  mov      sl, r0                       
+           000cff98  ldr      r0, [sl, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000cff9c  cmp      r0, #0                       
+           000cffa0  beq      #0xd0000                     ; -> L_d0000
+           000cffa4  ldr      r0, [sl, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000cffa8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000cffac  cmp      r0, #0                       
+           000cffb0  beq      #0xd0000                     ; -> L_d0000
+           000cffb4  ldr      r5, [sl, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000cffb8  mov      r4, #0                       
+           000cffbc  b        #0xcfff4                     ; -> L_cfff4
+L_cffc0:   000cffc0  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000cffc4  cmp      r0, r4                       
+           000cffc8  blls     #0xd0010                     ; THROW System.IndexOutOfRangeException (if ls)
+           000cffcc  lsl      r0, r4, #2                   
+           000cffd0  add      r0, r5, r0                   
+           000cffd4  add      r0, r0, #0x10                
+           000cffd8  ldr      r6, [r0]                     
+           000cffdc  mov      r1, r6                       
+           000cffe0  mov      r0, r1                       
+           000cffe4  ldr      r1, [r1]                     
+           000cffe8  mov      lr, pc                       
+           000cffec  ldr      pc, [r1, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+           000cfff0  add      r4, r4, #1                   
+L_cfff4:   000cfff4  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000cfff8  cmp      r4, r0                       
+           000cfffc  blt      #0xcffc0                     ; -> L_cffc0
+L_d0000:   000d0000  add      sp, fp, #0                   
+           000d0004  pop      {r4, r5, r6, r8, sl, fp}     
+           000d0008  ldr      r7, [sp, #8]                 
+           000d000c  ldm      sp, {sp, pc}                 
+           000d0010  mov      r1, lr                       
+           000d0014  ldr      r0, [pc]                     
+           000d0018  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d001c  andeq    r0, r0, #0xf8                
+
+== AchievementManager::Achieve  token 0x060000c2 @0x000d0020 (976 bytes)
+   args: r0=this, listener
+           000d0020  mov      ip, sp                       
+           000d0024  push     {r7, lr}                     
+           000d0028  mov      r7, sp                       
+           000d002c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000d0030  sub      sp, sp, #0x20                
+           000d0034  mov      fp, sp                       
+           000d0038  mov      r6, r0                       
+           000d003c  mov      sl, r1                       
+           000d0040  ldr      r0, [pc]                     
+           000d0044  b        #0xd004c                     ; -> L_d004c
+           000d0048  .word    0x00ed4fb0                   ; literal 15552432 / 
+L_d004c:   000d004c  ldr      r0, [pc, r0]                 ; GOT[167] SFLDA AchievementManager::achievementPassedCallback
+           000d0050  ldr      r0, [r0]                     
+           000d0054  cmp      r0, #0                       
+           000d0058  beq      #0xd0084                     ; -> L_d0084
+           000d005c  ldr      r0, [pc]                     
+           000d0060  b        #0xd0068                     ; -> L_d0068
+           000d0064  .word    0x00ed4f94                   ; literal 15552404 / 
+L_d0068:   000d0068  ldr      r0, [pc, r0]                 ; GOT[167] SFLDA AchievementManager::achievementPassedCallback
+           000d006c  ldr      r2, [r0]                     
+           000d0070  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: WindowPrefab)
+           000d0074  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d0078  mov      r0, r2                       
+           000d007c  mov      lr, pc                       
+           000d0080  ldr      pc, [r2, #0xc]               ; VIRTUAL CALL slot +0xc: 
+L_d0084:   000d0084  mov      r0, sl                       
+           000d0088  ldr      lr, [sl]                     
+           000d008c  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           000d0090  cmp      r0, #0                       
+           000d0094  bne      #0xd00c0                     ; -> L_d00c0
+           000d0098  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000d009c  str      r0, [fp, #0x18]              
+           000d00a0  mov      r0, sl                       
+           000d00a4  ldr      lr, [sl]                     
+           000d00a8  bl       #0x22b600                    ; CALL AchievementListener::GetUnlockName
+           000d00ac  mov      r1, r0                       
+           000d00b0  ldr      r2, [fp, #0x18]              
+           000d00b4  mov      r0, r2                       
+           000d00b8  ldr      lr, [r2]                     
+           000d00bc  bl       #0xe685c                     ; CALL DataUtility::Unlock (direct)
+L_d00c0:   000d00c0  ldr      r0, [pc]                     
+           000d00c4  b        #0xd00cc                     ; -> L_d00cc
+           000d00c8  .word    0x00ed4f34                   ; literal 15552308 / 
+L_d00cc:   000d00cc  ldr      r0, [pc, r0]                 ; GOT[168] TYPE_FROM_HANDLE typeof(RaceManager)
+           000d00d0  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           000d00d4  mov      r1, #0                       
+           000d00d8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d00dc  cmp      r0, #0                       
+           000d00e0  beq      #0xd00fc                     ; -> L_d00fc
+           000d00e4  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000d00e8  mov      r2, r0                       
+           000d00ec  mov      r1, sl                       
+           000d00f0  ldr      lr, [r2]                     
+           000d00f4  bl       #0x13c84c                    ; CALL HUDLogic::ShowAchievementNotification (direct)
+           000d00f8  b        #0xd024c                     ; -> L_d024c
+L_d00fc:   000d00fc  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: linearAchievements)
+           000d0100  mov      r0, r1                       
+           000d0104  ldr      r1, [r1]                     
+           000d0108  mov      lr, pc                       
+           000d010c  ldr      pc, [r1, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           000d0110  ldr      r1, [pc]                     
+           000d0114  b        #0xd011c                     ; -> L_d011c
+           000d0118  .word    0x00ed4ee8                   ; literal 15552232 / 
+L_d011c:   000d011c  ldr      r1, [pc, r1]                 ; GOT[169] SFLDA System.String::Empty
+           000d0120  ldr      r1, [r1]                     
+           000d0124  bl       #0x22ab40                    ; CALL System.String::op_Inequality
+           000d0128  cmp      r0, #0                       
+           000d012c  beq      #0xd0174                     ; -> L_d0174
+           000d0130  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: WindowUnlockPrefab)
+           000d0134  bl       #0x22ad70                    ; CALL UnityEngine.Object::Instantiate
+           000d0138  mov      r4, r0                       
+           000d013c  cmp      r4, #0                       
+           000d0140  beq      #0xd016c                     ; -> L_d016c
+           000d0144  ldr      r0, [r4]                     
+           000d0148  ldr      r0, [r0]                     
+           000d014c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d0150  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d0154  ldr      r1, [pc]                     
+           000d0158  b        #0xd0160                     ; -> L_d0160
+           000d015c  .word    0x00ed4dec                   ; literal 15551980 / 
+L_d0160:   000d0160  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           000d0164  cmp      r0, r1                       
+           000d0168  blne     #0xd03e0                     ; THROW System.InvalidCastException (if ne)
+L_d016c:   000d016c  mov      r5, r4                       
+           000d0170  b        #0xd01b8                     ; -> L_d01b8
+L_d0174:   000d0174  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: WindowPrefab)
+           000d0178  bl       #0x22ad70                    ; CALL UnityEngine.Object::Instantiate
+           000d017c  str      r0, [fp, #0x14]              
+           000d0180  cmp      r0, #0                       
+           000d0184  beq      #0xd01b4                     ; -> L_d01b4
+           000d0188  ldr      r0, [fp, #0x14]              
+           000d018c  ldr      r0, [r0]                     
+           000d0190  ldr      r0, [r0]                     
+           000d0194  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d0198  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d019c  ldr      r1, [pc]                     
+           000d01a0  b        #0xd01a8                     ; -> L_d01a8
+           000d01a4  .word    0x00ed4da4                   ; literal 15551908 / 
+L_d01a8:   000d01a8  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           000d01ac  cmp      r0, r1                       
+           000d01b0  blne     #0xd03e0                     ; THROW System.InvalidCastException (if ne)
+L_d01b4:   000d01b4  ldr      r5, [fp, #0x14]              
+L_d01b8:   000d01b8  ldr      r0, [pc]                     
+           000d01bc  b        #0xd01c4                     ; -> L_d01c4
+           000d01c0  .word    0x00ed4e44                   ; literal 15552068 / 
+L_d01c4:   000d01c4  ldr      r0, [pc, r0]                 ; GOT[170] METHOD_RGCTX UnityEngine.GameObject::GetComponent<AchievementWindowPublisher>
+           000d01c8  ldr      lr, [r5]                     
+           000d01cc  mov      r8, r0                       
+           000d01d0  mov      r0, r5                       
+           000d01d4  bl       #0x22b6a0                    ; CALL UnityEngine.GameObject::GetComponent<AchievementWindowPublisher>
+           000d01d8  mov      r4, r0                       
+           000d01dc  mov      r2, r4                       
+           000d01e0  mov      r0, r2                       
+           000d01e4  mov      r1, sl                       
+           000d01e8  ldr      r2, [r2]                     
+           000d01ec  mov      lr, pc                       
+           000d01f0  ldr      pc, [r2, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           000d01f4  ldr      r0, [r6, #0x28]              ; field+0x28 (this-class: activeAchievementNotificationWindow)
+           000d01f8  mov      r1, #0                       
+           000d01fc  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000d0200  cmp      r0, #0                       
+           000d0204  beq      #0xd021c                     ; -> L_d021c
+           000d0208  str      r5, [r6, #0x28]              ; field+0x28 (this-class: activeAchievementNotificationWindow)
+           000d020c  mov      r0, r4                       
+           000d0210  ldr      lr, [r4]                     
+           000d0214  bl       #0x22b6b0                    ; CALL AchievementWindowPublisher::TriggerAnimIn
+           000d0218  b        #0xd024c                     ; -> L_d024c
+L_d021c:   000d021c  ldr      r0, [r6, #0x28]              ; field+0x28 (this-class: activeAchievementNotificationWindow)
+           000d0220  ldr      r1, [pc]                     
+           000d0224  b        #0xd022c                     ; -> L_d022c
+           000d0228  .word    0x00ed4ddc                   ; literal 15551964 / 
+L_d022c:   000d022c  ldr      r1, [pc, r1]                 ; GOT[170] METHOD_RGCTX UnityEngine.GameObject::GetComponent<AchievementWindowPublisher>
+           000d0230  ldr      lr, [r0]                     
+           000d0234  mov      r8, r1                       
+           000d0238  bl       #0x22b6a0                    ; CALL UnityEngine.GameObject::GetComponent<AchievementWindowPublisher>
+           000d023c  mov      r2, r0                       
+           000d0240  mov      r1, r5                       
+           000d0244  ldr      lr, [r2]                     
+           000d0248  bl       #0x22b6c0                    ; CALL AchievementWindowPublisher::SetNextWindow
+L_d024c:   000d024c  ldr      r0, [pc]                     
+           000d0250  b        #0xd0258                     ; -> L_d0258
+           000d0254  .word    0x00ed4db4                   ; literal 15551924 / 
+L_d0258:   000d0258  ldr      r0, [pc, r0]                 ; GOT[171] VTABLE System.Collections.Hashtable
+           000d025c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000d0260  str      r0, [fp, #0x18]              
+           000d0264  bl       #0x22b6d0                    ; CALL System.Collections.Hashtable::.ctor
+           000d0268  ldr      r0, [fp, #0x18]              
+           000d026c  str      r0, [fp, #8]                 
+           000d0270  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: frontEndAchievements)
+           000d0274  mov      r1, r0                       
+           000d0278  ldr      lr, [r1]                     
+           000d027c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d0280  cmp      r0, #0                       
+           000d0284  beq      #0xd03d0                     ; -> L_d03d0
+           000d0288  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: frontEndAchievements)
+           000d028c  mov      r1, r0                       
+           000d0290  ldr      lr, [r1]                     
+           000d0294  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d0298  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d029c  cmp      r0, #0                       
+           000d02a0  ble      #0xd03d0                     ; -> L_d03d0
+           000d02a4  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: frontEndAchievements)
+           000d02a8  mov      r1, r0                       
+           000d02ac  ldr      lr, [r1]                     
+           000d02b0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d02b4  ldr      r1, [pc]                     
+           000d02b8  b        #0xd02c0                     ; -> L_d02c0
+           000d02bc  .word    0x00ed4d50                   ; literal 15551824 / 
+L_d02c0:   000d02c0  ldr      r1, [pc, r1]                 ; GOT[172] LDSTR '_GCID'
+           000d02c4  bl       #0x22adc0                    ; CALL System.String::Concat
+           000d02c8  vldr     s4, [pc]                     ; float 100.0
+           000d02cc  b        #0xd02d4                     ; -> L_d02d4
+           000d02d0  .word    0x42c80000                   ; literal 1120403456 / 100
+L_d02d4:   000d02d4  vcvt.f64.f32 d2, s4                       
+           000d02d8  vcvt.f32.f64 s0, d2                       
+           000d02dc  vstr     s0, [sp, #-8]                
+           000d02e0  ldr      r1, [sp, #-8]                
+           000d02e4  bl       #0x22b6e0                    ; CALL GameCenterBinding::reportAchievement
+           000d02e8  ldr      r0, [pc]                     
+           000d02ec  b        #0xd02f4                     ; -> L_d02f4
+           000d02f0  .word    0x00ed4d20                   ; literal 15551776 / 
+L_d02f4:   000d02f4  ldr      r0, [pc, r0]                 ; GOT[173] LDSTR 'player_id'
+           000d02f8  str      r0, [fp, #0x18]              
+           000d02fc  bl       #0x22b6f0                    ; CALL UnityEngine.SystemInfo::get_deviceUniqueIdentifier
+           000d0300  mov      r2, r0                       
+           000d0304  ldr      r1, [fp, #0x18]              
+           000d0308  ldr      r0, [fp, #8]                 
+           000d030c  mov      r3, r0                       
+           000d0310  ldr      r3, [r3]                     
+           000d0314  mov      lr, pc                       
+           000d0318  ldr      pc, [r3, #0xa8]              ; VIRTUAL CALL slot +0xa8: System.Enum::System.IConvertible.ToInt64
+           000d031c  ldr      r1, [pc]                     
+           000d0320  b        #0xd0328                     ; -> L_d0328
+           000d0324  .word    0x00ed4cf0                   ; literal 15551728 / 
+L_d0328:   000d0328  ldr      r1, [pc, r1]                 ; GOT[174] LDSTR 'context'
+           000d032c  ldr      r2, [pc]                     
+           000d0330  b        #0xd0338                     ; -> L_d0338
+           000d0334  .word    0x00ed4ce4                   ; literal 15551716 / 
+L_d0338:   000d0338  ldr      r2, [pc, r2]                 ; GOT[175] LDSTR 'game center'
+           000d033c  ldr      r0, [fp, #8]                 
+           000d0340  mov      r3, r0                       
+           000d0344  ldr      r3, [r3]                     
+           000d0348  mov      lr, pc                       
+           000d034c  ldr      pc, [r3, #0xa8]              ; VIRTUAL CALL slot +0xa8: System.Enum::System.IConvertible.ToInt64
+           000d0350  ldr      r1, [pc]                     
+           000d0354  b        #0xd035c                     ; -> L_d035c
+           000d0358  .word    0x00ed4cc4                   ; literal 15551684 / 
+L_d035c:   000d035c  ldr      r1, [pc, r1]                 ; GOT[176] LDSTR 'action'
+           000d0360  ldr      r2, [pc]                     
+           000d0364  b        #0xd036c                     ; -> L_d036c
+           000d0368  .word    0x00ed4cb8                   ; literal 15551672 / 
+L_d036c:   000d036c  ldr      r2, [pc, r2]                 ; GOT[177] LDSTR 'achieve'
+           000d0370  ldr      r0, [fp, #8]                 
+           000d0374  mov      r3, r0                       
+           000d0378  ldr      r3, [r3]                     
+           000d037c  mov      lr, pc                       
+           000d0380  ldr      pc, [r3, #0xa8]              ; VIRTUAL CALL slot +0xa8: System.Enum::System.IConvertible.ToInt64
+           000d0384  ldr      r1, [pc]                     
+           000d0388  b        #0xd0390                     ; -> L_d0390
+           000d038c  .word    0x00ed4c98                   ; literal 15551640 / 
+L_d0390:   000d0390  ldr      r1, [pc, r1]                 ; GOT[178] LDSTR 'type'
+           000d0394  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: frontEndAchievements)
+           000d0398  mov      r2, r0                       
+           000d039c  ldr      lr, [r2]                     
+           000d03a0  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d03a4  ldr      r0, [fp, #8]                 
+           000d03a8  mov      r3, r0                       
+           000d03ac  ldr      r3, [r3]                     
+           000d03b0  mov      lr, pc                       
+           000d03b4  ldr      pc, [r3, #0xa8]              ; VIRTUAL CALL slot +0xa8: System.Enum::System.IConvertible.ToInt64
+           000d03b8  ldr      r0, [pc]                     
+           000d03bc  b        #0xd03c4                     ; -> L_d03c4
+           000d03c0  .word    0x00ed4c68                   ; literal 15551592 / 
+L_d03c4:   000d03c4  ldr      r0, [pc, r0]                 ; GOT[179] LDSTR 'game_action'
+           000d03c8  ldr      r1, [fp, #8]                 
+           000d03cc  bl       #0xffc14                     ; CALL GDMOManager::SendWithContext (direct)
+L_d03d0:   000d03d0  add      sp, fp, #0x20                
+           000d03d4  pop      {r4, r5, r6, r8, sl, fp}     
+           000d03d8  ldr      r7, [sp, #8]                 
+           000d03dc  ldm      sp, {sp, pc}                 
+           000d03e0  mov      r1, lr                       
+           000d03e4  ldr      r0, [pc]                     
+           000d03e8  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d03ec  andeq    r0, r0, #0xfd                
+
+== AchievementManager::Fail  token 0x060000c3 @0x000d03f0 (120 bytes)
+   args: r0=this, listener
+           000d03f0  mov      ip, sp                       
+           000d03f4  push     {r7, lr}                     
+           000d03f8  mov      r7, sp                       
+           000d03fc  push     {r8, fp, ip, lr}             
+           000d0400  sub      sp, sp, #8                   
+           000d0404  mov      fp, sp                       
+           000d0408  str      r0, [fp]                     
+           000d040c  str      r1, [fp, #4]                 
+           000d0410  ldr      r0, [pc]                     
+           000d0414  b        #0xd041c                     ; -> L_d041c
+           000d0418  .word    0x00ed4c14                   ; literal 15551508 / 
+L_d041c:   000d041c  ldr      r0, [pc, r0]                 ; GOT[180] SFLDA AchievementManager::achievementFailedCallback
+           000d0420  ldr      r0, [r0]                     
+           000d0424  cmp      r0, #0                       
+           000d0428  beq      #0xd0458                     ; -> L_d0458
+           000d042c  ldr      r0, [pc]                     
+           000d0430  b        #0xd0438                     ; -> L_d0438
+           000d0434  .word    0x00ed4bf8                   ; literal 15551480 / 
+L_d0438:   000d0438  ldr      r0, [pc, r0]                 ; GOT[180] SFLDA AchievementManager::achievementFailedCallback
+           000d043c  ldr      r2, [r0]                     
+           000d0440  ldr      r0, [fp, #4]                 
+           000d0444  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: WindowPrefab)
+           000d0448  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d044c  mov      r0, r2                       
+           000d0450  mov      lr, pc                       
+           000d0454  ldr      pc, [r2, #0xc]               ; VIRTUAL CALL slot +0xc: 
+L_d0458:   000d0458  add      sp, fp, #8                   
+           000d045c  pop      {r8, fp}                     
+           000d0460  ldr      r7, [sp, #8]                 
+           000d0464  ldm      sp, {sp, pc}                 
+
+== AchievementManager::ClearActiveListeners  token 0x060000c4 @0x000d0468 (172 bytes)
+   args: r0=this, 
+           000d0468  mov      ip, sp                       
+           000d046c  push     {r7, lr}                     
+           000d0470  mov      r7, sp                       
+           000d0474  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000d0478  sub      sp, sp, #8                   
+           000d047c  mov      fp, sp                       
+           000d0480  mov      sl, r0                       
+           000d0484  ldr      r0, [sl, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000d0488  cmp      r0, #0                       
+           000d048c  beq      #0xd04f4                     ; -> L_d04f4
+           000d0490  ldr      r5, [sl, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000d0494  mov      r4, #0                       
+           000d0498  b        #0xd04e0                     ; -> L_d04e0
+L_d049c:   000d049c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000d04a0  cmp      r0, r4                       
+           000d04a4  blls     #0xd0504                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d04a8  lsl      r0, r4, #2                   
+           000d04ac  add      r0, r5, r0                   
+           000d04b0  add      r0, r0, #0x10                
+           000d04b4  ldr      r6, [r0]                     
+           000d04b8  mov      r0, r6                       
+           000d04bc  mov      r1, #0                       
+           000d04c0  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d04c4  cmp      r0, #0                       
+           000d04c8  beq      #0xd04dc                     ; -> L_d04dc
+           000d04cc  mov      r0, r6                       
+           000d04d0  ldr      lr, [r6]                     
+           000d04d4  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d04d8  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_d04dc:   000d04dc  add      r4, r4, #1                   
+L_d04e0:   000d04e0  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000d04e4  cmp      r4, r0                       
+           000d04e8  blt      #0xd049c                     ; -> L_d049c
+           000d04ec  mov      r0, #0                       
+           000d04f0  str      r0, [sl, #0x24]              ; field+0x24 (this-class: activeListeners)
+L_d04f4:   000d04f4  add      sp, fp, #8                   
+           000d04f8  pop      {r4, r5, r6, r8, sl, fp}     
+           000d04fc  ldr      r7, [sp, #8]                 
+           000d0500  ldm      sp, {sp, pc}                 
+           000d0504  mov      r1, lr                       
+           000d0508  ldr      r0, [pc]                     
+           000d050c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d0510  andeq    r0, r0, #0xf8                
+
+== AchievementManager::ChooseActiveListeners  token 0x060000c5 @0x000d0514 (1212 bytes)
+   args: r0=this, 
+           000d0514  mov      ip, sp                       
+           000d0518  push     {r7, lr}                     
+           000d051c  mov      r7, sp                       
+           000d0520  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000d0524  sub      sp, sp, #0x78                
+           000d0528  mov      fp, sp                       
+           000d052c  str      r0, [fp, #0x68]              
+           000d0530  mov      r0, #0                       
+           000d0534  str      r0, [fp, #0x28]              
+           000d0538  mov      r0, #0                       
+           000d053c  str      r0, [fp, #0x2c]              
+           000d0540  mov      r0, #0                       
+           000d0544  str      r0, [fp, #0x30]              
+           000d0548  mov      r0, #0                       
+           000d054c  str      r0, [fp, #0x34]              
+           000d0550  ldr      r0, [fp, #0x68]              
+           000d0554  bl       #0xd0468                     ; CALL AchievementManager::ClearActiveListeners (direct)
+           000d0558  ldr      r0, [pc]                     
+           000d055c  b        #0xd0564                     ; -> L_d0564
+           000d0560  .word    0x00ed4a70                   ; literal 15551088 / 
+L_d0564:   000d0564  ldr      r0, [pc, r0]                 ; GOT[157] VTABLE System.Collections.Generic.List`1<AchievementListener>
+           000d0568  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000d056c  ldr      r1, [pc]                     
+           000d0570  b        #0xd0578                     ; -> L_d0578
+           000d0574  .word    0x00ed4a60                   ; literal 15551072 / 
+L_d0578:   000d0578  ldr      r1, [pc, r1]                 ; GOT[158] SFLDA System.Collections.Generic.List`1<AchievementListener>::EmptyArray
+           000d057c  ldr      r1, [r1]                     
+           000d0580  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d0584  str      r0, [fp]                     
+           000d0588  mov      r0, #0                       
+           000d058c  str      r0, [fp, #4]                 
+           000d0590  ldr      r0, [fp, #0x68]              
+           000d0594  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: linearAchievements)
+           000d0598  str      r0, [fp, #8]                 
+           000d059c  mov      r0, #0                       
+           000d05a0  str      r0, [fp, #0xc]               
+           000d05a4  b        #0xd061c                     ; -> L_d061c
+L_d05a8:   000d05a8  ldr      r0, [fp, #8]                 
+           000d05ac  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000d05b0  ldr      r1, [fp, #0xc]               
+           000d05b4  cmp      r2, r1                       
+           000d05b8  blls     #0xd09b0                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d05bc  lsl      r1, r1, #2                   
+           000d05c0  add      r0, r0, r1                   
+           000d05c4  add      r0, r0, #0x10                
+           000d05c8  ldr      r6, [r0]                     
+           000d05cc  mov      r1, r6                       
+           000d05d0  mov      r0, r1                       
+           000d05d4  ldr      r1, [r1]                     
+           000d05d8  mov      lr, pc                       
+           000d05dc  ldr      pc, [r1, #0x40]              ; VIRTUAL CALL slot +0x40: AchievementListener::IsAvailable | BaseCarAIState::Init | BaseEffect::Shutdown | BaseMission::Update | BoatAnchorEffect::Shutdown | BoosterEffect::Shutdown | BrakeMission::Update | BuyPowerupMission::Update ...(74)
+           000d05e0  cmp      r0, #0                       
+           000d05e4  beq      #0xd0610                     ; -> L_d0610
+           000d05e8  ldr      r0, [fp]                     
+           000d05ec  mov      r1, r6                       
+           000d05f0  ldr      r2, [fp]                     
+           000d05f4  ldr      lr, [r2]                     
+           000d05f8  bl       #0x22b700                    ; CALL System.Collections.Generic.List`1<AchievementListener>::Add
+           000d05fc  ldr      r0, [fp, #4]                 
+           000d0600  add      r0, r0, #1                   
+           000d0604  str      r0, [fp, #4]                 
+           000d0608  cmp      r0, #2                       
+           000d060c  beq      #0xd0630                     ; -> L_d0630
+L_d0610:   000d0610  ldr      r0, [fp, #0xc]               
+           000d0614  add      r0, r0, #1                   
+           000d0618  str      r0, [fp, #0xc]               
+L_d061c:   000d061c  ldr      r0, [fp, #8]                 
+           000d0620  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000d0624  ldr      r0, [fp, #0xc]               
+           000d0628  cmp      r0, r1                       
+           000d062c  blt      #0xd05a8                     ; -> L_d05a8
+L_d0630:   000d0630  ldr      r0, [fp, #0x68]              
+           000d0634  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: randomAchievements)
+           000d0638  str      r0, [fp, #0x74]              
+           000d063c  ldr      r0, [pc]                     
+           000d0640  b        #0xd0648                     ; -> L_d0648
+           000d0644  .word    0x00ed498c                   ; literal 15550860 / 
+L_d0648:   000d0648  ldr      r0, [pc, r0]                 ; GOT[157] VTABLE System.Collections.Generic.List`1<AchievementListener>
+           000d064c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000d0650  ldr      r1, [fp, #0x74]              
+           000d0654  str      r0, [fp, #0x70]              
+           000d0658  bl       #0x22b710                    ; CALL System.Collections.Generic.List`1<AchievementListener>::.ctor
+           000d065c  ldr      r0, [fp, #0x70]              
+           000d0660  mov      r5, r0                       
+           000d0664  mov      r4, #0                       
+           000d0668  b        #0xd0784                     ; -> L_d0784
+L_d066c:   000d066c  mov      sl, #0                       
+           000d0670  b        #0xd06f4                     ; -> L_d06f4
+L_d0674:   000d0674  ldr      lr, [r5]                     
+           000d0678  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000d067c  mov      r1, #2                       
+           000d0680  bl       #0x22a9a0                    ; CALL [INTERNAL_METHOD] __emul_op_idiv
+           000d0684  mov      r1, r0                       
+           000d0688  mov      r0, #0                       
+           000d068c  bl       #0x22a800                    ; CALL UnityEngine.Random::Range
+           000d0690  str      r0, [fp, #0x10]              
+           000d0694  ldr      lr, [r5]                     
+           000d0698  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000d069c  mov      r1, #2                       
+           000d06a0  bl       #0x22a9a0                    ; CALL [INTERNAL_METHOD] __emul_op_idiv
+           000d06a4  ldr      lr, [r5]                     
+           000d06a8  ldr      r1, [r5, #0xc]               ; field+0xc 
+           000d06ac  sub      r1, r1, #1                   
+           000d06b0  bl       #0x22a800                    ; CALL UnityEngine.Random::Range
+           000d06b4  str      r0, [fp, #0x14]              
+           000d06b8  mov      r0, r5                       
+           000d06bc  ldr      r1, [fp, #0x14]              
+           000d06c0  ldr      lr, [r5]                     
+           000d06c4  bl       #0x22b720                    ; CALL System.Collections.Generic.List`1<AchievementListener>::get_Item
+           000d06c8  str      r0, [fp, #0x18]              
+           000d06cc  mov      r0, r5                       
+           000d06d0  ldr      r1, [fp, #0x14]              
+           000d06d4  ldr      lr, [r5]                     
+           000d06d8  bl       #0x22b730                    ; CALL System.Collections.Generic.List`1<AchievementListener>::RemoveAt
+           000d06dc  mov      r0, r5                       
+           000d06e0  ldr      r1, [fp, #0x10]              
+           000d06e4  ldr      r2, [fp, #0x18]              
+           000d06e8  ldr      lr, [r5]                     
+           000d06ec  bl       #0x22b740                    ; CALL System.Collections.Generic.List`1<AchievementListener>::Insert
+           000d06f0  add      sl, sl, #1                   
+L_d06f4:   000d06f4  ldr      lr, [r5]                     
+           000d06f8  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000d06fc  mov      r1, #2                       
+           000d0700  bl       #0x22a9a0                    ; CALL [INTERNAL_METHOD] __emul_op_idiv
+           000d0704  cmp      sl, r0                       
+           000d0708  blt      #0xd0674                     ; -> L_d0674
+           000d070c  ldr      lr, [r5]                     
+           000d0710  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000d0714  sub      r1, r0, #1                   
+           000d0718  mov      r0, #1                       
+           000d071c  bl       #0x22a800                    ; CALL UnityEngine.Random::Range
+           000d0720  str      r0, [fp, #0x1c]              
+           000d0724  b        #0xd076c                     ; -> L_d076c
+L_d0728:   000d0728  mov      r0, r5                       
+           000d072c  ldr      r1, [fp, #0x1c]              
+           000d0730  ldr      lr, [r5]                     
+           000d0734  bl       #0x22b720                    ; CALL System.Collections.Generic.List`1<AchievementListener>::get_Item
+           000d0738  str      r0, [fp, #0x20]              
+           000d073c  mov      r0, r5                       
+           000d0740  ldr      r1, [fp, #0x1c]              
+           000d0744  ldr      lr, [r5]                     
+           000d0748  bl       #0x22b730                    ; CALL System.Collections.Generic.List`1<AchievementListener>::RemoveAt
+           000d074c  mov      r0, r5                       
+           000d0750  mov      r1, #0                       
+           000d0754  ldr      r2, [fp, #0x20]              
+           000d0758  ldr      lr, [r5]                     
+           000d075c  bl       #0x22b740                    ; CALL System.Collections.Generic.List`1<AchievementListener>::Insert
+           000d0760  ldr      r0, [fp, #0x1c]              
+           000d0764  add      r0, r0, #1                   
+           000d0768  str      r0, [fp, #0x1c]              
+L_d076c:   000d076c  ldr      lr, [r5]                     
+           000d0770  ldr      r1, [r5, #0xc]               ; field+0xc 
+           000d0774  ldr      r0, [fp, #0x1c]              
+           000d0778  cmp      r0, r1                       
+           000d077c  blt      #0xd0728                     ; -> L_d0728
+           000d0780  add      r4, r4, #1                   
+L_d0784:   000d0784  cmp      r4, #5                       
+           000d0788  blt      #0xd066c                     ; -> L_d066c
+           000d078c  add      r0, fp, #0x28                
+           000d0790  mov      r1, r5                       
+           000d0794  ldr      lr, [r5]                     
+           000d0798  bl       #0x22b750                    ; CALL System.Collections.Generic.List`1<AchievementListener>::GetEnumerator
+           000d079c  b        #0xd07fc                     ; -> L_d07fc
+L_d07a0:   000d07a0  ldr      r0, [pc]                     
+           000d07a4  b        #0xd07ac                     ; -> L_d07ac
+           000d07a8  .word    0x00ed4888                   ; literal 15550600 / 
+L_d07ac:   000d07ac  ldr      r0, [pc, r0]                 ; GOT[181] VTABLE System.Collections.Generic.List`1/Enumerator<AchievementListener>
+           000d07b0  ldr      r1, [fp, #0x34]              
+           000d07b4  str      r1, [fp, #0x24]              
+           000d07b8  mov      r0, r1                       
+           000d07bc  ldr      r1, [r1]                     
+           000d07c0  mov      lr, pc                       
+           000d07c4  ldr      pc, [r1, #0x40]              ; VIRTUAL CALL slot +0x40: AchievementListener::IsAvailable | BaseCarAIState::Init | BaseEffect::Shutdown | BaseMission::Update | BoatAnchorEffect::Shutdown | BoosterEffect::Shutdown | BrakeMission::Update | BuyPowerupMission::Update ...(74)
+           000d07c8  cmp      r0, #0                       
+           000d07cc  beq      #0xd07fc                     ; -> L_d07fc
+           000d07d0  ldr      r0, [fp]                     
+           000d07d4  ldr      r1, [fp, #0x24]              
+           000d07d8  ldr      r2, [fp]                     
+           000d07dc  ldr      lr, [r2]                     
+           000d07e0  bl       #0x22b700                    ; CALL System.Collections.Generic.List`1<AchievementListener>::Add
+           000d07e4  ldr      r0, [fp, #4]                 
+           000d07e8  add      r0, r0, #1                   
+           000d07ec  str      r0, [fp, #4]                 
+           000d07f0  cmp      r0, #3                       
+           000d07f4  bne      #0xd07fc                     ; -> L_d07fc
+           000d07f8  b        #0xd081c                     ; -> L_d081c
+L_d07fc:   000d07fc  add      r0, fp, #0x28                
+           000d0800  ldr      r8, [pc]                     
+           000d0804  b        #0xd080c                     ; -> L_d080c
+           000d0808  .word    0x00ed4828                   ; literal 15550504 / 
+L_d080c:   000d080c  ldr      r8, [pc, r8]                 ; GOT[181] VTABLE System.Collections.Generic.List`1/Enumerator<AchievementListener>
+           000d0810  bl       #0x22b760                    ; CALL System.Collections.Generic.List`1/Enumerator<AchievementListener>::MoveNext
+           000d0814  cmp      r0, #0                       
+           000d0818  bne      #0xd07a0                     ; -> L_d07a0
+L_d081c:   000d081c  bl       #0xd0824                     ; CALL 0xd0824
+           000d0820  b        #0xd08b0                     ; -> L_d08b0
+           000d0824  str      lr, [fp, #0x54]              
+           000d0828  ldr      r0, [fp, #0x28]              
+           000d082c  str      r0, [fp, #0x58]              
+           000d0830  ldr      r0, [fp, #0x2c]              
+           000d0834  str      r0, [fp, #0x5c]              
+           000d0838  ldr      r0, [fp, #0x30]              
+           000d083c  str      r0, [fp, #0x60]              
+           000d0840  ldr      r0, [fp, #0x34]              
+           000d0844  str      r0, [fp, #0x64]              
+           000d0848  ldr      r0, [pc]                     
+           000d084c  b        #0xd0854                     ; -> L_d0854
+           000d0850  .word    0x00ed47e0                   ; literal 15550432 / 
+L_d0854:   000d0854  ldr      r0, [pc, r0]                 ; GOT[181] VTABLE System.Collections.Generic.List`1/Enumerator<AchievementListener>
+           000d0858  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000d085c  mov      r1, r0                       
+           000d0860  add      r0, r1, #8                   
+           000d0864  ldr      r2, [fp, #0x58]              
+           000d0868  str      r2, [r0]                     
+           000d086c  ldr      r2, [fp, #0x5c]              
+           000d0870  str      r2, [r0, #4]                 ; field+0x4 
+           000d0874  ldr      r2, [fp, #0x60]              
+           000d0878  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d087c  ldr      r2, [fp, #0x64]              
+           000d0880  str      r2, [r0, #0xc]               ; field+0xc 
+           000d0884  mov      r0, r1                       
+           000d0888  ldr      r1, [r1]                     
+           000d088c  ldr      r8, [pc]                     
+           000d0890  b        #0xd0898                     ; -> L_d0898
+           000d0894  .word    0x00ed4510                   ; literal 15549712 / 
+L_d0898:   000d0898  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000d089c  add      lr, pc, #4                   
+           000d08a0  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000d08a4  andeq    r0, r0, r0                   
+           000d08a8  ldr      ip, [fp, #0x54]              
+           000d08ac  mov      pc, ip                       
+L_d08b0:   000d08b0  ldr      r0, [fp]                     
+           000d08b4  ldr      lr, [r0]                     
+           000d08b8  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000d08bc  ldr      r0, [pc]                     
+           000d08c0  b        #0xd08c8                     ; -> L_d08c8
+           000d08c4  .word    0x00ed4770                   ; literal 15550320 / 
+L_d08c8:   000d08c8  ldr      r0, [pc, r0]                 ; GOT[182] VTABLE AchievementListener[]
+           000d08cc  bl       #0x22a7c0                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           000d08d0  mov      r1, r0                       
+           000d08d4  ldr      r0, [fp, #0x68]              
+           000d08d8  str      r1, [r0, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000d08dc  mov      r0, #0                       
+           000d08e0  str      r0, [fp, #0x38]              
+           000d08e4  b        #0xd0988                     ; -> L_d0988
+L_d08e8:   000d08e8  ldr      r0, [fp, #0x68]              
+           000d08ec  ldr      r5, [r0, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000d08f0  ldr      r4, [fp, #0x38]              
+           000d08f4  ldr      r0, [fp]                     
+           000d08f8  ldr      r1, [fp, #0x38]              
+           000d08fc  ldr      r2, [fp]                     
+           000d0900  ldr      lr, [r2]                     
+           000d0904  bl       #0x22b720                    ; CALL System.Collections.Generic.List`1<AchievementListener>::get_Item
+           000d0908  bl       #0x22ad70                    ; CALL UnityEngine.Object::Instantiate
+           000d090c  mov      r6, r0                       
+           000d0910  cmp      r6, #0                       
+           000d0914  beq      #0xd0940                     ; -> L_d0940
+           000d0918  ldr      r0, [r6]                     
+           000d091c  ldr      r0, [r0]                     
+           000d0920  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d0924  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: WindowUnlockPrefab)
+           000d0928  ldr      r1, [pc]                     
+           000d092c  b        #0xd0934                     ; -> L_d0934
+           000d0930  .word    0x00ed4708                   ; literal 15550216 / 
+L_d0934:   000d0934  ldr      r1, [pc, r1]                 ; GOT[183] CLASS AchievementListener
+           000d0938  cmp      r0, r1                       
+           000d093c  blne     #0xd09c0                     ; THROW System.InvalidCastException (if ne)
+L_d0940:   000d0940  mov      r0, r5                       
+           000d0944  mov      r1, r4                       
+           000d0948  mov      r2, r6                       
+           000d094c  bl       #0x22a7f0                    ; CALL wrapper stelemref
+           000d0950  ldr      r0, [fp, #0x68]              
+           000d0954  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000d0958  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000d095c  ldr      r1, [fp, #0x38]              
+           000d0960  cmp      r2, r1                       
+           000d0964  blls     #0xd09b0                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d0968  lsl      r1, r1, #2                   
+           000d096c  add      r0, r0, r1                   
+           000d0970  add      r0, r0, #0x10                
+           000d0974  ldr      r0, [r0]                     
+           000d0978  bl       #0x22b640                    ; CALL UnityEngine.Object::DontDestroyOnLoad
+           000d097c  ldr      r0, [fp, #0x38]              
+           000d0980  add      r0, r0, #1                   
+           000d0984  str      r0, [fp, #0x38]              
+L_d0988:   000d0988  ldr      r0, [fp]                     
+           000d098c  ldr      lr, [r0]                     
+           000d0990  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000d0994  ldr      r0, [fp, #0x38]              
+           000d0998  cmp      r0, r1                       
+           000d099c  blt      #0xd08e8                     ; -> L_d08e8
+           000d09a0  add      sp, fp, #0x78                
+           000d09a4  pop      {r4, r5, r6, r8, sl, fp}     
+           000d09a8  ldr      r7, [sp, #8]                 
+           000d09ac  ldm      sp, {sp, pc}                 
+           000d09b0  mov      r1, lr                       
+           000d09b4  ldr      r0, [pc]                     
+           000d09b8  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d09bc  andeq    r0, r0, #0xf8                
+           000d09c0  mov      r1, lr                       
+           000d09c4  ldr      r0, [pc]                     
+           000d09c8  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d09cc  andeq    r0, r0, #0xfd                
+
+== AchievementManager::InitFrontEndAchievements  token 0x060000c6 @0x000d09d0 (468 bytes)
+   args: r0=this, 
+           000d09d0  mov      ip, sp                       
+           000d09d4  push     {r7, lr}                     
+           000d09d8  mov      r7, sp                       
+           000d09dc  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000d09e0  sub      sp, sp, #0x10                
+           000d09e4  mov      fp, sp                       
+           000d09e8  str      r0, [fp, #8]                 
+           000d09ec  ldr      r0, [fp, #8]                 
+           000d09f0  bl       #0xd0468                     ; CALL AchievementManager::ClearActiveListeners (direct)
+           000d09f4  ldr      r0, [pc]                     
+           000d09f8  b        #0xd0a00                     ; -> L_d0a00
+           000d09fc  .word    0x00ed45d4                   ; literal 15549908 / 
+L_d0a00:   000d0a00  ldr      r0, [pc, r0]                 ; GOT[157] VTABLE System.Collections.Generic.List`1<AchievementListener>
+           000d0a04  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000d0a08  ldr      r1, [pc]                     
+           000d0a0c  b        #0xd0a14                     ; -> L_d0a14
+           000d0a10  .word    0x00ed45c4                   ; literal 15549892 / 
+L_d0a14:   000d0a14  ldr      r1, [pc, r1]                 ; GOT[158] SFLDA System.Collections.Generic.List`1<AchievementListener>::EmptyArray
+           000d0a18  ldr      r1, [r1]                     
+           000d0a1c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d0a20  mov      r4, r0                       
+           000d0a24  ldr      r0, [fp, #8]                 
+           000d0a28  ldr      sl, [r0, #0x20]              ; field+0x20 (this-class: frontEndAchievements)
+           000d0a2c  mov      r0, #0                       
+           000d0a30  str      r0, [fp]                     
+           000d0a34  b        #0xd0a90                     ; -> L_d0a90
+L_d0a38:   000d0a38  ldr      r1, [sl, #0xc]               ; field+0xc 
+           000d0a3c  ldr      r0, [fp]                     
+           000d0a40  cmp      r1, r0                       
+           000d0a44  blls     #0xd0b84                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d0a48  lsl      r0, r0, #2                   
+           000d0a4c  add      r0, sl, r0                   
+           000d0a50  add      r0, r0, #0x10                
+           000d0a54  ldr      r6, [r0]                     
+           000d0a58  mov      r1, r6                       
+           000d0a5c  mov      r0, r1                       
+           000d0a60  ldr      r1, [r1]                     
+           000d0a64  mov      lr, pc                       
+           000d0a68  ldr      pc, [r1, #0x40]              ; VIRTUAL CALL slot +0x40: AchievementListener::IsAvailable | BaseCarAIState::Init | BaseEffect::Shutdown | BaseMission::Update | BoatAnchorEffect::Shutdown | BoosterEffect::Shutdown | BrakeMission::Update | BuyPowerupMission::Update ...(74)
+           000d0a6c  cmp      r0, #0                       
+           000d0a70  beq      #0xd0a84                     ; -> L_d0a84
+           000d0a74  mov      r0, r4                       
+           000d0a78  mov      r1, r6                       
+           000d0a7c  ldr      lr, [r4]                     
+           000d0a80  bl       #0x22b700                    ; CALL System.Collections.Generic.List`1<AchievementListener>::Add
+L_d0a84:   000d0a84  ldr      r0, [fp]                     
+           000d0a88  add      r0, r0, #1                   
+           000d0a8c  str      r0, [fp]                     
+L_d0a90:   000d0a90  ldr      r1, [sl, #0xc]               ; field+0xc 
+           000d0a94  ldr      r0, [fp]                     
+           000d0a98  cmp      r0, r1                       
+           000d0a9c  blt      #0xd0a38                     ; -> L_d0a38
+           000d0aa0  ldr      lr, [r4]                     
+           000d0aa4  ldr      r1, [r4, #0xc]               ; field+0xc 
+           000d0aa8  ldr      r0, [pc]                     
+           000d0aac  b        #0xd0ab4                     ; -> L_d0ab4
+           000d0ab0  .word    0x00ed4584                   ; literal 15549828 / 
+L_d0ab4:   000d0ab4  ldr      r0, [pc, r0]                 ; GOT[182] VTABLE AchievementListener[]
+           000d0ab8  bl       #0x22a7c0                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           000d0abc  mov      r1, r0                       
+           000d0ac0  ldr      r0, [fp, #8]                 
+           000d0ac4  str      r1, [r0, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000d0ac8  mov      r5, #0                       
+           000d0acc  b        #0xd0b64                     ; -> L_d0b64
+L_d0ad0:   000d0ad0  ldr      r0, [fp, #8]                 
+           000d0ad4  ldr      r6, [r0, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000d0ad8  mov      sl, r5                       
+           000d0adc  mov      r0, r4                       
+           000d0ae0  mov      r1, r5                       
+           000d0ae4  ldr      lr, [r4]                     
+           000d0ae8  bl       #0x22b720                    ; CALL System.Collections.Generic.List`1<AchievementListener>::get_Item
+           000d0aec  bl       #0x22ad70                    ; CALL UnityEngine.Object::Instantiate
+           000d0af0  str      r0, [fp, #4]                 
+           000d0af4  cmp      r0, #0                       
+           000d0af8  beq      #0xd0b28                     ; -> L_d0b28
+           000d0afc  ldr      r0, [fp, #4]                 
+           000d0b00  ldr      r0, [r0]                     
+           000d0b04  ldr      r0, [r0]                     
+           000d0b08  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d0b0c  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: WindowUnlockPrefab)
+           000d0b10  ldr      r1, [pc]                     
+           000d0b14  b        #0xd0b1c                     ; -> L_d0b1c
+           000d0b18  .word    0x00ed4520                   ; literal 15549728 / 
+L_d0b1c:   000d0b1c  ldr      r1, [pc, r1]                 ; GOT[183] CLASS AchievementListener
+           000d0b20  cmp      r0, r1                       
+           000d0b24  blne     #0xd0b94                     ; THROW System.InvalidCastException (if ne)
+L_d0b28:   000d0b28  mov      r0, r6                       
+           000d0b2c  mov      r1, sl                       
+           000d0b30  ldr      r2, [fp, #4]                 
+           000d0b34  bl       #0x22a7f0                    ; CALL wrapper stelemref
+           000d0b38  ldr      r0, [fp, #8]                 
+           000d0b3c  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: activeListeners)
+           000d0b40  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000d0b44  cmp      r1, r5                       
+           000d0b48  blls     #0xd0b84                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d0b4c  lsl      r1, r5, #2                   
+           000d0b50  add      r0, r0, r1                   
+           000d0b54  add      r0, r0, #0x10                
+           000d0b58  ldr      r0, [r0]                     
+           000d0b5c  bl       #0x22b640                    ; CALL UnityEngine.Object::DontDestroyOnLoad
+           000d0b60  add      r5, r5, #1                   
+L_d0b64:   000d0b64  ldr      lr, [r4]                     
+           000d0b68  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000d0b6c  cmp      r5, r0                       
+           000d0b70  blt      #0xd0ad0                     ; -> L_d0ad0
+           000d0b74  add      sp, fp, #0x10                
+           000d0b78  pop      {r4, r5, r6, r8, sl, fp}     
+           000d0b7c  ldr      r7, [sp, #8]                 
+           000d0b80  ldm      sp, {sp, pc}                 
+           000d0b84  mov      r1, lr                       
+           000d0b88  ldr      r0, [pc]                     
+           000d0b8c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d0b90  andeq    r0, r0, #0xf8                
+           000d0b94  mov      r1, lr                       
+           000d0b98  ldr      r0, [pc]                     
+           000d0b9c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d0ba0  andeq    r0, r0, #0xfd                

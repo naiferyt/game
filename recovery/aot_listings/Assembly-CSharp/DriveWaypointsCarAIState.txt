@@ -1,0 +1,370 @@
+####################################################################################################
+# TYPE DriveWaypointsCarAIState  (instance size 0x20)
+#   +0x08 parentAI                       CarAI
+#   +0x0c targetSP                       SpeedPoint
+#   +0x10 preferedBranch                 SpeedPoint
+#   +0x14 desiredFacing                  UnityEngine.Vector3
+#   vtable slots: 4:Shutdown, 5:FixedUpdate, 6:Update, 7:Init, 8:GetAIStateEnum
+####################################################################################################
+== DriveWaypointsCarAIState::.ctor  token 0x06000043 @0x000c6170 (84 bytes)
+   args: r0=this, 
+           000c6170  mov      ip, sp                       
+           000c6174  push     {r7, lr}                     
+           000c6178  mov      r7, sp                       
+           000c617c  push     {r8, fp, ip, lr}             
+           000c6180  sub      sp, sp, #0x10                
+           000c6184  mov      fp, sp                       
+           000c6188  str      r0, [fp, #0xc]               
+           000c618c  mov      r0, fp                       
+           000c6190  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           000c6194  ldr      r0, [fp, #0xc]               
+           000c6198  add      r0, r0, #0x14                
+           000c619c  ldr      r1, [fp]                     
+           000c61a0  str      r1, [r0]                     
+           000c61a4  ldr      r1, [fp, #4]                 
+           000c61a8  str      r1, [r0, #4]                 ; field+0x4 
+           000c61ac  ldr      r1, [fp, #8]                 
+           000c61b0  str      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c61b4  add      sp, fp, #0x10                
+           000c61b8  pop      {r8, fp}                     
+           000c61bc  ldr      r7, [sp, #8]                 
+           000c61c0  ldm      sp, {sp, pc}                 
+
+== DriveWaypointsCarAIState::GetAIStateEnum  token 0x06000044 @0x000c61c4 (48 bytes)
+   args: r0=this, 
+           000c61c4  mov      ip, sp                       
+           000c61c8  push     {r7, lr}                     
+           000c61cc  mov      r7, sp                       
+           000c61d0  push     {r8, fp, ip, lr}             
+           000c61d4  sub      sp, sp, #8                   
+           000c61d8  mov      fp, sp                       
+           000c61dc  str      r0, [fp]                     
+           000c61e0  mov      r0, #0                       
+           000c61e4  add      sp, fp, #8                   
+           000c61e8  pop      {r8, fp}                     
+           000c61ec  ldr      r7, [sp, #8]                 
+           000c61f0  ldm      sp, {sp, pc}                 
+
+== DriveWaypointsCarAIState::Init  token 0x06000045 @0x000c61f4 (112 bytes)
+   args: r0=this, 
+           000c61f4  mov      ip, sp                       
+           000c61f8  push     {r7, lr}                     
+           000c61fc  mov      r7, sp                       
+           000c6200  push     {r8, fp, ip, lr}             
+           000c6204  sub      sp, sp, #0x20                
+           000c6208  mov      fp, sp                       
+           000c620c  str      r0, [fp, #0x18]              
+           000c6210  ldr      r0, [fp, #0x18]              
+           000c6214  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6218  mov      r0, r1                       
+           000c621c  ldr      lr, [r1]                     
+           000c6220  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c6224  mov      r2, r0                       
+           000c6228  add      r0, fp, #0xc                 
+           000c622c  mov      r1, r2                       
+           000c6230  ldr      lr, [r2]                     
+           000c6234  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c6238  ldr      r0, [fp, #0xc]               
+           000c623c  ldr      r1, [fp, #0x10]              
+           000c6240  ldr      r2, [fp, #0x14]              
+           000c6244  bl       #0x22afc0                    ; CALL SpeedPoint::FindClosestSpeedPoint
+           000c6248  mov      r1, r0                       
+           000c624c  ldr      r0, [fp, #0x18]              
+           000c6250  str      r1, [r0, #0xc]               ; field+0xc (this-class: targetSP)
+           000c6254  add      sp, fp, #0x20                
+           000c6258  pop      {r8, fp}                     
+           000c625c  ldr      r7, [sp, #8]                 
+           000c6260  ldm      sp, {sp, pc}                 
+
+== DriveWaypointsCarAIState::Update  token 0x06000046 @0x000c6264 (988 bytes)
+   args: r0=this, 
+           000c6264  mov      ip, sp                       
+           000c6268  push     {r7, lr}                     
+           000c626c  mov      r7, sp                       
+           000c6270  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000c6274  sub      sp, sp, #0xf8                
+           000c6278  mov      fp, sp                       
+           000c627c  mov      sl, r0                       
+           000c6280  mov      r0, #0                       
+           000c6284  str      r0, [fp, #0x10]              
+           000c6288  mov      r0, #0                       
+           000c628c  str      r0, [fp, #0x14]              
+           000c6290  mov      r0, #0                       
+           000c6294  str      r0, [fp, #0x18]              
+           000c6298  mov      r0, #0                       
+           000c629c  str      r0, [fp, #0x1c]              
+           000c62a0  mov      r0, #0                       
+           000c62a4  str      r0, [fp, #0x20]              
+           000c62a8  mov      r0, #0                       
+           000c62ac  str      r0, [fp, #0x24]              
+           000c62b0  mov      r0, #0                       
+           000c62b4  str      r0, [fp, #0x2c]              
+           000c62b8  mov      r0, #0                       
+           000c62bc  str      r0, [fp, #0x30]              
+           000c62c0  mov      r0, #0                       
+           000c62c4  str      r0, [fp, #0x34]              
+           000c62c8  mov      r0, #0                       
+           000c62cc  str      r0, [fp, #0x38]              
+           000c62d0  mov      r0, #0                       
+           000c62d4  str      r0, [fp, #0x3c]              
+           000c62d8  mov      r0, #0                       
+           000c62dc  str      r0, [fp, #0x40]              
+           000c62e0  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: targetSP)
+           000c62e4  mov      r1, #0                       
+           000c62e8  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000c62ec  cmp      r0, #0                       
+           000c62f0  beq      #0xc632c                     ; -> L_c632c
+           000c62f4  b        #0xc6620                     ; -> L_c6620
+L_c62f8:   000c62f8  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: preferedBranch)
+           000c62fc  mov      r1, #0                       
+           000c6300  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000c6304  cmp      r0, #0                       
+           000c6308  beq      #0xc6320                     ; -> L_c6320
+           000c630c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: preferedBranch)
+           000c6310  str      r0, [sl, #0xc]               ; field+0xc (this-class: targetSP)
+           000c6314  mov      r0, #0                       
+           000c6318  str      r0, [sl, #0x10]              ; field+0x10 (this-class: preferedBranch)
+           000c631c  b        #0xc632c                     ; -> L_c632c
+L_c6320:   000c6320  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: targetSP)
+           000c6324  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: preferedBranch)
+           000c6328  str      r0, [sl, #0xc]               ; field+0xc (this-class: targetSP)
+L_c632c:   000c632c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: targetSP)
+           000c6330  str      r0, [fp, #0xe0]              
+           000c6334  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6338  mov      r0, r1                       
+           000c633c  ldr      lr, [r1]                     
+           000c6340  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c6344  mov      r2, r0                       
+           000c6348  add      r0, fp, #0x80                
+           000c634c  mov      r1, r2                       
+           000c6350  ldr      lr, [r2]                     
+           000c6354  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c6358  ldr      ip, [fp, #0xe0]              
+           000c635c  mov      r0, ip                       
+           000c6360  ldr      r1, [fp, #0x80]              
+           000c6364  ldr      r2, [fp, #0x84]              
+           000c6368  ldr      r3, [fp, #0x88]              
+           000c636c  ldr      lr, [ip]                     
+           000c6370  bl       #0x1157c8                    ; CALL SpeedPoint::IsPointForward (direct)
+           000c6374  cmp      r0, #0                       
+           000c6378  bne      #0xc62f8                     ; -> L_c62f8
+           000c637c  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: targetSP)
+           000c6380  mov      r0, r1                       
+           000c6384  ldr      lr, [r1]                     
+           000c6388  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c638c  mov      r2, r0                       
+           000c6390  add      r0, fp, #0x8c                
+           000c6394  mov      r1, r2                       
+           000c6398  ldr      lr, [r2]                     
+           000c639c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c63a0  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c63a4  mov      r0, r1                       
+           000c63a8  ldr      lr, [r1]                     
+           000c63ac  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c63b0  mov      r2, r0                       
+           000c63b4  add      r0, fp, #0x98                
+           000c63b8  mov      r1, r2                       
+           000c63bc  ldr      lr, [r2]                     
+           000c63c0  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c63c4  add      r0, fp, #0x10                
+           000c63c8  ldr      r1, [fp, #0x8c]              
+           000c63cc  ldr      r2, [fp, #0x90]              
+           000c63d0  ldr      r3, [fp, #0x94]              
+           000c63d4  ldr      ip, [fp, #0x98]              
+           000c63d8  str      ip, [sp]                     
+           000c63dc  ldr      ip, [fp, #0x9c]              
+           000c63e0  str      ip, [sp, #4]                 
+           000c63e4  ldr      ip, [fp, #0xa0]              
+           000c63e8  str      ip, [sp, #8]                 
+           000c63ec  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000c63f0  vldr     s4, [pc]                     ; float 0.0
+           000c63f4  b        #0xc63fc                     ; -> L_c63fc
+           000c63f8  .word    0x00000000                   ; literal 0 / 0
+L_c63fc:   000c63fc  vcvt.f64.f32 d2, s4                       
+           000c6400  vcvt.f32.f64 s0, d2                       
+           000c6404  vstr     s0, [fp, #0x14]              
+           000c6408  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: preferedBranch)
+           000c640c  mov      r1, #0                       
+           000c6410  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000c6414  cmp      r0, #0                       
+           000c6418  beq      #0xc6494                     ; -> L_c6494
+           000c641c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: targetSP)
+           000c6420  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: preferedBranch)
+           000c6424  str      r0, [sl, #0x10]              ; field+0x10 (this-class: preferedBranch)
+           000c6428  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: targetSP)
+           000c642c  ldr      r5, [r0, #0x18]              ; field+0x18 
+           000c6430  mov      r4, #0                       
+           000c6434  b        #0xc6488                     ; -> L_c6488
+L_c6438:   000c6438  ldr      r0, [r5, #0xc]               ; field+0xc (this-class: targetSP)
+           000c643c  cmp      r0, r4                       
+           000c6440  blls     #0xc6630                     ; THROW System.IndexOutOfRangeException (if ls)
+           000c6444  lsl      r0, r4, #2                   
+           000c6448  add      r0, r5, r0                   
+           000c644c  add      r0, r0, #0x10                
+           000c6450  ldr      r6, [r0]                     
+           000c6454  bl       #0x22a870                    ; CALL UnityEngine.Random::get_value
+           000c6458  vmov     s6, r0                       
+           000c645c  vcvt.f64.f32 d3, s6                       
+           000c6460  vldr     s0, [r6, #0xc]               ; field+0xc (this-class: targetSP)
+           000c6464  vcvt.f64.f32 d2, s0                       
+           000c6468  vcmp.f64 d2, d3                       
+           000c646c  vmrs     apsr_nzcv, fpscr             
+           000c6470  bvs      #0xc6484                     ; -> L_c6484
+           000c6474  bmi      #0xc6484                     ; -> L_c6484
+           000c6478  ldr      r0, [r6, #8]                 ; field+0x8 (this-class: parentAI)
+           000c647c  str      r0, [sl, #0x10]              ; field+0x10 (this-class: preferedBranch)
+           000c6480  b        #0xc6494                     ; -> L_c6494
+L_c6484:   000c6484  add      r4, r4, #1                   
+L_c6488:   000c6488  ldr      r0, [r5, #0xc]               ; field+0xc (this-class: targetSP)
+           000c648c  cmp      r4, r0                       
+           000c6490  blt      #0xc6438                     ; -> L_c6438
+L_c6494:   000c6494  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: preferedBranch)
+           000c6498  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: preferedBranch)
+           000c649c  mov      r0, r1                       
+           000c64a0  ldr      lr, [r1]                     
+           000c64a4  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c64a8  mov      r2, r0                       
+           000c64ac  add      r0, fp, #0xa4                
+           000c64b0  mov      r1, r2                       
+           000c64b4  ldr      lr, [r2]                     
+           000c64b8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c64bc  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c64c0  mov      r0, r1                       
+           000c64c4  ldr      lr, [r1]                     
+           000c64c8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c64cc  mov      r2, r0                       
+           000c64d0  add      r0, fp, #0xb0                
+           000c64d4  mov      r1, r2                       
+           000c64d8  ldr      lr, [r2]                     
+           000c64dc  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c64e0  add      r0, fp, #0x1c                
+           000c64e4  ldr      r1, [fp, #0xa4]              
+           000c64e8  ldr      r2, [fp, #0xa8]              
+           000c64ec  ldr      r3, [fp, #0xac]              
+           000c64f0  ldr      ip, [fp, #0xb0]              
+           000c64f4  str      ip, [sp]                     
+           000c64f8  ldr      ip, [fp, #0xb4]              
+           000c64fc  str      ip, [sp, #4]                 
+           000c6500  ldr      ip, [fp, #0xb8]              
+           000c6504  str      ip, [sp, #8]                 
+           000c6508  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000c650c  vldr     s4, [pc]                     ; float 0.0
+           000c6510  b        #0xc6518                     ; -> L_c6518
+           000c6514  .word    0x00000000                   ; literal 0 / 0
+L_c6518:   000c6518  vcvt.f64.f32 d2, s4                       
+           000c651c  vcvt.f32.f64 s0, d2                       
+           000c6520  vstr     s0, [fp, #0x20]              
+           000c6524  vldr     s4, [pc]                     ; float 1.0
+           000c6528  b        #0xc6530                     ; -> L_c6530
+           000c652c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_c6530:   000c6530  vcvt.f64.f32 d2, s4                       
+           000c6534  vstr     d2, [fp, #0xe8]              
+           000c6538  add      r0, fp, #0x10                
+           000c653c  bl       #0x22aba0                    ; CALL UnityEngine.Vector3::get_sqrMagnitude
+           000c6540  vmov     s4, r0                       
+           000c6544  vcvt.f64.f32 d2, s4                       
+           000c6548  vstr     d2, [fp, #0xf0]              
+           000c654c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: targetSP)
+           000c6550  ldr      r2, [r0, #0x14]              ; field+0x14 (this-class: desiredFacing)
+           000c6554  add      r0, fp, #0x2c                
+           000c6558  mov      r1, r2                       
+           000c655c  ldr      lr, [r2]                     
+           000c6560  bl       #0x11570c                    ; CALL SpeedPoint::GetSPLine (direct)
+           000c6564  add      r0, fp, #0x2c                
+           000c6568  bl       #0x22aba0                    ; CALL UnityEngine.Vector3::get_sqrMagnitude
+           000c656c  vmov     s8, r0                       
+           000c6570  vcvt.f64.f32 d4, s8                       
+           000c6574  vldr     d2, [fp, #0xe8]              
+           000c6578  vldr     d3, [fp, #0xf0]              
+           000c657c  vdiv.f64 d3, d3, d4                   
+           000c6580  vsub.f64 d2, d2, d3                   
+           000c6584  vcvt.f32.f64 s0, d2                       
+           000c6588  vstr     s0, [fp, #0x28]              
+           000c658c  ldr      r0, [fp, #0x10]              
+           000c6590  str      r0, [fp, #0xbc]              
+           000c6594  ldr      r0, [fp, #0x14]              
+           000c6598  str      r0, [fp, #0xc0]              
+           000c659c  ldr      r0, [fp, #0x18]              
+           000c65a0  str      r0, [fp, #0xc4]              
+           000c65a4  ldr      r0, [fp, #0x1c]              
+           000c65a8  str      r0, [fp, #0xc8]              
+           000c65ac  ldr      r0, [fp, #0x20]              
+           000c65b0  str      r0, [fp, #0xcc]              
+           000c65b4  ldr      r0, [fp, #0x24]              
+           000c65b8  str      r0, [fp, #0xd0]              
+           000c65bc  vldr     s0, [fp, #0x28]              
+           000c65c0  vcvt.f64.f32 d2, s0                       
+           000c65c4  add      r0, fp, #0x38                
+           000c65c8  ldr      r1, [fp, #0xbc]              
+           000c65cc  ldr      r2, [fp, #0xc0]              
+           000c65d0  ldr      r3, [fp, #0xc4]              
+           000c65d4  ldr      ip, [fp, #0xc8]              
+           000c65d8  str      ip, [sp]                     
+           000c65dc  ldr      ip, [fp, #0xcc]              
+           000c65e0  str      ip, [sp, #4]                 
+           000c65e4  ldr      ip, [fp, #0xd0]              
+           000c65e8  str      ip, [sp, #8]                 
+           000c65ec  vcvt.f32.f64 s0, d2                       
+           000c65f0  vstr     s0, [sp, #0xc]               
+           000c65f4  bl       #0x22afa0                    ; CALL UnityEngine.Vector3::Lerp
+           000c65f8  add      r1, fp, #0x38                
+           000c65fc  add      r0, fp, #0xd4                
+           000c6600  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           000c6604  add      r0, sl, #0x14                
+           000c6608  ldr      r1, [fp, #0xd4]              
+           000c660c  str      r1, [r0]                     
+           000c6610  ldr      r1, [fp, #0xd8]              
+           000c6614  str      r1, [r0, #4]                 ; field+0x4 
+           000c6618  ldr      r1, [fp, #0xdc]              
+           000c661c  str      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+L_c6620:   000c6620  add      sp, fp, #0xf8                
+           000c6624  pop      {r4, r5, r6, r8, sl, fp}     
+           000c6628  ldr      r7, [sp, #8]                 
+           000c662c  ldm      sp, {sp, pc}                 
+           000c6630  mov      r1, lr                       
+           000c6634  ldr      r0, [pc]                     
+           000c6638  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000c663c  andeq    r0, r0, #0xf8                
+
+== DriveWaypointsCarAIState::FixedUpdate  token 0x06000047 @0x000c6640 (104 bytes)
+   args: r0=this, 
+           000c6640  mov      ip, sp                       
+           000c6644  push     {r7, lr}                     
+           000c6648  mov      r7, sp                       
+           000c664c  push     {r8, fp, ip, lr}             
+           000c6650  sub      sp, sp, #0x10                
+           000c6654  mov      fp, sp                       
+           000c6658  str      r0, [fp, #0xc]               
+           000c665c  ldr      r0, [fp, #0xc]               
+           000c6660  ldr      ip, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6664  add      r0, r0, #0x14                
+           000c6668  ldr      r1, [r0]                     
+           000c666c  str      r1, [fp]                     
+           000c6670  ldr      r1, [r0, #4]                 ; field+0x4 
+           000c6674  str      r1, [fp, #4]                 
+           000c6678  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c667c  str      r0, [fp, #8]                 
+           000c6680  mov      r0, ip                       
+           000c6684  ldr      r1, [fp]                     
+           000c6688  ldr      r2, [fp, #4]                 
+           000c668c  ldr      r3, [fp, #8]                 
+           000c6690  ldr      lr, [ip]                     
+           000c6694  bl       #0xc41ac                     ; CALL CarAI::DriveWithFacing (direct)
+           000c6698  add      sp, fp, #0x10                
+           000c669c  pop      {r8, fp}                     
+           000c66a0  ldr      r7, [sp, #8]                 
+           000c66a4  ldm      sp, {sp, pc}                 
+
+== DriveWaypointsCarAIState::Shutdown  token 0x06000048 @0x000c66a8 (44 bytes)
+   args: r0=this, 
+           000c66a8  mov      ip, sp                       
+           000c66ac  push     {r7, lr}                     
+           000c66b0  mov      r7, sp                       
+           000c66b4  push     {r8, fp, ip, lr}             
+           000c66b8  sub      sp, sp, #8                   
+           000c66bc  mov      fp, sp                       
+           000c66c0  str      r0, [fp]                     
+           000c66c4  add      sp, fp, #8                   
+           000c66c8  pop      {r8, fp}                     
+           000c66cc  ldr      r7, [sp, #8]                 
+           000c66d0  ldm      sp, {sp, pc}                 

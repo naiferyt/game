@@ -1,0 +1,473 @@
+####################################################################################################
+# TYPE FrontEndTutorialHandler  (instance size 0x20)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 popupPrefab                    UnityEngine.GameObject
+#   +0x14 popupList                      FrontEndTutorialHandler/TutorialSettings[]
+#   +0x18 currentPopup                   UnityEngine.GameObject
+#   +0x1c autoLaunch                     bool
+#   +0x1d activeTutorial                 bool
+#   vtable slots: 
+####################################################################################################
+== FrontEndTutorialHandler::.ctor  token 0x06000677 @0x0012bd58 (68 bytes)
+   args: r0=this, 
+           0012bd58  mov      ip, sp                       
+           0012bd5c  push     {r7, lr}                     
+           0012bd60  mov      r7, sp                       
+           0012bd64  push     {r8, sl, fp, ip, lr}         
+           0012bd68  sub      sp, sp, #4                   
+           0012bd6c  mov      fp, sp                       
+           0012bd70  mov      sl, r0                       
+           0012bd74  mov      r0, #1                       
+           0012bd78  strb     r0, [sl, #0x1c]              ; field+0x1c (this-class: autoLaunch)
+           0012bd7c  mov      r0, #1                       
+           0012bd80  strb     r0, [sl, #0x1d]              ; field+0x1d (this-class: activeTutorial)
+           0012bd84  mov      r0, sl                       
+           0012bd88  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0012bd8c  add      sp, fp, #4                   
+           0012bd90  pop      {r8, sl, fp}                 
+           0012bd94  ldr      r7, [sp, #8]                 
+           0012bd98  ldm      sp, {sp, pc}                 
+
+== FrontEndTutorialHandler::get_ActiveTutorial  token 0x06000678 @0x0012bd9c (52 bytes)
+   args: r0=this, 
+           0012bd9c  mov      ip, sp                       
+           0012bda0  push     {r7, lr}                     
+           0012bda4  mov      r7, sp                       
+           0012bda8  push     {r8, fp, ip, lr}             
+           0012bdac  sub      sp, sp, #8                   
+           0012bdb0  mov      fp, sp                       
+           0012bdb4  str      r0, [fp]                     
+           0012bdb8  ldr      r0, [fp]                     
+           0012bdbc  ldrb     r0, [r0, #0x1d]              ; field+0x1d (this-class: activeTutorial)
+           0012bdc0  add      sp, fp, #8                   
+           0012bdc4  pop      {r8, fp}                     
+           0012bdc8  ldr      r7, [sp, #8]                 
+           0012bdcc  ldm      sp, {sp, pc}                 
+
+== FrontEndTutorialHandler::set_ActiveTutorial  token 0x06000679 @0x0012bdd0 (60 bytes)
+   args: r0=this, value
+           0012bdd0  mov      ip, sp                       
+           0012bdd4  push     {r7, lr}                     
+           0012bdd8  mov      r7, sp                       
+           0012bddc  push     {r8, fp, ip, lr}             
+           0012bde0  sub      sp, sp, #8                   
+           0012bde4  mov      fp, sp                       
+           0012bde8  str      r0, [fp]                     
+           0012bdec  strb     r1, [fp, #4]                 
+           0012bdf0  ldrb     r1, [fp, #4]                 
+           0012bdf4  ldr      r0, [fp]                     
+           0012bdf8  strb     r1, [r0, #0x1d]              ; field+0x1d (this-class: activeTutorial)
+           0012bdfc  add      sp, fp, #8                   
+           0012be00  pop      {r8, fp}                     
+           0012be04  ldr      r7, [sp, #8]                 
+           0012be08  ldm      sp, {sp, pc}                 
+
+== FrontEndTutorialHandler::GetNextTutorial  token 0x0600067a @0x0012be0c (160 bytes)
+   args: r0=this, 
+           0012be0c  mov      ip, sp                       
+           0012be10  push     {r7, lr}                     
+           0012be14  mov      r7, sp                       
+           0012be18  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0012be1c  sub      sp, sp, #4                   
+           0012be20  mov      fp, sp                       
+           0012be24  mov      sl, r0                       
+           0012be28  ldr      sl, [sl, #0x14]              ; field+0x14 (this-class: popupList)
+           0012be2c  mov      r5, #0                       
+           0012be30  b        #0x12be7c                    ; -> L_12be7c
+L_12be34:  0012be34  ldr      r0, [sl, #0xc]               ; field+0xc 
+           0012be38  cmp      r0, r5                       
+           0012be3c  blls     #0x12be9c                    ; THROW System.IndexOutOfRangeException (if ls)
+           0012be40  lsl      r0, r5, #2                   
+           0012be44  add      r0, sl, r0                   
+           0012be48  add      r0, r0, #0x10                
+           0012be4c  ldr      r6, [r0]                     
+           0012be50  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012be54  mov      r2, r0                       
+           0012be58  ldr      r1, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012be5c  mov      r0, r2                       
+           0012be60  ldr      lr, [r2]                     
+           0012be64  bl       #0xe6794                     ; CALL DataUtility::IsUnlocked (direct)
+           0012be68  cmp      r0, #0                       
+           0012be6c  bne      #0x12be78                    ; -> L_12be78
+           0012be70  mov      r0, r6                       
+           0012be74  b        #0x12be8c                    ; -> L_12be8c
+L_12be78:  0012be78  add      r5, r5, #1                   
+L_12be7c:  0012be7c  ldr      r0, [sl, #0xc]               ; field+0xc 
+           0012be80  cmp      r5, r0                       
+           0012be84  blt      #0x12be34                    ; -> L_12be34
+           0012be88  mov      r0, #0                       
+L_12be8c:  0012be8c  add      sp, fp, #4                   
+           0012be90  pop      {r5, r6, r8, sl, fp}         
+           0012be94  ldr      r7, [sp, #8]                 
+           0012be98  ldm      sp, {sp, pc}                 
+           0012be9c  mov      r1, lr                       
+           0012bea0  ldr      r0, [pc]                     
+           0012bea4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0012bea8  andeq    r0, r0, #0xf8                
+
+== FrontEndTutorialHandler::TriggerNext  token 0x0600067b @0x0012beac (588 bytes)
+   args: r0=this, 
+           0012beac  mov      ip, sp                       
+           0012beb0  push     {r7, lr}                     
+           0012beb4  mov      r7, sp                       
+           0012beb8  push     {r4, r6, r8, sl, fp, ip, lr} 
+           0012bebc  sub      sp, sp, #0x34                
+           0012bec0  mov      fp, sp                       
+           0012bec4  mov      sl, r0                       
+           0012bec8  mov      r0, sl                       
+           0012becc  bl       #0x12be0c                    ; CALL FrontEndTutorialHandler::GetNextTutorial (direct)
+           0012bed0  mov      r6, r0                       
+           0012bed4  cmp      r0, #0                       
+           0012bed8  beq      #0x12c0e0                    ; -> L_12c0e0
+           0012bedc  str      sl, [fp, #0xc]               
+           0012bee0  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: popupPrefab)
+           0012bee4  bl       #0x22ad70                    ; CALL UnityEngine.Object::Instantiate
+           0012bee8  mov      r4, r0                       
+           0012beec  str      r4, [fp, #8]                 
+           0012bef0  cmp      r4, #0                       
+           0012bef4  beq      #0x12bf28                    ; -> L_12bf28
+           0012bef8  ldr      r0, [r4]                     
+           0012befc  ldr      r0, [r0]                     
+           0012bf00  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012bf04  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012bf08  ldr      r1, [pc]                     
+           0012bf0c  b        #0x12bf14                    ; -> L_12bf14
+           0012bf10  .word    0x00e79038                   ; literal 15175736 / 
+L_12bf14:  0012bf14  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           0012bf18  cmp      r0, r1                       
+           0012bf1c  beq      #0x12bf28                    ; -> L_12bf28
+           0012bf20  mov      r0, #0                       
+           0012bf24  str      r0, [fp, #8]                 
+L_12bf28:  0012bf28  ldr      r1, [fp, #8]                 
+           0012bf2c  ldr      r0, [fp, #0xc]               
+           0012bf30  str      r1, [r0, #0x18]              ; field+0x18 (this-class: currentPopup)
+           0012bf34  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: popupPrefab)
+           0012bf38  mov      r1, #0                       
+           0012bf3c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012bf40  cmp      r0, #0                       
+           0012bf44  beq      #0x12bfb4                    ; -> L_12bfb4
+           0012bf48  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: currentPopup)
+           0012bf4c  ldr      r1, [pc]                     
+           0012bf50  b        #0x12bf58                    ; -> L_12bf58
+           0012bf54  .word    0x00e7a308                   ; literal 15180552 / 
+L_12bf58:  0012bf58  ldr      r1, [pc, r1]                 ; GOT[1344] METHOD_RGCTX UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012bf5c  ldr      lr, [r0]                     
+           0012bf60  mov      r8, r1                       
+           0012bf64  bl       #0x22eb20                    ; CALL UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012bf68  mov      ip, r0                       
+           0012bf6c  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: popupPrefab)
+           0012bf70  add      r0, r6, #0x18                
+           0012bf74  ldr      r2, [r0]                     
+           0012bf78  str      r2, [fp, #0x10]              
+           0012bf7c  ldr      r2, [r0, #4]                 ; field+0x4 
+           0012bf80  str      r2, [fp, #0x14]              
+           0012bf84  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012bf88  str      r0, [fp, #0x18]              
+           0012bf8c  mov      r0, ip                       
+           0012bf90  str      r0, [fp, #0x28]              
+           0012bf94  ldr      r2, [fp, #0x10]              
+           0012bf98  ldr      r3, [fp, #0x14]              
+           0012bf9c  ldr      r0, [fp, #0x18]              
+           0012bfa0  str      r0, [sp]                     
+           0012bfa4  ldr      r0, [fp, #0x28]              
+           0012bfa8  ldr      lr, [ip]                     
+           0012bfac  bl       #0x12dc54                    ; CALL FrontEndTutorialPublisher::SetAnchorPoint (direct)
+           0012bfb0  b        #0x12c01c                    ; -> L_12c01c
+L_12bfb4:  0012bfb4  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: currentPopup)
+           0012bfb8  ldr      r1, [pc]                     
+           0012bfbc  b        #0x12bfc4                    ; -> L_12bfc4
+           0012bfc0  .word    0x00e7a29c                   ; literal 15180444 / 
+L_12bfc4:  0012bfc4  ldr      r1, [pc, r1]                 ; GOT[1344] METHOD_RGCTX UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012bfc8  ldr      lr, [r0]                     
+           0012bfcc  mov      r8, r1                       
+           0012bfd0  bl       #0x22eb20                    ; CALL UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012bfd4  mov      ip, r0                       
+           0012bfd8  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: popupPrefab)
+           0012bfdc  add      r0, r6, #0x18                
+           0012bfe0  ldr      r2, [r0]                     
+           0012bfe4  str      r2, [fp, #0x1c]              
+           0012bfe8  ldr      r2, [r0, #4]                 ; field+0x4 
+           0012bfec  str      r2, [fp, #0x20]              
+           0012bff0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012bff4  str      r0, [fp, #0x24]              
+           0012bff8  mov      r0, ip                       
+           0012bffc  str      r0, [fp, #0x28]              
+           0012c000  ldr      r2, [fp, #0x1c]              
+           0012c004  ldr      r3, [fp, #0x20]              
+           0012c008  ldr      r0, [fp, #0x24]              
+           0012c00c  str      r0, [sp]                     
+           0012c010  ldr      r0, [fp, #0x28]              
+           0012c014  ldr      lr, [ip]                     
+           0012c018  bl       #0x12dc54                    ; CALL FrontEndTutorialPublisher::SetAnchorPoint (direct)
+L_12c01c:  0012c01c  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: currentPopup)
+           0012c020  ldr      r1, [pc]                     
+           0012c024  b        #0x12c02c                    ; -> L_12c02c
+           0012c028  .word    0x00e7a234                   ; literal 15180340 / 
+L_12c02c:  0012c02c  ldr      r1, [pc, r1]                 ; GOT[1344] METHOD_RGCTX UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012c030  ldr      lr, [r0]                     
+           0012c034  mov      r8, r1                       
+           0012c038  bl       #0x22eb20                    ; CALL UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012c03c  str      r0, [fp, #0x28]              
+           0012c040  ldr      r1, [r6, #0xc]               ; field+0xc 
+           0012c044  mov      r0, r1                       
+           0012c048  ldr      r1, [r1]                     
+           0012c04c  mov      lr, pc                       
+           0012c050  ldr      pc, [r1, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           0012c054  mov      r1, r0                       
+           0012c058  ldr      r2, [fp, #0x28]              
+           0012c05c  mov      r0, r2                       
+           0012c060  ldr      lr, [r2]                     
+           0012c064  bl       #0x22eb30                    ; CALL FrontEndTutorialPublisher::SetText
+           0012c068  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: currentPopup)
+           0012c06c  ldr      r1, [pc]                     
+           0012c070  b        #0x12c078                    ; -> L_12c078
+           0012c074  .word    0x00e7a1e8                   ; literal 15180264 / 
+L_12c078:  0012c078  ldr      r1, [pc, r1]                 ; GOT[1344] METHOD_RGCTX UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012c07c  ldr      lr, [r0]                     
+           0012c080  mov      r8, r1                       
+           0012c084  bl       #0x22eb20                    ; CALL UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012c088  mov      r2, r0                       
+           0012c08c  ldr      r1, [r6, #0x14]              ; field+0x14 (this-class: popupList)
+           0012c090  mov      r0, r2                       
+           0012c094  ldr      lr, [r2]                     
+           0012c098  bl       #0x12dd50                    ; CALL FrontEndTutorialPublisher::SetTargetControls (direct)
+           0012c09c  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: currentPopup)
+           0012c0a0  ldr      r1, [pc]                     
+           0012c0a4  b        #0x12c0ac                    ; -> L_12c0ac
+           0012c0a8  .word    0x00e7a1b4                   ; literal 15180212 / 
+L_12c0ac:  0012c0ac  ldr      r1, [pc, r1]                 ; GOT[1344] METHOD_RGCTX UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012c0b0  ldr      lr, [r0]                     
+           0012c0b4  mov      r8, r1                       
+           0012c0b8  bl       #0x22eb20                    ; CALL UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012c0bc  ldrb     r1, [r6, #0x24]              ; field+0x24 
+           0012c0c0  strb     r1, [r0, #0x5c]              ; field+0x5c 
+           0012c0c4  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012c0c8  mov      r2, r0                       
+           0012c0cc  ldr      r1, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012c0d0  mov      r0, r2                       
+           0012c0d4  ldr      lr, [r2]                     
+           0012c0d8  bl       #0xe685c                     ; CALL DataUtility::Unlock (direct)
+           0012c0dc  b        #0x12c0e8                    ; -> L_12c0e8
+L_12c0e0:  0012c0e0  mov      r0, #0                       
+           0012c0e4  strb     r0, [sl, #0x1d]              ; field+0x1d (this-class: activeTutorial)
+L_12c0e8:  0012c0e8  add      sp, fp, #0x34                
+           0012c0ec  pop      {r4, r6, r8, sl, fp}         
+           0012c0f0  ldr      r7, [sp, #8]                 
+           0012c0f4  ldm      sp, {sp, pc}                 
+
+== FrontEndTutorialHandler::Update  token 0x0600067c @0x0012c0f8 (84 bytes)
+   args: r0=this, 
+           0012c0f8  mov      ip, sp                       
+           0012c0fc  push     {r7, lr}                     
+           0012c100  mov      r7, sp                       
+           0012c104  push     {r8, sl, fp, ip, lr}         
+           0012c108  sub      sp, sp, #4                   
+           0012c10c  mov      fp, sp                       
+           0012c110  mov      sl, r0                       
+           0012c114  ldrb     r0, [sl, #0x1d]              ; field+0x1d (this-class: activeTutorial)
+           0012c118  cmp      r0, #0                       
+           0012c11c  beq      #0x12c13c                    ; -> L_12c13c
+           0012c120  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: currentPopup)
+           0012c124  mov      r1, #0                       
+           0012c128  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0012c12c  cmp      r0, #0                       
+           0012c130  beq      #0x12c13c                    ; -> L_12c13c
+           0012c134  mov      r0, sl                       
+           0012c138  bl       #0x22eb40                    ; CALL FrontEndTutorialHandler::TriggerNext
+L_12c13c:  0012c13c  add      sp, fp, #4                   
+           0012c140  pop      {r8, sl, fp}                 
+           0012c144  ldr      r7, [sp, #8]                 
+           0012c148  ldm      sp, {sp, pc}                 
+
+== FrontEndTutorialHandler::Start  token 0x0600067d @0x0012c14c (156 bytes)
+   args: r0=this, 
+           0012c14c  mov      ip, sp                       
+           0012c150  push     {r7, lr}                     
+           0012c154  mov      r7, sp                       
+           0012c158  push     {r8, sl, fp, ip, lr}         
+           0012c15c  sub      sp, sp, #4                   
+           0012c160  mov      fp, sp                       
+           0012c164  mov      sl, r0                       
+           0012c168  ldrb     r0, [sl, #0x1c]              ; field+0x1c (this-class: autoLaunch)
+           0012c16c  cmp      r0, #0                       
+           0012c170  bne      #0x12c17c                    ; -> L_12c17c
+           0012c174  mov      r0, #0                       
+           0012c178  strb     r0, [sl, #0x1d]              ; field+0x1d (this-class: activeTutorial)
+L_12c17c:  0012c17c  cmp      sl, #0                       
+           0012c180  bleq     #0x12c1d8                    ; THROW System.ArgumentException (if eq)
+           0012c184  ldr      r0, [pc]                     
+           0012c188  b        #0x12c190                    ; -> L_12c190
+           0012c18c  .word    0x00e78e5c                   ; literal 15175260 / 
+L_12c190:  0012c190  ldr      r0, [pc, r0]                 ; GOT[163] VTABLE System.Action
+           0012c194  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0012c198  str      sl, [r0, #0x10]              ; field+0x10 (this-class: popupPrefab)
+           0012c19c  ldr      r1, [pc]                     
+           0012c1a0  b        #0x12c1a8                    ; -> L_12c1a8
+           0012c1a4  .word    0x00e7a0bc                   ; literal 15179964 / 
+L_12c1a8:  0012c1a8  ldr      r1, [pc, r1]                 ; GOT[1345] METHODCONST FrontEndTutorialHandler::ChangedShifterUISlot
+           0012c1ac  str      r1, [r0, #0x14]              ; field+0x14 (this-class: popupList)
+           0012c1b0  ldr      r1, [pc]                     
+           0012c1b4  b        #0x12c1bc                    ; -> L_12c1bc
+           0012c1b8  .word    0x00e78e38                   ; literal 15175224 / 
+L_12c1bc:  0012c1bc  ldr      r1, [pc, r1]                 ; GOT[165] DELEGATE_TRAMPOLINE System.Action
+           0012c1c0  str      r1, [r0, #0xc]               ; field+0xc 
+           0012c1c4  bl       #0x22eb50                    ; CALL ShiftUIPublisher::add_ChangedShifterSlot
+           0012c1c8  add      sp, fp, #4                   
+           0012c1cc  pop      {r8, sl, fp}                 
+           0012c1d0  ldr      r7, [sp, #8]                 
+           0012c1d4  ldm      sp, {sp, pc}                 
+           0012c1d8  mov      r1, lr                       
+           0012c1dc  ldr      r0, [pc]                     
+           0012c1e0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0012c1e4  andeq    r0, r0, #0x4d                
+
+== FrontEndTutorialHandler::OnDisable  token 0x0600067e @0x0012c1e8 (144 bytes)
+   args: r0=this, 
+           0012c1e8  mov      ip, sp                       
+           0012c1ec  push     {r7, lr}                     
+           0012c1f0  mov      r7, sp                       
+           0012c1f4  push     {r8, fp, ip, lr}             
+           0012c1f8  sub      sp, sp, #8                   
+           0012c1fc  mov      fp, sp                       
+           0012c200  str      r0, [fp]                     
+           0012c204  ldr      r0, [fp]                     
+           0012c208  cmp      r0, #0                       
+           0012c20c  bleq     #0x12c268                    ; THROW System.ArgumentException (if eq)
+           0012c210  ldr      r0, [pc]                     
+           0012c214  b        #0x12c21c                    ; -> L_12c21c
+           0012c218  .word    0x00e78dd0                   ; literal 15175120 / 
+L_12c21c:  0012c21c  ldr      r0, [pc, r0]                 ; GOT[163] VTABLE System.Action
+           0012c220  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0012c224  ldr      r1, [fp]                     
+           0012c228  str      r1, [r0, #0x10]              ; field+0x10 (this-class: popupPrefab)
+           0012c22c  ldr      r1, [pc]                     
+           0012c230  b        #0x12c238                    ; -> L_12c238
+           0012c234  .word    0x00e7a02c                   ; literal 15179820 / 
+L_12c238:  0012c238  ldr      r1, [pc, r1]                 ; GOT[1345] METHODCONST FrontEndTutorialHandler::ChangedShifterUISlot
+           0012c23c  str      r1, [r0, #0x14]              ; field+0x14 (this-class: popupList)
+           0012c240  ldr      r1, [pc]                     
+           0012c244  b        #0x12c24c                    ; -> L_12c24c
+           0012c248  .word    0x00e78da8                   ; literal 15175080 / 
+L_12c24c:  0012c24c  ldr      r1, [pc, r1]                 ; GOT[165] DELEGATE_TRAMPOLINE System.Action
+           0012c250  str      r1, [r0, #0xc]               ; field+0xc 
+           0012c254  bl       #0x22eb60                    ; CALL ShiftUIPublisher::remove_ChangedShifterSlot
+           0012c258  add      sp, fp, #8                   
+           0012c25c  pop      {r8, fp}                     
+           0012c260  ldr      r7, [sp, #8]                 
+           0012c264  ldm      sp, {sp, pc}                 
+           0012c268  mov      r1, lr                       
+           0012c26c  ldr      r0, [pc]                     
+           0012c270  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0012c274  andeq    r0, r0, #0x4d                
+
+== FrontEndTutorialHandler::ChangedShifterUISlot  token 0x0600067f @0x0012c278 (292 bytes)
+   args: r0=this, 
+           0012c278  mov      ip, sp                       
+           0012c27c  push     {r7, lr}                     
+           0012c280  mov      r7, sp                       
+           0012c284  push     {r6, r8, sl, fp, ip, lr}     
+           0012c288  sub      sp, sp, #8                   
+           0012c28c  mov      fp, sp                       
+           0012c290  mov      sl, r0                       
+           0012c294  ldrb     r0, [sl, #0x1d]              ; field+0x1d (this-class: activeTutorial)
+           0012c298  cmp      r0, #0                       
+           0012c29c  beq      #0x12c37c                    ; -> L_12c37c
+           0012c2a0  mov      r0, #0                       
+           0012c2a4  strb     r0, [sl, #0x1d]              ; field+0x1d (this-class: activeTutorial)
+           0012c2a8  mov      r6, #0                       
+           0012c2ac  b        #0x12c2f0                    ; -> L_12c2f0
+L_12c2b0:  0012c2b0  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: popupList)
+           0012c2b4  ldr      r1, [r0, #0xc]               ; field+0xc 
+           0012c2b8  cmp      r1, r6                       
+           0012c2bc  blls     #0x12c38c                    ; THROW System.IndexOutOfRangeException (if ls)
+           0012c2c0  lsl      r1, r6, #2                   
+           0012c2c4  add      r0, r0, r1                   
+           0012c2c8  add      r0, r0, #0x10                
+           0012c2cc  ldr      r0, [r0]                     
+           0012c2d0  str      r0, [fp]                     
+           0012c2d4  mov      r0, sl                       
+           0012c2d8  bl       #0x12be0c                    ; CALL FrontEndTutorialHandler::GetNextTutorial (direct)
+           0012c2dc  mov      r1, r0                       
+           0012c2e0  ldr      r0, [fp]                     
+           0012c2e4  cmp      r0, r1                       
+           0012c2e8  beq      #0x12c300                    ; -> L_12c300
+           0012c2ec  add      r6, r6, #1                   
+L_12c2f0:  0012c2f0  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: popupList)
+           0012c2f4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0012c2f8  cmp      r6, r0                       
+           0012c2fc  blt      #0x12c2b0                    ; -> L_12c2b0
+L_12c300:  0012c300  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012c304  mov      r2, r0                       
+           0012c308  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: popupList)
+           0012c30c  sub      r1, r6, #1                   
+           0012c310  ldr      r3, [r0, #0xc]               ; field+0xc 
+           0012c314  cmp      r3, r1                       
+           0012c318  blls     #0x12c38c                    ; THROW System.IndexOutOfRangeException (if ls)
+           0012c31c  lsl      r1, r1, #2                   
+           0012c320  add      r0, r0, r1                   
+           0012c324  add      r0, r0, #0x10                
+           0012c328  ldr      r0, [r0]                     
+           0012c32c  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012c330  mov      r0, r2                       
+           0012c334  ldr      lr, [r2]                     
+           0012c338  bl       #0xe6934                     ; CALL DataUtility::Relock (direct)
+           0012c33c  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: currentPopup)
+           0012c340  mov      r1, #0                       
+           0012c344  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012c348  cmp      r0, #0                       
+           0012c34c  beq      #0x12c37c                    ; -> L_12c37c
+           0012c350  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: currentPopup)
+           0012c354  ldr      r1, [pc]                     
+           0012c358  b        #0x12c360                    ; -> L_12c360
+           0012c35c  .word    0x00e79f00                   ; literal 15179520 / 
+L_12c360:  0012c360  ldr      r1, [pc, r1]                 ; GOT[1344] METHOD_RGCTX UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012c364  ldr      lr, [r0]                     
+           0012c368  mov      r8, r1                       
+           0012c36c  bl       #0x22eb20                    ; CALL UnityEngine.GameObject::GetComponent<FrontEndTutorialPublisher>
+           0012c370  mov      r1, r0                       
+           0012c374  ldr      lr, [r1]                     
+           0012c378  bl       #0x22eb70                    ; CALL FrontEndTutorialPublisher::OnPressedDismiss
+L_12c37c:  0012c37c  add      sp, fp, #8                   
+           0012c380  pop      {r6, r8, sl, fp}             
+           0012c384  ldr      r7, [sp, #8]                 
+           0012c388  ldm      sp, {sp, pc}                 
+           0012c38c  mov      r1, lr                       
+           0012c390  ldr      r0, [pc]                     
+           0012c394  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0012c398  andeq    r0, r0, #0xf8                
+
+####################################################################################################
+# TYPE FrontEndTutorialHandler/TutorialSettings  (instance size 0x28)
+#   +0x08 name                           string
+#   +0x0c tutorialText                   LocalizedString
+#   +0x10 targetTransform                UnityEngine.Transform
+#   +0x14 targetControls                 UghControl[]
+#   +0x18 targetTransformOffset          UnityEngine.Vector3
+#   +0x24 anyTouchDismissesTutorialStep  bool
+#   vtable slots: 
+####################################################################################################
+== FrontEndTutorialHandler/TutorialSettings::.ctor  token 0x06000680 @0x0012c39c (92 bytes)
+   args: r0=this, 
+           0012c39c  mov      ip, sp                       
+           0012c3a0  push     {r7, lr}                     
+           0012c3a4  mov      r7, sp                       
+           0012c3a8  push     {r8, fp, ip, lr}             
+           0012c3ac  sub      sp, sp, #0x10                
+           0012c3b0  mov      fp, sp                       
+           0012c3b4  str      r0, [fp, #0xc]               
+           0012c3b8  mov      r0, fp                       
+           0012c3bc  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           0012c3c0  ldr      r0, [fp, #0xc]               
+           0012c3c4  add      r1, r0, #0x18                
+           0012c3c8  ldr      r2, [fp]                     
+           0012c3cc  str      r2, [r1]                     
+           0012c3d0  ldr      r2, [fp, #4]                 
+           0012c3d4  str      r2, [r1, #4]                 ; field+0x4 
+           0012c3d8  ldr      r2, [fp, #8]                 
+           0012c3dc  str      r2, [r1, #8]                 ; field+0x8 (this-class: name)
+           0012c3e0  mov      r1, #1                       
+           0012c3e4  strb     r1, [r0, #0x24]              ; field+0x24 (this-class: anyTouchDismissesTutorialStep)
+           0012c3e8  add      sp, fp, #0x10                
+           0012c3ec  pop      {r8, fp}                     
+           0012c3f0  ldr      r7, [sp, #8]                 
+           0012c3f4  ldm      sp, {sp, pc}                 

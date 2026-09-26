@@ -1,0 +1,792 @@
+####################################################################################################
+# TYPE FractalNoise  (instance size 0x24)
+#   +0x08 m_Exponent                     float[]
+#   +0x0c m_IntOctaves                   int
+#   +0x10 m_Octaves                      float
+#   +0x14 m_Lacunarity                   float
+#   +0x18 m_XScale                       float
+#   +0x1c m_YScale                       float
+#   +0x20 m_ValueScale                   float
+#   vtable slots: 
+####################################################################################################
+== FractalNoise::.ctor  token 0x06000181 @0x0001fd38 (172 bytes)
+   args: r0=this, para
+           0001fd38  mov      ip, sp                       
+           0001fd3c  push     {r7, lr}                     
+           0001fd40  mov      r7, sp                       
+           0001fd44  push     {r6, r8, sl, fp, ip, lr}     
+           0001fd48  sub      sp, sp, #0x10                
+           0001fd4c  mov      fp, sp                       
+           0001fd50  mov      r6, r0                       
+           0001fd54  mov      sl, r1                       
+           0001fd58  vldr     s0, [sl, #8]                 ; field+0x8 (this-class: m_Exponent)
+           0001fd5c  vcvt.f64.f32 d4, s0                       
+           0001fd60  vldr     s0, [sl, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           0001fd64  vcvt.f64.f32 d3, s0                       
+           0001fd68  vldr     s0, [sl, #0x10]              ; field+0x10 (this-class: m_Octaves)
+           0001fd6c  vcvt.f64.f32 d2, s0                       
+           0001fd70  mov      r0, r6                       
+           0001fd74  vcvt.f32.f64 s0, d4                       
+           0001fd78  vstr     s0, [sp, #-8]                
+           0001fd7c  ldr      r1, [sp, #-8]                
+           0001fd80  vcvt.f32.f64 s0, d3                       
+           0001fd84  vstr     s0, [sp, #-8]                
+           0001fd88  ldr      r2, [sp, #-8]                
+           0001fd8c  vcvt.f32.f64 s0, d2                       
+           0001fd90  vstr     s0, [sp, #-8]                
+           0001fd94  ldr      r3, [sp, #-8]                
+           0001fd98  mov      ip, #0                       
+           0001fd9c  str      ip, [sp]                     
+           0001fda0  bl       #0xbadd0                     ; CALL FractalNoise::.ctor
+           0001fda4  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: m_XScale)
+           0001fda8  vcvt.f64.f32 d2, s0                       
+           0001fdac  vcvt.f32.f64 s0, d2                       
+           0001fdb0  vstr     s0, [r6, #0x18]              ; field+0x18 (this-class: m_XScale)
+           0001fdb4  vldr     s0, [sl, #0x1c]              ; field+0x1c (this-class: m_YScale)
+           0001fdb8  vcvt.f64.f32 d2, s0                       
+           0001fdbc  vcvt.f32.f64 s0, d2                       
+           0001fdc0  vstr     s0, [r6, #0x1c]              ; field+0x1c (this-class: m_YScale)
+           0001fdc4  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: m_ValueScale)
+           0001fdc8  vcvt.f64.f32 d2, s0                       
+           0001fdcc  vcvt.f32.f64 s0, d2                       
+           0001fdd0  vstr     s0, [r6, #0x20]              ; field+0x20 (this-class: m_ValueScale)
+           0001fdd4  add      sp, fp, #0x10                
+           0001fdd8  pop      {r6, r8, sl, fp}             
+           0001fddc  ldr      r7, [sp, #8]                 
+           0001fde0  ldm      sp, {sp, pc}                 
+
+== FractalNoise::.ctor  token 0x06000182 @0x0001fde4 (132 bytes)
+   args: r0=this, inH, inLacunarity, inOctaves
+           0001fde4  mov      ip, sp                       
+           0001fde8  push     {r7, lr}                     
+           0001fdec  mov      r7, sp                       
+           0001fdf0  push     {r8, fp, ip, lr}             
+           0001fdf4  sub      sp, sp, #0x20                
+           0001fdf8  mov      fp, sp                       
+           0001fdfc  str      r0, [fp, #0x10]              
+           0001fe00  str      r1, [fp, #0x14]              
+           0001fe04  str      r2, [fp, #0x18]              
+           0001fe08  str      r3, [fp, #0x1c]              
+           0001fe0c  vldr     s0, [fp, #0x14]              
+           0001fe10  vcvt.f64.f32 d4, s0                       
+           0001fe14  vldr     s0, [fp, #0x18]              
+           0001fe18  vcvt.f64.f32 d3, s0                       
+           0001fe1c  vldr     s0, [fp, #0x1c]              
+           0001fe20  vcvt.f64.f32 d2, s0                       
+           0001fe24  ldr      r0, [fp, #0x10]              
+           0001fe28  vcvt.f32.f64 s0, d4                       
+           0001fe2c  vstr     s0, [sp, #-8]                
+           0001fe30  ldr      r1, [sp, #-8]                
+           0001fe34  vcvt.f32.f64 s0, d3                       
+           0001fe38  vstr     s0, [sp, #-8]                
+           0001fe3c  ldr      r2, [sp, #-8]                
+           0001fe40  vcvt.f32.f64 s0, d2                       
+           0001fe44  vstr     s0, [sp, #-8]                
+           0001fe48  ldr      r3, [sp, #-8]                
+           0001fe4c  mov      ip, #0                       
+           0001fe50  str      ip, [sp]                     
+           0001fe54  bl       #0xbadd0                     ; CALL FractalNoise::.ctor
+           0001fe58  add      sp, fp, #0x20                
+           0001fe5c  pop      {r8, fp}                     
+           0001fe60  ldr      r7, [sp, #8]                 
+           0001fe64  ldm      sp, {sp, pc}                 
+
+== FractalNoise::.ctor  token 0x06000183 @0x0001fe68 (428 bytes)
+   args: r0=this, inH, inLacunarity, inOctaves, noise
+           0001fe68  mov      ip, sp                       
+           0001fe6c  push     {r7, lr}                     
+           0001fe70  mov      r7, sp                       
+           0001fe74  push     {r6, r8, sl, fp, ip, lr}     
+           0001fe78  sub      sp, sp, #0x28                
+           0001fe7c  mov      fp, sp                       
+           0001fe80  mov      sl, r0                       
+           0001fe84  str      r1, [fp, #0xc]               
+           0001fe88  str      r2, [fp, #0x10]              
+           0001fe8c  str      r3, [fp, #0x14]              
+           0001fe90  ldr      lr, [sp, #0x48]              
+           0001fe94  str      lr, [fp, #0x18]              
+           0001fe98  vldr     s4, [pc]                     ; float 1.0
+           0001fe9c  b        #0x1fea4                     ; -> L_1fea4
+           0001fea0  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1fea4:   0001fea4  vcvt.f64.f32 d2, s4                       
+           0001fea8  vcvt.f32.f64 s0, d2                       
+           0001feac  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: m_XScale)
+           0001feb0  vldr     s4, [pc]                     ; float 1.0
+           0001feb4  b        #0x1febc                     ; -> L_1febc
+           0001feb8  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1febc:   0001febc  vcvt.f64.f32 d2, s4                       
+           0001fec0  vcvt.f32.f64 s0, d2                       
+           0001fec4  vstr     s0, [sl, #0x1c]              ; field+0x1c (this-class: m_YScale)
+           0001fec8  vldr     s4, [pc]                     ; float 1.0
+           0001fecc  b        #0x1fed4                     ; -> L_1fed4
+           0001fed0  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1fed4:   0001fed4  vcvt.f64.f32 d2, s4                       
+           0001fed8  vcvt.f32.f64 s0, d2                       
+           0001fedc  vstr     s0, [sl, #0x20]              ; field+0x20 (this-class: m_ValueScale)
+           0001fee0  vldr     s0, [fp, #0x10]              
+           0001fee4  vcvt.f64.f32 d2, s0                       
+           0001fee8  vcvt.f32.f64 s0, d2                       
+           0001feec  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: m_Lacunarity)
+           0001fef0  vldr     s0, [fp, #0x14]              
+           0001fef4  vcvt.f64.f32 d2, s0                       
+           0001fef8  vcvt.f32.f64 s0, d2                       
+           0001fefc  vstr     s0, [sl, #0x10]              ; field+0x10 (this-class: m_Octaves)
+           0001ff00  vldr     s0, [fp, #0x14]              
+           0001ff04  vcvt.f64.f32 d2, s0                       
+           0001ff08  vcvt.s32.f64 s0, d2                       
+           0001ff0c  vmov     r0, s0                       
+           0001ff10  str      r0, [sl, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           0001ff14  add      r1, r0, #1                   
+           0001ff18  ldr      r0, [pc]                     
+           0001ff1c  b        #0x1ff24                     ; -> L_1ff24
+           0001ff20  .word    0x00f7cadc                   ; literal 16239324 / 
+L_1ff24:   0001ff24  ldr      r0, [pc, r0]                 ; GOT[248] VTABLE System.Single[]
+           0001ff28  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           0001ff2c  str      r0, [sl, #8]                 ; field+0x8 (this-class: m_Exponent)
+           0001ff30  vldr     s4, [pc]                     ; float 1.0
+           0001ff34  b        #0x1ff3c                     ; -> L_1ff3c
+           0001ff38  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1ff3c:   0001ff3c  vcvt.f64.f32 d2, s4                       
+           0001ff40  vcvt.f32.f64 s0, d2                       
+           0001ff44  vstr     s0, [fp, #8]                 
+           0001ff48  mov      r6, #0                       
+           0001ff4c  b        #0x1ffe4                     ; -> L_1ffe4
+L_1ff50:   0001ff50  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: m_Exponent)
+           0001ff54  str      r0, [fp, #0x20]              
+           0001ff58  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: m_Lacunarity)
+           0001ff5c  vcvt.f64.f32 d2, s0                       
+           0001ff60  vmov.f64 d3, d2                       
+           0001ff64  vmov.f64 d3, d3                       
+           0001ff68  vldr     s0, [fp, #0xc]               
+           0001ff6c  vcvt.f64.f32 d2, s0                       
+           0001ff70  vneg.f64 d2, d2                       
+           0001ff74  vmov.f64 d2, d2                       
+           0001ff78  vstr     d3, [sp, #-8]                
+           0001ff7c  ldr      r0, [sp, #-8]                
+           0001ff80  ldr      r1, [sp, #-4]                
+           0001ff84  vstr     d2, [sp, #-8]                
+           0001ff88  ldr      r2, [sp, #-8]                
+           0001ff8c  ldr      r3, [sp, #-4]                
+           0001ff90  bl       #0xbade0                     ; CALL System.Math::Pow
+           0001ff94  vmov     d2, r0, r1                   
+           0001ff98  ldr      r0, [fp, #0x20]              
+           0001ff9c  vcvt.f32.f64 s4, d2                       
+           0001ffa0  vcvt.f64.f32 d2, s4                       
+           0001ffa4  ldr      r1, [r0, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           0001ffa8  cmp      r1, r6                       
+           0001ffac  blls     #0x20004                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001ffb0  lsl      r1, r6, #2                   
+           0001ffb4  add      r0, r0, r1                   
+           0001ffb8  add      r0, r0, #0x10                
+           0001ffbc  vcvt.f32.f64 s0, d2                       
+           0001ffc0  vstr     s0, [r0]                     
+           0001ffc4  vldr     s0, [fp, #8]                 
+           0001ffc8  vcvt.f64.f32 d2, s0                       
+           0001ffcc  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: m_Lacunarity)
+           0001ffd0  vcvt.f64.f32 d3, s0                       
+           0001ffd4  vmul.f64 d2, d2, d3                   
+           0001ffd8  vcvt.f32.f64 s0, d2                       
+           0001ffdc  vstr     s0, [fp, #8]                 
+           0001ffe0  add      r6, r6, #1                   
+L_1ffe4:   0001ffe4  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           0001ffe8  add      r0, r0, #1                   
+           0001ffec  cmp      r6, r0                       
+           0001fff0  blt      #0x1ff50                     ; -> L_1ff50
+           0001fff4  add      sp, fp, #0x28                
+           0001fff8  pop      {r6, r8, sl, fp}             
+           0001fffc  ldr      r7, [sp, #8]                 
+           00020000  ldm      sp, {sp, pc}                 
+           00020004  mov      r1, lr                       
+           00020008  ldr      r0, [pc]                     
+           0002000c  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00020010  andeq    r0, r0, #0xf8                
+
+== FractalNoise::PrecalculateNOoise  token 0x06000184 @0x00020014 (44 bytes)
+   args: r0=this, 
+           00020014  mov      ip, sp                       
+           00020018  push     {r7, lr}                     
+           0002001c  mov      r7, sp                       
+           00020020  push     {r8, fp, ip, lr}             
+           00020024  sub      sp, sp, #8                   
+           00020028  mov      fp, sp                       
+           0002002c  str      r0, [fp]                     
+           00020030  add      sp, fp, #8                   
+           00020034  pop      {r8, fp}                     
+           00020038  ldr      r7, [sp, #8]                 
+           0002003c  ldm      sp, {sp, pc}                 
+
+== FractalNoise::HybridMultifractal  token 0x06000185 @0x00020040 (828 bytes)
+   args: r0=this, x, y, offset
+           00020040  mov      ip, sp                       
+           00020044  push     {r7, lr}                     
+           00020048  mov      r7, sp                       
+           0002004c  push     {r6, r8, sl, fp, ip, lr}     
+           00020050  sub      sp, sp, #0x38                
+           00020054  mov      fp, sp                       
+           00020058  mov      sl, r0                       
+           0002005c  str      r1, [fp, #0x18]              
+           00020060  str      r2, [fp, #0x1c]              
+           00020064  str      r3, [fp, #0x20]              
+           00020068  vldr     s0, [fp, #0x18]              
+           0002006c  vcvt.f64.f32 d2, s0                       
+           00020070  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: m_XScale)
+           00020074  vcvt.f64.f32 d3, s0                       
+           00020078  vmul.f64 d2, d2, d3                   
+           0002007c  vcvt.f32.f64 s0, d2                       
+           00020080  vstr     s0, [fp, #0x18]              
+           00020084  vldr     s0, [fp, #0x1c]              
+           00020088  vcvt.f64.f32 d2, s0                       
+           0002008c  vldr     s0, [sl, #0x1c]              ; field+0x1c (this-class: m_YScale)
+           00020090  vcvt.f64.f32 d3, s0                       
+           00020094  vmul.f64 d2, d2, d3                   
+           00020098  vcvt.f32.f64 s0, d2                       
+           0002009c  vstr     s0, [fp, #0x1c]              
+           000200a0  vldr     s0, [fp, #0x18]              
+           000200a4  vcvt.f64.f32 d3, s0                       
+           000200a8  vldr     s0, [fp, #0x1c]              
+           000200ac  vcvt.f64.f32 d2, s0                       
+           000200b0  vcvt.f32.f64 s0, d3                       
+           000200b4  vstr     s0, [sp, #-8]                
+           000200b8  ldr      r0, [sp, #-8]                
+           000200bc  vcvt.f32.f64 s0, d2                       
+           000200c0  vstr     s0, [sp, #-8]                
+           000200c4  ldr      r1, [sp, #-8]                
+           000200c8  bl       #0xbadb0                     ; CALL Perlin::Noise
+           000200cc  vmov     s4, r0                       
+           000200d0  vcvt.f64.f32 d2, s4                       
+           000200d4  vldr     s0, [fp, #0x20]              
+           000200d8  vcvt.f64.f32 d3, s0                       
+           000200dc  vadd.f64 d2, d2, d3                   
+           000200e0  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: m_Exponent)
+           000200e4  ldr      r1, [r0, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           000200e8  cmp      r1, #0                       
+           000200ec  blls     #0x2036c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000200f0  vldr     s0, [r0, #0x10]              ; field+0x10 (this-class: m_Octaves)
+           000200f4  vcvt.f64.f32 d3, s0                       
+           000200f8  vmul.f64 d2, d2, d3                   
+           000200fc  vcvt.f32.f64 s0, d2                       
+           00020100  vstr     s0, [fp, #0x14]              
+           00020104  vldr     s0, [fp, #0x14]              
+           00020108  vcvt.f64.f32 d2, s0                       
+           0002010c  vcvt.f32.f64 s0, d2                       
+           00020110  vstr     s0, [fp, #8]                 
+           00020114  vldr     s0, [fp, #0x18]              
+           00020118  vcvt.f64.f32 d2, s0                       
+           0002011c  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: m_Lacunarity)
+           00020120  vcvt.f64.f32 d3, s0                       
+           00020124  vmul.f64 d2, d2, d3                   
+           00020128  vcvt.f32.f64 s0, d2                       
+           0002012c  vstr     s0, [fp, #0x18]              
+           00020130  vldr     s0, [fp, #0x1c]              
+           00020134  vcvt.f64.f32 d2, s0                       
+           00020138  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: m_Lacunarity)
+           0002013c  vcvt.f64.f32 d3, s0                       
+           00020140  vmul.f64 d2, d2, d3                   
+           00020144  vcvt.f32.f64 s0, d2                       
+           00020148  vstr     s0, [fp, #0x1c]              
+           0002014c  mov      r6, #1                       
+           00020150  b        #0x20284                     ; -> L_20284
+L_20154:   00020154  vldr     s0, [fp, #8]                 
+           00020158  vcvt.f64.f32 d3, s0                       
+           0002015c  vldr     s4, [pc]                     ; float 1.0
+           00020160  b        #0x20168                     ; -> L_20168
+           00020164  .word    0x3f800000                   ; literal 1065353216 / 1
+L_20168:   00020168  vcvt.f64.f32 d2, s4                       
+           0002016c  vcmp.f64 d2, d3                       
+           00020170  vmrs     apsr_nzcv, fpscr             
+           00020174  bvs      #0x20194                     ; -> L_20194
+           00020178  bge      #0x20194                     ; -> L_20194
+           0002017c  vldr     s4, [pc]                     ; float 1.0
+           00020180  b        #0x20188                     ; -> L_20188
+           00020184  .word    0x3f800000                   ; literal 1065353216 / 1
+L_20188:   00020188  vcvt.f64.f32 d2, s4                       
+           0002018c  vcvt.f32.f64 s0, d2                       
+           00020190  vstr     s0, [fp, #8]                 
+L_20194:   00020194  vldr     s0, [fp, #0x18]              
+           00020198  vcvt.f64.f32 d3, s0                       
+           0002019c  vldr     s0, [fp, #0x1c]              
+           000201a0  vcvt.f64.f32 d2, s0                       
+           000201a4  vcvt.f32.f64 s0, d3                       
+           000201a8  vstr     s0, [sp, #-8]                
+           000201ac  ldr      r0, [sp, #-8]                
+           000201b0  vcvt.f32.f64 s0, d2                       
+           000201b4  vstr     s0, [sp, #-8]                
+           000201b8  ldr      r1, [sp, #-8]                
+           000201bc  bl       #0xbadb0                     ; CALL Perlin::Noise
+           000201c0  vmov     s4, r0                       
+           000201c4  vcvt.f64.f32 d2, s4                       
+           000201c8  vldr     s0, [fp, #0x20]              
+           000201cc  vcvt.f64.f32 d3, s0                       
+           000201d0  vadd.f64 d2, d2, d3                   
+           000201d4  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: m_Exponent)
+           000201d8  ldr      r1, [r0, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           000201dc  cmp      r1, r6                       
+           000201e0  blls     #0x2036c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000201e4  lsl      r1, r6, #2                   
+           000201e8  add      r0, r0, r1                   
+           000201ec  add      r0, r0, #0x10                
+           000201f0  vldr     s0, [r0]                     
+           000201f4  vcvt.f64.f32 d3, s0                       
+           000201f8  vmul.f64 d2, d2, d3                   
+           000201fc  vcvt.f32.f64 s0, d2                       
+           00020200  vstr     s0, [fp, #0xc]               
+           00020204  vldr     s0, [fp, #0x14]              
+           00020208  vcvt.f64.f32 d2, s0                       
+           0002020c  vldr     s0, [fp, #8]                 
+           00020210  vcvt.f64.f32 d3, s0                       
+           00020214  vldr     s0, [fp, #0xc]               
+           00020218  vcvt.f64.f32 d4, s0                       
+           0002021c  vmul.f64 d3, d3, d4                   
+           00020220  vadd.f64 d2, d2, d3                   
+           00020224  vcvt.f32.f64 s0, d2                       
+           00020228  vstr     s0, [fp, #0x14]              
+           0002022c  vldr     s0, [fp, #8]                 
+           00020230  vcvt.f64.f32 d2, s0                       
+           00020234  vldr     s0, [fp, #0xc]               
+           00020238  vcvt.f64.f32 d3, s0                       
+           0002023c  vmul.f64 d2, d2, d3                   
+           00020240  vcvt.f32.f64 s0, d2                       
+           00020244  vstr     s0, [fp, #8]                 
+           00020248  vldr     s0, [fp, #0x18]              
+           0002024c  vcvt.f64.f32 d2, s0                       
+           00020250  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: m_Lacunarity)
+           00020254  vcvt.f64.f32 d3, s0                       
+           00020258  vmul.f64 d2, d2, d3                   
+           0002025c  vcvt.f32.f64 s0, d2                       
+           00020260  vstr     s0, [fp, #0x18]              
+           00020264  vldr     s0, [fp, #0x1c]              
+           00020268  vcvt.f64.f32 d2, s0                       
+           0002026c  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: m_Lacunarity)
+           00020270  vcvt.f64.f32 d3, s0                       
+           00020274  vmul.f64 d2, d2, d3                   
+           00020278  vcvt.f32.f64 s0, d2                       
+           0002027c  vstr     s0, [fp, #0x1c]              
+           00020280  add      r6, r6, #1                   
+L_20284:   00020284  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           00020288  cmp      r6, r0                       
+           0002028c  blt      #0x20154                     ; -> L_20154
+           00020290  vldr     s0, [sl, #0x10]              ; field+0x10 (this-class: m_Octaves)
+           00020294  vcvt.f64.f32 d2, s0                       
+           00020298  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           0002029c  vmov     s0, r0                       
+           000202a0  vcvt.f32.s32 s0, s0                       
+           000202a4  vcvt.f64.f32 d3, s0                       
+           000202a8  vsub.f64 d2, d2, d3                   
+           000202ac  vcvt.f32.f64 s0, d2                       
+           000202b0  vstr     s0, [fp, #0x10]              
+           000202b4  vldr     s0, [fp, #0x14]              
+           000202b8  vcvt.f64.f32 d2, s0                       
+           000202bc  vstr     d2, [fp, #0x28]              
+           000202c0  vldr     s0, [fp, #0x10]              
+           000202c4  vcvt.f64.f32 d2, s0                       
+           000202c8  vstr     d2, [fp, #0x30]              
+           000202cc  vldr     s0, [fp, #0x18]              
+           000202d0  vcvt.f64.f32 d3, s0                       
+           000202d4  vldr     s0, [fp, #0x1c]              
+           000202d8  vcvt.f64.f32 d2, s0                       
+           000202dc  vcvt.f32.f64 s0, d3                       
+           000202e0  vstr     s0, [sp, #-8]                
+           000202e4  ldr      r0, [sp, #-8]                
+           000202e8  vcvt.f32.f64 s0, d2                       
+           000202ec  vstr     s0, [sp, #-8]                
+           000202f0  ldr      r1, [sp, #-8]                
+           000202f4  bl       #0xbadb0                     ; CALL Perlin::Noise
+           000202f8  vmov     s8, r0                       
+           000202fc  vcvt.f64.f32 d4, s8                       
+           00020300  vldr     d2, [fp, #0x28]              
+           00020304  vldr     d3, [fp, #0x30]              
+           00020308  vmul.f64 d3, d3, d4                   
+           0002030c  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: m_Exponent)
+           00020310  ldr      r1, [r0, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           00020314  cmp      r1, r6                       
+           00020318  blls     #0x2036c                     ; THROW System.IndexOutOfRangeException (if ls)
+           0002031c  lsl      r1, r6, #2                   
+           00020320  add      r0, r0, r1                   
+           00020324  add      r0, r0, #0x10                
+           00020328  vldr     s0, [r0]                     
+           0002032c  vcvt.f64.f32 d4, s0                       
+           00020330  vmul.f64 d3, d3, d4                   
+           00020334  vadd.f64 d2, d2, d3                   
+           00020338  vcvt.f32.f64 s0, d2                       
+           0002033c  vstr     s0, [fp, #0x14]              
+           00020340  vldr     s0, [fp, #0x14]              
+           00020344  vcvt.f64.f32 d2, s0                       
+           00020348  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: m_ValueScale)
+           0002034c  vcvt.f64.f32 d3, s0                       
+           00020350  vmul.f64 d2, d2, d3                   
+           00020354  vcvt.f32.f64 s0, d2                       
+           00020358  vmov     r0, s0                       
+           0002035c  add      sp, fp, #0x38                
+           00020360  pop      {r6, r8, sl, fp}             
+           00020364  ldr      r7, [sp, #8]                 
+           00020368  ldm      sp, {sp, pc}                 
+           0002036c  mov      r1, lr                       
+           00020370  ldr      r0, [pc]                     
+           00020374  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00020378  andeq    r0, r0, #0xf8                
+
+== FractalNoise::RidgedMultifractal  token 0x06000186 @0x0002037c (728 bytes)
+   args: r0=this, x, y, offset, gain
+           0002037c  mov      ip, sp                       
+           00020380  push     {r7, lr}                     
+           00020384  mov      r7, sp                       
+           00020388  push     {r6, r8, sl, fp, ip, lr}     
+           0002038c  sub      sp, sp, #0x38                
+           00020390  mov      fp, sp                       
+           00020394  mov      sl, r0                       
+           00020398  str      r1, [fp, #0x24]              
+           0002039c  str      r2, [fp, #0x28]              
+           000203a0  str      r3, [fp, #0x2c]              
+           000203a4  ldr      lr, [sp, #0x58]              
+           000203a8  str      lr, [fp, #0x30]              
+           000203ac  vldr     s0, [fp, #0x24]              
+           000203b0  vcvt.f64.f32 d2, s0                       
+           000203b4  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: m_XScale)
+           000203b8  vcvt.f64.f32 d3, s0                       
+           000203bc  vmul.f64 d2, d2, d3                   
+           000203c0  vcvt.f32.f64 s0, d2                       
+           000203c4  vstr     s0, [fp, #0x24]              
+           000203c8  vldr     s0, [fp, #0x28]              
+           000203cc  vcvt.f64.f32 d2, s0                       
+           000203d0  vldr     s0, [sl, #0x1c]              ; field+0x1c (this-class: m_YScale)
+           000203d4  vcvt.f64.f32 d3, s0                       
+           000203d8  vmul.f64 d2, d2, d3                   
+           000203dc  vcvt.f32.f64 s0, d2                       
+           000203e0  vstr     s0, [fp, #0x28]              
+           000203e4  vldr     s0, [fp, #0x24]              
+           000203e8  vcvt.f64.f32 d3, s0                       
+           000203ec  vldr     s0, [fp, #0x28]              
+           000203f0  vcvt.f64.f32 d2, s0                       
+           000203f4  vcvt.f32.f64 s0, d3                       
+           000203f8  vstr     s0, [sp, #-8]                
+           000203fc  ldr      r0, [sp, #-8]                
+           00020400  vcvt.f32.f64 s0, d2                       
+           00020404  vstr     s0, [sp, #-8]                
+           00020408  ldr      r1, [sp, #-8]                
+           0002040c  bl       #0xbadb0                     ; CALL Perlin::Noise
+           00020410  vmov     s4, r0                       
+           00020414  vcvt.f64.f32 d2, s4                       
+           00020418  vcvt.f32.f64 s0, d2                       
+           0002041c  vstr     s0, [sp, #-8]                
+           00020420  ldr      r0, [sp, #-8]                
+           00020424  bl       #0xbadf0                     ; CALL UnityEngine.Mathf::Abs
+           00020428  vmov     s4, r0                       
+           0002042c  vcvt.f64.f32 d2, s4                       
+           00020430  vcvt.f32.f64 s0, d2                       
+           00020434  vstr     s0, [fp, #0xc]               
+           00020438  vldr     s0, [fp, #0x2c]              
+           0002043c  vcvt.f64.f32 d2, s0                       
+           00020440  vldr     s0, [fp, #0xc]               
+           00020444  vcvt.f64.f32 d3, s0                       
+           00020448  vsub.f64 d2, d2, d3                   
+           0002044c  vcvt.f32.f64 s0, d2                       
+           00020450  vstr     s0, [fp, #0xc]               
+           00020454  vldr     s0, [fp, #0xc]               
+           00020458  vcvt.f64.f32 d2, s0                       
+           0002045c  vldr     s0, [fp, #0xc]               
+           00020460  vcvt.f64.f32 d3, s0                       
+           00020464  vmul.f64 d2, d2, d3                   
+           00020468  vcvt.f32.f64 s0, d2                       
+           0002046c  vstr     s0, [fp, #0xc]               
+           00020470  vldr     s0, [fp, #0xc]               
+           00020474  vcvt.f64.f32 d2, s0                       
+           00020478  vcvt.f32.f64 s0, d2                       
+           0002047c  vstr     s0, [fp, #0x10]              
+           00020480  vldr     s4, [pc]                     ; float 1.0
+           00020484  b        #0x2048c                     ; -> L_2048c
+           00020488  .word    0x3f800000                   ; literal 1065353216 / 1
+L_2048c:   0002048c  vcvt.f64.f32 d2, s4                       
+           00020490  vcvt.f32.f64 s0, d2                       
+           00020494  vstr     s0, [fp, #8]                 
+           00020498  mov      r6, #1                       
+           0002049c  b        #0x2060c                     ; -> L_2060c
+L_204a0:   000204a0  vldr     s0, [fp, #0x24]              
+           000204a4  vcvt.f64.f32 d2, s0                       
+           000204a8  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: m_Lacunarity)
+           000204ac  vcvt.f64.f32 d3, s0                       
+           000204b0  vmul.f64 d2, d2, d3                   
+           000204b4  vcvt.f32.f64 s0, d2                       
+           000204b8  vstr     s0, [fp, #0x24]              
+           000204bc  vldr     s0, [fp, #0x28]              
+           000204c0  vcvt.f64.f32 d2, s0                       
+           000204c4  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: m_Lacunarity)
+           000204c8  vcvt.f64.f32 d3, s0                       
+           000204cc  vmul.f64 d2, d2, d3                   
+           000204d0  vcvt.f32.f64 s0, d2                       
+           000204d4  vstr     s0, [fp, #0x28]              
+           000204d8  vldr     s0, [fp, #0xc]               
+           000204dc  vcvt.f64.f32 d2, s0                       
+           000204e0  vldr     s0, [fp, #0x30]              
+           000204e4  vcvt.f64.f32 d3, s0                       
+           000204e8  vmul.f64 d2, d2, d3                   
+           000204ec  vcvt.f32.f64 s0, d2                       
+           000204f0  vstr     s0, [fp, #8]                 
+           000204f4  vldr     s0, [fp, #8]                 
+           000204f8  vcvt.f64.f32 d2, s0                       
+           000204fc  vcvt.f32.f64 s0, d2                       
+           00020500  vstr     s0, [sp, #-8]                
+           00020504  ldr      r0, [sp, #-8]                
+           00020508  bl       #0xba9d0                     ; CALL UnityEngine.Mathf::Clamp01
+           0002050c  vmov     s4, r0                       
+           00020510  vcvt.f64.f32 d2, s4                       
+           00020514  vcvt.f32.f64 s0, d2                       
+           00020518  vstr     s0, [fp, #8]                 
+           0002051c  vldr     s0, [fp, #0x24]              
+           00020520  vcvt.f64.f32 d3, s0                       
+           00020524  vldr     s0, [fp, #0x28]              
+           00020528  vcvt.f64.f32 d2, s0                       
+           0002052c  vcvt.f32.f64 s0, d3                       
+           00020530  vstr     s0, [sp, #-8]                
+           00020534  ldr      r0, [sp, #-8]                
+           00020538  vcvt.f32.f64 s0, d2                       
+           0002053c  vstr     s0, [sp, #-8]                
+           00020540  ldr      r1, [sp, #-8]                
+           00020544  bl       #0xbadb0                     ; CALL Perlin::Noise
+           00020548  vmov     s4, r0                       
+           0002054c  vcvt.f64.f32 d2, s4                       
+           00020550  vcvt.f32.f64 s0, d2                       
+           00020554  vstr     s0, [sp, #-8]                
+           00020558  ldr      r0, [sp, #-8]                
+           0002055c  bl       #0xbadf0                     ; CALL UnityEngine.Mathf::Abs
+           00020560  vmov     s4, r0                       
+           00020564  vcvt.f64.f32 d2, s4                       
+           00020568  vcvt.f32.f64 s0, d2                       
+           0002056c  vstr     s0, [fp, #0xc]               
+           00020570  vldr     s0, [fp, #0x2c]              
+           00020574  vcvt.f64.f32 d2, s0                       
+           00020578  vldr     s0, [fp, #0xc]               
+           0002057c  vcvt.f64.f32 d3, s0                       
+           00020580  vsub.f64 d2, d2, d3                   
+           00020584  vcvt.f32.f64 s0, d2                       
+           00020588  vstr     s0, [fp, #0xc]               
+           0002058c  vldr     s0, [fp, #0xc]               
+           00020590  vcvt.f64.f32 d2, s0                       
+           00020594  vldr     s0, [fp, #0xc]               
+           00020598  vcvt.f64.f32 d3, s0                       
+           0002059c  vmul.f64 d2, d2, d3                   
+           000205a0  vcvt.f32.f64 s0, d2                       
+           000205a4  vstr     s0, [fp, #0xc]               
+           000205a8  vldr     s0, [fp, #0xc]               
+           000205ac  vcvt.f64.f32 d2, s0                       
+           000205b0  vldr     s0, [fp, #8]                 
+           000205b4  vcvt.f64.f32 d3, s0                       
+           000205b8  vmul.f64 d2, d2, d3                   
+           000205bc  vcvt.f32.f64 s0, d2                       
+           000205c0  vstr     s0, [fp, #0xc]               
+           000205c4  vldr     s0, [fp, #0x10]              
+           000205c8  vcvt.f64.f32 d2, s0                       
+           000205cc  vldr     s0, [fp, #0xc]               
+           000205d0  vcvt.f64.f32 d3, s0                       
+           000205d4  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: m_Exponent)
+           000205d8  ldr      r1, [r0, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           000205dc  cmp      r1, r6                       
+           000205e0  blls     #0x20644                     ; THROW System.IndexOutOfRangeException (if ls)
+           000205e4  lsl      r1, r6, #2                   
+           000205e8  add      r0, r0, r1                   
+           000205ec  add      r0, r0, #0x10                
+           000205f0  vldr     s0, [r0]                     
+           000205f4  vcvt.f64.f32 d4, s0                       
+           000205f8  vmul.f64 d3, d3, d4                   
+           000205fc  vadd.f64 d2, d2, d3                   
+           00020600  vcvt.f32.f64 s0, d2                       
+           00020604  vstr     s0, [fp, #0x10]              
+           00020608  add      r6, r6, #1                   
+L_2060c:   0002060c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           00020610  cmp      r6, r0                       
+           00020614  blt      #0x204a0                     ; -> L_204a0
+           00020618  vldr     s0, [fp, #0x10]              
+           0002061c  vcvt.f64.f32 d2, s0                       
+           00020620  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: m_ValueScale)
+           00020624  vcvt.f64.f32 d3, s0                       
+           00020628  vmul.f64 d2, d2, d3                   
+           0002062c  vcvt.f32.f64 s0, d2                       
+           00020630  vmov     r0, s0                       
+           00020634  add      sp, fp, #0x38                
+           00020638  pop      {r6, r8, sl, fp}             
+           0002063c  ldr      r7, [sp, #8]                 
+           00020640  ldm      sp, {sp, pc}                 
+           00020644  mov      r1, lr                       
+           00020648  ldr      r0, [pc]                     
+           0002064c  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00020650  andeq    r0, r0, #0xf8                
+
+== FractalNoise::BrownianMotion  token 0x06000187 @0x00020654 (712 bytes)
+   args: r0=this, x, y
+           00020654  mov      ip, sp                       
+           00020658  push     {r7, lr}                     
+           0002065c  mov      r7, sp                       
+           00020660  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00020664  sub      sp, sp, #0x38                
+           00020668  mov      fp, sp                       
+           0002066c  mov      sl, r0                       
+           00020670  str      r1, [fp, #0x1c]              
+           00020674  str      r2, [fp, #0x20]              
+           00020678  vldr     s0, [fp, #0x1c]              
+           0002067c  vcvt.f64.f32 d2, s0                       
+           00020680  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: m_XScale)
+           00020684  vcvt.f64.f32 d3, s0                       
+           00020688  vmul.f64 d2, d2, d3                   
+           0002068c  vcvt.f32.f64 s0, d2                       
+           00020690  vstr     s0, [fp, #0x1c]              
+           00020694  vldr     s0, [fp, #0x20]              
+           00020698  vcvt.f64.f32 d2, s0                       
+           0002069c  vldr     s0, [sl, #0x1c]              ; field+0x1c (this-class: m_YScale)
+           000206a0  vcvt.f64.f32 d3, s0                       
+           000206a4  vmul.f64 d2, d2, d3                   
+           000206a8  vcvt.f32.f64 s0, d2                       
+           000206ac  vstr     s0, [fp, #0x20]              
+           000206b0  vldr     s4, [pc]                     ; float 0.0
+           000206b4  b        #0x206bc                     ; -> L_206bc
+           000206b8  .word    0x00000000                   ; literal 0 / 0
+L_206bc:   000206bc  vcvt.f64.f32 d2, s4                       
+           000206c0  vcvt.f32.f64 s0, d2                       
+           000206c4  vstr     s0, [fp, #8]                 
+           000206c8  mov      r0, #0                       
+           000206cc  str      r0, [fp, #0x10]              
+           000206d0  mov      r0, #0                       
+           000206d4  str      r0, [fp, #0x14]              
+           000206d8  b        #0x207b4                     ; -> L_207b4
+L_206dc:   000206dc  vldr     s0, [fp, #0x1c]              
+           000206e0  vcvt.f64.f32 d3, s0                       
+           000206e4  vldr     s0, [fp, #0x20]              
+           000206e8  vcvt.f64.f32 d2, s0                       
+           000206ec  vcvt.f32.f64 s0, d3                       
+           000206f0  vstr     s0, [sp, #-8]                
+           000206f4  ldr      r0, [sp, #-8]                
+           000206f8  vcvt.f32.f64 s0, d2                       
+           000206fc  vstr     s0, [sp, #-8]                
+           00020700  ldr      r1, [sp, #-8]                
+           00020704  bl       #0xbadb0                     ; CALL Perlin::Noise
+           00020708  vmov     s4, r0                       
+           0002070c  vcvt.f64.f32 d2, s4                       
+           00020710  ldr      r2, [sl, #8]                 ; field+0x8 (this-class: m_Exponent)
+           00020714  ldr      r1, [fp, #0x10]              
+           00020718  ldr      r0, [fp, #0x14]              
+           0002071c  cmp      r1, #0                       
+           00020720  bge      #0x20730                     ; -> L_20730
+           00020724  cmn      r0, #1                       
+           00020728  beq      #0x2073c                     ; -> L_2073c
+           0002072c  b        #0x20738                     ; -> L_20738
+L_20730:   00020730  cmp      r0, #0                       
+           00020734  beq      #0x2073c                     ; -> L_2073c
+L_20738:   00020738  bl       #0x2090c                     ; THROW System.OverflowException
+L_2073c:   0002073c  mov      r3, r1                       
+           00020740  ldr      ip, [r2, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           00020744  cmp      ip, r3                       
+           00020748  blls     #0x208fc                     ; THROW System.IndexOutOfRangeException (if ls)
+           0002074c  lsl      r3, r3, #2                   
+           00020750  add      r2, r2, r3                   
+           00020754  add      r2, r2, #0x10                
+           00020758  vldr     s0, [r2]                     
+           0002075c  vcvt.f64.f32 d3, s0                       
+           00020760  vmul.f64 d2, d2, d3                   
+           00020764  vcvt.f32.f64 s0, d2                       
+           00020768  vstr     s0, [fp, #8]                 
+           0002076c  vldr     s0, [fp, #0x1c]              
+           00020770  vcvt.f64.f32 d2, s0                       
+           00020774  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: m_Lacunarity)
+           00020778  vcvt.f64.f32 d3, s0                       
+           0002077c  vmul.f64 d2, d2, d3                   
+           00020780  vcvt.f32.f64 s0, d2                       
+           00020784  vstr     s0, [fp, #0x1c]              
+           00020788  vldr     s0, [fp, #0x20]              
+           0002078c  vcvt.f64.f32 d2, s0                       
+           00020790  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: m_Lacunarity)
+           00020794  vcvt.f64.f32 d3, s0                       
+           00020798  vmul.f64 d2, d2, d3                   
+           0002079c  vcvt.f32.f64 s0, d2                       
+           000207a0  vstr     s0, [fp, #0x20]              
+           000207a4  adds     r1, r1, #1                   
+           000207a8  adcs     r0, r0, #0                   
+           000207ac  str      r1, [fp, #0x10]              
+           000207b0  str      r0, [fp, #0x14]              
+L_207b4:   000207b4  ldr      r6, [fp, #0x10]              
+           000207b8  ldr      r5, [fp, #0x14]              
+           000207bc  ldr      r4, [sl, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           000207c0  mvn      r0, #0                       
+           000207c4  cmp      r4, r0                       
+           000207c8  mov      r0, #0                       
+           000207cc  movgt    r0, #1                       
+           000207d0  sub      r1, r0, #1                   
+           000207d4  str      r1, [fp, #0x18]              
+           000207d8  ldr      r0, [fp, #0x14]              
+           000207dc  cmp      r0, r1                       
+           000207e0  blt      #0x206dc                     ; -> L_206dc
+           000207e4  ldr      r0, [fp, #0x18]              
+           000207e8  cmp      r5, r0                       
+           000207ec  bne      #0x207f8                     ; -> L_207f8
+           000207f0  cmp      r6, r4                       
+           000207f4  blo      #0x206dc                     ; -> L_206dc
+L_207f8:   000207f8  vldr     s0, [sl, #0x10]              ; field+0x10 (this-class: m_Octaves)
+           000207fc  vcvt.f64.f32 d2, s0                       
+           00020800  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           00020804  vmov     s0, r0                       
+           00020808  vcvt.f32.s32 s0, s0                       
+           0002080c  vcvt.f64.f32 d3, s0                       
+           00020810  vsub.f64 d2, d2, d3                   
+           00020814  vcvt.f32.f64 s0, d2                       
+           00020818  vstr     s0, [fp, #0xc]               
+           0002081c  vldr     s0, [fp, #8]                 
+           00020820  vcvt.f64.f32 d2, s0                       
+           00020824  vstr     d2, [fp, #0x28]              
+           00020828  vldr     s0, [fp, #0xc]               
+           0002082c  vcvt.f64.f32 d2, s0                       
+           00020830  vstr     d2, [fp, #0x30]              
+           00020834  vldr     s0, [fp, #0x1c]              
+           00020838  vcvt.f64.f32 d3, s0                       
+           0002083c  vldr     s0, [fp, #0x20]              
+           00020840  vcvt.f64.f32 d2, s0                       
+           00020844  vcvt.f32.f64 s0, d3                       
+           00020848  vstr     s0, [sp, #-8]                
+           0002084c  ldr      r0, [sp, #-8]                
+           00020850  vcvt.f32.f64 s0, d2                       
+           00020854  vstr     s0, [sp, #-8]                
+           00020858  ldr      r1, [sp, #-8]                
+           0002085c  bl       #0xbadb0                     ; CALL Perlin::Noise
+           00020860  vmov     s8, r0                       
+           00020864  vcvt.f64.f32 d4, s8                       
+           00020868  vldr     d2, [fp, #0x28]              
+           0002086c  vldr     d3, [fp, #0x30]              
+           00020870  vmul.f64 d3, d3, d4                   
+           00020874  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: m_Exponent)
+           00020878  ldr      r1, [fp, #0x10]              
+           0002087c  ldr      r2, [fp, #0x14]              
+           00020880  cmp      r1, #0                       
+           00020884  bge      #0x20894                     ; -> L_20894
+           00020888  cmn      r2, #1                       
+           0002088c  beq      #0x208a0                     ; -> L_208a0
+           00020890  b        #0x2089c                     ; -> L_2089c
+L_20894:   00020894  cmp      r2, #0                       
+           00020898  beq      #0x208a0                     ; -> L_208a0
+L_2089c:   0002089c  bl       #0x2090c                     ; THROW System.OverflowException
+L_208a0:   000208a0  ldr      r2, [r0, #0xc]               ; field+0xc (this-class: m_IntOctaves)
+           000208a4  cmp      r2, r1                       
+           000208a8  blls     #0x208fc                     ; THROW System.IndexOutOfRangeException (if ls)
+           000208ac  lsl      r1, r1, #2                   
+           000208b0  add      r0, r0, r1                   
+           000208b4  add      r0, r0, #0x10                
+           000208b8  vldr     s0, [r0]                     
+           000208bc  vcvt.f64.f32 d4, s0                       
+           000208c0  vmul.f64 d3, d3, d4                   
+           000208c4  vadd.f64 d2, d2, d3                   
+           000208c8  vcvt.f32.f64 s0, d2                       
+           000208cc  vstr     s0, [fp, #8]                 
+           000208d0  vldr     s0, [fp, #8]                 
+           000208d4  vcvt.f64.f32 d2, s0                       
+           000208d8  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: m_ValueScale)
+           000208dc  vcvt.f64.f32 d3, s0                       
+           000208e0  vmul.f64 d2, d2, d3                   
+           000208e4  vcvt.f32.f64 s0, d2                       
+           000208e8  vmov     r0, s0                       
+           000208ec  add      sp, fp, #0x38                
+           000208f0  pop      {r4, r5, r6, r8, sl, fp}     
+           000208f4  ldr      r7, [sp, #8]                 
+           000208f8  ldm      sp, {sp, pc}                 
+           000208fc  mov      r1, lr                       
+           00020900  ldr      r0, [pc]                     
+           00020904  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00020908  andeq    r0, r0, #0xf8                
+           0002090c  mov      r1, lr                       
+           00020910  ldr      r0, [pc]                     
+           00020914  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00020918  andeq    r0, r0, #84, #2              

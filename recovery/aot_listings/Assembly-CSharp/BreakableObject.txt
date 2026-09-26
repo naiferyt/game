@@ -1,0 +1,87 @@
+####################################################################################################
+# TYPE BreakableObject  (instance size 0x14)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 breakSpeed                     float
+#   vtable slots: 
+####################################################################################################
+== BreakableObject::.ctor  token 0x060004c4 @0x00107e14 (76 bytes)
+   args: r0=this, 
+           00107e14  mov      ip, sp                       
+           00107e18  push     {r7, lr}                     
+           00107e1c  mov      r7, sp                       
+           00107e20  push     {r8, fp, ip, lr}             
+           00107e24  sub      sp, sp, #8                   
+           00107e28  mov      fp, sp                       
+           00107e2c  str      r0, [fp]                     
+           00107e30  vldr     s4, [pc]                     ; float 50.0
+           00107e34  b        #0x107e3c                    ; -> L_107e3c
+           00107e38  .word    0x42480000                   ; literal 1112014848 / 50
+L_107e3c:  00107e3c  vcvt.f64.f32 d2, s4                       
+           00107e40  ldr      r0, [fp]                     
+           00107e44  vcvt.f32.f64 s0, d2                       
+           00107e48  vstr     s0, [r0, #0x10]              ; field+0x10 (this-class: breakSpeed)
+           00107e4c  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00107e50  add      sp, fp, #8                   
+           00107e54  pop      {r8, fp}                     
+           00107e58  ldr      r7, [sp, #8]                 
+           00107e5c  ldm      sp, {sp, pc}                 
+
+== BreakableObject::CollideBreak  token 0x060004c5 @0x00107e60 (116 bytes)
+   args: r0=this, speed
+           00107e60  mov      ip, sp                       
+           00107e64  push     {r7, lr}                     
+           00107e68  mov      r7, sp                       
+           00107e6c  push     {r8, sl, fp, ip, lr}         
+           00107e70  sub      sp, sp, #0xc                 
+           00107e74  mov      fp, sp                       
+           00107e78  mov      sl, r0                       
+           00107e7c  str      r1, [fp, #4]                 
+           00107e80  vldr     s0, [fp, #4]                 
+           00107e84  vcvt.f64.f32 d3, s0                       
+           00107e88  vldr     s0, [sl, #0x10]              ; field+0x10 (this-class: breakSpeed)
+           00107e8c  vcvt.f64.f32 d2, s0                       
+           00107e90  vcmp.f64 d2, d3                       
+           00107e94  vmrs     apsr_nzcv, fpscr             
+           00107e98  bvs      #0x107ec4                    ; -> L_107ec4
+           00107e9c  bge      #0x107ec4                    ; -> L_107ec4
+           00107ea0  mov      r0, sl                       
+           00107ea4  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00107ea8  mov      r2, r0                       
+           00107eac  mov      r1, #0                       
+           00107eb0  ldr      lr, [r2]                     
+           00107eb4  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           00107eb8  mov      r0, sl                       
+           00107ebc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00107ec0  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_107ec4:  00107ec4  add      sp, fp, #0xc                 
+           00107ec8  pop      {r8, sl, fp}                 
+           00107ecc  ldr      r7, [sp, #8]                 
+           00107ed0  ldm      sp, {sp, pc}                 
+
+== BreakableObject::Start  token 0x060004c6 @0x00107ed4 (44 bytes)
+   args: r0=this, 
+           00107ed4  mov      ip, sp                       
+           00107ed8  push     {r7, lr}                     
+           00107edc  mov      r7, sp                       
+           00107ee0  push     {r8, fp, ip, lr}             
+           00107ee4  sub      sp, sp, #8                   
+           00107ee8  mov      fp, sp                       
+           00107eec  str      r0, [fp]                     
+           00107ef0  add      sp, fp, #8                   
+           00107ef4  pop      {r8, fp}                     
+           00107ef8  ldr      r7, [sp, #8]                 
+           00107efc  ldm      sp, {sp, pc}                 
+
+== BreakableObject::Update  token 0x060004c7 @0x00107f00 (44 bytes)
+   args: r0=this, 
+           00107f00  mov      ip, sp                       
+           00107f04  push     {r7, lr}                     
+           00107f08  mov      r7, sp                       
+           00107f0c  push     {r8, fp, ip, lr}             
+           00107f10  sub      sp, sp, #8                   
+           00107f14  mov      fp, sp                       
+           00107f18  str      r0, [fp]                     
+           00107f1c  add      sp, fp, #8                   
+           00107f20  pop      {r8, fp}                     
+           00107f24  ldr      r7, [sp, #8]                 
+           00107f28  ldm      sp, {sp, pc}                 

@@ -1,0 +1,353 @@
+####################################################################################################
+# TYPE AudioSourcex  (instance size 0x8)
+#   vtable slots: 
+####################################################################################################
+== AudioSourcex::.ctor  token 0x060000fe @0x00015910 (44 bytes)
+   args: r0=this, 
+           00015910  mov      ip, sp                       
+           00015914  push     {r7, lr}                     
+           00015918  mov      r7, sp                       
+           0001591c  push     {r8, fp, ip, lr}             
+           00015920  sub      sp, sp, #8                   
+           00015924  mov      fp, sp                       
+           00015928  str      r0, [fp]                     
+           0001592c  add      sp, fp, #8                   
+           00015930  pop      {r8, fp}                     
+           00015934  ldr      r7, [sp, #8]                 
+           00015938  ldm      sp, {sp, pc}                 
+
+== AudioSourcex::PlayClipAtTransform  token 0x060000ff @0x0001593c (568 bytes) static
+   args: clip, transform, volume, pitch
+           0001593c  mov      ip, sp                       
+           00015940  push     {r7, lr}                     
+           00015944  mov      r7, sp                       
+           00015948  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0001594c  sub      sp, sp, #0x64                
+           00015950  mov      fp, sp                       
+           00015954  mov      r6, r0                       
+           00015958  mov      sl, r1                       
+           0001595c  str      r2, [fp, #0x34]              
+           00015960  str      r3, [fp, #0x38]              
+           00015964  mov      r0, r6                       
+           00015968  ldr      lr, [r6]                     
+           0001596c  bl       #0xba4d0                     ; CALL UnityEngine.Object::get_name
+           00015970  ldr      r1, [pc]                     
+           00015974  b        #0x1597c                     ; -> L_1597c
+           00015978  .word    0x00f87014                   ; literal 16281620 / 
+L_1597c:   0001597c  ldr      r1, [pc, r1]                 ; GOT[220] LDSTR ' Instantiation'
+           00015980  bl       #0xb9be0                     ; CALL System.String::Concat
+           00015984  str      r0, [fp, #0x58]              
+           00015988  ldr      r0, [pc]                     
+           0001598c  b        #0x15994                     ; -> L_15994
+           00015990  .word    0x00f87000                   ; literal 16281600 / 
+L_15994:   00015994  ldr      r0, [pc, r0]                 ; GOT[221] VTABLE UnityEngine.GameObject
+           00015998  bl       #0xba4e0                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           0001599c  ldr      r1, [fp, #0x58]              
+           000159a0  str      r0, [fp, #0x54]              
+           000159a4  bl       #0xba4f0                     ; CALL UnityEngine.GameObject::.ctor
+           000159a8  ldr      r0, [fp, #0x54]              
+           000159ac  mov      r5, r0                       
+           000159b0  mov      r2, r5                       
+           000159b4  ldr      r1, [pc]                     
+           000159b8  b        #0x159c0                     ; -> L_159c0
+           000159bc  .word    0x00f86fd8                   ; literal 16281560 / 
+L_159c0:   000159c0  ldr      r1, [pc, r1]                 ; GOT[222] TYPE_FROM_HANDLE typeof(UnityEngine.AudioSource)
+           000159c4  mov      r0, r2                       
+           000159c8  ldr      lr, [r2]                     
+           000159cc  bl       #0xba500                     ; CALL UnityEngine.GameObject::AddComponent
+           000159d0  mov      r0, r5                       
+           000159d4  ldr      lr, [r5]                     
+           000159d8  bl       #0xba510                     ; CALL UnityEngine.GameObject::get_audio
+           000159dc  mov      r2, r0                       
+           000159e0  mov      r1, r6                       
+           000159e4  ldr      lr, [r2]                     
+           000159e8  bl       #0xba520                     ; CALL UnityEngine.AudioSource::set_clip
+           000159ec  mov      r0, r5                       
+           000159f0  ldr      lr, [r5]                     
+           000159f4  bl       #0xba530                     ; CALL UnityEngine.GameObject::get_transform
+           000159f8  str      r0, [fp, #0x50]              
+           000159fc  add      r0, fp, #0x28                
+           00015a00  mov      r1, sl                       
+           00015a04  ldr      lr, [sl]                     
+           00015a08  bl       #0xba490                     ; CALL UnityEngine.Transform::get_position
+           00015a0c  ldr      ip, [fp, #0x50]              
+           00015a10  mov      r0, ip                       
+           00015a14  ldr      r1, [fp, #0x28]              
+           00015a18  ldr      r2, [fp, #0x2c]              
+           00015a1c  ldr      r3, [fp, #0x30]              
+           00015a20  ldr      lr, [ip]                     
+           00015a24  bl       #0xba540                     ; CALL UnityEngine.Transform::set_position
+           00015a28  mov      r0, r5                       
+           00015a2c  ldr      lr, [r5]                     
+           00015a30  bl       #0xba530                     ; CALL UnityEngine.GameObject::get_transform
+           00015a34  mov      r2, r0                       
+           00015a38  mov      r1, sl                       
+           00015a3c  ldr      lr, [r2]                     
+           00015a40  bl       #0xba550                     ; CALL UnityEngine.Transform::set_parent
+           00015a44  mov      r0, r5                       
+           00015a48  ldr      lr, [r5]                     
+           00015a4c  bl       #0xba510                     ; CALL UnityEngine.GameObject::get_audio
+           00015a50  str      r0, [fp, #0x40]              
+           00015a54  vldr     s0, [fp, #0x34]              
+           00015a58  vcvt.f64.f32 d2, s0                       
+           00015a5c  vstr     d2, [fp, #0x48]              
+           00015a60  bl       #0xba4a0                     ; CALL AudioManager::get_instance
+           00015a64  mov      r1, r0                       
+           00015a68  ldr      lr, [r1]                     
+           00015a6c  bl       #0xba4b0                     ; CALL AudioManager::get_SoundEffectsVolume
+           00015a70  vmov     s6, r0                       
+           00015a74  vcvt.f64.f32 d3, s6                       
+           00015a78  ldr      r2, [fp, #0x40]              
+           00015a7c  vldr     d2, [fp, #0x48]              
+           00015a80  vmul.f64 d2, d2, d3                   
+           00015a84  mov      r0, r2                       
+           00015a88  vcvt.f32.f64 s0, d2                       
+           00015a8c  vstr     s0, [sp, #-8]                
+           00015a90  ldr      r1, [sp, #-8]                
+           00015a94  ldr      lr, [r2]                     
+           00015a98  bl       #0xba560                     ; CALL UnityEngine.AudioSource::set_volume
+           00015a9c  vldr     s0, [fp, #0x38]              
+           00015aa0  vcvt.f64.f32 d2, s0                       
+           00015aa4  vldr     s6, [pc]                     ; float 1.0
+           00015aa8  b        #0x15ab0                     ; -> L_15ab0
+           00015aac  .word    0x3f800000                   ; literal 1065353216 / 1
+L_15ab0:   00015ab0  vcvt.f64.f32 d3, s6                       
+           00015ab4  vcmp.f64 d2, d3                       
+           00015ab8  vmrs     apsr_nzcv, fpscr             
+           00015abc  beq      #0x15af0                     ; -> L_15af0
+           00015ac0  mov      r0, r5                       
+           00015ac4  ldr      lr, [r5]                     
+           00015ac8  bl       #0xba510                     ; CALL UnityEngine.GameObject::get_audio
+           00015acc  mov      r2, r0                       
+           00015ad0  vldr     s0, [fp, #0x38]              
+           00015ad4  vcvt.f64.f32 d2, s0                       
+           00015ad8  mov      r0, r2                       
+           00015adc  vcvt.f32.f64 s0, d2                       
+           00015ae0  vstr     s0, [sp, #-8]                
+           00015ae4  ldr      r1, [sp, #-8]                
+           00015ae8  ldr      lr, [r2]                     
+           00015aec  bl       #0xba570                     ; CALL UnityEngine.AudioSource::set_pitch
+L_15af0:   00015af0  mov      r0, r5                       
+           00015af4  ldr      lr, [r5]                     
+           00015af8  bl       #0xba510                     ; CALL UnityEngine.GameObject::get_audio
+           00015afc  mov      r1, r0                       
+           00015b00  ldr      lr, [r1]                     
+           00015b04  bl       #0xba580                     ; CALL UnityEngine.AudioSource::Play
+           00015b08  mov      r0, r5                       
+           00015b0c  bl       #0xb9d00                     ; CALL UnityEngine.Object::DontDestroyOnLoad
+           00015b10  mov      r0, r6                       
+           00015b14  ldr      lr, [r6]                     
+           00015b18  bl       #0xba590                     ; CALL UnityEngine.AudioClip::get_length
+           00015b1c  vmov     s4, r0                       
+           00015b20  vcvt.f64.f32 d2, s4                       
+           00015b24  vldr     s0, [fp, #0x38]              
+           00015b28  vcvt.f64.f32 d3, s0                       
+           00015b2c  vdiv.f64 d2, d2, d3                   
+           00015b30  vldr     s6, [pc]                     ; float 0.20000000298023224
+           00015b34  b        #0x15b3c                     ; -> L_15b3c
+           00015b38  .word    0x3e4ccccd                   ; literal 1045220557 / 0.2
+L_15b3c:   00015b3c  vcvt.f64.f32 d3, s6                       
+           00015b40  vadd.f64 d2, d2, d3                   
+           00015b44  mov      r0, r5                       
+           00015b48  vcvt.f32.f64 s0, d2                       
+           00015b4c  vstr     s0, [sp, #-8]                
+           00015b50  ldr      r1, [sp, #-8]                
+           00015b54  bl       #0xba5a0                     ; CALL UnityEngine.Object::Destroy
+           00015b58  mov      r0, r5                       
+           00015b5c  ldr      lr, [r5]                     
+           00015b60  bl       #0xba510                     ; CALL UnityEngine.GameObject::get_audio
+           00015b64  add      sp, fp, #0x64                
+           00015b68  pop      {r5, r6, r8, sl, fp}         
+           00015b6c  ldr      r7, [sp, #8]                 
+           00015b70  ldm      sp, {sp, pc}                 
+
+== AudioSourcex::PlayClipAtTransform  token 0x06000100 @0x00015b74 (112 bytes) static
+   args: clip, transform, volume
+           00015b74  mov      ip, sp                       
+           00015b78  push     {r7, lr}                     
+           00015b7c  mov      r7, sp                       
+           00015b80  push     {r8, fp, ip, lr}             
+           00015b84  sub      sp, sp, #0x18                
+           00015b88  mov      fp, sp                       
+           00015b8c  str      r0, [fp, #8]                 
+           00015b90  str      r1, [fp, #0xc]               
+           00015b94  str      r2, [fp, #0x10]              
+           00015b98  vldr     s0, [fp, #0x10]              
+           00015b9c  vcvt.f64.f32 d3, s0                       
+           00015ba0  vldr     s4, [pc]                     ; float 1.0
+           00015ba4  b        #0x15bac                     ; -> L_15bac
+           00015ba8  .word    0x3f800000                   ; literal 1065353216 / 1
+L_15bac:   00015bac  vcvt.f64.f32 d2, s4                       
+           00015bb0  ldr      r0, [fp, #8]                 
+           00015bb4  ldr      r1, [fp, #0xc]               
+           00015bb8  vcvt.f32.f64 s0, d3                       
+           00015bbc  vstr     s0, [sp, #-8]                
+           00015bc0  ldr      r2, [sp, #-8]                
+           00015bc4  vcvt.f32.f64 s0, d2                       
+           00015bc8  vstr     s0, [sp, #-8]                
+           00015bcc  ldr      r3, [sp, #-8]                
+           00015bd0  bl       #0xba5b0                     ; CALL AudioSourcex::PlayClipAtTransform
+           00015bd4  add      sp, fp, #0x18                
+           00015bd8  pop      {r8, fp}                     
+           00015bdc  ldr      r7, [sp, #8]                 
+           00015be0  ldm      sp, {sp, pc}                 
+
+== AudioSourcex::PlayCrumbAtTransform  token 0x06000101 @0x00015be4 (84 bytes) static
+   args: crumb, transform
+           00015be4  mov      ip, sp                       
+           00015be8  push     {r7, lr}                     
+           00015bec  mov      r7, sp                       
+           00015bf0  push     {r8, fp, ip, lr}             
+           00015bf4  sub      sp, sp, #0x18                
+           00015bf8  mov      fp, sp                       
+           00015bfc  str      r0, [fp, #0xc]               
+           00015c00  str      r1, [fp, #0x10]              
+           00015c04  ldr      r1, [fp, #0xc]               
+           00015c08  ldr      r0, [r1, #8]                 ; field+0x8 
+           00015c0c  vldr     s0, [r1, #0x10]              ; field+0x10 
+           00015c10  vcvt.f64.f32 d2, s0                       
+           00015c14  ldr      r1, [fp, #0x10]              
+           00015c18  vcvt.f32.f64 s0, d2                       
+           00015c1c  vstr     s0, [sp, #-8]                
+           00015c20  ldr      r2, [sp, #-8]                
+           00015c24  bl       #0x15b74                     ; CALL AudioSourcex::PlayClipAtTransform (direct)
+           00015c28  add      sp, fp, #0x18                
+           00015c2c  pop      {r8, fp}                     
+           00015c30  ldr      r7, [sp, #8]                 
+           00015c34  ldm      sp, {sp, pc}                 
+
+== AudioSourcex::PlayClipAtPosition  token 0x06000102 @0x00015c38 (532 bytes) static
+   args: clip, position, volume, pitch
+           00015c38  mov      ip, sp                       
+           00015c3c  push     {r7, lr}                     
+           00015c40  mov      r7, sp                       
+           00015c44  push     {r6, r8, sl, fp, ip, lr}     
+           00015c48  sub      sp, sp, #0x48                
+           00015c4c  mov      fp, sp                       
+           00015c50  mov      sl, r0                       
+           00015c54  str      r1, [fp, #0x1c]              
+           00015c58  str      r2, [fp, #0x20]              
+           00015c5c  str      r3, [fp, #0x24]              
+           00015c60  ldr      lr, [sp, #0x68]              
+           00015c64  str      lr, [fp, #0x28]              
+           00015c68  ldr      lr, [sp, #0x6c]              
+           00015c6c  str      lr, [fp, #0x2c]              
+           00015c70  mov      r0, sl                       
+           00015c74  ldr      lr, [sl]                     
+           00015c78  bl       #0xba4d0                     ; CALL UnityEngine.Object::get_name
+           00015c7c  ldr      r1, [pc]                     
+           00015c80  b        #0x15c88                     ; -> L_15c88
+           00015c84  .word    0x00f86d08                   ; literal 16280840 / 
+L_15c88:   00015c88  ldr      r1, [pc, r1]                 ; GOT[220] LDSTR ' Instantiation'
+           00015c8c  bl       #0xb9be0                     ; CALL System.String::Concat
+           00015c90  str      r0, [fp, #0x44]              
+           00015c94  ldr      r0, [pc]                     
+           00015c98  b        #0x15ca0                     ; -> L_15ca0
+           00015c9c  .word    0x00f86cf4                   ; literal 16280820 / 
+L_15ca0:   00015ca0  ldr      r0, [pc, r0]                 ; GOT[221] VTABLE UnityEngine.GameObject
+           00015ca4  bl       #0xba4e0                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           00015ca8  ldr      r1, [fp, #0x44]              
+           00015cac  str      r0, [fp, #0x40]              
+           00015cb0  bl       #0xba4f0                     ; CALL UnityEngine.GameObject::.ctor
+           00015cb4  ldr      r0, [fp, #0x40]              
+           00015cb8  mov      r6, r0                       
+           00015cbc  mov      r2, r6                       
+           00015cc0  ldr      r1, [pc]                     
+           00015cc4  b        #0x15ccc                     ; -> L_15ccc
+           00015cc8  .word    0x00f86ccc                   ; literal 16280780 / 
+L_15ccc:   00015ccc  ldr      r1, [pc, r1]                 ; GOT[222] TYPE_FROM_HANDLE typeof(UnityEngine.AudioSource)
+           00015cd0  mov      r0, r2                       
+           00015cd4  ldr      lr, [r2]                     
+           00015cd8  bl       #0xba500                     ; CALL UnityEngine.GameObject::AddComponent
+           00015cdc  mov      r0, r6                       
+           00015ce0  ldr      lr, [r6]                     
+           00015ce4  bl       #0xba510                     ; CALL UnityEngine.GameObject::get_audio
+           00015ce8  mov      r2, r0                       
+           00015cec  mov      r1, sl                       
+           00015cf0  ldr      lr, [r2]                     
+           00015cf4  bl       #0xba520                     ; CALL UnityEngine.AudioSource::set_clip
+           00015cf8  mov      r0, r6                       
+           00015cfc  ldr      lr, [r6]                     
+           00015d00  bl       #0xba530                     ; CALL UnityEngine.GameObject::get_transform
+           00015d04  mov      ip, r0                       
+           00015d08  ldr      r1, [fp, #0x1c]              
+           00015d0c  ldr      r2, [fp, #0x20]              
+           00015d10  ldr      r3, [fp, #0x24]              
+           00015d14  ldr      lr, [ip]                     
+           00015d18  bl       #0xba540                     ; CALL UnityEngine.Transform::set_position
+           00015d1c  mov      r0, r6                       
+           00015d20  ldr      lr, [r6]                     
+           00015d24  bl       #0xba510                     ; CALL UnityEngine.GameObject::get_audio
+           00015d28  str      r0, [fp, #0x30]              
+           00015d2c  vldr     s0, [fp, #0x28]              
+           00015d30  vcvt.f64.f32 d2, s0                       
+           00015d34  vstr     d2, [fp, #0x38]              
+           00015d38  bl       #0xba4a0                     ; CALL AudioManager::get_instance
+           00015d3c  mov      r1, r0                       
+           00015d40  ldr      lr, [r1]                     
+           00015d44  bl       #0xba4b0                     ; CALL AudioManager::get_SoundEffectsVolume
+           00015d48  vmov     s6, r0                       
+           00015d4c  vcvt.f64.f32 d3, s6                       
+           00015d50  ldr      r2, [fp, #0x30]              
+           00015d54  vldr     d2, [fp, #0x38]              
+           00015d58  vmul.f64 d2, d2, d3                   
+           00015d5c  mov      r0, r2                       
+           00015d60  vcvt.f32.f64 s0, d2                       
+           00015d64  vstr     s0, [sp, #-8]                
+           00015d68  ldr      r1, [sp, #-8]                
+           00015d6c  ldr      lr, [r2]                     
+           00015d70  bl       #0xba560                     ; CALL UnityEngine.AudioSource::set_volume
+           00015d74  vldr     s0, [fp, #0x2c]              
+           00015d78  vcvt.f64.f32 d2, s0                       
+           00015d7c  vldr     s6, [pc]                     ; float 1.0
+           00015d80  b        #0x15d88                     ; -> L_15d88
+           00015d84  .word    0x3f800000                   ; literal 1065353216 / 1
+L_15d88:   00015d88  vcvt.f64.f32 d3, s6                       
+           00015d8c  vcmp.f64 d2, d3                       
+           00015d90  vmrs     apsr_nzcv, fpscr             
+           00015d94  beq      #0x15dc8                     ; -> L_15dc8
+           00015d98  mov      r0, r6                       
+           00015d9c  ldr      lr, [r6]                     
+           00015da0  bl       #0xba510                     ; CALL UnityEngine.GameObject::get_audio
+           00015da4  mov      r2, r0                       
+           00015da8  vldr     s0, [fp, #0x2c]              
+           00015dac  vcvt.f64.f32 d2, s0                       
+           00015db0  mov      r0, r2                       
+           00015db4  vcvt.f32.f64 s0, d2                       
+           00015db8  vstr     s0, [sp, #-8]                
+           00015dbc  ldr      r1, [sp, #-8]                
+           00015dc0  ldr      lr, [r2]                     
+           00015dc4  bl       #0xba570                     ; CALL UnityEngine.AudioSource::set_pitch
+L_15dc8:   00015dc8  mov      r0, r6                       
+           00015dcc  ldr      lr, [r6]                     
+           00015dd0  bl       #0xba510                     ; CALL UnityEngine.GameObject::get_audio
+           00015dd4  mov      r1, r0                       
+           00015dd8  ldr      lr, [r1]                     
+           00015ddc  bl       #0xba580                     ; CALL UnityEngine.AudioSource::Play
+           00015de0  mov      r0, r6                       
+           00015de4  bl       #0xb9d00                     ; CALL UnityEngine.Object::DontDestroyOnLoad
+           00015de8  mov      r0, sl                       
+           00015dec  ldr      lr, [sl]                     
+           00015df0  bl       #0xba590                     ; CALL UnityEngine.AudioClip::get_length
+           00015df4  vmov     s4, r0                       
+           00015df8  vcvt.f64.f32 d2, s4                       
+           00015dfc  vldr     s0, [fp, #0x2c]              
+           00015e00  vcvt.f64.f32 d3, s0                       
+           00015e04  vdiv.f64 d2, d2, d3                   
+           00015e08  vldr     s6, [pc]                     ; float 0.20000000298023224
+           00015e0c  b        #0x15e14                     ; -> L_15e14
+           00015e10  .word    0x3e4ccccd                   ; literal 1045220557 / 0.2
+L_15e14:   00015e14  vcvt.f64.f32 d3, s6                       
+           00015e18  vadd.f64 d2, d2, d3                   
+           00015e1c  mov      r0, r6                       
+           00015e20  vcvt.f32.f64 s0, d2                       
+           00015e24  vstr     s0, [sp, #-8]                
+           00015e28  ldr      r1, [sp, #-8]                
+           00015e2c  bl       #0xba5a0                     ; CALL UnityEngine.Object::Destroy
+           00015e30  mov      r0, r6                       
+           00015e34  ldr      lr, [r6]                     
+           00015e38  bl       #0xba510                     ; CALL UnityEngine.GameObject::get_audio
+           00015e3c  add      sp, fp, #0x48                
+           00015e40  pop      {r6, r8, sl, fp}             
+           00015e44  ldr      r7, [sp, #8]                 
+           00015e48  ldm      sp, {sp, pc}                 

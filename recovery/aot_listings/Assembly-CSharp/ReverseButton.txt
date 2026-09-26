@@ -1,0 +1,124 @@
+####################################################################################################
+# TYPE ReverseButton  (instance size 0x54)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 normal                         UghSpritePrototype
+#   +0x14 anchor                         UghSprite/Anchor
+#   +0x18 customAnchorOffset             UnityEngine.Vector3
+#   +0x24 flippedHorizontal              bool
+#   +0x25 flippedVertical                bool
+#   +0x28 offset                         UnityEngine.Vector3
+#   +0x34 autoSizeCollider               bool
+#   +0x35 passThrough                    bool
+#   +0x38 <HotFingerID>k__BackingField   int
+#   +0x3c pressed                        UghSpritePrototype
+#   +0x40 mouseOver                      UghSpritePrototype
+#   +0x44 OnPressed                      System.Action`1<UghButton>
+#   +0x48 OnDown                         System.Action`2<UghButton,bool>
+#   +0x4c wasDown                        bool
+#   +0x50 isDownState                    bool
+#   vtable slots: 13:OnButtonHeld, 14:OnButtonUp, 15:OnButtonDown
+####################################################################################################
+== ReverseButton::.ctor  token 0x0600077d @0x0013cb1c (52 bytes)
+   args: r0=this, 
+           0013cb1c  mov      ip, sp                       
+           0013cb20  push     {r7, lr}                     
+           0013cb24  mov      r7, sp                       
+           0013cb28  push     {r8, fp, ip, lr}             
+           0013cb2c  sub      sp, sp, #8                   
+           0013cb30  mov      fp, sp                       
+           0013cb34  str      r0, [fp]                     
+           0013cb38  ldr      r0, [fp]                     
+           0013cb3c  bl       #0x13ccb8                    ; CALL UghHeldButton::.ctor (direct)
+           0013cb40  add      sp, fp, #8                   
+           0013cb44  pop      {r8, fp}                     
+           0013cb48  ldr      r7, [sp, #8]                 
+           0013cb4c  ldm      sp, {sp, pc}                 
+
+== ReverseButton::ApplyReverse  token 0x0600077e @0x0013cb50 (140 bytes)
+   args: r0=this, state
+           0013cb50  mov      ip, sp                       
+           0013cb54  push     {r7, lr}                     
+           0013cb58  mov      r7, sp                       
+           0013cb5c  push     {r8, sl, fp, ip, lr}         
+           0013cb60  sub      sp, sp, #0x14                
+           0013cb64  mov      fp, sp                       
+           0013cb68  str      r0, [fp]                     
+           0013cb6c  strb     r1, [fp, #4]                 
+           0013cb70  bl       #0x139ca4                    ; CALL HUDLogic::get_playerCar (direct)
+           0013cb74  mov      sl, r0                       
+           0013cb78  mov      r1, #0                       
+           0013cb7c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0013cb80  cmp      r0, #0                       
+           0013cb84  beq      #0x13cbcc                    ; -> L_13cbcc
+           0013cb88  ldr      r0, [pc]                     
+           0013cb8c  b        #0x13cb94                    ; -> L_13cb94
+           0013cb90  .word    0x00e69b44                   ; literal 15113028 / 
+L_13cb94:  0013cb94  ldr      r0, [pc, r0]                 ; GOT[1630] LDSTR 'ApplyReverse'
+           0013cb98  str      r0, [fp, #8]                 
+           0013cb9c  ldr      r0, [pc]                     
+           0013cba0  b        #0x13cba8                    ; -> L_13cba8
+           0013cba4  .word    0x00e68920                   ; literal 15108384 / 
+L_13cba8:  0013cba8  ldr      r0, [pc, r0]                 ; GOT[474] VTABLE System.Boolean
+           0013cbac  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0013cbb0  mov      r2, r0                       
+           0013cbb4  ldr      r1, [fp, #8]                 
+           0013cbb8  ldrb     r0, [fp, #4]                 
+           0013cbbc  strb     r0, [r2, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0013cbc0  mov      r0, sl                       
+           0013cbc4  ldr      lr, [sl]                     
+           0013cbc8  bl       #0x22b480                    ; CALL UnityEngine.GameObject::SendMessage
+L_13cbcc:  0013cbcc  add      sp, fp, #0x14                
+           0013cbd0  pop      {r8, sl, fp}                 
+           0013cbd4  ldr      r7, [sp, #8]                 
+           0013cbd8  ldm      sp, {sp, pc}                 
+
+== ReverseButton::OnButtonDown  token 0x0600077f @0x0013cbdc (56 bytes)
+   args: r0=this, 
+           0013cbdc  mov      ip, sp                       
+           0013cbe0  push     {r7, lr}                     
+           0013cbe4  mov      r7, sp                       
+           0013cbe8  push     {r8, fp, ip, lr}             
+           0013cbec  sub      sp, sp, #8                   
+           0013cbf0  mov      fp, sp                       
+           0013cbf4  str      r0, [fp]                     
+           0013cbf8  ldr      r0, [fp]                     
+           0013cbfc  mov      r1, #1                       
+           0013cc00  bl       #0x22f320                    ; CALL ReverseButton::ApplyReverse
+           0013cc04  add      sp, fp, #8                   
+           0013cc08  pop      {r8, fp}                     
+           0013cc0c  ldr      r7, [sp, #8]                 
+           0013cc10  ldm      sp, {sp, pc}                 
+
+== ReverseButton::OnButtonUp  token 0x06000780 @0x0013cc14 (56 bytes)
+   args: r0=this, 
+           0013cc14  mov      ip, sp                       
+           0013cc18  push     {r7, lr}                     
+           0013cc1c  mov      r7, sp                       
+           0013cc20  push     {r8, fp, ip, lr}             
+           0013cc24  sub      sp, sp, #8                   
+           0013cc28  mov      fp, sp                       
+           0013cc2c  str      r0, [fp]                     
+           0013cc30  ldr      r0, [fp]                     
+           0013cc34  mov      r1, #0                       
+           0013cc38  bl       #0x22f320                    ; CALL ReverseButton::ApplyReverse
+           0013cc3c  add      sp, fp, #8                   
+           0013cc40  pop      {r8, fp}                     
+           0013cc44  ldr      r7, [sp, #8]                 
+           0013cc48  ldm      sp, {sp, pc}                 
+
+== ReverseButton::OnButtonHeld  token 0x06000781 @0x0013cc4c (56 bytes)
+   args: r0=this, 
+           0013cc4c  mov      ip, sp                       
+           0013cc50  push     {r7, lr}                     
+           0013cc54  mov      r7, sp                       
+           0013cc58  push     {r8, fp, ip, lr}             
+           0013cc5c  sub      sp, sp, #8                   
+           0013cc60  mov      fp, sp                       
+           0013cc64  str      r0, [fp]                     
+           0013cc68  ldr      r0, [fp]                     
+           0013cc6c  mov      r1, #1                       
+           0013cc70  bl       #0x22f320                    ; CALL ReverseButton::ApplyReverse
+           0013cc74  add      sp, fp, #8                   
+           0013cc78  pop      {r8, fp}                     
+           0013cc7c  ldr      r7, [sp, #8]                 
+           0013cc80  ldm      sp, {sp, pc}                 

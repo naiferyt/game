@@ -1,0 +1,98 @@
+####################################################################################################
+# TYPE EnsureGlobals  (instance size 0x14)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 globalsList                    UnityEngine.GameObject[]
+#   vtable slots: 
+####################################################################################################
+== EnsureGlobals::.ctor  token 0x06000432 @0x000ff8bc (52 bytes)
+   args: r0=this, 
+           000ff8bc  mov      ip, sp                       
+           000ff8c0  push     {r7, lr}                     
+           000ff8c4  mov      r7, sp                       
+           000ff8c8  push     {r8, fp, ip, lr}             
+           000ff8cc  sub      sp, sp, #8                   
+           000ff8d0  mov      fp, sp                       
+           000ff8d4  str      r0, [fp]                     
+           000ff8d8  ldr      r0, [fp]                     
+           000ff8dc  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000ff8e0  add      sp, fp, #8                   
+           000ff8e4  pop      {r8, fp}                     
+           000ff8e8  ldr      r7, [sp, #8]                 
+           000ff8ec  ldm      sp, {sp, pc}                 
+
+== EnsureGlobals::Awake  token 0x06000433 @0x000ff8f0 (296 bytes)
+   args: r0=this, 
+           000ff8f0  mov      ip, sp                       
+           000ff8f4  push     {r7, lr}                     
+           000ff8f8  mov      r7, sp                       
+           000ff8fc  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000ff900  sub      sp, sp, #8                   
+           000ff904  mov      fp, sp                       
+           000ff908  mov      sl, r0                       
+           000ff90c  bl       #0x22d530                    ; CALL MoreGamesBinding::Init
+           000ff910  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: globalsList)
+           000ff914  str      r0, [fp]                     
+           000ff918  mov      r0, #0                       
+           000ff91c  str      r0, [fp, #4]                 
+           000ff920  b        #0xff9e4                     ; -> L_ff9e4
+L_ff924:   000ff924  ldr      r0, [fp]                     
+           000ff928  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000ff92c  ldr      r1, [fp, #4]                 
+           000ff930  cmp      r2, r1                       
+           000ff934  blls     #0xffa08                     ; THROW System.IndexOutOfRangeException (if ls)
+           000ff938  lsl      r1, r1, #2                   
+           000ff93c  add      r0, r0, r1                   
+           000ff940  add      r0, r0, #0x10                
+           000ff944  ldr      r6, [r0]                     
+           000ff948  mov      r1, r6                       
+           000ff94c  mov      r0, r1                       
+           000ff950  ldr      lr, [r1]                     
+           000ff954  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           000ff958  bl       #0x22d0b0                    ; CALL UnityEngine.GameObject::Find
+           000ff95c  mov      r1, #0                       
+           000ff960  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000ff964  cmp      r0, #0                       
+           000ff968  beq      #0xff9d8                     ; -> L_ff9d8
+           000ff96c  mov      r0, r6                       
+           000ff970  bl       #0x22ad70                    ; CALL UnityEngine.Object::Instantiate
+           000ff974  mov      sl, r0                       
+           000ff978  mov      r4, sl                       
+           000ff97c  cmp      sl, #0                       
+           000ff980  beq      #0xff9b0                     ; -> L_ff9b0
+           000ff984  ldr      r0, [sl]                     
+           000ff988  ldr      r0, [r0]                     
+           000ff98c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ff990  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ff994  ldr      r1, [pc]                     
+           000ff998  b        #0xff9a0                     ; -> L_ff9a0
+           000ff99c  .word    0x00ea55ac                   ; literal 15357356 / 
+L_ff9a0:   000ff9a0  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           000ff9a4  cmp      r0, r1                       
+           000ff9a8  beq      #0xff9b0                     ; -> L_ff9b0
+           000ff9ac  mov      r4, #0                       
+L_ff9b0:   000ff9b0  mov      r5, r4                       
+           000ff9b4  mov      r0, r6                       
+           000ff9b8  ldr      lr, [r6]                     
+           000ff9bc  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           000ff9c0  mov      r1, r0                       
+           000ff9c4  mov      r0, r4                       
+           000ff9c8  ldr      lr, [r4]                     
+           000ff9cc  bl       #0x22b2e0                    ; CALL UnityEngine.Object::set_name
+           000ff9d0  mov      r0, r4                       
+           000ff9d4  bl       #0x22b640                    ; CALL UnityEngine.Object::DontDestroyOnLoad
+L_ff9d8:   000ff9d8  ldr      r0, [fp, #4]                 
+           000ff9dc  add      r0, r0, #1                   
+           000ff9e0  str      r0, [fp, #4]                 
+L_ff9e4:   000ff9e4  ldr      r0, [fp]                     
+           000ff9e8  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000ff9ec  ldr      r0, [fp, #4]                 
+           000ff9f0  cmp      r0, r1                       
+           000ff9f4  blt      #0xff924                     ; -> L_ff924
+           000ff9f8  add      sp, fp, #8                   
+           000ff9fc  pop      {r4, r5, r6, r8, sl, fp}     
+           000ffa00  ldr      r7, [sp, #8]                 
+           000ffa04  ldm      sp, {sp, pc}                 
+           000ffa08  mov      r1, lr                       
+           000ffa0c  ldr      r0, [pc]                     
+           000ffa10  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ffa14  andeq    r0, r0, #0xf8                

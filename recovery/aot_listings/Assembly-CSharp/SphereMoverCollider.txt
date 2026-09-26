@@ -1,0 +1,87 @@
+####################################################################################################
+# TYPE SphereMoverCollider  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   vtable slots: 
+####################################################################################################
+== SphereMoverCollider::.ctor  token 0x060000a8 @0x000cf61c (52 bytes)
+   args: r0=this, 
+           000cf61c  mov      ip, sp                       
+           000cf620  push     {r7, lr}                     
+           000cf624  mov      r7, sp                       
+           000cf628  push     {r8, fp, ip, lr}             
+           000cf62c  sub      sp, sp, #8                   
+           000cf630  mov      fp, sp                       
+           000cf634  str      r0, [fp]                     
+           000cf638  ldr      r0, [fp]                     
+           000cf63c  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000cf640  add      sp, fp, #8                   
+           000cf644  pop      {r8, fp}                     
+           000cf648  ldr      r7, [sp, #8]                 
+           000cf64c  ldm      sp, {sp, pc}                 
+
+== SphereMoverCollider::Start  token 0x060000a9 @0x000cf650 (44 bytes)
+   args: r0=this, 
+           000cf650  mov      ip, sp                       
+           000cf654  push     {r7, lr}                     
+           000cf658  mov      r7, sp                       
+           000cf65c  push     {r8, fp, ip, lr}             
+           000cf660  sub      sp, sp, #8                   
+           000cf664  mov      fp, sp                       
+           000cf668  str      r0, [fp]                     
+           000cf66c  add      sp, fp, #8                   
+           000cf670  pop      {r8, fp}                     
+           000cf674  ldr      r7, [sp, #8]                 
+           000cf678  ldm      sp, {sp, pc}                 
+
+== SphereMoverCollider::Update  token 0x060000aa @0x000cf67c (44 bytes)
+   args: r0=this, 
+           000cf67c  mov      ip, sp                       
+           000cf680  push     {r7, lr}                     
+           000cf684  mov      r7, sp                       
+           000cf688  push     {r8, fp, ip, lr}             
+           000cf68c  sub      sp, sp, #8                   
+           000cf690  mov      fp, sp                       
+           000cf694  str      r0, [fp]                     
+           000cf698  add      sp, fp, #8                   
+           000cf69c  pop      {r8, fp}                     
+           000cf6a0  ldr      r7, [sp, #8]                 
+           000cf6a4  ldm      sp, {sp, pc}                 
+
+== SphereMoverCollider::OnTriggerEnter  token 0x060000ab @0x000cf6a8 (144 bytes)
+   args: r0=this, other
+           000cf6a8  mov      ip, sp                       
+           000cf6ac  push     {r7, lr}                     
+           000cf6b0  mov      r7, sp                       
+           000cf6b4  push     {r8, sl, fp, ip, lr}         
+           000cf6b8  sub      sp, sp, #0xc                 
+           000cf6bc  mov      fp, sp                       
+           000cf6c0  str      r0, [fp]                     
+           000cf6c4  mov      sl, r1                       
+           000cf6c8  ldr      r0, [pc]                     
+           000cf6cc  b        #0xcf6d4                     ; -> L_cf6d4
+           000cf6d0  .word    0x00ed58e8                   ; literal 15554792 / 
+L_cf6d4:   000cf6d4  ldr      r0, [pc, r0]                 ; GOT[151] LDSTR 'OnTriggerEnter!!'
+           000cf6d8  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           000cf6dc  ldr      r0, [pc]                     
+           000cf6e0  b        #0xcf6e8                     ; -> L_cf6e8
+           000cf6e4  .word    0x00ed58d8                   ; literal 15554776 / 
+L_cf6e8:   000cf6e8  ldr      r0, [pc, r0]                 ; GOT[152] METHOD_RGCTX UnityEngine.Component::GetComponent<SphereMoverAI>
+           000cf6ec  ldr      lr, [sl]                     
+           000cf6f0  mov      r8, r0                       
+           000cf6f4  mov      r0, sl                       
+           000cf6f8  bl       #0x22b590                    ; CALL UnityEngine.Component::GetComponent<SphereMoverAI>
+           000cf6fc  mov      sl, r0                       
+           000cf700  mov      r1, #0                       
+           000cf704  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000cf708  cmp      r0, #0                       
+           000cf70c  beq      #0xcf728                     ; -> L_cf728
+           000cf710  ldr      r0, [fp]                     
+           000cf714  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000cf718  mov      r1, r0                       
+           000cf71c  mov      r0, sl                       
+           000cf720  ldr      lr, [sl]                     
+           000cf724  bl       #0x22b5a0                    ; CALL SphereMoverAI::CollisionReflect
+L_cf728:   000cf728  add      sp, fp, #0xc                 
+           000cf72c  pop      {r8, sl, fp}                 
+           000cf730  ldr      r7, [sp, #8]                 
+           000cf734  ldm      sp, {sp, pc}                 

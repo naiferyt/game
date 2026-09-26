@@ -1,0 +1,1351 @@
+####################################################################################################
+# TYPE UghInput  (instance size 0x28)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 hotControls                    System.Collections.Generic.List`1<UghControl>
+#   +0x14 useTouchInput                  bool
+#   +0x18 inputPosition                  UnityEngine.Vector3
+#   +0x24 isInputDown                    bool
+#   +0x25 lastMouseState                 bool
+#   static UghInput instance
+#   static System.Comparison`1<UnityEngine.RaycastHit> <>f__am$cache6
+#   static System.Comparison`1<UnityEngine.RaycastHit> <>f__am$cache7
+#   vtable slots: 
+####################################################################################################
+== UghInput::.ctor  token 0x0600042a @0x000420f0 (104 bytes)
+   args: r0=this, 
+           000420f0  mov      ip, sp                       
+           000420f4  push     {r7, lr}                     
+           000420f8  mov      r7, sp                       
+           000420fc  push     {r8, fp, ip, lr}             
+           00042100  sub      sp, sp, #8                   
+           00042104  mov      fp, sp                       
+           00042108  str      r0, [fp]                     
+           0004210c  ldr      r0, [pc]                     
+           00042110  b        #0x42118                     ; -> L_42118
+           00042114  .word    0x00f5adf8                   ; literal 16100856 / 
+L_42118:   00042118  ldr      r0, [pc, r0]                 ; GOT[572] VTABLE System.Collections.Generic.List`1<UghControl>
+           0004211c  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00042120  mov      r1, r0                       
+           00042124  ldr      r0, [pc]                     
+           00042128  b        #0x42130                     ; -> L_42130
+           0004212c  .word    0x00f5ade4                   ; literal 16100836 / 
+L_42130:   00042130  ldr      r0, [pc, r0]                 ; GOT[573] SFLDA System.Collections.Generic.List`1<UghControl>::EmptyArray
+           00042134  ldr      r0, [r0]                     
+           00042138  str      r0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0004213c  ldr      r0, [fp]                     
+           00042140  str      r1, [r0, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042144  bl       #0xb98f0                     ; CALL UnityEngine.MonoBehaviour::.ctor
+           00042148  add      sp, fp, #8                   
+           0004214c  pop      {r8, fp}                     
+           00042150  ldr      r7, [sp, #8]                 
+           00042154  ldm      sp, {sp, pc}                 
+
+== UghInput::get_Instance  token 0x0600042b @0x00042158 (516 bytes) static
+   args: 
+           00042158  mov      ip, sp                       
+           0004215c  push     {r7, lr}                     
+           00042160  mov      r7, sp                       
+           00042164  push     {r6, r8, sl, fp, ip, lr}     
+           00042168  sub      sp, sp, #0x10                
+           0004216c  mov      fp, sp                       
+           00042170  ldr      r0, [pc]                     
+           00042174  b        #0x4217c                     ; -> L_4217c
+           00042178  .word    0x00f5ad9c                   ; literal 16100764 / 
+L_4217c:   0004217c  ldr      r0, [pc, r0]                 ; GOT[574] SFLDA UghInput::instance
+           00042180  ldr      r0, [r0]                     
+           00042184  bl       #0xbae70                     ; CALL UnityEngine.Object::op_Implicit
+           00042188  cmp      r0, #0                       
+           0004218c  beq      #0x421a8                     ; -> L_421a8
+           00042190  ldr      r0, [pc]                     
+           00042194  b        #0x4219c                     ; -> L_4219c
+           00042198  .word    0x00f5ad7c                   ; literal 16100732 / 
+L_4219c:   0004219c  ldr      r0, [pc, r0]                 ; GOT[574] SFLDA UghInput::instance
+           000421a0  ldr      r0, [r0]                     
+           000421a4  b        #0x4230c                     ; -> L_4230c
+L_421a8:   000421a8  ldr      r0, [pc]                     
+           000421ac  b        #0x421b4                     ; -> L_421b4
+           000421b0  .word    0x00f5ad68                   ; literal 16100712 / 
+L_421b4:   000421b4  ldr      r0, [pc, r0]                 ; GOT[575] TYPE_FROM_HANDLE typeof(UghInput)
+           000421b8  bl       #0xb9d10                     ; CALL UnityEngine.Object::FindObjectsOfType
+           000421bc  mov      sl, r0                       
+           000421c0  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000421c4  cmp      r0, #1                       
+           000421c8  bgt      #0x4231c                     ; -> L_4231c
+           000421cc  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000421d0  cmp      r0, #1                       
+           000421d4  bne      #0x4224c                     ; -> L_4224c
+           000421d8  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000421dc  cmp      r0, #0                       
+           000421e0  blls     #0x4234c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000421e4  ldr      sl, [sl, #0x10]              ; field+0x10 (this-class: hotControls)
+           000421e8  mov      r6, sl                       
+           000421ec  cmp      sl, #0                       
+           000421f0  beq      #0x42220                     ; -> L_42220
+           000421f4  ldr      r0, [sl]                     
+           000421f8  ldr      r0, [r0]                     
+           000421fc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00042200  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: useTouchInput)
+           00042204  ldr      r1, [pc]                     
+           00042208  b        #0x42210                     ; -> L_42210
+           0004220c  .word    0x00f5ad10                   ; literal 16100624 / 
+L_42210:   00042210  ldr      r1, [pc, r1]                 ; GOT[576] CLASS UghInput
+           00042214  cmp      r0, r1                       
+           00042218  beq      #0x42220                     ; -> L_42220
+           0004221c  mov      r6, #0                       
+L_42220:   00042220  ldr      r0, [pc]                     
+           00042224  b        #0x4222c                     ; -> L_4222c
+           00042228  .word    0x00f5acec                   ; literal 16100588 / 
+L_4222c:   0004222c  ldr      r0, [pc, r0]                 ; GOT[574] SFLDA UghInput::instance
+           00042230  str      r6, [r0]                     
+           00042234  ldr      r0, [pc]                     
+           00042238  b        #0x42240                     ; -> L_42240
+           0004223c  .word    0x00f5acd8                   ; literal 16100568 / 
+L_42240:   00042240  ldr      r0, [pc, r0]                 ; GOT[574] SFLDA UghInput::instance
+           00042244  ldr      r0, [r0]                     
+           00042248  b        #0x4230c                     ; -> L_4230c
+L_4224c:   0004224c  ldr      r0, [pc]                     
+           00042250  b        #0x42258                     ; -> L_42258
+           00042254  .word    0x00f5accc                   ; literal 16100556 / 
+L_42258:   00042258  ldr      r0, [pc, r0]                 ; GOT[577] LDSTR '+UghInput'
+           0004225c  str      r0, [fp, #4]                 
+           00042260  ldr      r0, [pc]                     
+           00042264  b        #0x4226c                     ; -> L_4226c
+           00042268  .word    0x00f5a918                   ; literal 16099608 / 
+L_4226c:   0004226c  ldr      r0, [pc, r0]                 ; GOT[345] VTABLE System.Type[]
+           00042270  mov      r1, #1                       
+           00042274  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           00042278  mov      r1, r0                       
+           0004227c  str      r1, [fp, #8]                 
+           00042280  ldr      r2, [pc]                     
+           00042284  b        #0x4228c                     ; -> L_4228c
+           00042288  .word    0x00f5ac90                   ; literal 16100496 / 
+L_4228c:   0004228c  ldr      r2, [pc, r2]                 ; GOT[575] TYPE_FROM_HANDLE typeof(UghInput)
+           00042290  mov      r1, #0                       
+           00042294  bl       #0xb9700                     ; CALL wrapper stelemref
+           00042298  ldr      r0, [pc]                     
+           0004229c  b        #0x422a4                     ; -> L_422a4
+           000422a0  .word    0x00f5a6f0                   ; literal 16099056 / 
+L_422a4:   000422a4  ldr      r0, [pc, r0]                 ; GOT[221] VTABLE UnityEngine.GameObject
+           000422a8  bl       #0xba4e0                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           000422ac  ldr      r1, [fp, #4]                 
+           000422b0  ldr      r2, [fp, #8]                 
+           000422b4  str      r0, [fp]                     
+           000422b8  bl       #0xbbc90                     ; CALL UnityEngine.GameObject::.ctor
+           000422bc  ldr      r0, [fp]                     
+           000422c0  mov      r6, r0                       
+           000422c4  ldr      r1, [pc]                     
+           000422c8  b        #0x422d0                     ; -> L_422d0
+           000422cc  .word    0x00f5ac58                   ; literal 16100440 / 
+L_422d0:   000422d0  ldr      r1, [pc, r1]                 ; GOT[578] METHOD_RGCTX UnityEngine.GameObject::GetComponent<UghInput>
+           000422d4  ldr      lr, [r0]                     
+           000422d8  mov      r8, r1                       
+           000422dc  bl       #0xbccb0                     ; CALL UnityEngine.GameObject::GetComponent<UghInput>
+           000422e0  mov      r1, r0                       
+           000422e4  ldr      r0, [pc]                     
+           000422e8  b        #0x422f0                     ; -> L_422f0
+           000422ec  .word    0x00f5ac28                   ; literal 16100392 / 
+L_422f0:   000422f0  ldr      r0, [pc, r0]                 ; GOT[574] SFLDA UghInput::instance
+           000422f4  str      r1, [r0]                     
+           000422f8  ldr      r0, [pc]                     
+           000422fc  b        #0x42304                     ; -> L_42304
+           00042300  .word    0x00f5ac14                   ; literal 16100372 / 
+L_42304:   00042304  ldr      r0, [pc, r0]                 ; GOT[574] SFLDA UghInput::instance
+           00042308  ldr      r0, [r0]                     
+L_4230c:   0004230c  add      sp, fp, #0x10                
+           00042310  pop      {r6, r8, sl, fp}             
+           00042314  ldr      r7, [sp, #8]                 
+           00042318  ldm      sp, {sp, pc}                 
+L_4231c:   0004231c  ldr      r0, [pc]                     
+           00042320  b        #0x42328                     ; -> L_42328
+           00042324  .word    0x00f5a2f8                   ; literal 16098040 / 
+L_42328:   00042328  ldr      r0, [pc, r0]                 ; GOT[0] IMAGE Assembly-CSharp-firstpass
+           0004232c  mov      r1, #0x32                    
+           00042330  add      r1, r1, #0x2d00              
+           00042334  bl       #0xbaa70                     ; CALL [INTERNAL_METHOD] helper_ldstr
+           00042338  mov      r1, r0                       
+           0004233c  mov      r0, #0xd3                    
+           00042340  add      r0, r0, #0x2000000           
+           00042344  bl       #0xbcbe0                     ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_1
+           00042348  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0004234c  mov      r1, lr                       
+           00042350  ldr      r0, [pc]                     
+           00042354  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00042358  andeq    r0, r0, #0xf8                
+
+== UghInput::get_UseTouchInput  token 0x0600042c @0x0004235c (44 bytes) static
+   args: 
+           0004235c  mov      ip, sp                       
+           00042360  push     {r7, lr}                     
+           00042364  mov      r7, sp                       
+           00042368  push     {r8, fp, ip, lr}             
+           0004236c  mov      fp, sp                       
+           00042370  bl       #0xbcc10                     ; CALL UghInput::get_Instance
+           00042374  ldrb     r0, [r0, #0x14]              ; field+0x14 (this-class: useTouchInput)
+           00042378  add      sp, fp, #0                   
+           0004237c  pop      {r8, fp}                     
+           00042380  ldr      r7, [sp, #8]                 
+           00042384  ldm      sp, {sp, pc}                 
+
+== UghInput::get_InputPosition  token 0x0600042d @0x00042388 (176 bytes) static
+   args: 
+           00042388  mov      ip, sp                       
+           0004238c  push     {r7, lr}                     
+           00042390  mov      r7, sp                       
+           00042394  push     {r8, fp, ip, lr}             
+           00042398  sub      sp, sp, #0x20                
+           0004239c  mov      fp, sp                       
+           000423a0  str      r0, [fp]                     
+           000423a4  ldr      r0, [pc]                     
+           000423a8  b        #0x423b0                     ; -> L_423b0
+           000423ac  .word    0x00f5ab68                   ; literal 16100200 / 
+L_423b0:   000423b0  ldr      r0, [pc, r0]                 ; GOT[574] SFLDA UghInput::instance
+           000423b4  ldr      r0, [r0]                     
+           000423b8  ldrb     r0, [r0, #0x14]              ; field+0x14 (this-class: useTouchInput)
+           000423bc  cmp      r0, #0                       
+           000423c0  beq      #0x42404                     ; -> L_42404
+           000423c4  bl       #0xbcc10                     ; CALL UghInput::get_Instance
+           000423c8  add      r0, r0, #0x18                
+           000423cc  ldr      r1, [r0]                     
+           000423d0  str      r1, [fp, #4]                 
+           000423d4  ldr      r1, [r0, #4]                 ; field+0x4 
+           000423d8  str      r1, [fp, #8]                 
+           000423dc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000423e0  str      r0, [fp, #0xc]               
+           000423e4  ldr      r0, [fp]                     
+           000423e8  ldr      r1, [fp, #4]                 
+           000423ec  str      r1, [r0]                     
+           000423f0  ldr      r1, [fp, #8]                 
+           000423f4  str      r1, [r0, #4]                 ; field+0x4 
+           000423f8  ldr      r1, [fp, #0xc]               
+           000423fc  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00042400  b        #0x42428                     ; -> L_42428
+L_42404:   00042404  add      r0, fp, #0x10                
+           00042408  bl       #0xba980                     ; CALL UnityEngine.Input::get_mousePosition
+           0004240c  ldr      r0, [fp]                     
+           00042410  ldr      r1, [fp, #0x10]              
+           00042414  str      r1, [r0]                     
+           00042418  ldr      r1, [fp, #0x14]              
+           0004241c  str      r1, [r0, #4]                 ; field+0x4 
+           00042420  ldr      r1, [fp, #0x18]              
+           00042424  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+L_42428:   00042428  add      sp, fp, #0x20                
+           0004242c  pop      {r8, fp}                     
+           00042430  ldr      r7, [sp, #8]                 
+           00042434  ldm      sp, {sp, pc}                 
+
+== UghInput::get_InputPositionInWorldSpace  token 0x0600042e @0x00042438 (144 bytes) static
+   args: 
+           00042438  mov      ip, sp                       
+           0004243c  push     {r7, lr}                     
+           00042440  mov      r7, sp                       
+           00042444  push     {r8, fp, ip, lr}             
+           00042448  sub      sp, sp, #0x38                
+           0004244c  mov      fp, sp                       
+           00042450  str      r0, [fp, #8]                 
+           00042454  bl       #0xbc9a0                     ; CALL UghCamera::get_Instance
+           00042458  mov      r1, r0                       
+           0004245c  ldr      lr, [r1]                     
+           00042460  bl       #0xbc9b0                     ; CALL UnityEngine.Component::get_camera
+           00042464  str      r0, [fp, #0x34]              
+           00042468  add      r0, fp, #0x18                
+           0004246c  bl       #0xbccc0                     ; CALL UghInput::get_InputPosition
+           00042470  ldr      ip, [fp, #0x34]              
+           00042474  add      r0, fp, #0x24                
+           00042478  str      r0, [fp, #0x30]              
+           0004247c  mov      r1, ip                       
+           00042480  ldr      r2, [fp, #0x18]              
+           00042484  ldr      r3, [fp, #0x1c]              
+           00042488  ldr      r0, [fp, #0x20]              
+           0004248c  str      r0, [sp]                     
+           00042490  ldr      r0, [fp, #0x30]              
+           00042494  ldr      lr, [ip]                     
+           00042498  bl       #0xbb210                     ; CALL UnityEngine.Camera::ScreenToWorldPoint
+           0004249c  ldr      r0, [fp, #8]                 
+           000424a0  ldr      r1, [fp, #0x24]              
+           000424a4  str      r1, [r0]                     
+           000424a8  ldr      r1, [fp, #0x28]              
+           000424ac  str      r1, [r0, #4]                 ; field+0x4 
+           000424b0  ldr      r1, [fp, #0x2c]              
+           000424b4  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000424b8  add      sp, fp, #0x38                
+           000424bc  pop      {r8, fp}                     
+           000424c0  ldr      r7, [sp, #8]                 
+           000424c4  ldm      sp, {sp, pc}                 
+
+== UghInput::get_IsInputDown  token 0x0600042f @0x000424c8 (88 bytes) static
+   args: 
+           000424c8  mov      ip, sp                       
+           000424cc  push     {r7, lr}                     
+           000424d0  mov      r7, sp                       
+           000424d4  push     {r8, fp, ip, lr}             
+           000424d8  mov      fp, sp                       
+           000424dc  ldr      r0, [pc]                     
+           000424e0  b        #0x424e8                     ; -> L_424e8
+           000424e4  .word    0x00f5aa30                   ; literal 16099888 / 
+L_424e8:   000424e8  ldr      r0, [pc, r0]                 ; GOT[574] SFLDA UghInput::instance
+           000424ec  ldr      r0, [r0]                     
+           000424f0  ldrb     r0, [r0, #0x14]              ; field+0x14 (this-class: useTouchInput)
+           000424f4  cmp      r0, #0                       
+           000424f8  beq      #0x42508                     ; -> L_42508
+           000424fc  bl       #0xbcc10                     ; CALL UghInput::get_Instance
+           00042500  ldrb     r0, [r0, #0x24]              ; field+0x24 (this-class: isInputDown)
+           00042504  b        #0x42510                     ; -> L_42510
+L_42508:   00042508  mov      r0, #0                       
+           0004250c  bl       #0xbccd0                     ; CALL UnityEngine.Input::GetMouseButton
+L_42510:   00042510  add      sp, fp, #0                   
+           00042514  pop      {r8, fp}                     
+           00042518  ldr      r7, [sp, #8]                 
+           0004251c  ldm      sp, {sp, pc}                 
+
+== UghInput::InputToWorldPoint  token 0x06000430 @0x00042520 (144 bytes) static
+   args: point
+           00042520  mov      ip, sp                       
+           00042524  push     {r7, lr}                     
+           00042528  mov      r7, sp                       
+           0004252c  push     {r8, fp, ip, lr}             
+           00042530  sub      sp, sp, #0x38                
+           00042534  mov      fp, sp                       
+           00042538  str      r0, [fp, #8]                 
+           0004253c  str      r1, [fp, #0x24]              
+           00042540  str      r2, [fp, #0x28]              
+           00042544  str      r3, [fp, #0x2c]              
+           00042548  bl       #0xbc9a0                     ; CALL UghCamera::get_Instance
+           0004254c  mov      r1, r0                       
+           00042550  ldr      lr, [r1]                     
+           00042554  bl       #0xbc9b0                     ; CALL UnityEngine.Component::get_camera
+           00042558  mov      ip, r0                       
+           0004255c  add      r0, fp, #0x18                
+           00042560  str      r0, [fp, #0x30]              
+           00042564  mov      r1, ip                       
+           00042568  ldr      r2, [fp, #0x24]              
+           0004256c  ldr      r3, [fp, #0x28]              
+           00042570  ldr      r0, [fp, #0x2c]              
+           00042574  str      r0, [sp]                     
+           00042578  ldr      r0, [fp, #0x30]              
+           0004257c  ldr      lr, [ip]                     
+           00042580  bl       #0xbb210                     ; CALL UnityEngine.Camera::ScreenToWorldPoint
+           00042584  ldr      r0, [fp, #8]                 
+           00042588  ldr      r1, [fp, #0x18]              
+           0004258c  str      r1, [r0]                     
+           00042590  ldr      r1, [fp, #0x1c]              
+           00042594  str      r1, [r0, #4]                 ; field+0x4 
+           00042598  ldr      r1, [fp, #0x20]              
+           0004259c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000425a0  add      sp, fp, #0x38                
+           000425a4  pop      {r8, fp}                     
+           000425a8  ldr      r7, [sp, #8]                 
+           000425ac  ldm      sp, {sp, pc}                 
+
+== UghInput::Touch  token 0x06000431 @0x000425b0 (44 bytes)
+   args: r0=this, 
+           000425b0  mov      ip, sp                       
+           000425b4  push     {r7, lr}                     
+           000425b8  mov      r7, sp                       
+           000425bc  push     {r8, fp, ip, lr}             
+           000425c0  sub      sp, sp, #8                   
+           000425c4  mov      fp, sp                       
+           000425c8  str      r0, [fp]                     
+           000425cc  add      sp, fp, #8                   
+           000425d0  pop      {r8, fp}                     
+           000425d4  ldr      r7, [sp, #8]                 
+           000425d8  ldm      sp, {sp, pc}                 
+
+== UghInput::TouchBeginEvent  token 0x06000432 @0x000425dc (724 bytes)
+   args: r0=this, touch, fingerId
+           000425dc  mov      ip, sp                       
+           000425e0  push     {r7, lr}                     
+           000425e4  mov      r7, sp                       
+           000425e8  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000425ec  sub      sp, sp, #0xa0                
+           000425f0  mov      fp, sp                       
+           000425f4  mov      r6, r0                       
+           000425f8  str      r1, [fp, #0x80]              
+           000425fc  str      r2, [fp, #0x84]              
+           00042600  str      r3, [fp, #0x88]              
+           00042604  add      r0, fp, #0x14                
+           00042608  mov      r1, #0                       
+           0004260c  mov      r2, #0x2c                    
+           00042610  bl       #0xba6f0                     ; CALL System.String::memset
+           00042614  mov      r0, #1                       
+           00042618  strb     r0, [r6, #0x24]              ; field+0x24 (this-class: isInputDown)
+           0004261c  add      r0, fp, #0x50                
+           00042620  ldr      r1, [fp, #0x80]              
+           00042624  ldr      r2, [fp, #0x84]              
+           00042628  bl       #0xba990                     ; CALL UnityEngine.Vector2::op_Implicit
+           0004262c  add      r0, r6, #0x18                
+           00042630  ldr      r1, [fp, #0x50]              
+           00042634  str      r1, [r0]                     
+           00042638  ldr      r1, [fp, #0x54]              
+           0004263c  str      r1, [r0, #4]                 ; field+0x4 
+           00042640  ldr      r1, [fp, #0x58]              
+           00042644  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00042648  bl       #0xbc9a0                     ; CALL UghCamera::get_Instance
+           0004264c  str      r0, [fp, #0x94]              
+           00042650  mov      r1, r0                       
+           00042654  ldr      lr, [r1]                     
+           00042658  bl       #0xbc9b0                     ; CALL UnityEngine.Component::get_camera
+           0004265c  str      r0, [fp, #0x9c]              
+           00042660  add      r0, fp, #0x5c                
+           00042664  ldr      r1, [fp, #0x80]              
+           00042668  ldr      r2, [fp, #0x84]              
+           0004266c  bl       #0xba990                     ; CALL UnityEngine.Vector2::op_Implicit
+           00042670  ldr      ip, [fp, #0x9c]              
+           00042674  add      r0, fp, #0x68                
+           00042678  str      r0, [fp, #0x98]              
+           0004267c  mov      r1, ip                       
+           00042680  ldr      r2, [fp, #0x5c]              
+           00042684  ldr      r3, [fp, #0x60]              
+           00042688  ldr      r0, [fp, #0x64]              
+           0004268c  str      r0, [sp]                     
+           00042690  ldr      r0, [fp, #0x98]              
+           00042694  ldr      lr, [ip]                     
+           00042698  bl       #0xbcce0                     ; CALL UnityEngine.Camera::ScreenPointToRay
+           0004269c  ldr      r1, [fp, #0x94]              
+           000426a0  vldr     s4, [pc]                     ; float inf
+           000426a4  b        #0x426ac                     ; -> L_426ac
+           000426a8  .word    0x7f800000                   ; literal 2139095040 / 
+L_426ac:   000426ac  vcvt.f64.f32 d2, s4                       
+           000426b0  mov      r0, #1                       
+           000426b4  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: hotControls)
+           000426b8  and      r1, r1, #0x1f                
+           000426bc  lsl      ip, r0, r1                   
+           000426c0  ldr      r0, [fp, #0x68]              
+           000426c4  str      r0, [fp, #0x90]              
+           000426c8  ldr      r1, [fp, #0x6c]              
+           000426cc  ldr      r2, [fp, #0x70]              
+           000426d0  ldr      r3, [fp, #0x74]              
+           000426d4  ldr      r0, [fp, #0x78]              
+           000426d8  str      r0, [sp]                     
+           000426dc  ldr      r0, [fp, #0x7c]              
+           000426e0  str      r0, [sp, #4]                 
+           000426e4  ldr      r0, [fp, #0x90]              
+           000426e8  vcvt.f32.f64 s0, d2                       
+           000426ec  vstr     s0, [sp, #8]                 
+           000426f0  str      ip, [sp, #0xc]               
+           000426f4  bl       #0xbccf0                     ; CALL UnityEngine.Physics::RaycastAll
+           000426f8  str      r0, [fp, #0x10]              
+           000426fc  mov      r1, r0                       
+           00042700  ldr      r0, [pc]                     
+           00042704  b        #0x4270c                     ; -> L_4270c
+           00042708  .word    0x00f5a820                   ; literal 16099360 / 
+L_4270c:   0004270c  ldr      r0, [pc, r0]                 ; GOT[579] SFLDA UghInput::<>f__am$cache6
+           00042710  ldr      r0, [r0]                     
+           00042714  str      r1, [fp, #0x4c]              
+           00042718  cmp      r0, #0                       
+           0004271c  bne      #0x42774                     ; -> L_42774
+           00042720  ldr      r0, [pc]                     
+           00042724  b        #0x4272c                     ; -> L_4272c
+           00042728  .word    0x00f5a804                   ; literal 16099332 / 
+L_4272c:   0004272c  ldr      r0, [pc, r0]                 ; GOT[580] VTABLE System.Comparison`1<UnityEngine.RaycastHit>
+           00042730  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00042734  mov      r1, r0                       
+           00042738  ldr      r0, [pc]                     
+           0004273c  b        #0x42744                     ; -> L_42744
+           00042740  .word    0x00f5a7f0                   ; literal 16099312 / 
+L_42744:   00042744  ldr      r0, [pc, r0]                 ; GOT[581] METHODCONST UghInput::<TouchBeginEvent>m__6
+           00042748  str      r0, [r1, #0x14]              ; field+0x14 (this-class: useTouchInput)
+           0004274c  ldr      r0, [pc]                     
+           00042750  b        #0x42758                     ; -> L_42758
+           00042754  .word    0x00f5a7e0                   ; literal 16099296 / 
+L_42758:   00042758  ldr      r0, [pc, r0]                 ; GOT[582] DELEGATE_TRAMPOLINE System.Comparison`1<UnityEngine.RaycastHit>
+           0004275c  str      r0, [r1, #0xc]               ; field+0xc 
+           00042760  ldr      r0, [pc]                     
+           00042764  b        #0x4276c                     ; -> L_4276c
+           00042768  .word    0x00f5a7c0                   ; literal 16099264 / 
+L_4276c:   0004276c  ldr      r0, [pc, r0]                 ; GOT[579] SFLDA UghInput::<>f__am$cache6
+           00042770  str      r1, [r0]                     
+L_42774:   00042774  ldr      r0, [pc]                     
+           00042778  b        #0x42780                     ; -> L_42780
+           0004277c  .word    0x00f5a7ac                   ; literal 16099244 / 
+L_42780:   00042780  ldr      r0, [pc, r0]                 ; GOT[579] SFLDA UghInput::<>f__am$cache6
+           00042784  ldr      r1, [r0]                     
+           00042788  ldr      r0, [fp, #0x4c]              
+           0004278c  bl       #0xbcd00                     ; CALL System.Array::Sort<UnityEngine.RaycastHit>
+           00042790  ldr      r5, [fp, #0x10]              
+           00042794  mov      r4, #0                       
+           00042798  b        #0x42884                     ; -> L_42884
+L_4279c:   0004279c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000427a0  cmp      r0, r4                       
+           000427a4  blls     #0x428a0                     ; THROW System.IndexOutOfRangeException (if ls)
+           000427a8  mov      r0, #0x2c                    
+           000427ac  mul      r0, r4, r0                   
+           000427b0  add      r0, r5, r0                   
+           000427b4  add      r1, r0, #0x10                
+           000427b8  add      r0, fp, #0x14                
+           000427bc  mov      r2, #0x2c                    
+           000427c0  bl       #0xba2d0                     ; CALL System.String::memcpy
+           000427c4  add      r0, fp, #0x14                
+           000427c8  bl       #0xbcd10                     ; CALL UnityEngine.RaycastHit::get_transform
+           000427cc  ldr      r1, [pc]                     
+           000427d0  b        #0x427d8                     ; -> L_427d8
+           000427d4  .word    0x00f5a764                   ; literal 16099172 / 
+L_427d8:   000427d8  ldr      r1, [pc, r1]                 ; GOT[583] METHOD_RGCTX UnityEngine.Component::GetComponent<UghControl>
+           000427dc  ldr      lr, [r0]                     
+           000427e0  mov      r8, r1                       
+           000427e4  bl       #0xbcd20                     ; CALL UnityEngine.Component::GetComponent<UghControl>
+           000427e8  mov      sl, r0                       
+           000427ec  mov      r1, #0                       
+           000427f0  bl       #0xba460                     ; CALL UnityEngine.Object::op_Inequality
+           000427f4  cmp      r0, #0                       
+           000427f8  beq      #0x42880                     ; -> L_42880
+           000427fc  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042800  mov      r0, r2                       
+           00042804  mov      r1, sl                       
+           00042808  ldr      lr, [r2]                     
+           0004280c  bl       #0xbcd30                     ; CALL System.Collections.Generic.List`1<UghControl>::Contains
+           00042810  cmp      r0, #0                       
+           00042814  bne      #0x42880                     ; -> L_42880
+           00042818  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: hotControls)
+           0004281c  mov      r0, r2                       
+           00042820  mov      r1, sl                       
+           00042824  ldr      lr, [r2]                     
+           00042828  bl       #0xbcd30                     ; CALL System.Collections.Generic.List`1<UghControl>::Contains
+           0004282c  cmp      r0, #0                       
+           00042830  bne      #0x42874                     ; -> L_42874
+           00042834  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042838  mov      r0, r2                       
+           0004283c  mov      r1, sl                       
+           00042840  ldr      lr, [r2]                     
+           00042844  bl       #0xbcd40                     ; CALL System.Collections.Generic.List`1<UghControl>::Add
+           00042848  ldr      lr, [sl]                     
+           0004284c  ldr      r0, [fp, #0x88]              
+           00042850  str      r0, [sl, #0x38]              ; field+0x38 
+           00042854  mov      r0, sl                       
+           00042858  ldr      r1, [sl]                     
+           0004285c  mov      lr, pc                       
+           00042860  ldr      pc, [r1, #0x54]              ; VIRTUAL CALL slot +0x54: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::System.Collections.IEnumerator.get_Current | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::System.Collections.IEnumerator.get_Current | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::System.Collections.IEnumerator.get_Current | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::System.Collections.IEnumerator.get_Current | AnimatedTexture/<UpdateTexture>c__Iterator1A::System.Collections.IEnumerator.get_Current | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::System.Collections.IEnumerator.get_Current | BarrelLauncher/<LaunchPump>c__Iterator33::System.Collections.IEnumerator.get_Current | BarrelSpawner/<SpawnCheck>c__Iterator34::System.Collections.IEnumerator.get_Current ...(205)
+           00042864  mov      r1, r0                       
+           00042868  mov      r0, sl                       
+           0004286c  ldr      lr, [sl]                     
+           00042870  bl       #0xb9f90                     ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+L_42874:   00042874  ldrb     r0, [sl, #0x35]              ; field+0x35 
+           00042878  cmp      r0, #0                       
+           0004287c  beq      #0x42890                     ; -> L_42890
+L_42880:   00042880  add      r4, r4, #1                   
+L_42884:   00042884  ldr      r0, [r5, #0xc]               ; field+0xc 
+           00042888  cmp      r4, r0                       
+           0004288c  blt      #0x4279c                     ; -> L_4279c
+L_42890:   00042890  add      sp, fp, #0xa0                
+           00042894  pop      {r4, r5, r6, r8, sl, fp}     
+           00042898  ldr      r7, [sp, #8]                 
+           0004289c  ldm      sp, {sp, pc}                 
+           000428a0  mov      r1, lr                       
+           000428a4  ldr      r0, [pc]                     
+           000428a8  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000428ac  andeq    r0, r0, #0xf8                
+
+== UghInput::TouchPersistEvent  token 0x06000433 @0x000428b0 (416 bytes)
+   args: r0=this, touch, fingerId
+           000428b0  mov      ip, sp                       
+           000428b4  push     {r7, lr}                     
+           000428b8  mov      r7, sp                       
+           000428bc  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000428c0  sub      sp, sp, #0x54                
+           000428c4  mov      fp, sp                       
+           000428c8  mov      r6, r0                       
+           000428cc  str      r1, [fp, #0x48]              
+           000428d0  str      r2, [fp, #0x4c]              
+           000428d4  mov      sl, r3                       
+           000428d8  mov      r0, #0                       
+           000428dc  str      r0, [fp]                     
+           000428e0  mov      r0, #0                       
+           000428e4  str      r0, [fp, #4]                 
+           000428e8  mov      r0, #0                       
+           000428ec  str      r0, [fp, #8]                 
+           000428f0  mov      r0, #0                       
+           000428f4  str      r0, [fp, #0xc]               
+           000428f8  mov      r0, #1                       
+           000428fc  strb     r0, [r6, #0x24]              ; field+0x24 (this-class: isInputDown)
+           00042900  add      r0, fp, #0x2c                
+           00042904  ldr      r1, [fp, #0x48]              
+           00042908  ldr      r2, [fp, #0x4c]              
+           0004290c  bl       #0xba990                     ; CALL UnityEngine.Vector2::op_Implicit
+           00042910  add      r0, r6, #0x18                
+           00042914  ldr      r1, [fp, #0x2c]              
+           00042918  str      r1, [r0]                     
+           0004291c  ldr      r1, [fp, #0x30]              
+           00042920  str      r1, [r0, #4]                 ; field+0x4 
+           00042924  ldr      r1, [fp, #0x34]              
+           00042928  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0004292c  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042930  mov      r1, r2                       
+           00042934  mov      r0, fp                       
+           00042938  ldr      lr, [r2]                     
+           0004293c  bl       #0xbcd50                     ; CALL System.Collections.Generic.List`1<UghControl>::GetEnumerator
+           00042940  b        #0x4298c                     ; -> L_4298c
+L_42944:   00042944  ldr      r0, [pc]                     
+           00042948  b        #0x42950                     ; -> L_42950
+           0004294c  .word    0x00f5a5f0                   ; literal 16098800 / 
+L_42950:   00042950  ldr      r0, [pc, r0]                 ; GOT[584] VTABLE System.Collections.Generic.List`1/Enumerator<UghControl>
+           00042954  ldr      r5, [fp, #0xc]               
+           00042958  mov      r0, r5                       
+           0004295c  mov      r1, #0                       
+           00042960  bl       #0xba460                     ; CALL UnityEngine.Object::op_Inequality
+           00042964  cmp      r0, #0                       
+           00042968  beq      #0x4298c                     ; -> L_4298c
+           0004296c  ldr      lr, [r5]                     
+           00042970  ldr      r0, [r5, #0x38]              ; field+0x38 
+           00042974  cmp      r0, sl                       
+           00042978  bne      #0x4298c                     ; -> L_4298c
+           0004297c  mov      r0, r5                       
+           00042980  ldr      r1, [r5]                     
+           00042984  mov      lr, pc                       
+           00042988  ldr      pc, [r1, #0x4c]              ; VIRTUAL CALL slot +0x4c: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Dispose | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Dispose | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Dispose | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Dispose | AnimatedTexture/<UpdateTexture>c__Iterator1A::Dispose | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Dispose | BarrelLauncher/<LaunchPump>c__Iterator33::Dispose | BarrelSpawner/<SpawnCheck>c__Iterator34::Dispose ...(189)
+L_4298c:   0004298c  ldr      r8, [pc]                     
+           00042990  b        #0x42998                     ; -> L_42998
+           00042994  .word    0x00f5a5a8                   ; literal 16098728 / 
+L_42998:   00042998  ldr      r8, [pc, r8]                 ; GOT[584] VTABLE System.Collections.Generic.List`1/Enumerator<UghControl>
+           0004299c  mov      r0, fp                       
+           000429a0  bl       #0xbcd60                     ; CALL System.Collections.Generic.List`1/Enumerator<UghControl>::MoveNext
+           000429a4  cmp      r0, #0                       
+           000429a8  bne      #0x42944                     ; -> L_42944
+           000429ac  bl       #0x429b4                     ; CALL 0x429b4
+           000429b0  b        #0x42a40                     ; -> L_42a40
+           000429b4  str      lr, [fp, #0x28]              
+           000429b8  ldr      r0, [fp]                     
+           000429bc  str      r0, [fp, #0x38]              
+           000429c0  ldr      r0, [fp, #4]                 
+           000429c4  str      r0, [fp, #0x3c]              
+           000429c8  ldr      r0, [fp, #8]                 
+           000429cc  str      r0, [fp, #0x40]              
+           000429d0  ldr      r0, [fp, #0xc]               
+           000429d4  str      r0, [fp, #0x44]              
+           000429d8  ldr      r0, [pc]                     
+           000429dc  b        #0x429e4                     ; -> L_429e4
+           000429e0  .word    0x00f5a55c                   ; literal 16098652 / 
+L_429e4:   000429e4  ldr      r0, [pc, r0]                 ; GOT[584] VTABLE System.Collections.Generic.List`1/Enumerator<UghControl>
+           000429e8  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000429ec  mov      r1, r0                       
+           000429f0  add      r0, r1, #8                   
+           000429f4  ldr      r2, [fp, #0x38]              
+           000429f8  str      r2, [r0]                     
+           000429fc  ldr      r2, [fp, #0x3c]              
+           00042a00  str      r2, [r0, #4]                 ; field+0x4 
+           00042a04  ldr      r2, [fp, #0x40]              
+           00042a08  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00042a0c  ldr      r2, [fp, #0x44]              
+           00042a10  str      r2, [r0, #0xc]               ; field+0xc 
+           00042a14  mov      r0, r1                       
+           00042a18  ldr      r1, [r1]                     
+           00042a1c  ldr      r8, [pc]                     
+           00042a20  b        #0x42a28                     ; -> L_42a28
+           00042a24  .word    0x00f59c3c                   ; literal 16096316 / 
+L_42a28:   00042a28  ldr      r8, [pc, r8]                 ; GOT[17] METHODCONST System.IDisposable::Dispose
+           00042a2c  add      lr, pc, #4                   
+           00042a30  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           00042a34  andeq    r0, r0, r0                   
+           00042a38  ldr      ip, [fp, #0x28]              
+           00042a3c  mov      pc, ip                       
+L_42a40:   00042a40  add      sp, fp, #0x54                
+           00042a44  pop      {r5, r6, r8, sl, fp}         
+           00042a48  ldr      r7, [sp, #8]                 
+           00042a4c  ldm      sp, {sp, pc}                 
+
+== UghInput::TouchCanceledEvent  token 0x06000434 @0x00042a50 (252 bytes)
+   args: r0=this, touch, fingerId
+           00042a50  mov      ip, sp                       
+           00042a54  push     {r7, lr}                     
+           00042a58  mov      r7, sp                       
+           00042a5c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00042a60  sub      sp, sp, #0x18                
+           00042a64  mov      fp, sp                       
+           00042a68  mov      r6, r0                       
+           00042a6c  str      r1, [fp, #0xc]               
+           00042a70  str      r2, [fp, #0x10]              
+           00042a74  mov      sl, r3                       
+           00042a78  mov      r0, #0                       
+           00042a7c  strb     r0, [r6, #0x24]              ; field+0x24 (this-class: isInputDown)
+           00042a80  ldr      r1, [fp, #0xc]               
+           00042a84  ldr      r2, [fp, #0x10]              
+           00042a88  mov      r0, fp                       
+           00042a8c  bl       #0xba990                     ; CALL UnityEngine.Vector2::op_Implicit
+           00042a90  add      r0, r6, #0x18                
+           00042a94  ldr      r1, [fp]                     
+           00042a98  str      r1, [r0]                     
+           00042a9c  ldr      r1, [fp, #4]                 
+           00042aa0  str      r1, [r0, #4]                 ; field+0x4 
+           00042aa4  ldr      r1, [fp, #8]                 
+           00042aa8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00042aac  mov      r4, #0                       
+           00042ab0  b        #0x42b24                     ; -> L_42b24
+L_42ab4:   00042ab4  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042ab8  mov      r0, r2                       
+           00042abc  mov      r1, r4                       
+           00042ac0  ldr      lr, [r2]                     
+           00042ac4  bl       #0xbcd70                     ; CALL System.Collections.Generic.List`1<UghControl>::get_Item
+           00042ac8  mov      r5, r0                       
+           00042acc  mov      r1, #0                       
+           00042ad0  bl       #0xba460                     ; CALL UnityEngine.Object::op_Inequality
+           00042ad4  cmp      r0, #0                       
+           00042ad8  beq      #0x42b20                     ; -> L_42b20
+           00042adc  ldr      lr, [r5]                     
+           00042ae0  ldr      r0, [r5, #0x38]              ; field+0x38 
+           00042ae4  cmp      r0, sl                       
+           00042ae8  bne      #0x42b20                     ; -> L_42b20
+           00042aec  mov      r0, r5                       
+           00042af0  ldr      r1, [r5]                     
+           00042af4  mov      lr, pc                       
+           00042af8  ldr      pc, [r1, #0x50]              ; VIRTUAL CALL slot +0x50: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::MoveNext | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::MoveNext | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::MoveNext | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::MoveNext | AnimatedTexture/<UpdateTexture>c__Iterator1A::MoveNext | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::MoveNext | BarrelLauncher/<LaunchPump>c__Iterator33::MoveNext | BarrelSpawner/<SpawnCheck>c__Iterator34::MoveNext ...(203)
+           00042afc  ldr      lr, [r5]                     
+           00042b00  mvn      r0, #0                       
+           00042b04  str      r0, [r5, #0x38]              ; field+0x38 
+           00042b08  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042b0c  mov      r0, r2                       
+           00042b10  mov      r1, r4                       
+           00042b14  ldr      lr, [r2]                     
+           00042b18  bl       #0xbcd80                     ; CALL System.Collections.Generic.List`1<UghControl>::RemoveAt
+           00042b1c  sub      r4, r4, #1                   
+L_42b20:   00042b20  add      r4, r4, #1                   
+L_42b24:   00042b24  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042b28  mov      r1, r0                       
+           00042b2c  ldr      lr, [r1]                     
+           00042b30  ldr      r0, [r0, #0xc]               ; field+0xc 
+           00042b34  cmp      r4, r0                       
+           00042b38  blt      #0x42ab4                     ; -> L_42ab4
+           00042b3c  add      sp, fp, #0x18                
+           00042b40  pop      {r4, r5, r6, r8, sl, fp}     
+           00042b44  ldr      r7, [sp, #8]                 
+           00042b48  ldm      sp, {sp, pc}                 
+
+== UghInput::TouchEndedEvent  token 0x06000435 @0x00042b4c (1280 bytes)
+   args: r0=this, touch, fingerId
+           00042b4c  mov      ip, sp                       
+           00042b50  push     {r7, lr}                     
+           00042b54  mov      r7, sp                       
+           00042b58  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00042b5c  sub      sp, sp, #0xe8                
+           00042b60  mov      fp, sp                       
+           00042b64  str      r0, [fp, #0xc8]              
+           00042b68  str      r1, [fp, #0xcc]              
+           00042b6c  str      r2, [fp, #0xd0]              
+           00042b70  str      r3, [fp, #0xd4]              
+           00042b74  add      r0, fp, #0x14                
+           00042b78  mov      r1, #0                       
+           00042b7c  mov      r2, #0x2c                    
+           00042b80  bl       #0xba6f0                     ; CALL System.String::memset
+           00042b84  mov      r0, #0                       
+           00042b88  str      r0, [fp, #0x4c]              
+           00042b8c  mov      r0, #0                       
+           00042b90  str      r0, [fp, #0x50]              
+           00042b94  mov      r0, #0                       
+           00042b98  str      r0, [fp, #0x54]              
+           00042b9c  mov      r0, #0                       
+           00042ba0  str      r0, [fp, #0x58]              
+           00042ba4  ldr      r0, [fp, #0xc8]              
+           00042ba8  mov      r1, #0                       
+           00042bac  strb     r1, [r0, #0x24]              ; field+0x24 (this-class: isInputDown)
+           00042bb0  add      r0, fp, #0x88                
+           00042bb4  ldr      r1, [fp, #0xcc]              
+           00042bb8  ldr      r2, [fp, #0xd0]              
+           00042bbc  bl       #0xba990                     ; CALL UnityEngine.Vector2::op_Implicit
+           00042bc0  ldr      r0, [fp, #0xc8]              
+           00042bc4  add      r0, r0, #0x18                
+           00042bc8  ldr      r1, [fp, #0x88]              
+           00042bcc  str      r1, [r0]                     
+           00042bd0  ldr      r1, [fp, #0x8c]              
+           00042bd4  str      r1, [r0, #4]                 ; field+0x4 
+           00042bd8  ldr      r1, [fp, #0x90]              
+           00042bdc  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00042be0  ldr      r0, [pc]                     
+           00042be4  b        #0x42bec                     ; -> L_42bec
+           00042be8  .word    0x00f5a324                   ; literal 16098084 / 
+L_42bec:   00042bec  ldr      r0, [pc, r0]                 ; GOT[572] VTABLE System.Collections.Generic.List`1<UghControl>
+           00042bf0  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00042bf4  ldr      r1, [pc]                     
+           00042bf8  b        #0x42c00                     ; -> L_42c00
+           00042bfc  .word    0x00f5a314                   ; literal 16098068 / 
+L_42c00:   00042c00  ldr      r1, [pc, r1]                 ; GOT[573] SFLDA System.Collections.Generic.List`1<UghControl>::EmptyArray
+           00042c04  ldr      r1, [r1]                     
+           00042c08  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00042c0c  mov      r4, r0                       
+           00042c10  bl       #0xbc9a0                     ; CALL UghCamera::get_Instance
+           00042c14  str      r0, [fp, #0xdc]              
+           00042c18  mov      r1, r0                       
+           00042c1c  ldr      lr, [r1]                     
+           00042c20  bl       #0xbc9b0                     ; CALL UnityEngine.Component::get_camera
+           00042c24  str      r0, [fp, #0xe4]              
+           00042c28  add      r0, fp, #0x94                
+           00042c2c  ldr      r1, [fp, #0xcc]              
+           00042c30  ldr      r2, [fp, #0xd0]              
+           00042c34  bl       #0xba990                     ; CALL UnityEngine.Vector2::op_Implicit
+           00042c38  ldr      ip, [fp, #0xe4]              
+           00042c3c  add      r0, fp, #0xa0                
+           00042c40  str      r0, [fp, #0xe0]              
+           00042c44  mov      r1, ip                       
+           00042c48  ldr      r2, [fp, #0x94]              
+           00042c4c  ldr      r3, [fp, #0x98]              
+           00042c50  ldr      r0, [fp, #0x9c]              
+           00042c54  str      r0, [sp]                     
+           00042c58  ldr      r0, [fp, #0xe0]              
+           00042c5c  ldr      lr, [ip]                     
+           00042c60  bl       #0xbcce0                     ; CALL UnityEngine.Camera::ScreenPointToRay
+           00042c64  ldr      r1, [fp, #0xdc]              
+           00042c68  vldr     s4, [pc]                     ; float inf
+           00042c6c  b        #0x42c74                     ; -> L_42c74
+           00042c70  .word    0x7f800000                   ; literal 2139095040 / 
+L_42c74:   00042c74  vcvt.f64.f32 d2, s4                       
+           00042c78  mov      r0, #1                       
+           00042c7c  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042c80  and      r1, r1, #0x1f                
+           00042c84  lsl      ip, r0, r1                   
+           00042c88  ldr      r0, [fp, #0xa0]              
+           00042c8c  str      r0, [fp, #0xd8]              
+           00042c90  ldr      r1, [fp, #0xa4]              
+           00042c94  ldr      r2, [fp, #0xa8]              
+           00042c98  ldr      r3, [fp, #0xac]              
+           00042c9c  ldr      r0, [fp, #0xb0]              
+           00042ca0  str      r0, [sp]                     
+           00042ca4  ldr      r0, [fp, #0xb4]              
+           00042ca8  str      r0, [sp, #4]                 
+           00042cac  ldr      r0, [fp, #0xd8]              
+           00042cb0  vcvt.f32.f64 s0, d2                       
+           00042cb4  vstr     s0, [sp, #8]                 
+           00042cb8  str      ip, [sp, #0xc]               
+           00042cbc  bl       #0xbccf0                     ; CALL UnityEngine.Physics::RaycastAll
+           00042cc0  str      r0, [fp, #0x10]              
+           00042cc4  mov      r1, r0                       
+           00042cc8  ldr      r0, [pc]                     
+           00042ccc  b        #0x42cd4                     ; -> L_42cd4
+           00042cd0  .word    0x00f5a270                   ; literal 16097904 / 
+L_42cd4:   00042cd4  ldr      r0, [pc, r0]                 ; GOT[585] SFLDA UghInput::<>f__am$cache7
+           00042cd8  ldr      r0, [r0]                     
+           00042cdc  str      r1, [fp, #0x68]              
+           00042ce0  cmp      r0, #0                       
+           00042ce4  bne      #0x42d3c                     ; -> L_42d3c
+           00042ce8  ldr      r0, [pc]                     
+           00042cec  b        #0x42cf4                     ; -> L_42cf4
+           00042cf0  .word    0x00f5a23c                   ; literal 16097852 / 
+L_42cf4:   00042cf4  ldr      r0, [pc, r0]                 ; GOT[580] VTABLE System.Comparison`1<UnityEngine.RaycastHit>
+           00042cf8  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00042cfc  mov      r1, r0                       
+           00042d00  ldr      r0, [pc]                     
+           00042d04  b        #0x42d0c                     ; -> L_42d0c
+           00042d08  .word    0x00f5a23c                   ; literal 16097852 / 
+L_42d0c:   00042d0c  ldr      r0, [pc, r0]                 ; GOT[586] METHODCONST UghInput::<TouchEndedEvent>m__7
+           00042d10  str      r0, [r1, #0x14]              ; field+0x14 (this-class: useTouchInput)
+           00042d14  ldr      r0, [pc]                     
+           00042d18  b        #0x42d20                     ; -> L_42d20
+           00042d1c  .word    0x00f5a218                   ; literal 16097816 / 
+L_42d20:   00042d20  ldr      r0, [pc, r0]                 ; GOT[582] DELEGATE_TRAMPOLINE System.Comparison`1<UnityEngine.RaycastHit>
+           00042d24  str      r0, [r1, #0xc]               ; field+0xc 
+           00042d28  ldr      r0, [pc]                     
+           00042d2c  b        #0x42d34                     ; -> L_42d34
+           00042d30  .word    0x00f5a210                   ; literal 16097808 / 
+L_42d34:   00042d34  ldr      r0, [pc, r0]                 ; GOT[585] SFLDA UghInput::<>f__am$cache7
+           00042d38  str      r1, [r0]                     
+L_42d3c:   00042d3c  ldr      r0, [pc]                     
+           00042d40  b        #0x42d48                     ; -> L_42d48
+           00042d44  .word    0x00f5a1fc                   ; literal 16097788 / 
+L_42d48:   00042d48  ldr      r0, [pc, r0]                 ; GOT[585] SFLDA UghInput::<>f__am$cache7
+           00042d4c  ldr      r1, [r0]                     
+           00042d50  ldr      r0, [fp, #0x68]              
+           00042d54  bl       #0xbcd00                     ; CALL System.Array::Sort<UnityEngine.RaycastHit>
+           00042d58  ldr      r0, [fp, #0x10]              
+           00042d5c  str      r0, [fp, #0x40]              
+           00042d60  mov      r0, #0                       
+           00042d64  str      r0, [fp, #0x44]              
+           00042d68  b        #0x42e78                     ; -> L_42e78
+L_42d6c:   00042d6c  ldr      r0, [fp, #0x40]              
+           00042d70  ldr      r2, [r0, #0xc]               ; field+0xc 
+           00042d74  ldr      r1, [fp, #0x44]              
+           00042d78  cmp      r2, r1                       
+           00042d7c  blls     #0x4303c                     ; THROW System.IndexOutOfRangeException (if ls)
+           00042d80  mov      r2, #0x2c                    
+           00042d84  mul      r1, r2, r1                   
+           00042d88  add      r0, r0, r1                   
+           00042d8c  add      r1, r0, #0x10                
+           00042d90  add      r0, fp, #0x14                
+           00042d94  mov      r2, #0x2c                    
+           00042d98  bl       #0xba2d0                     ; CALL System.String::memcpy
+           00042d9c  add      r0, fp, #0x14                
+           00042da0  bl       #0xbcd10                     ; CALL UnityEngine.RaycastHit::get_transform
+           00042da4  ldr      r1, [pc]                     
+           00042da8  b        #0x42db0                     ; -> L_42db0
+           00042dac  .word    0x00f5a18c                   ; literal 16097676 / 
+L_42db0:   00042db0  ldr      r1, [pc, r1]                 ; GOT[583] METHOD_RGCTX UnityEngine.Component::GetComponent<UghControl>
+           00042db4  ldr      lr, [r0]                     
+           00042db8  mov      r8, r1                       
+           00042dbc  bl       #0xbcd20                     ; CALL UnityEngine.Component::GetComponent<UghControl>
+           00042dc0  mov      sl, r0                       
+           00042dc4  mov      r1, #0                       
+           00042dc8  bl       #0xba460                     ; CALL UnityEngine.Object::op_Inequality
+           00042dcc  cmp      r0, #0                       
+           00042dd0  beq      #0x42e6c                     ; -> L_42e6c
+           00042dd4  ldr      r0, [fp, #0xc8]              
+           00042dd8  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042ddc  mov      r0, r2                       
+           00042de0  mov      r1, sl                       
+           00042de4  ldr      lr, [r2]                     
+           00042de8  bl       #0xbcd30                     ; CALL System.Collections.Generic.List`1<UghControl>::Contains
+           00042dec  cmp      r0, #0                       
+           00042df0  beq      #0x42e50                     ; -> L_42e50
+           00042df4  ldr      lr, [sl]                     
+           00042df8  ldr      r0, [sl, #0x38]              ; field+0x38 
+           00042dfc  ldr      r1, [fp, #0xd4]              
+           00042e00  cmp      r0, r1                       
+           00042e04  bne      #0x42e50                     ; -> L_42e50
+           00042e08  mov      r0, sl                       
+           00042e0c  ldr      r1, [sl]                     
+           00042e10  mov      lr, pc                       
+           00042e14  ldr      pc, [r1, #0x48]              ; VIRTUAL CALL slot +0x48: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Reset | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Reset | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Reset | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Reset | AnimatedTexture/<UpdateTexture>c__Iterator1A::Reset | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Reset | BarrelLauncher/<LaunchPump>c__Iterator33::Reset | BarrelSpawner/<SpawnCheck>c__Iterator34::Reset ...(214)
+           00042e18  mov      r0, r4                       
+           00042e1c  mov      r1, sl                       
+           00042e20  ldr      lr, [r4]                     
+           00042e24  bl       #0xbcd40                     ; CALL System.Collections.Generic.List`1<UghControl>::Add
+           00042e28  ldr      r0, [fp, #0xc8]              
+           00042e2c  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042e30  mov      r0, r2                       
+           00042e34  mov      r1, sl                       
+           00042e38  ldr      lr, [r2]                     
+           00042e3c  bl       #0xbcd90                     ; CALL System.Collections.Generic.List`1<UghControl>::Remove
+           00042e40  ldr      lr, [sl]                     
+           00042e44  mvn      r0, #0                       
+           00042e48  str      r0, [sl, #0x38]              ; field+0x38 
+           00042e4c  b        #0x42e60                     ; -> L_42e60
+L_42e50:   00042e50  mov      r0, sl                       
+           00042e54  ldr      r1, [sl]                     
+           00042e58  mov      lr, pc                       
+           00042e5c  ldr      pc, [r1, #0x50]              ; VIRTUAL CALL slot +0x50: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::MoveNext | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::MoveNext | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::MoveNext | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::MoveNext | AnimatedTexture/<UpdateTexture>c__Iterator1A::MoveNext | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::MoveNext | BarrelLauncher/<LaunchPump>c__Iterator33::MoveNext | BarrelSpawner/<SpawnCheck>c__Iterator34::MoveNext ...(203)
+L_42e60:   00042e60  ldrb     r0, [sl, #0x35]              ; field+0x35 
+           00042e64  cmp      r0, #0                       
+           00042e68  beq      #0x42e8c                     ; -> L_42e8c
+L_42e6c:   00042e6c  ldr      r0, [fp, #0x44]              
+           00042e70  add      r0, r0, #1                   
+           00042e74  str      r0, [fp, #0x44]              
+L_42e78:   00042e78  ldr      r0, [fp, #0x40]              
+           00042e7c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00042e80  ldr      r0, [fp, #0x44]              
+           00042e84  cmp      r0, r1                       
+           00042e88  blt      #0x42d6c                     ; -> L_42d6c
+L_42e8c:   00042e8c  mov      r6, #0                       
+           00042e90  b        #0x42f20                     ; -> L_42f20
+L_42e94:   00042e94  ldr      r0, [fp, #0xc8]              
+           00042e98  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042e9c  mov      r0, r2                       
+           00042ea0  mov      r1, r6                       
+           00042ea4  ldr      lr, [r2]                     
+           00042ea8  bl       #0xbcd70                     ; CALL System.Collections.Generic.List`1<UghControl>::get_Item
+           00042eac  mov      r5, r0                       
+           00042eb0  mov      r1, #0                       
+           00042eb4  bl       #0xba460                     ; CALL UnityEngine.Object::op_Inequality
+           00042eb8  cmp      r0, #0                       
+           00042ebc  beq      #0x42f1c                     ; -> L_42f1c
+           00042ec0  ldr      lr, [r5]                     
+           00042ec4  ldr      r0, [r5, #0x38]              ; field+0x38 
+           00042ec8  ldr      r1, [fp, #0xd4]              
+           00042ecc  cmp      r0, r1                       
+           00042ed0  bne      #0x42f1c                     ; -> L_42f1c
+           00042ed4  mov      r0, r5                       
+           00042ed8  ldr      r1, [r5]                     
+           00042edc  mov      lr, pc                       
+           00042ee0  ldr      pc, [r1, #0x50]              ; VIRTUAL CALL slot +0x50: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::MoveNext | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::MoveNext | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::MoveNext | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::MoveNext | AnimatedTexture/<UpdateTexture>c__Iterator1A::MoveNext | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::MoveNext | BarrelLauncher/<LaunchPump>c__Iterator33::MoveNext | BarrelSpawner/<SpawnCheck>c__Iterator34::MoveNext ...(203)
+           00042ee4  mov      r0, r4                       
+           00042ee8  mov      r1, r5                       
+           00042eec  ldr      lr, [r4]                     
+           00042ef0  bl       #0xbcd40                     ; CALL System.Collections.Generic.List`1<UghControl>::Add
+           00042ef4  ldr      lr, [r5]                     
+           00042ef8  mvn      r0, #0                       
+           00042efc  str      r0, [r5, #0x38]              ; field+0x38 
+           00042f00  ldr      r0, [fp, #0xc8]              
+           00042f04  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042f08  mov      r0, r2                       
+           00042f0c  mov      r1, r6                       
+           00042f10  ldr      lr, [r2]                     
+           00042f14  bl       #0xbcd80                     ; CALL System.Collections.Generic.List`1<UghControl>::RemoveAt
+           00042f18  sub      r6, r6, #1                   
+L_42f1c:   00042f1c  add      r6, r6, #1                   
+L_42f20:   00042f20  ldr      r0, [fp, #0xc8]              
+           00042f24  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: hotControls)
+           00042f28  mov      r1, r0                       
+           00042f2c  ldr      lr, [r1]                     
+           00042f30  ldr      r0, [r0, #0xc]               ; field+0xc 
+           00042f34  cmp      r6, r0                       
+           00042f38  blt      #0x42e94                     ; -> L_42e94
+           00042f3c  add      r0, fp, #0x4c                
+           00042f40  mov      r1, r4                       
+           00042f44  ldr      lr, [r4]                     
+           00042f48  bl       #0xbcd50                     ; CALL System.Collections.Generic.List`1<UghControl>::GetEnumerator
+           00042f4c  b        #0x42f78                     ; -> L_42f78
+L_42f50:   00042f50  ldr      r0, [pc]                     
+           00042f54  b        #0x42f5c                     ; -> L_42f5c
+           00042f58  .word    0x00f59fe4                   ; literal 16097252 / 
+L_42f5c:   00042f5c  ldr      r0, [pc, r0]                 ; GOT[584] VTABLE System.Collections.Generic.List`1/Enumerator<UghControl>
+           00042f60  ldr      r1, [fp, #0x58]              
+           00042f64  str      r1, [fp, #0x48]              
+           00042f68  mov      r0, r1                       
+           00042f6c  ldr      r1, [r1]                     
+           00042f70  mov      lr, pc                       
+           00042f74  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+L_42f78:   00042f78  add      r0, fp, #0x4c                
+           00042f7c  ldr      r8, [pc]                     
+           00042f80  b        #0x42f88                     ; -> L_42f88
+           00042f84  .word    0x00f59fb8                   ; literal 16097208 / 
+L_42f88:   00042f88  ldr      r8, [pc, r8]                 ; GOT[584] VTABLE System.Collections.Generic.List`1/Enumerator<UghControl>
+           00042f8c  bl       #0xbcd60                     ; CALL System.Collections.Generic.List`1/Enumerator<UghControl>::MoveNext
+           00042f90  cmp      r0, #0                       
+           00042f94  bne      #0x42f50                     ; -> L_42f50
+           00042f98  bl       #0x42fa0                     ; CALL 0x42fa0
+           00042f9c  b        #0x4302c                     ; -> L_4302c
+           00042fa0  str      lr, [fp, #0x84]              
+           00042fa4  ldr      r0, [fp, #0x4c]              
+           00042fa8  str      r0, [fp, #0xb8]              
+           00042fac  ldr      r0, [fp, #0x50]              
+           00042fb0  str      r0, [fp, #0xbc]              
+           00042fb4  ldr      r0, [fp, #0x54]              
+           00042fb8  str      r0, [fp, #0xc0]              
+           00042fbc  ldr      r0, [fp, #0x58]              
+           00042fc0  str      r0, [fp, #0xc4]              
+           00042fc4  ldr      r0, [pc]                     
+           00042fc8  b        #0x42fd0                     ; -> L_42fd0
+           00042fcc  .word    0x00f59f70                   ; literal 16097136 / 
+L_42fd0:   00042fd0  ldr      r0, [pc, r0]                 ; GOT[584] VTABLE System.Collections.Generic.List`1/Enumerator<UghControl>
+           00042fd4  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00042fd8  mov      r1, r0                       
+           00042fdc  add      r0, r1, #8                   
+           00042fe0  ldr      r2, [fp, #0xb8]              
+           00042fe4  str      r2, [r0]                     
+           00042fe8  ldr      r2, [fp, #0xbc]              
+           00042fec  str      r2, [r0, #4]                 ; field+0x4 
+           00042ff0  ldr      r2, [fp, #0xc0]              
+           00042ff4  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00042ff8  ldr      r2, [fp, #0xc4]              
+           00042ffc  str      r2, [r0, #0xc]               ; field+0xc 
+           00043000  mov      r0, r1                       
+           00043004  ldr      r1, [r1]                     
+           00043008  ldr      r8, [pc]                     
+           0004300c  b        #0x43014                     ; -> L_43014
+           00043010  .word    0x00f59650                   ; literal 16094800 / 
+L_43014:   00043014  ldr      r8, [pc, r8]                 ; GOT[17] METHODCONST System.IDisposable::Dispose
+           00043018  add      lr, pc, #4                   
+           0004301c  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           00043020  andeq    r0, r0, r0                   
+           00043024  ldr      ip, [fp, #0x84]              
+           00043028  mov      pc, ip                       
+L_4302c:   0004302c  add      sp, fp, #0xe8                
+           00043030  pop      {r4, r5, r6, r8, sl, fp}     
+           00043034  ldr      r7, [sp, #8]                 
+           00043038  ldm      sp, {sp, pc}                 
+           0004303c  mov      r1, lr                       
+           00043040  ldr      r0, [pc]                     
+           00043044  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00043048  andeq    r0, r0, #0xf8                
+
+== UghInput::Awake  token 0x06000436 @0x0004304c (80 bytes)
+   args: r0=this, 
+           0004304c  mov      ip, sp                       
+           00043050  push     {r7, lr}                     
+           00043054  mov      r7, sp                       
+           00043058  push     {r8, fp, ip, lr}             
+           0004305c  sub      sp, sp, #8                   
+           00043060  mov      fp, sp                       
+           00043064  str      r0, [fp]                     
+           00043068  bl       #0xb9760                     ; CALL UnityEngine.Application::get_platform
+           0004306c  cmp      r0, #8                       
+           00043070  beq      #0x43080                     ; -> L_43080
+           00043074  bl       #0xb9760                     ; CALL UnityEngine.Application::get_platform
+           00043078  cmp      r0, #0xb                     
+           0004307c  bne      #0x4308c                     ; -> L_4308c
+L_43080:   00043080  ldr      r0, [fp]                     
+           00043084  mov      r1, #1                       
+           00043088  strb     r1, [r0, #0x14]              ; field+0x14 (this-class: useTouchInput)
+L_4308c:   0004308c  add      sp, fp, #8                   
+           00043090  pop      {r8, fp}                     
+           00043094  ldr      r7, [sp, #8]                 
+           00043098  ldm      sp, {sp, pc}                 
+
+== UghInput::LateUpdate  token 0x06000437 @0x0004309c (696 bytes)
+   args: r0=this, 
+           0004309c  mov      ip, sp                       
+           000430a0  push     {r7, lr}                     
+           000430a4  mov      r7, sp                       
+           000430a8  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000430ac  sub      sp, sp, #0x90                
+           000430b0  mov      fp, sp                       
+           000430b4  mov      sl, r0                       
+           000430b8  mov      r0, fp                       
+           000430bc  mov      r1, #0                       
+           000430c0  mov      r2, #0x28                    
+           000430c4  bl       #0xba6f0                     ; CALL System.String::memset
+           000430c8  mov      r0, #0                       
+           000430cc  str      r0, [fp, #0x28]              
+           000430d0  mov      r0, #0                       
+           000430d4  str      r0, [fp, #0x2c]              
+           000430d8  mov      r0, #0                       
+           000430dc  str      r0, [fp, #0x30]              
+           000430e0  mov      r0, #0                       
+           000430e4  str      r0, [fp, #0x34]              
+           000430e8  mov      r0, #0                       
+           000430ec  str      r0, [fp, #0x38]              
+           000430f0  mov      r0, #0                       
+           000430f4  str      r0, [fp, #0x3c]              
+           000430f8  mov      r0, #0                       
+           000430fc  str      r0, [fp, #0x40]              
+           00043100  mov      r0, #0                       
+           00043104  str      r0, [fp, #0x44]              
+           00043108  bl       #0xba940                     ; CALL UnityEngine.Input::get_touches
+           0004310c  mov      r5, r0                       
+           00043110  mov      r4, #0                       
+           00043114  b        #0x43224                     ; -> L_43224
+L_43118:   00043118  ldr      r0, [r5, #0xc]               ; field+0xc 
+           0004311c  cmp      r0, r4                       
+           00043120  blls     #0x43344                     ; THROW System.IndexOutOfRangeException (if ls)
+           00043124  mov      r0, #0x28                    
+           00043128  mul      r0, r4, r0                   
+           0004312c  add      r0, r5, r0                   
+           00043130  add      r1, r0, #0x10                
+           00043134  mov      r0, fp                       
+           00043138  mov      r2, #0x28                    
+           0004313c  bl       #0xba2d0                     ; CALL System.String::memcpy
+           00043140  ldr      r6, [fp, #0x24]              
+           00043144  cmp      r6, #5                       
+           00043148  bhs      #0x4320c                     ; -> L_4320c
+           0004314c  lsl      r1, r6, #2                   
+           00043150  ldr      r0, [pc]                     
+           00043154  b        #0x4315c                     ; -> L_4315c
+           00043158  .word    0x00f59df0                   ; literal 16096752 / 
+L_4315c:   0004315c  ldr      r0, [pc, r0]                 ; GOT[587] SWITCH switch table[5]
+           00043160  add      r0, r0, r1                   
+           00043164  ldr      r0, [r0]                     
+           00043168  mov      pc, r0                       
+           0004316c  ldr      r0, [fp, #4]                 
+           00043170  str      r0, [fp, #0x50]              
+           00043174  ldr      r0, [fp, #8]                 
+           00043178  str      r0, [fp, #0x54]              
+           0004317c  ldr      r3, [fp]                     
+           00043180  mov      r0, sl                       
+           00043184  ldr      r1, [fp, #0x50]              
+           00043188  ldr      r2, [fp, #0x54]              
+           0004318c  bl       #0xbcda0                     ; CALL UghInput::TouchBeginEvent
+           00043190  b        #0x43220                     ; -> L_43220
+           00043194  ldr      r0, [fp, #4]                 
+           00043198  str      r0, [fp, #0x58]              
+           0004319c  ldr      r0, [fp, #8]                 
+           000431a0  str      r0, [fp, #0x5c]              
+           000431a4  ldr      r3, [fp]                     
+           000431a8  mov      r0, sl                       
+           000431ac  ldr      r1, [fp, #0x58]              
+           000431b0  ldr      r2, [fp, #0x5c]              
+           000431b4  bl       #0xbcdb0                     ; CALL UghInput::TouchPersistEvent
+           000431b8  b        #0x43220                     ; -> L_43220
+           000431bc  ldr      r0, [fp, #4]                 
+           000431c0  str      r0, [fp, #0x60]              
+           000431c4  ldr      r0, [fp, #8]                 
+           000431c8  str      r0, [fp, #0x64]              
+           000431cc  ldr      r3, [fp]                     
+           000431d0  mov      r0, sl                       
+           000431d4  ldr      r1, [fp, #0x60]              
+           000431d8  ldr      r2, [fp, #0x64]              
+           000431dc  bl       #0x42a50                     ; CALL UghInput::TouchCanceledEvent (direct)
+           000431e0  b        #0x43220                     ; -> L_43220
+           000431e4  ldr      r0, [fp, #4]                 
+           000431e8  str      r0, [fp, #0x68]              
+           000431ec  ldr      r0, [fp, #8]                 
+           000431f0  str      r0, [fp, #0x6c]              
+           000431f4  ldr      r3, [fp]                     
+           000431f8  mov      r0, sl                       
+           000431fc  ldr      r1, [fp, #0x68]              
+           00043200  ldr      r2, [fp, #0x6c]              
+           00043204  bl       #0xbcdc0                     ; CALL UghInput::TouchEndedEvent
+           00043208  b        #0x43220                     ; -> L_43220
+L_4320c:   0004320c  ldr      r0, [pc]                     
+           00043210  b        #0x43218                     ; -> L_43218
+           00043214  .word    0x00f59d38                   ; literal 16096568 / 
+L_43218:   00043218  ldr      r0, [pc, r0]                 ; GOT[588] LDSTR 'This is an unrecognized touch phase!'
+           0004321c  bl       #0xbae90                     ; CALL UnityEngine.Debug::LogError
+L_43220:   00043220  add      r4, r4, #1                   
+L_43224:   00043224  ldr      r0, [r5, #0xc]               ; field+0xc 
+           00043228  cmp      r4, r0                       
+           0004322c  blt      #0x43118                     ; -> L_43118
+           00043230  add      r0, fp, #0x30                
+           00043234  bl       #0xba980                     ; CALL UnityEngine.Input::get_mousePosition
+           00043238  vldr     s0, [fp, #0x30]              
+           0004323c  vcvt.f64.f32 d2, s0                       
+           00043240  vstr     d2, [fp, #0x88]              
+           00043244  add      r0, fp, #0x3c                
+           00043248  bl       #0xba980                     ; CALL UnityEngine.Input::get_mousePosition
+           0004324c  vldr     d3, [fp, #0x88]              
+           00043250  vldr     s0, [fp, #0x40]              
+           00043254  vcvt.f64.f32 d2, s0                       
+           00043258  vcvt.f32.f64 s0, d3                       
+           0004325c  vstr     s0, [fp, #0x48]              
+           00043260  vcvt.f32.f64 s0, d2                       
+           00043264  vstr     s0, [fp, #0x4c]              
+           00043268  vldr     s0, [fp, #0x48]              
+           0004326c  vcvt.f64.f32 d2, s0                       
+           00043270  vcvt.f32.f64 s0, d2                       
+           00043274  vstr     s0, [fp, #0x28]              
+           00043278  vldr     s0, [fp, #0x4c]              
+           0004327c  vcvt.f64.f32 d2, s0                       
+           00043280  vcvt.f32.f64 s0, d2                       
+           00043284  vstr     s0, [fp, #0x2c]              
+           00043288  mov      r0, #0                       
+           0004328c  bl       #0xbccd0                     ; CALL UnityEngine.Input::GetMouseButton
+           00043290  cmp      r0, #0                       
+           00043294  beq      #0x432fc                     ; -> L_432fc
+           00043298  ldrb     r0, [sl, #0x25]              ; field+0x25 (this-class: lastMouseState)
+           0004329c  cmp      r0, #0                       
+           000432a0  bne      #0x432cc                     ; -> L_432cc
+           000432a4  ldr      r0, [fp, #0x28]              
+           000432a8  str      r0, [fp, #0x70]              
+           000432ac  ldr      r0, [fp, #0x2c]              
+           000432b0  str      r0, [fp, #0x74]              
+           000432b4  mov      r0, sl                       
+           000432b8  ldr      r1, [fp, #0x70]              
+           000432bc  ldr      r2, [fp, #0x74]              
+           000432c0  mov      r3, #0                       
+           000432c4  bl       #0xbcda0                     ; CALL UghInput::TouchBeginEvent
+           000432c8  b        #0x432f0                     ; -> L_432f0
+L_432cc:   000432cc  ldr      r0, [fp, #0x28]              
+           000432d0  str      r0, [fp, #0x78]              
+           000432d4  ldr      r0, [fp, #0x2c]              
+           000432d8  str      r0, [fp, #0x7c]              
+           000432dc  mov      r0, sl                       
+           000432e0  ldr      r1, [fp, #0x78]              
+           000432e4  ldr      r2, [fp, #0x7c]              
+           000432e8  mov      r3, #0                       
+           000432ec  bl       #0xbcdb0                     ; CALL UghInput::TouchPersistEvent
+L_432f0:   000432f0  mov      r0, #1                       
+           000432f4  strb     r0, [sl, #0x25]              ; field+0x25 (this-class: lastMouseState)
+           000432f8  b        #0x43334                     ; -> L_43334
+L_432fc:   000432fc  ldrb     r0, [sl, #0x25]              ; field+0x25 (this-class: lastMouseState)
+           00043300  cmp      r0, #0                       
+           00043304  beq      #0x4332c                     ; -> L_4332c
+           00043308  ldr      r0, [fp, #0x28]              
+           0004330c  str      r0, [fp, #0x80]              
+           00043310  ldr      r0, [fp, #0x2c]              
+           00043314  str      r0, [fp, #0x84]              
+           00043318  mov      r0, sl                       
+           0004331c  ldr      r1, [fp, #0x80]              
+           00043320  ldr      r2, [fp, #0x84]              
+           00043324  mov      r3, #0                       
+           00043328  bl       #0xbcdc0                     ; CALL UghInput::TouchEndedEvent
+L_4332c:   0004332c  mov      r0, #0                       
+           00043330  strb     r0, [sl, #0x25]              ; field+0x25 (this-class: lastMouseState)
+L_43334:   00043334  add      sp, fp, #0x90                
+           00043338  pop      {r4, r5, r6, r8, sl, fp}     
+           0004333c  ldr      r7, [sp, #8]                 
+           00043340  ldm      sp, {sp, pc}                 
+           00043344  mov      r1, lr                       
+           00043348  ldr      r0, [pc]                     
+           0004334c  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00043350  andeq    r0, r0, #0xf8                
+
+== UghInput::<TouchBeginEvent>m__6  token 0x06000438 @0x00043354 (228 bytes) static
+   args: x, y
+           00043354  mov      ip, sp                       
+           00043358  push     {r7, lr}                     
+           0004335c  mov      r7, sp                       
+           00043360  push     {r8, fp, ip, lr}             
+           00043364  sub      sp, sp, #0x70                
+           00043368  mov      fp, sp                       
+           0004336c  str      r0, [fp, #0x14]              
+           00043370  str      r1, [fp, #0x18]              
+           00043374  str      r2, [fp, #0x1c]              
+           00043378  str      r3, [fp, #0x20]              
+           0004337c  add      r0, sp, #0x88                
+           00043380  add      r1, fp, #0x24                
+           00043384  mov      r2, #0x1c                    
+L_43388:   00043388  ldr      r3, [r0]                     
+           0004338c  str      r3, [r1]                     
+           00043390  add      r0, r0, #4                   
+           00043394  add      r1, r1, #4                   
+           00043398  subs     r2, r2, #4                   
+           0004339c  bne      #0x43388                     ; -> L_43388
+           000433a0  add      r0, sp, #0xa4                
+           000433a4  add      r1, fp, #0x40                
+           000433a8  mov      r2, #0x2c                    
+L_433ac:   000433ac  ldr      r3, [r0]                     
+           000433b0  str      r3, [r1]                     
+           000433b4  add      r0, r0, #4                   
+           000433b8  add      r1, r1, #4                   
+           000433bc  subs     r2, r2, #4                   
+           000433c0  bne      #0x433ac                     ; -> L_433ac
+           000433c4  vldr     d2, [pc]                     
+           000433c8  b        #0x433d4                     ; -> L_433d4
+           000433cc  andeq    r0, r0, r0                   
+           000433d0  andeq    r0, r0, r0                   
+L_433d4:   000433d4  vcvt.f32.f64 s0, d2                       
+           000433d8  vstr     s0, [fp, #8]                 
+           000433dc  vldr     s0, [fp, #0x30]              
+           000433e0  vcvt.f64.f32 d2, s0                       
+           000433e4  vcvt.f32.f64 s0, d2                       
+           000433e8  vstr     s0, [fp, #0xc]               
+           000433ec  vldr     s0, [fp, #0xc]               
+           000433f0  vcvt.f64.f32 d2, s0                       
+           000433f4  vcvt.f32.f64 s0, d2                       
+           000433f8  vstr     s0, [fp, #8]                 
+           000433fc  add      r0, fp, #8                   
+           00043400  vldr     s0, [fp, #0x5c]              
+           00043404  vcvt.f64.f32 d2, s0                       
+           00043408  vcvt.f32.f64 s0, d2                       
+           0004340c  vstr     s0, [fp, #0x10]              
+           00043410  vldr     s0, [fp, #0x10]              
+           00043414  vcvt.f64.f32 d2, s0                       
+           00043418  vcvt.f32.f64 s0, d2                       
+           0004341c  vstr     s0, [sp, #-8]                
+           00043420  ldr      r1, [sp, #-8]                
+           00043424  bl       #0xbcdd0                     ; CALL System.Single::CompareTo
+           00043428  add      sp, fp, #0x70                
+           0004342c  pop      {r8, fp}                     
+           00043430  ldr      r7, [sp, #8]                 
+           00043434  ldm      sp, {sp, pc}                 
+
+== UghInput::<TouchEndedEvent>m__7  token 0x06000439 @0x00043438 (228 bytes) static
+   args: x, y
+           00043438  mov      ip, sp                       
+           0004343c  push     {r7, lr}                     
+           00043440  mov      r7, sp                       
+           00043444  push     {r8, fp, ip, lr}             
+           00043448  sub      sp, sp, #0x70                
+           0004344c  mov      fp, sp                       
+           00043450  str      r0, [fp, #0x14]              
+           00043454  str      r1, [fp, #0x18]              
+           00043458  str      r2, [fp, #0x1c]              
+           0004345c  str      r3, [fp, #0x20]              
+           00043460  add      r0, sp, #0x88                
+           00043464  add      r1, fp, #0x24                
+           00043468  mov      r2, #0x1c                    
+L_4346c:   0004346c  ldr      r3, [r0]                     
+           00043470  str      r3, [r1]                     
+           00043474  add      r0, r0, #4                   
+           00043478  add      r1, r1, #4                   
+           0004347c  subs     r2, r2, #4                   
+           00043480  bne      #0x4346c                     ; -> L_4346c
+           00043484  add      r0, sp, #0xa4                
+           00043488  add      r1, fp, #0x40                
+           0004348c  mov      r2, #0x2c                    
+L_43490:   00043490  ldr      r3, [r0]                     
+           00043494  str      r3, [r1]                     
+           00043498  add      r0, r0, #4                   
+           0004349c  add      r1, r1, #4                   
+           000434a0  subs     r2, r2, #4                   
+           000434a4  bne      #0x43490                     ; -> L_43490
+           000434a8  vldr     d2, [pc]                     
+           000434ac  b        #0x434b8                     ; -> L_434b8
+           000434b0  andeq    r0, r0, r0                   
+           000434b4  andeq    r0, r0, r0                   
+L_434b8:   000434b8  vcvt.f32.f64 s0, d2                       
+           000434bc  vstr     s0, [fp, #8]                 
+           000434c0  vldr     s0, [fp, #0x30]              
+           000434c4  vcvt.f64.f32 d2, s0                       
+           000434c8  vcvt.f32.f64 s0, d2                       
+           000434cc  vstr     s0, [fp, #0xc]               
+           000434d0  vldr     s0, [fp, #0xc]               
+           000434d4  vcvt.f64.f32 d2, s0                       
+           000434d8  vcvt.f32.f64 s0, d2                       
+           000434dc  vstr     s0, [fp, #8]                 
+           000434e0  add      r0, fp, #8                   
+           000434e4  vldr     s0, [fp, #0x5c]              
+           000434e8  vcvt.f64.f32 d2, s0                       
+           000434ec  vcvt.f32.f64 s0, d2                       
+           000434f0  vstr     s0, [fp, #0x10]              
+           000434f4  vldr     s0, [fp, #0x10]              
+           000434f8  vcvt.f64.f32 d2, s0                       
+           000434fc  vcvt.f32.f64 s0, d2                       
+           00043500  vstr     s0, [sp, #-8]                
+           00043504  ldr      r1, [sp, #-8]                
+           00043508  bl       #0xbcdd0                     ; CALL System.Single::CompareTo
+           0004350c  add      sp, fp, #0x70                
+           00043510  pop      {r8, fp}                     
+           00043514  ldr      r7, [sp, #8]                 
+           00043518  ldm      sp, {sp, pc}                 

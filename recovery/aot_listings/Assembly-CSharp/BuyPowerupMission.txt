@@ -1,0 +1,140 @@
+####################################################################################################
+# TYPE BuyPowerupMission  (instance size 0x34)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 missionName                    LocalizedString
+#   +0x14 missionInstructions            LocalizedString
+#   +0x18 missionInstructionsWeb         LocalizedString
+#   +0x1c manager                        MissionManager
+#   +0x20 missionCollection              MissionCollection
+#   +0x24 hasArrow                       bool
+#   +0x28 arrowRotation                  float
+#   +0x2c arrowXOffset                   float
+#   +0x30 arrowYOffset                   float
+#   vtable slots: 5:Signal, 6:Shutdown, 7:Update, 8:Init
+####################################################################################################
+== BuyPowerupMission::.ctor  token 0x060002a1 @0x000eaaac (52 bytes)
+   args: r0=this, 
+           000eaaac  mov      ip, sp                       
+           000eaab0  push     {r7, lr}                     
+           000eaab4  mov      r7, sp                       
+           000eaab8  push     {r8, fp, ip, lr}             
+           000eaabc  sub      sp, sp, #8                   
+           000eaac0  mov      fp, sp                       
+           000eaac4  str      r0, [fp]                     
+           000eaac8  ldr      r0, [fp]                     
+           000eaacc  bl       #0x22ca40                    ; CALL BaseMission::.ctor
+           000eaad0  add      sp, fp, #8                   
+           000eaad4  pop      {r8, fp}                     
+           000eaad8  ldr      r7, [sp, #8]                 
+           000eaadc  ldm      sp, {sp, pc}                 
+
+== BuyPowerupMission::Start  token 0x060002a2 @0x000eaae0 (44 bytes)
+   args: r0=this, 
+           000eaae0  mov      ip, sp                       
+           000eaae4  push     {r7, lr}                     
+           000eaae8  mov      r7, sp                       
+           000eaaec  push     {r8, fp, ip, lr}             
+           000eaaf0  sub      sp, sp, #8                   
+           000eaaf4  mov      fp, sp                       
+           000eaaf8  str      r0, [fp]                     
+           000eaafc  add      sp, fp, #8                   
+           000eab00  pop      {r8, fp}                     
+           000eab04  ldr      r7, [sp, #8]                 
+           000eab08  ldm      sp, {sp, pc}                 
+
+== BuyPowerupMission::Init  token 0x060002a3 @0x000eab0c (44 bytes)
+   args: r0=this, 
+           000eab0c  mov      ip, sp                       
+           000eab10  push     {r7, lr}                     
+           000eab14  mov      r7, sp                       
+           000eab18  push     {r8, fp, ip, lr}             
+           000eab1c  sub      sp, sp, #8                   
+           000eab20  mov      fp, sp                       
+           000eab24  str      r0, [fp]                     
+           000eab28  add      sp, fp, #8                   
+           000eab2c  pop      {r8, fp}                     
+           000eab30  ldr      r7, [sp, #8]                 
+           000eab34  ldm      sp, {sp, pc}                 
+
+== BuyPowerupMission::Shutdown  token 0x060002a4 @0x000eab38 (44 bytes)
+   args: r0=this, 
+           000eab38  mov      ip, sp                       
+           000eab3c  push     {r7, lr}                     
+           000eab40  mov      r7, sp                       
+           000eab44  push     {r8, fp, ip, lr}             
+           000eab48  sub      sp, sp, #8                   
+           000eab4c  mov      fp, sp                       
+           000eab50  str      r0, [fp]                     
+           000eab54  add      sp, fp, #8                   
+           000eab58  pop      {r8, fp}                     
+           000eab5c  ldr      r7, [sp, #8]                 
+           000eab60  ldm      sp, {sp, pc}                 
+
+== BuyPowerupMission::Update  token 0x060002a5 @0x000eab64 (44 bytes)
+   args: r0=this, 
+           000eab64  mov      ip, sp                       
+           000eab68  push     {r7, lr}                     
+           000eab6c  mov      r7, sp                       
+           000eab70  push     {r8, fp, ip, lr}             
+           000eab74  sub      sp, sp, #8                   
+           000eab78  mov      fp, sp                       
+           000eab7c  str      r0, [fp]                     
+           000eab80  add      sp, fp, #8                   
+           000eab84  pop      {r8, fp}                     
+           000eab88  ldr      r7, [sp, #8]                 
+           000eab8c  ldm      sp, {sp, pc}                 
+
+== BuyPowerupMission::Signal  token 0x060002a6 @0x000eab90 (144 bytes)
+   args: r0=this, signal
+           000eab90  mov      ip, sp                       
+           000eab94  push     {r7, lr}                     
+           000eab98  mov      r7, sp                       
+           000eab9c  push     {r6, r8, fp, ip, lr}         
+           000eaba0  sub      sp, sp, #0xc                 
+           000eaba4  mov      fp, sp                       
+           000eaba8  mov      r6, r0                       
+           000eabac  str      r1, [fp]                     
+           000eabb0  ldr      r1, [pc]                     
+           000eabb4  b        #0xeabbc                     ; -> L_eabbc
+           000eabb8  .word    0x00ebaa44                   ; literal 15444548 / 
+L_eabbc:   000eabbc  ldr      r1, [pc, r1]                 ; GOT[552] LDSTR 'Bought Powerup'
+           000eabc0  ldr      r0, [fp]                     
+           000eabc4  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000eabc8  cmp      r0, #0                       
+           000eabcc  beq      #0xeac10                     ; -> L_eac10
+           000eabd0  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: missionCollection)
+           000eabd4  mov      r1, #0                       
+           000eabd8  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000eabdc  cmp      r0, #0                       
+           000eabe0  bne      #0xeabfc                     ; -> L_eabfc
+           000eabe4  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: missionCollection)
+           000eabe8  mov      r1, r0                       
+           000eabec  ldr      lr, [r1]                     
+           000eabf0  ldrb     r0, [r0, #0x3c]              ; field+0x3c 
+           000eabf4  cmp      r0, #0                       
+           000eabf8  beq      #0xeac10                     ; -> L_eac10
+L_eabfc:   000eabfc  ldr      r2, [r6, #0x1c]              ; field+0x1c (this-class: manager)
+           000eac00  mov      r0, r2                       
+           000eac04  mov      r1, r6                       
+           000eac08  ldr      lr, [r2]                     
+           000eac0c  bl       #0x22ca50                    ; CALL MissionManager::CompleteMission
+L_eac10:   000eac10  add      sp, fp, #0xc                 
+           000eac14  pop      {r6, r8, fp}                 
+           000eac18  ldr      r7, [sp, #8]                 
+           000eac1c  ldm      sp, {sp, pc}                 
+
+== BuyPowerupMission::Signal  token 0x060002a7 @0x000eac20 (52 bytes)
+   args: r0=this, signal, value
+           000eac20  mov      ip, sp                       
+           000eac24  push     {r7, lr}                     
+           000eac28  mov      r7, sp                       
+           000eac2c  push     {r8, fp, ip, lr}             
+           000eac30  sub      sp, sp, #0x10                
+           000eac34  mov      fp, sp                       
+           000eac38  str      r0, [fp]                     
+           000eac3c  str      r1, [fp, #4]                 
+           000eac40  str      r2, [fp, #8]                 
+           000eac44  add      sp, fp, #0x10                
+           000eac48  pop      {r8, fp}                     
+           000eac4c  ldr      r7, [sp, #8]                 
+           000eac50  ldm      sp, {sp, pc}                 

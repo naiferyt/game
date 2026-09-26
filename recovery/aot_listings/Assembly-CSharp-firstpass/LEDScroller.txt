@@ -1,0 +1,1642 @@
+####################################################################################################
+# TYPE LEDScroller  (instance size 0x54)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 ughText                        UghText
+#   +0x14 textStrings                    System.Collections.Generic.List`1<LEDScroller/TextString>
+#   +0x18 tempCurrentString              string
+#   +0x1c current                        System.Text.StringBuilder
+#   +0x20 maxCharacterWidth              int
+#   +0x24 scrollSpeed                    float
+#   +0x28 flashSpeed                     float
+#   +0x2c toggleFactor                   int
+#   +0x30 staticTextTime                 float
+#   +0x34 time                           float
+#   +0x38 cycleThroughTextstrings        bool
+#   +0x3c currentString                  int
+#   +0x40 currentStringLength            int
+#   +0x44 padValue                       int
+#   +0x48 index                          int
+#   +0x4c endofSentence                  bool
+#   +0x50 flashCount                     int
+#   static LEDScroller/NewTextCheckHandler HandleNewTextCheck
+#   vtable slots: 
+####################################################################################################
+== LEDScroller::.ctor  token 0x060003e2 @0x0003e948 (184 bytes)
+   args: r0=this, 
+           0003e948  mov      ip, sp                       
+           0003e94c  push     {r7, lr}                     
+           0003e950  mov      r7, sp                       
+           0003e954  push     {r8, sl, fp, ip, lr}         
+           0003e958  sub      sp, sp, #0xc                 
+           0003e95c  mov      fp, sp                       
+           0003e960  mov      sl, r0                       
+           0003e964  mov      r0, #1                       
+           0003e968  str      r0, [sl, #0x20]              ; field+0x20 (this-class: maxCharacterWidth)
+           0003e96c  vldr     s4, [pc]                     ; float 1.0
+           0003e970  b        #0x3e978                     ; -> L_3e978
+           0003e974  .word    0x3f800000                   ; literal 1065353216 / 1
+L_3e978:   0003e978  vcvt.f64.f32 d2, s4                       
+           0003e97c  vcvt.f32.f64 s0, d2                       
+           0003e980  vstr     s0, [sl, #0x24]              ; field+0x24 (this-class: scrollSpeed)
+           0003e984  vldr     s4, [pc]                     ; float 1.0
+           0003e988  b        #0x3e990                     ; -> L_3e990
+           0003e98c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_3e990:   0003e990  vcvt.f64.f32 d2, s4                       
+           0003e994  vcvt.f32.f64 s0, d2                       
+           0003e998  vstr     s0, [sl, #0x28]              ; field+0x28 (this-class: flashSpeed)
+           0003e99c  mov      r0, #7                       
+           0003e9a0  str      r0, [sl, #0x2c]              ; field+0x2c (this-class: toggleFactor)
+           0003e9a4  vldr     s4, [pc]                     ; float 1.0
+           0003e9a8  b        #0x3e9b0                     ; -> L_3e9b0
+           0003e9ac  .word    0x3f800000                   ; literal 1065353216 / 1
+L_3e9b0:   0003e9b0  vcvt.f64.f32 d2, s4                       
+           0003e9b4  vcvt.f32.f64 s0, d2                       
+           0003e9b8  vstr     s0, [sl, #0x30]              ; field+0x30 (this-class: staticTextTime)
+           0003e9bc  mov      r0, #1                       
+           0003e9c0  strb     r0, [sl, #0x38]              ; field+0x38 (this-class: cycleThroughTextstrings)
+           0003e9c4  ldr      r0, [pc]                     
+           0003e9c8  b        #0x3e9d0                     ; -> L_3e9d0
+           0003e9cc  .word    0x00f5df4c                   ; literal 16113484 / 
+L_3e9d0:   0003e9d0  ldr      r0, [pc, r0]                 ; GOT[191] VTABLE System.Text.StringBuilder
+           0003e9d4  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003e9d8  str      r0, [fp]                     
+           0003e9dc  bl       #0xba0a0                     ; CALL System.Text.StringBuilder::.ctor
+           0003e9e0  ldr      r0, [fp]                     
+           0003e9e4  str      r0, [sl, #0x1c]              ; field+0x1c (this-class: current)
+           0003e9e8  mov      r0, sl                       
+           0003e9ec  bl       #0xb98f0                     ; CALL UnityEngine.MonoBehaviour::.ctor
+           0003e9f0  add      sp, fp, #0xc                 
+           0003e9f4  pop      {r8, sl, fp}                 
+           0003e9f8  ldr      r7, [sp, #8]                 
+           0003e9fc  ldm      sp, {sp, pc}                 
+
+== LEDScroller::add_HandleNewTextCheck  token 0x060003e3 @0x0003ea00 (160 bytes) static
+   args: value
+           0003ea00  mov      ip, sp                       
+           0003ea04  push     {r7, lr}                     
+           0003ea08  mov      r7, sp                       
+           0003ea0c  push     {r8, sl, fp, ip, lr}         
+           0003ea10  sub      sp, sp, #4                   
+           0003ea14  mov      fp, sp                       
+           0003ea18  mov      sl, r0                       
+           0003ea1c  ldr      r0, [pc]                     
+           0003ea20  b        #0x3ea28                     ; -> L_3ea28
+           0003ea24  .word    0x00f5e478                   ; literal 16114808 / 
+L_3ea28:   0003ea28  ldr      r0, [pc, r0]                 ; GOT[544] SFLDA LEDScroller::HandleNewTextCheck
+           0003ea2c  ldr      r0, [r0]                     
+           0003ea30  mov      r1, sl                       
+           0003ea34  bl       #0xb9cc0                     ; CALL System.Delegate::Combine
+           0003ea38  mov      sl, r0                       
+           0003ea3c  cmp      sl, #0                       
+           0003ea40  beq      #0x3ea6c                     ; -> L_3ea6c
+           0003ea44  ldr      r0, [sl]                     
+           0003ea48  ldr      r0, [r0]                     
+           0003ea4c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003ea50  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0003ea54  ldr      r1, [pc]                     
+           0003ea58  b        #0x3ea60                     ; -> L_3ea60
+           0003ea5c  .word    0x00f5e444                   ; literal 16114756 / 
+L_3ea60:   0003ea60  ldr      r1, [pc, r1]                 ; GOT[545] CLASS LEDScroller/NewTextCheckHandler
+           0003ea64  cmp      r0, r1                       
+           0003ea68  blne     #0x3ea90                     ; THROW System.InvalidCastException (if ne)
+L_3ea6c:   0003ea6c  ldr      r0, [pc]                     
+           0003ea70  b        #0x3ea78                     ; -> L_3ea78
+           0003ea74  .word    0x00f5e428                   ; literal 16114728 / 
+L_3ea78:   0003ea78  ldr      r0, [pc, r0]                 ; GOT[544] SFLDA LEDScroller::HandleNewTextCheck
+           0003ea7c  str      sl, [r0]                     
+           0003ea80  add      sp, fp, #4                   
+           0003ea84  pop      {r8, sl, fp}                 
+           0003ea88  ldr      r7, [sp, #8]                 
+           0003ea8c  ldm      sp, {sp, pc}                 
+           0003ea90  mov      r1, lr                       
+           0003ea94  ldr      r0, [pc]                     
+           0003ea98  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0003ea9c  andeq    r0, r0, #0xfd                
+
+== LEDScroller::remove_HandleNewTextCheck  token 0x060003e4 @0x0003eaa0 (160 bytes) static
+   args: value
+           0003eaa0  mov      ip, sp                       
+           0003eaa4  push     {r7, lr}                     
+           0003eaa8  mov      r7, sp                       
+           0003eaac  push     {r8, sl, fp, ip, lr}         
+           0003eab0  sub      sp, sp, #4                   
+           0003eab4  mov      fp, sp                       
+           0003eab8  mov      sl, r0                       
+           0003eabc  ldr      r0, [pc]                     
+           0003eac0  b        #0x3eac8                     ; -> L_3eac8
+           0003eac4  .word    0x00f5e3d8                   ; literal 16114648 / 
+L_3eac8:   0003eac8  ldr      r0, [pc, r0]                 ; GOT[544] SFLDA LEDScroller::HandleNewTextCheck
+           0003eacc  ldr      r0, [r0]                     
+           0003ead0  mov      r1, sl                       
+           0003ead4  bl       #0xb9cd0                     ; CALL System.Delegate::Remove
+           0003ead8  mov      sl, r0                       
+           0003eadc  cmp      sl, #0                       
+           0003eae0  beq      #0x3eb0c                     ; -> L_3eb0c
+           0003eae4  ldr      r0, [sl]                     
+           0003eae8  ldr      r0, [r0]                     
+           0003eaec  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003eaf0  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0003eaf4  ldr      r1, [pc]                     
+           0003eaf8  b        #0x3eb00                     ; -> L_3eb00
+           0003eafc  .word    0x00f5e3a4                   ; literal 16114596 / 
+L_3eb00:   0003eb00  ldr      r1, [pc, r1]                 ; GOT[545] CLASS LEDScroller/NewTextCheckHandler
+           0003eb04  cmp      r0, r1                       
+           0003eb08  blne     #0x3eb30                     ; THROW System.InvalidCastException (if ne)
+L_3eb0c:   0003eb0c  ldr      r0, [pc]                     
+           0003eb10  b        #0x3eb18                     ; -> L_3eb18
+           0003eb14  .word    0x00f5e388                   ; literal 16114568 / 
+L_3eb18:   0003eb18  ldr      r0, [pc, r0]                 ; GOT[544] SFLDA LEDScroller::HandleNewTextCheck
+           0003eb1c  str      sl, [r0]                     
+           0003eb20  add      sp, fp, #4                   
+           0003eb24  pop      {r8, sl, fp}                 
+           0003eb28  ldr      r7, [sp, #8]                 
+           0003eb2c  ldm      sp, {sp, pc}                 
+           0003eb30  mov      r1, lr                       
+           0003eb34  ldr      r0, [pc]                     
+           0003eb38  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0003eb3c  andeq    r0, r0, #0xfd                
+
+== LEDScroller::get_CurrentString  token 0x060003e5 @0x0003eb40 (52 bytes)
+   args: r0=this, 
+           0003eb40  mov      ip, sp                       
+           0003eb44  push     {r7, lr}                     
+           0003eb48  mov      r7, sp                       
+           0003eb4c  push     {r8, fp, ip, lr}             
+           0003eb50  sub      sp, sp, #8                   
+           0003eb54  mov      fp, sp                       
+           0003eb58  str      r0, [fp]                     
+           0003eb5c  ldr      r0, [fp]                     
+           0003eb60  ldr      r0, [r0, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003eb64  add      sp, fp, #8                   
+           0003eb68  pop      {r8, fp}                     
+           0003eb6c  ldr      r7, [sp, #8]                 
+           0003eb70  ldm      sp, {sp, pc}                 
+
+== LEDScroller::set_CurrentString  token 0x060003e6 @0x0003eb74 (60 bytes)
+   args: r0=this, value
+           0003eb74  mov      ip, sp                       
+           0003eb78  push     {r7, lr}                     
+           0003eb7c  mov      r7, sp                       
+           0003eb80  push     {r8, fp, ip, lr}             
+           0003eb84  sub      sp, sp, #8                   
+           0003eb88  mov      fp, sp                       
+           0003eb8c  str      r0, [fp]                     
+           0003eb90  str      r1, [fp, #4]                 
+           0003eb94  ldr      r1, [fp, #4]                 
+           0003eb98  ldr      r0, [fp]                     
+           0003eb9c  str      r1, [r0, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003eba0  add      sp, fp, #8                   
+           0003eba4  pop      {r8, fp}                     
+           0003eba8  ldr      r7, [sp, #8]                 
+           0003ebac  ldm      sp, {sp, pc}                 
+
+== LEDScroller::get_EndofSentence  token 0x060003e7 @0x0003ebb0 (52 bytes)
+   args: r0=this, 
+           0003ebb0  mov      ip, sp                       
+           0003ebb4  push     {r7, lr}                     
+           0003ebb8  mov      r7, sp                       
+           0003ebbc  push     {r8, fp, ip, lr}             
+           0003ebc0  sub      sp, sp, #8                   
+           0003ebc4  mov      fp, sp                       
+           0003ebc8  str      r0, [fp]                     
+           0003ebcc  ldr      r0, [fp]                     
+           0003ebd0  ldrb     r0, [r0, #0x4c]              ; field+0x4c (this-class: endofSentence)
+           0003ebd4  add      sp, fp, #8                   
+           0003ebd8  pop      {r8, fp}                     
+           0003ebdc  ldr      r7, [sp, #8]                 
+           0003ebe0  ldm      sp, {sp, pc}                 
+
+== LEDScroller::set_EndofSentence  token 0x060003e8 @0x0003ebe4 (60 bytes)
+   args: r0=this, value
+           0003ebe4  mov      ip, sp                       
+           0003ebe8  push     {r7, lr}                     
+           0003ebec  mov      r7, sp                       
+           0003ebf0  push     {r8, fp, ip, lr}             
+           0003ebf4  sub      sp, sp, #8                   
+           0003ebf8  mov      fp, sp                       
+           0003ebfc  str      r0, [fp]                     
+           0003ec00  strb     r1, [fp, #4]                 
+           0003ec04  ldrb     r1, [fp, #4]                 
+           0003ec08  ldr      r0, [fp]                     
+           0003ec0c  strb     r1, [r0, #0x4c]              ; field+0x4c (this-class: endofSentence)
+           0003ec10  add      sp, fp, #8                   
+           0003ec14  pop      {r8, fp}                     
+           0003ec18  ldr      r7, [sp, #8]                 
+           0003ec1c  ldm      sp, {sp, pc}                 
+
+== LEDScroller::OnNewTextCheck  token 0x060003e9 @0x0003ec20 (104 bytes)
+   args: r0=this, 
+           0003ec20  mov      ip, sp                       
+           0003ec24  push     {r7, lr}                     
+           0003ec28  mov      r7, sp                       
+           0003ec2c  push     {r8, fp, ip, lr}             
+           0003ec30  sub      sp, sp, #8                   
+           0003ec34  mov      fp, sp                       
+           0003ec38  str      r0, [fp]                     
+           0003ec3c  ldr      r0, [pc]                     
+           0003ec40  b        #0x3ec48                     ; -> L_3ec48
+           0003ec44  .word    0x00f5e258                   ; literal 16114264 / 
+L_3ec48:   0003ec48  ldr      r0, [pc, r0]                 ; GOT[544] SFLDA LEDScroller::HandleNewTextCheck
+           0003ec4c  ldr      r0, [r0]                     
+           0003ec50  cmp      r0, #0                       
+           0003ec54  beq      #0x3ec78                     ; -> L_3ec78
+           0003ec58  ldr      r0, [pc]                     
+           0003ec5c  b        #0x3ec64                     ; -> L_3ec64
+           0003ec60  .word    0x00f5e23c                   ; literal 16114236 / 
+L_3ec64:   0003ec64  ldr      r0, [pc, r0]                 ; GOT[544] SFLDA LEDScroller::HandleNewTextCheck
+           0003ec68  ldr      r1, [r0]                     
+           0003ec6c  mov      r0, r1                       
+           0003ec70  mov      lr, pc                       
+           0003ec74  ldr      pc, [r1, #0xc]               ; VIRTUAL CALL slot +0xc: 
+L_3ec78:   0003ec78  add      sp, fp, #8                   
+           0003ec7c  pop      {r8, fp}                     
+           0003ec80  ldr      r7, [sp, #8]                 
+           0003ec84  ldm      sp, {sp, pc}                 
+
+== LEDScroller::OnEnable  token 0x060003ea @0x0003ec88 (256 bytes)
+   args: r0=this, 
+           0003ec88  mov      ip, sp                       
+           0003ec8c  push     {r7, lr}                     
+           0003ec90  mov      r7, sp                       
+           0003ec94  push     {r8, sl, fp, ip, lr}         
+           0003ec98  sub      sp, sp, #0xc                 
+           0003ec9c  mov      fp, sp                       
+           0003eca0  mov      sl, r0                       
+           0003eca4  ldr      r0, [pc]                     
+           0003eca8  b        #0x3ecb0                     ; -> L_3ecb0
+           0003ecac  .word    0x00f5e1f0                   ; literal 16114160 / 
+L_3ecb0:   0003ecb0  ldr      r0, [pc, r0]                 ; GOT[544] SFLDA LEDScroller::HandleNewTextCheck
+           0003ecb4  ldr      r0, [r0]                     
+           0003ecb8  str      r0, [fp]                     
+           0003ecbc  cmp      sl, #0                       
+           0003ecc0  bleq     #0x3ed78                     ; THROW System.ArgumentException (if eq)
+           0003ecc4  ldr      r0, [pc]                     
+           0003ecc8  b        #0x3ecd0                     ; -> L_3ecd0
+           0003eccc  .word    0x00f5e1d8                   ; literal 16114136 / 
+L_3ecd0:   0003ecd0  ldr      r0, [pc, r0]                 ; GOT[546] VTABLE LEDScroller/NewTextCheckHandler
+           0003ecd4  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003ecd8  mov      r1, r0                       
+           0003ecdc  ldr      r0, [fp]                     
+           0003ece0  str      sl, [r1, #0x10]              ; field+0x10 (this-class: ughText)
+           0003ece4  ldr      r2, [pc]                     
+           0003ece8  b        #0x3ecf0                     ; -> L_3ecf0
+           0003ecec  .word    0x00f5e1bc                   ; literal 16114108 / 
+L_3ecf0:   0003ecf0  ldr      r2, [pc, r2]                 ; GOT[547] METHODCONST LEDScroller::CheckForNewText
+           0003ecf4  str      r2, [r1, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003ecf8  ldr      r2, [pc]                     
+           0003ecfc  b        #0x3ed04                     ; -> L_3ed04
+           0003ed00  .word    0x00f5e1ac                   ; literal 16114092 / 
+L_3ed04:   0003ed04  ldr      r2, [pc, r2]                 ; GOT[548] DELEGATE_TRAMPOLINE LEDScroller/NewTextCheckHandler
+           0003ed08  str      r2, [r1, #0xc]               ; field+0xc 
+           0003ed0c  bl       #0xb9cc0                     ; CALL System.Delegate::Combine
+           0003ed10  mov      sl, r0                       
+           0003ed14  cmp      sl, #0                       
+           0003ed18  beq      #0x3ed44                     ; -> L_3ed44
+           0003ed1c  ldr      r0, [sl]                     
+           0003ed20  ldr      r0, [r0]                     
+           0003ed24  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003ed28  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0003ed2c  ldr      r1, [pc]                     
+           0003ed30  b        #0x3ed38                     ; -> L_3ed38
+           0003ed34  .word    0x00f5e16c                   ; literal 16114028 / 
+L_3ed38:   0003ed38  ldr      r1, [pc, r1]                 ; GOT[545] CLASS LEDScroller/NewTextCheckHandler
+           0003ed3c  cmp      r0, r1                       
+           0003ed40  blne     #0x3ed68                     ; THROW System.InvalidCastException (if ne)
+L_3ed44:   0003ed44  ldr      r0, [pc]                     
+           0003ed48  b        #0x3ed50                     ; -> L_3ed50
+           0003ed4c  .word    0x00f5e150                   ; literal 16114000 / 
+L_3ed50:   0003ed50  ldr      r0, [pc, r0]                 ; GOT[544] SFLDA LEDScroller::HandleNewTextCheck
+           0003ed54  str      sl, [r0]                     
+           0003ed58  add      sp, fp, #0xc                 
+           0003ed5c  pop      {r8, sl, fp}                 
+           0003ed60  ldr      r7, [sp, #8]                 
+           0003ed64  ldm      sp, {sp, pc}                 
+           0003ed68  mov      r1, lr                       
+           0003ed6c  ldr      r0, [pc]                     
+           0003ed70  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0003ed74  andeq    r0, r0, #0xfd                
+           0003ed78  mov      r1, lr                       
+           0003ed7c  ldr      r0, [pc]                     
+           0003ed80  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0003ed84  andeq    r0, r0, #0x4d                
+
+== LEDScroller::OnDisable  token 0x060003eb @0x0003ed88 (256 bytes)
+   args: r0=this, 
+           0003ed88  mov      ip, sp                       
+           0003ed8c  push     {r7, lr}                     
+           0003ed90  mov      r7, sp                       
+           0003ed94  push     {r8, sl, fp, ip, lr}         
+           0003ed98  sub      sp, sp, #0xc                 
+           0003ed9c  mov      fp, sp                       
+           0003eda0  mov      sl, r0                       
+           0003eda4  ldr      r0, [pc]                     
+           0003eda8  b        #0x3edb0                     ; -> L_3edb0
+           0003edac  .word    0x00f5e0f0                   ; literal 16113904 / 
+L_3edb0:   0003edb0  ldr      r0, [pc, r0]                 ; GOT[544] SFLDA LEDScroller::HandleNewTextCheck
+           0003edb4  ldr      r0, [r0]                     
+           0003edb8  str      r0, [fp]                     
+           0003edbc  cmp      sl, #0                       
+           0003edc0  bleq     #0x3ee78                     ; THROW System.ArgumentException (if eq)
+           0003edc4  ldr      r0, [pc]                     
+           0003edc8  b        #0x3edd0                     ; -> L_3edd0
+           0003edcc  .word    0x00f5e0d8                   ; literal 16113880 / 
+L_3edd0:   0003edd0  ldr      r0, [pc, r0]                 ; GOT[546] VTABLE LEDScroller/NewTextCheckHandler
+           0003edd4  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003edd8  mov      r1, r0                       
+           0003eddc  ldr      r0, [fp]                     
+           0003ede0  str      sl, [r1, #0x10]              ; field+0x10 (this-class: ughText)
+           0003ede4  ldr      r2, [pc]                     
+           0003ede8  b        #0x3edf0                     ; -> L_3edf0
+           0003edec  .word    0x00f5e0bc                   ; literal 16113852 / 
+L_3edf0:   0003edf0  ldr      r2, [pc, r2]                 ; GOT[547] METHODCONST LEDScroller::CheckForNewText
+           0003edf4  str      r2, [r1, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003edf8  ldr      r2, [pc]                     
+           0003edfc  b        #0x3ee04                     ; -> L_3ee04
+           0003ee00  .word    0x00f5e0ac                   ; literal 16113836 / 
+L_3ee04:   0003ee04  ldr      r2, [pc, r2]                 ; GOT[548] DELEGATE_TRAMPOLINE LEDScroller/NewTextCheckHandler
+           0003ee08  str      r2, [r1, #0xc]               ; field+0xc 
+           0003ee0c  bl       #0xb9cd0                     ; CALL System.Delegate::Remove
+           0003ee10  mov      sl, r0                       
+           0003ee14  cmp      sl, #0                       
+           0003ee18  beq      #0x3ee44                     ; -> L_3ee44
+           0003ee1c  ldr      r0, [sl]                     
+           0003ee20  ldr      r0, [r0]                     
+           0003ee24  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003ee28  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0003ee2c  ldr      r1, [pc]                     
+           0003ee30  b        #0x3ee38                     ; -> L_3ee38
+           0003ee34  .word    0x00f5e06c                   ; literal 16113772 / 
+L_3ee38:   0003ee38  ldr      r1, [pc, r1]                 ; GOT[545] CLASS LEDScroller/NewTextCheckHandler
+           0003ee3c  cmp      r0, r1                       
+           0003ee40  blne     #0x3ee68                     ; THROW System.InvalidCastException (if ne)
+L_3ee44:   0003ee44  ldr      r0, [pc]                     
+           0003ee48  b        #0x3ee50                     ; -> L_3ee50
+           0003ee4c  .word    0x00f5e050                   ; literal 16113744 / 
+L_3ee50:   0003ee50  ldr      r0, [pc, r0]                 ; GOT[544] SFLDA LEDScroller::HandleNewTextCheck
+           0003ee54  str      sl, [r0]                     
+           0003ee58  add      sp, fp, #0xc                 
+           0003ee5c  pop      {r8, sl, fp}                 
+           0003ee60  ldr      r7, [sp, #8]                 
+           0003ee64  ldm      sp, {sp, pc}                 
+           0003ee68  mov      r1, lr                       
+           0003ee6c  ldr      r0, [pc]                     
+           0003ee70  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0003ee74  andeq    r0, r0, #0xfd                
+           0003ee78  mov      r1, lr                       
+           0003ee7c  ldr      r0, [pc]                     
+           0003ee80  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0003ee84  andeq    r0, r0, #0x4d                
+
+== LEDScroller::CheckForNewText  token 0x060003ec @0x0003ee88 (240 bytes)
+   args: r0=this, 
+           0003ee88  mov      ip, sp                       
+           0003ee8c  push     {r7, lr}                     
+           0003ee90  mov      r7, sp                       
+           0003ee94  push     {r6, r8, sl, fp, ip, lr}     
+           0003ee98  mov      fp, sp                       
+           0003ee9c  mov      sl, r0                       
+           0003eea0  ldrb     r0, [sl, #0x4c]              ; field+0x4c (this-class: endofSentence)
+           0003eea4  cmp      r0, #0                       
+           0003eea8  beq      #0x3ef68                     ; -> L_3ef68
+           0003eeac  ldrb     r0, [sl, #0x38]              ; field+0x38 (this-class: cycleThroughTextstrings)
+           0003eeb0  cmp      r0, #0                       
+           0003eeb4  beq      #0x3ef60                     ; -> L_3ef60
+           0003eeb8  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003eebc  mov      r1, r0                       
+           0003eec0  ldr      lr, [r1]                     
+           0003eec4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0003eec8  cmp      r0, #1                       
+           0003eecc  ble      #0x3ef60                     ; -> L_3ef60
+           0003eed0  mov      r6, #0                       
+           0003eed4  b        #0x3ef1c                     ; -> L_3ef1c
+L_3eed8:   0003eed8  ldr      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003eedc  cmp      r6, r0                       
+           0003eee0  ble      #0x3eeec                     ; -> L_3eeec
+           0003eee4  str      r6, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003eee8  b        #0x3ef34                     ; -> L_3ef34
+L_3eeec:   0003eeec  ldr      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003eef0  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003eef4  mov      r2, r1                       
+           0003eef8  ldr      lr, [r2]                     
+           0003eefc  ldr      r1, [r1, #0xc]               ; field+0xc 
+           0003ef00  sub      r1, r1, #1                   
+           0003ef04  cmp      r0, r1                       
+           0003ef08  blt      #0x3ef18                     ; -> L_3ef18
+           0003ef0c  mvn      r0, #0                       
+           0003ef10  str      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003ef14  mvn      r6, #0                       
+L_3ef18:   0003ef18  add      r6, r6, #1                   
+L_3ef1c:   0003ef1c  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003ef20  mov      r1, r0                       
+           0003ef24  ldr      lr, [r1]                     
+           0003ef28  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0003ef2c  cmp      r6, r0                       
+           0003ef30  blt      #0x3eed8                     ; -> L_3eed8
+L_3ef34:   0003ef34  ldr      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003ef38  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003ef3c  mov      r2, r1                       
+           0003ef40  ldr      lr, [r2]                     
+           0003ef44  ldr      r1, [r1, #0xc]               ; field+0xc 
+           0003ef48  cmp      r0, r1                       
+           0003ef4c  blt      #0x3ef58                     ; -> L_3ef58
+           0003ef50  mov      r0, #0                       
+           0003ef54  str      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+L_3ef58:   0003ef58  mov      r0, sl                       
+           0003ef5c  bl       #0x3efe4                     ; CALL LEDScroller::SetUpNewStringForDisplayHelper (direct)
+L_3ef60:   0003ef60  mov      r0, #0                       
+           0003ef64  strb     r0, [sl, #0x4c]              ; field+0x4c (this-class: endofSentence)
+L_3ef68:   0003ef68  add      sp, fp, #0                   
+           0003ef6c  pop      {r6, r8, sl, fp}             
+           0003ef70  ldr      r7, [sp, #8]                 
+           0003ef74  ldm      sp, {sp, pc}                 
+
+== LEDScroller::Start  token 0x060003ed @0x0003ef78 (108 bytes)
+   args: r0=this, 
+           0003ef78  mov      ip, sp                       
+           0003ef7c  push     {r7, lr}                     
+           0003ef80  mov      r7, sp                       
+           0003ef84  push     {r8, sl, fp, ip, lr}         
+           0003ef88  sub      sp, sp, #4                   
+           0003ef8c  mov      fp, sp                       
+           0003ef90  mov      sl, r0                       
+           0003ef94  ldr      r8, [pc]                     
+           0003ef98  b        #0x3efa0                     ; -> L_3efa0
+           0003ef9c  .word    0x00f5df14                   ; literal 16113428 / 
+L_3efa0:   0003efa0  ldr      r8, [pc, r8]                 ; GOT[549] METHOD_RGCTX UnityEngine.Component::GetComponent<UghText>
+           0003efa4  mov      r0, sl                       
+           0003efa8  bl       #0xbca70                     ; CALL UnityEngine.Component::GetComponent<UghText>
+           0003efac  str      r0, [sl, #0x10]              ; field+0x10 (this-class: ughText)
+           0003efb0  mov      r0, #0                       
+           0003efb4  str      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003efb8  mov      r0, sl                       
+           0003efbc  bl       #0x3efe4                     ; CALL LEDScroller::SetUpNewStringForDisplayHelper (direct)
+           0003efc0  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: current)
+           0003efc4  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: tempCurrentString)
+           0003efc8  mov      r0, r2                       
+           0003efcc  ldr      lr, [r2]                     
+           0003efd0  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           0003efd4  add      sp, fp, #4                   
+           0003efd8  pop      {r8, sl, fp}                 
+           0003efdc  ldr      r7, [sp, #8]                 
+           0003efe0  ldm      sp, {sp, pc}                 
+
+== LEDScroller::SetUpNewStringForDisplayHelper  token 0x060003ee @0x0003efe4 (308 bytes)
+   args: r0=this, 
+           0003efe4  mov      ip, sp                       
+           0003efe8  push     {r7, lr}                     
+           0003efec  mov      r7, sp                       
+           0003eff0  push     {r8, sl, fp, ip, lr}         
+           0003eff4  sub      sp, sp, #4                   
+           0003eff8  mov      fp, sp                       
+           0003effc  mov      sl, r0                       
+           0003f000  ldr      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f004  mvn      r1, #0                       
+           0003f008  cmp      r0, r1                       
+           0003f00c  ble      #0x3f108                     ; -> L_3f108
+           0003f010  ldr      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f014  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f018  mov      r2, r1                       
+           0003f01c  ldr      lr, [r2]                     
+           0003f020  ldr      r1, [r1, #0xc]               ; field+0xc 
+           0003f024  cmp      r0, r1                       
+           0003f028  bge      #0x3f108                     ; -> L_3f108
+           0003f02c  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f030  ldr      r1, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f034  mov      r0, r2                       
+           0003f038  ldr      lr, [r2]                     
+           0003f03c  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0003f040  mov      r1, r0                       
+           0003f044  ldr      lr, [r1]                     
+           0003f048  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003f04c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003f050  str      r0, [sl, #0x40]              ; field+0x40 (this-class: currentStringLength)
+           0003f054  ldr      r1, [sl, #0x20]              ; field+0x20 (this-class: maxCharacterWidth)
+           0003f058  cmp      r0, r1                       
+           0003f05c  ble      #0x3f0b0                     ; -> L_3f0b0
+           0003f060  ldr      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f064  cmp      r0, #0                       
+           0003f068  bne      #0x3f0b0                     ; -> L_3f0b0
+           0003f06c  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f070  ldr      r1, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f074  mov      r0, r2                       
+           0003f078  ldr      lr, [r2]                     
+           0003f07c  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0003f080  mov      r1, r0                       
+           0003f084  ldr      lr, [r1]                     
+           0003f088  ldr      r3, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003f08c  ldr      r1, [sl, #0x48]              ; field+0x48 (this-class: index)
+           0003f090  ldr      r2, [sl, #0x20]              ; field+0x20 (this-class: maxCharacterWidth)
+           0003f094  mov      r0, r3                       
+           0003f098  ldr      lr, [r3]                     
+           0003f09c  bl       #0xbbcf0                     ; CALL System.String::Substring
+           0003f0a0  str      r0, [sl, #0x18]              ; field+0x18 (this-class: tempCurrentString)
+           0003f0a4  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: maxCharacterWidth)
+           0003f0a8  str      r0, [sl, #0x48]              ; field+0x48 (this-class: index)
+           0003f0ac  b        #0x3f108                     ; -> L_3f108
+L_3f0b0:   0003f0b0  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: maxCharacterWidth)
+           0003f0b4  ldr      r1, [sl, #0x40]              ; field+0x40 (this-class: currentStringLength)
+           0003f0b8  sub      r0, r0, r1                   
+           0003f0bc  str      r0, [sl, #0x44]              ; field+0x44 (this-class: padValue)
+           0003f0c0  mov      r1, #2                       
+           0003f0c4  bl       #0xbb300                     ; CALL [INTERNAL_METHOD] __emul_op_idiv
+           0003f0c8  str      r0, [sl, #0x44]              ; field+0x44 (this-class: padValue)
+           0003f0cc  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f0d0  ldr      r1, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f0d4  mov      r0, r2                       
+           0003f0d8  ldr      lr, [r2]                     
+           0003f0dc  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0003f0e0  mov      r1, r0                       
+           0003f0e4  ldr      lr, [r1]                     
+           0003f0e8  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003f0ec  ldr      r0, [sl, #0x40]              ; field+0x40 (this-class: currentStringLength)
+           0003f0f0  ldr      r1, [sl, #0x44]              ; field+0x44 (this-class: padValue)
+           0003f0f4  add      r1, r0, r1                   
+           0003f0f8  mov      r0, r2                       
+           0003f0fc  ldr      lr, [r2]                     
+           0003f100  bl       #0xbca90                     ; CALL System.String::PadLeft
+           0003f104  str      r0, [sl, #0x18]              ; field+0x18 (this-class: tempCurrentString)
+L_3f108:   0003f108  add      sp, fp, #4                   
+           0003f10c  pop      {r8, sl, fp}                 
+           0003f110  ldr      r7, [sp, #8]                 
+           0003f114  ldm      sp, {sp, pc}                 
+
+== LEDScroller::OnResetScroller  token 0x060003ef @0x0003f118 (112 bytes)
+   args: r0=this, 
+           0003f118  mov      ip, sp                       
+           0003f11c  push     {r7, lr}                     
+           0003f120  mov      r7, sp                       
+           0003f124  push     {r8, sl, fp, ip, lr}         
+           0003f128  sub      sp, sp, #4                   
+           0003f12c  mov      fp, sp                       
+           0003f130  mov      sl, r0                       
+           0003f134  mov      r0, sl                       
+           0003f138  bl       #0x3f6ac                     ; CALL LEDScroller::ClearText (direct)
+           0003f13c  mov      r0, #0                       
+           0003f140  str      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f144  mov      r0, #0                       
+           0003f148  str      r0, [sl, #0x48]              ; field+0x48 (this-class: index)
+           0003f14c  ldr      r3, [sl, #0x1c]              ; field+0x1c (this-class: current)
+           0003f150  mov      r0, r3                       
+           0003f154  mov      r1, r0                       
+           0003f158  ldr      lr, [r1]                     
+           0003f15c  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003f160  mov      r0, r3                       
+           0003f164  mov      r1, #0                       
+           0003f168  ldr      lr, [r3]                     
+           0003f16c  bl       #0xbcaa0                     ; CALL System.Text.StringBuilder::Remove
+           0003f170  mov      r0, sl                       
+           0003f174  bl       #0x3efe4                     ; CALL LEDScroller::SetUpNewStringForDisplayHelper (direct)
+           0003f178  add      sp, fp, #4                   
+           0003f17c  pop      {r8, sl, fp}                 
+           0003f180  ldr      r7, [sp, #8]                 
+           0003f184  ldm      sp, {sp, pc}                 
+
+== LEDScroller::OnScroll  token 0x060003f0 @0x0003f188 (80 bytes)
+   args: r0=this, 
+           0003f188  mov      ip, sp                       
+           0003f18c  push     {r7, lr}                     
+           0003f190  mov      r7, sp                       
+           0003f194  push     {r8, fp, ip, lr}             
+           0003f198  sub      sp, sp, #8                   
+           0003f19c  mov      fp, sp                       
+           0003f1a0  str      r0, [fp]                     
+           0003f1a4  ldr      r0, [pc]                     
+           0003f1a8  b        #0x3f1b0                     ; -> L_3f1b0
+           0003f1ac  .word    0x00f5dd08                   ; literal 16112904 / 
+L_3f1b0:   0003f1b0  ldr      r0, [pc, r0]                 ; GOT[550] VTABLE LEDScroller/<OnScrollHelper>c__Iterator26
+           0003f1b4  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003f1b8  mov      r1, r0                       
+           0003f1bc  ldr      r0, [fp]                     
+           0003f1c0  str      r0, [r1, #0xc]               ; field+0xc 
+           0003f1c4  bl       #0xb9f90                     ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           0003f1c8  add      sp, fp, #8                   
+           0003f1cc  pop      {r8, fp}                     
+           0003f1d0  ldr      r7, [sp, #8]                 
+           0003f1d4  ldm      sp, {sp, pc}                 
+
+== LEDScroller::OnFlash  token 0x060003f1 @0x0003f1d8 (80 bytes)
+   args: r0=this, 
+           0003f1d8  mov      ip, sp                       
+           0003f1dc  push     {r7, lr}                     
+           0003f1e0  mov      r7, sp                       
+           0003f1e4  push     {r8, fp, ip, lr}             
+           0003f1e8  sub      sp, sp, #8                   
+           0003f1ec  mov      fp, sp                       
+           0003f1f0  str      r0, [fp]                     
+           0003f1f4  ldr      r0, [pc]                     
+           0003f1f8  b        #0x3f200                     ; -> L_3f200
+           0003f1fc  .word    0x00f5dcbc                   ; literal 16112828 / 
+L_3f200:   0003f200  ldr      r0, [pc, r0]                 ; GOT[551] VTABLE LEDScroller/<OnFlashHelper>c__Iterator27
+           0003f204  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003f208  mov      r1, r0                       
+           0003f20c  ldr      r0, [fp]                     
+           0003f210  str      r0, [r1, #0xc]               ; field+0xc 
+           0003f214  bl       #0xb9f90                     ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           0003f218  add      sp, fp, #8                   
+           0003f21c  pop      {r8, fp}                     
+           0003f220  ldr      r7, [sp, #8]                 
+           0003f224  ldm      sp, {sp, pc}                 
+
+== LEDScroller::OnScrollHelper  token 0x060003f2 @0x0003f228 (72 bytes)
+   args: r0=this, 
+           0003f228  mov      ip, sp                       
+           0003f22c  push     {r7, lr}                     
+           0003f230  mov      r7, sp                       
+           0003f234  push     {r8, fp, ip, lr}             
+           0003f238  sub      sp, sp, #8                   
+           0003f23c  mov      fp, sp                       
+           0003f240  str      r0, [fp]                     
+           0003f244  ldr      r0, [pc]                     
+           0003f248  b        #0x3f250                     ; -> L_3f250
+           0003f24c  .word    0x00f5dc68                   ; literal 16112744 / 
+L_3f250:   0003f250  ldr      r0, [pc, r0]                 ; GOT[550] VTABLE LEDScroller/<OnScrollHelper>c__Iterator26
+           0003f254  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003f258  ldr      r1, [fp]                     
+           0003f25c  str      r1, [r0, #0xc]               ; field+0xc 
+           0003f260  add      sp, fp, #8                   
+           0003f264  pop      {r8, fp}                     
+           0003f268  ldr      r7, [sp, #8]                 
+           0003f26c  ldm      sp, {sp, pc}                 
+
+== LEDScroller::OnFlashHelper  token 0x060003f3 @0x0003f270 (72 bytes)
+   args: r0=this, 
+           0003f270  mov      ip, sp                       
+           0003f274  push     {r7, lr}                     
+           0003f278  mov      r7, sp                       
+           0003f27c  push     {r8, fp, ip, lr}             
+           0003f280  sub      sp, sp, #8                   
+           0003f284  mov      fp, sp                       
+           0003f288  str      r0, [fp]                     
+           0003f28c  ldr      r0, [pc]                     
+           0003f290  b        #0x3f298                     ; -> L_3f298
+           0003f294  .word    0x00f5dc24                   ; literal 16112676 / 
+L_3f298:   0003f298  ldr      r0, [pc, r0]                 ; GOT[551] VTABLE LEDScroller/<OnFlashHelper>c__Iterator27
+           0003f29c  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003f2a0  ldr      r1, [fp]                     
+           0003f2a4  str      r1, [r0, #0xc]               ; field+0xc 
+           0003f2a8  add      sp, fp, #8                   
+           0003f2ac  pop      {r8, fp}                     
+           0003f2b0  ldr      r7, [sp, #8]                 
+           0003f2b4  ldm      sp, {sp, pc}                 
+
+== LEDScroller::OnStaticText  token 0x060003f4 @0x0003f2b8 (264 bytes)
+   args: r0=this, 
+           0003f2b8  mov      ip, sp                       
+           0003f2bc  push     {r7, lr}                     
+           0003f2c0  mov      r7, sp                       
+           0003f2c4  push     {r8, sl, fp, ip, lr}         
+           0003f2c8  sub      sp, sp, #4                   
+           0003f2cc  mov      fp, sp                       
+           0003f2d0  mov      sl, r0                       
+           0003f2d4  ldr      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f2d8  mvn      r1, #0                       
+           0003f2dc  cmp      r0, r1                       
+           0003f2e0  ble      #0x3f354                     ; -> L_3f354
+           0003f2e4  ldr      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f2e8  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f2ec  mov      r2, r1                       
+           0003f2f0  ldr      lr, [r2]                     
+           0003f2f4  ldr      r1, [r1, #0xc]               ; field+0xc 
+           0003f2f8  cmp      r0, r1                       
+           0003f2fc  bge      #0x3f354                     ; -> L_3f354
+           0003f300  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f304  ldr      r1, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f308  mov      r0, r2                       
+           0003f30c  ldr      lr, [r2]                     
+           0003f310  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0003f314  mov      r1, r0                       
+           0003f318  ldr      lr, [r1]                     
+           0003f31c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003f320  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003f324  ldr      r1, [sl, #0x20]              ; field+0x20 (this-class: maxCharacterWidth)
+           0003f328  cmp      r0, r1                       
+           0003f32c  ble      #0x3f354                     ; -> L_3f354
+           0003f330  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f334  ldr      r1, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f338  mov      r0, r2                       
+           0003f33c  ldr      lr, [r2]                     
+           0003f340  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0003f344  ldr      lr, [r0]                     
+           0003f348  mov      r1, #1                       
+           0003f34c  strb     r1, [r0, #0xc]               ; field+0xc 
+           0003f350  b        #0x3f3b0                     ; -> L_3f3b0
+L_3f354:   0003f354  vldr     s0, [sl, #0x34]              ; field+0x34 (this-class: time)
+           0003f358  vcvt.f64.f32 d2, s0                       
+           0003f35c  vldr     s0, [sl, #0x30]              ; field+0x30 (this-class: staticTextTime)
+           0003f360  vcvt.f64.f32 d3, s0                       
+           0003f364  vcmp.f64 d2, d3                       
+           0003f368  vmrs     apsr_nzcv, fpscr             
+           0003f36c  bvs      #0x3f3b0                     ; -> L_3f3b0
+           0003f370  bmi      #0x3f3b0                     ; -> L_3f3b0
+           0003f374  mov      r0, sl                       
+           0003f378  bl       #0x3efe4                     ; CALL LEDScroller::SetUpNewStringForDisplayHelper (direct)
+           0003f37c  ldrb     r0, [sl, #0x38]              ; field+0x38 (this-class: cycleThroughTextstrings)
+           0003f380  cmp      r0, #0                       
+           0003f384  beq      #0x3f3b0                     ; -> L_3f3b0
+           0003f388  mov      r0, #1                       
+           0003f38c  strb     r0, [sl, #0x4c]              ; field+0x4c (this-class: endofSentence)
+           0003f390  mov      r0, sl                       
+           0003f394  bl       #0xbcab0                     ; CALL LEDScroller::OnNewTextCheck
+           0003f398  vldr     s4, [pc]                     ; float 0.0
+           0003f39c  b        #0x3f3a4                     ; -> L_3f3a4
+           0003f3a0  .word    0x00000000                   ; literal 0 / 0
+L_3f3a4:   0003f3a4  vcvt.f64.f32 d2, s4                       
+           0003f3a8  vcvt.f32.f64 s0, d2                       
+           0003f3ac  vstr     s0, [sl, #0x34]              ; field+0x34 (this-class: time)
+L_3f3b0:   0003f3b0  add      sp, fp, #4                   
+           0003f3b4  pop      {r8, sl, fp}                 
+           0003f3b8  ldr      r7, [sp, #8]                 
+           0003f3bc  ldm      sp, {sp, pc}                 
+
+== LEDScroller::Update  token 0x060003f5 @0x0003f3c0 (340 bytes)
+   args: r0=this, 
+           0003f3c0  mov      ip, sp                       
+           0003f3c4  push     {r7, lr}                     
+           0003f3c8  mov      r7, sp                       
+           0003f3cc  push     {r8, sl, fp, ip, lr}         
+           0003f3d0  sub      sp, sp, #0x14                
+           0003f3d4  mov      fp, sp                       
+           0003f3d8  mov      sl, r0                       
+           0003f3dc  vldr     s0, [sl, #0x34]              ; field+0x34 (this-class: time)
+           0003f3e0  vcvt.f64.f32 d2, s0                       
+           0003f3e4  vstr     d2, [fp]                     
+           0003f3e8  bl       #0xbb250                     ; CALL UnityEngine.Time::get_deltaTime
+           0003f3ec  vmov     s6, r0                       
+           0003f3f0  vcvt.f64.f32 d3, s6                       
+           0003f3f4  vldr     d2, [fp]                     
+           0003f3f8  vadd.f64 d2, d2, d3                   
+           0003f3fc  vcvt.f32.f64 s0, d2                       
+           0003f400  vstr     s0, [sl, #0x34]              ; field+0x34 (this-class: time)
+           0003f404  ldr      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f408  mvn      r1, #0                       
+           0003f40c  cmp      r0, r1                       
+           0003f410  ble      #0x3f4d8                     ; -> L_3f4d8
+           0003f414  ldr      r0, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f418  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f41c  mov      r2, r1                       
+           0003f420  ldr      lr, [r2]                     
+           0003f424  ldr      r1, [r1, #0xc]               ; field+0xc 
+           0003f428  cmp      r0, r1                       
+           0003f42c  bge      #0x3f4d8                     ; -> L_3f4d8
+           0003f430  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f434  ldr      r1, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f438  mov      r0, r2                       
+           0003f43c  ldr      lr, [r2]                     
+           0003f440  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0003f444  mov      r1, r0                       
+           0003f448  ldr      lr, [r1]                     
+           0003f44c  ldrb     r0, [r0, #0xd]               ; field+0xd 
+           0003f450  cmp      r0, #0                       
+           0003f454  beq      #0x3f464                     ; -> L_3f464
+           0003f458  mov      r0, sl                       
+           0003f45c  bl       #0xbcac0                     ; CALL LEDScroller::OnFlash
+           0003f460  b        #0x3f4d8                     ; -> L_3f4d8
+L_3f464:   0003f464  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f468  ldr      r1, [sl, #0x3c]              ; field+0x3c (this-class: currentString)
+           0003f46c  mov      r0, r2                       
+           0003f470  ldr      lr, [r2]                     
+           0003f474  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0003f478  mov      r1, r0                       
+           0003f47c  ldr      lr, [r1]                     
+           0003f480  ldrb     r0, [r0, #0xc]               ; field+0xc 
+           0003f484  cmp      r0, #0                       
+           0003f488  beq      #0x3f498                     ; -> L_3f498
+           0003f48c  mov      r0, sl                       
+           0003f490  bl       #0xbcad0                     ; CALL LEDScroller::OnScroll
+           0003f494  b        #0x3f4d8                     ; -> L_3f4d8
+L_3f498:   0003f498  mov      r0, sl                       
+           0003f49c  bl       #0x3f2b8                     ; CALL LEDScroller::OnStaticText (direct)
+           0003f4a0  ldr      r3, [sl, #0x1c]              ; field+0x1c (this-class: current)
+           0003f4a4  mov      r0, r3                       
+           0003f4a8  mov      r1, r0                       
+           0003f4ac  ldr      lr, [r1]                     
+           0003f4b0  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003f4b4  mov      r0, r3                       
+           0003f4b8  mov      r1, #0                       
+           0003f4bc  ldr      lr, [r3]                     
+           0003f4c0  bl       #0xbcaa0                     ; CALL System.Text.StringBuilder::Remove
+           0003f4c4  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: current)
+           0003f4c8  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: tempCurrentString)
+           0003f4cc  mov      r0, r2                       
+           0003f4d0  ldr      lr, [r2]                     
+           0003f4d4  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+L_3f4d8:   0003f4d8  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: ughText)
+           0003f4dc  str      r0, [fp, #8]                 
+           0003f4e0  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: current)
+           0003f4e4  mov      r0, r1                       
+           0003f4e8  ldr      lr, [r1]                     
+           0003f4ec  bl       #0xba100                     ; CALL System.Text.StringBuilder::ToString
+           0003f4f0  mov      r1, r0                       
+           0003f4f4  ldr      r2, [fp, #8]                 
+           0003f4f8  mov      r0, r2                       
+           0003f4fc  ldr      lr, [r2]                     
+           0003f500  bl       #0x4b8f8                     ; CALL UghText::set_Text (direct)
+           0003f504  add      sp, fp, #0x14                
+           0003f508  pop      {r8, sl, fp}                 
+           0003f50c  ldr      r7, [sp, #8]                 
+           0003f510  ldm      sp, {sp, pc}                 
+
+== LEDScroller::AddText  token 0x060003f6 @0x0003f514 (120 bytes)
+   args: r0=this, text, scroll, flash
+           0003f514  mov      ip, sp                       
+           0003f518  push     {r7, lr}                     
+           0003f51c  mov      r7, sp                       
+           0003f520  push     {r8, fp, ip, lr}             
+           0003f524  sub      sp, sp, #0x18                
+           0003f528  mov      fp, sp                       
+           0003f52c  str      r0, [fp]                     
+           0003f530  str      r1, [fp, #4]                 
+           0003f534  strb     r2, [fp, #8]                 
+           0003f538  strb     r3, [fp, #0xc]               
+           0003f53c  ldr      r0, [pc]                     
+           0003f540  b        #0x3f548                     ; -> L_3f548
+           0003f544  .word    0x00f5d978                   ; literal 16111992 / 
+L_3f548:   0003f548  ldr      r0, [pc, r0]                 ; GOT[552] VTABLE LEDScroller/TextString
+           0003f54c  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003f550  str      r0, [fp, #0x10]              
+           0003f554  ldr      r1, [fp, #4]                 
+           0003f558  ldrb     r2, [fp, #8]                 
+           0003f55c  ldrb     r3, [fp, #0xc]               
+           0003f560  bl       #0x3f72c                     ; CALL LEDScroller/TextString::.ctor (direct)
+           0003f564  ldr      r1, [fp, #0x10]              
+           0003f568  ldr      r0, [fp]                     
+           0003f56c  ldr      r2, [r0, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f570  mov      r0, r2                       
+           0003f574  ldr      lr, [r2]                     
+           0003f578  bl       #0xbcae0                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::Add
+           0003f57c  add      sp, fp, #0x18                
+           0003f580  pop      {r8, fp}                     
+           0003f584  ldr      r7, [sp, #8]                 
+           0003f588  ldm      sp, {sp, pc}                 
+
+== LEDScroller::RemoveText  token 0x060003f7 @0x0003f58c (116 bytes)
+   args: r0=this, index
+           0003f58c  mov      ip, sp                       
+           0003f590  push     {r7, lr}                     
+           0003f594  mov      r7, sp                       
+           0003f598  push     {r6, r8, sl, fp, ip, lr}     
+           0003f59c  mov      fp, sp                       
+           0003f5a0  mov      r6, r0                       
+           0003f5a4  mov      sl, r1                       
+           0003f5a8  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f5ac  mov      r1, r0                       
+           0003f5b0  ldr      lr, [r1]                     
+           0003f5b4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0003f5b8  cmp      sl, r0                       
+           0003f5bc  bge      #0x3f5f0                     ; -> L_3f5f0
+           0003f5c0  ldr      r2, [r6, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f5c4  mov      r0, r2                       
+           0003f5c8  mov      r1, sl                       
+           0003f5cc  ldr      lr, [r2]                     
+           0003f5d0  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0003f5d4  cmp      r0, #0                       
+           0003f5d8  beq      #0x3f5f0                     ; -> L_3f5f0
+           0003f5dc  ldr      r2, [r6, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f5e0  mov      r0, r2                       
+           0003f5e4  mov      r1, sl                       
+           0003f5e8  ldr      lr, [r2]                     
+           0003f5ec  bl       #0xbcaf0                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::RemoveAt
+L_3f5f0:   0003f5f0  add      sp, fp, #0                   
+           0003f5f4  pop      {r6, r8, sl, fp}             
+           0003f5f8  ldr      r7, [sp, #8]                 
+           0003f5fc  ldm      sp, {sp, pc}                 
+
+== LEDScroller::ReplaceText  token 0x060003f8 @0x0003f600 (172 bytes)
+   args: r0=this, text, index, scroll, flash
+           0003f600  mov      ip, sp                       
+           0003f604  push     {r7, lr}                     
+           0003f608  mov      r7, sp                       
+           0003f60c  push     {r8, fp, ip, lr}             
+           0003f610  sub      sp, sp, #0x20                
+           0003f614  mov      fp, sp                       
+           0003f618  str      r0, [fp, #4]                 
+           0003f61c  str      r1, [fp, #8]                 
+           0003f620  str      r2, [fp, #0xc]               
+           0003f624  strb     r3, [fp, #0x10]              
+           0003f628  ldr      lr, [sp, #0x38]              
+           0003f62c  strb     lr, [fp, #0x14]              
+           0003f630  ldr      r0, [fp, #4]                 
+           0003f634  ldr      r2, [r0, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f638  mov      r0, r2                       
+           0003f63c  ldr      r1, [fp, #0xc]               
+           0003f640  ldr      lr, [r2]                     
+           0003f644  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0003f648  cmp      r0, #0                       
+           0003f64c  beq      #0x3f69c                     ; -> L_3f69c
+           0003f650  ldr      r0, [pc]                     
+           0003f654  b        #0x3f65c                     ; -> L_3f65c
+           0003f658  .word    0x00f5d864                   ; literal 16111716 / 
+L_3f65c:   0003f65c  ldr      r0, [pc, r0]                 ; GOT[552] VTABLE LEDScroller/TextString
+           0003f660  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003f664  str      r0, [fp, #0x18]              
+           0003f668  ldr      r1, [fp, #8]                 
+           0003f66c  ldrb     r2, [fp, #0x10]              
+           0003f670  ldrb     r3, [fp, #0x14]              
+           0003f674  bl       #0x3f72c                     ; CALL LEDScroller/TextString::.ctor (direct)
+           0003f678  ldr      r0, [fp, #0x18]              
+           0003f67c  str      r0, [fp]                     
+           0003f680  ldr      r0, [fp, #4]                 
+           0003f684  ldr      r3, [r0, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f688  mov      r0, r3                       
+           0003f68c  ldr      r1, [fp, #0xc]               
+           0003f690  ldr      r2, [fp]                     
+           0003f694  ldr      lr, [r3]                     
+           0003f698  bl       #0xbcb00                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::set_Item
+L_3f69c:   0003f69c  add      sp, fp, #0x20                
+           0003f6a0  pop      {r8, fp}                     
+           0003f6a4  ldr      r7, [sp, #8]                 
+           0003f6a8  ldm      sp, {sp, pc}                 
+
+== LEDScroller::ClearText  token 0x060003f9 @0x0003f6ac (64 bytes)
+   args: r0=this, 
+           0003f6ac  mov      ip, sp                       
+           0003f6b0  push     {r7, lr}                     
+           0003f6b4  mov      r7, sp                       
+           0003f6b8  push     {r8, fp, ip, lr}             
+           0003f6bc  sub      sp, sp, #8                   
+           0003f6c0  mov      fp, sp                       
+           0003f6c4  str      r0, [fp]                     
+           0003f6c8  ldr      r0, [fp]                     
+           0003f6cc  ldr      r1, [r0, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f6d0  mov      r0, r1                       
+           0003f6d4  ldr      lr, [r1]                     
+           0003f6d8  bl       #0xbcb10                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::Clear
+           0003f6dc  add      sp, fp, #8                   
+           0003f6e0  pop      {r8, fp}                     
+           0003f6e4  ldr      r7, [sp, #8]                 
+           0003f6e8  ldm      sp, {sp, pc}                 
+
+== LEDScroller::TextStringCount  token 0x060003fa @0x0003f6ec (64 bytes)
+   args: r0=this, 
+           0003f6ec  mov      ip, sp                       
+           0003f6f0  push     {r7, lr}                     
+           0003f6f4  mov      r7, sp                       
+           0003f6f8  push     {r8, fp, ip, lr}             
+           0003f6fc  sub      sp, sp, #8                   
+           0003f700  mov      fp, sp                       
+           0003f704  str      r0, [fp]                     
+           0003f708  ldr      r0, [fp]                     
+           0003f70c  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: textStrings)
+           0003f710  mov      r1, r0                       
+           0003f714  ldr      lr, [r1]                     
+           0003f718  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0003f71c  add      sp, fp, #8                   
+           0003f720  pop      {r8, fp}                     
+           0003f724  ldr      r7, [sp, #8]                 
+           0003f728  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE LEDScroller/TextString  (instance size 0x10)
+#   +0x08 text                           string
+#   +0x0c scroll                         bool
+#   +0x0d flash                          bool
+#   vtable slots: 
+####################################################################################################
+== LEDScroller/TextString::.ctor  token 0x060003fb @0x0003f72c (80 bytes)
+   args: r0=this, text, scroll, flash
+           0003f72c  mov      ip, sp                       
+           0003f730  push     {r7, lr}                     
+           0003f734  mov      r7, sp                       
+           0003f738  push     {r6, r8, fp, ip, lr}         
+           0003f73c  sub      sp, sp, #0x14                
+           0003f740  mov      fp, sp                       
+           0003f744  mov      r6, r0                       
+           0003f748  str      r1, [fp]                     
+           0003f74c  strb     r2, [fp, #4]                 
+           0003f750  strb     r3, [fp, #8]                 
+           0003f754  ldr      r0, [fp]                     
+           0003f758  str      r0, [r6, #8]                 ; field+0x8 (this-class: text)
+           0003f75c  ldrb     r0, [fp, #4]                 
+           0003f760  strb     r0, [r6, #0xc]               ; field+0xc (this-class: scroll)
+           0003f764  ldrb     r0, [fp, #8]                 
+           0003f768  strb     r0, [r6, #0xd]               ; field+0xd (this-class: flash)
+           0003f76c  add      sp, fp, #0x14                
+           0003f770  pop      {r6, r8, fp}                 
+           0003f774  ldr      r7, [sp, #8]                 
+           0003f778  ldm      sp, {sp, pc}                 
+
+== LEDScroller/TextString::get_Text  token 0x060003fc @0x0003f77c (52 bytes)
+   args: r0=this, 
+           0003f77c  mov      ip, sp                       
+           0003f780  push     {r7, lr}                     
+           0003f784  mov      r7, sp                       
+           0003f788  push     {r8, fp, ip, lr}             
+           0003f78c  sub      sp, sp, #8                   
+           0003f790  mov      fp, sp                       
+           0003f794  str      r0, [fp]                     
+           0003f798  ldr      r0, [fp]                     
+           0003f79c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: text)
+           0003f7a0  add      sp, fp, #8                   
+           0003f7a4  pop      {r8, fp}                     
+           0003f7a8  ldr      r7, [sp, #8]                 
+           0003f7ac  ldm      sp, {sp, pc}                 
+
+== LEDScroller/TextString::set_Text  token 0x060003fd @0x0003f7b0 (60 bytes)
+   args: r0=this, value
+           0003f7b0  mov      ip, sp                       
+           0003f7b4  push     {r7, lr}                     
+           0003f7b8  mov      r7, sp                       
+           0003f7bc  push     {r8, fp, ip, lr}             
+           0003f7c0  sub      sp, sp, #8                   
+           0003f7c4  mov      fp, sp                       
+           0003f7c8  str      r0, [fp]                     
+           0003f7cc  str      r1, [fp, #4]                 
+           0003f7d0  ldr      r1, [fp, #4]                 
+           0003f7d4  ldr      r0, [fp]                     
+           0003f7d8  str      r1, [r0, #8]                 ; field+0x8 (this-class: text)
+           0003f7dc  add      sp, fp, #8                   
+           0003f7e0  pop      {r8, fp}                     
+           0003f7e4  ldr      r7, [sp, #8]                 
+           0003f7e8  ldm      sp, {sp, pc}                 
+
+== LEDScroller/TextString::get_Scroll  token 0x060003fe @0x0003f7ec (52 bytes)
+   args: r0=this, 
+           0003f7ec  mov      ip, sp                       
+           0003f7f0  push     {r7, lr}                     
+           0003f7f4  mov      r7, sp                       
+           0003f7f8  push     {r8, fp, ip, lr}             
+           0003f7fc  sub      sp, sp, #8                   
+           0003f800  mov      fp, sp                       
+           0003f804  str      r0, [fp]                     
+           0003f808  ldr      r0, [fp]                     
+           0003f80c  ldrb     r0, [r0, #0xc]               ; field+0xc (this-class: scroll)
+           0003f810  add      sp, fp, #8                   
+           0003f814  pop      {r8, fp}                     
+           0003f818  ldr      r7, [sp, #8]                 
+           0003f81c  ldm      sp, {sp, pc}                 
+
+== LEDScroller/TextString::set_Scroll  token 0x060003ff @0x0003f820 (60 bytes)
+   args: r0=this, value
+           0003f820  mov      ip, sp                       
+           0003f824  push     {r7, lr}                     
+           0003f828  mov      r7, sp                       
+           0003f82c  push     {r8, fp, ip, lr}             
+           0003f830  sub      sp, sp, #8                   
+           0003f834  mov      fp, sp                       
+           0003f838  str      r0, [fp]                     
+           0003f83c  strb     r1, [fp, #4]                 
+           0003f840  ldrb     r1, [fp, #4]                 
+           0003f844  ldr      r0, [fp]                     
+           0003f848  strb     r1, [r0, #0xc]               ; field+0xc (this-class: scroll)
+           0003f84c  add      sp, fp, #8                   
+           0003f850  pop      {r8, fp}                     
+           0003f854  ldr      r7, [sp, #8]                 
+           0003f858  ldm      sp, {sp, pc}                 
+
+== LEDScroller/TextString::get_Flash  token 0x06000400 @0x0003f85c (52 bytes)
+   args: r0=this, 
+           0003f85c  mov      ip, sp                       
+           0003f860  push     {r7, lr}                     
+           0003f864  mov      r7, sp                       
+           0003f868  push     {r8, fp, ip, lr}             
+           0003f86c  sub      sp, sp, #8                   
+           0003f870  mov      fp, sp                       
+           0003f874  str      r0, [fp]                     
+           0003f878  ldr      r0, [fp]                     
+           0003f87c  ldrb     r0, [r0, #0xd]               ; field+0xd (this-class: flash)
+           0003f880  add      sp, fp, #8                   
+           0003f884  pop      {r8, fp}                     
+           0003f888  ldr      r7, [sp, #8]                 
+           0003f88c  ldm      sp, {sp, pc}                 
+
+== LEDScroller/TextString::set_Flash  token 0x06000401 @0x0003f890 (60 bytes)
+   args: r0=this, value
+           0003f890  mov      ip, sp                       
+           0003f894  push     {r7, lr}                     
+           0003f898  mov      r7, sp                       
+           0003f89c  push     {r8, fp, ip, lr}             
+           0003f8a0  sub      sp, sp, #8                   
+           0003f8a4  mov      fp, sp                       
+           0003f8a8  str      r0, [fp]                     
+           0003f8ac  strb     r1, [fp, #4]                 
+           0003f8b0  ldrb     r1, [fp, #4]                 
+           0003f8b4  ldr      r0, [fp]                     
+           0003f8b8  strb     r1, [r0, #0xd]               ; field+0xd (this-class: flash)
+           0003f8bc  add      sp, fp, #8                   
+           0003f8c0  pop      {r8, fp}                     
+           0003f8c4  ldr      r7, [sp, #8]                 
+           0003f8c8  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE LEDScroller/NewTextCheckHandler  (instance size 0x34)
+#   +0x08 m_target                       object
+#   +0x0c method_info                    System.Reflection.MethodInfo
+#   +0x10 original_method_info           System.Reflection.MethodInfo
+#   +0x14 data                           System.DelegateData
+#   +0x18 method_ptr                     IntPtr
+#   +0x1c invoke_impl                    IntPtr
+#   +0x20 method                         IntPtr
+#   +0x24 delegate_trampoline            IntPtr
+#   +0x28 method_code                    IntPtr
+#   +0x2c prev                           System.MulticastDelegate
+#   +0x30 kpm_next                       System.MulticastDelegate
+#   vtable slots: 11:EndInvoke, 12:BeginInvoke, 13:Invoke
+####################################################################################################
+== LEDScroller/NewTextCheckHandler::.ctor  token 0x060004fb : (no native code: abstract/extern)
+
+== LEDScroller/NewTextCheckHandler::Invoke  token 0x060004fc : (no native code: abstract/extern)
+
+== LEDScroller/NewTextCheckHandler::BeginInvoke  token 0x060004fd : (no native code: abstract/extern)
+
+== LEDScroller/NewTextCheckHandler::EndInvoke  token 0x060004fe : (no native code: abstract/extern)
+
+####################################################################################################
+# TYPE LEDScroller/<OnScrollHelper>c__Iterator26  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      LEDScroller
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== LEDScroller/<OnScrollHelper>c__Iterator26::.ctor  token 0x060005f7 @0x0005db58 (44 bytes)
+   args: r0=this, 
+           0005db58  mov      ip, sp                       
+           0005db5c  push     {r7, lr}                     
+           0005db60  mov      r7, sp                       
+           0005db64  push     {r8, fp, ip, lr}             
+           0005db68  sub      sp, sp, #8                   
+           0005db6c  mov      fp, sp                       
+           0005db70  str      r0, [fp]                     
+           0005db74  add      sp, fp, #8                   
+           0005db78  pop      {r8, fp}                     
+           0005db7c  ldr      r7, [sp, #8]                 
+           0005db80  ldm      sp, {sp, pc}                 
+
+== LEDScroller/<OnScrollHelper>c__Iterator26::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x060005f8 @0x0005db84 (52 bytes)
+   args: r0=this, 
+           0005db84  mov      ip, sp                       
+           0005db88  push     {r7, lr}                     
+           0005db8c  mov      r7, sp                       
+           0005db90  push     {r8, fp, ip, lr}             
+           0005db94  sub      sp, sp, #8                   
+           0005db98  mov      fp, sp                       
+           0005db9c  str      r0, [fp]                     
+           0005dba0  ldr      r0, [fp]                     
+           0005dba4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005dba8  add      sp, fp, #8                   
+           0005dbac  pop      {r8, fp}                     
+           0005dbb0  ldr      r7, [sp, #8]                 
+           0005dbb4  ldm      sp, {sp, pc}                 
+
+== LEDScroller/<OnScrollHelper>c__Iterator26::System.Collections.IEnumerator.get_Current  token 0x060005f9 @0x0005dbb8 (52 bytes)
+   args: r0=this, 
+           0005dbb8  mov      ip, sp                       
+           0005dbbc  push     {r7, lr}                     
+           0005dbc0  mov      r7, sp                       
+           0005dbc4  push     {r8, fp, ip, lr}             
+           0005dbc8  sub      sp, sp, #8                   
+           0005dbcc  mov      fp, sp                       
+           0005dbd0  str      r0, [fp]                     
+           0005dbd4  ldr      r0, [fp]                     
+           0005dbd8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005dbdc  add      sp, fp, #8                   
+           0005dbe0  pop      {r8, fp}                     
+           0005dbe4  ldr      r7, [sp, #8]                 
+           0005dbe8  ldm      sp, {sp, pc}                 
+
+== LEDScroller/<OnScrollHelper>c__Iterator26::MoveNext  token 0x060005fa @0x0005dbec (764 bytes)
+   args: r0=this, 
+           0005dbec  mov      ip, sp                       
+           0005dbf0  push     {r7, lr}                     
+           0005dbf4  mov      r7, sp                       
+           0005dbf8  push     {r8, sl, fp, ip, lr}         
+           0005dbfc  sub      sp, sp, #0x14                
+           0005dc00  mov      fp, sp                       
+           0005dc04  mov      sl, r0                       
+           0005dc08  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0005dc0c  mvn      r1, #0                       
+           0005dc10  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0005dc14  str      r0, [fp]                     
+           0005dc18  cmp      r0, #2                       
+           0005dc1c  bhs      #0x5debc                     ; -> L_5debc
+           0005dc20  ldr      r0, [fp]                     
+           0005dc24  lsl      r1, r0, #2                   
+           0005dc28  ldr      r0, [pc]                     
+           0005dc2c  b        #0x5dc34                     ; -> L_5dc34
+           0005dc30  .word    0x00f3f5a8                   ; literal 15988136 / 
+L_5dc34:   0005dc34  ldr      r0, [pc, r0]                 ; GOT[751] SWITCH switch table[2]
+           0005dc38  add      r0, r0, r1                   
+           0005dc3c  ldr      r0, [r0]                     
+           0005dc40  mov      pc, r0                       
+           0005dc44  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dc48  vldr     s0, [r0, #0x34]              ; field+0x34 
+           0005dc4c  vcvt.f64.f32 d2, s0                       
+           0005dc50  vldr     s6, [pc]                     ; float 1.0
+           0005dc54  b        #0x5dc5c                     ; -> L_5dc5c
+           0005dc58  .word    0x3f800000                   ; literal 1065353216 / 1
+L_5dc5c:   0005dc5c  vcvt.f64.f32 d3, s6                       
+           0005dc60  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dc64  vldr     s0, [r0, #0x24]              ; field+0x24 
+           0005dc68  vcvt.f64.f32 d4, s0                       
+           0005dc6c  vdiv.f64 d3, d3, d4                   
+           0005dc70  vcmp.f64 d2, d3                       
+           0005dc74  vmrs     apsr_nzcv, fpscr             
+           0005dc78  bvs      #0x5de88                     ; -> L_5de88
+           0005dc7c  bmi      #0x5de88                     ; -> L_5de88
+           0005dc80  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dc84  ldr      r0, [r0, #0x1c]              ; field+0x1c 
+           0005dc88  mov      r1, r0                       
+           0005dc8c  ldr      lr, [r1]                     
+           0005dc90  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005dc94  cmp      r0, #0                       
+           0005dc98  ble      #0x5de38                     ; -> L_5de38
+           0005dc9c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dca0  ldr      r0, [r0, #0x1c]              ; field+0x1c 
+           0005dca4  mov      r1, r0                       
+           0005dca8  ldr      lr, [r1]                     
+           0005dcac  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005dcb0  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dcb4  ldr      r1, [r1, #0x20]              ; field+0x20 
+           0005dcb8  cmp      r0, r1                       
+           0005dcbc  blt      #0x5de0c                     ; -> L_5de0c
+           0005dcc0  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dcc4  ldr      r0, [r0, #0x48]              ; field+0x48 
+           0005dcc8  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dccc  ldr      r1, [r1, #0x40]              ; field+0x40 
+           0005dcd0  cmp      r0, r1                       
+           0005dcd4  bge      #0x5de00                     ; -> L_5de00
+           0005dcd8  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dcdc  ldr      r0, [r0, #0x3c]              ; field+0x3c 
+           0005dce0  mvn      r1, #0                       
+           0005dce4  cmp      r0, r1                       
+           0005dce8  ble      #0x5de00                     ; -> L_5de00
+           0005dcec  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dcf0  ldr      r0, [r0, #0x3c]              ; field+0x3c 
+           0005dcf4  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dcf8  ldr      r1, [r1, #0x14]              ; field+0x14 
+           0005dcfc  mov      r2, r1                       
+           0005dd00  ldr      lr, [r2]                     
+           0005dd04  ldr      r1, [r1, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dd08  cmp      r0, r1                       
+           0005dd0c  bge      #0x5de00                     ; -> L_5de00
+           0005dd10  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dd14  ldr      r2, [r0, #0x14]              ; field+0x14 
+           0005dd18  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dd1c  ldr      r1, [r0, #0x3c]              ; field+0x3c 
+           0005dd20  mov      r0, r2                       
+           0005dd24  ldr      lr, [r2]                     
+           0005dd28  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0005dd2c  mov      r1, r0                       
+           0005dd30  ldr      lr, [r1]                     
+           0005dd34  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005dd38  cmp      r0, #0                       
+           0005dd3c  beq      #0x5de0c                     ; -> L_5de0c
+           0005dd40  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dd44  ldr      r0, [r0, #0x48]              ; field+0x48 
+           0005dd48  str      r0, [fp, #8]                 
+           0005dd4c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dd50  ldr      r2, [r0, #0x14]              ; field+0x14 
+           0005dd54  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dd58  ldr      r1, [r0, #0x3c]              ; field+0x3c 
+           0005dd5c  mov      r0, r2                       
+           0005dd60  ldr      lr, [r2]                     
+           0005dd64  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0005dd68  mov      r1, r0                       
+           0005dd6c  ldr      r0, [fp, #8]                 
+           0005dd70  mov      r2, r1                       
+           0005dd74  ldr      lr, [r2]                     
+           0005dd78  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: $current)
+           0005dd7c  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: $current)
+           0005dd80  cmp      r0, r1                       
+           0005dd84  bge      #0x5de0c                     ; -> L_5de0c
+           0005dd88  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dd8c  ldr      r0, [r0, #0x1c]              ; field+0x1c 
+           0005dd90  str      r0, [fp, #8]                 
+           0005dd94  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dd98  ldr      r2, [r0, #0x14]              ; field+0x14 
+           0005dd9c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dda0  ldr      r1, [r0, #0x3c]              ; field+0x3c 
+           0005dda4  mov      r0, r2                       
+           0005dda8  ldr      lr, [r2]                     
+           0005ddac  bl       #0xbca80                     ; CALL System.Collections.Generic.List`1<LEDScroller/TextString>::get_Item
+           0005ddb0  ldr      r2, [fp, #8]                 
+           0005ddb4  mov      r1, r0                       
+           0005ddb8  ldr      lr, [r1]                     
+           0005ddbc  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005ddc0  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005ddc4  ldr      r0, [r0, #0x48]              ; field+0x48 
+           0005ddc8  ldr      r3, [r1, #8]                 ; field+0x8 (this-class: $current)
+           0005ddcc  cmp      r3, r0                       
+           0005ddd0  blls     #0x5ded8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0005ddd4  lsl      r0, r0, #1                   
+           0005ddd8  add      r0, r0, r1                   
+           0005dddc  ldrh     r1, [r0, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005dde0  mov      r0, r2                       
+           0005dde4  ldr      lr, [r2]                     
+           0005dde8  bl       #0xbc550                     ; CALL System.Text.StringBuilder::Append
+           0005ddec  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005ddf0  ldr      r1, [r0, #0x48]              ; field+0x48 
+           0005ddf4  add      r1, r1, #1                   
+           0005ddf8  str      r1, [r0, #0x48]              ; field+0x48 
+           0005ddfc  b        #0x5de0c                     ; -> L_5de0c
+L_5de00:   0005de00  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005de04  mov      r1, #0                       
+           0005de08  str      r1, [r0, #0x48]              ; field+0x48 
+L_5de0c:   0005de0c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005de10  ldr      r3, [r0, #0x1c]              ; field+0x1c 
+           0005de14  mov      r0, r3                       
+           0005de18  mov      r1, #0                       
+           0005de1c  mov      r2, #1                       
+           0005de20  ldr      lr, [r3]                     
+           0005de24  bl       #0xbcaa0                     ; CALL System.Text.StringBuilder::Remove
+           0005de28  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005de2c  mov      r1, #0                       
+           0005de30  strb     r1, [r0, #0x4c]              ; field+0x4c 
+           0005de34  b        #0x5de6c                     ; -> L_5de6c
+L_5de38:   0005de38  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005de3c  ldr      r3, [r0, #0x1c]              ; field+0x1c 
+           0005de40  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005de44  ldr      r2, [r0, #0x20]              ; field+0x20 
+           0005de48  mov      r0, r3                       
+           0005de4c  mov      r1, #0x20                    
+           0005de50  ldr      lr, [r3]                     
+           0005de54  bl       #0xbd7e0                     ; CALL System.Text.StringBuilder::Append
+           0005de58  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005de5c  mov      r1, #1                       
+           0005de60  strb     r1, [r0, #0x4c]              ; field+0x4c 
+           0005de64  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005de68  bl       #0xbcab0                     ; CALL LEDScroller::OnNewTextCheck
+L_5de6c:   0005de6c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005de70  vldr     s4, [pc]                     ; float 0.0
+           0005de74  b        #0x5de7c                     ; -> L_5de7c
+           0005de78  .word    0x00000000                   ; literal 0 / 0
+L_5de7c:   0005de7c  vcvt.f64.f32 d2, s4                       
+           0005de80  vcvt.f32.f64 s0, d2                       
+           0005de84  vstr     s0, [r0, #0x34]              ; field+0x34 
+L_5de88:   0005de88  ldr      r0, [pc]                     
+           0005de8c  b        #0x5de94                     ; -> L_5de94
+           0005de90  .word    0x00f3e808                   ; literal 15984648 / 
+L_5de94:   0005de94  ldr      r0, [pc, r0]                 ; GOT[31] VTABLE System.Int32
+           0005de98  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0005de9c  mov      r1, #0                       
+           0005dea0  str      r1, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005dea4  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           0005dea8  mov      r0, #1                       
+           0005deac  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0005deb0  b        #0x5dec4                     ; -> L_5dec4
+           0005deb4  mvn      r0, #0                       
+           0005deb8  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+L_5debc:   0005debc  mov      r0, #0                       
+           0005dec0  b        #0x5dec8                     ; -> L_5dec8
+L_5dec4:   0005dec4  mov      r0, #1                       
+L_5dec8:   0005dec8  add      sp, fp, #0x14                
+           0005decc  pop      {r8, sl, fp}                 
+           0005ded0  ldr      r7, [sp, #8]                 
+           0005ded4  ldm      sp, {sp, pc}                 
+           0005ded8  mov      r1, lr                       
+           0005dedc  ldr      r0, [pc]                     
+           0005dee0  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0005dee4  andeq    r0, r0, #0xf8                
+
+== LEDScroller/<OnScrollHelper>c__Iterator26::Dispose  token 0x060005fb @0x0005dee8 (56 bytes)
+   args: r0=this, 
+           0005dee8  mov      ip, sp                       
+           0005deec  push     {r7, lr}                     
+           0005def0  mov      r7, sp                       
+           0005def4  push     {r8, fp, ip, lr}             
+           0005def8  sub      sp, sp, #8                   
+           0005defc  mov      fp, sp                       
+           0005df00  str      r0, [fp]                     
+           0005df04  ldr      r0, [fp]                     
+           0005df08  mvn      r1, #0                       
+           0005df0c  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0005df10  add      sp, fp, #8                   
+           0005df14  pop      {r8, fp}                     
+           0005df18  ldr      r7, [sp, #8]                 
+           0005df1c  ldm      sp, {sp, pc}                 
+
+== LEDScroller/<OnScrollHelper>c__Iterator26::Reset  token 0x060005fc @0x0005df20 (64 bytes)
+   args: r0=this, 
+           0005df20  mov      ip, sp                       
+           0005df24  push     {r7, lr}                     
+           0005df28  mov      r7, sp                       
+           0005df2c  push     {r8, fp, ip, lr}             
+           0005df30  sub      sp, sp, #8                   
+           0005df34  mov      fp, sp                       
+           0005df38  str      r0, [fp]                     
+           0005df3c  mov      r0, #0x49                    
+           0005df40  add      r0, r0, #0x100               
+           0005df44  add      r0, r0, #0x2000000           
+           0005df48  bl       #0xbc540                     ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           0005df4c  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0005df50  add      sp, fp, #8                   
+           0005df54  pop      {r8, fp}                     
+           0005df58  ldr      r7, [sp, #8]                 
+           0005df5c  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE LEDScroller/<OnFlashHelper>c__Iterator27  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      LEDScroller
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== LEDScroller/<OnFlashHelper>c__Iterator27::.ctor  token 0x060005fd @0x0005df60 (44 bytes)
+   args: r0=this, 
+           0005df60  mov      ip, sp                       
+           0005df64  push     {r7, lr}                     
+           0005df68  mov      r7, sp                       
+           0005df6c  push     {r8, fp, ip, lr}             
+           0005df70  sub      sp, sp, #8                   
+           0005df74  mov      fp, sp                       
+           0005df78  str      r0, [fp]                     
+           0005df7c  add      sp, fp, #8                   
+           0005df80  pop      {r8, fp}                     
+           0005df84  ldr      r7, [sp, #8]                 
+           0005df88  ldm      sp, {sp, pc}                 
+
+== LEDScroller/<OnFlashHelper>c__Iterator27::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x060005fe @0x0005df8c (52 bytes)
+   args: r0=this, 
+           0005df8c  mov      ip, sp                       
+           0005df90  push     {r7, lr}                     
+           0005df94  mov      r7, sp                       
+           0005df98  push     {r8, fp, ip, lr}             
+           0005df9c  sub      sp, sp, #8                   
+           0005dfa0  mov      fp, sp                       
+           0005dfa4  str      r0, [fp]                     
+           0005dfa8  ldr      r0, [fp]                     
+           0005dfac  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005dfb0  add      sp, fp, #8                   
+           0005dfb4  pop      {r8, fp}                     
+           0005dfb8  ldr      r7, [sp, #8]                 
+           0005dfbc  ldm      sp, {sp, pc}                 
+
+== LEDScroller/<OnFlashHelper>c__Iterator27::System.Collections.IEnumerator.get_Current  token 0x060005ff @0x0005dfc0 (52 bytes)
+   args: r0=this, 
+           0005dfc0  mov      ip, sp                       
+           0005dfc4  push     {r7, lr}                     
+           0005dfc8  mov      r7, sp                       
+           0005dfcc  push     {r8, fp, ip, lr}             
+           0005dfd0  sub      sp, sp, #8                   
+           0005dfd4  mov      fp, sp                       
+           0005dfd8  str      r0, [fp]                     
+           0005dfdc  ldr      r0, [fp]                     
+           0005dfe0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005dfe4  add      sp, fp, #8                   
+           0005dfe8  pop      {r8, fp}                     
+           0005dfec  ldr      r7, [sp, #8]                 
+           0005dff0  ldm      sp, {sp, pc}                 
+
+== LEDScroller/<OnFlashHelper>c__Iterator27::MoveNext  token 0x06000600 @0x0005dff4 (504 bytes)
+   args: r0=this, 
+           0005dff4  mov      ip, sp                       
+           0005dff8  push     {r7, lr}                     
+           0005dffc  mov      r7, sp                       
+           0005e000  push     {r8, sl, fp, ip, lr}         
+           0005e004  sub      sp, sp, #0xc                 
+           0005e008  mov      fp, sp                       
+           0005e00c  mov      sl, r0                       
+           0005e010  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0005e014  mvn      r1, #0                       
+           0005e018  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0005e01c  str      r0, [fp]                     
+           0005e020  cmp      r0, #2                       
+           0005e024  bhs      #0x5e1d0                     ; -> L_5e1d0
+           0005e028  ldr      r0, [fp]                     
+           0005e02c  lsl      r1, r0, #2                   
+           0005e030  ldr      r0, [pc]                     
+           0005e034  b        #0x5e03c                     ; -> L_5e03c
+           0005e038  .word    0x00f3f1a4                   ; literal 15987108 / 
+L_5e03c:   0005e03c  ldr      r0, [pc, r0]                 ; GOT[752] SWITCH switch table[2]
+           0005e040  add      r0, r0, r1                   
+           0005e044  ldr      r0, [r0]                     
+           0005e048  mov      pc, r0                       
+           0005e04c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e050  ldr      r0, [r0, #0x50]              ; field+0x50 
+           0005e054  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e058  ldr      r1, [r1, #0x2c]              ; field+0x2c 
+           0005e05c  cmp      r0, r1                       
+           0005e060  blt      #0x5e0d0                     ; -> L_5e0d0
+           0005e064  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e068  mov      r1, #1                       
+           0005e06c  strb     r1, [r0, #0x4c]              ; field+0x4c 
+           0005e070  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e074  mov      r1, #0                       
+           0005e078  str      r1, [r0, #0x50]              ; field+0x50 
+           0005e07c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e080  ldr      r3, [r0, #0x1c]              ; field+0x1c 
+           0005e084  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e088  ldr      r0, [r0, #0x1c]              ; field+0x1c 
+           0005e08c  mov      r1, r0                       
+           0005e090  ldr      lr, [r1]                     
+           0005e094  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005e098  mov      r0, r3                       
+           0005e09c  mov      r1, #0                       
+           0005e0a0  ldr      lr, [r3]                     
+           0005e0a4  bl       #0xbcaa0                     ; CALL System.Text.StringBuilder::Remove
+           0005e0a8  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e0ac  ldr      r3, [r0, #0x1c]              ; field+0x1c 
+           0005e0b0  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e0b4  ldr      r2, [r0, #0x20]              ; field+0x20 
+           0005e0b8  mov      r0, r3                       
+           0005e0bc  mov      r1, #0x20                    
+           0005e0c0  ldr      lr, [r3]                     
+           0005e0c4  bl       #0xbd7e0                     ; CALL System.Text.StringBuilder::Append
+           0005e0c8  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e0cc  bl       #0xbcab0                     ; CALL LEDScroller::OnNewTextCheck
+L_5e0d0:   0005e0d0  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e0d4  vldr     s0, [r0, #0x34]              ; field+0x34 
+           0005e0d8  vcvt.f64.f32 d2, s0                       
+           0005e0dc  vldr     s6, [pc]                     ; float 1.0
+           0005e0e0  b        #0x5e0e8                     ; -> L_5e0e8
+           0005e0e4  .word    0x3f800000                   ; literal 1065353216 / 1
+L_5e0e8:   0005e0e8  vcvt.f64.f32 d3, s6                       
+           0005e0ec  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e0f0  vldr     s0, [r0, #0x28]              ; field+0x28 
+           0005e0f4  vcvt.f64.f32 d4, s0                       
+           0005e0f8  vdiv.f64 d3, d3, d4                   
+           0005e0fc  vcmp.f64 d2, d3                       
+           0005e100  vmrs     apsr_nzcv, fpscr             
+           0005e104  bvs      #0x5e19c                     ; -> L_5e19c
+           0005e108  bmi      #0x5e19c                     ; -> L_5e19c
+           0005e10c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e110  ldr      r0, [r0, #0x50]              ; field+0x50 
+           0005e114  mov      r1, #2                       
+           0005e118  bl       #0xbaf80                     ; CALL [INTERNAL_METHOD] __emul_op_irem
+           0005e11c  cmp      r0, #0                       
+           0005e120  bne      #0x5e154                     ; -> L_5e154
+           0005e124  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e128  ldr      r3, [r0, #0x1c]              ; field+0x1c 
+           0005e12c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e130  ldr      r0, [r0, #0x1c]              ; field+0x1c 
+           0005e134  mov      r1, r0                       
+           0005e138  ldr      lr, [r1]                     
+           0005e13c  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005e140  mov      r0, r3                       
+           0005e144  mov      r1, #0                       
+           0005e148  ldr      lr, [r3]                     
+           0005e14c  bl       #0xbcaa0                     ; CALL System.Text.StringBuilder::Remove
+           0005e150  b        #0x5e170                     ; -> L_5e170
+L_5e154:   0005e154  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e158  ldr      r2, [r0, #0x1c]              ; field+0x1c 
+           0005e15c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e160  ldr      r1, [r0, #0x18]              ; field+0x18 
+           0005e164  mov      r0, r2                       
+           0005e168  ldr      lr, [r2]                     
+           0005e16c  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+L_5e170:   0005e170  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e174  vldr     s4, [pc]                     ; float 0.0
+           0005e178  b        #0x5e180                     ; -> L_5e180
+           0005e17c  .word    0x00000000                   ; literal 0 / 0
+L_5e180:   0005e180  vcvt.f64.f32 d2, s4                       
+           0005e184  vcvt.f32.f64 s0, d2                       
+           0005e188  vstr     s0, [r0, #0x34]              ; field+0x34 
+           0005e18c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005e190  ldr      r1, [r0, #0x50]              ; field+0x50 
+           0005e194  add      r1, r1, #1                   
+           0005e198  str      r1, [r0, #0x50]              ; field+0x50 
+L_5e19c:   0005e19c  ldr      r0, [pc]                     
+           0005e1a0  b        #0x5e1a8                     ; -> L_5e1a8
+           0005e1a4  .word    0x00f3e4f4                   ; literal 15983860 / 
+L_5e1a8:   0005e1a8  ldr      r0, [pc, r0]                 ; GOT[31] VTABLE System.Int32
+           0005e1ac  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0005e1b0  mov      r1, #0                       
+           0005e1b4  str      r1, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0005e1b8  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           0005e1bc  mov      r0, #1                       
+           0005e1c0  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0005e1c4  b        #0x5e1d8                     ; -> L_5e1d8
+           0005e1c8  mvn      r0, #0                       
+           0005e1cc  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+L_5e1d0:   0005e1d0  mov      r0, #0                       
+           0005e1d4  b        #0x5e1dc                     ; -> L_5e1dc
+L_5e1d8:   0005e1d8  mov      r0, #1                       
+L_5e1dc:   0005e1dc  add      sp, fp, #0xc                 
+           0005e1e0  pop      {r8, sl, fp}                 
+           0005e1e4  ldr      r7, [sp, #8]                 
+           0005e1e8  ldm      sp, {sp, pc}                 
+
+== LEDScroller/<OnFlashHelper>c__Iterator27::Dispose  token 0x06000601 @0x0005e1ec (56 bytes)
+   args: r0=this, 
+           0005e1ec  mov      ip, sp                       
+           0005e1f0  push     {r7, lr}                     
+           0005e1f4  mov      r7, sp                       
+           0005e1f8  push     {r8, fp, ip, lr}             
+           0005e1fc  sub      sp, sp, #8                   
+           0005e200  mov      fp, sp                       
+           0005e204  str      r0, [fp]                     
+           0005e208  ldr      r0, [fp]                     
+           0005e20c  mvn      r1, #0                       
+           0005e210  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0005e214  add      sp, fp, #8                   
+           0005e218  pop      {r8, fp}                     
+           0005e21c  ldr      r7, [sp, #8]                 
+           0005e220  ldm      sp, {sp, pc}                 
+
+== LEDScroller/<OnFlashHelper>c__Iterator27::Reset  token 0x06000602 @0x0005e224 (64 bytes)
+   args: r0=this, 
+           0005e224  mov      ip, sp                       
+           0005e228  push     {r7, lr}                     
+           0005e22c  mov      r7, sp                       
+           0005e230  push     {r8, fp, ip, lr}             
+           0005e234  sub      sp, sp, #8                   
+           0005e238  mov      fp, sp                       
+           0005e23c  str      r0, [fp]                     
+           0005e240  mov      r0, #0x49                    
+           0005e244  add      r0, r0, #0x100               
+           0005e248  add      r0, r0, #0x2000000           
+           0005e24c  bl       #0xbc540                     ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           0005e250  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0005e254  add      sp, fp, #8                   
+           0005e258  pop      {r8, fp}                     
+           0005e25c  ldr      r7, [sp, #8]                 
+           0005e260  ldm      sp, {sp, pc}                 

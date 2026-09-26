@@ -1,0 +1,1234 @@
+####################################################################################################
+# TYPE PreRaceCamera  (instance size 0x4c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 targets                        UnityEngine.Transform[]
+#   +0x14 speed                          float
+#   +0x18 rotationThreshold              float
+#   +0x1c currentTargetIndex             int
+#   +0x20 timer                          float
+#   +0x24 duration                       float
+#   +0x28 lastPos                        UnityEngine.Vector3
+#   +0x34 lastRot                        UnityEngine.Quaternion
+#   +0x44 preRaceCamTime                 float
+#   +0x48 isActive                       bool
+#   vtable slots: 
+####################################################################################################
+== PreRaceCamera::.ctor  token 0x060001a9 @0x000d7644 (124 bytes)
+   args: r0=this, 
+           000d7644  mov      ip, sp                       
+           000d7648  push     {r7, lr}                     
+           000d764c  mov      r7, sp                       
+           000d7650  push     {r8, sl, fp, ip, lr}         
+           000d7654  sub      sp, sp, #4                   
+           000d7658  mov      fp, sp                       
+           000d765c  mov      sl, r0                       
+           000d7660  vldr     s4, [pc]                     ; float 40.0
+           000d7664  b        #0xd766c                     ; -> L_d766c
+           000d7668  .word    0x42200000                   ; literal 1109393408 / 40
+L_d766c:   000d766c  vcvt.f64.f32 d2, s4                       
+           000d7670  vcvt.f32.f64 s0, d2                       
+           000d7674  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: speed)
+           000d7678  vldr     s4, [pc]                     ; float 1.0
+           000d767c  b        #0xd7684                     ; -> L_d7684
+           000d7680  .word    0x3f800000                   ; literal 1065353216 / 1
+L_d7684:   000d7684  vcvt.f64.f32 d2, s4                       
+           000d7688  vcvt.f32.f64 s0, d2                       
+           000d768c  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: rotationThreshold)
+           000d7690  vldr     s4, [pc]                     ; float 5.0
+           000d7694  b        #0xd769c                     ; -> L_d769c
+           000d7698  .word    0x40a00000                   ; literal 1084227584 / 5
+L_d769c:   000d769c  vcvt.f64.f32 d2, s4                       
+           000d76a0  vcvt.f32.f64 s0, d2                       
+           000d76a4  vstr     s0, [sl, #0x44]              ; field+0x44 (this-class: preRaceCamTime)
+           000d76a8  mov      r0, sl                       
+           000d76ac  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000d76b0  add      sp, fp, #4                   
+           000d76b4  pop      {r8, sl, fp}                 
+           000d76b8  ldr      r7, [sp, #8]                 
+           000d76bc  ldm      sp, {sp, pc}                 
+
+== PreRaceCamera::SetNextTargetIndex  token 0x060001aa @0x000d76c0 (312 bytes)
+   args: r0=this, index
+           000d76c0  mov      ip, sp                       
+           000d76c4  push     {r7, lr}                     
+           000d76c8  mov      r7, sp                       
+           000d76cc  push     {r5, r6, r8, fp, ip, lr}     
+           000d76d0  sub      sp, sp, #0x50                
+           000d76d4  mov      fp, sp                       
+           000d76d8  mov      r6, r0                       
+           000d76dc  str      r1, [fp, #0x4c]              
+           000d76e0  mov      r0, #0                       
+           000d76e4  str      r0, [fp, #0x10]              
+           000d76e8  mov      r0, #0                       
+           000d76ec  str      r0, [fp, #0x14]              
+           000d76f0  mov      r0, #0                       
+           000d76f4  str      r0, [fp, #0x18]              
+           000d76f8  vldr     s4, [pc]                     ; float 0.0
+           000d76fc  b        #0xd7704                     ; -> L_d7704
+           000d7700  .word    0x00000000                   ; literal 0 / 0
+L_d7704:   000d7704  vcvt.f64.f32 d2, s4                       
+           000d7708  vcvt.f32.f64 s0, d2                       
+           000d770c  vstr     s0, [r6, #0x20]              ; field+0x20 (this-class: timer)
+           000d7710  ldr      r0, [fp, #0x4c]              
+           000d7714  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: currentTargetIndex)
+           000d7718  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: targets)
+           000d771c  cmp      r0, #0                       
+           000d7720  bne      #0xd7738                     ; -> L_d7738
+           000d7724  ldr      r0, [r6, #0x1c]              ; field+0x1c (this-class: currentTargetIndex)
+           000d7728  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: targets)
+           000d772c  ldr      r1, [r1, #0xc]               ; field+0xc 
+           000d7730  cmp      r0, r1                       
+           000d7734  bge      #0xd77d8                     ; -> L_d77d8
+L_d7738:   000d7738  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: targets)
+           000d773c  ldr      r1, [r6, #0x1c]              ; field+0x1c (this-class: currentTargetIndex)
+           000d7740  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000d7744  cmp      r2, r1                       
+           000d7748  blls     #0xd77e8                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d774c  lsl      r1, r1, #2                   
+           000d7750  add      r0, r0, r1                   
+           000d7754  add      r0, r0, #0x10                
+           000d7758  ldr      r5, [r0]                     
+           000d775c  add      r0, fp, #0x34                
+           000d7760  mov      r1, r5                       
+           000d7764  ldr      lr, [r5]                     
+           000d7768  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d776c  mov      r0, r6                       
+           000d7770  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d7774  mov      r2, r0                       
+           000d7778  add      r0, fp, #0x40                
+           000d777c  mov      r1, r2                       
+           000d7780  ldr      lr, [r2]                     
+           000d7784  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d7788  add      r0, fp, #0x10                
+           000d778c  ldr      r1, [fp, #0x34]              
+           000d7790  ldr      r2, [fp, #0x38]              
+           000d7794  ldr      r3, [fp, #0x3c]              
+           000d7798  ldr      ip, [fp, #0x40]              
+           000d779c  str      ip, [sp]                     
+           000d77a0  ldr      ip, [fp, #0x44]              
+           000d77a4  str      ip, [sp, #4]                 
+           000d77a8  ldr      ip, [fp, #0x48]              
+           000d77ac  str      ip, [sp, #8]                 
+           000d77b0  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000d77b4  add      r0, fp, #0x10                
+           000d77b8  bl       #0x22a970                    ; CALL UnityEngine.Vector3::get_magnitude
+           000d77bc  vmov     s4, r0                       
+           000d77c0  vcvt.f64.f32 d2, s4                       
+           000d77c4  vldr     s0, [r6, #0x14]              ; field+0x14 (this-class: speed)
+           000d77c8  vcvt.f64.f32 d3, s0                       
+           000d77cc  vdiv.f64 d2, d2, d3                   
+           000d77d0  vcvt.f32.f64 s0, d2                       
+           000d77d4  vstr     s0, [r6, #0x24]              ; field+0x24 (this-class: duration)
+L_d77d8:   000d77d8  add      sp, fp, #0x50                
+           000d77dc  pop      {r5, r6, r8, fp}             
+           000d77e0  ldr      r7, [sp, #8]                 
+           000d77e4  ldm      sp, {sp, pc}                 
+           000d77e8  mov      r1, lr                       
+           000d77ec  ldr      r0, [pc]                     
+           000d77f0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d77f4  andeq    r0, r0, #0xf8                
+
+== PreRaceCamera::Update  token 0x060001ab @0x000d77f8 (164 bytes)
+   args: r0=this, 
+           000d77f8  mov      ip, sp                       
+           000d77fc  push     {r7, lr}                     
+           000d7800  mov      r7, sp                       
+           000d7804  push     {r8, sl, fp, ip, lr}         
+           000d7808  sub      sp, sp, #0xc                 
+           000d780c  mov      fp, sp                       
+           000d7810  mov      sl, r0                       
+           000d7814  ldrb     r0, [sl, #0x48]              ; field+0x48 (this-class: isActive)
+           000d7818  cmp      r0, #0                       
+           000d781c  beq      #0xd788c                     ; -> L_d788c
+           000d7820  vldr     s0, [sl, #0x44]              ; field+0x44 (this-class: preRaceCamTime)
+           000d7824  vcvt.f64.f32 d2, s0                       
+           000d7828  vstr     d2, [fp]                     
+           000d782c  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000d7830  vmov     s6, r0                       
+           000d7834  vcvt.f64.f32 d3, s6                       
+           000d7838  vldr     d2, [fp]                     
+           000d783c  vsub.f64 d2, d2, d3                   
+           000d7840  vcvt.f32.f64 s0, d2                       
+           000d7844  vstr     s0, [sl, #0x44]              ; field+0x44 (this-class: preRaceCamTime)
+           000d7848  vldr     s0, [sl, #0x44]              ; field+0x44 (this-class: preRaceCamTime)
+           000d784c  vcvt.f64.f32 d3, s0                       
+           000d7850  vldr     s4, [pc]                     ; float 0.0
+           000d7854  b        #0xd785c                     ; -> L_d785c
+           000d7858  .word    0x00000000                   ; literal 0 / 0
+L_d785c:   000d785c  vcvt.f64.f32 d2, s4                       
+           000d7860  vcmp.f64 d2, d3                       
+           000d7864  vmrs     apsr_nzcv, fpscr             
+           000d7868  bge      #0xd7878                     ; -> L_d7878
+           000d786c  bl       #0x22bb50                    ; CALL UghInput::get_IsInputDown
+           000d7870  cmp      r0, #0                       
+           000d7874  beq      #0xd788c                     ; -> L_d788c
+L_d7878:   000d7878  bl       #0x22bb60                    ; CALL RaceManager::get_Instance
+           000d787c  mov      r1, #0                       
+           000d7880  strb     r1, [r0, #0x58]              ; field+0x58 
+           000d7884  mov      r0, sl                       
+           000d7888  bl       #0x22bb70                    ; CALL PreRaceCamera::ShutdownPreRace
+L_d788c:   000d788c  add      sp, fp, #0xc                 
+           000d7890  pop      {r8, sl, fp}                 
+           000d7894  ldr      r7, [sp, #8]                 
+           000d7898  ldm      sp, {sp, pc}                 
+
+== PreRaceCamera::Awake  token 0x060001ac @0x000d789c (220 bytes)
+   args: r0=this, 
+           000d789c  mov      ip, sp                       
+           000d78a0  push     {r7, lr}                     
+           000d78a4  mov      r7, sp                       
+           000d78a8  push     {r8, sl, fp, ip, lr}         
+           000d78ac  sub      sp, sp, #4                   
+           000d78b0  mov      fp, sp                       
+           000d78b4  mov      sl, r0                       
+           000d78b8  mov      r0, sl                       
+           000d78bc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d78c0  ldr      r1, [pc]                     
+           000d78c4  b        #0xd78cc                     ; -> L_d78cc
+           000d78c8  .word    0x00ecd910                   ; literal 15522064 / 
+L_d78cc:   000d78cc  ldr      r1, [pc, r1]                 ; GOT[287] METHOD_RGCTX UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d78d0  ldr      lr, [r0]                     
+           000d78d4  mov      r8, r1                       
+           000d78d8  bl       #0x22bb80                    ; CALL UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d78dc  mov      r1, #0                       
+           000d78e0  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d78e4  cmp      r0, #0                       
+           000d78e8  beq      #0xd7968                     ; -> L_d7968
+           000d78ec  bl       #0x22bb60                    ; CALL RaceManager::get_Instance
+           000d78f0  ldrb     r0, [r0, #0x58]              ; field+0x58 
+           000d78f4  cmp      r0, #0                       
+           000d78f8  bne      #0xd7934                     ; -> L_d7934
+           000d78fc  mov      r0, sl                       
+           000d7900  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d7904  ldr      r1, [pc]                     
+           000d7908  b        #0xd7910                     ; -> L_d7910
+           000d790c  .word    0x00ecd8cc                   ; literal 15521996 / 
+L_d7910:   000d7910  ldr      r1, [pc, r1]                 ; GOT[287] METHOD_RGCTX UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d7914  ldr      lr, [r0]                     
+           000d7918  mov      r8, r1                       
+           000d791c  bl       #0x22bb80                    ; CALL UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d7920  mov      r2, r0                       
+           000d7924  mov      r1, #0                       
+           000d7928  ldr      lr, [r2]                     
+           000d792c  bl       #0x22b9a0                    ; CALL UnityEngine.Behaviour::set_enabled
+           000d7930  b        #0xd7968                     ; -> L_d7968
+L_d7934:   000d7934  mov      r0, sl                       
+           000d7938  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d793c  ldr      r1, [pc]                     
+           000d7940  b        #0xd7948                     ; -> L_d7948
+           000d7944  .word    0x00ecd894                   ; literal 15521940 / 
+L_d7948:   000d7948  ldr      r1, [pc, r1]                 ; GOT[287] METHOD_RGCTX UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d794c  ldr      lr, [r0]                     
+           000d7950  mov      r8, r1                       
+           000d7954  bl       #0x22bb80                    ; CALL UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d7958  mov      r2, r0                       
+           000d795c  mov      r1, #1                       
+           000d7960  ldr      lr, [r2]                     
+           000d7964  bl       #0x22b9a0                    ; CALL UnityEngine.Behaviour::set_enabled
+L_d7968:   000d7968  add      sp, fp, #4                   
+           000d796c  pop      {r8, sl, fp}                 
+           000d7970  ldr      r7, [sp, #8]                 
+           000d7974  ldm      sp, {sp, pc}                 
+
+== PreRaceCamera::FixedUpdate  token 0x060001ad @0x000d7978 (1752 bytes)
+   args: r0=this, 
+           000d7978  mov      ip, sp                       
+           000d797c  push     {r7, lr}                     
+           000d7980  mov      r7, sp                       
+           000d7984  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000d7988  sub      sp, sp, #0x254               
+           000d798c  mov      fp, sp                       
+           000d7990  mov      sl, r0                       
+           000d7994  mov      r0, #0                       
+           000d7998  str      r0, [fp, #0x24]              
+           000d799c  mov      r0, #0                       
+           000d79a0  str      r0, [fp, #0x28]              
+           000d79a4  mov      r0, #0                       
+           000d79a8  str      r0, [fp, #0x2c]              
+           000d79ac  mov      r0, #0                       
+           000d79b0  str      r0, [fp, #0x34]              
+           000d79b4  mov      r0, #0                       
+           000d79b8  str      r0, [fp, #0x38]              
+           000d79bc  mov      r0, #0                       
+           000d79c0  str      r0, [fp, #0x3c]              
+           000d79c4  mov      r0, #0                       
+           000d79c8  str      r0, [fp, #0x40]              
+           000d79cc  mov      r0, #0                       
+           000d79d0  str      r0, [fp, #0x44]              
+           000d79d4  mov      r0, #0                       
+           000d79d8  str      r0, [fp, #0x48]              
+           000d79dc  mov      r0, #0                       
+           000d79e0  str      r0, [fp, #0x4c]              
+           000d79e4  ldrb     r0, [sl, #0x48]              ; field+0x48 (this-class: isActive)
+           000d79e8  cmp      r0, #0                       
+           000d79ec  beq      #0xd8030                     ; -> L_d8030
+           000d79f0  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: targets)
+           000d79f4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000d79f8  cmp      r0, #0                       
+           000d79fc  ble      #0xd7ccc                     ; -> L_d7ccc
+           000d7a00  mov      r0, sl                       
+           000d7a04  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d7a08  mov      r6, r0                       
+           000d7a0c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: targets)
+           000d7a10  cmp      r0, #0                       
+           000d7a14  beq      #0xd7a50                     ; -> L_d7a50
+           000d7a18  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: currentTargetIndex)
+           000d7a1c  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: targets)
+           000d7a20  ldr      r1, [r1, #0xc]               ; field+0xc 
+           000d7a24  cmp      r0, r1                       
+           000d7a28  bge      #0xd7a50                     ; -> L_d7a50
+           000d7a2c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: targets)
+           000d7a30  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: currentTargetIndex)
+           000d7a34  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000d7a38  cmp      r2, r1                       
+           000d7a3c  blls     #0xd8040                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d7a40  lsl      r1, r1, #2                   
+           000d7a44  add      r0, r0, r1                   
+           000d7a48  add      r0, r0, #0x10                
+           000d7a4c  ldr      r6, [r0]                     
+L_d7a50:   000d7a50  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: timer)
+           000d7a54  vcvt.f64.f32 d2, s0                       
+           000d7a58  vstr     d2, [fp, #0x230]             
+           000d7a5c  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000d7a60  vmov     s6, r0                       
+           000d7a64  vcvt.f64.f32 d3, s6                       
+           000d7a68  vldr     d2, [fp, #0x230]             
+           000d7a6c  vadd.f64 d2, d2, d3                   
+           000d7a70  vcvt.f32.f64 s0, d2                       
+           000d7a74  vstr     s0, [sl, #0x20]              ; field+0x20 (this-class: timer)
+           000d7a78  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: timer)
+           000d7a7c  vcvt.f64.f32 d2, s0                       
+           000d7a80  vldr     s0, [sl, #0x24]              ; field+0x24 (this-class: duration)
+           000d7a84  vcvt.f64.f32 d3, s0                       
+           000d7a88  vdiv.f64 d2, d2, d3                   
+           000d7a8c  vcvt.f32.f64 s0, d2                       
+           000d7a90  vstr     s0, [fp, #0x20]              
+           000d7a94  vldr     s0, [fp, #0x20]              
+           000d7a98  vcvt.f64.f32 d2, s0                       
+           000d7a9c  vldr     s6, [pc]                     ; float 1.0
+           000d7aa0  b        #0xd7aa8                     ; -> L_d7aa8
+           000d7aa4  .word    0x3f800000                   ; literal 1065353216 / 1
+L_d7aa8:   000d7aa8  vcvt.f64.f32 d3, s6                       
+           000d7aac  vcmp.f64 d2, d3                       
+           000d7ab0  vmrs     apsr_nzcv, fpscr             
+           000d7ab4  bvs      #0xd7b80                     ; -> L_d7b80
+           000d7ab8  bmi      #0xd7b80                     ; -> L_d7b80
+           000d7abc  add      r0, fp, #0x34                
+           000d7ac0  mov      r1, r6                       
+           000d7ac4  ldr      lr, [r6]                     
+           000d7ac8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d7acc  mov      r0, sl                       
+           000d7ad0  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d7ad4  mov      ip, r0                       
+           000d7ad8  ldr      r1, [fp, #0x34]              
+           000d7adc  ldr      r2, [fp, #0x38]              
+           000d7ae0  ldr      r3, [fp, #0x3c]              
+           000d7ae4  ldr      lr, [ip]                     
+           000d7ae8  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000d7aec  add      r0, sl, #0x28                
+           000d7af0  ldr      r1, [fp, #0x34]              
+           000d7af4  str      r1, [r0]                     
+           000d7af8  ldr      r1, [fp, #0x38]              
+           000d7afc  str      r1, [r0, #4]                 ; field+0x4 
+           000d7b00  ldr      r1, [fp, #0x3c]              
+           000d7b04  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d7b08  add      r0, fp, #0x40                
+           000d7b0c  mov      r1, r6                       
+           000d7b10  ldr      lr, [r6]                     
+           000d7b14  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000d7b18  mov      r0, sl                       
+           000d7b1c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d7b20  mov      ip, r0                       
+           000d7b24  str      r0, [fp, #0x238]             
+           000d7b28  ldr      r1, [fp, #0x40]              
+           000d7b2c  ldr      r2, [fp, #0x44]              
+           000d7b30  ldr      r3, [fp, #0x48]              
+           000d7b34  ldr      r0, [fp, #0x4c]              
+           000d7b38  str      r0, [sp]                     
+           000d7b3c  ldr      r0, [fp, #0x238]             
+           000d7b40  ldr      lr, [ip]                     
+           000d7b44  bl       #0x22b190                    ; CALL UnityEngine.Transform::set_rotation
+           000d7b48  add      r0, sl, #0x34                
+           000d7b4c  ldr      r1, [fp, #0x40]              
+           000d7b50  str      r1, [r0]                     
+           000d7b54  ldr      r1, [fp, #0x44]              
+           000d7b58  str      r1, [r0, #4]                 ; field+0x4 
+           000d7b5c  ldr      r1, [fp, #0x48]              
+           000d7b60  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d7b64  ldr      r1, [fp, #0x4c]              
+           000d7b68  str      r1, [r0, #0xc]               ; field+0xc 
+           000d7b6c  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: currentTargetIndex)
+           000d7b70  add      r1, r0, #1                   
+           000d7b74  mov      r0, sl                       
+           000d7b78  bl       #0xd76c0                     ; CALL PreRaceCamera::SetNextTargetIndex (direct)
+           000d7b7c  b        #0xd8030                     ; -> L_d8030
+L_d7b80:   000d7b80  mov      r0, sl                       
+           000d7b84  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d7b88  str      r0, [fp, #0x240]             
+           000d7b8c  add      r0, sl, #0x28                
+           000d7b90  ldr      r1, [r0]                     
+           000d7b94  str      r1, [fp, #0x140]             
+           000d7b98  ldr      r1, [r0, #4]                 ; field+0x4 
+           000d7b9c  str      r1, [fp, #0x144]             
+           000d7ba0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d7ba4  str      r0, [fp, #0x148]             
+           000d7ba8  add      r0, fp, #0x14c               
+           000d7bac  mov      r1, r6                       
+           000d7bb0  ldr      lr, [r6]                     
+           000d7bb4  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d7bb8  vldr     s0, [fp, #0x20]              
+           000d7bbc  vcvt.f64.f32 d2, s0                       
+           000d7bc0  add      r0, fp, #0x158               
+           000d7bc4  ldr      r1, [fp, #0x140]             
+           000d7bc8  ldr      r2, [fp, #0x144]             
+           000d7bcc  ldr      r3, [fp, #0x148]             
+           000d7bd0  ldr      ip, [fp, #0x14c]             
+           000d7bd4  str      ip, [sp]                     
+           000d7bd8  ldr      ip, [fp, #0x150]             
+           000d7bdc  str      ip, [sp, #4]                 
+           000d7be0  ldr      ip, [fp, #0x154]             
+           000d7be4  str      ip, [sp, #8]                 
+           000d7be8  vcvt.f32.f64 s0, d2                       
+           000d7bec  vstr     s0, [sp, #0xc]               
+           000d7bf0  bl       #0x22ba70                    ; CALL UnityEngine.Vector3::Slerp
+           000d7bf4  ldr      ip, [fp, #0x240]             
+           000d7bf8  mov      r0, ip                       
+           000d7bfc  ldr      r1, [fp, #0x158]             
+           000d7c00  ldr      r2, [fp, #0x15c]             
+           000d7c04  ldr      r3, [fp, #0x160]             
+           000d7c08  ldr      lr, [ip]                     
+           000d7c0c  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000d7c10  mov      r0, sl                       
+           000d7c14  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d7c18  str      r0, [fp, #0x23c]             
+           000d7c1c  add      r0, sl, #0x34                
+           000d7c20  ldr      r1, [r0]                     
+           000d7c24  str      r1, [fp, #0x164]             
+           000d7c28  ldr      r1, [r0, #4]                 ; field+0x4 
+           000d7c2c  str      r1, [fp, #0x168]             
+           000d7c30  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d7c34  str      r1, [fp, #0x16c]             
+           000d7c38  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000d7c3c  str      r0, [fp, #0x170]             
+           000d7c40  add      r0, fp, #0x174               
+           000d7c44  mov      r1, r6                       
+           000d7c48  ldr      lr, [r6]                     
+           000d7c4c  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000d7c50  vldr     s0, [fp, #0x20]              
+           000d7c54  vcvt.f64.f32 d2, s0                       
+           000d7c58  add      r0, fp, #0x184               
+           000d7c5c  ldr      r1, [fp, #0x164]             
+           000d7c60  ldr      r2, [fp, #0x168]             
+           000d7c64  ldr      r3, [fp, #0x16c]             
+           000d7c68  ldr      ip, [fp, #0x170]             
+           000d7c6c  str      ip, [sp]                     
+           000d7c70  ldr      ip, [fp, #0x174]             
+           000d7c74  str      ip, [sp, #4]                 
+           000d7c78  ldr      ip, [fp, #0x178]             
+           000d7c7c  str      ip, [sp, #8]                 
+           000d7c80  ldr      ip, [fp, #0x17c]             
+           000d7c84  str      ip, [sp, #0xc]               
+           000d7c88  ldr      ip, [fp, #0x180]             
+           000d7c8c  str      ip, [sp, #0x10]              
+           000d7c90  vcvt.f32.f64 s0, d2                       
+           000d7c94  vstr     s0, [sp, #0x14]              
+           000d7c98  bl       #0x22b180                    ; CALL UnityEngine.Quaternion::Slerp
+           000d7c9c  ldr      ip, [fp, #0x23c]             
+           000d7ca0  mov      r0, ip                       
+           000d7ca4  str      r0, [fp, #0x238]             
+           000d7ca8  ldr      r1, [fp, #0x184]             
+           000d7cac  ldr      r2, [fp, #0x188]             
+           000d7cb0  ldr      r3, [fp, #0x18c]             
+           000d7cb4  ldr      r0, [fp, #0x190]             
+           000d7cb8  str      r0, [sp]                     
+           000d7cbc  ldr      r0, [fp, #0x238]             
+           000d7cc0  ldr      lr, [ip]                     
+           000d7cc4  bl       #0x22b190                    ; CALL UnityEngine.Transform::set_rotation
+           000d7cc8  b        #0xd8030                     ; -> L_d8030
+L_d7ccc:   000d7ccc  bl       #0x1129cc                    ; CALL RaceManager::GetPlayerCar (direct)
+           000d7cd0  mov      r5, r0                       
+           000d7cd4  mov      r1, #0                       
+           000d7cd8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d7cdc  cmp      r0, #0                       
+           000d7ce0  beq      #0xd8030                     ; -> L_d8030
+           000d7ce4  mov      r0, sl                       
+           000d7ce8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d7cec  mov      r2, r0                       
+           000d7cf0  add      r0, fp, #0x194               
+           000d7cf4  mov      r1, r2                       
+           000d7cf8  ldr      lr, [r2]                     
+           000d7cfc  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d7d00  mov      r0, r5                       
+           000d7d04  ldr      lr, [r5]                     
+           000d7d08  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000d7d0c  mov      r2, r0                       
+           000d7d10  add      r0, fp, #104, #30            
+           000d7d14  mov      r1, r2                       
+           000d7d18  ldr      lr, [r2]                     
+           000d7d1c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d7d20  add      r0, fp, #0x24                
+           000d7d24  ldr      r1, [fp, #0x194]             
+           000d7d28  ldr      r2, [fp, #0x198]             
+           000d7d2c  ldr      r3, [fp, #0x19c]             
+           000d7d30  ldr      ip, [fp, #0x1a0]             
+           000d7d34  str      ip, [sp]                     
+           000d7d38  ldr      ip, [fp, #0x1a4]             
+           000d7d3c  str      ip, [sp, #4]                 
+           000d7d40  ldr      ip, [fp, #0x1a8]             
+           000d7d44  str      ip, [sp, #8]                 
+           000d7d48  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000d7d4c  vldr     s4, [pc]                     ; float 0.0
+           000d7d50  b        #0xd7d58                     ; -> L_d7d58
+           000d7d54  .word    0x00000000                   ; literal 0 / 0
+L_d7d58:   000d7d58  vcvt.f64.f32 d2, s4                       
+           000d7d5c  vstr     d2, [fp, #0x230]             
+           000d7d60  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000d7d64  vmov     s4, r0                       
+           000d7d68  vcvt.f64.f32 d2, s4                       
+           000d7d6c  vldr     d4, [fp, #0x230]             
+           000d7d70  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: speed)
+           000d7d74  vcvt.f64.f32 d5, s0                       
+           000d7d78  vmov.f64 d3, d2                       
+           000d7d7c  vmul.f64 d3, d3, d5                   
+           000d7d80  vldr     s4, [pc]                     ; float 0.0
+           000d7d84  b        #0xd7d8c                     ; -> L_d7d8c
+           000d7d88  .word    0x00000000                   ; literal 0 / 0
+L_d7d8c:   000d7d8c  vcvt.f64.f32 d2, s4                       
+           000d7d90  add      r0, fp, #0x1ac               
+           000d7d94  vcvt.f32.f64 s0, d4                       
+           000d7d98  vstr     s0, [sp, #0x10]              
+           000d7d9c  ldr      r1, [sp, #0x10]              
+           000d7da0  vcvt.f32.f64 s0, d3                       
+           000d7da4  vstr     s0, [sp, #0x10]              
+           000d7da8  ldr      r2, [sp, #0x10]              
+           000d7dac  vcvt.f32.f64 s0, d2                       
+           000d7db0  vstr     s0, [sp, #0x10]              
+           000d7db4  ldr      r3, [sp, #0x10]              
+           000d7db8  bl       #0x22b4d0                    ; CALL UnityEngine.Quaternion::Euler
+           000d7dbc  ldr      r0, [fp, #0x24]              
+           000d7dc0  str      r0, [fp, #0x1bc]             
+           000d7dc4  ldr      r0, [fp, #0x28]              
+           000d7dc8  str      r0, [fp, #0x1c0]             
+           000d7dcc  ldr      r0, [fp, #0x2c]              
+           000d7dd0  str      r0, [fp, #0x1c4]             
+           000d7dd4  add      r0, fp, #0x24                
+           000d7dd8  ldr      r1, [fp, #0x1ac]             
+           000d7ddc  ldr      r2, [fp, #0x1b0]             
+           000d7de0  ldr      r3, [fp, #0x1b4]             
+           000d7de4  ldr      ip, [fp, #0x1b8]             
+           000d7de8  str      ip, [sp]                     
+           000d7dec  ldr      ip, [fp, #0x1bc]             
+           000d7df0  str      ip, [sp, #4]                 
+           000d7df4  ldr      ip, [fp, #0x1c0]             
+           000d7df8  str      ip, [sp, #8]                 
+           000d7dfc  ldr      ip, [fp, #0x1c4]             
+           000d7e00  str      ip, [sp, #0xc]               
+           000d7e04  bl       #0x22b360                    ; CALL UnityEngine.Quaternion::op_Multiply
+           000d7e08  add      r0, fp, #0x24                
+           000d7e0c  bl       #0x22a970                    ; CALL UnityEngine.Vector3::get_magnitude
+           000d7e10  vmov     s4, r0                       
+           000d7e14  vcvt.f64.f32 d2, s4                       
+           000d7e18  vcvt.f32.f64 s0, d2                       
+           000d7e1c  vstr     s0, [fp, #0x30]              
+           000d7e20  vldr     s0, [fp, #0x30]              
+           000d7e24  vcvt.f64.f32 d3, s0                       
+           000d7e28  vldr     s4, [pc]                     ; float 10.0
+           000d7e2c  b        #0xd7e34                     ; -> L_d7e34
+           000d7e30  .word    0x41200000                   ; literal 1092616192 / 10
+L_d7e34:   000d7e34  vcvt.f64.f32 d2, s4                       
+           000d7e38  vcmp.f64 d2, d3                       
+           000d7e3c  vmrs     apsr_nzcv, fpscr             
+           000d7e40  bvs      #0xd7ea8                     ; -> L_d7ea8
+           000d7e44  bge      #0xd7ea8                     ; -> L_d7ea8
+           000d7e48  add      r1, fp, #0x24                
+           000d7e4c  add      r0, fp, #0x1c8               
+           000d7e50  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           000d7e54  vldr     s0, [fp, #0x30]              
+           000d7e58  vcvt.f64.f32 d2, s0                       
+           000d7e5c  vstr     d2, [fp, #0x230]             
+           000d7e60  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: speed)
+           000d7e64  vcvt.f64.f32 d2, s0                       
+           000d7e68  vstr     d2, [fp, #0x248]             
+           000d7e6c  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000d7e70  vmov     s8, r0                       
+           000d7e74  vcvt.f64.f32 d4, s8                       
+           000d7e78  vldr     d2, [fp, #0x230]             
+           000d7e7c  vldr     d3, [fp, #0x248]             
+           000d7e80  vmul.f64 d3, d3, d4                   
+           000d7e84  vsub.f64 d2, d2, d3                   
+           000d7e88  add      r0, fp, #0x24                
+           000d7e8c  ldr      r1, [fp, #0x1c8]             
+           000d7e90  ldr      r2, [fp, #0x1cc]             
+           000d7e94  ldr      r3, [fp, #0x1d0]             
+           000d7e98  vcvt.f32.f64 s0, d2                       
+           000d7e9c  vstr     s0, [sp]                     
+           000d7ea0  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000d7ea4  b        #0xd7f2c                     ; -> L_d7f2c
+L_d7ea8:   000d7ea8  vldr     s0, [fp, #0x30]              
+           000d7eac  vcvt.f64.f32 d2, s0                       
+           000d7eb0  vldr     s6, [pc]                     ; float 5.0
+           000d7eb4  b        #0xd7ebc                     ; -> L_d7ebc
+           000d7eb8  .word    0x40a00000                   ; literal 1084227584 / 5
+L_d7ebc:   000d7ebc  vcvt.f64.f32 d3, s6                       
+           000d7ec0  vcmp.f64 d2, d3                       
+           000d7ec4  vmrs     apsr_nzcv, fpscr             
+           000d7ec8  bvs      #0xd7f2c                     ; -> L_d7f2c
+           000d7ecc  bge      #0xd7f2c                     ; -> L_d7f2c
+           000d7ed0  add      r1, fp, #0x24                
+           000d7ed4  add      r0, fp, #0x1d4               
+           000d7ed8  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           000d7edc  vldr     s0, [fp, #0x30]              
+           000d7ee0  vcvt.f64.f32 d2, s0                       
+           000d7ee4  vstr     d2, [fp, #0x230]             
+           000d7ee8  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: speed)
+           000d7eec  vcvt.f64.f32 d2, s0                       
+           000d7ef0  vstr     d2, [fp, #0x248]             
+           000d7ef4  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000d7ef8  vmov     s8, r0                       
+           000d7efc  vcvt.f64.f32 d4, s8                       
+           000d7f00  vldr     d2, [fp, #0x230]             
+           000d7f04  vldr     d3, [fp, #0x248]             
+           000d7f08  vmul.f64 d3, d3, d4                   
+           000d7f0c  vadd.f64 d2, d2, d3                   
+           000d7f10  add      r0, fp, #0x24                
+           000d7f14  ldr      r1, [fp, #0x1d4]             
+           000d7f18  ldr      r2, [fp, #0x1d8]             
+           000d7f1c  ldr      r3, [fp, #0x1dc]             
+           000d7f20  vcvt.f32.f64 s0, d2                       
+           000d7f24  vstr     s0, [sp]                     
+           000d7f28  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+L_d7f2c:   000d7f2c  mov      r0, sl                       
+           000d7f30  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d7f34  str      r0, [fp, #0x240]             
+           000d7f38  ldr      r0, [fp, #0x24]              
+           000d7f3c  str      r0, [fp, #0x1e0]             
+           000d7f40  ldr      r0, [fp, #0x28]              
+           000d7f44  str      r0, [fp, #0x1e4]             
+           000d7f48  ldr      r0, [fp, #0x2c]              
+           000d7f4c  str      r0, [fp, #0x1e8]             
+           000d7f50  mov      r0, r5                       
+           000d7f54  ldr      lr, [r5]                     
+           000d7f58  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000d7f5c  mov      r2, r0                       
+           000d7f60  add      r0, fp, #0x1ec               
+           000d7f64  mov      r1, r2                       
+           000d7f68  ldr      lr, [r2]                     
+           000d7f6c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d7f70  add      r0, fp, #0x1f8               
+           000d7f74  ldr      r1, [fp, #0x1e0]             
+           000d7f78  ldr      r2, [fp, #0x1e4]             
+           000d7f7c  ldr      r3, [fp, #0x1e8]             
+           000d7f80  ldr      ip, [fp, #0x1ec]             
+           000d7f84  str      ip, [sp]                     
+           000d7f88  ldr      ip, [fp, #0x1f0]             
+           000d7f8c  str      ip, [sp, #4]                 
+           000d7f90  ldr      ip, [fp, #0x1f4]             
+           000d7f94  str      ip, [sp, #8]                 
+           000d7f98  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000d7f9c  ldr      ip, [fp, #0x240]             
+           000d7fa0  mov      r0, ip                       
+           000d7fa4  ldr      r1, [fp, #0x1f8]             
+           000d7fa8  ldr      r2, [fp, #0x1fc]             
+           000d7fac  ldr      r3, [fp, #0x200]             
+           000d7fb0  ldr      lr, [ip]                     
+           000d7fb4  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000d7fb8  mov      r0, sl                       
+           000d7fbc  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d7fc0  str      r0, [fp, #0x23c]             
+           000d7fc4  ldr      r0, [fp, #0x24]              
+           000d7fc8  str      r0, [fp, #0x204]             
+           000d7fcc  ldr      r0, [fp, #0x28]              
+           000d7fd0  str      r0, [fp, #0x208]             
+           000d7fd4  ldr      r0, [fp, #0x2c]              
+           000d7fd8  str      r0, [fp, #0x20c]             
+           000d7fdc  add      r0, fp, #132, #30            
+           000d7fe0  ldr      r1, [fp, #0x204]             
+           000d7fe4  ldr      r2, [fp, #0x208]             
+           000d7fe8  ldr      r3, [fp, #0x20c]             
+           000d7fec  bl       #0x22b0d0                    ; CALL UnityEngine.Vector3::op_UnaryNegation
+           000d7ff0  add      r0, fp, #0x21c               
+           000d7ff4  ldr      r1, [fp, #0x210]             
+           000d7ff8  ldr      r2, [fp, #0x214]             
+           000d7ffc  ldr      r3, [fp, #0x218]             
+           000d8000  bl       #0x22b410                    ; CALL UnityEngine.Quaternion::LookRotation
+           000d8004  ldr      ip, [fp, #0x23c]             
+           000d8008  mov      r0, ip                       
+           000d800c  str      r0, [fp, #0x238]             
+           000d8010  ldr      r1, [fp, #0x21c]             
+           000d8014  ldr      r2, [fp, #0x220]             
+           000d8018  ldr      r3, [fp, #0x224]             
+           000d801c  ldr      r0, [fp, #0x228]             
+           000d8020  str      r0, [sp]                     
+           000d8024  ldr      r0, [fp, #0x238]             
+           000d8028  ldr      lr, [ip]                     
+           000d802c  bl       #0x22b190                    ; CALL UnityEngine.Transform::set_rotation
+L_d8030:   000d8030  add      sp, fp, #0x254               
+           000d8034  pop      {r5, r6, r8, sl, fp}         
+           000d8038  ldr      r7, [sp, #8]                 
+           000d803c  ldm      sp, {sp, pc}                 
+           000d8040  mov      r1, lr                       
+           000d8044  ldr      r0, [pc]                     
+           000d8048  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d804c  andeq    r0, r0, #0xf8                
+
+== PreRaceCamera::StartCamera  token 0x060001ae @0x000d8050 (1548 bytes)
+   args: r0=this, 
+           000d8050  mov      ip, sp                       
+           000d8054  push     {r7, lr}                     
+           000d8058  mov      r7, sp                       
+           000d805c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000d8060  sub      sp, sp, #100, #30            
+           000d8064  mov      fp, sp                       
+           000d8068  str      r0, [fp, #0x178]             
+           000d806c  mov      r0, #0                       
+           000d8070  str      r0, [fp, #0x14]              
+           000d8074  mov      r0, #0                       
+           000d8078  str      r0, [fp, #0x18]              
+           000d807c  mov      r0, #0                       
+           000d8080  str      r0, [fp, #0x1c]              
+           000d8084  mov      r0, #0                       
+           000d8088  str      r0, [fp, #0x20]              
+           000d808c  mov      r0, #0                       
+           000d8090  str      r0, [fp, #0x24]              
+           000d8094  mov      r0, #0                       
+           000d8098  str      r0, [fp, #0x28]              
+           000d809c  mov      r0, #0                       
+           000d80a0  str      r0, [fp, #0x2c]              
+           000d80a4  mov      r0, #0                       
+           000d80a8  str      r0, [fp, #0x30]              
+           000d80ac  mov      r0, #0                       
+           000d80b0  str      r0, [fp, #0x34]              
+           000d80b4  mov      r0, #0                       
+           000d80b8  str      r0, [fp, #0x38]              
+           000d80bc  bl       #0x22bb60                    ; CALL RaceManager::get_Instance
+           000d80c0  mov      r1, #1                       
+           000d80c4  strb     r1, [r0, #0x58]              ; field+0x58 
+           000d80c8  ldr      r0, [pc]                     
+           000d80cc  b        #0xd80d4                     ; -> L_d80d4
+           000d80d0  .word    0x00ecd10c                   ; literal 15520012 / 
+L_d80d4:   000d80d4  ldr      r0, [pc, r0]                 ; GOT[288] TYPE_FROM_HANDLE typeof(UnityEngine.Camera)
+           000d80d8  bl       #0x22b650                    ; CALL UnityEngine.Object::FindObjectsOfType
+           000d80dc  mov      r4, r0                       
+           000d80e0  mov      sl, #0                       
+           000d80e4  b        #0xd8258                     ; -> L_d8258
+L_d80e8:   000d80e8  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000d80ec  cmp      r0, sl                       
+           000d80f0  blls     #0xd863c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d80f4  lsl      r0, sl, #2                   
+           000d80f8  add      r0, r4, r0                   
+           000d80fc  add      r0, r0, #0x10                
+           000d8100  ldr      r5, [r0]                     
+           000d8104  cmp      r5, #0                       
+           000d8108  beq      #0xd8134                     ; -> L_d8134
+           000d810c  ldr      r0, [r5]                     
+           000d8110  ldr      r0, [r0]                     
+           000d8114  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d8118  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: targets)
+           000d811c  ldr      r1, [pc]                     
+           000d8120  b        #0xd8128                     ; -> L_d8128
+           000d8124  .word    0x00ecd0bc                   ; literal 15519932 / 
+L_d8128:   000d8128  ldr      r1, [pc, r1]                 ; GOT[289] CLASS UnityEngine.Camera
+           000d812c  cmp      r0, r1                       
+           000d8130  blne     #0xd864c                     ; THROW System.InvalidCastException (if ne)
+L_d8134:   000d8134  mov      r6, r5                       
+           000d8138  ldr      r0, [fp, #0x178]             
+           000d813c  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d8140  mov      r1, r0                       
+           000d8144  ldr      lr, [r1]                     
+           000d8148  bl       #0x22bb90                    ; CALL UnityEngine.GameObject::get_camera
+           000d814c  mov      r1, r0                       
+           000d8150  mov      r0, r5                       
+           000d8154  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d8158  cmp      r0, #0                       
+           000d815c  beq      #0xd81e4                     ; -> L_d81e4
+           000d8160  mov      r0, r6                       
+           000d8164  ldr      lr, [r6]                     
+           000d8168  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d816c  ldr      r1, [pc]                     
+           000d8170  b        #0xd8178                     ; -> L_d8178
+           000d8174  .word    0x00ecd064                   ; literal 15519844 / 
+L_d8178:   000d8178  ldr      r1, [pc, r1]                 ; GOT[287] METHOD_RGCTX UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d817c  ldr      lr, [r0]                     
+           000d8180  mov      r8, r1                       
+           000d8184  bl       #0x22bb80                    ; CALL UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d8188  mov      r1, #0                       
+           000d818c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d8190  cmp      r0, #0                       
+           000d8194  beq      #0xd81d0                     ; -> L_d81d0
+           000d8198  mov      r0, r6                       
+           000d819c  ldr      lr, [r6]                     
+           000d81a0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d81a4  ldr      r1, [pc]                     
+           000d81a8  b        #0xd81b0                     ; -> L_d81b0
+           000d81ac  .word    0x00ecd02c                   ; literal 15519788 / 
+L_d81b0:   000d81b0  ldr      r1, [pc, r1]                 ; GOT[287] METHOD_RGCTX UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d81b4  ldr      lr, [r0]                     
+           000d81b8  mov      r8, r1                       
+           000d81bc  bl       #0x22bb80                    ; CALL UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d81c0  mov      r2, r0                       
+           000d81c4  mov      r1, #0                       
+           000d81c8  ldr      lr, [r2]                     
+           000d81cc  bl       #0x22b9a0                    ; CALL UnityEngine.Behaviour::set_enabled
+L_d81d0:   000d81d0  mov      r0, r6                       
+           000d81d4  mov      r1, #0                       
+           000d81d8  ldr      lr, [r6]                     
+           000d81dc  bl       #0x22b9a0                    ; CALL UnityEngine.Behaviour::set_enabled
+           000d81e0  b        #0xd8254                     ; -> L_d8254
+L_d81e4:   000d81e4  mov      r0, r6                       
+           000d81e8  ldr      lr, [r6]                     
+           000d81ec  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d81f0  ldr      r1, [pc]                     
+           000d81f4  b        #0xd81fc                     ; -> L_d81fc
+           000d81f8  .word    0x00eccfe0                   ; literal 15519712 / 
+L_d81fc:   000d81fc  ldr      r1, [pc, r1]                 ; GOT[287] METHOD_RGCTX UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d8200  ldr      lr, [r0]                     
+           000d8204  mov      r8, r1                       
+           000d8208  bl       #0x22bb80                    ; CALL UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d820c  mov      r1, #0                       
+           000d8210  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d8214  cmp      r0, #0                       
+           000d8218  beq      #0xd8254                     ; -> L_d8254
+           000d821c  mov      r0, r6                       
+           000d8220  ldr      lr, [r6]                     
+           000d8224  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d8228  ldr      r1, [pc]                     
+           000d822c  b        #0xd8234                     ; -> L_d8234
+           000d8230  .word    0x00eccfa8                   ; literal 15519656 / 
+L_d8234:   000d8234  ldr      r1, [pc, r1]                 ; GOT[287] METHOD_RGCTX UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d8238  ldr      lr, [r0]                     
+           000d823c  mov      r8, r1                       
+           000d8240  bl       #0x22bb80                    ; CALL UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d8244  mov      r2, r0                       
+           000d8248  mov      r1, #1                       
+           000d824c  ldr      lr, [r2]                     
+           000d8250  bl       #0x22b9a0                    ; CALL UnityEngine.Behaviour::set_enabled
+L_d8254:   000d8254  add      sl, sl, #1                   
+L_d8258:   000d8258  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000d825c  cmp      sl, r0                       
+           000d8260  blt      #0xd80e8                     ; -> L_d80e8
+           000d8264  ldr      r0, [fp, #0x178]             
+           000d8268  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: targets)
+           000d826c  cmp      r0, #0                       
+           000d8270  beq      #0xd8400                     ; -> L_d8400
+           000d8274  ldr      r0, [fp, #0x178]             
+           000d8278  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: targets)
+           000d827c  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000d8280  cmp      r0, #1                       
+           000d8284  ble      #0xd8400                     ; -> L_d8400
+           000d8288  ldr      r0, [fp, #0x178]             
+           000d828c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d8290  str      r0, [fp, #0x188]             
+           000d8294  ldr      r0, [fp, #0x178]             
+           000d8298  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: targets)
+           000d829c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000d82a0  cmp      r1, #0                       
+           000d82a4  blls     #0xd863c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d82a8  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: targets)
+           000d82ac  add      r0, fp, #0xc4                
+           000d82b0  mov      r1, r2                       
+           000d82b4  ldr      lr, [r2]                     
+           000d82b8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d82bc  ldr      ip, [fp, #0x188]             
+           000d82c0  ldr      r0, [fp, #0xc4]              
+           000d82c4  str      r0, [fp, #0xd0]              
+           000d82c8  ldr      r0, [fp, #0xc8]              
+           000d82cc  str      r0, [fp, #0xd4]              
+           000d82d0  ldr      r0, [fp, #0xcc]              
+           000d82d4  str      r0, [fp, #0xd8]              
+           000d82d8  ldr      r0, [fp, #0xc4]              
+           000d82dc  str      r0, [fp, #0x20]              
+           000d82e0  ldr      r0, [fp, #0xc8]              
+           000d82e4  str      r0, [fp, #0x24]              
+           000d82e8  ldr      r0, [fp, #0xcc]              
+           000d82ec  str      r0, [fp, #0x28]              
+           000d82f0  ldr      r0, [fp, #0x178]             
+           000d82f4  add      r0, r0, #0x28                
+           000d82f8  ldr      r1, [fp, #0xd0]              
+           000d82fc  str      r1, [r0]                     
+           000d8300  ldr      r1, [fp, #0xd4]              
+           000d8304  str      r1, [r0, #4]                 ; field+0x4 
+           000d8308  ldr      r1, [fp, #0xd8]              
+           000d830c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d8310  mov      r0, ip                       
+           000d8314  ldr      r1, [fp, #0xc4]              
+           000d8318  ldr      r2, [fp, #0xc8]              
+           000d831c  ldr      r3, [fp, #0xcc]              
+           000d8320  ldr      lr, [ip]                     
+           000d8324  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000d8328  ldr      r0, [fp, #0x178]             
+           000d832c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d8330  str      r0, [fp, #0x184]             
+           000d8334  ldr      r0, [fp, #0x178]             
+           000d8338  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: targets)
+           000d833c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000d8340  cmp      r1, #0                       
+           000d8344  blls     #0xd863c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d8348  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: targets)
+           000d834c  add      r0, fp, #0xdc                
+           000d8350  mov      r1, r2                       
+           000d8354  ldr      lr, [r2]                     
+           000d8358  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000d835c  ldr      ip, [fp, #0x184]             
+           000d8360  ldr      r0, [fp, #0xdc]              
+           000d8364  str      r0, [fp, #0xec]              
+           000d8368  ldr      r0, [fp, #0xe0]              
+           000d836c  str      r0, [fp, #0xf0]              
+           000d8370  ldr      r0, [fp, #0xe4]              
+           000d8374  str      r0, [fp, #0xf4]              
+           000d8378  ldr      r0, [fp, #0xe8]              
+           000d837c  str      r0, [fp, #0xf8]              
+           000d8380  ldr      r0, [fp, #0xdc]              
+           000d8384  str      r0, [fp, #0x2c]              
+           000d8388  ldr      r0, [fp, #0xe0]              
+           000d838c  str      r0, [fp, #0x30]              
+           000d8390  ldr      r0, [fp, #0xe4]              
+           000d8394  str      r0, [fp, #0x34]              
+           000d8398  ldr      r0, [fp, #0xe8]              
+           000d839c  str      r0, [fp, #0x38]              
+           000d83a0  ldr      r0, [fp, #0x178]             
+           000d83a4  add      r0, r0, #0x34                
+           000d83a8  ldr      r1, [fp, #0xec]              
+           000d83ac  str      r1, [r0]                     
+           000d83b0  ldr      r1, [fp, #0xf0]              
+           000d83b4  str      r1, [r0, #4]                 ; field+0x4 
+           000d83b8  ldr      r1, [fp, #0xf4]              
+           000d83bc  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d83c0  ldr      r1, [fp, #0xf8]              
+           000d83c4  str      r1, [r0, #0xc]               ; field+0xc 
+           000d83c8  mov      r0, ip                       
+           000d83cc  str      r0, [fp, #0x180]             
+           000d83d0  ldr      r1, [fp, #0xdc]              
+           000d83d4  ldr      r2, [fp, #0xe0]              
+           000d83d8  ldr      r3, [fp, #0xe4]              
+           000d83dc  ldr      r0, [fp, #0xe8]              
+           000d83e0  str      r0, [sp]                     
+           000d83e4  ldr      r0, [fp, #0x180]             
+           000d83e8  ldr      lr, [ip]                     
+           000d83ec  bl       #0x22b190                    ; CALL UnityEngine.Transform::set_rotation
+           000d83f0  ldr      r0, [fp, #0x178]             
+           000d83f4  mov      r1, #1                       
+           000d83f8  bl       #0xd76c0                     ; CALL PreRaceCamera::SetNextTargetIndex (direct)
+           000d83fc  b        #0xd8620                     ; -> L_d8620
+L_d8400:   000d8400  bl       #0x1129cc                    ; CALL RaceManager::GetPlayerCar (direct)
+           000d8404  str      r0, [fp, #0x10]              
+           000d8408  mov      r1, #0                       
+           000d840c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d8410  cmp      r0, #0                       
+           000d8414  beq      #0xd8620                     ; -> L_d8620
+           000d8418  ldr      r0, [fp, #0x10]              
+           000d841c  mov      r1, r0                       
+           000d8420  ldr      lr, [r1]                     
+           000d8424  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000d8428  mov      r2, r0                       
+           000d842c  add      r0, fp, #0x14                
+           000d8430  mov      r1, r2                       
+           000d8434  ldr      lr, [r2]                     
+           000d8438  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d843c  ldr      r0, [fp, #0x14]              
+           000d8440  str      r0, [fp, #0xfc]              
+           000d8444  ldr      r0, [fp, #0x18]              
+           000d8448  str      r0, [fp, #0x100]             
+           000d844c  ldr      r0, [fp, #0x1c]              
+           000d8450  str      r0, [fp, #0x104]             
+           000d8454  ldr      r0, [fp, #0x10]              
+           000d8458  mov      r1, r0                       
+           000d845c  ldr      lr, [r1]                     
+           000d8460  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000d8464  mov      r2, r0                       
+           000d8468  add      r0, fp, #0x108               
+           000d846c  mov      r1, r2                       
+           000d8470  ldr      lr, [r2]                     
+           000d8474  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000d8478  vldr     s4, [pc]                     ; float 10.0
+           000d847c  b        #0xd8484                     ; -> L_d8484
+           000d8480  .word    0x41200000                   ; literal 1092616192 / 10
+L_d8484:   000d8484  vcvt.f64.f32 d2, s4                       
+           000d8488  add      r0, fp, #0x114               
+           000d848c  ldr      r1, [fp, #0x108]             
+           000d8490  ldr      r2, [fp, #0x10c]             
+           000d8494  ldr      r3, [fp, #0x110]             
+           000d8498  vcvt.f32.f64 s0, d2                       
+           000d849c  vstr     s0, [sp]                     
+           000d84a0  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000d84a4  add      r0, fp, #0x14                
+           000d84a8  ldr      r1, [fp, #0xfc]              
+           000d84ac  ldr      r2, [fp, #0x100]             
+           000d84b0  ldr      r3, [fp, #0x104]             
+           000d84b4  ldr      ip, [fp, #0x114]             
+           000d84b8  str      ip, [sp]                     
+           000d84bc  ldr      ip, [fp, #0x118]             
+           000d84c0  str      ip, [sp, #4]                 
+           000d84c4  ldr      ip, [fp, #0x11c]             
+           000d84c8  str      ip, [sp, #8]                 
+           000d84cc  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000d84d0  ldr      r0, [fp, #0x14]              
+           000d84d4  str      r0, [fp, #0x120]             
+           000d84d8  ldr      r0, [fp, #0x18]              
+           000d84dc  str      r0, [fp, #0x124]             
+           000d84e0  ldr      r0, [fp, #0x1c]              
+           000d84e4  str      r0, [fp, #0x128]             
+           000d84e8  add      r0, fp, #0x12c               
+           000d84ec  bl       #0x22b3e0                    ; CALL UnityEngine.Vector3::get_up
+           000d84f0  vldr     s4, [pc]                     ; float 5.0
+           000d84f4  b        #0xd84fc                     ; -> L_d84fc
+           000d84f8  .word    0x40a00000                   ; literal 1084227584 / 5
+L_d84fc:   000d84fc  vcvt.f64.f32 d2, s4                       
+           000d8500  add      r0, fp, #0x138               
+           000d8504  ldr      r1, [fp, #0x12c]             
+           000d8508  ldr      r2, [fp, #0x130]             
+           000d850c  ldr      r3, [fp, #0x134]             
+           000d8510  vcvt.f32.f64 s0, d2                       
+           000d8514  vstr     s0, [sp]                     
+           000d8518  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000d851c  add      r0, fp, #0x14                
+           000d8520  ldr      r1, [fp, #0x120]             
+           000d8524  ldr      r2, [fp, #0x124]             
+           000d8528  ldr      r3, [fp, #0x128]             
+           000d852c  ldr      ip, [fp, #0x138]             
+           000d8530  str      ip, [sp]                     
+           000d8534  ldr      ip, [fp, #0x13c]             
+           000d8538  str      ip, [sp, #4]                 
+           000d853c  ldr      ip, [fp, #0x140]             
+           000d8540  str      ip, [sp, #8]                 
+           000d8544  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000d8548  ldr      r0, [fp, #0x178]             
+           000d854c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d8550  mov      ip, r0                       
+           000d8554  ldr      r1, [fp, #0x14]              
+           000d8558  ldr      r2, [fp, #0x18]              
+           000d855c  ldr      r3, [fp, #0x1c]              
+           000d8560  ldr      lr, [ip]                     
+           000d8564  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000d8568  ldr      r0, [fp, #0x178]             
+           000d856c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d8570  str      r0, [fp, #0x184]             
+           000d8574  ldr      r0, [fp, #0x10]              
+           000d8578  mov      r1, r0                       
+           000d857c  ldr      lr, [r1]                     
+           000d8580  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000d8584  mov      r2, r0                       
+           000d8588  add      r0, fp, #0x144               
+           000d858c  mov      r1, r2                       
+           000d8590  ldr      lr, [r2]                     
+           000d8594  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d8598  ldr      r0, [fp, #0x178]             
+           000d859c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000d85a0  mov      r2, r0                       
+           000d85a4  add      r0, fp, #84, #30             
+           000d85a8  mov      r1, r2                       
+           000d85ac  ldr      lr, [r2]                     
+           000d85b0  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d85b4  add      r0, fp, #0x15c               
+           000d85b8  ldr      r1, [fp, #0x144]             
+           000d85bc  ldr      r2, [fp, #0x148]             
+           000d85c0  ldr      r3, [fp, #0x14c]             
+           000d85c4  ldr      ip, [fp, #0x150]             
+           000d85c8  str      ip, [sp]                     
+           000d85cc  ldr      ip, [fp, #0x154]             
+           000d85d0  str      ip, [sp, #4]                 
+           000d85d4  ldr      ip, [fp, #0x158]             
+           000d85d8  str      ip, [sp, #8]                 
+           000d85dc  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000d85e0  add      r0, fp, #0x168               
+           000d85e4  ldr      r1, [fp, #0x15c]             
+           000d85e8  ldr      r2, [fp, #0x160]             
+           000d85ec  ldr      r3, [fp, #0x164]             
+           000d85f0  bl       #0x22b410                    ; CALL UnityEngine.Quaternion::LookRotation
+           000d85f4  ldr      ip, [fp, #0x184]             
+           000d85f8  mov      r0, ip                       
+           000d85fc  str      r0, [fp, #0x180]             
+           000d8600  ldr      r1, [fp, #0x168]             
+           000d8604  ldr      r2, [fp, #0x16c]             
+           000d8608  ldr      r3, [fp, #0x170]             
+           000d860c  ldr      r0, [fp, #0x174]             
+           000d8610  str      r0, [sp]                     
+           000d8614  ldr      r0, [fp, #0x180]             
+           000d8618  ldr      lr, [ip]                     
+           000d861c  bl       #0x22b190                    ; CALL UnityEngine.Transform::set_rotation
+L_d8620:   000d8620  ldr      r0, [fp, #0x178]             
+           000d8624  mov      r1, #1                       
+           000d8628  strb     r1, [r0, #0x48]              ; field+0x48 (this-class: isActive)
+           000d862c  add      sp, fp, #100, #30            
+           000d8630  pop      {r4, r5, r6, r8, sl, fp}     
+           000d8634  ldr      r7, [sp, #8]                 
+           000d8638  ldm      sp, {sp, pc}                 
+           000d863c  mov      r1, lr                       
+           000d8640  ldr      r0, [pc]                     
+           000d8644  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d8648  andeq    r0, r0, #0xf8                
+           000d864c  mov      r1, lr                       
+           000d8650  ldr      r0, [pc]                     
+           000d8654  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d8658  andeq    r0, r0, #0xfd                
+
+== PreRaceCamera::ShutdownPreRace  token 0x060001af @0x000d865c (396 bytes)
+   args: r0=this, 
+           000d865c  mov      ip, sp                       
+           000d8660  push     {r7, lr}                     
+           000d8664  mov      r7, sp                       
+           000d8668  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000d866c  sub      sp, sp, #8                   
+           000d8670  mov      fp, sp                       
+           000d8674  str      r0, [fp, #4]                 
+           000d8678  ldr      r0, [fp, #4]                 
+           000d867c  mov      r1, #0                       
+           000d8680  strb     r1, [r0, #0x48]              ; field+0x48 (this-class: isActive)
+           000d8684  ldr      r0, [pc]                     
+           000d8688  b        #0xd8690                     ; -> L_d8690
+           000d868c  .word    0x00eccb50                   ; literal 15518544 / 
+L_d8690:   000d8690  ldr      r0, [pc, r0]                 ; GOT[288] TYPE_FROM_HANDLE typeof(UnityEngine.Camera)
+           000d8694  bl       #0x22b650                    ; CALL UnityEngine.Object::FindObjectsOfType
+           000d8698  mov      r5, r0                       
+           000d869c  mov      r4, #0                       
+           000d86a0  b        #0xd87a0                     ; -> L_d87a0
+L_d86a4:   000d86a4  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000d86a8  cmp      r0, r4                       
+           000d86ac  blls     #0xd87d8                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d86b0  lsl      r0, r4, #2                   
+           000d86b4  add      r0, r5, r0                   
+           000d86b8  add      r0, r0, #0x10                
+           000d86bc  ldr      sl, [r0]                     
+           000d86c0  cmp      sl, #0                       
+           000d86c4  beq      #0xd86f0                     ; -> L_d86f0
+           000d86c8  ldr      r0, [sl]                     
+           000d86cc  ldr      r0, [r0]                     
+           000d86d0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d86d4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: targets)
+           000d86d8  ldr      r1, [pc]                     
+           000d86dc  b        #0xd86e4                     ; -> L_d86e4
+           000d86e0  .word    0x00eccb00                   ; literal 15518464 / 
+L_d86e4:   000d86e4  ldr      r1, [pc, r1]                 ; GOT[289] CLASS UnityEngine.Camera
+           000d86e8  cmp      r0, r1                       
+           000d86ec  blne     #0xd87c8                     ; THROW System.InvalidCastException (if ne)
+L_d86f0:   000d86f0  mov      r6, sl                       
+           000d86f4  ldr      r0, [fp, #4]                 
+           000d86f8  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d86fc  mov      r1, r0                       
+           000d8700  ldr      lr, [r1]                     
+           000d8704  bl       #0x22bb90                    ; CALL UnityEngine.GameObject::get_camera
+           000d8708  mov      r1, r0                       
+           000d870c  mov      r0, sl                       
+           000d8710  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d8714  cmp      r0, #0                       
+           000d8718  beq      #0xd879c                     ; -> L_d879c
+           000d871c  mov      r0, r6                       
+           000d8720  ldr      lr, [r6]                     
+           000d8724  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d8728  ldr      r1, [pc]                     
+           000d872c  b        #0xd8734                     ; -> L_d8734
+           000d8730  .word    0x00eccaa8                   ; literal 15518376 / 
+L_d8734:   000d8734  ldr      r1, [pc, r1]                 ; GOT[287] METHOD_RGCTX UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d8738  ldr      lr, [r0]                     
+           000d873c  mov      r8, r1                       
+           000d8740  bl       #0x22bb80                    ; CALL UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d8744  mov      r1, #0                       
+           000d8748  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d874c  cmp      r0, #0                       
+           000d8750  beq      #0xd878c                     ; -> L_d878c
+           000d8754  mov      r0, r6                       
+           000d8758  ldr      lr, [r6]                     
+           000d875c  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d8760  ldr      r1, [pc]                     
+           000d8764  b        #0xd876c                     ; -> L_d876c
+           000d8768  .word    0x00ecca70                   ; literal 15518320 / 
+L_d876c:   000d876c  ldr      r1, [pc, r1]                 ; GOT[287] METHOD_RGCTX UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d8770  ldr      lr, [r0]                     
+           000d8774  mov      r8, r1                       
+           000d8778  bl       #0x22bb80                    ; CALL UnityEngine.GameObject::GetComponent<UnityEngine.AudioListener>
+           000d877c  mov      r2, r0                       
+           000d8780  mov      r1, #1                       
+           000d8784  ldr      lr, [r2]                     
+           000d8788  bl       #0x22b9a0                    ; CALL UnityEngine.Behaviour::set_enabled
+L_d878c:   000d878c  mov      r0, r6                       
+           000d8790  mov      r1, #1                       
+           000d8794  ldr      lr, [r6]                     
+           000d8798  bl       #0x22b9a0                    ; CALL UnityEngine.Behaviour::set_enabled
+L_d879c:   000d879c  add      r4, r4, #1                   
+L_d87a0:   000d87a0  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000d87a4  cmp      r4, r0                       
+           000d87a8  blt      #0xd86a4                     ; -> L_d86a4
+           000d87ac  ldr      r0, [fp, #4]                 
+           000d87b0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000d87b4  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+           000d87b8  add      sp, fp, #8                   
+           000d87bc  pop      {r4, r5, r6, r8, sl, fp}     
+           000d87c0  ldr      r7, [sp, #8]                 
+           000d87c4  ldm      sp, {sp, pc}                 
+           000d87c8  mov      r1, lr                       
+           000d87cc  ldr      r0, [pc]                     
+           000d87d0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d87d4  andeq    r0, r0, #0xfd                
+           000d87d8  mov      r1, lr                       
+           000d87dc  ldr      r0, [pc]                     
+           000d87e0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d87e4  andeq    r0, r0, #0xf8                
+
+== PreRaceCamera::OnDrawGizmos  token 0x060001b0 @0x000d87e8 (268 bytes)
+   args: r0=this, 
+           000d87e8  mov      ip, sp                       
+           000d87ec  push     {r7, lr}                     
+           000d87f0  mov      r7, sp                       
+           000d87f4  push     {r6, r8, sl, fp, ip, lr}     
+           000d87f8  sub      sp, sp, #0x70                
+           000d87fc  mov      fp, sp                       
+           000d8800  mov      sl, r0                       
+           000d8804  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: targets)
+           000d8808  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000d880c  cmp      r0, #1                       
+           000d8810  ble      #0xd88d4                     ; -> L_d88d4
+           000d8814  add      r0, fp, #0x48                
+           000d8818  bl       #0x22ae20                    ; CALL UnityEngine.Color::get_yellow
+           000d881c  ldr      r0, [fp, #0x48]              
+           000d8820  ldr      r1, [fp, #0x4c]              
+           000d8824  ldr      r2, [fp, #0x50]              
+           000d8828  ldr      r3, [fp, #0x54]              
+           000d882c  bl       #0x22a890                    ; CALL UnityEngine.Gizmos::set_color
+           000d8830  mov      r6, #1                       
+           000d8834  b        #0xd88c4                     ; -> L_d88c4
+L_d8838:   000d8838  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: targets)
+           000d883c  sub      r1, r6, #1                   
+           000d8840  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000d8844  cmp      r2, r1                       
+           000d8848  blls     #0xd88e4                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d884c  lsl      r1, r1, #2                   
+           000d8850  add      r0, r0, r1                   
+           000d8854  add      r0, r0, #0x10                
+           000d8858  ldr      r2, [r0]                     
+           000d885c  add      r0, fp, #0x58                
+           000d8860  mov      r1, r2                       
+           000d8864  ldr      lr, [r2]                     
+           000d8868  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d886c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: targets)
+           000d8870  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000d8874  cmp      r1, r6                       
+           000d8878  blls     #0xd88e4                     ; THROW System.IndexOutOfRangeException (if ls)
+           000d887c  lsl      r1, r6, #2                   
+           000d8880  add      r0, r0, r1                   
+           000d8884  add      r0, r0, #0x10                
+           000d8888  ldr      r2, [r0]                     
+           000d888c  add      r0, fp, #0x64                
+           000d8890  mov      r1, r2                       
+           000d8894  ldr      lr, [r2]                     
+           000d8898  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000d889c  ldr      r0, [fp, #0x58]              
+           000d88a0  ldr      r1, [fp, #0x5c]              
+           000d88a4  ldr      r2, [fp, #0x60]              
+           000d88a8  ldr      r3, [fp, #0x64]              
+           000d88ac  ldr      ip, [fp, #0x68]              
+           000d88b0  str      ip, [sp]                     
+           000d88b4  ldr      ip, [fp, #0x6c]              
+           000d88b8  str      ip, [sp, #4]                 
+           000d88bc  bl       #0x22a8a0                    ; CALL UnityEngine.Gizmos::DrawLine
+           000d88c0  add      r6, r6, #1                   
+L_d88c4:   000d88c4  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: targets)
+           000d88c8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000d88cc  cmp      r6, r0                       
+           000d88d0  blt      #0xd8838                     ; -> L_d8838
+L_d88d4:   000d88d4  add      sp, fp, #0x70                
+           000d88d8  pop      {r6, r8, sl, fp}             
+           000d88dc  ldr      r7, [sp, #8]                 
+           000d88e0  ldm      sp, {sp, pc}                 
+           000d88e4  mov      r1, lr                       
+           000d88e8  ldr      r0, [pc]                     
+           000d88ec  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000d88f0  andeq    r0, r0, #0xf8                

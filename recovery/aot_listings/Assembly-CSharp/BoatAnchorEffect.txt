@@ -1,0 +1,411 @@
+####################################################################################################
+# TYPE BoatAnchorEffect  (instance size 0x24)
+#   +0x08 time                           float
+#   +0x0c power                          int
+#   +0x10 effectType                     BaseEffect/EffectTypes
+#   +0x14 isMultiLevel                   bool
+#   +0x18 powerLevel                     int
+#   +0x1c parentObject                   UnityEngine.GameObject
+#   +0x20 target                         UnityEngine.GameObject
+#   static float MAX_TARGET_DISTANCE  = const 00001643
+#   vtable slots: 5:GetEffectSnapShot, 6:Stack, 7:Shutdown, 8:Update, 9:Init
+####################################################################################################
+== BoatAnchorEffect::.ctor  token 0x0600035c @0x000f12f4 (72 bytes)
+   args: r0=this, owner
+           000f12f4  mov      ip, sp                       
+           000f12f8  push     {r7, lr}                     
+           000f12fc  mov      r7, sp                       
+           000f1300  push     {r6, r8, fp, ip, lr}         
+           000f1304  sub      sp, sp, #0xc                 
+           000f1308  mov      fp, sp                       
+           000f130c  mov      r6, r0                       
+           000f1310  str      r1, [fp]                     
+           000f1314  mov      r0, #1                       
+           000f1318  str      r0, [r6, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f131c  mov      r0, #0xb                     
+           000f1320  str      r0, [r6, #0x10]              ; field+0x10 (this-class: effectType)
+           000f1324  ldr      r0, [fp]                     
+           000f1328  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f132c  add      sp, fp, #0xc                 
+           000f1330  pop      {r6, r8, fp}                 
+           000f1334  ldr      r7, [sp, #8]                 
+           000f1338  ldm      sp, {sp, pc}                 
+
+== BoatAnchorEffect::Init  token 0x0600035d @0x000f133c (620 bytes)
+   args: r0=this, 
+           000f133c  mov      ip, sp                       
+           000f1340  push     {r7, lr}                     
+           000f1344  mov      r7, sp                       
+           000f1348  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000f134c  sub      sp, sp, #0xa0                
+           000f1350  mov      fp, sp                       
+           000f1354  mov      sl, r0                       
+           000f1358  mov      r0, #0                       
+           000f135c  str      r0, [fp, #0x10]              
+           000f1360  mov      r0, #0                       
+           000f1364  str      r0, [fp, #0x14]              
+           000f1368  mov      r0, #0                       
+           000f136c  str      r0, [fp, #0x18]              
+           000f1370  mov      r0, #0                       
+           000f1374  str      r0, [fp, #0x20]              
+           000f1378  mov      r0, #0                       
+           000f137c  str      r0, [fp, #0x24]              
+           000f1380  mov      r0, #0                       
+           000f1384  str      r0, [fp, #0x28]              
+           000f1388  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f138c  mov      r1, #0                       
+           000f1390  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f1394  cmp      r0, #0                       
+           000f1398  beq      #0xf1598                     ; -> L_f1598
+           000f139c  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f13a0  bl       #0x112160                    ; CALL RaceManager::GetCarPosition (direct)
+           000f13a4  mov      r6, r0                       
+           000f13a8  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f13ac  mov      r0, r1                       
+           000f13b0  ldr      lr, [r1]                     
+           000f13b4  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f13b8  mov      r2, r0                       
+           000f13bc  add      r0, fp, #0x64                
+           000f13c0  mov      r1, r2                       
+           000f13c4  ldr      lr, [r2]                     
+           000f13c8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f13cc  ldr      r0, [fp, #0x64]              
+           000f13d0  ldr      r1, [fp, #0x68]              
+           000f13d4  ldr      r2, [fp, #0x6c]              
+           000f13d8  bl       #0x1173d0                    ; CALL WaypointLogic::FindNextWaypoint (direct)
+           000f13dc  mov      r5, r0                       
+           000f13e0  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: effectType)
+           000f13e4  mov      r0, r1                       
+           000f13e8  ldr      lr, [r1]                     
+           000f13ec  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000f13f0  mov      r2, r0                       
+           000f13f4  add      r0, fp, #0x70                
+           000f13f8  mov      r1, r2                       
+           000f13fc  ldr      lr, [r2]                     
+           000f1400  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f1404  mov      r0, r5                       
+           000f1408  ldr      lr, [r5]                     
+           000f140c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000f1410  mov      r2, r0                       
+           000f1414  add      r0, fp, #0x7c                
+           000f1418  mov      r1, r2                       
+           000f141c  ldr      lr, [r2]                     
+           000f1420  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f1424  add      r0, fp, #0x20                
+           000f1428  ldr      r1, [fp, #0x70]              
+           000f142c  ldr      r2, [fp, #0x74]              
+           000f1430  ldr      r3, [fp, #0x78]              
+           000f1434  ldr      ip, [fp, #0x7c]              
+           000f1438  str      ip, [sp]                     
+           000f143c  ldr      ip, [fp, #0x80]              
+           000f1440  str      ip, [sp, #4]                 
+           000f1444  ldr      ip, [fp, #0x84]              
+           000f1448  str      ip, [sp, #8]                 
+           000f144c  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000f1450  add      r1, fp, #0x20                
+           000f1454  add      r0, fp, #0x10                
+           000f1458  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           000f145c  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f1460  mov      r0, r1                       
+           000f1464  ldr      lr, [r1]                     
+           000f1468  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f146c  mov      r2, r0                       
+           000f1470  add      r0, fp, #0x88                
+           000f1474  mov      r1, r2                       
+           000f1478  ldr      lr, [r2]                     
+           000f147c  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000f1480  ldr      r0, [fp, #0x88]              
+           000f1484  ldr      r1, [fp, #0x8c]              
+           000f1488  ldr      r2, [fp, #0x90]              
+           000f148c  ldr      r3, [fp, #0x10]              
+           000f1490  ldr      ip, [fp, #0x14]              
+           000f1494  str      ip, [sp]                     
+           000f1498  ldr      ip, [fp, #0x18]              
+           000f149c  str      ip, [sp, #4]                 
+           000f14a0  bl       #0x22aeb0                    ; CALL UnityEngine.Vector3::Angle
+           000f14a4  vmov     s4, r0                       
+           000f14a8  vcvt.f64.f32 d2, s4                       
+           000f14ac  vldr     s6, [pc]                     ; float 90.0
+           000f14b0  b        #0xf14b8                     ; -> L_f14b8
+           000f14b4  .word    0x42b40000                   ; literal 1119092736 / 90
+L_f14b8:   000f14b8  vcvt.f64.f32 d3, s6                       
+           000f14bc  vcmp.f64 d3, d2                       
+           000f14c0  vmrs     apsr_nzcv, fpscr             
+           000f14c4  mov      r0, #0                       
+           000f14c8  movmi    r0, #1                       
+           000f14cc  strb     r0, [fp, #0x1c]              
+           000f14d0  mov      r5, r6                       
+           000f14d4  cmp      r0, #0                       
+           000f14d8  beq      #0xf14e8                     ; -> L_f14e8
+           000f14dc  mov      r0, #1                       
+           000f14e0  str      r0, [fp, #0x60]              
+           000f14e4  b        #0xf14f0                     ; -> L_f14f0
+L_f14e8:   000f14e8  mvn      r0, #0                       
+           000f14ec  str      r0, [fp, #0x60]              
+L_f14f0:   000f14f0  ldr      r0, [fp, #0x60]              
+           000f14f4  add      r6, r5, r0                   
+           000f14f8  mov      r0, r6                       
+           000f14fc  cmp      r0, #0                       
+           000f1500  blt      #0xf1520                     ; -> L_f1520
+           000f1504  bl       #0x111350                    ; CALL RaceManager::get_allCars (direct)
+           000f1508  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: power)
+           000f150c  cmp      r6, r0                       
+           000f1510  bge      #0xf1520                     ; -> L_f1520
+           000f1514  mov      r0, r6                       
+           000f1518  bl       #0x1121d8                    ; CALL RaceManager::GetCarInPosition (direct)
+           000f151c  str      r0, [sl, #0x20]              ; field+0x20 (this-class: target)
+L_f1520:   000f1520  ldr      r1, [sl, #0x20]              ; field+0x20 (this-class: target)
+           000f1524  mov      r0, sl                       
+           000f1528  bl       #0x22d000                    ; CALL BoatAnchorEffect::LaunchAnchor
+           000f152c  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f1530  ldr      r1, [pc]                     
+           000f1534  b        #0xf153c                     ; -> L_f153c
+           000f1538  .word    0x00eb399c                   ; literal 15415708 / 
+L_f153c:   000f153c  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f1540  ldr      lr, [r0]                     
+           000f1544  mov      r8, r1                       
+           000f1548  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f154c  mov      r4, r0                       
+           000f1550  mov      r1, #0                       
+           000f1554  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f1558  cmp      r0, #0                       
+           000f155c  beq      #0xf1598                     ; -> L_f1598
+           000f1560  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f1564  str      r0, [fp, #0x9c]              
+           000f1568  ldr      r0, [pc]                     
+           000f156c  b        #0xf1574                     ; -> L_f1574
+           000f1570  .word    0x00eb41a4                   ; literal 15417764 / 
+L_f1574:   000f1574  ldr      r0, [pc, r0]                 ; GOT[622] VTABLE ShieldEffect
+           000f1578  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f157c  ldr      r1, [fp, #0x9c]              
+           000f1580  str      r0, [fp, #0x98]              
+           000f1584  bl       #0xf7908                     ; CALL ShieldEffect::.ctor (direct)
+           000f1588  ldr      r1, [fp, #0x98]              
+           000f158c  mov      r0, r4                       
+           000f1590  ldr      lr, [r4]                     
+           000f1594  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+L_f1598:   000f1598  add      sp, fp, #0xa0                
+           000f159c  pop      {r4, r5, r6, r8, sl, fp}     
+           000f15a0  ldr      r7, [sp, #8]                 
+           000f15a4  ldm      sp, {sp, pc}                 
+
+== BoatAnchorEffect::Update  token 0x0600035e @0x000f15a8 (44 bytes)
+   args: r0=this, 
+           000f15a8  mov      ip, sp                       
+           000f15ac  push     {r7, lr}                     
+           000f15b0  mov      r7, sp                       
+           000f15b4  push     {r8, fp, ip, lr}             
+           000f15b8  sub      sp, sp, #8                   
+           000f15bc  mov      fp, sp                       
+           000f15c0  str      r0, [fp]                     
+           000f15c4  add      sp, fp, #8                   
+           000f15c8  pop      {r8, fp}                     
+           000f15cc  ldr      r7, [sp, #8]                 
+           000f15d0  ldm      sp, {sp, pc}                 
+
+== BoatAnchorEffect::Shutdown  token 0x0600035f @0x000f15d4 (44 bytes)
+   args: r0=this, 
+           000f15d4  mov      ip, sp                       
+           000f15d8  push     {r7, lr}                     
+           000f15dc  mov      r7, sp                       
+           000f15e0  push     {r8, fp, ip, lr}             
+           000f15e4  sub      sp, sp, #8                   
+           000f15e8  mov      fp, sp                       
+           000f15ec  str      r0, [fp]                     
+           000f15f0  add      sp, fp, #8                   
+           000f15f4  pop      {r8, fp}                     
+           000f15f8  ldr      r7, [sp, #8]                 
+           000f15fc  ldm      sp, {sp, pc}                 
+
+== BoatAnchorEffect::Stack  token 0x06000360 @0x000f1600 (52 bytes)
+   args: r0=this, second
+           000f1600  mov      ip, sp                       
+           000f1604  push     {r7, lr}                     
+           000f1608  mov      r7, sp                       
+           000f160c  push     {r8, fp, ip, lr}             
+           000f1610  sub      sp, sp, #8                   
+           000f1614  mov      fp, sp                       
+           000f1618  str      r0, [fp]                     
+           000f161c  str      r1, [fp, #4]                 
+           000f1620  mov      r0, #0                       
+           000f1624  add      sp, fp, #8                   
+           000f1628  pop      {r8, fp}                     
+           000f162c  ldr      r7, [sp, #8]                 
+           000f1630  ldm      sp, {sp, pc}                 
+
+== BoatAnchorEffect::GetEffectSnapShot  token 0x06000361 @0x000f1634 (48 bytes)
+   args: r0=this, 
+           000f1634  mov      ip, sp                       
+           000f1638  push     {r7, lr}                     
+           000f163c  mov      r7, sp                       
+           000f1640  push     {r8, fp, ip, lr}             
+           000f1644  sub      sp, sp, #8                   
+           000f1648  mov      fp, sp                       
+           000f164c  str      r0, [fp]                     
+           000f1650  ldr      r0, [fp]                     
+           000f1654  add      sp, fp, #8                   
+           000f1658  pop      {r8, fp}                     
+           000f165c  ldr      r7, [sp, #8]                 
+           000f1660  ldm      sp, {sp, pc}                 
+
+== BoatAnchorEffect::LaunchAnchor  token 0x06000362 @0x000f1664 (636 bytes)
+   args: r0=this, target
+           000f1664  mov      ip, sp                       
+           000f1668  push     {r7, lr}                     
+           000f166c  mov      r7, sp                       
+           000f1670  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000f1674  sub      sp, sp, #0xb0                
+           000f1678  mov      fp, sp                       
+           000f167c  mov      r6, r0                       
+           000f1680  str      r1, [fp, #0xa0]              
+           000f1684  ldr      r0, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f1688  ldr      r1, [pc]                     
+           000f168c  b        #0xf1694                     ; -> L_f1694
+           000f1690  .word    0x00eb3844                   ; literal 15415364 / 
+L_f1694:   000f1694  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f1698  ldr      lr, [r0]                     
+           000f169c  mov      r8, r1                       
+           000f16a0  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f16a4  str      r0, [fp, #0xac]              
+           000f16a8  ldr      r1, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f16ac  mov      r0, r1                       
+           000f16b0  ldr      lr, [r1]                     
+           000f16b4  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f16b8  mov      r2, r0                       
+           000f16bc  add      r0, fp, #0x3c                
+           000f16c0  mov      r1, r2                       
+           000f16c4  ldr      lr, [r2]                     
+           000f16c8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f16cc  ldr      r1, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f16d0  mov      r0, r1                       
+           000f16d4  ldr      lr, [r1]                     
+           000f16d8  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f16dc  mov      r2, r0                       
+           000f16e0  add      r0, fp, #0x48                
+           000f16e4  mov      r1, r2                       
+           000f16e8  ldr      lr, [r2]                     
+           000f16ec  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000f16f0  vldr     s4, [pc]                     ; float 5.0
+           000f16f4  b        #0xf16fc                     ; -> L_f16fc
+           000f16f8  .word    0x40a00000                   ; literal 1084227584 / 5
+L_f16fc:   000f16fc  vcvt.f64.f32 d2, s4                       
+           000f1700  add      r0, fp, #0x54                
+           000f1704  ldr      r1, [fp, #0x48]              
+           000f1708  ldr      r2, [fp, #0x4c]              
+           000f170c  ldr      r3, [fp, #0x50]              
+           000f1710  vcvt.f32.f64 s0, d2                       
+           000f1714  vstr     s0, [sp]                     
+           000f1718  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000f171c  add      r0, fp, #0x60                
+           000f1720  ldr      r1, [fp, #0x3c]              
+           000f1724  ldr      r2, [fp, #0x40]              
+           000f1728  ldr      r3, [fp, #0x44]              
+           000f172c  ldr      ip, [fp, #0x54]              
+           000f1730  str      ip, [sp]                     
+           000f1734  ldr      ip, [fp, #0x58]              
+           000f1738  str      ip, [sp, #4]                 
+           000f173c  ldr      ip, [fp, #0x5c]              
+           000f1740  str      ip, [sp, #8]                 
+           000f1744  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000f1748  add      r0, fp, #0x6c                
+           000f174c  bl       #0x22b3e0                    ; CALL UnityEngine.Vector3::get_up
+           000f1750  vldr     s4, [pc]                     ; float 2.0
+           000f1754  b        #0xf175c                     ; -> L_f175c
+           000f1758  .word    0x40000000                   ; literal 1073741824 / 2
+L_f175c:   000f175c  vcvt.f64.f32 d2, s4                       
+           000f1760  add      r0, fp, #0x78                
+           000f1764  ldr      r1, [fp, #0x6c]              
+           000f1768  ldr      r2, [fp, #0x70]              
+           000f176c  ldr      r3, [fp, #0x74]              
+           000f1770  vcvt.f32.f64 s0, d2                       
+           000f1774  vstr     s0, [sp]                     
+           000f1778  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000f177c  add      r0, fp, #0x84                
+           000f1780  ldr      r1, [fp, #0x60]              
+           000f1784  ldr      r2, [fp, #0x64]              
+           000f1788  ldr      r3, [fp, #0x68]              
+           000f178c  ldr      ip, [fp, #0x78]              
+           000f1790  str      ip, [sp]                     
+           000f1794  ldr      ip, [fp, #0x7c]              
+           000f1798  str      ip, [sp, #4]                 
+           000f179c  ldr      ip, [fp, #0x80]              
+           000f17a0  str      ip, [sp, #8]                 
+           000f17a4  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000f17a8  ldr      r0, [fp, #0xac]              
+           000f17ac  ldr      r0, [r0, #0x24]              ; field+0x24 
+           000f17b0  str      r0, [fp, #0xa8]              
+           000f17b4  ldr      r1, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f17b8  mov      r0, r1                       
+           000f17bc  ldr      lr, [r1]                     
+           000f17c0  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f17c4  mov      r2, r0                       
+           000f17c8  add      r0, fp, #0x90                
+           000f17cc  mov      r1, r2                       
+           000f17d0  ldr      lr, [r2]                     
+           000f17d4  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000f17d8  ldr      r0, [fp, #0xa8]              
+           000f17dc  ldr      r1, [fp, #0x84]              
+           000f17e0  ldr      r2, [fp, #0x88]              
+           000f17e4  ldr      r3, [fp, #0x8c]              
+           000f17e8  ldr      ip, [fp, #0x90]              
+           000f17ec  str      ip, [sp]                     
+           000f17f0  ldr      ip, [fp, #0x94]              
+           000f17f4  str      ip, [sp, #4]                 
+           000f17f8  ldr      ip, [fp, #0x98]              
+           000f17fc  str      ip, [sp, #8]                 
+           000f1800  ldr      ip, [fp, #0x9c]              
+           000f1804  str      ip, [sp, #0xc]               
+           000f1808  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           000f180c  mov      sl, r0                       
+           000f1810  cmp      sl, #0                       
+           000f1814  beq      #0xf1840                     ; -> L_f1840
+           000f1818  ldr      r0, [sl]                     
+           000f181c  ldr      r0, [r0]                     
+           000f1820  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f1824  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f1828  ldr      r1, [pc]                     
+           000f182c  b        #0xf1834                     ; -> L_f1834
+           000f1830  .word    0x00eb3718                   ; literal 15415064 / 
+L_f1834:   000f1834  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           000f1838  cmp      r0, r1                       
+           000f183c  blne     #0xf18d0                     ; THROW System.InvalidCastException (if ne)
+L_f1840:   000f1840  mov      r5, sl                       
+           000f1844  ldr      r0, [pc]                     
+           000f1848  b        #0xf1850                     ; -> L_f1850
+           000f184c  .word    0x00eb3694                   ; literal 15414932 / 
+L_f1850:   000f1850  ldr      r0, [pc, r0]                 ; GOT[97] METHOD_RGCTX UnityEngine.GameObject::GetComponent<RocketAI>
+           000f1854  ldr      lr, [sl]                     
+           000f1858  mov      r8, r0                       
+           000f185c  mov      r0, sl                       
+           000f1860  bl       #0x22b040                    ; CALL UnityEngine.GameObject::GetComponent<RocketAI>
+           000f1864  mov      r4, r0                       
+           000f1868  mov      r1, #0                       
+           000f186c  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000f1870  cmp      r0, #0                       
+           000f1874  beq      #0xf189c                     ; -> L_f189c
+           000f1878  ldr      r0, [pc]                     
+           000f187c  b        #0xf1884                     ; -> L_f1884
+           000f1880  .word    0x00eb3ed8                   ; literal 15417048 / 
+L_f1884:   000f1884  ldr      r0, [pc, r0]                 ; GOT[639] METHOD_RGCTX UnityEngine.GameObject::AddComponent<RocketAI>
+           000f1888  ldr      lr, [r5]                     
+           000f188c  mov      r8, r0                       
+           000f1890  mov      r0, r5                       
+           000f1894  bl       #0x22d010                    ; CALL UnityEngine.GameObject::AddComponent<RocketAI>
+           000f1898  mov      r4, r0                       
+L_f189c:   000f189c  ldr      r0, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f18a0  ldr      lr, [r4]                     
+           000f18a4  str      r0, [r4, #0x14]              ; field+0x14 (this-class: isMultiLevel)
+           000f18a8  mov      r0, r4                       
+           000f18ac  ldr      r1, [fp, #0xa0]              
+           000f18b0  ldr      lr, [r4]                     
+           000f18b4  bl       #0xcc810                     ; CALL RocketAI::SetTarget (direct)
+           000f18b8  mov      r0, #1                       
+           000f18bc  strb     r0, [r4, #0x41]              ; field+0x41 
+           000f18c0  add      sp, fp, #0xb0                
+           000f18c4  pop      {r4, r5, r6, r8, sl, fp}     
+           000f18c8  ldr      r7, [sp, #8]                 
+           000f18cc  ldm      sp, {sp, pc}                 
+           000f18d0  mov      r1, lr                       
+           000f18d4  ldr      r0, [pc]                     
+           000f18d8  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000f18dc  andeq    r0, r0, #0xfd                

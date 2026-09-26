@@ -1,0 +1,675 @@
+####################################################################################################
+# TYPE GuidedJumpEffect  (instance size 0x58)
+#   +0x08 time                           float
+#   +0x0c power                          int
+#   +0x10 effectType                     BaseEffect/EffectTypes
+#   +0x14 isMultiLevel                   bool
+#   +0x18 powerLevel                     int
+#   +0x1c parentObject                   UnityEngine.GameObject
+#   +0x20 jumpCurve                      UnityEngine.AnimationCurve
+#   +0x24 jumpStart                      UnityEngine.Vector3
+#   +0x30 targetPosition                 UnityEngine.Vector3
+#   +0x3c offset                         UnityEngine.Vector3
+#   +0x48 startTime                      float
+#   +0x4c toTarget                       UnityEngine.Vector3
+#   vtable slots: 4:FixedUpdate, 5:GetEffectSnapShot, 6:Stack, 7:Shutdown, 8:Update, 9:Init
+####################################################################################################
+== GuidedJumpEffect::.ctor  token 0x0600037e @0x000f40e8 (692 bytes)
+   args: r0=this, owner, startPos, targetPos, curve
+           000f40e8  mov      ip, sp                       
+           000f40ec  push     {r7, lr}                     
+           000f40f0  mov      r7, sp                       
+           000f40f4  push     {r5, r6, r8, fp, ip, lr}     
+           000f40f8  sub      sp, sp, #0xb0                
+           000f40fc  mov      fp, sp                       
+           000f4100  mov      r5, r0                       
+           000f4104  mov      r6, r1                       
+           000f4108  str      r2, [fp, #0x8c]              
+           000f410c  str      r3, [fp, #0x90]              
+           000f4110  ldr      lr, [sp, #0xd0]              
+           000f4114  str      lr, [fp, #0x94]              
+           000f4118  ldr      lr, [sp, #0xd4]              
+           000f411c  str      lr, [fp, #0x98]              
+           000f4120  ldr      lr, [sp, #0xd8]              
+           000f4124  str      lr, [fp, #0x9c]              
+           000f4128  ldr      lr, [sp, #0xdc]              
+           000f412c  str      lr, [fp, #0xa0]              
+           000f4130  ldr      lr, [sp, #0xe0]              
+           000f4134  str      lr, [fp, #0xa4]              
+           000f4138  mov      r0, #0                       
+           000f413c  str      r0, [fp, #0x10]              
+           000f4140  mov      r0, #0                       
+           000f4144  str      r0, [fp, #0x14]              
+           000f4148  mov      r0, #0                       
+           000f414c  str      r0, [fp, #0x18]              
+           000f4150  mov      r0, #0                       
+           000f4154  str      r0, [fp, #0x20]              
+           000f4158  mov      r0, #0                       
+           000f415c  str      r0, [fp, #0x24]              
+           000f4160  mov      r0, #0                       
+           000f4164  str      r0, [fp, #0x28]              
+           000f4168  mov      r0, #1                       
+           000f416c  str      r0, [r5, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f4170  mov      r0, #4                       
+           000f4174  str      r0, [r5, #0x10]              ; field+0x10 (this-class: effectType)
+           000f4178  str      r6, [r5, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f417c  add      r0, r5, #0x24                
+           000f4180  ldr      r1, [fp, #0x8c]              
+           000f4184  str      r1, [r0]                     
+           000f4188  ldr      r1, [fp, #0x90]              
+           000f418c  str      r1, [r0, #4]                 ; field+0x4 
+           000f4190  ldr      r1, [fp, #0x94]              
+           000f4194  str      r1, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f4198  add      r0, r5, #0x30                
+           000f419c  ldr      r1, [fp, #0x98]              
+           000f41a0  str      r1, [r0]                     
+           000f41a4  ldr      r1, [fp, #0x9c]              
+           000f41a8  str      r1, [r0, #4]                 ; field+0x4 
+           000f41ac  ldr      r1, [fp, #0xa0]              
+           000f41b0  str      r1, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f41b4  mov      r0, r6                       
+           000f41b8  ldr      lr, [r6]                     
+           000f41bc  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f41c0  mov      r2, r0                       
+           000f41c4  add      r0, fp, #0x44                
+           000f41c8  mov      r1, r2                       
+           000f41cc  ldr      lr, [r2]                     
+           000f41d0  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f41d4  add      r0, fp, #0x50                
+           000f41d8  ldr      r1, [fp, #0x44]              
+           000f41dc  ldr      r2, [fp, #0x48]              
+           000f41e0  ldr      r3, [fp, #0x4c]              
+           000f41e4  ldr      ip, [fp, #0x8c]              
+           000f41e8  str      ip, [sp]                     
+           000f41ec  ldr      ip, [fp, #0x90]              
+           000f41f0  str      ip, [sp, #4]                 
+           000f41f4  ldr      ip, [fp, #0x94]              
+           000f41f8  str      ip, [sp, #8]                 
+           000f41fc  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000f4200  add      r0, r5, #0x3c                
+           000f4204  ldr      r1, [fp, #0x50]              
+           000f4208  str      r1, [r0]                     
+           000f420c  ldr      r1, [fp, #0x54]              
+           000f4210  str      r1, [r0, #4]                 ; field+0x4 
+           000f4214  ldr      r1, [fp, #0x58]              
+           000f4218  str      r1, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f421c  ldr      r0, [fp, #0xa4]              
+           000f4220  str      r0, [r5, #0x20]              ; field+0x20 (this-class: jumpCurve)
+           000f4224  ldr      r0, [r5, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4228  ldr      r1, [pc]                     
+           000f422c  b        #0xf4234                     ; -> L_f4234
+           000f4230  .word    0x00eb0cd0                   ; literal 15404240 / 
+L_f4234:   000f4234  ldr      r1, [pc, r1]                 ; GOT[105] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarCollider>
+           000f4238  ldr      lr, [r0]                     
+           000f423c  mov      r8, r1                       
+           000f4240  bl       #0x22b100                    ; CALL UnityEngine.GameObject::GetComponent<CarCollider>
+           000f4244  str      r0, [fp, #0xa8]              
+           000f4248  add      r0, r5, #0x30                
+           000f424c  ldr      r1, [r0]                     
+           000f4250  str      r1, [fp, #0x5c]              
+           000f4254  ldr      r1, [r0, #4]                 ; field+0x4 
+           000f4258  str      r1, [fp, #0x60]              
+           000f425c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f4260  str      r0, [fp, #0x64]              
+           000f4264  mov      r0, r6                       
+           000f4268  ldr      lr, [r6]                     
+           000f426c  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f4270  mov      r2, r0                       
+           000f4274  add      r0, fp, #0x68                
+           000f4278  mov      r1, r2                       
+           000f427c  ldr      lr, [r2]                     
+           000f4280  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f4284  add      r0, fp, #0x10                
+           000f4288  ldr      r1, [fp, #0x5c]              
+           000f428c  ldr      r2, [fp, #0x60]              
+           000f4290  ldr      r3, [fp, #0x64]              
+           000f4294  ldr      ip, [fp, #0x68]              
+           000f4298  str      ip, [sp]                     
+           000f429c  ldr      ip, [fp, #0x6c]              
+           000f42a0  str      ip, [sp, #4]                 
+           000f42a4  ldr      ip, [fp, #0x70]              
+           000f42a8  str      ip, [sp, #8]                 
+           000f42ac  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000f42b0  add      r0, fp, #0x10                
+           000f42b4  bl       #0x22a970                    ; CALL UnityEngine.Vector3::get_magnitude
+           000f42b8  vmov     s4, r0                       
+           000f42bc  vcvt.f64.f32 d2, s4                       
+           000f42c0  ldr      r0, [fp, #0xa8]              
+           000f42c4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: effectType)
+           000f42c8  vldr     s0, [r0, #0x10]              ; field+0x10 (this-class: effectType)
+           000f42cc  vcvt.f64.f32 d3, s0                       
+           000f42d0  vdiv.f64 d2, d2, d3                   
+           000f42d4  vldr     s6, [pc]                     ; float 0.6600000262260437
+           000f42d8  b        #0xf42e0                     ; -> L_f42e0
+           000f42dc  .word    0x3f28f5c3                   ; literal 1059648963 / 0.66
+L_f42e0:   000f42e0  vcvt.f64.f32 d3, s6                       
+           000f42e4  vmul.f64 d2, d2, d3                   
+           000f42e8  vmov.f64 d3, d2                       
+           000f42ec  vmov.f64 d3, d3                       
+           000f42f0  vmov.f64 d2, d3                       
+           000f42f4  vmov.f64 d2, d2                       
+           000f42f8  vmov.f64 d3, d3                       
+           000f42fc  vcvt.f32.f64 s0, d3                       
+           000f4300  vstr     s0, [fp, #0x1c]              
+           000f4304  vcvt.f32.f64 s0, d2                       
+           000f4308  vstr     s0, [r5, #8]                 ; field+0x8 (this-class: time)
+           000f430c  vldr     s0, [fp, #0x1c]              
+           000f4310  vcvt.f64.f32 d2, s0                       
+           000f4314  vcvt.f32.f64 s0, d2                       
+           000f4318  vstr     s0, [r5, #0x48]              ; field+0x48 (this-class: startTime)
+           000f431c  add      r0, r5, #0x30                
+           000f4320  ldr      r1, [r0]                     
+           000f4324  str      r1, [fp, #0x74]              
+           000f4328  ldr      r1, [r0, #4]                 ; field+0x4 
+           000f432c  str      r1, [fp, #0x78]              
+           000f4330  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f4334  str      r0, [fp, #0x7c]              
+           000f4338  add      r0, fp, #0x20                
+           000f433c  ldr      r1, [fp, #0x74]              
+           000f4340  ldr      r2, [fp, #0x78]              
+           000f4344  ldr      r3, [fp, #0x7c]              
+           000f4348  ldr      ip, [fp, #0x8c]              
+           000f434c  str      ip, [sp]                     
+           000f4350  ldr      ip, [fp, #0x90]              
+           000f4354  str      ip, [sp, #4]                 
+           000f4358  ldr      ip, [fp, #0x94]              
+           000f435c  str      ip, [sp, #8]                 
+           000f4360  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000f4364  add      r1, fp, #0x20                
+           000f4368  add      r0, fp, #0x80                
+           000f436c  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           000f4370  add      r0, r5, #0x4c                
+           000f4374  ldr      r1, [fp, #0x80]              
+           000f4378  str      r1, [r0]                     
+           000f437c  ldr      r1, [fp, #0x84]              
+           000f4380  str      r1, [r0, #4]                 ; field+0x4 
+           000f4384  ldr      r1, [fp, #0x88]              
+           000f4388  str      r1, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f438c  add      sp, fp, #0xb0                
+           000f4390  pop      {r5, r6, r8, fp}             
+           000f4394  ldr      r7, [sp, #8]                 
+           000f4398  ldm      sp, {sp, pc}                 
+
+== GuidedJumpEffect::Init  token 0x0600037f @0x000f439c (560 bytes)
+   args: r0=this, 
+           000f439c  mov      ip, sp                       
+           000f43a0  push     {r7, lr}                     
+           000f43a4  mov      r7, sp                       
+           000f43a8  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000f43ac  sub      sp, sp, #0x5c                
+           000f43b0  mov      fp, sp                       
+           000f43b4  mov      sl, r0                       
+           000f43b8  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f43bc  ldr      r1, [pc]                     
+           000f43c0  b        #0xf43c8                     ; -> L_f43c8
+           000f43c4  .word    0x00eb0e00                   ; literal 15404544 / 
+L_f43c8:   000f43c8  ldr      r1, [pc, r1]                 ; GOT[282] METHOD_RGCTX UnityEngine.GameObject::GetComponent<GimpedCarAI>
+           000f43cc  ldr      lr, [r0]                     
+           000f43d0  mov      r8, r1                       
+           000f43d4  bl       #0x22ba10                    ; CALL UnityEngine.GameObject::GetComponent<GimpedCarAI>
+           000f43d8  mov      r1, #0                       
+           000f43dc  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f43e0  cmp      r0, #0                       
+           000f43e4  bne      #0xf45bc                     ; -> L_f45bc
+           000f43e8  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f43ec  ldr      r1, [pc]                     
+           000f43f0  b        #0xf43f8                     ; -> L_f43f8
+           000f43f4  .word    0x00eb0b0c                   ; literal 15403788 / 
+L_f43f8:   000f43f8  ldr      r1, [pc, r1]                 ; GOT[105] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarCollider>
+           000f43fc  ldr      lr, [r0]                     
+           000f4400  mov      r8, r1                       
+           000f4404  bl       #0x22b100                    ; CALL UnityEngine.GameObject::GetComponent<CarCollider>
+           000f4408  mov      r6, r0                       
+           000f440c  mov      r1, #0                       
+           000f4410  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000f4414  cmp      r0, #0                       
+           000f4418  bne      #0xf45bc                     ; -> L_f45bc
+           000f441c  ldr      lr, [r6]                     
+           000f4420  mov      r0, #1                       
+           000f4424  strb     r0, [r6, #0x71]              ; field+0x71 
+           000f4428  ldr      lr, [r6]                     
+           000f442c  ldr      r0, [r6, #0x74]              ; field+0x74 
+           000f4430  add      r0, r0, #1                   
+           000f4434  str      r0, [r6, #0x74]              ; field+0x74 
+           000f4438  mov      r0, #1                       
+           000f443c  strb     r0, [r6, #0x70]              ; field+0x70 
+           000f4440  ldr      lr, [r6]                     
+           000f4444  add      r0, r6, #0x48                
+           000f4448  ldr      r1, [r0]                     
+           000f444c  str      r1, [fp, #0x18]              
+           000f4450  ldr      r1, [r0, #4]                 ; field+0x4 
+           000f4454  str      r1, [fp, #0x1c]              
+           000f4458  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f445c  str      r0, [fp, #0x20]              
+           000f4460  add      r0, fp, #0x24                
+           000f4464  ldr      r1, [fp, #0x18]              
+           000f4468  ldr      r2, [fp, #0x1c]              
+           000f446c  ldr      r3, [fp, #0x20]              
+           000f4470  bl       #0x22b0d0                    ; CALL UnityEngine.Vector3::op_UnaryNegation
+           000f4474  add      r0, sl, #0x4c                
+           000f4478  ldr      r1, [r0]                     
+           000f447c  str      r1, [fp, #0x30]              
+           000f4480  ldr      r1, [r0, #4]                 ; field+0x4 
+           000f4484  str      r1, [fp, #0x34]              
+           000f4488  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f448c  str      r0, [fp, #0x38]              
+           000f4490  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: effectType)
+           000f4494  vldr     s0, [r0, #0x10]              ; field+0x10 (this-class: effectType)
+           000f4498  vcvt.f64.f32 d2, s0                       
+           000f449c  add      r0, fp, #0x3c                
+           000f44a0  ldr      r1, [fp, #0x30]              
+           000f44a4  ldr      r2, [fp, #0x34]              
+           000f44a8  ldr      r3, [fp, #0x38]              
+           000f44ac  vcvt.f32.f64 s0, d2                       
+           000f44b0  vstr     s0, [sp]                     
+           000f44b4  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000f44b8  add      r0, fp, #0x48                
+           000f44bc  ldr      r1, [fp, #0x24]              
+           000f44c0  ldr      r2, [fp, #0x28]              
+           000f44c4  ldr      r3, [fp, #0x2c]              
+           000f44c8  ldr      ip, [fp, #0x3c]              
+           000f44cc  str      ip, [sp]                     
+           000f44d0  ldr      ip, [fp, #0x40]              
+           000f44d4  str      ip, [sp, #4]                 
+           000f44d8  ldr      ip, [fp, #0x44]              
+           000f44dc  str      ip, [sp, #8]                 
+           000f44e0  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000f44e4  mov      r0, r6                       
+           000f44e8  ldr      r1, [fp, #0x48]              
+           000f44ec  ldr      r2, [fp, #0x4c]              
+           000f44f0  ldr      r3, [fp, #0x50]              
+           000f44f4  ldr      lr, [r6]                     
+           000f44f8  bl       #0xde0dc                     ; CALL CarCollider::TransformVelocity (direct)
+           000f44fc  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4500  ldr      r1, [pc]                     
+           000f4504  b        #0xf450c                     ; -> L_f450c
+           000f4508  .word    0x00eb0d18                   ; literal 15404312 / 
+L_f450c:   000f450c  ldr      r1, [pc, r1]                 ; GOT[305] METHOD_RGCTX UnityEngine.GameObject::GetComponent<AnimationDriver>
+           000f4510  ldr      lr, [r0]                     
+           000f4514  mov      r8, r1                       
+           000f4518  bl       #0x22bd50                    ; CALL UnityEngine.GameObject::GetComponent<AnimationDriver>
+           000f451c  mov      r5, r0                       
+           000f4520  mov      r1, #0                       
+           000f4524  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f4528  cmp      r0, #0                       
+           000f452c  beq      #0xf4590                     ; -> L_f4590
+           000f4530  bl       #0x22a870                    ; CALL UnityEngine.Random::get_value
+           000f4534  vmov     s4, r0                       
+           000f4538  vcvt.f64.f32 d2, s4                       
+           000f453c  vcvt.s32.f64 s0, d2                       
+           000f4540  vmov     r0, s0                       
+           000f4544  mov      r1, #2                       
+           000f4548  bl       #0x22b350                    ; CALL [INTERNAL_METHOD] __emul_op_irem
+           000f454c  cmp      r0, #0                       
+           000f4550  bne      #0xf4568                     ; -> L_f4568
+           000f4554  ldr      r6, [pc]                     
+           000f4558  b        #0xf4560                     ; -> L_f4560
+           000f455c  .word    0x00eb0c30                   ; literal 15404080 / 
+L_f4560:   000f4560  ldr      r6, [pc, r6]                 ; GOT[268] LDSTR 'cheering'
+           000f4564  b        #0xf4578                     ; -> L_f4578
+L_f4568:   000f4568  ldr      r6, [pc]                     
+           000f456c  b        #0xf4574                     ; -> L_f4574
+           000f4570  .word    0x00eb0c24                   ; literal 15404068 / 
+L_f4574:   000f4574  ldr      r6, [pc, r6]                 ; GOT[270] LDSTR 'handsUp'
+L_f4578:   000f4578  str      r6, [fp, #0x10]              
+           000f457c  mov      r0, r5                       
+           000f4580  mov      r1, r6                       
+           000f4584  mov      r2, #0                       
+           000f4588  ldr      lr, [r5]                     
+           000f458c  bl       #0x22b970                    ; CALL AnimationDriver::Play
+L_f4590:   000f4590  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4594  bl       #0x22b270                    ; CALL CharacterVOControllerGameObjectExtender::GetVOController
+           000f4598  str      r0, [fp, #0x14]              
+           000f459c  mov      r1, #0                       
+           000f45a0  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f45a4  cmp      r0, #0                       
+           000f45a8  beq      #0xf45bc                     ; -> L_f45bc
+           000f45ac  ldr      r0, [fp, #0x14]              
+           000f45b0  mov      r1, r0                       
+           000f45b4  ldr      lr, [r1]                     
+           000f45b8  bl       #0xecfb4                     ; CALL CharacterVOController::PlayCelebrate (direct)
+L_f45bc:   000f45bc  add      sp, fp, #0x5c                
+           000f45c0  pop      {r5, r6, r8, sl, fp}         
+           000f45c4  ldr      r7, [sp, #8]                 
+           000f45c8  ldm      sp, {sp, pc}                 
+
+== GuidedJumpEffect::Update  token 0x06000380 @0x000f45cc (288 bytes)
+   args: r0=this, 
+           000f45cc  mov      ip, sp                       
+           000f45d0  push     {r7, lr}                     
+           000f45d4  mov      r7, sp                       
+           000f45d8  push     {r8, sl, fp, ip, lr}         
+           000f45dc  sub      sp, sp, #0x54                
+           000f45e0  mov      fp, sp                       
+           000f45e4  mov      sl, r0                       
+           000f45e8  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f45ec  ldr      r1, [pc]                     
+           000f45f0  b        #0xf45f8                     ; -> L_f45f8
+           000f45f4  .word    0x00eb0bd0                   ; literal 15403984 / 
+L_f45f8:   000f45f8  ldr      r1, [pc, r1]                 ; GOT[282] METHOD_RGCTX UnityEngine.GameObject::GetComponent<GimpedCarAI>
+           000f45fc  ldr      lr, [r0]                     
+           000f4600  mov      r8, r1                       
+           000f4604  bl       #0x22ba10                    ; CALL UnityEngine.GameObject::GetComponent<GimpedCarAI>
+           000f4608  mov      r1, #0                       
+           000f460c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f4610  cmp      r0, #0                       
+           000f4614  bne      #0xf46dc                     ; -> L_f46dc
+           000f4618  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f461c  mov      r0, r1                       
+           000f4620  ldr      lr, [r1]                     
+           000f4624  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f4628  str      r0, [fp, #0x48]              
+           000f462c  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4630  mov      r0, r1                       
+           000f4634  ldr      lr, [r1]                     
+           000f4638  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f463c  mov      r2, r0                       
+           000f4640  add      r0, fp, #0x20                
+           000f4644  mov      r1, r2                       
+           000f4648  ldr      lr, [r2]                     
+           000f464c  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000f4650  add      r0, sl, #0x4c                
+           000f4654  ldr      r1, [r0]                     
+           000f4658  str      r1, [fp, #0x2c]              
+           000f465c  ldr      r1, [r0, #4]                 ; field+0x4 
+           000f4660  str      r1, [fp, #0x30]              
+           000f4664  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f4668  str      r0, [fp, #0x34]              
+           000f466c  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000f4670  vmov     s4, r0                       
+           000f4674  vcvt.f64.f32 d2, s4                       
+           000f4678  vldr     s6, [pc]                     ; float 10.0
+           000f467c  b        #0xf4684                     ; -> L_f4684
+           000f4680  .word    0x41200000                   ; literal 1092616192 / 10
+L_f4684:   000f4684  vcvt.f64.f32 d3, s6                       
+           000f4688  vmul.f64 d2, d2, d3                   
+           000f468c  add      r0, fp, #0x38                
+           000f4690  ldr      r1, [fp, #0x20]              
+           000f4694  ldr      r2, [fp, #0x24]              
+           000f4698  ldr      r3, [fp, #0x28]              
+           000f469c  ldr      ip, [fp, #0x2c]              
+           000f46a0  str      ip, [sp]                     
+           000f46a4  ldr      ip, [fp, #0x30]              
+           000f46a8  str      ip, [sp, #4]                 
+           000f46ac  ldr      ip, [fp, #0x34]              
+           000f46b0  str      ip, [sp, #8]                 
+           000f46b4  vcvt.f32.f64 s0, d2                       
+           000f46b8  vstr     s0, [sp, #0xc]               
+           000f46bc  bl       #0x22afa0                    ; CALL UnityEngine.Vector3::Lerp
+           000f46c0  ldr      ip, [fp, #0x48]              
+           000f46c4  mov      r0, ip                       
+           000f46c8  ldr      r1, [fp, #0x38]              
+           000f46cc  ldr      r2, [fp, #0x3c]              
+           000f46d0  ldr      r3, [fp, #0x40]              
+           000f46d4  ldr      lr, [ip]                     
+           000f46d8  bl       #0x22b1e0                    ; CALL UnityEngine.Transform::set_forward
+L_f46dc:   000f46dc  add      sp, fp, #0x54                
+           000f46e0  pop      {r8, sl, fp}                 
+           000f46e4  ldr      r7, [sp, #8]                 
+           000f46e8  ldm      sp, {sp, pc}                 
+
+== GuidedJumpEffect::FixedUpdate  token 0x06000381 @0x000f46ec (616 bytes)
+   args: r0=this, 
+           000f46ec  mov      ip, sp                       
+           000f46f0  push     {r7, lr}                     
+           000f46f4  mov      r7, sp                       
+           000f46f8  push     {r8, sl, fp, ip, lr}         
+           000f46fc  sub      sp, sp, #0xac                
+           000f4700  mov      fp, sp                       
+           000f4704  mov      sl, r0                       
+           000f4708  mov      r0, #0                       
+           000f470c  str      r0, [fp, #0x1c]              
+           000f4710  mov      r0, #0                       
+           000f4714  str      r0, [fp, #0x20]              
+           000f4718  mov      r0, #0                       
+           000f471c  str      r0, [fp, #0x24]              
+           000f4720  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4724  ldr      r1, [pc]                     
+           000f4728  b        #0xf4730                     ; -> L_f4730
+           000f472c  .word    0x00eb0a98                   ; literal 15403672 / 
+L_f4730:   000f4730  ldr      r1, [pc, r1]                 ; GOT[282] METHOD_RGCTX UnityEngine.GameObject::GetComponent<GimpedCarAI>
+           000f4734  ldr      lr, [r0]                     
+           000f4738  mov      r8, r1                       
+           000f473c  bl       #0x22ba10                    ; CALL UnityEngine.GameObject::GetComponent<GimpedCarAI>
+           000f4740  mov      r1, #0                       
+           000f4744  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f4748  cmp      r0, #0                       
+           000f474c  bne      #0xf4944                     ; -> L_f4944
+           000f4750  vldr     s4, [pc]                     ; float 1.0
+           000f4754  b        #0xf475c                     ; -> L_f475c
+           000f4758  .word    0x3f800000                   ; literal 1065353216 / 1
+L_f475c:   000f475c  vcvt.f64.f32 d2, s4                       
+           000f4760  vldr     s0, [sl, #8]                 ; field+0x8 (this-class: time)
+           000f4764  vcvt.f64.f32 d3, s0                       
+           000f4768  vldr     s0, [sl, #0x48]              ; field+0x48 (this-class: startTime)
+           000f476c  vcvt.f64.f32 d4, s0                       
+           000f4770  vdiv.f64 d3, d3, d4                   
+           000f4774  vsub.f64 d2, d2, d3                   
+           000f4778  vcvt.f32.f64 s0, d2                       
+           000f477c  vstr     s0, [fp, #0x18]              
+           000f4780  add      r0, sl, #0x24                
+           000f4784  ldr      r1, [r0]                     
+           000f4788  str      r1, [fp, #0x40]              
+           000f478c  ldr      r1, [r0, #4]                 ; field+0x4 
+           000f4790  str      r1, [fp, #0x44]              
+           000f4794  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f4798  str      r0, [fp, #0x48]              
+           000f479c  add      r0, sl, #0x30                
+           000f47a0  ldr      r1, [r0]                     
+           000f47a4  str      r1, [fp, #0x4c]              
+           000f47a8  ldr      r1, [r0, #4]                 ; field+0x4 
+           000f47ac  str      r1, [fp, #0x50]              
+           000f47b0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f47b4  str      r0, [fp, #0x54]              
+           000f47b8  vldr     s0, [fp, #0x18]              
+           000f47bc  vcvt.f64.f32 d2, s0                       
+           000f47c0  add      r0, fp, #0x58                
+           000f47c4  ldr      r1, [fp, #0x40]              
+           000f47c8  ldr      r2, [fp, #0x44]              
+           000f47cc  ldr      r3, [fp, #0x48]              
+           000f47d0  ldr      ip, [fp, #0x4c]              
+           000f47d4  str      ip, [sp]                     
+           000f47d8  ldr      ip, [fp, #0x50]              
+           000f47dc  str      ip, [sp, #4]                 
+           000f47e0  ldr      ip, [fp, #0x54]              
+           000f47e4  str      ip, [sp, #8]                 
+           000f47e8  vcvt.f32.f64 s0, d2                       
+           000f47ec  vstr     s0, [sp, #0xc]               
+           000f47f0  bl       #0x22afa0                    ; CALL UnityEngine.Vector3::Lerp
+           000f47f4  add      r0, sl, #0x3c                
+           000f47f8  ldr      r1, [r0]                     
+           000f47fc  str      r1, [fp, #0x64]              
+           000f4800  ldr      r1, [r0, #4]                 ; field+0x4 
+           000f4804  str      r1, [fp, #0x68]              
+           000f4808  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f480c  str      r0, [fp, #0x6c]              
+           000f4810  add      r0, fp, #0x1c                
+           000f4814  ldr      r1, [fp, #0x58]              
+           000f4818  ldr      r2, [fp, #0x5c]              
+           000f481c  ldr      r3, [fp, #0x60]              
+           000f4820  ldr      ip, [fp, #0x64]              
+           000f4824  str      ip, [sp]                     
+           000f4828  ldr      ip, [fp, #0x68]              
+           000f482c  str      ip, [sp, #4]                 
+           000f4830  ldr      ip, [fp, #0x6c]              
+           000f4834  str      ip, [sp, #8]                 
+           000f4838  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000f483c  vldr     s0, [fp, #0x20]              
+           000f4840  vcvt.f64.f32 d2, s0                       
+           000f4844  vstr     d2, [fp, #0xa0]              
+           000f4848  ldr      r2, [sl, #0x20]              ; field+0x20 (this-class: jumpCurve)
+           000f484c  vldr     s0, [fp, #0x18]              
+           000f4850  vcvt.f64.f32 d2, s0                       
+           000f4854  mov      r0, r2                       
+           000f4858  vcvt.f32.f64 s0, d2                       
+           000f485c  vstr     s0, [sp, #8]                 
+           000f4860  ldr      r1, [sp, #8]                 
+           000f4864  ldr      lr, [r2]                     
+           000f4868  bl       #0x22baa0                    ; CALL UnityEngine.AnimationCurve::Evaluate
+           000f486c  vmov     s6, r0                       
+           000f4870  vcvt.f64.f32 d3, s6                       
+           000f4874  vldr     d2, [fp, #0xa0]              
+           000f4878  vadd.f64 d2, d2, d3                   
+           000f487c  vcvt.f32.f64 s0, d2                       
+           000f4880  vstr     s0, [fp, #0x20]              
+           000f4884  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4888  mov      r0, r1                       
+           000f488c  ldr      lr, [r1]                     
+           000f4890  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f4894  str      r0, [fp, #0x98]              
+           000f4898  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f489c  mov      r0, r1                       
+           000f48a0  ldr      lr, [r1]                     
+           000f48a4  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f48a8  mov      r2, r0                       
+           000f48ac  add      r0, fp, #0x70                
+           000f48b0  mov      r1, r2                       
+           000f48b4  ldr      lr, [r2]                     
+           000f48b8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f48bc  ldr      r0, [fp, #0x1c]              
+           000f48c0  str      r0, [fp, #0x7c]              
+           000f48c4  ldr      r0, [fp, #0x20]              
+           000f48c8  str      r0, [fp, #0x80]              
+           000f48cc  ldr      r0, [fp, #0x24]              
+           000f48d0  str      r0, [fp, #0x84]              
+           000f48d4  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000f48d8  vmov     s4, r0                       
+           000f48dc  vcvt.f64.f32 d2, s4                       
+           000f48e0  vldr     s6, [pc]                     ; float 3.0
+           000f48e4  b        #0xf48ec                     ; -> L_f48ec
+           000f48e8  .word    0x40400000                   ; literal 1077936128 / 3
+L_f48ec:   000f48ec  vcvt.f64.f32 d3, s6                       
+           000f48f0  vmul.f64 d2, d2, d3                   
+           000f48f4  add      r0, fp, #0x88                
+           000f48f8  ldr      r1, [fp, #0x70]              
+           000f48fc  ldr      r2, [fp, #0x74]              
+           000f4900  ldr      r3, [fp, #0x78]              
+           000f4904  ldr      ip, [fp, #0x7c]              
+           000f4908  str      ip, [sp]                     
+           000f490c  ldr      ip, [fp, #0x80]              
+           000f4910  str      ip, [sp, #4]                 
+           000f4914  ldr      ip, [fp, #0x84]              
+           000f4918  str      ip, [sp, #8]                 
+           000f491c  vcvt.f32.f64 s0, d2                       
+           000f4920  vstr     s0, [sp, #0xc]               
+           000f4924  bl       #0x22afa0                    ; CALL UnityEngine.Vector3::Lerp
+           000f4928  ldr      ip, [fp, #0x98]              
+           000f492c  mov      r0, ip                       
+           000f4930  ldr      r1, [fp, #0x88]              
+           000f4934  ldr      r2, [fp, #0x8c]              
+           000f4938  ldr      r3, [fp, #0x90]              
+           000f493c  ldr      lr, [ip]                     
+           000f4940  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+L_f4944:   000f4944  add      sp, fp, #0xac                
+           000f4948  pop      {r8, sl, fp}                 
+           000f494c  ldr      r7, [sp, #8]                 
+           000f4950  ldm      sp, {sp, pc}                 
+
+== GuidedJumpEffect::Shutdown  token 0x06000382 @0x000f4954 (204 bytes)
+   args: r0=this, 
+           000f4954  mov      ip, sp                       
+           000f4958  push     {r7, lr}                     
+           000f495c  mov      r7, sp                       
+           000f4960  push     {r5, r6, r8, fp, ip, lr}     
+           000f4964  sub      sp, sp, #8                   
+           000f4968  mov      fp, sp                       
+           000f496c  str      r0, [fp, #4]                 
+           000f4970  ldr      r0, [fp, #4]                 
+           000f4974  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4978  ldr      r1, [pc]                     
+           000f497c  b        #0xf4984                     ; -> L_f4984
+           000f4980  .word    0x00eb0580                   ; literal 15402368 / 
+L_f4984:   000f4984  ldr      r1, [pc, r1]                 ; GOT[105] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarCollider>
+           000f4988  ldr      lr, [r0]                     
+           000f498c  mov      r8, r1                       
+           000f4990  bl       #0x22b100                    ; CALL UnityEngine.GameObject::GetComponent<CarCollider>
+           000f4994  mov      r5, r0                       
+           000f4998  mov      r1, #0                       
+           000f499c  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000f49a0  cmp      r0, #0                       
+           000f49a4  bne      #0xf4a10                     ; -> L_f4a10
+           000f49a8  ldr      lr, [r5]                     
+           000f49ac  ldr      r0, [r5, #0x74]              ; field+0x74 
+           000f49b0  sub      r0, r0, #1                   
+           000f49b4  str      r0, [r5, #0x74]              ; field+0x74 
+           000f49b8  mov      r0, #0                       
+           000f49bc  strb     r0, [r5, #0x70]              ; field+0x70 
+           000f49c0  ldr      lr, [r5]                     
+           000f49c4  mov      r0, #0                       
+           000f49c8  strb     r0, [r5, #0x71]              ; field+0x71 
+           000f49cc  ldr      r0, [fp, #4]                 
+           000f49d0  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f49d4  bl       #0x1129f8                    ; CALL RaceManager::IsPlayerCar (direct)
+           000f49d8  cmp      r0, #0                       
+           000f49dc  beq      #0xf4a10                     ; -> L_f4a10
+           000f49e0  ldr      r0, [pc]                     
+           000f49e4  b        #0xf49ec                     ; -> L_f49ec
+           000f49e8  .word    0x00eb0db8                   ; literal 15404472 / 
+L_f49ec:   000f49ec  ldr      r0, [pc, r0]                 ; GOT[657] LDSTR 'Full Screen Jump Effect'
+           000f49f0  bl       #0x22d0b0                    ; CALL UnityEngine.GameObject::Find
+           000f49f4  mov      r6, r0                       
+           000f49f8  mov      r1, #0                       
+           000f49fc  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f4a00  cmp      r0, #0                       
+           000f4a04  beq      #0xf4a10                     ; -> L_f4a10
+           000f4a08  mov      r0, r6                       
+           000f4a0c  bl       #0x22cc70                    ; CALL UnityEngine.Object::DestroyObject
+L_f4a10:   000f4a10  add      sp, fp, #8                   
+           000f4a14  pop      {r5, r6, r8, fp}             
+           000f4a18  ldr      r7, [sp, #8]                 
+           000f4a1c  ldm      sp, {sp, pc}                 
+
+== GuidedJumpEffect::Stack  token 0x06000383 @0x000f4a20 (52 bytes)
+   args: r0=this, second
+           000f4a20  mov      ip, sp                       
+           000f4a24  push     {r7, lr}                     
+           000f4a28  mov      r7, sp                       
+           000f4a2c  push     {r8, fp, ip, lr}             
+           000f4a30  sub      sp, sp, #8                   
+           000f4a34  mov      fp, sp                       
+           000f4a38  str      r0, [fp]                     
+           000f4a3c  str      r1, [fp, #4]                 
+           000f4a40  mov      r0, #0                       
+           000f4a44  add      sp, fp, #8                   
+           000f4a48  pop      {r8, fp}                     
+           000f4a4c  ldr      r7, [sp, #8]                 
+           000f4a50  ldm      sp, {sp, pc}                 
+
+== GuidedJumpEffect::GetEffectSnapShot  token 0x06000384 @0x000f4a54 (144 bytes)
+   args: r0=this, 
+           000f4a54  mov      ip, sp                       
+           000f4a58  push     {r7, lr}                     
+           000f4a5c  mov      r7, sp                       
+           000f4a60  push     {r8, fp, ip, lr}             
+           000f4a64  sub      sp, sp, #0x20                
+           000f4a68  mov      fp, sp                       
+           000f4a6c  str      r0, [fp, #0x14]              
+           000f4a70  ldr      r0, [fp, #0x14]              
+           000f4a74  ldr      r1, [r0, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f4a78  str      r1, [fp, #0x1c]              
+           000f4a7c  add      r0, r0, #0x30                
+           000f4a80  ldr      r1, [r0]                     
+           000f4a84  str      r1, [fp, #8]                 
+           000f4a88  ldr      r1, [r0, #4]                 ; field+0x4 
+           000f4a8c  str      r1, [fp, #0xc]               
+           000f4a90  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f4a94  str      r0, [fp, #0x10]              
+           000f4a98  ldr      r0, [pc]                     
+           000f4a9c  b        #0xf4aa4                     ; -> L_f4aa4
+           000f4aa0  .word    0x00eb0d04                   ; literal 15404292 / 
+L_f4aa4:   000f4aa4  ldr      r0, [pc, r0]                 ; GOT[658] VTABLE TeleportEffect
+           000f4aa8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f4aac  ldr      r1, [fp, #0x1c]              
+           000f4ab0  str      r0, [fp, #0x18]              
+           000f4ab4  ldr      r2, [fp, #8]                 
+           000f4ab8  ldr      r3, [fp, #0xc]               
+           000f4abc  ldr      ip, [fp, #0x10]              
+           000f4ac0  str      ip, [sp]                     
+           000f4ac4  mov      ip, #1                       
+           000f4ac8  str      ip, [sp, #4]                 
+           000f4acc  bl       #0xf8fe4                     ; CALL TeleportEffect::.ctor (direct)
+           000f4ad0  ldr      r0, [fp, #0x18]              
+           000f4ad4  add      sp, fp, #0x20                
+           000f4ad8  pop      {r8, fp}                     
+           000f4adc  ldr      r7, [sp, #8]                 
+           000f4ae0  ldm      sp, {sp, pc}                 

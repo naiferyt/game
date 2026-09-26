@@ -1,0 +1,247 @@
+####################################################################################################
+# TYPE AchievementListener  (instance size 0x34)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 UIName                         LocalizedString
+#   +0x14 description                    LocalizedString
+#   +0x18 rewardDescription              LocalizedString
+#   +0x1c rewardUnlocks                  string[]
+#   +0x20 gcIdentifier                   UnlocalizedString
+#   +0x24 areaType                       AchievementListener/AchievementAreaType
+#   +0x28 rewardCoins                    int
+#   +0x2c categoryFilter                 AchievementListener/AchievementFilterCategory
+#   +0x30 state                          AchievementListener/AchievementState
+#   vtable slots: 4:Reward, 5:Postrace, 6:Prerace, 7:IsAvailable
+####################################################################################################
+== AchievementListener::.ctor  token 0x060000ac @0x000cf738 (52 bytes)
+   args: r0=this, 
+           000cf738  mov      ip, sp                       
+           000cf73c  push     {r7, lr}                     
+           000cf740  mov      r7, sp                       
+           000cf744  push     {r8, fp, ip, lr}             
+           000cf748  sub      sp, sp, #8                   
+           000cf74c  mov      fp, sp                       
+           000cf750  str      r0, [fp]                     
+           000cf754  ldr      r0, [fp]                     
+           000cf758  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000cf75c  add      sp, fp, #8                   
+           000cf760  pop      {r8, fp}                     
+           000cf764  ldr      r7, [sp, #8]                 
+           000cf768  ldm      sp, {sp, pc}                 
+
+== AchievementListener::get_State  token 0x060000ad @0x000cf76c (52 bytes)
+   args: r0=this, 
+           000cf76c  mov      ip, sp                       
+           000cf770  push     {r7, lr}                     
+           000cf774  mov      r7, sp                       
+           000cf778  push     {r8, fp, ip, lr}             
+           000cf77c  sub      sp, sp, #8                   
+           000cf780  mov      fp, sp                       
+           000cf784  str      r0, [fp]                     
+           000cf788  ldr      r0, [fp]                     
+           000cf78c  ldr      r0, [r0, #0x30]              ; field+0x30 (this-class: state)
+           000cf790  add      sp, fp, #8                   
+           000cf794  pop      {r8, fp}                     
+           000cf798  ldr      r7, [sp, #8]                 
+           000cf79c  ldm      sp, {sp, pc}                 
+
+== AchievementListener::IsAvailable  token 0x060000ae : (no native code: abstract/extern)
+
+== AchievementListener::Prerace  token 0x060000af : (no native code: abstract/extern)
+
+== AchievementListener::Postrace  token 0x060000b0 : (no native code: abstract/extern)
+
+== AchievementListener::Reward  token 0x060000b1 : (no native code: abstract/extern)
+
+== AchievementListener::FilterCategory  token 0x060000b2 @0x000cf7a0 (52 bytes)
+   args: r0=this, 
+           000cf7a0  mov      ip, sp                       
+           000cf7a4  push     {r7, lr}                     
+           000cf7a8  mov      r7, sp                       
+           000cf7ac  push     {r8, fp, ip, lr}             
+           000cf7b0  sub      sp, sp, #8                   
+           000cf7b4  mov      fp, sp                       
+           000cf7b8  str      r0, [fp]                     
+           000cf7bc  ldr      r0, [fp]                     
+           000cf7c0  ldr      r0, [r0, #0x2c]              ; field+0x2c (this-class: categoryFilter)
+           000cf7c4  add      sp, fp, #8                   
+           000cf7c8  pop      {r8, fp}                     
+           000cf7cc  ldr      r7, [sp, #8]                 
+           000cf7d0  ldm      sp, {sp, pc}                 
+
+== AchievementListener::Activate  token 0x060000b3 @0x000cf7d4 (56 bytes)
+   args: r0=this, 
+           000cf7d4  mov      ip, sp                       
+           000cf7d8  push     {r7, lr}                     
+           000cf7dc  mov      r7, sp                       
+           000cf7e0  push     {r8, fp, ip, lr}             
+           000cf7e4  sub      sp, sp, #8                   
+           000cf7e8  mov      fp, sp                       
+           000cf7ec  str      r0, [fp]                     
+           000cf7f0  ldr      r0, [fp]                     
+           000cf7f4  mov      r1, #1                       
+           000cf7f8  str      r1, [r0, #0x30]              ; field+0x30 (this-class: state)
+           000cf7fc  add      sp, fp, #8                   
+           000cf800  pop      {r8, fp}                     
+           000cf804  ldr      r7, [sp, #8]                 
+           000cf808  ldm      sp, {sp, pc}                 
+
+== AchievementListener::Achieve  token 0x060000b4 @0x000cf80c (240 bytes)
+   args: r0=this, 
+           000cf80c  mov      ip, sp                       
+           000cf810  push     {r7, lr}                     
+           000cf814  mov      r7, sp                       
+           000cf818  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000cf81c  mov      fp, sp                       
+           000cf820  mov      sl, r0                       
+           000cf824  mov      r0, #2                       
+           000cf828  str      r0, [sl, #0x30]              ; field+0x30 (this-class: state)
+           000cf82c  bl       #0x22b5b0                    ; CALL AchievementManager::get_Instance
+           000cf830  mov      r2, r0                       
+           000cf834  mov      r1, sl                       
+           000cf838  ldr      lr, [r2]                     
+           000cf83c  bl       #0x22b5c0                    ; CALL AchievementManager::Achieve
+           000cf840  mov      r0, sl                       
+           000cf844  ldr      r1, [sl]                     
+           000cf848  mov      lr, pc                       
+           000cf84c  ldr      pc, [r1, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           000cf850  ldr      r0, [sl, #0x28]              ; field+0x28 (this-class: rewardCoins)
+           000cf854  cmp      r0, #0                       
+           000cf858  ble      #0xcf874                     ; -> L_cf874
+           000cf85c  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000cf860  mov      r2, r0                       
+           000cf864  ldr      r1, [sl, #0x28]              ; field+0x28 (this-class: rewardCoins)
+           000cf868  mov      r0, r2                       
+           000cf86c  ldr      lr, [r2]                     
+           000cf870  bl       #0xe7e7c                     ; CALL DataUtility::AddPlayerMoney (direct)
+L_cf874:   000cf874  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: rewardUnlocks)
+           000cf878  cmp      r0, #0                       
+           000cf87c  beq      #0xcf8dc                     ; -> L_cf8dc
+           000cf880  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: rewardUnlocks)
+           000cf884  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000cf888  cmp      r0, #0                       
+           000cf88c  ble      #0xcf8dc                     ; -> L_cf8dc
+           000cf890  ldr      r5, [sl, #0x1c]              ; field+0x1c (this-class: rewardUnlocks)
+           000cf894  mov      r4, #0                       
+           000cf898  b        #0xcf8d0                     ; -> L_cf8d0
+L_cf89c:   000cf89c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000cf8a0  cmp      r0, r4                       
+           000cf8a4  blls     #0xcf8ec                     ; THROW System.IndexOutOfRangeException (if ls)
+           000cf8a8  lsl      r0, r4, #2                   
+           000cf8ac  add      r0, r5, r0                   
+           000cf8b0  add      r0, r0, #0x10                
+           000cf8b4  ldr      r6, [r0]                     
+           000cf8b8  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000cf8bc  mov      r2, r0                       
+           000cf8c0  mov      r1, r6                       
+           000cf8c4  ldr      lr, [r2]                     
+           000cf8c8  bl       #0xe685c                     ; CALL DataUtility::Unlock (direct)
+           000cf8cc  add      r4, r4, #1                   
+L_cf8d0:   000cf8d0  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000cf8d4  cmp      r4, r0                       
+           000cf8d8  blt      #0xcf89c                     ; -> L_cf89c
+L_cf8dc:   000cf8dc  add      sp, fp, #0                   
+           000cf8e0  pop      {r4, r5, r6, r8, sl, fp}     
+           000cf8e4  ldr      r7, [sp, #8]                 
+           000cf8e8  ldm      sp, {sp, pc}                 
+           000cf8ec  mov      r1, lr                       
+           000cf8f0  ldr      r0, [pc]                     
+           000cf8f4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000cf8f8  andeq    r0, r0, #0xf8                
+
+== AchievementListener::Fail  token 0x060000b5 @0x000cf8fc (76 bytes)
+   args: r0=this, 
+           000cf8fc  mov      ip, sp                       
+           000cf900  push     {r7, lr}                     
+           000cf904  mov      r7, sp                       
+           000cf908  push     {r8, fp, ip, lr}             
+           000cf90c  sub      sp, sp, #8                   
+           000cf910  mov      fp, sp                       
+           000cf914  str      r0, [fp]                     
+           000cf918  ldr      r0, [fp]                     
+           000cf91c  mov      r1, #3                       
+           000cf920  str      r1, [r0, #0x30]              ; field+0x30 (this-class: state)
+           000cf924  bl       #0x22b5b0                    ; CALL AchievementManager::get_Instance
+           000cf928  mov      r2, r0                       
+           000cf92c  ldr      r1, [fp]                     
+           000cf930  ldr      lr, [r2]                     
+           000cf934  bl       #0x22b5e0                    ; CALL AchievementManager::Fail
+           000cf938  add      sp, fp, #8                   
+           000cf93c  pop      {r8, fp}                     
+           000cf940  ldr      r7, [sp, #8]                 
+           000cf944  ldm      sp, {sp, pc}                 
+
+== AchievementListener::GetUnlockName  token 0x060000b6 @0x000cf948 (100 bytes)
+   args: r0=this, 
+           000cf948  mov      ip, sp                       
+           000cf94c  push     {r7, lr}                     
+           000cf950  mov      r7, sp                       
+           000cf954  push     {r8, fp, ip, lr}             
+           000cf958  sub      sp, sp, #8                   
+           000cf95c  mov      fp, sp                       
+           000cf960  str      r0, [fp]                     
+           000cf964  ldr      r0, [fp]                     
+           000cf968  ldr      r0, [r0]                     
+           000cf96c  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: UIName)
+           000cf970  mov      r0, r1                       
+           000cf974  ldr      r1, [r1]                     
+           000cf978  mov      lr, pc                       
+           000cf97c  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           000cf980  ldr      r1, [pc]                     
+           000cf984  b        #0xcf98c                     ; -> L_cf98c
+           000cf988  .word    0x00ed5638                   ; literal 15554104 / 
+L_cf98c:   000cf98c  ldr      r1, [pc, r1]                 ; GOT[153] LDSTR ' '
+           000cf990  ldr      r2, [fp]                     
+           000cf994  ldr      r2, [r2, #0x10]              ; field+0x10 (this-class: UIName)
+           000cf998  bl       #0x22b5f0                    ; CALL System.String::Concat
+           000cf99c  add      sp, fp, #8                   
+           000cf9a0  pop      {r8, fp}                     
+           000cf9a4  ldr      r7, [sp, #8]                 
+           000cf9a8  ldm      sp, {sp, pc}                 
+
+== AchievementListener::HasAchieved  token 0x060000b7 @0x000cf9ac (80 bytes)
+   args: r0=this, 
+           000cf9ac  mov      ip, sp                       
+           000cf9b0  push     {r7, lr}                     
+           000cf9b4  mov      r7, sp                       
+           000cf9b8  push     {r8, fp, ip, lr}             
+           000cf9bc  sub      sp, sp, #0x10                
+           000cf9c0  mov      fp, sp                       
+           000cf9c4  str      r0, [fp]                     
+           000cf9c8  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000cf9cc  str      r0, [fp, #8]                 
+           000cf9d0  ldr      r0, [fp]                     
+           000cf9d4  bl       #0x22b600                    ; CALL AchievementListener::GetUnlockName
+           000cf9d8  mov      r1, r0                       
+           000cf9dc  ldr      r2, [fp, #8]                 
+           000cf9e0  mov      r0, r2                       
+           000cf9e4  ldr      lr, [r2]                     
+           000cf9e8  bl       #0xe6794                     ; CALL DataUtility::IsUnlocked (direct)
+           000cf9ec  add      sp, fp, #0x10                
+           000cf9f0  pop      {r8, fp}                     
+           000cf9f4  ldr      r7, [sp, #8]                 
+           000cf9f8  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE AchievementListener/AchievementState  (instance size 0xc)
+#   static AchievementListener/AchievementState UNKNOWN  = const 00000000
+#   static AchievementListener/AchievementState ACTIVE  = const 01000000
+#   static AchievementListener/AchievementState PASS  = const 02000000
+#   static AchievementListener/AchievementState FAIL  = const 03000000
+#   vtable slots: 
+####################################################################################################
+####################################################################################################
+# TYPE AchievementListener/AchievementAreaType  (instance size 0xc)
+#   static AchievementListener/AchievementAreaType IN_RACE  = const 00000000
+#   static AchievementListener/AchievementAreaType FRONT_END  = const 01000000
+#   static AchievementListener/AchievementAreaType ANYWHERE  = const 02000000
+#   vtable slots: 
+####################################################################################################
+####################################################################################################
+# TYPE AchievementListener/AchievementFilterCategory  (instance size 0xc)
+#   static AchievementListener/AchievementFilterCategory UNKNOWN  = const 00000000
+#   static AchievementListener/AchievementFilterCategory TRACKS  = const 01000000
+#   static AchievementListener/AchievementFilterCategory COINS  = const 02000000
+#   static AchievementListener/AchievementFilterCategory POWERUPS  = const 03000000
+#   static AchievementListener/AchievementFilterCategory STUNTS  = const 04000000
+#   vtable slots: 
+####################################################################################################

@@ -1,0 +1,61 @@
+####################################################################################################
+# TYPE BoosterPickup  (instance size 0x1c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 pickupPUPEffectPrefab          UnityEngine.GameObject
+#   +0x14 particles                      UnityEngine.ParticleEmitter[]
+#   +0x18 isPaused                       bool
+#   static int boosterPower  = const 32000000
+#   static float boosterDuration  = const 0000c040
+#   vtable slots: 4:GetTriggeredEffect
+####################################################################################################
+== BoosterPickup::.ctor  token 0x06000446 @0x001005d0 (52 bytes)
+   args: r0=this, 
+           001005d0  mov      ip, sp                       
+           001005d4  push     {r7, lr}                     
+           001005d8  mov      r7, sp                       
+           001005dc  push     {r8, fp, ip, lr}             
+           001005e0  sub      sp, sp, #8                   
+           001005e4  mov      fp, sp                       
+           001005e8  str      r0, [fp]                     
+           001005ec  ldr      r0, [fp]                     
+           001005f0  bl       #0x100088                    ; CALL BasePickup::.ctor (direct)
+           001005f4  add      sp, fp, #8                   
+           001005f8  pop      {r8, fp}                     
+           001005fc  ldr      r7, [sp, #8]                 
+           00100600  ldm      sp, {sp, pc}                 
+
+== BoosterPickup::GetTriggeredEffect  token 0x06000447 @0x00100604 (132 bytes)
+   args: r0=this, obj
+           00100604  mov      ip, sp                       
+           00100608  push     {r7, lr}                     
+           0010060c  mov      r7, sp                       
+           00100610  push     {r8, fp, ip, lr}             
+           00100614  sub      sp, sp, #0x10                
+           00100618  mov      fp, sp                       
+           0010061c  str      r0, [fp]                     
+           00100620  str      r1, [fp, #4]                 
+           00100624  ldr      r0, [pc]                     
+           00100628  b        #0x100630                    ; -> L_100630
+           0010062c  .word    0x00ea4be8                   ; literal 15354856 / 
+L_100630:  00100630  ldr      r0, [pc, r0]                 ; GOT[302] VTABLE BoosterEffect
+           00100634  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00100638  str      r0, [fp, #8]                 
+           0010063c  ldr      r1, [fp, #4]                 
+           00100640  bl       #0xf18e0                     ; CALL BoosterEffect::.ctor (direct)
+           00100644  ldr      r1, [fp, #8]                 
+           00100648  mov      r0, r1                       
+           0010064c  mov      r2, #0x32                    
+           00100650  str      r2, [r1, #0xc]               ; field+0xc 
+           00100654  vldr     s4, [pc]                     ; float 6.0
+           00100658  b        #0x100660                    ; -> L_100660
+           0010065c  .word    0x40c00000                   ; literal 1086324736 / 6
+L_100660:  00100660  vcvt.f64.f32 d2, s4                       
+           00100664  vcvt.f32.f64 s0, d2                       
+           00100668  vstr     s0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010066c  ldr      lr, [r0]                     
+           00100670  mov      r2, #1                       
+           00100674  strb     r2, [r1, #0x14]              ; field+0x14 (this-class: particles)
+           00100678  add      sp, fp, #0x10                
+           0010067c  pop      {r8, fp}                     
+           00100680  ldr      r7, [sp, #8]                 
+           00100684  ldm      sp, {sp, pc}                 

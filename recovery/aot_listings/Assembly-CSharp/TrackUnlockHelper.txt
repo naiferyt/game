@@ -1,0 +1,1368 @@
+####################################################################################################
+# TYPE TrackUnlockHelper  (instance size 0x18)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 circuitList                    TrackUnlockHelper/CircuitTracks[]
+#   +0x14 canPranksgiving                bool
+#   +0x15 debugUnlock                    bool
+#   vtable slots: 
+####################################################################################################
+== TrackUnlockHelper::.ctor  token 0x06000584 @0x00118b04 (52 bytes)
+   args: r0=this, 
+           00118b04  mov      ip, sp                       
+           00118b08  push     {r7, lr}                     
+           00118b0c  mov      r7, sp                       
+           00118b10  push     {r8, fp, ip, lr}             
+           00118b14  sub      sp, sp, #8                   
+           00118b18  mov      fp, sp                       
+           00118b1c  str      r0, [fp]                     
+           00118b20  ldr      r0, [fp]                     
+           00118b24  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00118b28  add      sp, fp, #8                   
+           00118b2c  pop      {r8, fp}                     
+           00118b30  ldr      r7, [sp, #8]                 
+           00118b34  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper::get_DebugUnlock  token 0x06000585 @0x00118b38 (52 bytes)
+   args: r0=this, 
+           00118b38  mov      ip, sp                       
+           00118b3c  push     {r7, lr}                     
+           00118b40  mov      r7, sp                       
+           00118b44  push     {r8, fp, ip, lr}             
+           00118b48  sub      sp, sp, #8                   
+           00118b4c  mov      fp, sp                       
+           00118b50  str      r0, [fp]                     
+           00118b54  ldr      r0, [fp]                     
+           00118b58  ldrb     r0, [r0, #0x15]              ; field+0x15 (this-class: debugUnlock)
+           00118b5c  add      sp, fp, #8                   
+           00118b60  pop      {r8, fp}                     
+           00118b64  ldr      r7, [sp, #8]                 
+           00118b68  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper::set_DebugUnlock  token 0x06000586 @0x00118b6c (76 bytes)
+   args: r0=this, value
+           00118b6c  mov      ip, sp                       
+           00118b70  push     {r7, lr}                     
+           00118b74  mov      r7, sp                       
+           00118b78  push     {r8, sl, fp, ip, lr}         
+           00118b7c  sub      sp, sp, #0xc                 
+           00118b80  mov      fp, sp                       
+           00118b84  mov      sl, r0                       
+           00118b88  strb     r1, [fp]                     
+           00118b8c  ldrb     r0, [fp]                     
+           00118b90  strb     r0, [sl, #0x15]              ; field+0x15 (this-class: debugUnlock)
+           00118b94  and      r0, r0, #0xff                
+           00118b98  cmp      r0, #0                       
+           00118b9c  beq      #0x118ba8                    ; -> L_118ba8
+           00118ba0  mov      r0, sl                       
+           00118ba4  bl       #0x22e120                    ; CALL TrackUnlockHelper::UnlockAllEverything
+L_118ba8:  00118ba8  add      sp, fp, #0xc                 
+           00118bac  pop      {r8, sl, fp}                 
+           00118bb0  ldr      r7, [sp, #8]                 
+           00118bb4  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper::Start  token 0x06000587 @0x00118bb8 (72 bytes)
+   args: r0=this, 
+           00118bb8  mov      ip, sp                       
+           00118bbc  push     {r7, lr}                     
+           00118bc0  mov      r7, sp                       
+           00118bc4  push     {r8, fp, ip, lr}             
+           00118bc8  sub      sp, sp, #8                   
+           00118bcc  mov      fp, sp                       
+           00118bd0  str      r0, [fp]                     
+           00118bd4  ldr      r0, [pc]                     
+           00118bd8  b        #0x118be0                    ; -> L_118be0
+           00118bdc  .word    0x00e8d220                   ; literal 15258144 / 
+L_118be0:  00118be0  ldr      r0, [pc, r0]                 ; GOT[1064] VTABLE TrackUnlockHelper/<Start>c__Iterator49
+           00118be4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00118be8  ldr      r1, [fp]                     
+           00118bec  str      r1, [r0, #0x18]              ; field+0x18 
+           00118bf0  add      sp, fp, #8                   
+           00118bf4  pop      {r8, fp}                     
+           00118bf8  ldr      r7, [sp, #8]                 
+           00118bfc  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper::get_CanPranksgiving  token 0x06000588 @0x00118c00 (52 bytes)
+   args: r0=this, 
+           00118c00  mov      ip, sp                       
+           00118c04  push     {r7, lr}                     
+           00118c08  mov      r7, sp                       
+           00118c0c  push     {r8, fp, ip, lr}             
+           00118c10  sub      sp, sp, #8                   
+           00118c14  mov      fp, sp                       
+           00118c18  str      r0, [fp]                     
+           00118c1c  ldr      r0, [fp]                     
+           00118c20  ldrb     r0, [r0, #0x14]              ; field+0x14 (this-class: canPranksgiving)
+           00118c24  add      sp, fp, #8                   
+           00118c28  pop      {r8, fp}                     
+           00118c2c  ldr      r7, [sp, #8]                 
+           00118c30  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper::GetHasEnoughMedals  token 0x06000589 @0x00118c34 (92 bytes)
+   args: r0=this, circuitName, medals
+           00118c34  mov      ip, sp                       
+           00118c38  push     {r7, lr}                     
+           00118c3c  mov      r7, sp                       
+           00118c40  push     {r8, fp, ip, lr}             
+           00118c44  sub      sp, sp, #0x10                
+           00118c48  mov      fp, sp                       
+           00118c4c  str      r0, [fp]                     
+           00118c50  str      r1, [fp, #4]                 
+           00118c54  str      r2, [fp, #8]                 
+           00118c58  ldr      r0, [fp]                     
+           00118c5c  ldr      r1, [fp, #4]                 
+           00118c60  bl       #0x22e130                    ; CALL TrackUnlockHelper::GetCircuitMedalCount
+           00118c64  ldr      r1, [fp, #8]                 
+           00118c68  cmp      r0, r1                       
+           00118c6c  mov      r0, #0                       
+           00118c70  movlt    r0, #1                       
+           00118c74  cmp      r0, #0                       
+           00118c78  movne    r0, #0                       
+           00118c7c  moveq    r0, #1                       
+           00118c80  add      sp, fp, #0x10                
+           00118c84  pop      {r8, fp}                     
+           00118c88  ldr      r7, [sp, #8]                 
+           00118c8c  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper::GetCircuitMedalCount  token 0x0600058a @0x00118c90 (448 bytes)
+   args: r0=this, circuitName
+           00118c90  mov      ip, sp                       
+           00118c94  push     {r7, lr}                     
+           00118c98  mov      r7, sp                       
+           00118c9c  push     {r4, r5, r6, r8, fp, ip, lr} 
+           00118ca0  sub      sp, sp, #0x2c                
+           00118ca4  mov      fp, sp                       
+           00118ca8  str      r0, [fp, #0x14]              
+           00118cac  str      r1, [fp, #0x18]              
+           00118cb0  ldr      r0, [pc]                     
+           00118cb4  b        #0x118cbc                    ; -> L_118cbc
+           00118cb8  .word    0x00e8d148                   ; literal 15257928 / 
+L_118cbc:  00118cbc  ldr      r0, [pc, r0]                 ; GOT[1065] VTABLE TrackUnlockHelper/<GetCircuitMedalCount>c__AnonStorey98
+           00118cc0  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00118cc4  ldr      r1, [fp, #0x18]              
+           00118cc8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00118ccc  ldr      r1, [fp, #0x14]              
+           00118cd0  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: circuitList)
+           00118cd4  str      r1, [fp, #0x20]              
+           00118cd8  mov      r1, r0                       
+           00118cdc  str      r1, [fp, #0x24]              
+           00118ce0  cmp      r0, #0                       
+           00118ce4  bleq     #0x118e40                    ; THROW System.ArgumentException (if eq)
+           00118ce8  ldr      r0, [pc]                     
+           00118cec  b        #0x118cf4                    ; -> L_118cf4
+           00118cf0  .word    0x00e8d114                   ; literal 15257876 / 
+L_118cf4:  00118cf4  ldr      r0, [pc, r0]                 ; GOT[1066] VTABLE System.Predicate`1<TrackUnlockHelper/CircuitTracks>
+           00118cf8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00118cfc  mov      r1, r0                       
+           00118d00  ldr      r0, [fp, #0x20]              
+           00118d04  ldr      r2, [fp, #0x24]              
+           00118d08  str      r2, [r1, #0x10]              ; field+0x10 (this-class: circuitList)
+           00118d0c  ldr      r2, [pc]                     
+           00118d10  b        #0x118d18                    ; -> L_118d18
+           00118d14  .word    0x00e8d0f4                   ; literal 15257844 / 
+L_118d18:  00118d18  ldr      r2, [pc, r2]                 ; GOT[1067] METHODCONST TrackUnlockHelper/<GetCircuitMedalCount>c__AnonStorey98::<>m__19
+           00118d1c  str      r2, [r1, #0x14]              ; field+0x14 (this-class: canPranksgiving)
+           00118d20  ldr      r2, [pc]                     
+           00118d24  b        #0x118d2c                    ; -> L_118d2c
+           00118d28  .word    0x00e8d0e4                   ; literal 15257828 / 
+L_118d2c:  00118d2c  ldr      r2, [pc, r2]                 ; GOT[1068] DELEGATE_TRAMPOLINE System.Predicate`1<TrackUnlockHelper/CircuitTracks>
+           00118d30  str      r2, [r1, #0xc]               ; field+0xc 
+           00118d34  ldr      r8, [pc]                     
+           00118d38  b        #0x118d40                    ; -> L_118d40
+           00118d3c  .word    0x00e8d0d4                   ; literal 15257812 / 
+L_118d40:  00118d40  ldr      r8, [pc, r8]                 ; GOT[1069] METHOD_RGCTX System.Array::Find<TrackUnlockHelper/CircuitTracks>
+           00118d44  bl       #0x22e140                    ; CALL System.Array::Find<TrackUnlockHelper/CircuitTracks>
+           00118d48  mov      r6, r0                       
+           00118d4c  cmp      r0, #0                       
+           00118d50  bne      #0x118d5c                    ; -> L_118d5c
+           00118d54  mvn      r0, #0                       
+           00118d58  b        #0x118e20                    ; -> L_118e20
+L_118d5c:  00118d5c  mov      r0, #0                       
+           00118d60  str      r0, [fp]                     
+           00118d64  ldr      r0, [r6, #0xc]               ; field+0xc 
+           00118d68  str      r0, [fp, #8]                 
+           00118d6c  mov      r0, #0                       
+           00118d70  str      r0, [fp, #0xc]               
+           00118d74  b        #0x118e08                    ; -> L_118e08
+L_118d78:  00118d78  ldr      r0, [fp, #8]                 
+           00118d7c  ldr      r2, [r0, #0xc]               ; field+0xc 
+           00118d80  ldr      r1, [fp, #0xc]               
+           00118d84  cmp      r2, r1                       
+           00118d88  blls     #0x118e30                    ; THROW System.IndexOutOfRangeException (if ls)
+           00118d8c  lsl      r1, r1, #2                   
+           00118d90  add      r0, r0, r1                   
+           00118d94  add      r0, r0, #0x10                
+           00118d98  ldr      r0, [r0]                     
+           00118d9c  str      r0, [fp, #4]                 
+           00118da0  ldr      r5, [r0, #0xc]               ; field+0xc 
+           00118da4  mov      r4, #0                       
+           00118da8  b        #0x118df0                    ; -> L_118df0
+L_118dac:  00118dac  ldr      r0, [r5, #0xc]               ; field+0xc 
+           00118db0  cmp      r0, r4                       
+           00118db4  blls     #0x118e30                    ; THROW System.IndexOutOfRangeException (if ls)
+           00118db8  lsl      r0, r4, #2                   
+           00118dbc  add      r0, r5, r0                   
+           00118dc0  add      r0, r0, #0x10                
+           00118dc4  ldr      r1, [r0]                     
+           00118dc8  str      r1, [fp, #0x10]              
+           00118dcc  mov      r0, r1                       
+           00118dd0  ldr      lr, [r1]                     
+           00118dd4  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           00118dd8  cmp      r0, #0                       
+           00118ddc  beq      #0x118dec                    ; -> L_118dec
+           00118de0  ldr      r0, [fp]                     
+           00118de4  add      r0, r0, #1                   
+           00118de8  str      r0, [fp]                     
+L_118dec:  00118dec  add      r4, r4, #1                   
+L_118df0:  00118df0  ldr      r0, [r5, #0xc]               ; field+0xc 
+           00118df4  cmp      r4, r0                       
+           00118df8  blt      #0x118dac                    ; -> L_118dac
+           00118dfc  ldr      r0, [fp, #0xc]               
+           00118e00  add      r0, r0, #1                   
+           00118e04  str      r0, [fp, #0xc]               
+L_118e08:  00118e08  ldr      r0, [fp, #8]                 
+           00118e0c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00118e10  ldr      r0, [fp, #0xc]               
+           00118e14  cmp      r0, r1                       
+           00118e18  blt      #0x118d78                    ; -> L_118d78
+           00118e1c  ldr      r0, [fp]                     
+L_118e20:  00118e20  add      sp, fp, #0x2c                
+           00118e24  pop      {r4, r5, r6, r8, fp}         
+           00118e28  ldr      r7, [sp, #8]                 
+           00118e2c  ldm      sp, {sp, pc}                 
+           00118e30  mov      r1, lr                       
+           00118e34  ldr      r0, [pc]                     
+           00118e38  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00118e3c  andeq    r0, r0, #0xf8                
+           00118e40  mov      r1, lr                       
+           00118e44  ldr      r0, [pc]                     
+           00118e48  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00118e4c  andeq    r0, r0, #0x4d                
+
+== TrackUnlockHelper::IsCircuitUnlocked  token 0x0600058b @0x00118e50 (332 bytes)
+   args: r0=this, circuitName
+           00118e50  mov      ip, sp                       
+           00118e54  push     {r7, lr}                     
+           00118e58  mov      r7, sp                       
+           00118e5c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00118e60  sub      sp, sp, #0x18                
+           00118e64  mov      fp, sp                       
+           00118e68  str      r0, [fp, #0x10]              
+           00118e6c  str      r1, [fp, #0x14]              
+           00118e70  ldr      r0, [fp, #0x10]              
+           00118e74  ldr      r1, [fp, #0x14]              
+           00118e78  bl       #0x22e150                    ; CALL TrackUnlockHelper::CheckForPreraceSetupUnlock
+           00118e7c  mov      r5, #0                       
+           00118e80  ldr      r0, [fp, #0x10]              
+           00118e84  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: circuitList)
+           00118e88  str      r0, [fp, #4]                 
+           00118e8c  mov      r0, #0                       
+           00118e90  str      r0, [fp, #8]                 
+           00118e94  b        #0x118f64                    ; -> L_118f64
+L_118e98:  00118e98  ldr      r0, [fp, #4]                 
+           00118e9c  ldr      r2, [r0, #0xc]               ; field+0xc 
+           00118ea0  ldr      r1, [fp, #8]                 
+           00118ea4  cmp      r2, r1                       
+           00118ea8  blls     #0x118f8c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00118eac  lsl      r1, r1, #2                   
+           00118eb0  add      r0, r0, r1                   
+           00118eb4  add      r0, r0, #0x10                
+           00118eb8  ldr      r0, [r0]                     
+           00118ebc  str      r0, [fp]                     
+           00118ec0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00118ec4  ldr      r1, [fp, #0x14]              
+           00118ec8  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           00118ecc  cmp      r0, #0                       
+           00118ed0  beq      #0x118f58                    ; -> L_118f58
+           00118ed4  ldr      r0, [fp]                     
+           00118ed8  ldr      sl, [r0, #0xc]               ; field+0xc 
+           00118edc  mov      r6, #0                       
+           00118ee0  b        #0x118f3c                    ; -> L_118f3c
+L_118ee4:  00118ee4  ldr      r0, [sl, #0xc]               ; field+0xc 
+           00118ee8  cmp      r0, r6                       
+           00118eec  blls     #0x118f8c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00118ef0  lsl      r0, r6, #2                   
+           00118ef4  add      r0, sl, r0                   
+           00118ef8  add      r0, r0, #0x10                
+           00118efc  ldr      r0, [r0]                     
+           00118f00  str      r0, [fp, #0xc]               
+           00118f04  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00118f08  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: canPranksgiving)
+           00118f0c  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00118f10  ldr      r0, [fp, #0x10]              
+           00118f14  bl       #0x22e160                    ; CALL TrackUnlockHelper::GetHighestTrackPlace
+           00118f18  mov      r4, r0                       
+           00118f1c  cmp      r0, #2                       
+           00118f20  bgt      #0x118f2c                    ; -> L_118f2c
+           00118f24  cmp      r4, #0                       
+           00118f28  bge      #0x118f34                    ; -> L_118f34
+L_118f2c:  00118f2c  mov      r0, #0                       
+           00118f30  b        #0x118f7c                    ; -> L_118f7c
+L_118f34:  00118f34  add      r5, r5, #1                   
+           00118f38  add      r6, r6, #1                   
+L_118f3c:  00118f3c  ldr      r0, [sl, #0xc]               ; field+0xc 
+           00118f40  cmp      r6, r0                       
+           00118f44  blt      #0x118ee4                    ; -> L_118ee4
+           00118f48  cmp      r5, #3                       
+           00118f4c  blt      #0x118f58                    ; -> L_118f58
+           00118f50  mov      r0, #1                       
+           00118f54  b        #0x118f7c                    ; -> L_118f7c
+L_118f58:  00118f58  ldr      r0, [fp, #8]                 
+           00118f5c  add      r0, r0, #1                   
+           00118f60  str      r0, [fp, #8]                 
+L_118f64:  00118f64  ldr      r0, [fp, #4]                 
+           00118f68  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00118f6c  ldr      r0, [fp, #8]                 
+           00118f70  cmp      r0, r1                       
+           00118f74  blt      #0x118e98                    ; -> L_118e98
+           00118f78  mov      r0, #0                       
+L_118f7c:  00118f7c  add      sp, fp, #0x18                
+           00118f80  pop      {r4, r5, r6, r8, sl, fp}     
+           00118f84  ldr      r7, [sp, #8]                 
+           00118f88  ldm      sp, {sp, pc}                 
+           00118f8c  mov      r1, lr                       
+           00118f90  ldr      r0, [pc]                     
+           00118f94  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00118f98  andeq    r0, r0, #0xf8                
+
+== TrackUnlockHelper::CheckForPreraceSetupUnlock  token 0x0600058c @0x00118f9c (336 bytes)
+   args: r0=this, circuitName
+           00118f9c  mov      ip, sp                       
+           00118fa0  push     {r7, lr}                     
+           00118fa4  mov      r7, sp                       
+           00118fa8  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00118fac  sub      sp, sp, #0x20                
+           00118fb0  mov      fp, sp                       
+           00118fb4  str      r0, [fp, #0x10]              
+           00118fb8  str      r1, [fp, #0x14]              
+           00118fbc  mov      r4, #0                       
+           00118fc0  ldr      r0, [fp, #0x10]              
+           00118fc4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: circuitList)
+           00118fc8  str      r0, [fp, #4]                 
+           00118fcc  mov      r5, #0                       
+           00118fd0  b        #0x119074                    ; -> L_119074
+L_118fd4:  00118fd4  ldr      r0, [fp, #4]                 
+           00118fd8  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00118fdc  cmp      r1, r5                       
+           00118fe0  blls     #0x1190dc                    ; THROW System.IndexOutOfRangeException (if ls)
+           00118fe4  lsl      r1, r5, #2                   
+           00118fe8  add      r0, r0, r1                   
+           00118fec  add      r0, r0, #0x10                
+           00118ff0  ldr      r0, [r0]                     
+           00118ff4  str      r0, [fp]                     
+           00118ff8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00118ffc  ldr      r1, [fp, #0x14]              
+           00119000  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           00119004  cmp      r0, #0                       
+           00119008  beq      #0x119070                    ; -> L_119070
+           0011900c  ldr      r0, [fp]                     
+           00119010  ldr      sl, [r0, #0xc]               ; field+0xc 
+           00119014  mov      r6, #0                       
+           00119018  b        #0x119064                    ; -> L_119064
+L_11901c:  0011901c  ldr      r0, [sl, #0xc]               ; field+0xc 
+           00119020  cmp      r0, r6                       
+           00119024  blls     #0x1190dc                    ; THROW System.IndexOutOfRangeException (if ls)
+           00119028  lsl      r0, r6, #2                   
+           0011902c  add      r0, sl, r0                   
+           00119030  add      r0, r0, #0x10                
+           00119034  ldr      r0, [r0]                     
+           00119038  str      r0, [fp, #8]                 
+           0011903c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00119040  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: canPranksgiving)
+           00119044  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00119048  ldr      r0, [fp, #0x10]              
+           0011904c  bl       #0x22e160                    ; CALL TrackUnlockHelper::GetHighestTrackPlace
+           00119050  str      r0, [fp, #0xc]               
+           00119054  cmp      r0, #0                       
+           00119058  bne      #0x119060                    ; -> L_119060
+           0011905c  add      r4, r4, #1                   
+L_119060:  00119060  add      r6, r6, #1                   
+L_119064:  00119064  ldr      r0, [sl, #0xc]               ; field+0xc 
+           00119068  cmp      r6, r0                       
+           0011906c  blt      #0x11901c                    ; -> L_11901c
+L_119070:  00119070  add      r5, r5, #1                   
+L_119074:  00119074  ldr      r0, [fp, #4]                 
+           00119078  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0011907c  cmp      r5, r0                       
+           00119080  blt      #0x118fd4                    ; -> L_118fd4
+           00119084  cmp      r4, #3                       
+           00119088  bne      #0x1190c8                    ; -> L_1190c8
+           0011908c  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00119090  str      r0, [fp, #0x18]              
+           00119094  ldr      r1, [pc]                     
+           00119098  b        #0x1190a0                    ; -> L_1190a0
+           0011909c  .word    0x00e8cd78                   ; literal 15256952 / 
+L_1190a0:  001190a0  ldr      r1, [pc, r1]                 ; GOT[1070] LDSTR ' Prerace Setup'
+           001190a4  ldr      r0, [fp, #0x14]              
+           001190a8  bl       #0x22adc0                    ; CALL System.String::Concat
+           001190ac  mov      r1, r0                       
+           001190b0  ldr      r2, [fp, #0x18]              
+           001190b4  mov      r0, r2                       
+           001190b8  ldr      lr, [r2]                     
+           001190bc  bl       #0xe685c                     ; CALL DataUtility::Unlock (direct)
+           001190c0  mov      r0, #1                       
+           001190c4  b        #0x1190cc                    ; -> L_1190cc
+L_1190c8:  001190c8  mov      r0, #0                       
+L_1190cc:  001190cc  add      sp, fp, #0x20                
+           001190d0  pop      {r4, r5, r6, r8, sl, fp}     
+           001190d4  ldr      r7, [sp, #8]                 
+           001190d8  ldm      sp, {sp, pc}                 
+           001190dc  mov      r1, lr                       
+           001190e0  ldr      r0, [pc]                     
+           001190e4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           001190e8  andeq    r0, r0, #0xf8                
+
+== TrackUnlockHelper::UnlockAllEverything  token 0x0600058d @0x001190ec (336 bytes)
+   args: r0=this, 
+           001190ec  mov      ip, sp                       
+           001190f0  push     {r7, lr}                     
+           001190f4  mov      r7, sp                       
+           001190f8  push     {r4, r5, r6, r8, fp, ip, lr} 
+           001190fc  sub      sp, sp, #0x24                
+           00119100  mov      fp, sp                       
+           00119104  str      r0, [fp, #0x14]              
+           00119108  ldr      r0, [fp, #0x14]              
+           0011910c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: circuitList)
+           00119110  str      r0, [fp, #8]                 
+           00119114  mov      r0, #0                       
+           00119118  str      r0, [fp, #0xc]               
+           0011911c  b        #0x119208                    ; -> L_119208
+L_119120:  00119120  ldr      r0, [fp, #8]                 
+           00119124  ldr      r2, [r0, #0xc]               ; field+0xc 
+           00119128  ldr      r1, [fp, #0xc]               
+           0011912c  cmp      r2, r1                       
+           00119130  blls     #0x11922c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00119134  lsl      r1, r1, #2                   
+           00119138  add      r0, r0, r1                   
+           0011913c  add      r0, r0, #0x10                
+           00119140  ldr      r6, [r0]                     
+           00119144  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00119148  str      r0, [fp, #0x18]              
+           0011914c  ldr      r0, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00119150  ldr      r1, [pc]                     
+           00119154  b        #0x11915c                    ; -> L_11915c
+           00119158  .word    0x00e8ccbc                   ; literal 15256764 / 
+L_11915c:  0011915c  ldr      r1, [pc, r1]                 ; GOT[1070] LDSTR ' Prerace Setup'
+           00119160  bl       #0x22adc0                    ; CALL System.String::Concat
+           00119164  mov      r1, r0                       
+           00119168  ldr      r2, [fp, #0x18]              
+           0011916c  mov      r0, r2                       
+           00119170  ldr      lr, [r2]                     
+           00119174  bl       #0xe685c                     ; CALL DataUtility::Unlock (direct)
+           00119178  ldr      r0, [r6, #0xc]               ; field+0xc 
+           0011917c  str      r0, [fp, #0x10]              
+           00119180  mov      r4, #0                       
+           00119184  b        #0x1191ec                    ; -> L_1191ec
+L_119188:  00119188  ldr      r0, [fp, #0x10]              
+           0011918c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00119190  cmp      r1, r4                       
+           00119194  blls     #0x11922c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00119198  lsl      r1, r4, #2                   
+           0011919c  add      r0, r0, r1                   
+           001191a0  add      r0, r0, #0x10                
+           001191a4  ldr      r5, [r0]                     
+           001191a8  ldr      r0, [pc]                     
+           001191ac  b        #0x1191b4                    ; -> L_1191b4
+           001191b0  .word    0x00e8cc68                   ; literal 15256680 / 
+L_1191b4:  001191b4  ldr      r0, [pc, r0]                 ; GOT[1071] LDSTR 'Highest Place '
+           001191b8  ldr      r1, [r5, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001191bc  ldr      r1, [r1, #0x14]              ; field+0x14 (this-class: canPranksgiving)
+           001191c0  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001191c4  bl       #0x22adc0                    ; CALL System.String::Concat
+           001191c8  vldr     s4, [pc]                     ; float 0.0
+           001191cc  b        #0x1191d4                    ; -> L_1191d4
+           001191d0  .word    0x00000000                   ; literal 0 / 0
+L_1191d4:  001191d4  vcvt.f64.f32 d2, s4                       
+           001191d8  vcvt.f32.f64 s0, d2                       
+           001191dc  vstr     s0, [sp, #-8]                
+           001191e0  ldr      r1, [sp, #-8]                
+           001191e4  bl       #0x22e170                    ; CALL LifetimeMetrics::SetMetric
+           001191e8  add      r4, r4, #1                   
+L_1191ec:  001191ec  ldr      r0, [fp, #0x10]              
+           001191f0  ldr      r0, [r0, #0xc]               ; field+0xc 
+           001191f4  cmp      r4, r0                       
+           001191f8  blt      #0x119188                    ; -> L_119188
+           001191fc  ldr      r0, [fp, #0xc]               
+           00119200  add      r0, r0, #1                   
+           00119204  str      r0, [fp, #0xc]               
+L_119208:  00119208  ldr      r0, [fp, #8]                 
+           0011920c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00119210  ldr      r0, [fp, #0xc]               
+           00119214  cmp      r0, r1                       
+           00119218  blt      #0x119120                    ; -> L_119120
+           0011921c  add      sp, fp, #0x24                
+           00119220  pop      {r4, r5, r6, r8, fp}         
+           00119224  ldr      r7, [sp, #8]                 
+           00119228  ldm      sp, {sp, pc}                 
+           0011922c  mov      r1, lr                       
+           00119230  ldr      r0, [pc]                     
+           00119234  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00119238  andeq    r0, r0, #0xf8                
+
+== TrackUnlockHelper::RelockEverything  token 0x0600058e @0x0011923c (336 bytes)
+   args: r0=this, 
+           0011923c  mov      ip, sp                       
+           00119240  push     {r7, lr}                     
+           00119244  mov      r7, sp                       
+           00119248  push     {r4, r5, r6, r8, fp, ip, lr} 
+           0011924c  sub      sp, sp, #0x24                
+           00119250  mov      fp, sp                       
+           00119254  str      r0, [fp, #0x14]              
+           00119258  ldr      r0, [fp, #0x14]              
+           0011925c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: circuitList)
+           00119260  str      r0, [fp, #8]                 
+           00119264  mov      r0, #0                       
+           00119268  str      r0, [fp, #0xc]               
+           0011926c  b        #0x119358                    ; -> L_119358
+L_119270:  00119270  ldr      r0, [fp, #8]                 
+           00119274  ldr      r2, [r0, #0xc]               ; field+0xc 
+           00119278  ldr      r1, [fp, #0xc]               
+           0011927c  cmp      r2, r1                       
+           00119280  blls     #0x11937c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00119284  lsl      r1, r1, #2                   
+           00119288  add      r0, r0, r1                   
+           0011928c  add      r0, r0, #0x10                
+           00119290  ldr      r6, [r0]                     
+           00119294  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00119298  str      r0, [fp, #0x18]              
+           0011929c  ldr      r0, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001192a0  ldr      r1, [pc]                     
+           001192a4  b        #0x1192ac                    ; -> L_1192ac
+           001192a8  .word    0x00e8cb6c                   ; literal 15256428 / 
+L_1192ac:  001192ac  ldr      r1, [pc, r1]                 ; GOT[1070] LDSTR ' Prerace Setup'
+           001192b0  bl       #0x22adc0                    ; CALL System.String::Concat
+           001192b4  mov      r1, r0                       
+           001192b8  ldr      r2, [fp, #0x18]              
+           001192bc  mov      r0, r2                       
+           001192c0  ldr      lr, [r2]                     
+           001192c4  bl       #0xe6934                     ; CALL DataUtility::Relock (direct)
+           001192c8  ldr      r0, [r6, #0xc]               ; field+0xc 
+           001192cc  str      r0, [fp, #0x10]              
+           001192d0  mov      r4, #0                       
+           001192d4  b        #0x11933c                    ; -> L_11933c
+L_1192d8:  001192d8  ldr      r0, [fp, #0x10]              
+           001192dc  ldr      r1, [r0, #0xc]               ; field+0xc 
+           001192e0  cmp      r1, r4                       
+           001192e4  blls     #0x11937c                    ; THROW System.IndexOutOfRangeException (if ls)
+           001192e8  lsl      r1, r4, #2                   
+           001192ec  add      r0, r0, r1                   
+           001192f0  add      r0, r0, #0x10                
+           001192f4  ldr      r5, [r0]                     
+           001192f8  ldr      r0, [pc]                     
+           001192fc  b        #0x119304                    ; -> L_119304
+           00119300  .word    0x00e8cb18                   ; literal 15256344 / 
+L_119304:  00119304  ldr      r0, [pc, r0]                 ; GOT[1071] LDSTR 'Highest Place '
+           00119308  ldr      r1, [r5, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0011930c  ldr      r1, [r1, #0x14]              ; field+0x14 (this-class: canPranksgiving)
+           00119310  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00119314  bl       #0x22adc0                    ; CALL System.String::Concat
+           00119318  vldr     s4, [pc]                     ; float -1.0
+           0011931c  b        #0x119324                    ; -> L_119324
+           00119320  .word    0xbf800000                   ; literal -1082130432 / -1
+L_119324:  00119324  vcvt.f64.f32 d2, s4                       
+           00119328  vcvt.f32.f64 s0, d2                       
+           0011932c  vstr     s0, [sp, #-8]                
+           00119330  ldr      r1, [sp, #-8]                
+           00119334  bl       #0x22e170                    ; CALL LifetimeMetrics::SetMetric
+           00119338  add      r4, r4, #1                   
+L_11933c:  0011933c  ldr      r0, [fp, #0x10]              
+           00119340  ldr      r0, [r0, #0xc]               ; field+0xc 
+           00119344  cmp      r4, r0                       
+           00119348  blt      #0x1192d8                    ; -> L_1192d8
+           0011934c  ldr      r0, [fp, #0xc]               
+           00119350  add      r0, r0, #1                   
+           00119354  str      r0, [fp, #0xc]               
+L_119358:  00119358  ldr      r0, [fp, #8]                 
+           0011935c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00119360  ldr      r0, [fp, #0xc]               
+           00119364  cmp      r0, r1                       
+           00119368  blt      #0x119270                    ; -> L_119270
+           0011936c  add      sp, fp, #0x24                
+           00119370  pop      {r4, r5, r6, r8, fp}         
+           00119374  ldr      r7, [sp, #8]                 
+           00119378  ldm      sp, {sp, pc}                 
+           0011937c  mov      r1, lr                       
+           00119380  ldr      r0, [pc]                     
+           00119384  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00119388  andeq    r0, r0, #0xf8                
+
+== TrackUnlockHelper::GetHighestTrackPlace  token 0x0600058f @0x0011938c (396 bytes)
+   args: r0=this, trackName
+           0011938c  mov      ip, sp                       
+           00119390  push     {r7, lr}                     
+           00119394  mov      r7, sp                       
+           00119398  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0011939c  sub      sp, sp, #0x20                
+           001193a0  mov      fp, sp                       
+           001193a4  str      r0, [fp, #0xc]               
+           001193a8  str      r1, [fp, #0x10]              
+           001193ac  ldr      r0, [fp, #0xc]               
+           001193b0  ldr      r5, [r0, #0x10]              ; field+0x10 (this-class: circuitList)
+           001193b4  mov      r6, #0                       
+           001193b8  b        #0x1194e8                    ; -> L_1194e8
+L_1193bc:  001193bc  ldr      r0, [r5, #0xc]               ; field+0xc 
+           001193c0  cmp      r0, r6                       
+           001193c4  blls     #0x119508                    ; THROW System.IndexOutOfRangeException (if ls)
+           001193c8  lsl      r0, r6, #2                   
+           001193cc  add      r0, r5, r0                   
+           001193d0  add      r0, r0, #0x10                
+           001193d4  ldr      r0, [r0]                     
+           001193d8  str      r0, [fp]                     
+           001193dc  ldr      sl, [r0, #0xc]               ; field+0xc 
+           001193e0  mov      r4, #0                       
+           001193e4  b        #0x1194d8                    ; -> L_1194d8
+L_1193e8:  001193e8  ldr      r0, [sl, #0xc]               ; field+0xc 
+           001193ec  cmp      r0, r4                       
+           001193f0  blls     #0x119508                    ; THROW System.IndexOutOfRangeException (if ls)
+           001193f4  lsl      r0, r4, #2                   
+           001193f8  add      r0, sl, r0                   
+           001193fc  add      r0, r0, #0x10                
+           00119400  ldr      r0, [r0]                     
+           00119404  str      r0, [fp, #4]                 
+           00119408  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0011940c  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: canPranksgiving)
+           00119410  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00119414  ldr      r1, [fp, #0x10]              
+           00119418  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           0011941c  cmp      r0, #0                       
+           00119420  beq      #0x1194d4                    ; -> L_1194d4
+           00119424  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00119428  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: canPranksgiving)
+           0011942c  str      r0, [fp, #0x18]              
+           00119430  ldr      r0, [pc]                     
+           00119434  b        #0x11943c                    ; -> L_11943c
+           00119438  .word    0x00e8c9e0                   ; literal 15256032 / 
+L_11943c:  0011943c  ldr      r0, [pc, r0]                 ; GOT[1071] LDSTR 'Highest Place '
+           00119440  ldr      r1, [fp, #0x10]              
+           00119444  bl       #0x22adc0                    ; CALL System.String::Concat
+           00119448  mov      r1, r0                       
+           0011944c  ldr      r2, [fp, #0x18]              
+           00119450  mov      r0, r2                       
+           00119454  ldr      lr, [r2]                     
+           00119458  bl       #0x22b780                    ; CALL LifetimeMetrics::get_Item
+           0011945c  vmov     s4, r0                       
+           00119460  vcvt.f64.f32 d2, s4                       
+           00119464  vcvt.f32.f64 s0, d2                       
+           00119468  vstr     s0, [fp, #8]                 
+           0011946c  vldr     s0, [fp, #8]                 
+           00119470  vcvt.f64.f32 d2, s0                       
+           00119474  vldr     s6, [pc]                     ; float nan
+           00119478  b        #0x119480                    ; -> L_119480
+           0011947c  .word    0xffc00000                   ; literal -4194304 / 
+L_119480:  00119480  vcvt.f64.f32 d3, s6                       
+           00119484  vcmp.f64 d2, d3                       
+           00119488  vmrs     apsr_nzcv, fpscr             
+           0011948c  beq      #0x1194cc                    ; -> L_1194cc
+           00119490  vldr     s0, [fp, #8]                 
+           00119494  vcvt.f64.f32 d3, s0                       
+           00119498  vldr     s4, [pc]                     ; float -1.0
+           0011949c  b        #0x1194a4                    ; -> L_1194a4
+           001194a0  .word    0xbf800000                   ; literal -1082130432 / -1
+L_1194a4:  001194a4  vcvt.f64.f32 d2, s4                       
+           001194a8  vcmp.f64 d2, d3                       
+           001194ac  vmrs     apsr_nzcv, fpscr             
+           001194b0  bvs      #0x1194cc                    ; -> L_1194cc
+           001194b4  bge      #0x1194cc                    ; -> L_1194cc
+           001194b8  vldr     s0, [fp, #8]                 
+           001194bc  vcvt.f64.f32 d2, s0                       
+           001194c0  vcvt.s32.f64 s0, d2                       
+           001194c4  vmov     r0, s0                       
+           001194c8  b        #0x1194f8                    ; -> L_1194f8
+L_1194cc:  001194cc  mvn      r0, #0                       
+           001194d0  b        #0x1194f8                    ; -> L_1194f8
+L_1194d4:  001194d4  add      r4, r4, #1                   
+L_1194d8:  001194d8  ldr      r0, [sl, #0xc]               ; field+0xc 
+           001194dc  cmp      r4, r0                       
+           001194e0  blt      #0x1193e8                    ; -> L_1193e8
+           001194e4  add      r6, r6, #1                   
+L_1194e8:  001194e8  ldr      r0, [r5, #0xc]               ; field+0xc 
+           001194ec  cmp      r6, r0                       
+           001194f0  blt      #0x1193bc                    ; -> L_1193bc
+           001194f4  mvn      r0, #0                       
+L_1194f8:  001194f8  add      sp, fp, #0x20                
+           001194fc  pop      {r4, r5, r6, r8, sl, fp}     
+           00119500  ldr      r7, [sp, #8]                 
+           00119504  ldm      sp, {sp, pc}                 
+           00119508  mov      r1, lr                       
+           0011950c  ldr      r0, [pc]                     
+           00119510  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00119514  andeq    r0, r0, #0xf8                
+
+== TrackUnlockHelper::TestForUltraHard  token 0x06000590 @0x00119518 (188 bytes)
+   args: r0=this, 
+           00119518  mov      ip, sp                       
+           0011951c  push     {r7, lr}                     
+           00119520  mov      r7, sp                       
+           00119524  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00119528  sub      sp, sp, #8                   
+           0011952c  mov      fp, sp                       
+           00119530  mov      sl, r0                       
+           00119534  mov      r0, #0                       
+           00119538  str      r0, [fp]                     
+           0011953c  ldr      r4, [sl, #0x10]              ; field+0x10 (this-class: circuitList)
+           00119540  mov      r5, #0                       
+           00119544  b        #0x119588                    ; -> L_119588
+L_119548:  00119548  ldr      r0, [r4, #0xc]               ; field+0xc 
+           0011954c  cmp      r0, r5                       
+           00119550  blls     #0x1195c4                    ; THROW System.IndexOutOfRangeException (if ls)
+           00119554  lsl      r0, r5, #2                   
+           00119558  add      r0, r4, r0                   
+           0011955c  add      r0, r0, #0x10                
+           00119560  ldr      r6, [r0]                     
+           00119564  ldr      r1, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00119568  mov      r0, sl                       
+           0011956c  bl       #0x22e150                    ; CALL TrackUnlockHelper::CheckForPreraceSetupUnlock
+           00119570  cmp      r0, #0                       
+           00119574  beq      #0x119584                    ; -> L_119584
+           00119578  ldr      r0, [fp]                     
+           0011957c  add      r0, r0, #1                   
+           00119580  str      r0, [fp]                     
+L_119584:  00119584  add      r5, r5, #1                   
+L_119588:  00119588  ldr      r0, [r4, #0xc]               ; field+0xc 
+           0011958c  cmp      r5, r0                       
+           00119590  blt      #0x119548                    ; -> L_119548
+           00119594  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: circuitList)
+           00119598  ldr      r1, [r0, #0xc]               ; field+0xc 
+           0011959c  ldr      r0, [fp]                     
+           001195a0  cmp      r0, r1                       
+           001195a4  blt      #0x1195b0                    ; -> L_1195b0
+           001195a8  mov      r0, #1                       
+           001195ac  b        #0x1195b4                    ; -> L_1195b4
+L_1195b0:  001195b0  mov      r0, #0                       
+L_1195b4:  001195b4  add      sp, fp, #8                   
+           001195b8  pop      {r4, r5, r6, r8, sl, fp}     
+           001195bc  ldr      r7, [sp, #8]                 
+           001195c0  ldm      sp, {sp, pc}                 
+           001195c4  mov      r1, lr                       
+           001195c8  ldr      r0, [pc]                     
+           001195cc  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           001195d0  andeq    r0, r0, #0xf8                
+
+== TrackUnlockHelper::GetTrackMedalCount  token 0x06000591 @0x001195d4 (420 bytes)
+   args: r0=this, trackName
+           001195d4  mov      ip, sp                       
+           001195d8  push     {r7, lr}                     
+           001195dc  mov      r7, sp                       
+           001195e0  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           001195e4  sub      sp, sp, #0x28                
+           001195e8  mov      fp, sp                       
+           001195ec  str      r0, [fp, #0x14]              
+           001195f0  str      r1, [fp, #0x18]              
+           001195f4  ldr      r0, [pc]                     
+           001195f8  b        #0x119600                    ; -> L_119600
+           001195fc  .word    0x00e8c820                   ; literal 15255584 / 
+L_119600:  00119600  ldr      r0, [pc, r0]                 ; GOT[1072] VTABLE TrackUnlockHelper/<GetTrackMedalCount>c__AnonStorey99
+           00119604  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00119608  str      r0, [fp, #0x10]              
+           0011960c  ldr      r1, [fp, #0x18]              
+           00119610  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00119614  ldr      r0, [fp, #0x14]              
+           00119618  ldr      sl, [r0, #0x10]              ; field+0x10 (this-class: circuitList)
+           0011961c  mov      r4, #0                       
+           00119620  b        #0x119738                    ; -> L_119738
+L_119624:  00119624  ldr      r0, [sl, #0xc]               ; field+0xc 
+           00119628  cmp      r0, r4                       
+           0011962c  blls     #0x119758                    ; THROW System.IndexOutOfRangeException (if ls)
+           00119630  lsl      r0, r4, #2                   
+           00119634  add      r0, sl, r0                   
+           00119638  add      r0, r0, #0x10                
+           0011963c  ldr      r0, [r0]                     
+           00119640  str      r0, [fp]                     
+           00119644  ldr      r0, [r0, #0xc]               ; field+0xc 
+           00119648  str      r0, [fp, #0x20]              
+           0011964c  ldr      r0, [fp, #0x10]              
+           00119650  cmp      r0, #0                       
+           00119654  bleq     #0x119768                    ; THROW System.ArgumentException (if eq)
+           00119658  ldr      r0, [pc]                     
+           0011965c  b        #0x119664                    ; -> L_119664
+           00119660  .word    0x00e8c7c0                   ; literal 15255488 / 
+L_119664:  00119664  ldr      r0, [pc, r0]                 ; GOT[1073] VTABLE System.Predicate`1<TrackUnlockHelper/TrackMedals>
+           00119668  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0011966c  mov      r1, r0                       
+           00119670  ldr      r0, [fp, #0x20]              
+           00119674  ldr      r2, [fp, #0x10]              
+           00119678  str      r2, [r1, #0x10]              ; field+0x10 (this-class: circuitList)
+           0011967c  ldr      r2, [pc]                     
+           00119680  b        #0x119688                    ; -> L_119688
+           00119684  .word    0x00e8c7a0                   ; literal 15255456 / 
+L_119688:  00119688  ldr      r2, [pc, r2]                 ; GOT[1074] METHODCONST TrackUnlockHelper/<GetTrackMedalCount>c__AnonStorey99::<>m__1A
+           0011968c  str      r2, [r1, #0x14]              ; field+0x14 (this-class: canPranksgiving)
+           00119690  ldr      r2, [pc]                     
+           00119694  b        #0x11969c                    ; -> L_11969c
+           00119698  .word    0x00e8c790                   ; literal 15255440 / 
+L_11969c:  0011969c  ldr      r2, [pc, r2]                 ; GOT[1075] DELEGATE_TRAMPOLINE System.Predicate`1<TrackUnlockHelper/TrackMedals>
+           001196a0  str      r2, [r1, #0xc]               ; field+0xc 
+           001196a4  ldr      r8, [pc]                     
+           001196a8  b        #0x1196b0                    ; -> L_1196b0
+           001196ac  .word    0x00e8c780                   ; literal 15255424 / 
+L_1196b0:  001196b0  ldr      r8, [pc, r8]                 ; GOT[1076] METHOD_RGCTX System.Array::Find<TrackUnlockHelper/TrackMedals>
+           001196b4  bl       #0x22e180                    ; CALL System.Array::Find<TrackUnlockHelper/TrackMedals>
+           001196b8  str      r0, [fp, #4]                 
+           001196bc  cmp      r0, #0                       
+           001196c0  beq      #0x119734                    ; -> L_119734
+           001196c4  mov      r0, #0                       
+           001196c8  str      r0, [fp, #8]                 
+           001196cc  ldr      r0, [fp, #4]                 
+           001196d0  ldr      r5, [r0, #0xc]               ; field+0xc 
+           001196d4  mov      r6, #0                       
+           001196d8  b        #0x119720                    ; -> L_119720
+L_1196dc:  001196dc  ldr      r0, [r5, #0xc]               ; field+0xc 
+           001196e0  cmp      r0, r6                       
+           001196e4  blls     #0x119758                    ; THROW System.IndexOutOfRangeException (if ls)
+           001196e8  lsl      r0, r6, #2                   
+           001196ec  add      r0, r5, r0                   
+           001196f0  add      r0, r0, #0x10                
+           001196f4  ldr      r1, [r0]                     
+           001196f8  str      r1, [fp, #0xc]               
+           001196fc  mov      r0, r1                       
+           00119700  ldr      lr, [r1]                     
+           00119704  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           00119708  cmp      r0, #0                       
+           0011970c  beq      #0x11971c                    ; -> L_11971c
+           00119710  ldr      r0, [fp, #8]                 
+           00119714  add      r0, r0, #1                   
+           00119718  str      r0, [fp, #8]                 
+L_11971c:  0011971c  add      r6, r6, #1                   
+L_119720:  00119720  ldr      r0, [r5, #0xc]               ; field+0xc 
+           00119724  cmp      r6, r0                       
+           00119728  blt      #0x1196dc                    ; -> L_1196dc
+           0011972c  ldr      r0, [fp, #8]                 
+           00119730  b        #0x119748                    ; -> L_119748
+L_119734:  00119734  add      r4, r4, #1                   
+L_119738:  00119738  ldr      r0, [sl, #0xc]               ; field+0xc 
+           0011973c  cmp      r4, r0                       
+           00119740  blt      #0x119624                    ; -> L_119624
+           00119744  mvn      r0, #0                       
+L_119748:  00119748  add      sp, fp, #0x28                
+           0011974c  pop      {r4, r5, r6, r8, sl, fp}     
+           00119750  ldr      r7, [sp, #8]                 
+           00119754  ldm      sp, {sp, pc}                 
+           00119758  mov      r1, lr                       
+           0011975c  ldr      r0, [pc]                     
+           00119760  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00119764  andeq    r0, r0, #0xf8                
+           00119768  mov      r1, lr                       
+           0011976c  ldr      r0, [pc]                     
+           00119770  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00119774  andeq    r0, r0, #0x4d                
+
+== TrackUnlockHelper::GetCircuitTracks  token 0x06000592 @0x00119778 (372 bytes)
+   args: r0=this, circuitName
+           00119778  mov      ip, sp                       
+           0011977c  push     {r7, lr}                     
+           00119780  mov      r7, sp                       
+           00119784  push     {r4, r5, r6, r8, fp, ip, lr} 
+           00119788  sub      sp, sp, #0x14                
+           0011978c  mov      fp, sp                       
+           00119790  mov      r6, r0                       
+           00119794  str      r1, [fp]                     
+           00119798  ldr      r0, [pc]                     
+           0011979c  b        #0x1197a4                    ; -> L_1197a4
+           001197a0  .word    0x00e8c690                   ; literal 15255184 / 
+L_1197a4:  001197a4  ldr      r0, [pc, r0]                 ; GOT[1077] VTABLE TrackUnlockHelper/<GetCircuitTracks>c__AnonStorey9A
+           001197a8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           001197ac  ldr      r1, [fp]                     
+           001197b0  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001197b4  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: circuitList)
+           001197b8  str      r1, [fp, #8]                 
+           001197bc  mov      r1, r0                       
+           001197c0  str      r1, [fp, #0xc]               
+           001197c4  cmp      r0, #0                       
+           001197c8  bleq     #0x1198dc                    ; THROW System.ArgumentException (if eq)
+           001197cc  ldr      r0, [pc]                     
+           001197d0  b        #0x1197d8                    ; -> L_1197d8
+           001197d4  .word    0x00e8c630                   ; literal 15255088 / 
+L_1197d8:  001197d8  ldr      r0, [pc, r0]                 ; GOT[1066] VTABLE System.Predicate`1<TrackUnlockHelper/CircuitTracks>
+           001197dc  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           001197e0  mov      r1, r0                       
+           001197e4  ldr      r0, [fp, #8]                 
+           001197e8  ldr      r2, [fp, #0xc]               
+           001197ec  str      r2, [r1, #0x10]              ; field+0x10 (this-class: circuitList)
+           001197f0  ldr      r2, [pc]                     
+           001197f4  b        #0x1197fc                    ; -> L_1197fc
+           001197f8  .word    0x00e8c63c                   ; literal 15255100 / 
+L_1197fc:  001197fc  ldr      r2, [pc, r2]                 ; GOT[1078] METHODCONST TrackUnlockHelper/<GetCircuitTracks>c__AnonStorey9A::<>m__1B
+           00119800  str      r2, [r1, #0x14]              ; field+0x14 (this-class: canPranksgiving)
+           00119804  ldr      r2, [pc]                     
+           00119808  b        #0x119810                    ; -> L_119810
+           0011980c  .word    0x00e8c600                   ; literal 15255040 / 
+L_119810:  00119810  ldr      r2, [pc, r2]                 ; GOT[1068] DELEGATE_TRAMPOLINE System.Predicate`1<TrackUnlockHelper/CircuitTracks>
+           00119814  str      r2, [r1, #0xc]               ; field+0xc 
+           00119818  ldr      r8, [pc]                     
+           0011981c  b        #0x119824                    ; -> L_119824
+           00119820  .word    0x00e8c5f0                   ; literal 15255024 / 
+L_119824:  00119824  ldr      r8, [pc, r8]                 ; GOT[1069] METHOD_RGCTX System.Array::Find<TrackUnlockHelper/CircuitTracks>
+           00119828  bl       #0x22e140                    ; CALL System.Array::Find<TrackUnlockHelper/CircuitTracks>
+           0011982c  mov      r6, r0                       
+           00119830  cmp      r0, #0                       
+           00119834  bne      #0x119840                    ; -> L_119840
+           00119838  mov      r0, #0                       
+           0011983c  b        #0x1198bc                    ; -> L_1198bc
+L_119840:  00119840  ldr      r0, [r6, #0xc]               ; field+0xc 
+           00119844  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00119848  ldr      r0, [pc]                     
+           0011984c  b        #0x119854                    ; -> L_119854
+           00119850  .word    0x00e8c474                   ; literal 15254644 / 
+L_119854:  00119854  ldr      r0, [pc, r0]                 ; GOT[986] VTABLE UnityEngine.GameObject[]
+           00119858  bl       #0x22a7c0                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           0011985c  mov      r5, r0                       
+           00119860  mov      r4, #0                       
+           00119864  b        #0x1198ac                    ; -> L_1198ac
+L_119868:  00119868  ldr      r0, [r6, #0xc]               ; field+0xc 
+           0011986c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00119870  cmp      r1, r4                       
+           00119874  blls     #0x1198cc                    ; THROW System.IndexOutOfRangeException (if ls)
+           00119878  lsl      r1, r4, #2                   
+           0011987c  add      r0, r0, r1                   
+           00119880  add      r0, r0, #0x10                
+           00119884  ldr      r0, [r0]                     
+           00119888  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0011988c  mov      r0, r1                       
+           00119890  ldr      lr, [r1]                     
+           00119894  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00119898  mov      r2, r0                       
+           0011989c  mov      r0, r5                       
+           001198a0  mov      r1, r4                       
+           001198a4  bl       #0x22a7f0                    ; CALL wrapper stelemref
+           001198a8  add      r4, r4, #1                   
+L_1198ac:  001198ac  ldr      r0, [r5, #0xc]               ; field+0xc 
+           001198b0  cmp      r4, r0                       
+           001198b4  blt      #0x119868                    ; -> L_119868
+           001198b8  mov      r0, r5                       
+L_1198bc:  001198bc  add      sp, fp, #0x14                
+           001198c0  pop      {r4, r5, r6, r8, fp}         
+           001198c4  ldr      r7, [sp, #8]                 
+           001198c8  ldm      sp, {sp, pc}                 
+           001198cc  mov      r1, lr                       
+           001198d0  ldr      r0, [pc]                     
+           001198d4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           001198d8  andeq    r0, r0, #0xf8                
+           001198dc  mov      r1, lr                       
+           001198e0  ldr      r0, [pc]                     
+           001198e4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           001198e8  andeq    r0, r0, #0x4d                
+
+####################################################################################################
+# TYPE TrackUnlockHelper/TrackMedals  (instance size 0x10)
+#   +0x08 track                          RaceSettings
+#   +0x0c achievementList                AchievementListener[]
+#   vtable slots: 
+####################################################################################################
+== TrackUnlockHelper/TrackMedals::.ctor  token 0x06000593 @0x001198ec (44 bytes)
+   args: r0=this, 
+           001198ec  mov      ip, sp                       
+           001198f0  push     {r7, lr}                     
+           001198f4  mov      r7, sp                       
+           001198f8  push     {r8, fp, ip, lr}             
+           001198fc  sub      sp, sp, #8                   
+           00119900  mov      fp, sp                       
+           00119904  str      r0, [fp]                     
+           00119908  add      sp, fp, #8                   
+           0011990c  pop      {r8, fp}                     
+           00119910  ldr      r7, [sp, #8]                 
+           00119914  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE TrackUnlockHelper/CircuitTracks  (instance size 0x10)
+#   +0x08 circuitName                    string
+#   +0x0c trackList                      TrackUnlockHelper/TrackMedals[]
+#   vtable slots: 
+####################################################################################################
+== TrackUnlockHelper/CircuitTracks::.ctor  token 0x06000594 @0x00119918 (44 bytes)
+   args: r0=this, 
+           00119918  mov      ip, sp                       
+           0011991c  push     {r7, lr}                     
+           00119920  mov      r7, sp                       
+           00119924  push     {r8, fp, ip, lr}             
+           00119928  sub      sp, sp, #8                   
+           0011992c  mov      fp, sp                       
+           00119930  str      r0, [fp]                     
+           00119934  add      sp, fp, #8                   
+           00119938  pop      {r8, fp}                     
+           0011993c  ldr      r7, [sp, #8]                 
+           00119940  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE TrackUnlockHelper/<Start>c__Iterator49  (instance size 0x20)
+#   +0x08 <payload>__0                   UnityEngine.WWW
+#   +0x0c <data>__1                      System.Collections.Hashtable
+#   +0x10 <flag>__2                      string
+#   +0x14 $current                       object
+#   +0x18 <>f__this                      TrackUnlockHelper
+#   +0x1c $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== TrackUnlockHelper/<Start>c__Iterator49::.ctor  token 0x06000987 @0x00150840 (44 bytes)
+   args: r0=this, 
+           00150840  mov      ip, sp                       
+           00150844  push     {r7, lr}                     
+           00150848  mov      r7, sp                       
+           0015084c  push     {r8, fp, ip, lr}             
+           00150850  sub      sp, sp, #8                   
+           00150854  mov      fp, sp                       
+           00150858  str      r0, [fp]                     
+           0015085c  add      sp, fp, #8                   
+           00150860  pop      {r8, fp}                     
+           00150864  ldr      r7, [sp, #8]                 
+           00150868  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper/<Start>c__Iterator49::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x06000988 @0x0015086c (52 bytes)
+   args: r0=this, 
+           0015086c  mov      ip, sp                       
+           00150870  push     {r7, lr}                     
+           00150874  mov      r7, sp                       
+           00150878  push     {r8, fp, ip, lr}             
+           0015087c  sub      sp, sp, #8                   
+           00150880  mov      fp, sp                       
+           00150884  str      r0, [fp]                     
+           00150888  ldr      r0, [fp]                     
+           0015088c  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: $current)
+           00150890  add      sp, fp, #8                   
+           00150894  pop      {r8, fp}                     
+           00150898  ldr      r7, [sp, #8]                 
+           0015089c  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper/<Start>c__Iterator49::System.Collections.IEnumerator.get_Current  token 0x06000989 @0x001508a0 (52 bytes)
+   args: r0=this, 
+           001508a0  mov      ip, sp                       
+           001508a4  push     {r7, lr}                     
+           001508a8  mov      r7, sp                       
+           001508ac  push     {r8, fp, ip, lr}             
+           001508b0  sub      sp, sp, #8                   
+           001508b4  mov      fp, sp                       
+           001508b8  str      r0, [fp]                     
+           001508bc  ldr      r0, [fp]                     
+           001508c0  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: $current)
+           001508c4  add      sp, fp, #8                   
+           001508c8  pop      {r8, fp}                     
+           001508cc  ldr      r7, [sp, #8]                 
+           001508d0  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper/<Start>c__Iterator49::MoveNext  token 0x0600098a @0x001508d4 (664 bytes)
+   args: r0=this, 
+           001508d4  mov      ip, sp                       
+           001508d8  push     {r7, lr}                     
+           001508dc  mov      r7, sp                       
+           001508e0  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           001508e4  sub      sp, sp, #8                   
+           001508e8  mov      fp, sp                       
+           001508ec  mov      sl, r0                       
+           001508f0  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: $PC)
+           001508f4  mvn      r1, #0                       
+           001508f8  str      r1, [sl, #0x1c]              ; field+0x1c (this-class: $PC)
+           001508fc  mov      r6, r0                       
+           00150900  cmp      r0, #2                       
+           00150904  bhs      #0x150b50                    ; -> L_150b50
+           00150908  lsl      r1, r6, #2                   
+           0015090c  ldr      r0, [pc]                     
+           00150910  b        #0x150918                    ; -> L_150918
+           00150914  .word    0x00e5615c                   ; literal 15032668 / 
+L_150918:  00150918  ldr      r0, [pc, r0]                 ; GOT[1861] SWITCH switch table[2]
+           0015091c  add      r0, r0, r1                   
+           00150920  ldr      r0, [r0]                     
+           00150924  mov      pc, r0                       
+           00150928  ldr      r0, [pc]                     
+           0015092c  b        #0x150934                    ; -> L_150934
+           00150930  .word    0x00e56144                   ; literal 15032644 / 
+L_150934:  00150934  ldr      r0, [pc, r0]                 ; GOT[1862] LDSTR 'http://datg-apps.com/ss/pranksgiving.txt'
+           00150938  str      r0, [fp, #4]                 
+           0015093c  ldr      r0, [pc]                     
+           00150940  b        #0x150948                    ; -> L_150948
+           00150944  .word    0x00e5604c                   ; literal 15032396 / 
+L_150948:  00150948  ldr      r0, [pc, r0]                 ; GOT[1805] VTABLE UnityEngine.WWW
+           0015094c  bl       #0x22c380                    ; CALL [INTERNAL_METHOD] mono_object_new_specific
+           00150950  ldr      r1, [fp, #4]                 
+           00150954  str      r0, [fp]                     
+           00150958  bl       #0x22f6a0                    ; CALL UnityEngine.WWW::.ctor
+           0015095c  ldr      r0, [fp]                     
+           00150960  str      r0, [sl, #8]                 ; field+0x8 (this-class: <payload>__0)
+           00150964  str      r0, [sl, #0x14]              ; field+0x14 (this-class: $current)
+           00150968  mov      r0, #1                       
+           0015096c  str      r0, [sl, #0x1c]              ; field+0x1c (this-class: $PC)
+           00150970  b        #0x150b58                    ; -> L_150b58
+           00150974  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: <payload>__0)
+           00150978  mov      r0, r1                       
+           0015097c  ldr      lr, [r1]                     
+           00150980  bl       #0x22f6b0                    ; CALL UnityEngine.WWW::get_error
+           00150984  cmp      r0, #0                       
+           00150988  beq      #0x1509e0                    ; -> L_1509e0
+           0015098c  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: <payload>__0)
+           00150990  mov      r0, r1                       
+           00150994  ldr      lr, [r1]                     
+           00150998  bl       #0x22f6b0                    ; CALL UnityEngine.WWW::get_error
+           0015099c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: <payload>__0)
+           001509a0  cmp      r0, #0                       
+           001509a4  ble      #0x1509e0                    ; -> L_1509e0
+           001509a8  ldr      r0, [pc]                     
+           001509ac  b        #0x1509b4                    ; -> L_1509b4
+           001509b0  .word    0x00e560c8                   ; literal 15032520 / 
+L_1509b4:  001509b4  ldr      r0, [pc, r0]                 ; GOT[1863] LDSTR 'Could not load from '
+           001509b8  str      r0, [fp]                     
+           001509bc  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: <payload>__0)
+           001509c0  mov      r0, r1                       
+           001509c4  ldr      lr, [r1]                     
+           001509c8  bl       #0x22f850                    ; CALL UnityEngine.WWW::get_url
+           001509cc  mov      r1, r0                       
+           001509d0  ldr      r0, [fp]                     
+           001509d4  bl       #0x22adc0                    ; CALL System.String::Concat
+           001509d8  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           001509dc  b        #0x150b48                    ; -> L_150b48
+L_1509e0:  001509e0  mov      r6, sl                       
+           001509e4  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: <payload>__0)
+           001509e8  mov      r0, r1                       
+           001509ec  ldr      lr, [r1]                     
+           001509f0  bl       #0x22f860                    ; CALL UnityEngine.WWW::get_text
+           001509f4  bl       #0x22c180                    ; CALL MiniJSON::jsonDecode
+           001509f8  mov      r5, r0                       
+           001509fc  mov      r4, r5                       
+           00150a00  cmp      r5, #0                       
+           00150a04  beq      #0x150a34                    ; -> L_150a34
+           00150a08  ldr      r0, [r5]                     
+           00150a0c  ldr      r0, [r0]                     
+           00150a10  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: <payload>__0)
+           00150a14  ldr      r0, [r0, #4]                 ; field+0x4 
+           00150a18  ldr      r1, [pc]                     
+           00150a1c  b        #0x150a24                    ; -> L_150a24
+           00150a20  .word    0x00e54924                   ; literal 15026468 / 
+L_150a24:  00150a24  ldr      r1, [pc, r1]                 ; GOT[378] CLASS System.Collections.Hashtable
+           00150a28  cmp      r0, r1                       
+           00150a2c  beq      #0x150a34                    ; -> L_150a34
+           00150a30  mov      r4, #0                       
+L_150a34:  00150a34  str      r4, [r6, #0xc]               ; field+0xc (this-class: <data>__1)
+           00150a38  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <data>__1)
+           00150a3c  cmp      r0, #0                       
+           00150a40  beq      #0x150b48                    ; -> L_150b48
+           00150a44  ldr      r2, [sl, #0xc]               ; field+0xc (this-class: <data>__1)
+           00150a48  ldr      r1, [pc]                     
+           00150a4c  b        #0x150a54                    ; -> L_150a54
+           00150a50  .word    0x00e5602c                   ; literal 15032364 / 
+L_150a54:  00150a54  ldr      r1, [pc, r1]                 ; GOT[1864] LDSTR 'Pranksgiving'
+           00150a58  mov      r0, r2                       
+           00150a5c  ldr      r2, [r2]                     
+           00150a60  mov      lr, pc                       
+           00150a64  ldr      pc, [r2, #0x94]              ; VIRTUAL CALL slot +0x94: System.Enum::System.IConvertible.ToUInt32
+           00150a68  cmp      r0, #0                       
+           00150a6c  beq      #0x150b48                    ; -> L_150b48
+           00150a70  mov      r6, sl                       
+           00150a74  ldr      r2, [sl, #0xc]               ; field+0xc (this-class: <data>__1)
+           00150a78  ldr      r1, [pc]                     
+           00150a7c  b        #0x150a84                    ; -> L_150a84
+           00150a80  .word    0x00e55ffc                   ; literal 15032316 / 
+L_150a84:  00150a84  ldr      r1, [pc, r1]                 ; GOT[1864] LDSTR 'Pranksgiving'
+           00150a88  mov      r0, r2                       
+           00150a8c  ldr      r2, [r2]                     
+           00150a90  mov      lr, pc                       
+           00150a94  ldr      pc, [r2, #0xb4]              ; VIRTUAL CALL slot +0xb4: System.Enum::System.IConvertible.ToDouble
+           00150a98  mov      r4, r0                       
+           00150a9c  mov      r5, r4                       
+           00150aa0  cmp      r4, #0                       
+           00150aa4  beq      #0x150ad4                    ; -> L_150ad4
+           00150aa8  ldr      r0, [r4]                     
+           00150aac  ldr      r0, [r0]                     
+           00150ab0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: <payload>__0)
+           00150ab4  ldr      r0, [r0, #4]                 ; field+0x4 
+           00150ab8  ldr      r1, [pc]                     
+           00150abc  b        #0x150ac4                    ; -> L_150ac4
+           00150ac0  .word    0x00e548a4                   ; literal 15026340 / 
+L_150ac4:  00150ac4  ldr      r1, [pc, r1]                 ; GOT[386] CLASS System.String
+           00150ac8  cmp      r0, r1                       
+           00150acc  beq      #0x150ad4                    ; -> L_150ad4
+           00150ad0  mov      r5, #0                       
+L_150ad4:  00150ad4  str      r5, [r6, #0x10]              ; field+0x10 (this-class: <flag>__2)
+           00150ad8  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: <>f__this)
+           00150adc  str      r0, [fp]                     
+           00150ae0  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: <flag>__2)
+           00150ae4  mov      r0, r1                       
+           00150ae8  ldr      lr, [r1]                     
+           00150aec  bl       #0x22b900                    ; CALL System.String::ToLower
+           00150af0  ldr      r1, [pc]                     
+           00150af4  b        #0x150afc                    ; -> L_150afc
+           00150af8  .word    0x00e55f88                   ; literal 15032200 / 
+L_150afc:  00150afc  ldr      r1, [pc, r1]                 ; GOT[1865] LDSTR 'locked'
+           00150b00  bl       #0x22ab40                    ; CALL System.String::op_Inequality
+           00150b04  ldr      r1, [fp]                     
+           00150b08  mov      r6, r1                       
+           00150b0c  cmp      r0, #0                       
+           00150b10  beq      #0x150b40                    ; -> L_150b40
+           00150b14  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: <flag>__2)
+           00150b18  mov      r0, r1                       
+           00150b1c  ldr      lr, [r1]                     
+           00150b20  bl       #0x22b900                    ; CALL System.String::ToLower
+           00150b24  ldr      r1, [pc]                     
+           00150b28  b        #0x150b30                    ; -> L_150b30
+           00150b2c  .word    0x00e557dc                   ; literal 15030236 / 
+L_150b30:  00150b30  ldr      r1, [pc, r1]                 ; GOT[1387] LDSTR 'lock'
+           00150b34  bl       #0x22ab40                    ; CALL System.String::op_Inequality
+           00150b38  mov      r5, r0                       
+           00150b3c  b        #0x150b44                    ; -> L_150b44
+L_150b40:  00150b40  mov      r5, #0                       
+L_150b44:  00150b44  strb     r5, [r6, #0x14]              ; field+0x14 (this-class: $current)
+L_150b48:  00150b48  mvn      r0, #0                       
+           00150b4c  str      r0, [sl, #0x1c]              ; field+0x1c (this-class: $PC)
+L_150b50:  00150b50  mov      r0, #0                       
+           00150b54  b        #0x150b5c                    ; -> L_150b5c
+L_150b58:  00150b58  mov      r0, #1                       
+L_150b5c:  00150b5c  add      sp, fp, #8                   
+           00150b60  pop      {r4, r5, r6, r8, sl, fp}     
+           00150b64  ldr      r7, [sp, #8]                 
+           00150b68  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper/<Start>c__Iterator49::Dispose  token 0x0600098b @0x00150b6c (56 bytes)
+   args: r0=this, 
+           00150b6c  mov      ip, sp                       
+           00150b70  push     {r7, lr}                     
+           00150b74  mov      r7, sp                       
+           00150b78  push     {r8, fp, ip, lr}             
+           00150b7c  sub      sp, sp, #8                   
+           00150b80  mov      fp, sp                       
+           00150b84  str      r0, [fp]                     
+           00150b88  ldr      r0, [fp]                     
+           00150b8c  mvn      r1, #0                       
+           00150b90  str      r1, [r0, #0x1c]              ; field+0x1c (this-class: $PC)
+           00150b94  add      sp, fp, #8                   
+           00150b98  pop      {r8, fp}                     
+           00150b9c  ldr      r7, [sp, #8]                 
+           00150ba0  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper/<Start>c__Iterator49::Reset  token 0x0600098c @0x00150ba4 (64 bytes)
+   args: r0=this, 
+           00150ba4  mov      ip, sp                       
+           00150ba8  push     {r7, lr}                     
+           00150bac  mov      r7, sp                       
+           00150bb0  push     {r8, fp, ip, lr}             
+           00150bb4  sub      sp, sp, #8                   
+           00150bb8  mov      fp, sp                       
+           00150bbc  str      r0, [fp]                     
+           00150bc0  mov      r0, #0x49                    
+           00150bc4  add      r0, r0, #0x100               
+           00150bc8  add      r0, r0, #0x2000000           
+           00150bcc  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00150bd0  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00150bd4  add      sp, fp, #8                   
+           00150bd8  pop      {r8, fp}                     
+           00150bdc  ldr      r7, [sp, #8]                 
+           00150be0  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE TrackUnlockHelper/<GetCircuitMedalCount>c__AnonStorey98  (instance size 0xc)
+#   +0x08 circuitName                    string
+#   vtable slots: 
+####################################################################################################
+== TrackUnlockHelper/<GetCircuitMedalCount>c__AnonStorey98::.ctor  token 0x06000b43 @0x001669c4 (44 bytes)
+   args: r0=this, 
+           001669c4  mov      ip, sp                       
+           001669c8  push     {r7, lr}                     
+           001669cc  mov      r7, sp                       
+           001669d0  push     {r8, fp, ip, lr}             
+           001669d4  sub      sp, sp, #8                   
+           001669d8  mov      fp, sp                       
+           001669dc  str      r0, [fp]                     
+           001669e0  add      sp, fp, #8                   
+           001669e4  pop      {r8, fp}                     
+           001669e8  ldr      r7, [sp, #8]                 
+           001669ec  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper/<GetCircuitMedalCount>c__AnonStorey98::<>m__19  token 0x06000b44 @0x001669f0 (76 bytes)
+   args: r0=this, x
+           001669f0  mov      ip, sp                       
+           001669f4  push     {r7, lr}                     
+           001669f8  mov      r7, sp                       
+           001669fc  push     {r8, fp, ip, lr}             
+           00166a00  sub      sp, sp, #8                   
+           00166a04  mov      fp, sp                       
+           00166a08  str      r0, [fp]                     
+           00166a0c  str      r1, [fp, #4]                 
+           00166a10  ldr      r0, [fp, #4]                 
+           00166a14  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: circuitName)
+           00166a18  ldr      r0, [fp]                     
+           00166a1c  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: circuitName)
+           00166a20  mov      r0, r2                       
+           00166a24  ldr      lr, [r2]                     
+           00166a28  bl       #0x22fb00                    ; CALL System.String::Equals
+           00166a2c  add      sp, fp, #8                   
+           00166a30  pop      {r8, fp}                     
+           00166a34  ldr      r7, [sp, #8]                 
+           00166a38  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE TrackUnlockHelper/<GetTrackMedalCount>c__AnonStorey99  (instance size 0xc)
+#   +0x08 trackName                      string
+#   vtable slots: 
+####################################################################################################
+== TrackUnlockHelper/<GetTrackMedalCount>c__AnonStorey99::.ctor  token 0x06000b45 @0x00166a3c (44 bytes)
+   args: r0=this, 
+           00166a3c  mov      ip, sp                       
+           00166a40  push     {r7, lr}                     
+           00166a44  mov      r7, sp                       
+           00166a48  push     {r8, fp, ip, lr}             
+           00166a4c  sub      sp, sp, #8                   
+           00166a50  mov      fp, sp                       
+           00166a54  str      r0, [fp]                     
+           00166a58  add      sp, fp, #8                   
+           00166a5c  pop      {r8, fp}                     
+           00166a60  ldr      r7, [sp, #8]                 
+           00166a64  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper/<GetTrackMedalCount>c__AnonStorey99::<>m__1A  token 0x06000b46 @0x00166a68 (84 bytes)
+   args: r0=this, x
+           00166a68  mov      ip, sp                       
+           00166a6c  push     {r7, lr}                     
+           00166a70  mov      r7, sp                       
+           00166a74  push     {r8, fp, ip, lr}             
+           00166a78  sub      sp, sp, #8                   
+           00166a7c  mov      fp, sp                       
+           00166a80  str      r0, [fp]                     
+           00166a84  str      r1, [fp, #4]                 
+           00166a88  ldr      r0, [fp, #4]                 
+           00166a8c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: trackName)
+           00166a90  ldr      r0, [r0, #0x14]              ; field+0x14 
+           00166a94  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: trackName)
+           00166a98  ldr      r0, [fp]                     
+           00166a9c  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: trackName)
+           00166aa0  mov      r0, r2                       
+           00166aa4  ldr      lr, [r2]                     
+           00166aa8  bl       #0x22fb00                    ; CALL System.String::Equals
+           00166aac  add      sp, fp, #8                   
+           00166ab0  pop      {r8, fp}                     
+           00166ab4  ldr      r7, [sp, #8]                 
+           00166ab8  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE TrackUnlockHelper/<GetCircuitTracks>c__AnonStorey9A  (instance size 0xc)
+#   +0x08 circuitName                    string
+#   vtable slots: 
+####################################################################################################
+== TrackUnlockHelper/<GetCircuitTracks>c__AnonStorey9A::.ctor  token 0x06000b47 @0x00166abc (44 bytes)
+   args: r0=this, 
+           00166abc  mov      ip, sp                       
+           00166ac0  push     {r7, lr}                     
+           00166ac4  mov      r7, sp                       
+           00166ac8  push     {r8, fp, ip, lr}             
+           00166acc  sub      sp, sp, #8                   
+           00166ad0  mov      fp, sp                       
+           00166ad4  str      r0, [fp]                     
+           00166ad8  add      sp, fp, #8                   
+           00166adc  pop      {r8, fp}                     
+           00166ae0  ldr      r7, [sp, #8]                 
+           00166ae4  ldm      sp, {sp, pc}                 
+
+== TrackUnlockHelper/<GetCircuitTracks>c__AnonStorey9A::<>m__1B  token 0x06000b48 @0x00166ae8 (76 bytes)
+   args: r0=this, x
+           00166ae8  mov      ip, sp                       
+           00166aec  push     {r7, lr}                     
+           00166af0  mov      r7, sp                       
+           00166af4  push     {r8, fp, ip, lr}             
+           00166af8  sub      sp, sp, #8                   
+           00166afc  mov      fp, sp                       
+           00166b00  str      r0, [fp]                     
+           00166b04  str      r1, [fp, #4]                 
+           00166b08  ldr      r0, [fp, #4]                 
+           00166b0c  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: circuitName)
+           00166b10  ldr      r0, [fp]                     
+           00166b14  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: circuitName)
+           00166b18  mov      r0, r2                       
+           00166b1c  ldr      lr, [r2]                     
+           00166b20  bl       #0x22fb00                    ; CALL System.String::Equals
+           00166b24  add      sp, fp, #8                   
+           00166b28  pop      {r8, fp}                     
+           00166b2c  ldr      r7, [sp, #8]                 
+           00166b30  ldm      sp, {sp, pc}                 

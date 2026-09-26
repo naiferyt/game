@@ -1,0 +1,196 @@
+####################################################################################################
+# TYPE ScreenTimeoutController  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   static float countdown
+#   vtable slots: 
+####################################################################################################
+== ScreenTimeoutController::.ctor  token 0x060007bf @0x00140c80 (52 bytes)
+   args: r0=this, 
+           00140c80  mov      ip, sp                       
+           00140c84  push     {r7, lr}                     
+           00140c88  mov      r7, sp                       
+           00140c8c  push     {r8, fp, ip, lr}             
+           00140c90  sub      sp, sp, #8                   
+           00140c94  mov      fp, sp                       
+           00140c98  str      r0, [fp]                     
+           00140c9c  ldr      r0, [fp]                     
+           00140ca0  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00140ca4  add      sp, fp, #8                   
+           00140ca8  pop      {r8, fp}                     
+           00140cac  ldr      r7, [sp, #8]                 
+           00140cb0  ldm      sp, {sp, pc}                 
+
+== ScreenTimeoutController::.cctor  token 0x060007c0 @0x00140cb4 (36 bytes) static
+   args: 
+           00140cb4  mov      ip, sp                       
+           00140cb8  push     {r7, lr}                     
+           00140cbc  mov      r7, sp                       
+           00140cc0  push     {r8, fp, ip, lr}             
+           00140cc4  mov      fp, sp                       
+           00140cc8  add      sp, fp, #0                   
+           00140ccc  pop      {r8, fp}                     
+           00140cd0  ldr      r7, [sp, #8]                 
+           00140cd4  ldm      sp, {sp, pc}                 
+
+== ScreenTimeoutController::Update  token 0x060007c1 @0x00140cd8 (320 bytes)
+   args: r0=this, 
+           00140cd8  mov      ip, sp                       
+           00140cdc  push     {r7, lr}                     
+           00140ce0  mov      r7, sp                       
+           00140ce4  push     {r8, fp, ip, lr}             
+           00140ce8  sub      sp, sp, #0x20                
+           00140cec  mov      fp, sp                       
+           00140cf0  str      r0, [fp, #8]                 
+           00140cf4  ldr      r0, [pc]                     
+           00140cf8  b        #0x140d00                    ; -> L_140d00
+           00140cfc  .word    0x00e65ae8                   ; literal 15096552 / 
+L_140d00:  00140d00  ldr      r0, [pc, r0]                 ; GOT[1698] SFLDA ScreenTimeoutController::countdown
+           00140d04  vldr     s0, [r0]                     
+           00140d08  vcvt.f64.f32 d3, s0                       
+           00140d0c  vldr     s4, [pc]                     ; float 0.0
+           00140d10  b        #0x140d18                    ; -> L_140d18
+           00140d14  .word    0x00000000                   ; literal 0 / 0
+L_140d18:  00140d18  vcvt.f64.f32 d2, s4                       
+           00140d1c  vcmp.f64 d2, d3                       
+           00140d20  vmrs     apsr_nzcv, fpscr             
+           00140d24  bvs      #0x140e08                    ; -> L_140e08
+           00140d28  bge      #0x140e08                    ; -> L_140e08
+           00140d2c  ldr      r0, [pc]                     
+           00140d30  b        #0x140d38                    ; -> L_140d38
+           00140d34  .word    0x00e65ab0                   ; literal 15096496 / 
+L_140d38:  00140d38  ldr      r0, [pc, r0]                 ; GOT[1698] SFLDA ScreenTimeoutController::countdown
+           00140d3c  vldr     s0, [r0]                     
+           00140d40  vcvt.f64.f32 d2, s0                       
+           00140d44  vstr     d2, [fp, #0x18]              
+           00140d48  vldr     s4, [pc]                     ; float 0.0
+           00140d4c  b        #0x140d54                    ; -> L_140d54
+           00140d50  .word    0x00000000                   ; literal 0 / 0
+L_140d54:  00140d54  vcvt.f64.f32 d2, s4                       
+           00140d58  vstr     d2, [fp, #0x10]              
+           00140d5c  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           00140d60  vmov     s4, r0                       
+           00140d64  vcvt.f64.f32 d2, s4                       
+           00140d68  vldr     d3, [fp, #0x10]              
+           00140d6c  vldr     d4, [fp, #0x18]              
+           00140d70  vcvt.f32.f64 s0, d4                       
+           00140d74  vstr     s0, [sp, #-8]                
+           00140d78  ldr      r0, [sp, #-8]                
+           00140d7c  vcvt.f32.f64 s0, d3                       
+           00140d80  vstr     s0, [sp, #-8]                
+           00140d84  ldr      r1, [sp, #-8]                
+           00140d88  vcvt.f32.f64 s0, d2                       
+           00140d8c  vstr     s0, [sp, #-8]                
+           00140d90  ldr      r2, [sp, #-8]                
+           00140d94  bl       #0x22f420                    ; CALL UnityEngine.Mathf::MoveTowards
+           00140d98  vmov     s4, r0                       
+           00140d9c  vcvt.f64.f32 d2, s4                       
+           00140da0  ldr      r0, [pc]                     
+           00140da4  b        #0x140dac                    ; -> L_140dac
+           00140da8  .word    0x00e65a3c                   ; literal 15096380 / 
+L_140dac:  00140dac  ldr      r0, [pc, r0]                 ; GOT[1698] SFLDA ScreenTimeoutController::countdown
+           00140db0  vcvt.f32.f64 s0, d2                       
+           00140db4  vstr     s0, [r0]                     
+           00140db8  ldr      r0, [pc]                     
+           00140dbc  b        #0x140dc4                    ; -> L_140dc4
+           00140dc0  .word    0x00e65a24                   ; literal 15096356 / 
+L_140dc4:  00140dc4  ldr      r0, [pc, r0]                 ; GOT[1698] SFLDA ScreenTimeoutController::countdown
+           00140dc8  vldr     s0, [r0]                     
+           00140dcc  vcvt.f64.f32 d2, s0                       
+           00140dd0  vldr     s6, [pc]                     ; float 0.0
+           00140dd4  b        #0x140ddc                    ; -> L_140ddc
+           00140dd8  .word    0x00000000                   ; literal 0 / 0
+L_140ddc:  00140ddc  vcvt.f64.f32 d3, s6                       
+           00140de0  vcmp.f64 d2, d3                       
+           00140de4  vmrs     apsr_nzcv, fpscr             
+           00140de8  bne      #0x140e08                    ; -> L_140e08
+           00140dec  mvn      r0, #1                       
+           00140df0  bl       #0x22f430                    ; CALL UnityEngine.Screen::set_sleepTimeout
+           00140df4  ldr      r0, [pc]                     
+           00140df8  b        #0x140e00                    ; -> L_140e00
+           00140dfc  .word    0x00e659ec                   ; literal 15096300 / 
+L_140e00:  00140e00  ldr      r0, [pc, r0]                 ; GOT[1699] LDSTR 'Sleeping again'
+           00140e04  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+L_140e08:  00140e08  add      sp, fp, #0x20                
+           00140e0c  pop      {r8, fp}                     
+           00140e10  ldr      r7, [sp, #8]                 
+           00140e14  ldm      sp, {sp, pc}                 
+
+== ScreenTimeoutController::OnDestroy  token 0x060007c2 @0x00140e18 (48 bytes)
+   args: r0=this, 
+           00140e18  mov      ip, sp                       
+           00140e1c  push     {r7, lr}                     
+           00140e20  mov      r7, sp                       
+           00140e24  push     {r8, fp, ip, lr}             
+           00140e28  sub      sp, sp, #8                   
+           00140e2c  mov      fp, sp                       
+           00140e30  str      r0, [fp]                     
+           00140e34  bl       #0x22ea30                    ; CALL ScreenTimeoutController::AllowSleep
+           00140e38  add      sp, fp, #8                   
+           00140e3c  pop      {r8, fp}                     
+           00140e40  ldr      r7, [sp, #8]                 
+           00140e44  ldm      sp, {sp, pc}                 
+
+== ScreenTimeoutController::AllowSleep  token 0x060007c3 @0x00140e48 (84 bytes) static
+   args: 
+           00140e48  mov      ip, sp                       
+           00140e4c  push     {r7, lr}                     
+           00140e50  mov      r7, sp                       
+           00140e54  push     {r8, fp, ip, lr}             
+           00140e58  mov      fp, sp                       
+           00140e5c  vldr     s4, [pc]                     ; float 0.0
+           00140e60  b        #0x140e68                    ; -> L_140e68
+           00140e64  .word    0x00000000                   ; literal 0 / 0
+L_140e68:  00140e68  vcvt.f64.f32 d2, s4                       
+           00140e6c  ldr      r0, [pc]                     
+           00140e70  b        #0x140e78                    ; -> L_140e78
+           00140e74  .word    0x00e65970                   ; literal 15096176 / 
+L_140e78:  00140e78  ldr      r0, [pc, r0]                 ; GOT[1698] SFLDA ScreenTimeoutController::countdown
+           00140e7c  vcvt.f32.f64 s0, d2                       
+           00140e80  vstr     s0, [r0]                     
+           00140e84  mvn      r0, #1                       
+           00140e88  bl       #0x22f430                    ; CALL UnityEngine.Screen::set_sleepTimeout
+           00140e8c  add      sp, fp, #0                   
+           00140e90  pop      {r8, fp}                     
+           00140e94  ldr      r7, [sp, #8]                 
+           00140e98  ldm      sp, {sp, pc}                 
+
+== ScreenTimeoutController::SupressSleep  token 0x060007c4 @0x00140e9c (152 bytes) static
+   args: forSeconds
+           00140e9c  mov      ip, sp                       
+           00140ea0  push     {r7, lr}                     
+           00140ea4  mov      r7, sp                       
+           00140ea8  push     {r8, fp, ip, lr}             
+           00140eac  sub      sp, sp, #8                   
+           00140eb0  mov      fp, sp                       
+           00140eb4  str      r0, [fp]                     
+           00140eb8  vldr     s0, [fp]                     
+           00140ebc  vcvt.f64.f32 d3, s0                       
+           00140ec0  vldr     s4, [pc]                     ; float 0.0
+           00140ec4  b        #0x140ecc                    ; -> L_140ecc
+           00140ec8  .word    0x00000000                   ; literal 0 / 0
+L_140ecc:  00140ecc  vcvt.f64.f32 d2, s4                       
+           00140ed0  vcmp.f64 d2, d3                       
+           00140ed4  vmrs     apsr_nzcv, fpscr             
+           00140ed8  bvs      #0x140ee8                    ; -> L_140ee8
+           00140edc  bmi      #0x140ee8                    ; -> L_140ee8
+           00140ee0  bl       #0x22ea30                    ; CALL ScreenTimeoutController::AllowSleep
+           00140ee4  b        #0x140f24                    ; -> L_140f24
+L_140ee8:  00140ee8  ldr      r0, [pc]                     
+           00140eec  b        #0x140ef4                    ; -> L_140ef4
+           00140ef0  .word    0x00e658fc                   ; literal 15096060 / 
+L_140ef4:  00140ef4  ldr      r0, [pc, r0]                 ; GOT[1700] LDSTR 'Not sleeping'
+           00140ef8  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           00140efc  mvn      r0, #0                       
+           00140f00  bl       #0x22f430                    ; CALL UnityEngine.Screen::set_sleepTimeout
+           00140f04  vldr     s0, [fp]                     
+           00140f08  vcvt.f64.f32 d2, s0                       
+           00140f0c  ldr      r0, [pc]                     
+           00140f10  b        #0x140f18                    ; -> L_140f18
+           00140f14  .word    0x00e658d0                   ; literal 15096016 / 
+L_140f18:  00140f18  ldr      r0, [pc, r0]                 ; GOT[1698] SFLDA ScreenTimeoutController::countdown
+           00140f1c  vcvt.f32.f64 s0, d2                       
+           00140f20  vstr     s0, [r0]                     
+L_140f24:  00140f24  add      sp, fp, #8                   
+           00140f28  pop      {r8, fp}                     
+           00140f2c  ldr      r7, [sp, #8]                 
+           00140f30  ldm      sp, {sp, pc}                 

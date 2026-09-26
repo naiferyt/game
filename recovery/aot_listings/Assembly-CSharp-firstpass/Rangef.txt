@@ -1,0 +1,217 @@
+####################################################################################################
+# TYPE Rangef  (instance size 0x10)
+#   +0x08 min                            float
+#   +0x0c max                            float
+#   vtable slots: 
+####################################################################################################
+== Rangef::.ctor  token 0x0600018a @0x00020e34 (96 bytes)
+   args: r0=this, 
+           00020e34  mov      ip, sp                       
+           00020e38  push     {r7, lr}                     
+           00020e3c  mov      r7, sp                       
+           00020e40  push     {r8, fp, ip, lr}             
+           00020e44  sub      sp, sp, #8                   
+           00020e48  mov      fp, sp                       
+           00020e4c  str      r0, [fp]                     
+           00020e50  vldr     s4, [pc]                     ; float 0.0
+           00020e54  b        #0x20e5c                     ; -> L_20e5c
+           00020e58  .word    0x00000000                   ; literal 0 / 0
+L_20e5c:   00020e5c  vcvt.f64.f32 d2, s4                       
+           00020e60  ldr      r0, [fp]                     
+           00020e64  vcvt.f32.f64 s0, d2                       
+           00020e68  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: min)
+           00020e6c  vldr     s4, [pc]                     ; float 1.0
+           00020e70  b        #0x20e78                     ; -> L_20e78
+           00020e74  .word    0x3f800000                   ; literal 1065353216 / 1
+L_20e78:   00020e78  vcvt.f64.f32 d2, s4                       
+           00020e7c  vcvt.f32.f64 s0, d2                       
+           00020e80  vstr     s0, [r0, #0xc]               ; field+0xc (this-class: max)
+           00020e84  add      sp, fp, #8                   
+           00020e88  pop      {r8, fp}                     
+           00020e8c  ldr      r7, [sp, #8]                 
+           00020e90  ldm      sp, {sp, pc}                 
+
+== Rangef::.ctor  token 0x0600018b @0x00020e94 (88 bytes)
+   args: r0=this, min, max
+           00020e94  mov      ip, sp                       
+           00020e98  push     {r7, lr}                     
+           00020e9c  mov      r7, sp                       
+           00020ea0  push     {r8, fp, ip, lr}             
+           00020ea4  sub      sp, sp, #0x10                
+           00020ea8  mov      fp, sp                       
+           00020eac  str      r0, [fp]                     
+           00020eb0  str      r1, [fp, #4]                 
+           00020eb4  str      r2, [fp, #8]                 
+           00020eb8  vldr     s0, [fp, #4]                 
+           00020ebc  vcvt.f64.f32 d2, s0                       
+           00020ec0  ldr      r0, [fp]                     
+           00020ec4  vcvt.f32.f64 s0, d2                       
+           00020ec8  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: min)
+           00020ecc  vldr     s0, [fp, #8]                 
+           00020ed0  vcvt.f64.f32 d2, s0                       
+           00020ed4  vcvt.f32.f64 s0, d2                       
+           00020ed8  vstr     s0, [r0, #0xc]               ; field+0xc (this-class: max)
+           00020edc  add      sp, fp, #0x10                
+           00020ee0  pop      {r8, fp}                     
+           00020ee4  ldr      r7, [sp, #8]                 
+           00020ee8  ldm      sp, {sp, pc}                 
+
+== Rangef::get_Range  token 0x0600018c @0x00020eec (76 bytes)
+   args: r0=this, 
+           00020eec  mov      ip, sp                       
+           00020ef0  push     {r7, lr}                     
+           00020ef4  mov      r7, sp                       
+           00020ef8  push     {r8, fp, ip, lr}             
+           00020efc  sub      sp, sp, #8                   
+           00020f00  mov      fp, sp                       
+           00020f04  str      r0, [fp]                     
+           00020f08  ldr      r0, [fp]                     
+           00020f0c  vldr     s0, [r0, #0xc]               ; field+0xc (this-class: max)
+           00020f10  vcvt.f64.f32 d2, s0                       
+           00020f14  vldr     s0, [r0, #8]                 ; field+0x8 (this-class: min)
+           00020f18  vcvt.f64.f32 d3, s0                       
+           00020f1c  vsub.f64 d2, d2, d3                   
+           00020f20  vcvt.f32.f64 s0, d2                       
+           00020f24  vmov     r0, s0                       
+           00020f28  add      sp, fp, #8                   
+           00020f2c  pop      {r8, fp}                     
+           00020f30  ldr      r7, [sp, #8]                 
+           00020f34  ldm      sp, {sp, pc}                 
+
+== Rangef::get_random  token 0x0600018d @0x00020f38 (108 bytes)
+   args: r0=this, 
+           00020f38  mov      ip, sp                       
+           00020f3c  push     {r7, lr}                     
+           00020f40  mov      r7, sp                       
+           00020f44  push     {r8, fp, ip, lr}             
+           00020f48  sub      sp, sp, #0x10                
+           00020f4c  mov      fp, sp                       
+           00020f50  str      r0, [fp, #8]                 
+           00020f54  ldr      r0, [fp, #8]                 
+           00020f58  vldr     s0, [r0, #8]                 ; field+0x8 (this-class: min)
+           00020f5c  vcvt.f64.f32 d3, s0                       
+           00020f60  vldr     s0, [r0, #0xc]               ; field+0xc (this-class: max)
+           00020f64  vcvt.f64.f32 d2, s0                       
+           00020f68  vcvt.f32.f64 s0, d3                       
+           00020f6c  vstr     s0, [sp, #-8]                
+           00020f70  ldr      r0, [sp, #-8]                
+           00020f74  vcvt.f32.f64 s0, d2                       
+           00020f78  vstr     s0, [sp, #-8]                
+           00020f7c  ldr      r1, [sp, #-8]                
+           00020f80  bl       #0xbae00                     ; CALL UnityEngine.Random::Range
+           00020f84  vmov     s4, r0                       
+           00020f88  vcvt.f64.f32 d2, s4                       
+           00020f8c  vcvt.f32.f64 s0, d2                       
+           00020f90  vmov     r0, s0                       
+           00020f94  add      sp, fp, #0x10                
+           00020f98  pop      {r8, fp}                     
+           00020f9c  ldr      r7, [sp, #8]                 
+           00020fa0  ldm      sp, {sp, pc}                 
+
+== Rangef::Clamp  token 0x0600018e @0x00020fa4 (132 bytes)
+   args: r0=this, value
+           00020fa4  mov      ip, sp                       
+           00020fa8  push     {r7, lr}                     
+           00020fac  mov      r7, sp                       
+           00020fb0  push     {r8, fp, ip, lr}             
+           00020fb4  sub      sp, sp, #0x10                
+           00020fb8  mov      fp, sp                       
+           00020fbc  str      r0, [fp, #8]                 
+           00020fc0  str      r1, [fp, #0xc]               
+           00020fc4  vldr     s0, [fp, #0xc]               
+           00020fc8  vcvt.f64.f32 d4, s0                       
+           00020fcc  ldr      r0, [fp, #8]                 
+           00020fd0  vldr     s0, [r0, #8]                 ; field+0x8 (this-class: min)
+           00020fd4  vcvt.f64.f32 d3, s0                       
+           00020fd8  vldr     s0, [r0, #0xc]               ; field+0xc (this-class: max)
+           00020fdc  vcvt.f64.f32 d2, s0                       
+           00020fe0  vcvt.f32.f64 s0, d4                       
+           00020fe4  vstr     s0, [sp, #-8]                
+           00020fe8  ldr      r0, [sp, #-8]                
+           00020fec  vcvt.f32.f64 s0, d3                       
+           00020ff0  vstr     s0, [sp, #-8]                
+           00020ff4  ldr      r1, [sp, #-8]                
+           00020ff8  vcvt.f32.f64 s0, d2                       
+           00020ffc  vstr     s0, [sp, #-8]                
+           00021000  ldr      r2, [sp, #-8]                
+           00021004  bl       #0xba9f0                     ; CALL UnityEngine.Mathf::Clamp
+           00021008  vmov     s4, r0                       
+           0002100c  vcvt.f64.f32 d2, s4                       
+           00021010  vcvt.f32.f64 s0, d2                       
+           00021014  vmov     r0, s0                       
+           00021018  add      sp, fp, #0x10                
+           0002101c  pop      {r8, fp}                     
+           00021020  ldr      r7, [sp, #8]                 
+           00021024  ldm      sp, {sp, pc}                 
+
+== Rangef::Lerp  token 0x0600018f @0x00021028 (132 bytes)
+   args: r0=this, value
+           00021028  mov      ip, sp                       
+           0002102c  push     {r7, lr}                     
+           00021030  mov      r7, sp                       
+           00021034  push     {r8, fp, ip, lr}             
+           00021038  sub      sp, sp, #0x20                
+           0002103c  mov      fp, sp                       
+           00021040  str      r0, [fp, #0x18]              
+           00021044  str      r1, [fp, #0x1c]              
+           00021048  ldr      r0, [fp, #0x18]              
+           0002104c  vldr     s0, [r0, #8]                 ; field+0x8 (this-class: min)
+           00021050  vcvt.f64.f32 d4, s0                       
+           00021054  vldr     s0, [r0, #0xc]               ; field+0xc (this-class: max)
+           00021058  vcvt.f64.f32 d3, s0                       
+           0002105c  vldr     s0, [fp, #0x1c]              
+           00021060  vcvt.f64.f32 d2, s0                       
+           00021064  vcvt.f32.f64 s0, d4                       
+           00021068  vstr     s0, [sp, #-8]                
+           0002106c  ldr      r0, [sp, #-8]                
+           00021070  vcvt.f32.f64 s0, d3                       
+           00021074  vstr     s0, [sp, #-8]                
+           00021078  ldr      r1, [sp, #-8]                
+           0002107c  vcvt.f32.f64 s0, d2                       
+           00021080  vstr     s0, [sp, #-8]                
+           00021084  ldr      r2, [sp, #-8]                
+           00021088  bl       #0xba9a0                     ; CALL UnityEngine.Mathf::Lerp
+           0002108c  vmov     s4, r0                       
+           00021090  vcvt.f64.f32 d2, s4                       
+           00021094  vcvt.f32.f64 s0, d2                       
+           00021098  vmov     r0, s0                       
+           0002109c  add      sp, fp, #0x20                
+           000210a0  pop      {r8, fp}                     
+           000210a4  ldr      r7, [sp, #8]                 
+           000210a8  ldm      sp, {sp, pc}                 
+
+== Rangef::InverseLerp  token 0x06000190 @0x000210ac (132 bytes)
+   args: r0=this, value
+           000210ac  mov      ip, sp                       
+           000210b0  push     {r7, lr}                     
+           000210b4  mov      r7, sp                       
+           000210b8  push     {r8, fp, ip, lr}             
+           000210bc  sub      sp, sp, #0x10                
+           000210c0  mov      fp, sp                       
+           000210c4  str      r0, [fp, #8]                 
+           000210c8  str      r1, [fp, #0xc]               
+           000210cc  ldr      r0, [fp, #8]                 
+           000210d0  vldr     s0, [r0, #8]                 ; field+0x8 (this-class: min)
+           000210d4  vcvt.f64.f32 d4, s0                       
+           000210d8  vldr     s0, [r0, #0xc]               ; field+0xc (this-class: max)
+           000210dc  vcvt.f64.f32 d3, s0                       
+           000210e0  vldr     s0, [fp, #0xc]               
+           000210e4  vcvt.f64.f32 d2, s0                       
+           000210e8  vcvt.f32.f64 s0, d4                       
+           000210ec  vstr     s0, [sp, #-8]                
+           000210f0  ldr      r0, [sp, #-8]                
+           000210f4  vcvt.f32.f64 s0, d3                       
+           000210f8  vstr     s0, [sp, #-8]                
+           000210fc  ldr      r1, [sp, #-8]                
+           00021100  vcvt.f32.f64 s0, d2                       
+           00021104  vstr     s0, [sp, #-8]                
+           00021108  ldr      r2, [sp, #-8]                
+           0002110c  bl       #0xbae10                     ; CALL UnityEngine.Mathf::InverseLerp
+           00021110  vmov     s4, r0                       
+           00021114  vcvt.f64.f32 d2, s4                       
+           00021118  vcvt.f32.f64 s0, d2                       
+           0002111c  vmov     r0, s0                       
+           00021120  add      sp, fp, #0x10                
+           00021124  pop      {r8, fp}                     
+           00021128  ldr      r7, [sp, #8]                 
+           0002112c  ldm      sp, {sp, pc}                 

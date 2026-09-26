@@ -1,0 +1,192 @@
+####################################################################################################
+# TYPE CollectPowerupMission  (instance size 0x38)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 missionName                    LocalizedString
+#   +0x14 missionInstructions            LocalizedString
+#   +0x18 missionInstructionsWeb         LocalizedString
+#   +0x1c manager                        MissionManager
+#   +0x20 missionCollection              MissionCollection
+#   +0x24 hasArrow                       bool
+#   +0x28 arrowRotation                  float
+#   +0x2c arrowXOffset                   float
+#   +0x30 arrowYOffset                   float
+#   +0x34 hasStartedMission              bool
+#   vtable slots: 5:Signal, 6:Shutdown, 7:Update, 8:Init
+####################################################################################################
+== CollectPowerupMission::.ctor  token 0x060002a8 @0x000eac54 (116 bytes)
+   args: r0=this, 
+           000eac54  mov      ip, sp                       
+           000eac58  push     {r7, lr}                     
+           000eac5c  mov      r7, sp                       
+           000eac60  push     {r8, fp, ip, lr}             
+           000eac64  sub      sp, sp, #0x10                
+           000eac68  mov      fp, sp                       
+           000eac6c  str      r0, [fp]                     
+           000eac70  ldr      r0, [fp]                     
+           000eac74  bl       #0x22ca40                    ; CALL BaseMission::.ctor
+           000eac78  ldr      r0, [pc]                     
+           000eac7c  b        #0xeac84                     ; -> L_eac84
+           000eac80  .word    0x00eba980                   ; literal 15444352 / 
+L_eac84:   000eac84  ldr      r0, [pc, r0]                 ; GOT[553] LDSTR 'Collect Powerup Tutorial Mission'
+           000eac88  str      r0, [fp, #0xc]               
+           000eac8c  ldr      r0, [pc]                     
+           000eac90  b        #0xeac98                     ; -> L_eac98
+           000eac94  .word    0x00eba954                   ; literal 15444308 / 
+L_eac98:   000eac98  ldr      r0, [pc, r0]                 ; GOT[547] VTABLE LocalizedString
+           000eac9c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000eaca0  ldr      r1, [fp, #0xc]               
+           000eaca4  str      r0, [fp, #8]                 
+           000eaca8  bl       #0x22ca20                    ; CALL LocalizedString::.ctor
+           000eacac  ldr      r1, [fp, #8]                 
+           000eacb0  ldr      r0, [fp]                     
+           000eacb4  str      r1, [r0, #0x10]              ; field+0x10 (this-class: missionName)
+           000eacb8  add      sp, fp, #0x10                
+           000eacbc  pop      {r8, fp}                     
+           000eacc0  ldr      r7, [sp, #8]                 
+           000eacc4  ldm      sp, {sp, pc}                 
+
+== CollectPowerupMission::Init  token 0x060002a9 @0x000eacc8 (56 bytes)
+   args: r0=this, 
+           000eacc8  mov      ip, sp                       
+           000eaccc  push     {r7, lr}                     
+           000eacd0  mov      r7, sp                       
+           000eacd4  push     {r8, fp, ip, lr}             
+           000eacd8  sub      sp, sp, #8                   
+           000eacdc  mov      fp, sp                       
+           000eace0  str      r0, [fp]                     
+           000eace4  ldr      r0, [fp]                     
+           000eace8  mov      r1, #0                       
+           000eacec  strb     r1, [r0, #0x34]              ; field+0x34 (this-class: hasStartedMission)
+           000eacf0  add      sp, fp, #8                   
+           000eacf4  pop      {r8, fp}                     
+           000eacf8  ldr      r7, [sp, #8]                 
+           000eacfc  ldm      sp, {sp, pc}                 
+
+== CollectPowerupMission::Update  token 0x060002aa @0x000ead00 (172 bytes)
+   args: r0=this, 
+           000ead00  mov      ip, sp                       
+           000ead04  push     {r7, lr}                     
+           000ead08  mov      r7, sp                       
+           000ead0c  push     {r8, sl, fp, ip, lr}         
+           000ead10  sub      sp, sp, #4                   
+           000ead14  mov      fp, sp                       
+           000ead18  mov      sl, r0                       
+           000ead1c  ldrb     r0, [sl, #0x34]              ; field+0x34 (this-class: hasStartedMission)
+           000ead20  cmp      r0, #0                       
+           000ead24  bne      #0xead9c                     ; -> L_ead9c
+           000ead28  mov      r0, #1                       
+           000ead2c  strb     r0, [sl, #0x34]              ; field+0x34 (this-class: hasStartedMission)
+           000ead30  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: manager)
+           000ead34  mov      r0, r1                       
+           000ead38  ldr      lr, [r1]                     
+           000ead3c  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000ead40  ldr      r1, [pc]                     
+           000ead44  b        #0xead4c                     ; -> L_ead4c
+           000ead48  .word    0x00eba8bc                   ; literal 15444156 / 
+L_ead4c:   000ead4c  ldr      r1, [pc, r1]                 ; GOT[554] METHOD_RGCTX UnityEngine.GameObject::GetComponent<PowerupHolder>
+           000ead50  ldr      lr, [r0]                     
+           000ead54  mov      r8, r1                       
+           000ead58  bl       #0x22ca60                    ; CALL UnityEngine.GameObject::GetComponent<PowerupHolder>
+           000ead5c  mov      r1, r0                       
+           000ead60  ldr      lr, [r1]                     
+           000ead64  bl       #0x1025a4                    ; CALL PowerupHolder::ClearEffectsInReserve (direct)
+           000ead68  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: manager)
+           000ead6c  mov      r0, r1                       
+           000ead70  ldr      lr, [r1]                     
+           000ead74  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000ead78  ldr      r1, [pc]                     
+           000ead7c  b        #0xead84                     ; -> L_ead84
+           000ead80  .word    0x00eba884                   ; literal 15444100 / 
+L_ead84:   000ead84  ldr      r1, [pc, r1]                 ; GOT[554] METHOD_RGCTX UnityEngine.GameObject::GetComponent<PowerupHolder>
+           000ead88  ldr      lr, [r0]                     
+           000ead8c  mov      r8, r1                       
+           000ead90  bl       #0x22ca60                    ; CALL UnityEngine.GameObject::GetComponent<PowerupHolder>
+           000ead94  mov      r1, #1                       
+           000ead98  strb     r1, [r0, #0x1c]              ; field+0x1c (this-class: manager)
+L_ead9c:   000ead9c  add      sp, fp, #4                   
+           000eada0  pop      {r8, sl, fp}                 
+           000eada4  ldr      r7, [sp, #8]                 
+           000eada8  ldm      sp, {sp, pc}                 
+
+== CollectPowerupMission::Shutdown  token 0x060002ab @0x000eadac (44 bytes)
+   args: r0=this, 
+           000eadac  mov      ip, sp                       
+           000eadb0  push     {r7, lr}                     
+           000eadb4  mov      r7, sp                       
+           000eadb8  push     {r8, fp, ip, lr}             
+           000eadbc  sub      sp, sp, #8                   
+           000eadc0  mov      fp, sp                       
+           000eadc4  str      r0, [fp]                     
+           000eadc8  add      sp, fp, #8                   
+           000eadcc  pop      {r8, fp}                     
+           000eadd0  ldr      r7, [sp, #8]                 
+           000eadd4  ldm      sp, {sp, pc}                 
+
+== CollectPowerupMission::Signal  token 0x060002ac @0x000eadd8 (200 bytes)
+   args: r0=this, signal
+           000eadd8  mov      ip, sp                       
+           000eaddc  push     {r7, lr}                     
+           000eade0  mov      r7, sp                       
+           000eade4  push     {r6, r8, fp, ip, lr}         
+           000eade8  sub      sp, sp, #0x14                
+           000eadec  mov      fp, sp                       
+           000eadf0  mov      r6, r0                       
+           000eadf4  str      r1, [fp]                     
+           000eadf8  ldr      r1, [pc]                     
+           000eadfc  b        #0xeae04                     ; -> L_eae04
+           000eae00  .word    0x00eba808                   ; literal 15443976 / 
+L_eae04:   000eae04  ldr      r1, [pc, r1]                 ; GOT[555] LDSTR 'Collected Powerup'
+           000eae08  ldr      r0, [fp]                     
+           000eae0c  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000eae10  cmp      r0, #0                       
+           000eae14  beq      #0xeae90                     ; -> L_eae90
+           000eae18  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: missionCollection)
+           000eae1c  mov      r1, #0                       
+           000eae20  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000eae24  cmp      r0, #0                       
+           000eae28  bne      #0xeae44                     ; -> L_eae44
+           000eae2c  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: missionCollection)
+           000eae30  mov      r1, r0                       
+           000eae34  ldr      lr, [r1]                     
+           000eae38  ldrb     r0, [r0, #0x3c]              ; field+0x3c 
+           000eae3c  cmp      r0, #0                       
+           000eae40  beq      #0xeae90                     ; -> L_eae90
+L_eae44:   000eae44  ldr      r2, [r6, #0x1c]              ; field+0x1c (this-class: manager)
+           000eae48  mov      r0, r2                       
+           000eae4c  mov      r1, r6                       
+           000eae50  ldr      lr, [r2]                     
+           000eae54  bl       #0x22ca50                    ; CALL MissionManager::CompleteMission
+           000eae58  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000eae5c  str      r0, [fp, #8]                 
+           000eae60  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000eae64  ldr      lr, [r0]                     
+           000eae68  ldr      r0, [pc]                     
+           000eae6c  b        #0xeae74                     ; -> L_eae74
+           000eae70  .word    0x00eba79c                   ; literal 15443868 / 
+L_eae74:   000eae74  ldr      r0, [pc, r0]                 ; GOT[556] VTABLE HUDLogic/<AnimatePowerupDohickeyIn>c__Iterator81
+           000eae78  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000eae7c  mov      r1, r0                       
+           000eae80  ldr      r2, [fp, #8]                 
+           000eae84  mov      r0, r2                       
+           000eae88  ldr      lr, [r2]                     
+           000eae8c  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+L_eae90:   000eae90  add      sp, fp, #0x14                
+           000eae94  pop      {r6, r8, fp}                 
+           000eae98  ldr      r7, [sp, #8]                 
+           000eae9c  ldm      sp, {sp, pc}                 
+
+== CollectPowerupMission::Signal  token 0x060002ad @0x000eaea0 (52 bytes)
+   args: r0=this, signal, value
+           000eaea0  mov      ip, sp                       
+           000eaea4  push     {r7, lr}                     
+           000eaea8  mov      r7, sp                       
+           000eaeac  push     {r8, fp, ip, lr}             
+           000eaeb0  sub      sp, sp, #0x10                
+           000eaeb4  mov      fp, sp                       
+           000eaeb8  str      r0, [fp]                     
+           000eaebc  str      r1, [fp, #4]                 
+           000eaec0  str      r2, [fp, #8]                 
+           000eaec4  add      sp, fp, #0x10                
+           000eaec8  pop      {r8, fp}                     
+           000eaecc  ldr      r7, [sp, #8]                 
+           000eaed0  ldm      sp, {sp, pc}                 

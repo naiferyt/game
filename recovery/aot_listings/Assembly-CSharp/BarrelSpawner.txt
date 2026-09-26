@@ -1,0 +1,549 @@
+####################################################################################################
+# TYPE BarrelSpawner  (instance size 0x20)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 barrelPrefab                   UnityEngine.GameObject
+#   +0x14 barrel                         UnityEngine.GameObject
+#   +0x18 spawnTime                      float
+#   +0x1c spawnCounting                  bool
+#   static int groundLayerMask  = const 00010000
+#   vtable slots: 
+####################################################################################################
+== BarrelSpawner::.ctor  token 0x060004b6 @0x00106fb0 (76 bytes)
+   args: r0=this, 
+           00106fb0  mov      ip, sp                       
+           00106fb4  push     {r7, lr}                     
+           00106fb8  mov      r7, sp                       
+           00106fbc  push     {r8, fp, ip, lr}             
+           00106fc0  sub      sp, sp, #8                   
+           00106fc4  mov      fp, sp                       
+           00106fc8  str      r0, [fp]                     
+           00106fcc  vldr     s4, [pc]                     ; float 5.0
+           00106fd0  b        #0x106fd8                    ; -> L_106fd8
+           00106fd4  .word    0x40a00000                   ; literal 1084227584 / 5
+L_106fd8:  00106fd8  vcvt.f64.f32 d2, s4                       
+           00106fdc  ldr      r0, [fp]                     
+           00106fe0  vcvt.f32.f64 s0, d2                       
+           00106fe4  vstr     s0, [r0, #0x18]              ; field+0x18 (this-class: spawnTime)
+           00106fe8  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00106fec  add      sp, fp, #8                   
+           00106ff0  pop      {r8, fp}                     
+           00106ff4  ldr      r7, [sp, #8]                 
+           00106ff8  ldm      sp, {sp, pc}                 
+
+== BarrelSpawner::SpawnCheck  token 0x060004b7 @0x00106ffc (72 bytes)
+   args: r0=this, 
+           00106ffc  mov      ip, sp                       
+           00107000  push     {r7, lr}                     
+           00107004  mov      r7, sp                       
+           00107008  push     {r8, fp, ip, lr}             
+           0010700c  sub      sp, sp, #8                   
+           00107010  mov      fp, sp                       
+           00107014  str      r0, [fp]                     
+           00107018  ldr      r0, [pc]                     
+           0010701c  b        #0x107024                    ; -> L_107024
+           00107020  .word    0x00e9ea64                   ; literal 15329892 / 
+L_107024:  00107024  ldr      r0, [pc, r0]                 ; GOT[842] VTABLE BarrelSpawner/<SpawnCheck>c__Iterator34
+           00107028  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010702c  ldr      r1, [fp]                     
+           00107030  str      r1, [r0, #0xc]               ; field+0xc 
+           00107034  add      sp, fp, #8                   
+           00107038  pop      {r8, fp}                     
+           0010703c  ldr      r7, [sp, #8]                 
+           00107040  ldm      sp, {sp, pc}                 
+
+== BarrelSpawner::SpawnBarrel  token 0x060004b8 @0x00107044 (764 bytes)
+   args: r0=this, 
+           00107044  mov      ip, sp                       
+           00107048  push     {r7, lr}                     
+           0010704c  mov      r7, sp                       
+           00107050  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00107054  sub      sp, sp, #76, #30             
+           00107058  mov      fp, sp                       
+           0010705c  mov      sl, r0                       
+           00107060  add      r0, fp, #0x18                
+           00107064  mov      r1, #0                       
+           00107068  mov      r2, #0x2c                    
+           0010706c  bl       #0x22a990                    ; CALL System.String::memset
+           00107070  mov      r0, #0                       
+           00107074  str      r0, [fp, #0x44]              
+           00107078  mov      r0, #0                       
+           0010707c  str      r0, [fp, #0x48]              
+           00107080  mov      r0, #0                       
+           00107084  str      r0, [fp, #0x4c]              
+           00107088  add      r0, fp, #0x54                
+           0010708c  mov      r1, #0                       
+           00107090  mov      r2, #0x18                    
+           00107094  bl       #0x22a990                    ; CALL System.String::memset
+           00107098  mov      r0, #0                       
+           0010709c  str      r0, [fp, #0x6c]              
+           001070a0  mov      r0, #0                       
+           001070a4  str      r0, [fp, #0x70]              
+           001070a8  mov      r0, #0                       
+           001070ac  str      r0, [fp, #0x74]              
+           001070b0  mov      r0, sl                       
+           001070b4  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           001070b8  mov      r2, r0                       
+           001070bc  add      r0, fp, #0xd8                
+           001070c0  mov      r1, r2                       
+           001070c4  ldr      lr, [r2]                     
+           001070c8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           001070cc  add      r0, fp, #0xe4                
+           001070d0  bl       #0x22aa00                    ; CALL UnityEngine.Vector3::get_down
+           001070d4  add      ip, fp, #0x18                
+           001070d8  vldr     s4, [pc]                     ; float inf
+           001070dc  b        #0x1070e4                    ; -> L_1070e4
+           001070e0  .word    0x7f800000                   ; literal 2139095040 / 
+L_1070e4:  001070e4  vcvt.f64.f32 d2, s4                       
+           001070e8  ldr      r0, [fp, #0xd8]              
+           001070ec  str      r0, [fp, #0x128]             
+           001070f0  ldr      r1, [fp, #0xdc]              
+           001070f4  ldr      r2, [fp, #0xe0]              
+           001070f8  ldr      r3, [fp, #0xe4]              
+           001070fc  ldr      r0, [fp, #0xe8]              
+           00107100  str      r0, [sp]                     
+           00107104  ldr      r0, [fp, #0xec]              
+           00107108  str      r0, [sp, #4]                 
+           0010710c  ldr      r0, [fp, #0x128]             
+           00107110  str      ip, [sp, #8]                 
+           00107114  vcvt.f32.f64 s0, d2                       
+           00107118  vstr     s0, [sp, #0xc]               
+           0010711c  mov      ip, #64, #30                 
+           00107120  str      ip, [sp, #0x10]              
+           00107124  bl       #0x22bb30                    ; CALL UnityEngine.Physics::Raycast
+           00107128  cmp      r0, #0                       
+           0010712c  beq      #0x1072e8                    ; -> L_1072e8
+           00107130  add      r0, fp, #0x18                
+           00107134  ldr      r1, [r0]                     
+           00107138  str      r1, [fp, #0x44]              
+           0010713c  ldr      r1, [r0, #4]                 ; field+0x4 
+           00107140  str      r1, [fp, #0x48]              
+           00107144  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00107148  str      r0, [fp, #0x4c]              
+           0010714c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: barrelPrefab)
+           00107150  str      r0, [fp, #0x128]             
+           00107154  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: barrelPrefab)
+           00107158  mov      r0, r1                       
+           0010715c  ldr      lr, [r1]                     
+           00107160  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00107164  mov      r2, r0                       
+           00107168  add      r0, fp, #0xf0                
+           0010716c  mov      r1, r2                       
+           00107170  ldr      lr, [r2]                     
+           00107174  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           00107178  ldr      r0, [fp, #0x128]             
+           0010717c  ldr      r1, [fp, #0x44]              
+           00107180  ldr      r2, [fp, #0x48]              
+           00107184  ldr      r3, [fp, #0x4c]              
+           00107188  ldr      ip, [fp, #0xf0]              
+           0010718c  str      ip, [sp]                     
+           00107190  ldr      ip, [fp, #0xf4]              
+           00107194  str      ip, [sp, #4]                 
+           00107198  ldr      ip, [fp, #0xf8]              
+           0010719c  str      ip, [sp, #8]                 
+           001071a0  ldr      ip, [fp, #0xfc]              
+           001071a4  str      ip, [sp, #0xc]               
+           001071a8  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           001071ac  mov      r5, r0                       
+           001071b0  mov      r4, r5                       
+           001071b4  cmp      r5, #0                       
+           001071b8  beq      #0x1071e8                    ; -> L_1071e8
+           001071bc  ldr      r0, [r5]                     
+           001071c0  ldr      r0, [r0]                     
+           001071c4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001071c8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001071cc  ldr      r1, [pc]                     
+           001071d0  b        #0x1071d8                    ; -> L_1071d8
+           001071d4  .word    0x00e9dd74                   ; literal 15326580 / 
+L_1071d8:  001071d8  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           001071dc  cmp      r0, r1                       
+           001071e0  beq      #0x1071e8                    ; -> L_1071e8
+           001071e4  mov      r4, #0                       
+L_1071e8:  001071e8  mov      r6, r4                       
+           001071ec  mov      r0, r4                       
+           001071f0  mov      r1, #0                       
+           001071f4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           001071f8  cmp      r0, #0                       
+           001071fc  beq      #0x107330                    ; -> L_107330
+           00107200  ldr      lr, [r6]                     
+           00107204  str      r6, [sl, #0x14]              ; field+0x14 (this-class: barrel)
+           00107208  mov      r1, r6                       
+           0010720c  mov      r0, r1                       
+           00107210  ldr      lr, [r1]                     
+           00107214  bl       #0x22af70                    ; CALL UnityEngine.GameObject::get_collider
+           00107218  mov      r2, r0                       
+           0010721c  add      r0, fp, #0x54                
+           00107220  mov      r1, r2                       
+           00107224  ldr      lr, [r2]                     
+           00107228  bl       #0x22b090                    ; CALL UnityEngine.Collider::get_bounds
+           0010722c  add      r0, fp, #0x54                
+           00107230  add      r0, r0, #0xc                 
+           00107234  ldr      r1, [r0]                     
+           00107238  str      r1, [fp, #0x6c]              
+           0010723c  ldr      r1, [r0, #4]                 ; field+0x4 
+           00107240  str      r1, [fp, #0x70]              
+           00107244  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00107248  str      r0, [fp, #0x74]              
+           0010724c  vldr     s0, [fp, #0x70]              
+           00107250  vcvt.f64.f32 d2, s0                       
+           00107254  vcvt.f32.f64 s0, d2                       
+           00107258  vstr     s0, [fp, #0x50]              
+           0010725c  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: barrel)
+           00107260  mov      r0, r1                       
+           00107264  ldr      lr, [r1]                     
+           00107268  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           0010726c  str      r0, [fp, #0x128]             
+           00107270  add      r0, fp, #64, #30             
+           00107274  bl       #0x22b3e0                    ; CALL UnityEngine.Vector3::get_up
+           00107278  vldr     s0, [fp, #0x50]              
+           0010727c  vcvt.f64.f32 d2, s0                       
+           00107280  add      r0, fp, #0x10c               
+           00107284  ldr      r1, [fp, #0x100]             
+           00107288  ldr      r2, [fp, #0x104]             
+           0010728c  ldr      r3, [fp, #0x108]             
+           00107290  vcvt.f32.f64 s0, d2                       
+           00107294  vstr     s0, [sp]                     
+           00107298  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           0010729c  add      r0, fp, #0x118               
+           001072a0  ldr      r1, [fp, #0x44]              
+           001072a4  ldr      r2, [fp, #0x48]              
+           001072a8  ldr      r3, [fp, #0x4c]              
+           001072ac  ldr      ip, [fp, #0x10c]             
+           001072b0  str      ip, [sp]                     
+           001072b4  ldr      ip, [fp, #0x110]             
+           001072b8  str      ip, [sp, #4]                 
+           001072bc  ldr      ip, [fp, #0x114]             
+           001072c0  str      ip, [sp, #8]                 
+           001072c4  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           001072c8  ldr      ip, [fp, #0x128]             
+           001072cc  mov      r0, ip                       
+           001072d0  ldr      r1, [fp, #0x118]             
+           001072d4  ldr      r2, [fp, #0x11c]             
+           001072d8  ldr      r3, [fp, #0x120]             
+           001072dc  ldr      lr, [ip]                     
+           001072e0  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           001072e4  b        #0x107330                    ; -> L_107330
+L_1072e8:  001072e8  ldr      r0, [pc]                     
+           001072ec  b        #0x1072f4                    ; -> L_1072f4
+           001072f0  .word    0x00e9e798                   ; literal 15329176 / 
+L_1072f4:  001072f4  ldr      r0, [pc, r0]                 ; GOT[843] LDSTR "Could not drop barrel because there is no ground beneath '"
+           001072f8  str      r0, [fp, #0x128]             
+           001072fc  mov      r0, sl                       
+           00107300  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00107304  mov      r1, r0                       
+           00107308  ldr      lr, [r1]                     
+           0010730c  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           00107310  mov      r1, r0                       
+           00107314  ldr      r0, [fp, #0x128]             
+           00107318  ldr      r2, [pc]                     
+           0010731c  b        #0x107324                    ; -> L_107324
+           00107320  .word    0x00e9e628                   ; literal 15328808 / 
+L_107324:  00107324  ldr      r2, [pc, r2]                 ; GOT[763] LDSTR "'"
+           00107328  bl       #0x22ab90                    ; CALL System.String::Concat
+           0010732c  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+L_107330:  00107330  add      sp, fp, #76, #30             
+           00107334  pop      {r4, r5, r6, r8, sl, fp}     
+           00107338  ldr      r7, [sp, #8]                 
+           0010733c  ldm      sp, {sp, pc}                 
+
+== BarrelSpawner::Start  token 0x060004b9 @0x00107340 (96 bytes)
+   args: r0=this, 
+           00107340  mov      ip, sp                       
+           00107344  push     {r7, lr}                     
+           00107348  mov      r7, sp                       
+           0010734c  push     {r8, fp, ip, lr}             
+           00107350  sub      sp, sp, #8                   
+           00107354  mov      fp, sp                       
+           00107358  str      r0, [fp]                     
+           0010735c  ldr      r0, [fp]                     
+           00107360  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: barrelPrefab)
+           00107364  mov      r1, #0                       
+           00107368  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010736c  cmp      r0, #0                       
+           00107370  beq      #0x107388                    ; -> L_107388
+           00107374  ldr      r0, [pc]                     
+           00107378  b        #0x107380                    ; -> L_107380
+           0010737c  .word    0x00e9e710                   ; literal 15329040 / 
+L_107380:  00107380  ldr      r0, [pc, r0]                 ; GOT[844] LDSTR 'We have no barrel to spawn in this spawner!!'
+           00107384  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+L_107388:  00107388  ldr      r0, [fp]                     
+           0010738c  bl       #0x22da40                    ; CALL BarrelSpawner::SpawnBarrel
+           00107390  add      sp, fp, #8                   
+           00107394  pop      {r8, fp}                     
+           00107398  ldr      r7, [sp, #8]                 
+           0010739c  ldm      sp, {sp, pc}                 
+
+== BarrelSpawner::Update  token 0x060004ba @0x001073a0 (132 bytes)
+   args: r0=this, 
+           001073a0  mov      ip, sp                       
+           001073a4  push     {r7, lr}                     
+           001073a8  mov      r7, sp                       
+           001073ac  push     {r8, sl, fp, ip, lr}         
+           001073b0  sub      sp, sp, #4                   
+           001073b4  mov      fp, sp                       
+           001073b8  mov      sl, r0                       
+           001073bc  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           001073c0  cmp      r0, #0                       
+           001073c4  bne      #0x107414                    ; -> L_107414
+           001073c8  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: barrel)
+           001073cc  mov      r1, #0                       
+           001073d0  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           001073d4  cmp      r0, #0                       
+           001073d8  beq      #0x107414                    ; -> L_107414
+           001073dc  ldrb     r0, [sl, #0x1c]              ; field+0x1c (this-class: spawnCounting)
+           001073e0  cmp      r0, #0                       
+           001073e4  bne      #0x107414                    ; -> L_107414
+           001073e8  ldr      r0, [pc]                     
+           001073ec  b        #0x1073f4                    ; -> L_1073f4
+           001073f0  .word    0x00e9e694                   ; literal 15328916 / 
+L_1073f4:  001073f4  ldr      r0, [pc, r0]                 ; GOT[842] VTABLE BarrelSpawner/<SpawnCheck>c__Iterator34
+           001073f8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           001073fc  mov      r1, r0                       
+           00107400  str      sl, [r1, #0xc]               ; field+0xc 
+           00107404  mov      r0, sl                       
+           00107408  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           0010740c  mov      r0, #1                       
+           00107410  strb     r0, [sl, #0x1c]              ; field+0x1c (this-class: spawnCounting)
+L_107414:  00107414  add      sp, fp, #4                   
+           00107418  pop      {r8, sl, fp}                 
+           0010741c  ldr      r7, [sp, #8]                 
+           00107420  ldm      sp, {sp, pc}                 
+
+== BarrelSpawner::OnDrawGizmos  token 0x060004bb @0x00107424 (276 bytes)
+   args: r0=this, 
+           00107424  mov      ip, sp                       
+           00107428  push     {r7, lr}                     
+           0010742c  mov      r7, sp                       
+           00107430  push     {r8, fp, ip, lr}             
+           00107434  sub      sp, sp, #0x80                
+           00107438  mov      fp, sp                       
+           0010743c  str      r0, [fp, #0x78]              
+           00107440  add      r0, fp, #0x50                
+           00107444  bl       #0x22b4e0                    ; CALL UnityEngine.Color::get_red
+           00107448  ldr      r0, [fp, #0x50]              
+           0010744c  ldr      r1, [fp, #0x54]              
+           00107450  ldr      r2, [fp, #0x58]              
+           00107454  ldr      r3, [fp, #0x5c]              
+           00107458  bl       #0x22a890                    ; CALL UnityEngine.Gizmos::set_color
+           0010745c  ldr      r0, [fp, #0x78]              
+           00107460  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00107464  mov      r2, r0                       
+           00107468  add      r0, fp, #0x60                
+           0010746c  mov      r1, r2                       
+           00107470  ldr      lr, [r2]                     
+           00107474  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00107478  vldr     s8, [pc]                     ; float 1.0
+           0010747c  b        #0x107484                    ; -> L_107484
+           00107480  .word    0x3f800000                   ; literal 1065353216 / 1
+L_107484:  00107484  vcvt.f64.f32 d4, s8                       
+           00107488  vldr     s6, [pc]                     ; float 1.0
+           0010748c  b        #0x107494                    ; -> L_107494
+           00107490  .word    0x3f800000                   ; literal 1065353216 / 1
+L_107494:  00107494  vcvt.f64.f32 d3, s6                       
+           00107498  vldr     s4, [pc]                     ; float 1.0
+           0010749c  b        #0x1074a4                    ; -> L_1074a4
+           001074a0  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1074a4:  001074a4  vcvt.f64.f32 d2, s4                       
+           001074a8  mov      r0, #0                       
+           001074ac  str      r0, [fp, #0x2c]              
+           001074b0  mov      r0, #0                       
+           001074b4  str      r0, [fp, #0x30]              
+           001074b8  mov      r0, #0                       
+           001074bc  str      r0, [fp, #0x34]              
+           001074c0  add      r0, fp, #0x2c                
+           001074c4  vcvt.f32.f64 s0, d4                       
+           001074c8  vstr     s0, [sp, #-8]                
+           001074cc  ldr      r1, [sp, #-8]                
+           001074d0  vcvt.f32.f64 s0, d3                       
+           001074d4  vstr     s0, [sp, #-8]                
+           001074d8  ldr      r2, [sp, #-8]                
+           001074dc  vcvt.f32.f64 s0, d2                       
+           001074e0  vstr     s0, [sp, #-8]                
+           001074e4  ldr      r3, [sp, #-8]                
+           001074e8  bl       #0x22b1f0                    ; CALL UnityEngine.Vector3::.ctor
+           001074ec  ldr      r0, [fp, #0x2c]              
+           001074f0  str      r0, [fp, #0x6c]              
+           001074f4  ldr      r0, [fp, #0x30]              
+           001074f8  str      r0, [fp, #0x70]              
+           001074fc  ldr      r0, [fp, #0x34]              
+           00107500  str      r0, [fp, #0x74]              
+           00107504  ldr      r0, [fp, #0x60]              
+           00107508  ldr      r1, [fp, #0x64]              
+           0010750c  ldr      r2, [fp, #0x68]              
+           00107510  ldr      r3, [fp, #0x6c]              
+           00107514  ldr      ip, [fp, #0x70]              
+           00107518  str      ip, [sp]                     
+           0010751c  ldr      ip, [fp, #0x74]              
+           00107520  str      ip, [sp, #4]                 
+           00107524  bl       #0x22d640                    ; CALL UnityEngine.Gizmos::DrawWireCube
+           00107528  add      sp, fp, #0x80                
+           0010752c  pop      {r8, fp}                     
+           00107530  ldr      r7, [sp, #8]                 
+           00107534  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE BarrelSpawner/<SpawnCheck>c__Iterator34  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      BarrelSpawner
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== BarrelSpawner/<SpawnCheck>c__Iterator34::.ctor  token 0x06000909 @0x0014c6c4 (44 bytes)
+   args: r0=this, 
+           0014c6c4  mov      ip, sp                       
+           0014c6c8  push     {r7, lr}                     
+           0014c6cc  mov      r7, sp                       
+           0014c6d0  push     {r8, fp, ip, lr}             
+           0014c6d4  sub      sp, sp, #8                   
+           0014c6d8  mov      fp, sp                       
+           0014c6dc  str      r0, [fp]                     
+           0014c6e0  add      sp, fp, #8                   
+           0014c6e4  pop      {r8, fp}                     
+           0014c6e8  ldr      r7, [sp, #8]                 
+           0014c6ec  ldm      sp, {sp, pc}                 
+
+== BarrelSpawner/<SpawnCheck>c__Iterator34::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x0600090a @0x0014c6f0 (52 bytes)
+   args: r0=this, 
+           0014c6f0  mov      ip, sp                       
+           0014c6f4  push     {r7, lr}                     
+           0014c6f8  mov      r7, sp                       
+           0014c6fc  push     {r8, fp, ip, lr}             
+           0014c700  sub      sp, sp, #8                   
+           0014c704  mov      fp, sp                       
+           0014c708  str      r0, [fp]                     
+           0014c70c  ldr      r0, [fp]                     
+           0014c710  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014c714  add      sp, fp, #8                   
+           0014c718  pop      {r8, fp}                     
+           0014c71c  ldr      r7, [sp, #8]                 
+           0014c720  ldm      sp, {sp, pc}                 
+
+== BarrelSpawner/<SpawnCheck>c__Iterator34::System.Collections.IEnumerator.get_Current  token 0x0600090b @0x0014c724 (52 bytes)
+   args: r0=this, 
+           0014c724  mov      ip, sp                       
+           0014c728  push     {r7, lr}                     
+           0014c72c  mov      r7, sp                       
+           0014c730  push     {r8, fp, ip, lr}             
+           0014c734  sub      sp, sp, #8                   
+           0014c738  mov      fp, sp                       
+           0014c73c  str      r0, [fp]                     
+           0014c740  ldr      r0, [fp]                     
+           0014c744  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014c748  add      sp, fp, #8                   
+           0014c74c  pop      {r8, fp}                     
+           0014c750  ldr      r7, [sp, #8]                 
+           0014c754  ldm      sp, {sp, pc}                 
+
+== BarrelSpawner/<SpawnCheck>c__Iterator34::MoveNext  token 0x0600090c @0x0014c758 (304 bytes)
+   args: r0=this, 
+           0014c758  mov      ip, sp                       
+           0014c75c  push     {r7, lr}                     
+           0014c760  mov      r7, sp                       
+           0014c764  push     {r8, sl, fp, ip, lr}         
+           0014c768  sub      sp, sp, #0x14                
+           0014c76c  mov      fp, sp                       
+           0014c770  mov      sl, r0                       
+           0014c774  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014c778  mvn      r1, #0                       
+           0014c77c  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014c780  str      r0, [fp, #4]                 
+           0014c784  cmp      r0, #3                       
+           0014c788  bhs      #0x14c86c                    ; -> L_14c86c
+           0014c78c  ldr      r0, [fp, #4]                 
+           0014c790  lsl      r1, r0, #2                   
+           0014c794  ldr      r0, [pc]                     
+           0014c798  b        #0x14c7a0                    ; -> L_14c7a0
+           0014c79c  .word    0x00e5a208                   ; literal 15049224 / 
+L_14c7a0:  0014c7a0  ldr      r0, [pc, r0]                 ; GOT[1810] SWITCH switch table[3]
+           0014c7a4  add      r0, r0, r1                   
+           0014c7a8  ldr      r0, [r0]                     
+           0014c7ac  mov      pc, r0                       
+           0014c7b0  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014c7b4  vldr     s0, [r0, #0x18]              ; field+0x18 
+           0014c7b8  vcvt.f64.f32 d2, s0                       
+           0014c7bc  vstr     d2, [fp, #8]                 
+           0014c7c0  ldr      r0, [pc]                     
+           0014c7c4  b        #0x14c7cc                    ; -> L_14c7cc
+           0014c7c8  .word    0x00e5a02c                   ; literal 15048748 / 
+L_14c7cc:  0014c7cc  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           0014c7d0  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           0014c7d4  vldr     d2, [fp, #8]                 
+           0014c7d8  vcvt.f32.f64 s0, d2                       
+           0014c7dc  vstr     s0, [fp]                     
+           0014c7e0  vldr     s0, [fp]                     
+           0014c7e4  vcvt.f64.f32 d2, s0                       
+           0014c7e8  vcvt.f32.f64 s0, d2                       
+           0014c7ec  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014c7f0  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           0014c7f4  mov      r0, #1                       
+           0014c7f8  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014c7fc  b        #0x14c874                    ; -> L_14c874
+L_14c800:  0014c800  ldr      r0, [pc]                     
+           0014c804  b        #0x14c80c                    ; -> L_14c80c
+           0014c808  .word    0x00e58594                   ; literal 15041940 / 
+L_14c80c:  0014c80c  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           0014c810  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0014c814  mov      r1, #0                       
+           0014c818  str      r1, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014c81c  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           0014c820  mov      r0, #2                       
+           0014c824  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014c828  b        #0x14c874                    ; -> L_14c874
+           0014c82c  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           0014c830  cmp      r0, #0                       
+           0014c834  bne      #0x14c800                    ; -> L_14c800
+           0014c838  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014c83c  ldr      r0, [r0, #0x14]              ; field+0x14 
+           0014c840  mov      r1, #0                       
+           0014c844  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0014c848  cmp      r0, #0                       
+           0014c84c  beq      #0x14c858                    ; -> L_14c858
+           0014c850  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014c854  bl       #0x22da40                    ; CALL BarrelSpawner::SpawnBarrel
+L_14c858:  0014c858  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014c85c  mov      r1, #0                       
+           0014c860  strb     r1, [r0, #0x1c]              ; field+0x1c 
+           0014c864  mvn      r0, #0                       
+           0014c868  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+L_14c86c:  0014c86c  mov      r0, #0                       
+           0014c870  b        #0x14c878                    ; -> L_14c878
+L_14c874:  0014c874  mov      r0, #1                       
+L_14c878:  0014c878  add      sp, fp, #0x14                
+           0014c87c  pop      {r8, sl, fp}                 
+           0014c880  ldr      r7, [sp, #8]                 
+           0014c884  ldm      sp, {sp, pc}                 
+
+== BarrelSpawner/<SpawnCheck>c__Iterator34::Dispose  token 0x0600090d @0x0014c888 (56 bytes)
+   args: r0=this, 
+           0014c888  mov      ip, sp                       
+           0014c88c  push     {r7, lr}                     
+           0014c890  mov      r7, sp                       
+           0014c894  push     {r8, fp, ip, lr}             
+           0014c898  sub      sp, sp, #8                   
+           0014c89c  mov      fp, sp                       
+           0014c8a0  str      r0, [fp]                     
+           0014c8a4  ldr      r0, [fp]                     
+           0014c8a8  mvn      r1, #0                       
+           0014c8ac  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0014c8b0  add      sp, fp, #8                   
+           0014c8b4  pop      {r8, fp}                     
+           0014c8b8  ldr      r7, [sp, #8]                 
+           0014c8bc  ldm      sp, {sp, pc}                 
+
+== BarrelSpawner/<SpawnCheck>c__Iterator34::Reset  token 0x0600090e @0x0014c8c0 (64 bytes)
+   args: r0=this, 
+           0014c8c0  mov      ip, sp                       
+           0014c8c4  push     {r7, lr}                     
+           0014c8c8  mov      r7, sp                       
+           0014c8cc  push     {r8, fp, ip, lr}             
+           0014c8d0  sub      sp, sp, #8                   
+           0014c8d4  mov      fp, sp                       
+           0014c8d8  str      r0, [fp]                     
+           0014c8dc  mov      r0, #0x49                    
+           0014c8e0  add      r0, r0, #0x100               
+           0014c8e4  add      r0, r0, #0x2000000           
+           0014c8e8  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           0014c8ec  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0014c8f0  add      sp, fp, #8                   
+           0014c8f4  pop      {r8, fp}                     
+           0014c8f8  ldr      r7, [sp, #8]                 
+           0014c8fc  ldm      sp, {sp, pc}                 

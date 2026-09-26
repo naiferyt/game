@@ -1,0 +1,258 @@
+####################################################################################################
+# TYPE SmashEffect  (instance size 0x20)
+#   +0x08 time                           float
+#   +0x0c power                          int
+#   +0x10 effectType                     BaseEffect/EffectTypes
+#   +0x14 isMultiLevel                   bool
+#   +0x18 powerLevel                     int
+#   +0x1c parentObject                   UnityEngine.GameObject
+#   vtable slots: 5:GetEffectSnapShot, 6:Stack, 7:Shutdown, 8:Update, 9:Init
+####################################################################################################
+== SmashEffect::.ctor  token 0x060003d3 @0x000f8878 (104 bytes)
+   args: r0=this, parent
+           000f8878  mov      ip, sp                       
+           000f887c  push     {r7, lr}                     
+           000f8880  mov      r7, sp                       
+           000f8884  push     {r6, r8, fp, ip, lr}         
+           000f8888  sub      sp, sp, #0xc                 
+           000f888c  mov      fp, sp                       
+           000f8890  mov      r6, r0                       
+           000f8894  str      r1, [fp]                     
+           000f8898  mov      r0, #1                       
+           000f889c  str      r0, [r6, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f88a0  ldr      r0, [fp]                     
+           000f88a4  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f88a8  mov      r0, #8                       
+           000f88ac  str      r0, [r6, #0x10]              ; field+0x10 (this-class: effectType)
+           000f88b0  mov      r0, #1                       
+           000f88b4  str      r0, [r6, #0xc]               ; field+0xc (this-class: power)
+           000f88b8  vldr     s4, [pc]                     ; float 6.0
+           000f88bc  b        #0xf88c4                     ; -> L_f88c4
+           000f88c0  .word    0x40c00000                   ; literal 1086324736 / 6
+L_f88c4:   000f88c4  vcvt.f64.f32 d2, s4                       
+           000f88c8  vcvt.f32.f64 s0, d2                       
+           000f88cc  vstr     s0, [r6, #8]                 ; field+0x8 (this-class: time)
+           000f88d0  add      sp, fp, #0xc                 
+           000f88d4  pop      {r6, r8, fp}                 
+           000f88d8  ldr      r7, [sp, #8]                 
+           000f88dc  ldm      sp, {sp, pc}                 
+
+== SmashEffect::Init  token 0x060003d4 @0x000f88e0 (476 bytes)
+   args: r0=this, 
+           000f88e0  mov      ip, sp                       
+           000f88e4  push     {r7, lr}                     
+           000f88e8  mov      r7, sp                       
+           000f88ec  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000f88f0  sub      sp, sp, #0x5c                
+           000f88f4  mov      fp, sp                       
+           000f88f8  mov      sl, r0                       
+           000f88fc  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8900  mov      r1, #0                       
+           000f8904  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f8908  cmp      r0, #0                       
+           000f890c  beq      #0xf8aac                     ; -> L_f8aac
+           000f8910  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8914  ldr      r1, [pc]                     
+           000f8918  b        #0xf8920                     ; -> L_f8920
+           000f891c  .word    0x00eac5b8                   ; literal 15386040 / 
+L_f8920:   000f8920  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f8924  ldr      lr, [r0]                     
+           000f8928  mov      r8, r1                       
+           000f892c  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f8930  mov      r6, r0                       
+           000f8934  mov      r1, r6                       
+           000f8938  mov      r0, r1                       
+           000f893c  ldr      lr, [r1]                     
+           000f8940  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000f8944  mov      r2, r0                       
+           000f8948  ldr      r1, [pc]                     
+           000f894c  b        #0xf8954                     ; -> L_f8954
+           000f8950  .word    0x00eaceac                   ; literal 15388332 / 
+L_f8954:   000f8954  ldr      r1, [pc, r1]                 ; GOT[680] LDSTR 'Smash Particle Effect'
+           000f8958  mov      r0, r2                       
+           000f895c  ldr      lr, [r2]                     
+           000f8960  bl       #0x22b290                    ; CALL UnityEngine.Transform::FindChild
+           000f8964  mov      r1, #0                       
+           000f8968  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000f896c  cmp      r0, #0                       
+           000f8970  beq      #0xf8aac                     ; -> L_f8aac
+           000f8974  bl       #0x22b2a0                    ; CALL ParticleLibrary::get_Instance
+           000f8978  mov      r2, r0                       
+           000f897c  ldr      r1, [pc]                     
+           000f8980  b        #0xf8988                     ; -> L_f8988
+           000f8984  .word    0x00eace7c                   ; literal 15388284 / 
+L_f8988:   000f8988  ldr      r1, [pc, r1]                 ; GOT[681] LDSTR 'Smash'
+           000f898c  mov      r0, r2                       
+           000f8990  ldr      lr, [r2]                     
+           000f8994  bl       #0x22b2b0                    ; CALL ParticleLibrary::GetPrefab
+           000f8998  mov      r5, r0                       
+           000f899c  str      r0, [fp, #0x50]              
+           000f89a0  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f89a4  mov      r0, r1                       
+           000f89a8  ldr      lr, [r1]                     
+           000f89ac  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f89b0  mov      r2, r0                       
+           000f89b4  add      r0, fp, #0x30                
+           000f89b8  mov      r1, r2                       
+           000f89bc  ldr      lr, [r2]                     
+           000f89c0  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f89c4  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f89c8  mov      r0, r1                       
+           000f89cc  ldr      lr, [r1]                     
+           000f89d0  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f89d4  mov      r2, r0                       
+           000f89d8  add      r0, fp, #0x3c                
+           000f89dc  mov      r1, r2                       
+           000f89e0  ldr      lr, [r2]                     
+           000f89e4  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000f89e8  ldr      r0, [fp, #0x50]              
+           000f89ec  ldr      r1, [fp, #0x30]              
+           000f89f0  ldr      r2, [fp, #0x34]              
+           000f89f4  ldr      r3, [fp, #0x38]              
+           000f89f8  ldr      ip, [fp, #0x3c]              
+           000f89fc  str      ip, [sp]                     
+           000f8a00  ldr      ip, [fp, #0x40]              
+           000f8a04  str      ip, [sp, #4]                 
+           000f8a08  ldr      ip, [fp, #0x44]              
+           000f8a0c  str      ip, [sp, #8]                 
+           000f8a10  ldr      ip, [fp, #0x48]              
+           000f8a14  str      ip, [sp, #0xc]               
+           000f8a18  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           000f8a1c  mov      r5, r0                       
+           000f8a20  mov      r6, r5                       
+           000f8a24  cmp      r5, #0                       
+           000f8a28  beq      #0xf8a58                     ; -> L_f8a58
+           000f8a2c  ldr      r0, [r5]                     
+           000f8a30  ldr      r0, [r0]                     
+           000f8a34  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f8a38  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f8a3c  ldr      r1, [pc]                     
+           000f8a40  b        #0xf8a48                     ; -> L_f8a48
+           000f8a44  .word    0x00eac504                   ; literal 15385860 / 
+L_f8a48:   000f8a48  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           000f8a4c  cmp      r0, r1                       
+           000f8a50  beq      #0xf8a58                     ; -> L_f8a58
+           000f8a54  mov      r6, #0                       
+L_f8a58:   000f8a58  str      r6, [fp, #0x10]              
+           000f8a5c  mov      r0, r6                       
+           000f8a60  ldr      lr, [r6]                     
+           000f8a64  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f8a68  str      r0, [fp, #0x50]              
+           000f8a6c  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8a70  mov      r0, r1                       
+           000f8a74  ldr      lr, [r1]                     
+           000f8a78  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f8a7c  mov      r1, r0                       
+           000f8a80  ldr      r2, [fp, #0x50]              
+           000f8a84  mov      r0, r2                       
+           000f8a88  ldr      lr, [r2]                     
+           000f8a8c  bl       #0x22b2d0                    ; CALL UnityEngine.Transform::set_parent
+           000f8a90  ldr      r1, [pc]                     
+           000f8a94  b        #0xf8a9c                     ; -> L_f8a9c
+           000f8a98  .word    0x00eacd64                   ; literal 15388004 / 
+L_f8a9c:   000f8a9c  ldr      r1, [pc, r1]                 ; GOT[680] LDSTR 'Smash Particle Effect'
+           000f8aa0  mov      r0, r6                       
+           000f8aa4  ldr      lr, [r6]                     
+           000f8aa8  bl       #0x22b2e0                    ; CALL UnityEngine.Object::set_name
+L_f8aac:   000f8aac  add      sp, fp, #0x5c                
+           000f8ab0  pop      {r5, r6, r8, sl, fp}         
+           000f8ab4  ldr      r7, [sp, #8]                 
+           000f8ab8  ldm      sp, {sp, pc}                 
+
+== SmashEffect::Update  token 0x060003d5 @0x000f8abc (44 bytes)
+   args: r0=this, 
+           000f8abc  mov      ip, sp                       
+           000f8ac0  push     {r7, lr}                     
+           000f8ac4  mov      r7, sp                       
+           000f8ac8  push     {r8, fp, ip, lr}             
+           000f8acc  sub      sp, sp, #8                   
+           000f8ad0  mov      fp, sp                       
+           000f8ad4  str      r0, [fp]                     
+           000f8ad8  add      sp, fp, #8                   
+           000f8adc  pop      {r8, fp}                     
+           000f8ae0  ldr      r7, [sp, #8]                 
+           000f8ae4  ldm      sp, {sp, pc}                 
+
+== SmashEffect::Shutdown  token 0x060003d6 @0x000f8ae8 (200 bytes)
+   args: r0=this, 
+           000f8ae8  mov      ip, sp                       
+           000f8aec  push     {r7, lr}                     
+           000f8af0  mov      r7, sp                       
+           000f8af4  push     {r6, r8, sl, fp, ip, lr}     
+           000f8af8  sub      sp, sp, #8                   
+           000f8afc  mov      fp, sp                       
+           000f8b00  mov      sl, r0                       
+           000f8b04  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8b08  ldr      r1, [pc]                     
+           000f8b0c  b        #0xf8b14                     ; -> L_f8b14
+           000f8b10  .word    0x00eac3c4                   ; literal 15385540 / 
+L_f8b14:   000f8b14  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f8b18  ldr      lr, [r0]                     
+           000f8b1c  mov      r8, r1                       
+           000f8b20  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f8b24  mov      sl, r0                       
+           000f8b28  mov      r2, sl                       
+           000f8b2c  ldr      r1, [pc]                     
+           000f8b30  b        #0xf8b38                     ; -> L_f8b38
+           000f8b34  .word    0x00eac3bc                   ; literal 15385532 / 
+L_f8b38:   000f8b38  ldr      r1, [pc, r1]                 ; GOT[101] TYPE_FROM_HANDLE typeof(SmashEffect)
+           000f8b3c  mov      r0, r2                       
+           000f8b40  ldr      lr, [r2]                     
+           000f8b44  bl       #0x22b030                    ; CALL EffectManager::HasEffect
+           000f8b48  cmp      r0, #0                       
+           000f8b4c  bne      #0xf8ba0                     ; -> L_f8ba0
+           000f8b50  mov      r0, sl                       
+           000f8b54  ldr      lr, [sl]                     
+           000f8b58  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000f8b5c  mov      r2, r0                       
+           000f8b60  ldr      r1, [pc]                     
+           000f8b64  b        #0xf8b6c                     ; -> L_f8b6c
+           000f8b68  .word    0x00eacc94                   ; literal 15387796 / 
+L_f8b6c:   000f8b6c  ldr      r1, [pc, r1]                 ; GOT[680] LDSTR 'Smash Particle Effect'
+           000f8b70  mov      r0, r2                       
+           000f8b74  ldr      lr, [r2]                     
+           000f8b78  bl       #0x22b290                    ; CALL UnityEngine.Transform::FindChild
+           000f8b7c  mov      r6, r0                       
+           000f8b80  mov      r1, #0                       
+           000f8b84  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f8b88  cmp      r0, #0                       
+           000f8b8c  beq      #0xf8ba0                     ; -> L_f8ba0
+           000f8b90  mov      r0, r6                       
+           000f8b94  ldr      lr, [r6]                     
+           000f8b98  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000f8b9c  bl       #0x22cc70                    ; CALL UnityEngine.Object::DestroyObject
+L_f8ba0:   000f8ba0  add      sp, fp, #8                   
+           000f8ba4  pop      {r6, r8, sl, fp}             
+           000f8ba8  ldr      r7, [sp, #8]                 
+           000f8bac  ldm      sp, {sp, pc}                 
+
+== SmashEffect::Stack  token 0x060003d7 @0x000f8bb0 (52 bytes)
+   args: r0=this, second
+           000f8bb0  mov      ip, sp                       
+           000f8bb4  push     {r7, lr}                     
+           000f8bb8  mov      r7, sp                       
+           000f8bbc  push     {r8, fp, ip, lr}             
+           000f8bc0  sub      sp, sp, #8                   
+           000f8bc4  mov      fp, sp                       
+           000f8bc8  str      r0, [fp]                     
+           000f8bcc  str      r1, [fp, #4]                 
+           000f8bd0  mov      r0, #0                       
+           000f8bd4  add      sp, fp, #8                   
+           000f8bd8  pop      {r8, fp}                     
+           000f8bdc  ldr      r7, [sp, #8]                 
+           000f8be0  ldm      sp, {sp, pc}                 
+
+== SmashEffect::GetEffectSnapShot  token 0x060003d8 @0x000f8be4 (48 bytes)
+   args: r0=this, 
+           000f8be4  mov      ip, sp                       
+           000f8be8  push     {r7, lr}                     
+           000f8bec  mov      r7, sp                       
+           000f8bf0  push     {r8, fp, ip, lr}             
+           000f8bf4  sub      sp, sp, #8                   
+           000f8bf8  mov      fp, sp                       
+           000f8bfc  str      r0, [fp]                     
+           000f8c00  ldr      r0, [fp]                     
+           000f8c04  add      sp, fp, #8                   
+           000f8c08  pop      {r8, fp}                     
+           000f8c0c  ldr      r7, [sp, #8]                 
+           000f8c10  ldm      sp, {sp, pc}                 

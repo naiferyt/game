@@ -1,0 +1,185 @@
+####################################################################################################
+# TYPE GDMOManager  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   static string appKey  = const 350046004300430039004100360044002d0036004100360043002d0034004300450031002d0039004500380031002d00420038003700330032003100340037004200410034003900
+#   static string secretKey  = const 350033003900430041004400390033002d0032004500380031002d0034003900330043002d0038004300440034002d00440041003400410031003700340044004500450034003900
+#   static bool hasInit
+#   vtable slots: 
+####################################################################################################
+== GDMOManager::.ctor  token 0x06000434 @0x000ffa18 (52 bytes)
+   args: r0=this, 
+           000ffa18  mov      ip, sp                       
+           000ffa1c  push     {r7, lr}                     
+           000ffa20  mov      r7, sp                       
+           000ffa24  push     {r8, fp, ip, lr}             
+           000ffa28  sub      sp, sp, #8                   
+           000ffa2c  mov      fp, sp                       
+           000ffa30  str      r0, [fp]                     
+           000ffa34  ldr      r0, [fp]                     
+           000ffa38  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000ffa3c  add      sp, fp, #8                   
+           000ffa40  pop      {r8, fp}                     
+           000ffa44  ldr      r7, [sp, #8]                 
+           000ffa48  ldm      sp, {sp, pc}                 
+
+== GDMOManager::.cctor  token 0x06000435 @0x000ffa4c (36 bytes) static
+   args: 
+           000ffa4c  mov      ip, sp                       
+           000ffa50  push     {r7, lr}                     
+           000ffa54  mov      r7, sp                       
+           000ffa58  push     {r8, fp, ip, lr}             
+           000ffa5c  mov      fp, sp                       
+           000ffa60  add      sp, fp, #0                   
+           000ffa64  pop      {r8, fp}                     
+           000ffa68  ldr      r7, [sp, #8]                 
+           000ffa6c  ldm      sp, {sp, pc}                 
+
+== GDMOManager::Start  token 0x06000436 @0x000ffa70 (88 bytes)
+   args: r0=this, 
+           000ffa70  mov      ip, sp                       
+           000ffa74  push     {r7, lr}                     
+           000ffa78  mov      r7, sp                       
+           000ffa7c  push     {r8, fp, ip, lr}             
+           000ffa80  sub      sp, sp, #8                   
+           000ffa84  mov      fp, sp                       
+           000ffa88  str      r0, [fp, #4]                 
+           000ffa8c  ldr      r0, [pc]                     
+           000ffa90  b        #0xffa98                     ; -> L_ffa98
+           000ffa94  .word    0x00ea5e64                   ; literal 15359588 / 
+L_ffa98:   000ffa98  ldr      r0, [pc, r0]                 ; GOT[743] TYPE_FROM_HANDLE typeof(GDMOManager)
+           000ffa9c  bl       #0x22b650                    ; CALL UnityEngine.Object::FindObjectsOfType
+           000ffaa0  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000ffaa4  cmp      r0, #1                       
+           000ffaa8  ble      #0xffab8                     ; -> L_ffab8
+           000ffaac  ldr      r0, [fp, #4]                 
+           000ffab0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000ffab4  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_ffab8:   000ffab8  add      sp, fp, #8                   
+           000ffabc  pop      {r8, fp}                     
+           000ffac0  ldr      r7, [sp, #8]                 
+           000ffac4  ldm      sp, {sp, pc}                 
+
+== GDMOManager::OnApplicationPause  token 0x06000437 @0x000ffac8 (48 bytes)
+   args: r0=this, 
+           000ffac8  mov      ip, sp                       
+           000ffacc  push     {r7, lr}                     
+           000ffad0  mov      r7, sp                       
+           000ffad4  push     {r8, fp, ip, lr}             
+           000ffad8  sub      sp, sp, #8                   
+           000ffadc  mov      fp, sp                       
+           000ffae0  str      r0, [fp]                     
+           000ffae4  bl       #0xffc54                     ; CALL GDMOManager::Flush (direct)
+           000ffae8  add      sp, fp, #8                   
+           000ffaec  pop      {r8, fp}                     
+           000ffaf0  ldr      r7, [sp, #8]                 
+           000ffaf4  ldm      sp, {sp, pc}                 
+
+== GDMOManager::Init  token 0x06000438 @0x000ffaf8 (228 bytes) static
+   args: 
+           000ffaf8  mov      ip, sp                       
+           000ffafc  push     {r7, lr}                     
+           000ffb00  mov      r7, sp                       
+           000ffb04  push     {r8, sl, fp, ip, lr}         
+           000ffb08  sub      sp, sp, #0xc                 
+           000ffb0c  mov      fp, sp                       
+           000ffb10  ldr      r0, [pc]                     
+           000ffb14  b        #0xffb1c                     ; -> L_ffb1c
+           000ffb18  .word    0x00ea5de4                   ; literal 15359460 / 
+L_ffb1c:   000ffb1c  ldr      r0, [pc, r0]                 ; GOT[744] SFLDA GDMOManager::hasInit
+           000ffb20  ldrb     r0, [r0]                     
+           000ffb24  cmp      r0, #0                       
+           000ffb28  bne      #0xffbcc                     ; -> L_ffbcc
+           000ffb2c  ldr      r0, [pc]                     
+           000ffb30  b        #0xffb38                     ; -> L_ffb38
+           000ffb34  .word    0x00ea5dc8                   ; literal 15359432 / 
+L_ffb38:   000ffb38  ldr      r0, [pc, r0]                 ; GOT[744] SFLDA GDMOManager::hasInit
+           000ffb3c  mov      r1, #1                       
+           000ffb40  strb     r1, [r0]                     
+           000ffb44  ldr      r0, [pc]                     
+           000ffb48  b        #0xffb50                     ; -> L_ffb50
+           000ffb4c  .word    0x00ea5db4                   ; literal 15359412 / 
+L_ffb50:   000ffb50  ldr      r0, [pc, r0]                 ; GOT[745] LDSTR '5FCC9A6D-6A6C-4CE1-9E81-B8732147BA49'
+           000ffb54  ldr      r1, [pc]                     
+           000ffb58  b        #0xffb60                     ; -> L_ffb60
+           000ffb5c  .word    0x00ea5da8                   ; literal 15359400 / 
+L_ffb60:   000ffb60  ldr      r1, [pc, r1]                 ; GOT[746] LDSTR '539CAD93-2E81-493C-8CD4-DA4A174DEE49'
+           000ffb64  bl       #0x22d540                    ; CALL GDMOBinding::InitWithAppKey
+           000ffb68  ldr      r0, [pc]                     
+           000ffb6c  b        #0xffb74                     ; -> L_ffb74
+           000ffb70  .word    0x00ea5d98                   ; literal 15359384 / 
+L_ffb74:   000ffb74  ldr      r0, [pc, r0]                 ; GOT[747] LDSTR '+GDMOManager'
+           000ffb78  str      r0, [fp, #4]                 
+           000ffb7c  ldr      r0, [pc]                     
+           000ffb80  b        #0xffb88                     ; -> L_ffb88
+           000ffb84  .word    0x00ea5204                   ; literal 15356420 / 
+L_ffb88:   000ffb88  ldr      r0, [pc, r0]                 ; GOT[11] VTABLE UnityEngine.GameObject
+           000ffb8c  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           000ffb90  ldr      r1, [fp, #4]                 
+           000ffb94  str      r0, [fp]                     
+           000ffb98  bl       #0x22a850                    ; CALL UnityEngine.GameObject::.ctor
+           000ffb9c  ldr      r0, [fp]                     
+           000ffba0  mov      sl, r0                       
+           000ffba4  mov      r2, sl                       
+           000ffba8  ldr      r1, [pc]                     
+           000ffbac  b        #0xffbb4                     ; -> L_ffbb4
+           000ffbb0  .word    0x00ea5d48                   ; literal 15359304 / 
+L_ffbb4:   000ffbb4  ldr      r1, [pc, r1]                 ; GOT[743] TYPE_FROM_HANDLE typeof(GDMOManager)
+           000ffbb8  mov      r0, r2                       
+           000ffbbc  ldr      lr, [r2]                     
+           000ffbc0  bl       #0x22a860                    ; CALL UnityEngine.GameObject::AddComponent
+           000ffbc4  mov      r0, sl                       
+           000ffbc8  bl       #0x22b640                    ; CALL UnityEngine.Object::DontDestroyOnLoad
+L_ffbcc:   000ffbcc  add      sp, fp, #0xc                 
+           000ffbd0  pop      {r8, sl, fp}                 
+           000ffbd4  ldr      r7, [sp, #8]                 
+           000ffbd8  ldm      sp, {sp, pc}                 
+
+== GDMOManager::Send  token 0x06000439 @0x000ffbdc (56 bytes) static
+   args: description
+           000ffbdc  mov      ip, sp                       
+           000ffbe0  push     {r7, lr}                     
+           000ffbe4  mov      r7, sp                       
+           000ffbe8  push     {r8, fp, ip, lr}             
+           000ffbec  sub      sp, sp, #8                   
+           000ffbf0  mov      fp, sp                       
+           000ffbf4  str      r0, [fp]                     
+           000ffbf8  bl       #0x22d550                    ; CALL GDMOManager::Init
+           000ffbfc  ldr      r0, [fp]                     
+           000ffc00  bl       #0x22d560                    ; CALL GDMOBinding::LogAnalyticsEvent
+           000ffc04  add      sp, fp, #8                   
+           000ffc08  pop      {r8, fp}                     
+           000ffc0c  ldr      r7, [sp, #8]                 
+           000ffc10  ldm      sp, {sp, pc}                 
+
+== GDMOManager::SendWithContext  token 0x0600043a @0x000ffc14 (64 bytes) static
+   args: scope, details
+           000ffc14  mov      ip, sp                       
+           000ffc18  push     {r7, lr}                     
+           000ffc1c  mov      r7, sp                       
+           000ffc20  push     {r8, fp, ip, lr}             
+           000ffc24  sub      sp, sp, #8                   
+           000ffc28  mov      fp, sp                       
+           000ffc2c  str      r0, [fp]                     
+           000ffc30  str      r1, [fp, #4]                 
+           000ffc34  bl       #0x22d550                    ; CALL GDMOManager::Init
+           000ffc38  ldr      r0, [fp]                     
+           000ffc3c  ldr      r1, [fp, #4]                 
+           000ffc40  bl       #0x22d570                    ; CALL GDMOBinding::LogAnalyticsEventWithContext
+           000ffc44  add      sp, fp, #8                   
+           000ffc48  pop      {r8, fp}                     
+           000ffc4c  ldr      r7, [sp, #8]                 
+           000ffc50  ldm      sp, {sp, pc}                 
+
+== GDMOManager::Flush  token 0x0600043b @0x000ffc54 (44 bytes) static
+   args: 
+           000ffc54  mov      ip, sp                       
+           000ffc58  push     {r7, lr}                     
+           000ffc5c  mov      r7, sp                       
+           000ffc60  push     {r8, fp, ip, lr}             
+           000ffc64  mov      fp, sp                       
+           000ffc68  bl       #0x22d550                    ; CALL GDMOManager::Init
+           000ffc6c  bl       #0x22d580                    ; CALL GDMOBinding::FlushAnalyticsQueue
+           000ffc70  add      sp, fp, #0                   
+           000ffc74  pop      {r8, fp}                     
+           000ffc78  ldr      r7, [sp, #8]                 
+           000ffc7c  ldm      sp, {sp, pc}                 

@@ -1,0 +1,126 @@
+####################################################################################################
+# TYPE PauseMission  (instance size 0x34)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 missionName                    LocalizedString
+#   +0x14 missionInstructions            LocalizedString
+#   +0x18 missionInstructionsWeb         LocalizedString
+#   +0x1c manager                        MissionManager
+#   +0x20 missionCollection              MissionCollection
+#   +0x24 hasArrow                       bool
+#   +0x28 arrowRotation                  float
+#   +0x2c arrowXOffset                   float
+#   +0x30 arrowYOffset                   float
+#   vtable slots: 5:Signal, 6:Shutdown, 7:Update, 8:Init
+####################################################################################################
+== PauseMission::.ctor  token 0x060002d9 @0x000ec5d8 (52 bytes)
+   args: r0=this, 
+           000ec5d8  mov      ip, sp                       
+           000ec5dc  push     {r7, lr}                     
+           000ec5e0  mov      r7, sp                       
+           000ec5e4  push     {r8, fp, ip, lr}             
+           000ec5e8  sub      sp, sp, #8                   
+           000ec5ec  mov      fp, sp                       
+           000ec5f0  str      r0, [fp]                     
+           000ec5f4  ldr      r0, [fp]                     
+           000ec5f8  bl       #0x22ca40                    ; CALL BaseMission::.ctor
+           000ec5fc  add      sp, fp, #8                   
+           000ec600  pop      {r8, fp}                     
+           000ec604  ldr      r7, [sp, #8]                 
+           000ec608  ldm      sp, {sp, pc}                 
+
+== PauseMission::Init  token 0x060002da @0x000ec60c (44 bytes)
+   args: r0=this, 
+           000ec60c  mov      ip, sp                       
+           000ec610  push     {r7, lr}                     
+           000ec614  mov      r7, sp                       
+           000ec618  push     {r8, fp, ip, lr}             
+           000ec61c  sub      sp, sp, #8                   
+           000ec620  mov      fp, sp                       
+           000ec624  str      r0, [fp]                     
+           000ec628  add      sp, fp, #8                   
+           000ec62c  pop      {r8, fp}                     
+           000ec630  ldr      r7, [sp, #8]                 
+           000ec634  ldm      sp, {sp, pc}                 
+
+== PauseMission::Update  token 0x060002db @0x000ec638 (44 bytes)
+   args: r0=this, 
+           000ec638  mov      ip, sp                       
+           000ec63c  push     {r7, lr}                     
+           000ec640  mov      r7, sp                       
+           000ec644  push     {r8, fp, ip, lr}             
+           000ec648  sub      sp, sp, #8                   
+           000ec64c  mov      fp, sp                       
+           000ec650  str      r0, [fp]                     
+           000ec654  add      sp, fp, #8                   
+           000ec658  pop      {r8, fp}                     
+           000ec65c  ldr      r7, [sp, #8]                 
+           000ec660  ldm      sp, {sp, pc}                 
+
+== PauseMission::Shutdown  token 0x060002dc @0x000ec664 (44 bytes)
+   args: r0=this, 
+           000ec664  mov      ip, sp                       
+           000ec668  push     {r7, lr}                     
+           000ec66c  mov      r7, sp                       
+           000ec670  push     {r8, fp, ip, lr}             
+           000ec674  sub      sp, sp, #8                   
+           000ec678  mov      fp, sp                       
+           000ec67c  str      r0, [fp]                     
+           000ec680  add      sp, fp, #8                   
+           000ec684  pop      {r8, fp}                     
+           000ec688  ldr      r7, [sp, #8]                 
+           000ec68c  ldm      sp, {sp, pc}                 
+
+== PauseMission::Signal  token 0x060002dd @0x000ec690 (144 bytes)
+   args: r0=this, signal
+           000ec690  mov      ip, sp                       
+           000ec694  push     {r7, lr}                     
+           000ec698  mov      r7, sp                       
+           000ec69c  push     {r6, r8, fp, ip, lr}         
+           000ec6a0  sub      sp, sp, #0xc                 
+           000ec6a4  mov      fp, sp                       
+           000ec6a8  mov      r6, r0                       
+           000ec6ac  str      r1, [fp]                     
+           000ec6b0  ldr      r1, [pc]                     
+           000ec6b4  b        #0xec6bc                     ; -> L_ec6bc
+           000ec6b8  .word    0x00eb8f88                   ; literal 15437704 / 
+L_ec6bc:   000ec6bc  ldr      r1, [pc, r1]                 ; GOT[569] LDSTR 'Paused Game'
+           000ec6c0  ldr      r0, [fp]                     
+           000ec6c4  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000ec6c8  cmp      r0, #0                       
+           000ec6cc  beq      #0xec710                     ; -> L_ec710
+           000ec6d0  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: missionCollection)
+           000ec6d4  mov      r1, #0                       
+           000ec6d8  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000ec6dc  cmp      r0, #0                       
+           000ec6e0  bne      #0xec6fc                     ; -> L_ec6fc
+           000ec6e4  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: missionCollection)
+           000ec6e8  mov      r1, r0                       
+           000ec6ec  ldr      lr, [r1]                     
+           000ec6f0  ldrb     r0, [r0, #0x3c]              ; field+0x3c 
+           000ec6f4  cmp      r0, #0                       
+           000ec6f8  beq      #0xec710                     ; -> L_ec710
+L_ec6fc:   000ec6fc  ldr      r2, [r6, #0x1c]              ; field+0x1c (this-class: manager)
+           000ec700  mov      r0, r2                       
+           000ec704  mov      r1, r6                       
+           000ec708  ldr      lr, [r2]                     
+           000ec70c  bl       #0x22ca50                    ; CALL MissionManager::CompleteMission
+L_ec710:   000ec710  add      sp, fp, #0xc                 
+           000ec714  pop      {r6, r8, fp}                 
+           000ec718  ldr      r7, [sp, #8]                 
+           000ec71c  ldm      sp, {sp, pc}                 
+
+== PauseMission::Signal  token 0x060002de @0x000ec720 (52 bytes)
+   args: r0=this, signal, value
+           000ec720  mov      ip, sp                       
+           000ec724  push     {r7, lr}                     
+           000ec728  mov      r7, sp                       
+           000ec72c  push     {r8, fp, ip, lr}             
+           000ec730  sub      sp, sp, #0x10                
+           000ec734  mov      fp, sp                       
+           000ec738  str      r0, [fp]                     
+           000ec73c  str      r1, [fp, #4]                 
+           000ec740  str      r2, [fp, #8]                 
+           000ec744  add      sp, fp, #0x10                
+           000ec748  pop      {r8, fp}                     
+           000ec74c  ldr      r7, [sp, #8]                 
+           000ec750  ldm      sp, {sp, pc}                 

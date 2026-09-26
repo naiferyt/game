@@ -1,0 +1,64 @@
+####################################################################################################
+# TYPE RewindLapSlotPublisher  (instance size 0x48)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 transformReferences            UghPublisher/TransformReference[]
+#   +0x14 transformsDictionary           UghPublisher/TransformsDictionary
+#   +0x18 ughTextReferences              UghPublisher/UghTextReference[]
+#   +0x1c ughTextsDictionary             UghPublisher/UghTextsDictionary
+#   +0x20 ledScrollerReferences          UghPublisher/LEDScrollerReference[]
+#   +0x24 ledScrollersDictionary         UghPublisher/LEDScrollersDictionary
+#   +0x28 ughButtonReferences            UghPublisher/UghButtonReference[]
+#   +0x2c ughButtonsDictionary           UghPublisher/UghButtonsDictionary
+#   +0x30 ughSlideToggleReferences       UghPublisher/UghSlideToggleReference[]
+#   +0x34 ughSlideTogglesDictionary      UghPublisher/UghSlideToggleDictionary
+#   +0x38 ughSliderReferences            UghPublisher/UghSliderReference[]
+#   +0x3c ughSlidersDictionary           UghPublisher/UghSliderDictionary
+#   +0x40 ughSprites                     System.Collections.Generic.List`1<UghSprite>
+#   +0x44 lapNum                         int
+#   vtable slots: 
+####################################################################################################
+== RewindLapSlotPublisher::.ctor  token 0x060007b0 @0x001403b0 (52 bytes)
+   args: r0=this, 
+           001403b0  mov      ip, sp                       
+           001403b4  push     {r7, lr}                     
+           001403b8  mov      r7, sp                       
+           001403bc  push     {r8, fp, ip, lr}             
+           001403c0  sub      sp, sp, #8                   
+           001403c4  mov      fp, sp                       
+           001403c8  str      r0, [fp]                     
+           001403cc  ldr      r0, [fp]                     
+           001403d0  bl       #0x22e1d0                    ; CALL UghPublisher::.ctor
+           001403d4  add      sp, fp, #8                   
+           001403d8  pop      {r8, fp}                     
+           001403dc  ldr      r7, [sp, #8]                 
+           001403e0  ldm      sp, {sp, pc}                 
+
+== RewindLapSlotPublisher::PressedRewind  token 0x060007b1 @0x001403e4 (108 bytes)
+   args: r0=this, 
+           001403e4  mov      ip, sp                       
+           001403e8  push     {r7, lr}                     
+           001403ec  mov      r7, sp                       
+           001403f0  push     {r8, fp, ip, lr}             
+           001403f4  sub      sp, sp, #8                   
+           001403f8  mov      fp, sp                       
+           001403fc  str      r0, [fp]                     
+           00140400  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00140404  mov      r1, r0                       
+           00140408  ldr      lr, [r1]                     
+           0014040c  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           00140410  ldr      r1, [fp]                     
+           00140414  ldr      r1, [r1, #0x44]              ; field+0x44 (this-class: lapNum)
+           00140418  str      r1, [r0, #0x34]              ; field+0x34 (this-class: ughSlideTogglesDictionary)
+           0014041c  bl       #0x22dbd0                    ; CALL ScreenFader::get_Instance
+           00140420  mov      r2, r0                       
+           00140424  ldr      r1, [pc]                     
+           00140428  b        #0x140430                    ; -> L_140430
+           0014042c  .word    0x00e65728                   ; literal 15095592 / 
+L_140430:  00140430  ldr      r1, [pc, r1]                 ; GOT[894] LDSTR 'Loading'
+           00140434  mov      r0, r2                       
+           00140438  ldr      lr, [r2]                     
+           0014043c  bl       #0x22e2a0                    ; CALL ScreenFader::LoadLevel
+           00140440  add      sp, fp, #8                   
+           00140444  pop      {r8, fp}                     
+           00140448  ldr      r7, [sp, #8]                 
+           0014044c  ldm      sp, {sp, pc}                 

@@ -1,0 +1,164 @@
+####################################################################################################
+# TYPE CrossFinishLineBackwardsAchievementListener  (instance size 0x34)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 UIName                         LocalizedString
+#   +0x14 description                    LocalizedString
+#   +0x18 rewardDescription              LocalizedString
+#   +0x1c rewardUnlocks                  string[]
+#   +0x20 gcIdentifier                   UnlocalizedString
+#   +0x24 areaType                       AchievementListener/AchievementAreaType
+#   +0x28 rewardCoins                    int
+#   +0x2c categoryFilter                 AchievementListener/AchievementFilterCategory
+#   +0x30 state                          AchievementListener/AchievementState
+#   vtable slots: 4:Reward, 5:Postrace, 6:Prerace, 7:IsAvailable
+####################################################################################################
+== CrossFinishLineBackwardsAchievementListener::.ctor  token 0x060000de @0x000d1260 (52 bytes)
+   args: r0=this, 
+           000d1260  mov      ip, sp                       
+           000d1264  push     {r7, lr}                     
+           000d1268  mov      r7, sp                       
+           000d126c  push     {r8, fp, ip, lr}             
+           000d1270  sub      sp, sp, #8                   
+           000d1274  mov      fp, sp                       
+           000d1278  str      r0, [fp]                     
+           000d127c  ldr      r0, [fp]                     
+           000d1280  bl       #0xcf738                     ; CALL AchievementListener::.ctor (direct)
+           000d1284  add      sp, fp, #8                   
+           000d1288  pop      {r8, fp}                     
+           000d128c  ldr      r7, [sp, #8]                 
+           000d1290  ldm      sp, {sp, pc}                 
+
+== CrossFinishLineBackwardsAchievementListener::IsAvailable  token 0x060000df @0x000d1294 (64 bytes)
+   args: r0=this, 
+           000d1294  mov      ip, sp                       
+           000d1298  push     {r7, lr}                     
+           000d129c  mov      r7, sp                       
+           000d12a0  push     {r8, fp, ip, lr}             
+           000d12a4  sub      sp, sp, #8                   
+           000d12a8  mov      fp, sp                       
+           000d12ac  str      r0, [fp]                     
+           000d12b0  ldr      r0, [fp]                     
+           000d12b4  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           000d12b8  cmp      r0, #0                       
+           000d12bc  movne    r0, #0                       
+           000d12c0  moveq    r0, #1                       
+           000d12c4  add      sp, fp, #8                   
+           000d12c8  pop      {r8, fp}                     
+           000d12cc  ldr      r7, [sp, #8]                 
+           000d12d0  ldm      sp, {sp, pc}                 
+
+== CrossFinishLineBackwardsAchievementListener::Prerace  token 0x060000e0 @0x000d12d4 (44 bytes)
+   args: r0=this, 
+           000d12d4  mov      ip, sp                       
+           000d12d8  push     {r7, lr}                     
+           000d12dc  mov      r7, sp                       
+           000d12e0  push     {r8, fp, ip, lr}             
+           000d12e4  sub      sp, sp, #8                   
+           000d12e8  mov      fp, sp                       
+           000d12ec  str      r0, [fp]                     
+           000d12f0  add      sp, fp, #8                   
+           000d12f4  pop      {r8, fp}                     
+           000d12f8  ldr      r7, [sp, #8]                 
+           000d12fc  ldm      sp, {sp, pc}                 
+
+== CrossFinishLineBackwardsAchievementListener::Postrace  token 0x060000e1 @0x000d1300 (252 bytes)
+   args: r0=this, 
+           000d1300  mov      ip, sp                       
+           000d1304  push     {r7, lr}                     
+           000d1308  mov      r7, sp                       
+           000d130c  push     {r5, r6, r8, fp, ip, lr}     
+           000d1310  sub      sp, sp, #8                   
+           000d1314  mov      fp, sp                       
+           000d1318  str      r0, [fp]                     
+           000d131c  bl       #0x1129cc                    ; CALL RaceManager::GetPlayerCar (direct)
+           000d1320  mov      r5, r0                       
+           000d1324  mov      r1, #0                       
+           000d1328  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d132c  cmp      r0, #0                       
+           000d1330  beq      #0xd13e4                     ; -> L_d13e4
+           000d1334  ldr      r0, [pc]                     
+           000d1338  b        #0xd1340                     ; -> L_d1340
+           000d133c  .word    0x00ed3bf4                   ; literal 15547380 / 
+L_d1340:   000d1340  ldr      r0, [pc, r0]                 ; GOT[117] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarMetrics>
+           000d1344  ldr      lr, [r5]                     
+           000d1348  mov      r8, r0                       
+           000d134c  mov      r0, r5                       
+           000d1350  bl       #0x22b280                    ; CALL UnityEngine.GameObject::GetComponent<CarMetrics>
+           000d1354  mov      r6, r0                       
+           000d1358  mov      r1, #0                       
+           000d135c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d1360  cmp      r0, #0                       
+           000d1364  beq      #0xd13e4                     ; -> L_d13e4
+           000d1368  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: UIName)
+           000d136c  ldr      r1, [pc]                     
+           000d1370  b        #0xd1378                     ; -> L_d1378
+           000d1374  .word    0x00ed3cec                   ; literal 15547628 / 
+L_d1378:   000d1378  ldr      r1, [pc, r1]                 ; GOT[193] LDSTR 'Crossed Finish Line Backwards'
+           000d137c  mov      r0, r2                       
+           000d1380  ldr      lr, [r2]                     
+           000d1384  bl       #0x22b7a0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::ContainsKey
+           000d1388  cmp      r0, #0                       
+           000d138c  beq      #0xd13e4                     ; -> L_d13e4
+           000d1390  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: UIName)
+           000d1394  ldr      r1, [pc]                     
+           000d1398  b        #0xd13a0                     ; -> L_d13a0
+           000d139c  .word    0x00ed3cc4                   ; literal 15547588 / 
+L_d13a0:   000d13a0  ldr      r1, [pc, r1]                 ; GOT[193] LDSTR 'Crossed Finish Line Backwards'
+           000d13a4  mov      r0, r2                       
+           000d13a8  ldr      lr, [r2]                     
+           000d13ac  bl       #0x22b7b0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::get_Item
+           000d13b0  vmov     s6, r0                       
+           000d13b4  vcvt.f64.f32 d3, s6                       
+           000d13b8  vldr     s4, [pc]                     ; float 0.0
+           000d13bc  b        #0xd13c4                     ; -> L_d13c4
+           000d13c0  .word    0x00000000                   ; literal 0 / 0
+L_d13c4:   000d13c4  vcvt.f64.f32 d2, s4                       
+           000d13c8  vcmp.f64 d2, d3                       
+           000d13cc  vmrs     apsr_nzcv, fpscr             
+           000d13d0  bvs      #0xd13e4                     ; -> L_d13e4
+           000d13d4  bge      #0xd13e4                     ; -> L_d13e4
+           000d13d8  ldr      r0, [fp]                     
+           000d13dc  bl       #0xcf80c                     ; CALL AchievementListener::Achieve (direct)
+           000d13e0  b        #0xd13ec                     ; -> L_d13ec
+L_d13e4:   000d13e4  ldr      r0, [fp]                     
+           000d13e8  bl       #0xcf8fc                     ; CALL AchievementListener::Fail (direct)
+L_d13ec:   000d13ec  add      sp, fp, #8                   
+           000d13f0  pop      {r5, r6, r8, fp}             
+           000d13f4  ldr      r7, [sp, #8]                 
+           000d13f8  ldm      sp, {sp, pc}                 
+
+== CrossFinishLineBackwardsAchievementListener::Reward  token 0x060000e2 @0x000d13fc (64 bytes)
+   args: r0=this, 
+           000d13fc  mov      ip, sp                       
+           000d1400  push     {r7, lr}                     
+           000d1404  mov      r7, sp                       
+           000d1408  push     {r8, fp, ip, lr}             
+           000d140c  sub      sp, sp, #8                   
+           000d1410  mov      fp, sp                       
+           000d1414  str      r0, [fp]                     
+           000d1418  ldr      r0, [pc]                     
+           000d141c  b        #0xd1424                     ; -> L_d1424
+           000d1420  .word    0x00ed3c44                   ; literal 15547460 / 
+L_d1424:   000d1424  ldr      r0, [pc, r0]                 ; GOT[194] LDSTR 'TODO: reward for CrossFinishLineBackwardsAchievementListener'
+           000d1428  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           000d142c  add      sp, fp, #8                   
+           000d1430  pop      {r8, fp}                     
+           000d1434  ldr      r7, [sp, #8]                 
+           000d1438  ldm      sp, {sp, pc}                 
+
+== CrossFinishLineBackwardsAchievementListener::Start  token 0x060000e3 @0x000d143c (56 bytes)
+   args: r0=this, 
+           000d143c  mov      ip, sp                       
+           000d1440  push     {r7, lr}                     
+           000d1444  mov      r7, sp                       
+           000d1448  push     {r8, fp, ip, lr}             
+           000d144c  sub      sp, sp, #8                   
+           000d1450  mov      fp, sp                       
+           000d1454  str      r0, [fp]                     
+           000d1458  ldr      r0, [fp]                     
+           000d145c  mov      r1, #1                       
+           000d1460  str      r1, [r0, #0x30]              ; field+0x30 (this-class: state)
+           000d1464  add      sp, fp, #8                   
+           000d1468  pop      {r8, fp}                     
+           000d146c  ldr      r7, [sp, #8]                 
+           000d1470  ldm      sp, {sp, pc}                 

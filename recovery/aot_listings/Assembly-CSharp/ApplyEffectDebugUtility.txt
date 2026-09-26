@@ -1,0 +1,98 @@
+####################################################################################################
+# TYPE ApplyEffectDebugUtility  (instance size 0x24)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 targetEffectType               BaseEffect/EffectTypes
+#   +0x14 power                          int
+#   +0x18 time                           float
+#   +0x1c powerLevel                     int
+#   +0x20 applyNow                       bool
+#   vtable slots: 
+####################################################################################################
+== ApplyEffectDebugUtility::.ctor  token 0x0600033f @0x000f03b4 (92 bytes)
+   args: r0=this, 
+           000f03b4  mov      ip, sp                       
+           000f03b8  push     {r7, lr}                     
+           000f03bc  mov      r7, sp                       
+           000f03c0  push     {r8, sl, fp, ip, lr}         
+           000f03c4  sub      sp, sp, #4                   
+           000f03c8  mov      fp, sp                       
+           000f03cc  mov      sl, r0                       
+           000f03d0  mov      r0, #1                       
+           000f03d4  str      r0, [sl, #0x14]              ; field+0x14 (this-class: power)
+           000f03d8  vldr     s4, [pc]                     ; float 1.0
+           000f03dc  b        #0xf03e4                     ; -> L_f03e4
+           000f03e0  .word    0x3f800000                   ; literal 1065353216 / 1
+L_f03e4:   000f03e4  vcvt.f64.f32 d2, s4                       
+           000f03e8  vcvt.f32.f64 s0, d2                       
+           000f03ec  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: time)
+           000f03f0  mov      r0, #1                       
+           000f03f4  str      r0, [sl, #0x1c]              ; field+0x1c (this-class: powerLevel)
+           000f03f8  mov      r0, sl                       
+           000f03fc  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000f0400  add      sp, fp, #4                   
+           000f0404  pop      {r8, sl, fp}                 
+           000f0408  ldr      r7, [sp, #8]                 
+           000f040c  ldm      sp, {sp, pc}                 
+
+== ApplyEffectDebugUtility::Update  token 0x06000340 @0x000f0410 (240 bytes)
+   args: r0=this, 
+           000f0410  mov      ip, sp                       
+           000f0414  push     {r7, lr}                     
+           000f0418  mov      r7, sp                       
+           000f041c  push     {r6, r8, sl, fp, ip, lr}     
+           000f0420  sub      sp, sp, #0x10                
+           000f0424  mov      fp, sp                       
+           000f0428  mov      sl, r0                       
+           000f042c  ldrb     r0, [sl, #0x20]              ; field+0x20 (this-class: applyNow)
+           000f0430  cmp      r0, #0                       
+           000f0434  beq      #0xf04f0                     ; -> L_f04f0
+           000f0438  mov      r0, #0                       
+           000f043c  strb     r0, [sl, #0x20]              ; field+0x20 (this-class: applyNow)
+           000f0440  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: targetEffectType)
+           000f0444  str      r0, [fp, #8]                 
+           000f0448  mov      r0, sl                       
+           000f044c  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000f0450  mov      r1, r0                       
+           000f0454  ldr      r0, [fp, #8]                 
+           000f0458  bl       #0x22bd30                    ; CALL BaseEffect::GetEffectInstance
+           000f045c  mov      r6, r0                       
+           000f0460  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: power)
+           000f0464  str      r0, [r6, #0xc]               ; field+0xc 
+           000f0468  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: time)
+           000f046c  vcvt.f64.f32 d2, s0                       
+           000f0470  vldr     s6, [pc]                     ; float -1.0
+           000f0474  b        #0xf047c                     ; -> L_f047c
+           000f0478  .word    0xbf800000                   ; literal -1082130432 / -1
+L_f047c:   000f047c  vcvt.f64.f32 d3, s6                       
+           000f0480  vcmp.f64 d2, d3                       
+           000f0484  vmrs     apsr_nzcv, fpscr             
+           000f0488  bne      #0xf04a8                     ; -> L_f04a8
+           000f048c  vldr     s4, [pc]                     ; float -3.4028234663852886e+38
+           000f0490  b        #0xf0498                     ; -> L_f0498
+           000f0494  .word    0xff7fffff                   ; literal -8388609 / 
+L_f0498:   000f0498  vcvt.f64.f32 d2, s4                       
+           000f049c  vcvt.f32.f64 s0, d2                       
+           000f04a0  vstr     s0, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f04a4  b        #0xf04b8                     ; -> L_f04b8
+L_f04a8:   000f04a8  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: time)
+           000f04ac  vcvt.f64.f32 d2, s0                       
+           000f04b0  vcvt.f32.f64 s0, d2                       
+           000f04b4  vstr     s0, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+L_f04b8:   000f04b8  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: powerLevel)
+           000f04bc  ldr      lr, [r6]                     
+           000f04c0  str      r0, [r6, #0x18]              ; field+0x18 (this-class: time)
+           000f04c4  ldr      r8, [pc]                     
+           000f04c8  b        #0xf04d0                     ; -> L_f04d0
+           000f04cc  .word    0x00eb4d34                   ; literal 15420724 / 
+L_f04d0:   000f04d0  ldr      r8, [pc, r8]                 ; GOT[297] METHOD_RGCTX UnityEngine.Component::GetComponent<EffectManager>
+           000f04d4  mov      r0, sl                       
+           000f04d8  bl       #0x22bc50                    ; CALL UnityEngine.Component::GetComponent<EffectManager>
+           000f04dc  str      r0, [fp]                     
+           000f04e0  mov      r2, r0                       
+           000f04e4  mov      r1, r6                       
+           000f04e8  ldr      lr, [r2]                     
+           000f04ec  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+L_f04f0:   000f04f0  add      sp, fp, #0x10                
+           000f04f4  pop      {r6, r8, sl, fp}             
+           000f04f8  ldr      r7, [sp, #8]                 
+           000f04fc  ldm      sp, {sp, pc}                 

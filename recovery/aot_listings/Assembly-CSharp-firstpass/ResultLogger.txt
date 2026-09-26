@@ -1,0 +1,799 @@
+####################################################################################################
+# TYPE ResultLogger  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   vtable slots: 
+####################################################################################################
+== ResultLogger::.ctor  token 0x0600033a @0x000366e8 (44 bytes)
+   args: r0=this, 
+           000366e8  mov      ip, sp                       
+           000366ec  push     {r7, lr}                     
+           000366f0  mov      r7, sp                       
+           000366f4  push     {r8, fp, ip, lr}             
+           000366f8  sub      sp, sp, #8                   
+           000366fc  mov      fp, sp                       
+           00036700  str      r0, [fp]                     
+           00036704  add      sp, fp, #8                   
+           00036708  pop      {r8, fp}                     
+           0003670c  ldr      r7, [sp, #8]                 
+           00036710  ldm      sp, {sp, pc}                 
+
+== ResultLogger::logObject  token 0x0600033b @0x00036714 (300 bytes) static
+   args: result
+           00036714  mov      ip, sp                       
+           00036718  push     {r7, lr}                     
+           0003671c  mov      r7, sp                       
+           00036720  push     {r6, r8, sl, fp, ip, lr}     
+           00036724  mov      fp, sp                       
+           00036728  mov      sl, r0                       
+           0003672c  cmp      sl, #0                       
+           00036730  bne      #0x3674c                     ; -> L_3674c
+           00036734  ldr      r0, [pc]                     
+           00036738  b        #0x36740                     ; -> L_36740
+           0003673c  .word    0x00f665c0                   ; literal 16147904 / 
+L_36740:   00036740  ldr      r0, [pc, r0]                 ; GOT[440] LDSTR 'attempting to log a null object'
+           00036744  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+           00036748  b        #0x36820                     ; -> L_36820
+L_3674c:   0003674c  ldr      r0, [sl]                     
+           00036750  ldr      r0, [r0, #0x10]              ; field+0x10 
+           00036754  ldr      r1, [pc]                     
+           00036758  b        #0x36760                     ; -> L_36760
+           0003675c  .word    0x00f665a4                   ; literal 16147876 / 
+L_36760:   00036760  ldr      r1, [pc, r1]                 ; GOT[441] TYPE_FROM_HANDLE typeof(System.Collections.ArrayList)
+           00036764  cmp      r0, r1                       
+           00036768  bne      #0x367ac                     ; -> L_367ac
+           0003676c  mov      r6, sl                       
+           00036770  cmp      sl, #0                       
+           00036774  beq      #0x367a0                     ; -> L_367a0
+           00036778  ldr      r0, [r6]                     
+           0003677c  ldr      r0, [r0]                     
+           00036780  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00036784  ldr      r0, [r0, #4]                 ; field+0x4 
+           00036788  ldr      r1, [pc]                     
+           0003678c  b        #0x36794                     ; -> L_36794
+           00036790  .word    0x00f66378                   ; literal 16147320 / 
+L_36794:   00036794  ldr      r1, [pc, r1]                 ; GOT[315] CLASS System.Collections.ArrayList
+           00036798  cmp      r0, r1                       
+           0003679c  blne     #0x36830                     ; THROW System.InvalidCastException (if ne)
+L_367a0:   000367a0  mov      r0, r6                       
+           000367a4  bl       #0xbc580                     ; CALL ResultLogger::logArraylist
+           000367a8  b        #0x36820                     ; -> L_36820
+L_367ac:   000367ac  ldr      r0, [sl]                     
+           000367b0  ldr      r0, [r0, #0x10]              ; field+0x10 
+           000367b4  ldr      r1, [pc]                     
+           000367b8  b        #0x367c0                     ; -> L_367c0
+           000367bc  .word    0x00f66548                   ; literal 16147784 / 
+L_367c0:   000367c0  ldr      r1, [pc, r1]                 ; GOT[442] TYPE_FROM_HANDLE typeof(System.Collections.Hashtable)
+           000367c4  cmp      r0, r1                       
+           000367c8  bne      #0x3680c                     ; -> L_3680c
+           000367cc  mov      r6, sl                       
+           000367d0  cmp      sl, #0                       
+           000367d4  beq      #0x36800                     ; -> L_36800
+           000367d8  ldr      r0, [r6]                     
+           000367dc  ldr      r0, [r0]                     
+           000367e0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000367e4  ldr      r0, [r0, #4]                 ; field+0x4 
+           000367e8  ldr      r1, [pc]                     
+           000367ec  b        #0x367f4                     ; -> L_367f4
+           000367f0  .word    0x00f65e5c                   ; literal 16146012 / 
+L_367f4:   000367f4  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           000367f8  cmp      r0, r1                       
+           000367fc  blne     #0x36830                     ; THROW System.InvalidCastException (if ne)
+L_36800:   00036800  mov      r0, r6                       
+           00036804  bl       #0xbc590                     ; CALL ResultLogger::logHashtable
+           00036808  b        #0x36820                     ; -> L_36820
+L_3680c:   0003680c  ldr      r0, [pc]                     
+           00036810  b        #0x36818                     ; -> L_36818
+           00036814  .word    0x00f664f4                   ; literal 16147700 / 
+L_36818:   00036818  ldr      r0, [pc, r0]                 ; GOT[443] LDSTR 'result is not a hashtable or arraylist'
+           0003681c  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_36820:   00036820  add      sp, fp, #0                   
+           00036824  pop      {r6, r8, sl, fp}             
+           00036828  ldr      r7, [sp, #8]                 
+           0003682c  ldm      sp, {sp, pc}                 
+           00036830  mov      r1, lr                       
+           00036834  ldr      r0, [pc]                     
+           00036838  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0003683c  andeq    r0, r0, #0xfd                
+
+== ResultLogger::logArraylist  token 0x0600033c @0x00036840 (704 bytes) static
+   args: result
+           00036840  mov      ip, sp                       
+           00036844  push     {r7, lr}                     
+           00036848  mov      r7, sp                       
+           0003684c  push     {r5, r6, r8, sl, fp, ip, lr} 
+           00036850  sub      sp, sp, #0x44                
+           00036854  mov      fp, sp                       
+           00036858  mov      sl, r0                       
+           0003685c  mov      r0, #0                       
+           00036860  str      r0, [fp]                     
+           00036864  mov      r0, #0                       
+           00036868  str      r0, [fp, #4]                 
+           0003686c  ldr      r0, [pc]                     
+           00036870  b        #0x36878                     ; -> L_36878
+           00036874  .word    0x00f660a4                   ; literal 16146596 / 
+L_36878:   00036878  ldr      r0, [pc, r0]                 ; GOT[191] VTABLE System.Text.StringBuilder
+           0003687c  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00036880  str      r0, [fp, #0x38]              
+           00036884  bl       #0xba0a0                     ; CALL System.Text.StringBuilder::.ctor
+           00036888  ldr      r0, [fp, #0x38]              
+           0003688c  mov      r5, r0                       
+           00036890  mov      r0, sl                       
+           00036894  ldr      r1, [sl]                     
+           00036898  mov      lr, pc                       
+           0003689c  ldr      pc, [r1, #0x90]              ; VIRTUAL CALL slot +0x90: System.Enum::System.IConvertible.ToUInt64
+           000368a0  str      r0, [fp]                     
+           000368a4  b        #0x36930                     ; -> L_36930
+L_368a8:   000368a8  ldr      r1, [fp]                     
+           000368ac  mov      r0, r1                       
+           000368b0  ldr      r1, [r1]                     
+           000368b4  ldr      r8, [pc]                     
+           000368b8  b        #0x368c0                     ; -> L_368c0
+           000368bc  .word    0x00f65d8c                   ; literal 16145804 / 
+L_368c0:   000368c0  ldr      r8, [pc, r8]                 ; GOT[11] METHODCONST System.Collections.IEnumerator::get_Current
+           000368c4  add      lr, pc, #4                   
+           000368c8  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           000368cc  andeq    r0, r0, r0                   
+           000368d0  mov      sl, r0                       
+           000368d4  cmp      sl, #0                       
+           000368d8  beq      #0x36904                     ; -> L_36904
+           000368dc  ldr      r0, [sl]                     
+           000368e0  ldr      r0, [r0]                     
+           000368e4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000368e8  ldr      r0, [r0, #4]                 ; field+0x4 
+           000368ec  ldr      r1, [pc]                     
+           000368f0  b        #0x368f8                     ; -> L_368f8
+           000368f4  .word    0x00f65d58                   ; literal 16145752 / 
+L_368f8:   000368f8  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           000368fc  cmp      r0, r1                       
+           00036900  blne     #0x36af0                     ; THROW System.InvalidCastException (if ne)
+L_36904:   00036904  mov      r6, sl                       
+           00036908  mov      r0, r5                       
+           0003690c  mov      r1, sl                       
+           00036910  bl       #0xbc5a0                     ; CALL ResultLogger::addHashtableToString
+           00036914  ldr      r1, [pc]                     
+           00036918  b        #0x36920                     ; -> L_36920
+           0003691c  .word    0x00f663f0                   ; literal 16147440 / 
+L_36920:   00036920  ldr      r1, [pc, r1]                 ; GOT[444] LDSTR '\n--------------------\n'
+           00036924  mov      r0, r5                       
+           00036928  ldr      lr, [r5]                     
+           0003692c  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+L_36930:   00036930  ldr      r1, [fp]                     
+           00036934  mov      r0, r1                       
+           00036938  ldr      r1, [r1]                     
+           0003693c  ldr      r8, [pc]                     
+           00036940  b        #0x36948                     ; -> L_36948
+           00036944  .word    0x00f65d10                   ; literal 16145680 / 
+L_36948:   00036948  ldr      r8, [pc, r8]                 ; GOT[14] METHODCONST System.Collections.IEnumerator::MoveNext
+           0003694c  add      lr, pc, #4                   
+           00036950  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           00036954  andeq    r0, r0, r0                   
+           00036958  cmp      r0, #0                       
+           0003695c  bne      #0x368a8                     ; -> L_368a8
+           00036960  bl       #0x36968                     ; CALL 0x36968
+           00036964  b        #0x36ad0                     ; -> L_36ad0
+           00036968  str      lr, [fp, #0x24]              
+           0003696c  ldr      r0, [fp]                     
+           00036970  str      r0, [fp, #0xc]               
+           00036974  ldr      r0, [fp, #0xc]               
+           00036978  str      r0, [fp, #0x28]              
+           0003697c  cmp      r0, #0                       
+           00036980  beq      #0x36a18                     ; -> L_36a18
+           00036984  ldr      r0, [fp, #0x28]              
+           00036988  ldr      r0, [r0]                     
+           0003698c  str      r0, [fp, #0x2c]              
+           00036990  ldrh     r0, [r0, #0x18]              ; field+0x18 
+           00036994  ldr      r1, [pc]                     
+           00036998  b        #0x369a0                     ; -> L_369a0
+           0003699c  .word    0x00f65cbc                   ; literal 16145596 / 
+L_369a0:   000369a0  ldr      r1, [pc, r1]                 ; GOT[15] IID System.IDisposable
+           000369a4  cmp      r0, r1                       
+           000369a8  blo      #0x369e8                     ; -> L_369e8
+           000369ac  ldr      r0, [fp, #0x2c]              
+           000369b0  ldr      r0, [r0, #0x14]              ; field+0x14 
+           000369b4  ldr      r1, [pc]                     
+           000369b8  b        #0x369c0                     ; -> L_369c0
+           000369bc  .word    0x00f65c9c                   ; literal 16145564 / 
+L_369c0:   000369c0  ldr      r1, [pc, r1]                 ; GOT[15] IID System.IDisposable
+           000369c4  asr      r2, r1, #3                   
+           000369c8  add      r0, r0, r2                   
+           000369cc  ldrb     r0, [r0]                     
+           000369d0  and      r2, r1, #7                   
+           000369d4  mov      r1, #1                       
+           000369d8  lsl      r1, r1, r2                   
+           000369dc  and      r0, r0, r1                   
+           000369e0  cmp      r0, #0                       
+           000369e4  bne      #0x36a30                     ; -> L_36a30
+L_369e8:   000369e8  ldr      r0, [fp, #0x2c]              
+           000369ec  ldr      r0, [r0]                     
+           000369f0  ldr      r1, [pc]                     
+           000369f4  b        #0x369fc                     ; -> L_369fc
+           000369f8  .word    0x00f65c64                   ; literal 16145508 / 
+L_369fc:   000369fc  ldr      r1, [pc, r1]                 ; GOT[16] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           00036a00  cmp      r0, r1                       
+           00036a04  bne      #0x36a18                     ; -> L_36a18
+           00036a08  ldr      r0, [fp, #0x28]              
+           00036a0c  ldr      r0, [r0, #0x10]              ; field+0x10 
+           00036a10  cmp      r0, #0                       
+           00036a14  bne      #0x36a24                     ; -> L_36a24
+L_36a18:   00036a18  mov      r0, #1                       
+           00036a1c  str      r0, [fp, #0x30]              
+           00036a20  b        #0x36a38                     ; -> L_36a38
+L_36a24:   00036a24  mov      r0, #2                       
+           00036a28  str      r0, [fp, #0x30]              
+           00036a2c  b        #0x36a38                     ; -> L_36a38
+L_36a30:   00036a30  mov      r0, #0                       
+           00036a34  str      r0, [fp, #0x30]              
+L_36a38:   00036a38  ldr      r0, [fp, #0x30]              
+           00036a3c  str      r0, [fp, #0x10]              
+           00036a40  mov      r1, r0                       
+           00036a44  ldr      r0, [fp, #0x10]              
+           00036a48  str      r1, [fp, #0x14]              
+           00036a4c  cmp      r0, #0                       
+           00036a50  beq      #0x36a7c                     ; -> L_36a7c
+           00036a54  ldr      r0, [fp, #0x14]              
+           00036a58  cmp      r0, #2                       
+           00036a5c  bne      #0x36a70                     ; -> L_36a70
+           00036a60  ldr      r0, [fp, #0xc]               
+           00036a64  bl       #0xb96e0                     ; CALL wrapper wrapper20(System.IDisposable)
+           00036a68  str      r0, [fp, #0x18]              
+           00036a6c  b        #0x36a84                     ; -> L_36a84
+L_36a70:   00036a70  mov      r0, #0                       
+           00036a74  str      r0, [fp, #0x18]              
+           00036a78  b        #0x36a84                     ; -> L_36a84
+L_36a7c:   00036a7c  ldr      r0, [fp, #0xc]               
+           00036a80  str      r0, [fp, #0x18]              
+L_36a84:   00036a84  ldr      r0, [fp, #0x18]              
+           00036a88  str      r0, [fp, #8]                 
+           00036a8c  str      r0, [fp, #4]                 
+           00036a90  cmp      r0, #0                       
+           00036a94  bne      #0x36aa0                     ; -> L_36aa0
+           00036a98  ldr      ip, [fp, #0x24]              
+           00036a9c  mov      pc, ip                       
+L_36aa0:   00036aa0  ldr      r1, [fp, #4]                 
+           00036aa4  mov      r0, r1                       
+           00036aa8  ldr      r1, [r1]                     
+           00036aac  ldr      r8, [pc]                     
+           00036ab0  b        #0x36ab8                     ; -> L_36ab8
+           00036ab4  .word    0x00f65bac                   ; literal 16145324 / 
+L_36ab8:   00036ab8  ldr      r8, [pc, r8]                 ; GOT[17] METHODCONST System.IDisposable::Dispose
+           00036abc  add      lr, pc, #4                   
+           00036ac0  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           00036ac4  andeq    r0, r0, r0                   
+           00036ac8  ldr      ip, [fp, #0x24]              
+           00036acc  mov      pc, ip                       
+L_36ad0:   00036ad0  mov      r0, r5                       
+           00036ad4  ldr      lr, [r5]                     
+           00036ad8  bl       #0xba100                     ; CALL System.Text.StringBuilder::ToString
+           00036adc  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+           00036ae0  add      sp, fp, #0x44                
+           00036ae4  pop      {r5, r6, r8, sl, fp}         
+           00036ae8  ldr      r7, [sp, #8]                 
+           00036aec  ldm      sp, {sp, pc}                 
+           00036af0  mov      r1, lr                       
+           00036af4  ldr      r0, [pc]                     
+           00036af8  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00036afc  andeq    r0, r0, #0xfd                
+
+== ResultLogger::logHashtable  token 0x0600033d @0x00036b00 (108 bytes) static
+   args: result
+           00036b00  mov      ip, sp                       
+           00036b04  push     {r7, lr}                     
+           00036b08  mov      r7, sp                       
+           00036b0c  push     {r8, fp, ip, lr}             
+           00036b10  sub      sp, sp, #0x10                
+           00036b14  mov      fp, sp                       
+           00036b18  str      r0, [fp]                     
+           00036b1c  ldr      r0, [pc]                     
+           00036b20  b        #0x36b28                     ; -> L_36b28
+           00036b24  .word    0x00f65df4                   ; literal 16145908 / 
+L_36b28:   00036b28  ldr      r0, [pc, r0]                 ; GOT[191] VTABLE System.Text.StringBuilder
+           00036b2c  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00036b30  str      r0, [fp, #0xc]               
+           00036b34  bl       #0xba0a0                     ; CALL System.Text.StringBuilder::.ctor
+           00036b38  ldr      r0, [fp, #0xc]               
+           00036b3c  str      r0, [fp, #8]                 
+           00036b40  ldr      r1, [fp]                     
+           00036b44  bl       #0xbc5a0                     ; CALL ResultLogger::addHashtableToString
+           00036b48  ldr      r1, [fp, #8]                 
+           00036b4c  mov      r0, r1                       
+           00036b50  ldr      lr, [r1]                     
+           00036b54  bl       #0xba100                     ; CALL System.Text.StringBuilder::ToString
+           00036b58  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+           00036b5c  add      sp, fp, #0x10                
+           00036b60  pop      {r8, fp}                     
+           00036b64  ldr      r7, [sp, #8]                 
+           00036b68  ldm      sp, {sp, pc}                 
+
+== ResultLogger::addHashtableToString  token 0x0600033e @0x00036b6c (1056 bytes) static
+   args: builder, item
+           00036b6c  mov      ip, sp                       
+           00036b70  push     {r7, lr}                     
+           00036b74  mov      r7, sp                       
+           00036b78  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00036b7c  sub      sp, sp, #0x50                
+           00036b80  mov      fp, sp                       
+           00036b84  mov      r6, r0                       
+           00036b88  mov      sl, r1                       
+           00036b8c  mov      r0, #0                       
+           00036b90  str      r0, [fp]                     
+           00036b94  mov      r0, #0                       
+           00036b98  str      r0, [fp, #4]                 
+           00036b9c  mov      r0, #0                       
+           00036ba0  str      r0, [fp, #8]                 
+           00036ba4  mov      r0, #0                       
+           00036ba8  str      r0, [fp, #0xc]               
+           00036bac  mov      r0, sl                       
+           00036bb0  ldr      r1, [sl]                     
+           00036bb4  mov      lr, pc                       
+           00036bb8  ldr      pc, [r1, #0x9c]              ; VIRTUAL CALL slot +0x9c: System.Enum::System.IConvertible.ToType
+           00036bbc  str      r0, [fp, #8]                 
+           00036bc0  b        #0x36dcc                     ; -> L_36dcc
+L_36bc4:   00036bc4  ldr      r1, [fp, #8]                 
+           00036bc8  mov      r0, r1                       
+           00036bcc  ldr      r1, [r1]                     
+           00036bd0  ldr      r8, [pc]                     
+           00036bd4  b        #0x36bdc                     ; -> L_36bdc
+           00036bd8  .word    0x00f65a70                   ; literal 16145008 / 
+L_36bdc:   00036bdc  ldr      r8, [pc, r8]                 ; GOT[11] METHODCONST System.Collections.IEnumerator::get_Current
+           00036be0  add      lr, pc, #4                   
+           00036be4  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           00036be8  andeq    r0, r0, r0                   
+           00036bec  ldr      r1, [r0]                     
+           00036bf0  ldrb     r2, [r1, #0x1a]              ; field+0x1a 
+           00036bf4  cmp      r2, #0                       
+           00036bf8  blne     #0x36f7c                     ; THROW System.InvalidCastException (if ne)
+           00036bfc  ldr      r1, [r1]                     
+           00036c00  ldr      r1, [r1]                     
+           00036c04  ldr      r2, [pc]                     
+           00036c08  b        #0x36c10                     ; -> L_36c10
+           00036c0c  .word    0x00f65ba4                   ; literal 16145316 / 
+L_36c10:   00036c10  ldr      r2, [pc, r2]                 ; GOT[101] CLASS System.Collections.DictionaryEntry
+           00036c14  cmp      r1, r2                       
+           00036c18  blne     #0x36f7c                     ; THROW System.InvalidCastException (if ne)
+           00036c1c  add      r0, r0, #8                   
+           00036c20  ldr      r1, [r0]                     
+           00036c24  str      r1, [fp]                     
+           00036c28  ldr      r0, [r0, #4]                 ; field+0x4 
+           00036c2c  str      r0, [fp, #4]                 
+           00036c30  mov      sl, r0                       
+           00036c34  mov      r5, sl                       
+           00036c38  cmp      sl, #0                       
+           00036c3c  beq      #0x36c70                     ; -> L_36c70
+           00036c40  ldr      r0, [sl]                     
+           00036c44  ldr      r0, [r0]                     
+           00036c48  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00036c4c  ldr      r0, [r0, #4]                 ; field+0x4 
+           00036c50  ldr      r1, [pc]                     
+           00036c54  b        #0x36c5c                     ; -> L_36c5c
+           00036c58  .word    0x00f659f4                   ; literal 16144884 / 
+L_36c5c:   00036c5c  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           00036c60  cmp      r0, r1                       
+           00036c64  beq      #0x36c70                     ; -> L_36c70
+           00036c68  mov      r5, #0                       
+           00036c6c  b        #0x36c70                     ; -> L_36c70
+L_36c70:   00036c70  cmp      r5, #0                       
+           00036c74  beq      #0x36ce8                     ; -> L_36ce8
+           00036c78  ldr      r1, [pc]                     
+           00036c7c  b        #0x36c84                     ; -> L_36c84
+           00036c80  .word    0x00f66090                   ; literal 16146576 / 
+L_36c84:   00036c84  ldr      r1, [pc, r1]                 ; GOT[445] LDSTR '{0}: '
+           00036c88  ldr      r2, [fp]                     
+           00036c8c  mov      r0, r6                       
+           00036c90  ldr      lr, [r6]                     
+           00036c94  bl       #0xbc5b0                     ; CALL System.Text.StringBuilder::AppendFormat
+           00036c98  mov      r4, r6                       
+           00036c9c  ldr      r0, [fp, #4]                 
+           00036ca0  str      r0, [fp, #0x30]              
+           00036ca4  cmp      r0, #0                       
+           00036ca8  beq      #0x36cd8                     ; -> L_36cd8
+           00036cac  ldr      r0, [fp, #0x30]              
+           00036cb0  ldr      r0, [r0]                     
+           00036cb4  ldr      r0, [r0]                     
+           00036cb8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00036cbc  ldr      r0, [r0, #4]                 ; field+0x4 
+           00036cc0  ldr      r1, [pc]                     
+           00036cc4  b        #0x36ccc                     ; -> L_36ccc
+           00036cc8  .word    0x00f65984                   ; literal 16144772 / 
+L_36ccc:   00036ccc  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           00036cd0  cmp      r0, r1                       
+           00036cd4  blne     #0x36f7c                     ; THROW System.InvalidCastException (if ne)
+L_36cd8:   00036cd8  mov      r0, r4                       
+           00036cdc  ldr      r1, [fp, #0x30]              
+           00036ce0  bl       #0xbc5a0                     ; CALL ResultLogger::addHashtableToString
+           00036ce4  b        #0x36dcc                     ; -> L_36dcc
+L_36ce8:   00036ce8  ldr      r4, [fp, #4]                 
+           00036cec  str      r4, [fp, #0x34]              
+           00036cf0  cmp      r4, #0                       
+           00036cf4  beq      #0x36d2c                     ; -> L_36d2c
+           00036cf8  ldr      r0, [r4]                     
+           00036cfc  ldr      r0, [r0]                     
+           00036d00  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00036d04  ldr      r0, [r0, #4]                 ; field+0x4 
+           00036d08  ldr      r1, [pc]                     
+           00036d0c  b        #0x36d14                     ; -> L_36d14
+           00036d10  .word    0x00f65df8                   ; literal 16145912 / 
+L_36d14:   00036d14  ldr      r1, [pc, r1]                 ; GOT[315] CLASS System.Collections.ArrayList
+           00036d18  cmp      r0, r1                       
+           00036d1c  beq      #0x36d2c                     ; -> L_36d2c
+           00036d20  mov      r0, #0                       
+           00036d24  str      r0, [fp, #0x34]              
+           00036d28  b        #0x36d2c                     ; -> L_36d2c
+L_36d2c:   00036d2c  ldr      r0, [fp, #0x34]              
+           00036d30  cmp      r0, #0                       
+           00036d34  beq      #0x36da8                     ; -> L_36da8
+           00036d38  ldr      r1, [pc]                     
+           00036d3c  b        #0x36d44                     ; -> L_36d44
+           00036d40  .word    0x00f65fd0                   ; literal 16146384 / 
+L_36d44:   00036d44  ldr      r1, [pc, r1]                 ; GOT[445] LDSTR '{0}: '
+           00036d48  ldr      r2, [fp]                     
+           00036d4c  mov      r0, r6                       
+           00036d50  ldr      lr, [r6]                     
+           00036d54  bl       #0xbc5b0                     ; CALL System.Text.StringBuilder::AppendFormat
+           00036d58  str      r6, [fp, #0x3c]              
+           00036d5c  ldr      r0, [fp, #4]                 
+           00036d60  str      r0, [fp, #0x38]              
+           00036d64  cmp      r0, #0                       
+           00036d68  beq      #0x36d98                     ; -> L_36d98
+           00036d6c  ldr      r0, [fp, #0x38]              
+           00036d70  ldr      r0, [r0]                     
+           00036d74  ldr      r0, [r0]                     
+           00036d78  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00036d7c  ldr      r0, [r0, #4]                 ; field+0x4 
+           00036d80  ldr      r1, [pc]                     
+           00036d84  b        #0x36d8c                     ; -> L_36d8c
+           00036d88  .word    0x00f65d80                   ; literal 16145792 / 
+L_36d8c:   00036d8c  ldr      r1, [pc, r1]                 ; GOT[315] CLASS System.Collections.ArrayList
+           00036d90  cmp      r0, r1                       
+           00036d94  blne     #0x36f7c                     ; THROW System.InvalidCastException (if ne)
+L_36d98:   00036d98  ldr      r0, [fp, #0x3c]              
+           00036d9c  ldr      r1, [fp, #0x38]              
+           00036da0  bl       #0xbc5c0                     ; CALL ResultLogger::addArraylistToString
+           00036da4  b        #0x36dcc                     ; -> L_36dcc
+L_36da8:   00036da8  ldr      r1, [pc]                     
+           00036dac  b        #0x36db4                     ; -> L_36db4
+           00036db0  .word    0x00f65f64                   ; literal 16146276 / 
+L_36db4:   00036db4  ldr      r1, [pc, r1]                 ; GOT[446] LDSTR '{0}: {1}\n'
+           00036db8  ldr      r2, [fp]                     
+           00036dbc  ldr      r3, [fp, #4]                 
+           00036dc0  mov      r0, r6                       
+           00036dc4  ldr      lr, [r6]                     
+           00036dc8  bl       #0xbc5d0                     ; CALL System.Text.StringBuilder::AppendFormat
+L_36dcc:   00036dcc  ldr      r1, [fp, #8]                 
+           00036dd0  mov      r0, r1                       
+           00036dd4  ldr      r1, [r1]                     
+           00036dd8  ldr      r8, [pc]                     
+           00036ddc  b        #0x36de4                     ; -> L_36de4
+           00036de0  .word    0x00f65874                   ; literal 16144500 / 
+L_36de4:   00036de4  ldr      r8, [pc, r8]                 ; GOT[14] METHODCONST System.Collections.IEnumerator::MoveNext
+           00036de8  add      lr, pc, #4                   
+           00036dec  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           00036df0  andeq    r0, r0, r0                   
+           00036df4  cmp      r0, #0                       
+           00036df8  bne      #0x36bc4                     ; -> L_36bc4
+           00036dfc  bl       #0x36e04                     ; CALL 0x36e04
+           00036e00  b        #0x36f6c                     ; -> L_36f6c
+           00036e04  str      lr, [fp, #0x2c]              
+           00036e08  ldr      r0, [fp, #8]                 
+           00036e0c  str      r0, [fp, #0x14]              
+           00036e10  ldr      r0, [fp, #0x14]              
+           00036e14  str      r0, [fp, #0x40]              
+           00036e18  cmp      r0, #0                       
+           00036e1c  beq      #0x36eb4                     ; -> L_36eb4
+           00036e20  ldr      r0, [fp, #0x40]              
+           00036e24  ldr      r0, [r0]                     
+           00036e28  str      r0, [fp, #0x44]              
+           00036e2c  ldrh     r0, [r0, #0x18]              ; field+0x18 
+           00036e30  ldr      r1, [pc]                     
+           00036e34  b        #0x36e3c                     ; -> L_36e3c
+           00036e38  .word    0x00f65820                   ; literal 16144416 / 
+L_36e3c:   00036e3c  ldr      r1, [pc, r1]                 ; GOT[15] IID System.IDisposable
+           00036e40  cmp      r0, r1                       
+           00036e44  blo      #0x36e84                     ; -> L_36e84
+           00036e48  ldr      r0, [fp, #0x44]              
+           00036e4c  ldr      r0, [r0, #0x14]              ; field+0x14 
+           00036e50  ldr      r1, [pc]                     
+           00036e54  b        #0x36e5c                     ; -> L_36e5c
+           00036e58  .word    0x00f65800                   ; literal 16144384 / 
+L_36e5c:   00036e5c  ldr      r1, [pc, r1]                 ; GOT[15] IID System.IDisposable
+           00036e60  asr      r2, r1, #3                   
+           00036e64  add      r0, r0, r2                   
+           00036e68  ldrb     r0, [r0]                     
+           00036e6c  and      r2, r1, #7                   
+           00036e70  mov      r1, #1                       
+           00036e74  lsl      r1, r1, r2                   
+           00036e78  and      r0, r0, r1                   
+           00036e7c  cmp      r0, #0                       
+           00036e80  bne      #0x36ecc                     ; -> L_36ecc
+L_36e84:   00036e84  ldr      r0, [fp, #0x44]              
+           00036e88  ldr      r0, [r0]                     
+           00036e8c  ldr      r1, [pc]                     
+           00036e90  b        #0x36e98                     ; -> L_36e98
+           00036e94  .word    0x00f657c8                   ; literal 16144328 / 
+L_36e98:   00036e98  ldr      r1, [pc, r1]                 ; GOT[16] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           00036e9c  cmp      r0, r1                       
+           00036ea0  bne      #0x36eb4                     ; -> L_36eb4
+           00036ea4  ldr      r0, [fp, #0x40]              
+           00036ea8  ldr      r0, [r0, #0x10]              ; field+0x10 
+           00036eac  cmp      r0, #0                       
+           00036eb0  bne      #0x36ec0                     ; -> L_36ec0
+L_36eb4:   00036eb4  mov      r0, #1                       
+           00036eb8  str      r0, [fp, #0x48]              
+           00036ebc  b        #0x36ed4                     ; -> L_36ed4
+L_36ec0:   00036ec0  mov      r0, #2                       
+           00036ec4  str      r0, [fp, #0x48]              
+           00036ec8  b        #0x36ed4                     ; -> L_36ed4
+L_36ecc:   00036ecc  mov      r0, #0                       
+           00036ed0  str      r0, [fp, #0x48]              
+L_36ed4:   00036ed4  ldr      r0, [fp, #0x48]              
+           00036ed8  str      r0, [fp, #0x18]              
+           00036edc  mov      r1, r0                       
+           00036ee0  ldr      r0, [fp, #0x18]              
+           00036ee4  str      r1, [fp, #0x1c]              
+           00036ee8  cmp      r0, #0                       
+           00036eec  beq      #0x36f18                     ; -> L_36f18
+           00036ef0  ldr      r0, [fp, #0x1c]              
+           00036ef4  cmp      r0, #2                       
+           00036ef8  bne      #0x36f0c                     ; -> L_36f0c
+           00036efc  ldr      r0, [fp, #0x14]              
+           00036f00  bl       #0xb96e0                     ; CALL wrapper wrapper20(System.IDisposable)
+           00036f04  str      r0, [fp, #0x20]              
+           00036f08  b        #0x36f20                     ; -> L_36f20
+L_36f0c:   00036f0c  mov      r0, #0                       
+           00036f10  str      r0, [fp, #0x20]              
+           00036f14  b        #0x36f20                     ; -> L_36f20
+L_36f18:   00036f18  ldr      r0, [fp, #0x14]              
+           00036f1c  str      r0, [fp, #0x20]              
+L_36f20:   00036f20  ldr      r0, [fp, #0x20]              
+           00036f24  str      r0, [fp, #0x10]              
+           00036f28  str      r0, [fp, #0xc]               
+           00036f2c  cmp      r0, #0                       
+           00036f30  bne      #0x36f3c                     ; -> L_36f3c
+           00036f34  ldr      ip, [fp, #0x2c]              
+           00036f38  mov      pc, ip                       
+L_36f3c:   00036f3c  ldr      r1, [fp, #0xc]               
+           00036f40  mov      r0, r1                       
+           00036f44  ldr      r1, [r1]                     
+           00036f48  ldr      r8, [pc]                     
+           00036f4c  b        #0x36f54                     ; -> L_36f54
+           00036f50  .word    0x00f65710                   ; literal 16144144 / 
+L_36f54:   00036f54  ldr      r8, [pc, r8]                 ; GOT[17] METHODCONST System.IDisposable::Dispose
+           00036f58  add      lr, pc, #4                   
+           00036f5c  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           00036f60  andeq    r0, r0, r0                   
+           00036f64  ldr      ip, [fp, #0x2c]              
+           00036f68  mov      pc, ip                       
+L_36f6c:   00036f6c  add      sp, fp, #0x50                
+           00036f70  pop      {r4, r5, r6, r8, sl, fp}     
+           00036f74  ldr      r7, [sp, #8]                 
+           00036f78  ldm      sp, {sp, pc}                 
+           00036f7c  mov      r1, lr                       
+           00036f80  ldr      r0, [pc]                     
+           00036f84  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00036f88  andeq    r0, r0, #0xfd                
+
+== ResultLogger::addArraylistToString  token 0x0600033f @0x00036f8c (896 bytes) static
+   args: builder, result
+           00036f8c  mov      ip, sp                       
+           00036f90  push     {r7, lr}                     
+           00036f94  mov      r7, sp                       
+           00036f98  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00036f9c  sub      sp, sp, #0x50                
+           00036fa0  mov      fp, sp                       
+           00036fa4  mov      r6, r0                       
+           00036fa8  mov      sl, r1                       
+           00036fac  mov      r0, #0                       
+           00036fb0  str      r0, [fp]                     
+           00036fb4  mov      r0, #0                       
+           00036fb8  str      r0, [fp, #4]                 
+           00036fbc  mov      r0, sl                       
+           00036fc0  ldr      r1, [sl]                     
+           00036fc4  mov      lr, pc                       
+           00036fc8  ldr      pc, [r1, #0x90]              ; VIRTUAL CALL slot +0x90: System.Enum::System.IConvertible.ToUInt64
+           00036fcc  str      r0, [fp]                     
+           00036fd0  b        #0x3714c                     ; -> L_3714c
+L_36fd4:   00036fd4  ldr      r1, [fp]                     
+           00036fd8  mov      r0, r1                       
+           00036fdc  ldr      r1, [r1]                     
+           00036fe0  ldr      r8, [pc]                     
+           00036fe4  b        #0x36fec                     ; -> L_36fec
+           00036fe8  .word    0x00f65660                   ; literal 16143968 / 
+L_36fec:   00036fec  ldr      r8, [pc, r8]                 ; GOT[11] METHODCONST System.Collections.IEnumerator::get_Current
+           00036ff0  add      lr, pc, #4                   
+           00036ff4  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           00036ff8  andeq    r0, r0, r0                   
+           00036ffc  mov      r5, r0                       
+           00037000  mov      sl, r5                       
+           00037004  mov      r4, sl                       
+           00037008  cmp      sl, #0                       
+           0003700c  beq      #0x37040                     ; -> L_37040
+           00037010  ldr      r0, [sl]                     
+           00037014  ldr      r0, [r0]                     
+           00037018  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003701c  ldr      r0, [r0, #4]                 ; field+0x4 
+           00037020  ldr      r1, [pc]                     
+           00037024  b        #0x3702c                     ; -> L_3702c
+           00037028  .word    0x00f65624                   ; literal 16143908 / 
+L_3702c:   0003702c  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           00037030  cmp      r0, r1                       
+           00037034  beq      #0x37040                     ; -> L_37040
+           00037038  mov      r4, #0                       
+           0003703c  b        #0x37040                     ; -> L_37040
+L_37040:   00037040  cmp      r4, #0                       
+           00037044  beq      #0x37094                     ; -> L_37094
+           00037048  str      r6, [fp, #0x2c]              
+           0003704c  str      r5, [fp, #0x28]              
+           00037050  cmp      r5, #0                       
+           00037054  beq      #0x37084                     ; -> L_37084
+           00037058  ldr      r0, [fp, #0x28]              
+           0003705c  ldr      r0, [r0]                     
+           00037060  ldr      r0, [r0]                     
+           00037064  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00037068  ldr      r0, [r0, #4]                 ; field+0x4 
+           0003706c  ldr      r1, [pc]                     
+           00037070  b        #0x37078                     ; -> L_37078
+           00037074  .word    0x00f655d8                   ; literal 16143832 / 
+L_37078:   00037078  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           0003707c  cmp      r0, r1                       
+           00037080  blne     #0x372fc                     ; THROW System.InvalidCastException (if ne)
+L_37084:   00037084  ldr      r0, [fp, #0x2c]              
+           00037088  ldr      r1, [fp, #0x28]              
+           0003708c  bl       #0xbc5a0                     ; CALL ResultLogger::addHashtableToString
+           00037090  b        #0x37130                     ; -> L_37130
+L_37094:   00037094  str      r5, [fp, #0x30]              
+           00037098  str      r5, [fp, #0x34]              
+           0003709c  cmp      r5, #0                       
+           000370a0  beq      #0x370dc                     ; -> L_370dc
+           000370a4  ldr      r0, [fp, #0x30]              
+           000370a8  ldr      r0, [r0]                     
+           000370ac  ldr      r0, [r0]                     
+           000370b0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000370b4  ldr      r0, [r0, #4]                 ; field+0x4 
+           000370b8  ldr      r1, [pc]                     
+           000370bc  b        #0x370c4                     ; -> L_370c4
+           000370c0  .word    0x00f65a48                   ; literal 16144968 / 
+L_370c4:   000370c4  ldr      r1, [pc, r1]                 ; GOT[315] CLASS System.Collections.ArrayList
+           000370c8  cmp      r0, r1                       
+           000370cc  beq      #0x370dc                     ; -> L_370dc
+           000370d0  mov      r0, #0                       
+           000370d4  str      r0, [fp, #0x34]              
+           000370d8  b        #0x370dc                     ; -> L_370dc
+L_370dc:   000370dc  ldr      r0, [fp, #0x34]              
+           000370e0  cmp      r0, #0                       
+           000370e4  beq      #0x37130                     ; -> L_37130
+           000370e8  str      r6, [fp, #0x3c]              
+           000370ec  str      r5, [fp, #0x38]              
+           000370f0  cmp      r5, #0                       
+           000370f4  beq      #0x37124                     ; -> L_37124
+           000370f8  ldr      r0, [fp, #0x38]              
+           000370fc  ldr      r0, [r0]                     
+           00037100  ldr      r0, [r0]                     
+           00037104  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00037108  ldr      r0, [r0, #4]                 ; field+0x4 
+           0003710c  ldr      r1, [pc]                     
+           00037110  b        #0x37118                     ; -> L_37118
+           00037114  .word    0x00f659f4                   ; literal 16144884 / 
+L_37118:   00037118  ldr      r1, [pc, r1]                 ; GOT[315] CLASS System.Collections.ArrayList
+           0003711c  cmp      r0, r1                       
+           00037120  blne     #0x372fc                     ; THROW System.InvalidCastException (if ne)
+L_37124:   00037124  ldr      r0, [fp, #0x3c]              
+           00037128  ldr      r1, [fp, #0x38]              
+           0003712c  bl       #0xbc5c0                     ; CALL ResultLogger::addArraylistToString
+L_37130:   00037130  ldr      r1, [pc]                     
+           00037134  b        #0x3713c                     ; -> L_3713c
+           00037138  .word    0x00f65bd4                   ; literal 16145364 / 
+L_3713c:   0003713c  ldr      r1, [pc, r1]                 ; GOT[444] LDSTR '\n--------------------\n'
+           00037140  mov      r0, r6                       
+           00037144  ldr      lr, [r6]                     
+           00037148  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+L_3714c:   0003714c  ldr      r1, [fp]                     
+           00037150  mov      r0, r1                       
+           00037154  ldr      r1, [r1]                     
+           00037158  ldr      r8, [pc]                     
+           0003715c  b        #0x37164                     ; -> L_37164
+           00037160  .word    0x00f654f4                   ; literal 16143604 / 
+L_37164:   00037164  ldr      r8, [pc, r8]                 ; GOT[14] METHODCONST System.Collections.IEnumerator::MoveNext
+           00037168  add      lr, pc, #4                   
+           0003716c  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           00037170  andeq    r0, r0, r0                   
+           00037174  cmp      r0, #0                       
+           00037178  bne      #0x36fd4                     ; -> L_36fd4
+           0003717c  bl       #0x37184                     ; CALL 0x37184
+           00037180  b        #0x372ec                     ; -> L_372ec
+           00037184  str      lr, [fp, #0x24]              
+           00037188  ldr      r0, [fp]                     
+           0003718c  str      r0, [fp, #0xc]               
+           00037190  ldr      r0, [fp, #0xc]               
+           00037194  str      r0, [fp, #0x40]              
+           00037198  cmp      r0, #0                       
+           0003719c  beq      #0x37234                     ; -> L_37234
+           000371a0  ldr      r0, [fp, #0x40]              
+           000371a4  ldr      r0, [r0]                     
+           000371a8  str      r0, [fp, #0x44]              
+           000371ac  ldrh     r0, [r0, #0x18]              ; field+0x18 
+           000371b0  ldr      r1, [pc]                     
+           000371b4  b        #0x371bc                     ; -> L_371bc
+           000371b8  .word    0x00f654a0                   ; literal 16143520 / 
+L_371bc:   000371bc  ldr      r1, [pc, r1]                 ; GOT[15] IID System.IDisposable
+           000371c0  cmp      r0, r1                       
+           000371c4  blo      #0x37204                     ; -> L_37204
+           000371c8  ldr      r0, [fp, #0x44]              
+           000371cc  ldr      r0, [r0, #0x14]              ; field+0x14 
+           000371d0  ldr      r1, [pc]                     
+           000371d4  b        #0x371dc                     ; -> L_371dc
+           000371d8  .word    0x00f65480                   ; literal 16143488 / 
+L_371dc:   000371dc  ldr      r1, [pc, r1]                 ; GOT[15] IID System.IDisposable
+           000371e0  asr      r2, r1, #3                   
+           000371e4  add      r0, r0, r2                   
+           000371e8  ldrb     r0, [r0]                     
+           000371ec  and      r2, r1, #7                   
+           000371f0  mov      r1, #1                       
+           000371f4  lsl      r1, r1, r2                   
+           000371f8  and      r0, r0, r1                   
+           000371fc  cmp      r0, #0                       
+           00037200  bne      #0x3724c                     ; -> L_3724c
+L_37204:   00037204  ldr      r0, [fp, #0x44]              
+           00037208  ldr      r0, [r0]                     
+           0003720c  ldr      r1, [pc]                     
+           00037210  b        #0x37218                     ; -> L_37218
+           00037214  .word    0x00f65448                   ; literal 16143432 / 
+L_37218:   00037218  ldr      r1, [pc, r1]                 ; GOT[16] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           0003721c  cmp      r0, r1                       
+           00037220  bne      #0x37234                     ; -> L_37234
+           00037224  ldr      r0, [fp, #0x40]              
+           00037228  ldr      r0, [r0, #0x10]              ; field+0x10 
+           0003722c  cmp      r0, #0                       
+           00037230  bne      #0x37240                     ; -> L_37240
+L_37234:   00037234  mov      r0, #1                       
+           00037238  str      r0, [fp, #0x48]              
+           0003723c  b        #0x37254                     ; -> L_37254
+L_37240:   00037240  mov      r0, #2                       
+           00037244  str      r0, [fp, #0x48]              
+           00037248  b        #0x37254                     ; -> L_37254
+L_3724c:   0003724c  mov      r0, #0                       
+           00037250  str      r0, [fp, #0x48]              
+L_37254:   00037254  ldr      r0, [fp, #0x48]              
+           00037258  str      r0, [fp, #0x10]              
+           0003725c  mov      r1, r0                       
+           00037260  ldr      r0, [fp, #0x10]              
+           00037264  str      r1, [fp, #0x14]              
+           00037268  cmp      r0, #0                       
+           0003726c  beq      #0x37298                     ; -> L_37298
+           00037270  ldr      r0, [fp, #0x14]              
+           00037274  cmp      r0, #2                       
+           00037278  bne      #0x3728c                     ; -> L_3728c
+           0003727c  ldr      r0, [fp, #0xc]               
+           00037280  bl       #0xb96e0                     ; CALL wrapper wrapper20(System.IDisposable)
+           00037284  str      r0, [fp, #0x18]              
+           00037288  b        #0x372a0                     ; -> L_372a0
+L_3728c:   0003728c  mov      r0, #0                       
+           00037290  str      r0, [fp, #0x18]              
+           00037294  b        #0x372a0                     ; -> L_372a0
+L_37298:   00037298  ldr      r0, [fp, #0xc]               
+           0003729c  str      r0, [fp, #0x18]              
+L_372a0:   000372a0  ldr      r0, [fp, #0x18]              
+           000372a4  str      r0, [fp, #8]                 
+           000372a8  str      r0, [fp, #4]                 
+           000372ac  cmp      r0, #0                       
+           000372b0  bne      #0x372bc                     ; -> L_372bc
+           000372b4  ldr      ip, [fp, #0x24]              
+           000372b8  mov      pc, ip                       
+L_372bc:   000372bc  ldr      r1, [fp, #4]                 
+           000372c0  mov      r0, r1                       
+           000372c4  ldr      r1, [r1]                     
+           000372c8  ldr      r8, [pc]                     
+           000372cc  b        #0x372d4                     ; -> L_372d4
+           000372d0  .word    0x00f65390                   ; literal 16143248 / 
+L_372d4:   000372d4  ldr      r8, [pc, r8]                 ; GOT[17] METHODCONST System.IDisposable::Dispose
+           000372d8  add      lr, pc, #4                   
+           000372dc  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000372e0  andeq    r0, r0, r0                   
+           000372e4  ldr      ip, [fp, #0x24]              
+           000372e8  mov      pc, ip                       
+L_372ec:   000372ec  add      sp, fp, #0x50                
+           000372f0  pop      {r4, r5, r6, r8, sl, fp}     
+           000372f4  ldr      r7, [sp, #8]                 
+           000372f8  ldm      sp, {sp, pc}                 
+           000372fc  mov      r1, lr                       
+           00037300  ldr      r0, [pc]                     
+           00037304  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00037308  andeq    r0, r0, #0xfd                

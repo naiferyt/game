@@ -1,0 +1,435 @@
+####################################################################################################
+# TYPE PaintSlotPublisher  (instance size 0x54)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 transformReferences            UghPublisher/TransformReference[]
+#   +0x14 transformsDictionary           UghPublisher/TransformsDictionary
+#   +0x18 ughTextReferences              UghPublisher/UghTextReference[]
+#   +0x1c ughTextsDictionary             UghPublisher/UghTextsDictionary
+#   +0x20 ledScrollerReferences          UghPublisher/LEDScrollerReference[]
+#   +0x24 ledScrollersDictionary         UghPublisher/LEDScrollersDictionary
+#   +0x28 ughButtonReferences            UghPublisher/UghButtonReference[]
+#   +0x2c ughButtonsDictionary           UghPublisher/UghButtonsDictionary
+#   +0x30 ughSlideToggleReferences       UghPublisher/UghSlideToggleReference[]
+#   +0x34 ughSlideTogglesDictionary      UghPublisher/UghSlideToggleDictionary
+#   +0x38 ughSliderReferences            UghPublisher/UghSliderReference[]
+#   +0x3c ughSlidersDictionary           UghPublisher/UghSliderDictionary
+#   +0x40 ughSprites                     System.Collections.Generic.List`1<UghSprite>
+#   +0x44 texture                        UnityEngine.Texture2D
+#   +0x48 publisher                      CartCustomizerPublisher
+#   +0x4c state                          PaintSlotPublisher/States
+#   +0x50 viewingIndex                   int
+#   vtable slots: 
+####################################################################################################
+== PaintSlotPublisher::.ctor  token 0x060006a9 @0x0012e888 (52 bytes)
+   args: r0=this, 
+           0012e888  mov      ip, sp                       
+           0012e88c  push     {r7, lr}                     
+           0012e890  mov      r7, sp                       
+           0012e894  push     {r8, fp, ip, lr}             
+           0012e898  sub      sp, sp, #8                   
+           0012e89c  mov      fp, sp                       
+           0012e8a0  str      r0, [fp]                     
+           0012e8a4  ldr      r0, [fp]                     
+           0012e8a8  bl       #0x22e1d0                    ; CALL UghPublisher::.ctor
+           0012e8ac  add      sp, fp, #8                   
+           0012e8b0  pop      {r8, fp}                     
+           0012e8b4  ldr      r7, [sp, #8]                 
+           0012e8b8  ldm      sp, {sp, pc}                 
+
+== PaintSlotPublisher::PressedPaintButton  token 0x060006aa @0x0012e8bc (144 bytes)
+   args: r0=this, 
+           0012e8bc  mov      ip, sp                       
+           0012e8c0  push     {r7, lr}                     
+           0012e8c4  mov      r7, sp                       
+           0012e8c8  push     {r8, sl, fp, ip, lr}         
+           0012e8cc  sub      sp, sp, #4                   
+           0012e8d0  mov      fp, sp                       
+           0012e8d4  mov      sl, r0                       
+           0012e8d8  bl       #0x22e4a0                    ; CALL PreviewCart::get_IsLoading
+           0012e8dc  cmp      r0, #0                       
+           0012e8e0  bne      #0x12e93c                    ; -> L_12e93c
+           0012e8e4  ldr      r0, [pc]                     
+           0012e8e8  b        #0x12e8f0                    ; -> L_12e8f0
+           0012e8ec  .word    0x00e775c8                   ; literal 15168968 / 
+L_12e8f0:  0012e8f0  ldr      r0, [pc, r0]                 ; GOT[1110] LDSTR 'menuButton1'
+           0012e8f4  bl       #0x22cca0                    ; CALL SoundLibrary::ButtonClickPlay
+           0012e8f8  ldr      r0, [sl, #0x50]              ; field+0x50 (this-class: viewingIndex)
+           0012e8fc  bl       #0x22ecc0                    ; CALL CartCustomizerPublisher::SetViewingPaintIndex
+           0012e900  ldr      r0, [sl, #0x4c]              ; field+0x4c (this-class: state)
+           0012e904  cmp      r0, #1                       
+           0012e908  bne      #0x12e920                    ; -> L_12e920
+           0012e90c  ldr      r1, [sl, #0x48]              ; field+0x48 (this-class: publisher)
+           0012e910  mov      r0, r1                       
+           0012e914  ldr      lr, [r1]                     
+           0012e918  bl       #0x22ecd0                    ; CALL CartCustomizerPublisher::OpenBuyPaint
+           0012e91c  b        #0x12e93c                    ; -> L_12e93c
+L_12e920:  0012e920  ldr      r0, [sl, #0x4c]              ; field+0x4c (this-class: state)
+           0012e924  cmp      r0, #0                       
+           0012e928  bne      #0x12e93c                    ; -> L_12e93c
+           0012e92c  ldr      r1, [sl, #0x48]              ; field+0x48 (this-class: publisher)
+           0012e930  mov      r0, r1                       
+           0012e934  ldr      lr, [r1]                     
+           0012e938  bl       #0x22ece0                    ; CALL CartCustomizerPublisher::OpenPaintIsLocked
+L_12e93c:  0012e93c  add      sp, fp, #4                   
+           0012e940  pop      {r8, sl, fp}                 
+           0012e944  ldr      r7, [sp, #8]                 
+           0012e948  ldm      sp, {sp, pc}                 
+
+== PaintSlotPublisher::Start  token 0x060006ab @0x0012e94c (140 bytes)
+   args: r0=this, 
+           0012e94c  mov      ip, sp                       
+           0012e950  push     {r7, lr}                     
+           0012e954  mov      r7, sp                       
+           0012e958  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0012e95c  sub      sp, sp, #4                   
+           0012e960  mov      fp, sp                       
+           0012e964  mov      sl, r0                       
+           0012e968  ldr      r0, [pc]                     
+           0012e96c  b        #0x12e974                    ; -> L_12e974
+           0012e970  .word    0x00e7775c                   ; literal 15169372 / 
+L_12e974:  0012e974  ldr      r0, [pc, r0]                 ; GOT[1244] TYPE_FROM_HANDLE typeof(CartCustomizerPublisher)
+           0012e978  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           0012e97c  mov      r6, r0                       
+           0012e980  mov      r5, r6                       
+           0012e984  cmp      r6, #0                       
+           0012e988  beq      #0x12e9c4                    ; -> L_12e9c4
+           0012e98c  ldr      r0, [r6]                     
+           0012e990  ldr      r6, [r0]                     
+           0012e994  ldrh     r0, [r6, #0xc]               ; field+0xc 
+           0012e998  cmp      r0, #8                       
+           0012e99c  blo      #0x12e9c0                    ; -> L_12e9c0
+           0012e9a0  ldr      r0, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012e9a4  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0012e9a8  ldr      r1, [pc]                     
+           0012e9ac  b        #0x12e9b4                    ; -> L_12e9b4
+           0012e9b0  .word    0x00e77720                   ; literal 15169312 / 
+L_12e9b4:  0012e9b4  ldr      r1, [pc, r1]                 ; GOT[1245] CLASS CartCustomizerPublisher
+           0012e9b8  cmp      r0, r1                       
+           0012e9bc  beq      #0x12e9c4                    ; -> L_12e9c4
+L_12e9c0:  0012e9c0  mov      r5, #0                       
+L_12e9c4:  0012e9c4  str      r5, [sl, #0x48]              ; field+0x48 (this-class: publisher)
+           0012e9c8  add      sp, fp, #4                   
+           0012e9cc  pop      {r5, r6, r8, sl, fp}         
+           0012e9d0  ldr      r7, [sp, #8]                 
+           0012e9d4  ldm      sp, {sp, pc}                 
+
+== PaintSlotPublisher::SetPaint  token 0x060006ac @0x0012e9d8 (1148 bytes)
+   args: r0=this, paint, index
+           0012e9d8  mov      ip, sp                       
+           0012e9dc  push     {r7, lr}                     
+           0012e9e0  mov      r7, sp                       
+           0012e9e4  push     {r4, r5, r6, r8, fp, ip, lr} 
+           0012e9e8  sub      sp, sp, #0x2c                
+           0012e9ec  mov      fp, sp                       
+           0012e9f0  mov      r5, r0                       
+           0012e9f4  str      r1, [fp, #0xc]               
+           0012e9f8  str      r2, [fp, #0x10]              
+           0012e9fc  ldr      r0, [fp, #0x10]              
+           0012ea00  str      r0, [r5, #0x50]              ; field+0x50 (this-class: viewingIndex)
+           0012ea04  ldr      r2, [r5, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012ea08  ldr      r1, [pc]                     
+           0012ea0c  b        #0x12ea14                    ; -> L_12ea14
+           0012ea10  .word    0x00e778ec                   ; literal 15169772 / 
+L_12ea14:  0012ea14  ldr      r1, [pc, r1]                 ; GOT[1384] LDSTR 'Swatch'
+           0012ea18  mov      r0, r2                       
+           0012ea1c  ldr      lr, [r2]                     
+           0012ea20  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012ea24  mov      r1, r0                       
+           0012ea28  ldr      lr, [r1]                     
+           0012ea2c  bl       #0x22d4d0                    ; CALL UnityEngine.Component::get_renderer
+           0012ea30  str      r0, [fp, #0x1c]              
+           0012ea34  ldr      r0, [pc]                     
+           0012ea38  b        #0x12ea40                    ; -> L_12ea40
+           0012ea3c  .word    0x00e778c4                   ; literal 15169732 / 
+L_12ea40:  0012ea40  ldr      r0, [pc, r0]                 ; GOT[1385] LDSTR 'iPhone/Transparent And Color Unlit'
+           0012ea44  bl       #0x22d290                    ; CALL UnityEngine.Shader::Find
+           0012ea48  str      r0, [fp, #0x20]              
+           0012ea4c  ldr      r0, [pc]                     
+           0012ea50  b        #0x12ea58                    ; -> L_12ea58
+           0012ea54  .word    0x00e778b0                   ; literal 15169712 / 
+L_12ea58:  0012ea58  ldr      r0, [pc, r0]                 ; GOT[1386] VTABLE UnityEngine.Material
+           0012ea5c  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           0012ea60  ldr      r1, [fp, #0x20]              
+           0012ea64  str      r0, [fp, #0x18]              
+           0012ea68  bl       #0x22ecf0                    ; CALL UnityEngine.Material::.ctor
+           0012ea6c  ldr      r1, [fp, #0x18]              
+           0012ea70  ldr      r2, [fp, #0x1c]              
+           0012ea74  mov      r0, r2                       
+           0012ea78  ldr      lr, [r2]                     
+           0012ea7c  bl       #0x22e7a0                    ; CALL UnityEngine.Renderer::set_material
+           0012ea80  ldr      r0, [fp, #0xc]               
+           0012ea84  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0012ea88  mov      r1, #0                       
+           0012ea8c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012ea90  cmp      r0, #0                       
+           0012ea94  beq      #0x12eaec                    ; -> L_12eaec
+           0012ea98  ldr      r2, [r5, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012ea9c  ldr      r1, [pc]                     
+           0012eaa0  b        #0x12eaa8                    ; -> L_12eaa8
+           0012eaa4  .word    0x00e77858                   ; literal 15169624 / 
+L_12eaa8:  0012eaa8  ldr      r1, [pc, r1]                 ; GOT[1384] LDSTR 'Swatch'
+           0012eaac  mov      r0, r2                       
+           0012eab0  ldr      lr, [r2]                     
+           0012eab4  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012eab8  mov      r1, r0                       
+           0012eabc  ldr      lr, [r1]                     
+           0012eac0  bl       #0x22d4d0                    ; CALL UnityEngine.Component::get_renderer
+           0012eac4  mov      r1, r0                       
+           0012eac8  ldr      lr, [r1]                     
+           0012eacc  bl       #0x22b890                    ; CALL UnityEngine.Renderer::get_material
+           0012ead0  mov      r2, r0                       
+           0012ead4  ldr      r0, [fp, #0xc]               
+           0012ead8  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0012eadc  mov      r0, r2                       
+           0012eae0  ldr      lr, [r2]                     
+           0012eae4  bl       #0x22e860                    ; CALL UnityEngine.Material::set_mainTexture
+           0012eae8  b        #0x12ec44                    ; -> L_12ec44
+L_12eaec:  0012eaec  ldr      r0, [fp, #0xc]               
+           0012eaf0  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012eaf4  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012eaf8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0012eafc  cmp      r0, #0                       
+           0012eb00  ble      #0x12ec44                    ; -> L_12ec44
+           0012eb04  ldr      r0, [pc]                     
+           0012eb08  b        #0x12eb10                    ; -> L_12eb10
+           0012eb0c  .word    0x00e767e8                   ; literal 15165416 / 
+L_12eb10:  0012eb10  ldr      r0, [pc, r0]                 ; GOT[358] VTABLE UnityEngine.Texture2D
+           0012eb14  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           0012eb18  str      r0, [fp, #0x18]              
+           0012eb1c  mov      r1, #2                       
+           0012eb20  mov      r2, #2                       
+           0012eb24  mov      r3, #5                       
+           0012eb28  mov      ip, #0                       
+           0012eb2c  str      ip, [sp]                     
+           0012eb30  bl       #0x22ed00                    ; CALL UnityEngine.Texture2D::.ctor
+           0012eb34  ldr      r0, [fp, #0x18]              
+           0012eb38  str      r0, [r5, #0x44]              ; field+0x44 (this-class: texture)
+           0012eb3c  ldr      r0, [pc]                     
+           0012eb40  b        #0x12eb48                    ; -> L_12eb48
+           0012eb44  .word    0x00e767ac                   ; literal 15165356 / 
+L_12eb48:  0012eb48  ldr      r0, [pc, r0]                 ; GOT[357] VTABLE UnityEngine.Color32[]
+           0012eb4c  mov      r1, #4                       
+           0012eb50  bl       #0x22a7c0                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           0012eb54  mov      r4, r0                       
+           0012eb58  mov      r6, #0                       
+           0012eb5c  b        #0x12ebc8                    ; -> L_12ebc8
+L_12eb60:  0012eb60  ldr      r0, [r4, #0xc]               ; field+0xc 
+           0012eb64  cmp      r0, r6                       
+           0012eb68  blls     #0x12ee44                    ; THROW System.IndexOutOfRangeException (if ls)
+           0012eb6c  lsl      r0, r6, #2                   
+           0012eb70  add      r0, r4, r0                   
+           0012eb74  add      r0, r0, #0x10                
+           0012eb78  ldr      r1, [fp, #0xc]               
+           0012eb7c  ldr      r1, [r1, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012eb80  ldr      r1, [r1, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012eb84  ldr      r2, [r1, #0xc]               ; field+0xc 
+           0012eb88  cmp      r2, #0                       
+           0012eb8c  blls     #0x12ee44                    ; THROW System.IndexOutOfRangeException (if ls)
+           0012eb90  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0012eb94  add      r1, r1, #0x10                
+           0012eb98  ldr      r1, [r1]                     
+           0012eb9c  str      r1, [fp, #8]                 
+           0012eba0  str      r1, [r0]                     
+           0012eba4  ldr      r0, [r4, #0xc]               ; field+0xc 
+           0012eba8  cmp      r0, r6                       
+           0012ebac  blls     #0x12ee44                    ; THROW System.IndexOutOfRangeException (if ls)
+           0012ebb0  lsl      r0, r6, #2                   
+           0012ebb4  add      r0, r4, r0                   
+           0012ebb8  add      r0, r0, #0x10                
+           0012ebbc  mov      r1, #0xff                    
+           0012ebc0  strb     r1, [r0, #3]                 ; field+0x3 
+           0012ebc4  add      r6, r6, #1                   
+L_12ebc8:  0012ebc8  ldr      r0, [r4, #0xc]               ; field+0xc 
+           0012ebcc  cmp      r6, r0                       
+           0012ebd0  blt      #0x12eb60                    ; -> L_12eb60
+           0012ebd4  ldr      r2, [r5, #0x44]              ; field+0x44 (this-class: texture)
+           0012ebd8  mov      r0, r2                       
+           0012ebdc  mov      r1, r4                       
+           0012ebe0  ldr      lr, [r2]                     
+           0012ebe4  bl       #0x22c090                    ; CALL UnityEngine.Texture2D::SetPixels32
+           0012ebe8  ldr      r1, [r5, #0x44]              ; field+0x44 (this-class: texture)
+           0012ebec  mov      r0, r1                       
+           0012ebf0  ldr      lr, [r1]                     
+           0012ebf4  bl       #0x22c0a0                    ; CALL UnityEngine.Texture2D::Apply
+           0012ebf8  ldr      r2, [r5, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012ebfc  ldr      r1, [pc]                     
+           0012ec00  b        #0x12ec08                    ; -> L_12ec08
+           0012ec04  .word    0x00e776f8                   ; literal 15169272 / 
+L_12ec08:  0012ec08  ldr      r1, [pc, r1]                 ; GOT[1384] LDSTR 'Swatch'
+           0012ec0c  mov      r0, r2                       
+           0012ec10  ldr      lr, [r2]                     
+           0012ec14  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012ec18  mov      r1, r0                       
+           0012ec1c  ldr      lr, [r1]                     
+           0012ec20  bl       #0x22d4d0                    ; CALL UnityEngine.Component::get_renderer
+           0012ec24  mov      r1, r0                       
+           0012ec28  ldr      lr, [r1]                     
+           0012ec2c  bl       #0x22b890                    ; CALL UnityEngine.Renderer::get_material
+           0012ec30  mov      r2, r0                       
+           0012ec34  ldr      r1, [r5, #0x44]              ; field+0x44 (this-class: texture)
+           0012ec38  mov      r0, r2                       
+           0012ec3c  ldr      lr, [r2]                     
+           0012ec40  bl       #0x22e860                    ; CALL UnityEngine.Material::set_mainTexture
+L_12ec44:  0012ec44  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012ec48  str      r0, [fp, #0x18]              
+           0012ec4c  ldr      r0, [fp, #0xc]               
+           0012ec50  mov      r1, r0                       
+           0012ec54  ldr      lr, [r1]                     
+           0012ec58  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           0012ec5c  mov      r1, r0                       
+           0012ec60  ldr      r2, [fp, #0x18]              
+           0012ec64  mov      r0, r2                       
+           0012ec68  ldr      lr, [r2]                     
+           0012ec6c  bl       #0xe6794                     ; CALL DataUtility::IsUnlocked (direct)
+           0012ec70  cmp      r0, #0                       
+           0012ec74  bne      #0x12ec88                    ; -> L_12ec88
+           0012ec78  ldr      r0, [fp, #0xc]               
+           0012ec7c  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0012ec80  cmp      r0, #0                       
+           0012ec84  bne      #0x12ed0c                    ; -> L_12ed0c
+L_12ec88:  0012ec88  ldr      r2, [r5, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012ec8c  ldr      r1, [pc]                     
+           0012ec90  b        #0x12ec98                    ; -> L_12ec98
+           0012ec94  .word    0x00e77674                   ; literal 15169140 / 
+L_12ec98:  0012ec98  ldr      r1, [pc, r1]                 ; GOT[1387] LDSTR 'lock'
+           0012ec9c  mov      r0, r2                       
+           0012eca0  ldr      lr, [r2]                     
+           0012eca4  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012eca8  mov      r1, r0                       
+           0012ecac  ldr      lr, [r1]                     
+           0012ecb0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012ecb4  mov      r2, r0                       
+           0012ecb8  mov      r1, #0                       
+           0012ecbc  ldr      lr, [r2]                     
+           0012ecc0  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           0012ecc4  ldr      r2, [r5, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012ecc8  ldr      r1, [pc]                     
+           0012eccc  b        #0x12ecd4                    ; -> L_12ecd4
+           0012ecd0  .word    0x00e7763c                   ; literal 15169084 / 
+L_12ecd4:  0012ecd4  ldr      r1, [pc, r1]                 ; GOT[1388] LDSTR 'dollar'
+           0012ecd8  mov      r0, r2                       
+           0012ecdc  ldr      lr, [r2]                     
+           0012ece0  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012ece4  mov      r1, r0                       
+           0012ece8  ldr      lr, [r1]                     
+           0012ecec  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012ecf0  mov      r2, r0                       
+           0012ecf4  mov      r1, #0                       
+           0012ecf8  ldr      lr, [r2]                     
+           0012ecfc  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           0012ed00  mov      r0, #2                       
+           0012ed04  str      r0, [r5, #0x4c]              ; field+0x4c (this-class: state)
+           0012ed08  b        #0x12ee34                    ; -> L_12ee34
+L_12ed0c:  0012ed0c  ldr      r0, [fp, #0xc]               
+           0012ed10  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0012ed14  mvn      r1, #0                       
+           0012ed18  cmp      r0, r1                       
+           0012ed1c  bne      #0x12eda4                    ; -> L_12eda4
+           0012ed20  ldr      r2, [r5, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012ed24  ldr      r1, [pc]                     
+           0012ed28  b        #0x12ed30                    ; -> L_12ed30
+           0012ed2c  .word    0x00e775dc                   ; literal 15168988 / 
+L_12ed30:  0012ed30  ldr      r1, [pc, r1]                 ; GOT[1387] LDSTR 'lock'
+           0012ed34  mov      r0, r2                       
+           0012ed38  ldr      lr, [r2]                     
+           0012ed3c  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012ed40  mov      r1, r0                       
+           0012ed44  ldr      lr, [r1]                     
+           0012ed48  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012ed4c  mov      r2, r0                       
+           0012ed50  mov      r1, #1                       
+           0012ed54  ldr      lr, [r2]                     
+           0012ed58  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           0012ed5c  ldr      r2, [r5, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012ed60  ldr      r1, [pc]                     
+           0012ed64  b        #0x12ed6c                    ; -> L_12ed6c
+           0012ed68  .word    0x00e775a4                   ; literal 15168932 / 
+L_12ed6c:  0012ed6c  ldr      r1, [pc, r1]                 ; GOT[1388] LDSTR 'dollar'
+           0012ed70  mov      r0, r2                       
+           0012ed74  ldr      lr, [r2]                     
+           0012ed78  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012ed7c  mov      r1, r0                       
+           0012ed80  ldr      lr, [r1]                     
+           0012ed84  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012ed88  mov      r2, r0                       
+           0012ed8c  mov      r1, #0                       
+           0012ed90  ldr      lr, [r2]                     
+           0012ed94  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           0012ed98  mov      r0, #0                       
+           0012ed9c  str      r0, [r5, #0x4c]              ; field+0x4c (this-class: state)
+           0012eda0  b        #0x12ee34                    ; -> L_12ee34
+L_12eda4:  0012eda4  ldr      r0, [fp, #0xc]               
+           0012eda8  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0012edac  cmp      r0, #0                       
+           0012edb0  ble      #0x12ee34                    ; -> L_12ee34
+           0012edb4  ldr      r2, [r5, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012edb8  ldr      r1, [pc]                     
+           0012edbc  b        #0x12edc4                    ; -> L_12edc4
+           0012edc0  .word    0x00e7754c                   ; literal 15168844 / 
+L_12edc4:  0012edc4  ldr      r1, [pc, r1]                 ; GOT[1388] LDSTR 'dollar'
+           0012edc8  mov      r0, r2                       
+           0012edcc  ldr      lr, [r2]                     
+           0012edd0  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012edd4  mov      r1, r0                       
+           0012edd8  ldr      lr, [r1]                     
+           0012eddc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012ede0  mov      r2, r0                       
+           0012ede4  mov      r1, #1                       
+           0012ede8  ldr      lr, [r2]                     
+           0012edec  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           0012edf0  ldr      r2, [r5, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012edf4  ldr      r1, [pc]                     
+           0012edf8  b        #0x12ee00                    ; -> L_12ee00
+           0012edfc  .word    0x00e7750c                   ; literal 15168780 / 
+L_12ee00:  0012ee00  ldr      r1, [pc, r1]                 ; GOT[1387] LDSTR 'lock'
+           0012ee04  mov      r0, r2                       
+           0012ee08  ldr      lr, [r2]                     
+           0012ee0c  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012ee10  mov      r1, r0                       
+           0012ee14  ldr      lr, [r1]                     
+           0012ee18  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012ee1c  mov      r2, r0                       
+           0012ee20  mov      r1, #0                       
+           0012ee24  ldr      lr, [r2]                     
+           0012ee28  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           0012ee2c  mov      r0, #1                       
+           0012ee30  str      r0, [r5, #0x4c]              ; field+0x4c (this-class: state)
+L_12ee34:  0012ee34  add      sp, fp, #0x2c                
+           0012ee38  pop      {r4, r5, r6, r8, fp}         
+           0012ee3c  ldr      r7, [sp, #8]                 
+           0012ee40  ldm      sp, {sp, pc}                 
+           0012ee44  mov      r1, lr                       
+           0012ee48  ldr      r0, [pc]                     
+           0012ee4c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0012ee50  andeq    r0, r0, #0xf8                
+
+== PaintSlotPublisher::OnDestroy  token 0x060006ad @0x0012ee54 (80 bytes)
+   args: r0=this, 
+           0012ee54  mov      ip, sp                       
+           0012ee58  push     {r7, lr}                     
+           0012ee5c  mov      r7, sp                       
+           0012ee60  push     {r8, fp, ip, lr}             
+           0012ee64  sub      sp, sp, #8                   
+           0012ee68  mov      fp, sp                       
+           0012ee6c  str      r0, [fp, #4]                 
+           0012ee70  ldr      r0, [fp, #4]                 
+           0012ee74  ldr      r0, [r0, #0x44]              ; field+0x44 (this-class: texture)
+           0012ee78  mov      r1, #0                       
+           0012ee7c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012ee80  cmp      r0, #0                       
+           0012ee84  beq      #0x12ee94                    ; -> L_12ee94
+           0012ee88  ldr      r0, [fp, #4]                 
+           0012ee8c  ldr      r0, [r0, #0x44]              ; field+0x44 (this-class: texture)
+           0012ee90  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_12ee94:  0012ee94  add      sp, fp, #8                   
+           0012ee98  pop      {r8, fp}                     
+           0012ee9c  ldr      r7, [sp, #8]                 
+           0012eea0  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE PaintSlotPublisher/States  (instance size 0xc)
+#   static PaintSlotPublisher/States locked  = const 00000000
+#   static PaintSlotPublisher/States forSale  = const 01000000
+#   static PaintSlotPublisher/States open  = const 02000000
+#   vtable slots: 
+####################################################################################################

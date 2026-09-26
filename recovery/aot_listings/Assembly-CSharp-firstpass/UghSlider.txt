@@ -1,0 +1,757 @@
+####################################################################################################
+# TYPE UghSlider  (instance size 0x5c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 normal                         UghSpritePrototype
+#   +0x14 anchor                         UghSprite/Anchor
+#   +0x18 customAnchorOffset             UnityEngine.Vector3
+#   +0x24 flippedHorizontal              bool
+#   +0x25 flippedVertical                bool
+#   +0x28 offset                         UnityEngine.Vector3
+#   +0x34 autoSizeCollider               bool
+#   +0x35 passThrough                    bool
+#   +0x38 <HotFingerID>k__BackingField   int
+#   +0x3c pressed                        UghSpritePrototype
+#   +0x40 limits                         Rangef
+#   +0x44 OnChanged                      System.Action`1<UghSlider>
+#   +0x48 visualWidthUnits               float
+#   +0x4c currentNormalized              float
+#   +0x50 basePosition                   UnityEngine.Vector3
+#   vtable slots: 9:OnUghInputUpAsButton, 11:OnUghInputUp, 12:OnUghInputDown
+####################################################################################################
+== UghSlider::.ctor  token 0x060003cb @0x0003de90 (76 bytes)
+   args: r0=this, 
+           0003de90  mov      ip, sp                       
+           0003de94  push     {r7, lr}                     
+           0003de98  mov      r7, sp                       
+           0003de9c  push     {r8, fp, ip, lr}             
+           0003dea0  sub      sp, sp, #8                   
+           0003dea4  mov      fp, sp                       
+           0003dea8  str      r0, [fp]                     
+           0003deac  vldr     s4, [pc]                     ; float 1.0
+           0003deb0  b        #0x3deb8                     ; -> L_3deb8
+           0003deb4  .word    0x3f800000                   ; literal 1065353216 / 1
+L_3deb8:   0003deb8  vcvt.f64.f32 d2, s4                       
+           0003debc  ldr      r0, [fp]                     
+           0003dec0  vcvt.f32.f64 s0, d2                       
+           0003dec4  vstr     s0, [r0, #0x48]              ; field+0x48 (this-class: visualWidthUnits)
+           0003dec8  bl       #0x3b014                     ; CALL UghControl::.ctor (direct)
+           0003decc  add      sp, fp, #8                   
+           0003ded0  pop      {r8, fp}                     
+           0003ded4  ldr      r7, [sp, #8]                 
+           0003ded8  ldm      sp, {sp, pc}                 
+
+== UghSlider::get_Current  token 0x060003cc @0x0003dedc (100 bytes)
+   args: r0=this, 
+           0003dedc  mov      ip, sp                       
+           0003dee0  push     {r7, lr}                     
+           0003dee4  mov      r7, sp                       
+           0003dee8  push     {r8, fp, ip, lr}             
+           0003deec  sub      sp, sp, #0x28                
+           0003def0  mov      fp, sp                       
+           0003def4  str      r0, [fp, #0x20]              
+           0003def8  ldr      r0, [fp, #0x20]              
+           0003defc  ldr      r2, [r0, #0x40]              ; field+0x40 (this-class: limits)
+           0003df00  vldr     s0, [r0, #0x4c]              ; field+0x4c (this-class: currentNormalized)
+           0003df04  vcvt.f64.f32 d2, s0                       
+           0003df08  mov      r0, r2                       
+           0003df0c  vcvt.f32.f64 s0, d2                       
+           0003df10  vstr     s0, [sp, #-8]                
+           0003df14  ldr      r1, [sp, #-8]                
+           0003df18  ldr      lr, [r2]                     
+           0003df1c  bl       #0x21028                     ; CALL Rangef::Lerp (direct)
+           0003df20  vmov     s4, r0                       
+           0003df24  vcvt.f64.f32 d2, s4                       
+           0003df28  vcvt.f32.f64 s0, d2                       
+           0003df2c  vmov     r0, s0                       
+           0003df30  add      sp, fp, #0x28                
+           0003df34  pop      {r8, fp}                     
+           0003df38  ldr      r7, [sp, #8]                 
+           0003df3c  ldm      sp, {sp, pc}                 
+
+== UghSlider::set_Current  token 0x060003cd @0x0003df40 (116 bytes)
+   args: r0=this, value
+           0003df40  mov      ip, sp                       
+           0003df44  push     {r7, lr}                     
+           0003df48  mov      r7, sp                       
+           0003df4c  push     {r8, fp, ip, lr}             
+           0003df50  sub      sp, sp, #0x18                
+           0003df54  mov      fp, sp                       
+           0003df58  str      r0, [fp, #0x10]              
+           0003df5c  str      r1, [fp, #0x14]              
+           0003df60  ldr      r0, [fp, #0x10]              
+           0003df64  ldr      r2, [r0, #0x40]              ; field+0x40 (this-class: limits)
+           0003df68  vldr     s0, [fp, #0x14]              
+           0003df6c  vcvt.f64.f32 d2, s0                       
+           0003df70  mov      r0, r2                       
+           0003df74  vcvt.f32.f64 s0, d2                       
+           0003df78  vstr     s0, [sp, #-8]                
+           0003df7c  ldr      r1, [sp, #-8]                
+           0003df80  ldr      lr, [r2]                     
+           0003df84  bl       #0x210ac                     ; CALL Rangef::InverseLerp (direct)
+           0003df88  vmov     s4, r0                       
+           0003df8c  vcvt.f64.f32 d2, s4                       
+           0003df90  ldr      r0, [fp, #0x10]              
+           0003df94  vcvt.f32.f64 s0, d2                       
+           0003df98  vstr     s0, [sp, #-8]                
+           0003df9c  ldr      r1, [sp, #-8]                
+           0003dfa0  bl       #0x3dff4                     ; CALL UghSlider::set_CurrentNormalized (direct)
+           0003dfa4  add      sp, fp, #0x18                
+           0003dfa8  pop      {r8, fp}                     
+           0003dfac  ldr      r7, [sp, #8]                 
+           0003dfb0  ldm      sp, {sp, pc}                 
+
+== UghSlider::get_CurrentNormalized  token 0x060003ce @0x0003dfb4 (64 bytes)
+   args: r0=this, 
+           0003dfb4  mov      ip, sp                       
+           0003dfb8  push     {r7, lr}                     
+           0003dfbc  mov      r7, sp                       
+           0003dfc0  push     {r8, fp, ip, lr}             
+           0003dfc4  sub      sp, sp, #8                   
+           0003dfc8  mov      fp, sp                       
+           0003dfcc  str      r0, [fp]                     
+           0003dfd0  ldr      r0, [fp]                     
+           0003dfd4  vldr     s0, [r0, #0x4c]              ; field+0x4c (this-class: currentNormalized)
+           0003dfd8  vcvt.f64.f32 d2, s0                       
+           0003dfdc  vcvt.f32.f64 s0, d2                       
+           0003dfe0  vmov     r0, s0                       
+           0003dfe4  add      sp, fp, #8                   
+           0003dfe8  pop      {r8, fp}                     
+           0003dfec  ldr      r7, [sp, #8]                 
+           0003dff0  ldm      sp, {sp, pc}                 
+
+== UghSlider::set_CurrentNormalized  token 0x060003cf @0x0003dff4 (128 bytes)
+   args: r0=this, value
+           0003dff4  mov      ip, sp                       
+           0003dff8  push     {r7, lr}                     
+           0003dffc  mov      r7, sp                       
+           0003e000  push     {r8, sl, fp, ip, lr}         
+           0003e004  sub      sp, sp, #0x14                
+           0003e008  mov      fp, sp                       
+           0003e00c  mov      sl, r0                       
+           0003e010  str      r1, [fp, #8]                 
+           0003e014  vldr     s0, [fp, #8]                 
+           0003e018  vcvt.f64.f32 d2, s0                       
+           0003e01c  vcvt.f32.f64 s0, d2                       
+           0003e020  vstr     s0, [sp, #-8]                
+           0003e024  ldr      r0, [sp, #-8]                
+           0003e028  bl       #0xba9d0                     ; CALL UnityEngine.Mathf::Clamp01
+           0003e02c  vmov     s4, r0                       
+           0003e030  vcvt.f64.f32 d2, s4                       
+           0003e034  vcvt.f32.f64 s0, d2                       
+           0003e038  vstr     s0, [sl, #0x4c]              ; field+0x4c (this-class: currentNormalized)
+           0003e03c  mov      r0, sl                       
+           0003e040  bl       #0x3e38c                     ; CALL UghSlider::UpdatePosition (direct)
+           0003e044  ldr      r0, [sl, #0x44]              ; field+0x44 (this-class: OnChanged)
+           0003e048  cmp      r0, #0                       
+           0003e04c  beq      #0x3e064                     ; -> L_3e064
+           0003e050  ldr      r2, [sl, #0x44]              ; field+0x44 (this-class: OnChanged)
+           0003e054  mov      r0, r2                       
+           0003e058  mov      r1, sl                       
+           0003e05c  mov      lr, pc                       
+           0003e060  ldr      pc, [r2, #0xc]               ; VIRTUAL CALL slot +0xc: 
+L_3e064:   0003e064  add      sp, fp, #0x14                
+           0003e068  pop      {r8, sl, fp}                 
+           0003e06c  ldr      r7, [sp, #8]                 
+           0003e070  ldm      sp, {sp, pc}                 
+
+== UghSlider::Awake  token 0x060003d0 @0x0003e074 (104 bytes)
+   args: r0=this, 
+           0003e074  mov      ip, sp                       
+           0003e078  push     {r7, lr}                     
+           0003e07c  mov      r7, sp                       
+           0003e080  push     {r8, fp, ip, lr}             
+           0003e084  sub      sp, sp, #0x20                
+           0003e088  mov      fp, sp                       
+           0003e08c  str      r0, [fp, #0x18]              
+           0003e090  ldr      r0, [fp, #0x18]              
+           0003e094  bl       #0xba480                     ; CALL UnityEngine.Component::get_transform
+           0003e098  mov      r2, r0                       
+           0003e09c  add      r0, fp, #0xc                 
+           0003e0a0  mov      r1, r2                       
+           0003e0a4  ldr      lr, [r2]                     
+           0003e0a8  bl       #0xbc980                     ; CALL UnityEngine.Transform::get_localPosition
+           0003e0ac  ldr      r0, [fp, #0x18]              
+           0003e0b0  add      r0, r0, #0x50                
+           0003e0b4  ldr      r1, [fp, #0xc]               
+           0003e0b8  str      r1, [r0]                     
+           0003e0bc  ldr      r1, [fp, #0x10]              
+           0003e0c0  str      r1, [r0, #4]                 ; field+0x4 
+           0003e0c4  ldr      r1, [fp, #0x14]              
+           0003e0c8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003e0cc  add      sp, fp, #0x20                
+           0003e0d0  pop      {r8, fp}                     
+           0003e0d4  ldr      r7, [sp, #8]                 
+           0003e0d8  ldm      sp, {sp, pc}                 
+
+== UghSlider::LocalPositionForInput  token 0x060003d1 @0x0003e0dc (488 bytes)
+   args: r0=this, input
+           0003e0dc  mov      ip, sp                       
+           0003e0e0  push     {r7, lr}                     
+           0003e0e4  mov      r7, sp                       
+           0003e0e8  push     {r8, fp, ip, lr}             
+           0003e0ec  sub      sp, sp, #0xb8                
+           0003e0f0  mov      fp, sp                       
+           0003e0f4  str      r0, [fp, #0x10]              
+           0003e0f8  str      r1, [fp, #0x90]              
+           0003e0fc  str      r2, [fp, #0x94]              
+           0003e100  str      r3, [fp, #0x98]              
+           0003e104  ldr      lr, [sp, #0xd0]              
+           0003e108  str      lr, [fp, #0x9c]              
+           0003e10c  mov      r0, #0                       
+           0003e110  str      r0, [fp, #0x18]              
+           0003e114  mov      r0, #0                       
+           0003e118  str      r0, [fp, #0x1c]              
+           0003e11c  mov      r0, #0                       
+           0003e120  str      r0, [fp, #0x20]              
+           0003e124  mov      r0, #0                       
+           0003e128  str      r0, [fp, #0x24]              
+           0003e12c  mov      r0, #0                       
+           0003e130  str      r0, [fp, #0x28]              
+           0003e134  mov      r0, #0                       
+           0003e138  str      r0, [fp, #0x2c]              
+           0003e13c  ldr      r0, [fp, #0x90]              
+           0003e140  bl       #0xba480                     ; CALL UnityEngine.Component::get_transform
+           0003e144  mov      r2, r0                       
+           0003e148  add      r0, fp, #0x18                
+           0003e14c  mov      r1, r2                       
+           0003e150  ldr      lr, [r2]                     
+           0003e154  bl       #0xba490                     ; CALL UnityEngine.Transform::get_position
+           0003e158  vldr     s0, [fp, #0x20]              
+           0003e15c  vcvt.f64.f32 d2, s0                       
+           0003e160  vstr     d2, [fp, #0xb0]              
+           0003e164  bl       #0xbc9a0                     ; CALL UghCamera::get_Instance
+           0003e168  mov      r1, r0                       
+           0003e16c  ldr      lr, [r1]                     
+           0003e170  bl       #0xbc9b0                     ; CALL UnityEngine.Component::get_camera
+           0003e174  mov      r1, r0                       
+           0003e178  ldr      lr, [r1]                     
+           0003e17c  bl       #0xba480                     ; CALL UnityEngine.Component::get_transform
+           0003e180  mov      r2, r0                       
+           0003e184  add      r0, fp, #0x24                
+           0003e188  mov      r1, r2                       
+           0003e18c  ldr      lr, [r2]                     
+           0003e190  bl       #0xba490                     ; CALL UnityEngine.Transform::get_position
+           0003e194  vldr     d2, [fp, #0xb0]              
+           0003e198  vldr     s0, [fp, #0x2c]              
+           0003e19c  vcvt.f64.f32 d3, s0                       
+           0003e1a0  vsub.f64 d2, d2, d3                   
+           0003e1a4  vcvt.f32.f64 s0, d2                       
+           0003e1a8  vstr     s0, [fp, #0x14]              
+           0003e1ac  ldr      r0, [fp, #0x90]              
+           0003e1b0  bl       #0xba480                     ; CALL UnityEngine.Component::get_transform
+           0003e1b4  str      r0, [fp, #0xa4]              
+           0003e1b8  bl       #0xbc9a0                     ; CALL UghCamera::get_Instance
+           0003e1bc  mov      r1, r0                       
+           0003e1c0  ldr      lr, [r1]                     
+           0003e1c4  bl       #0xbc9b0                     ; CALL UnityEngine.Component::get_camera
+           0003e1c8  str      r0, [fp, #0xac]              
+           0003e1cc  vldr     s0, [fp, #0x94]              
+           0003e1d0  vcvt.f64.f32 d4, s0                       
+           0003e1d4  vldr     s0, [fp, #0x98]              
+           0003e1d8  vcvt.f64.f32 d3, s0                       
+           0003e1dc  vldr     s0, [fp, #0x14]              
+           0003e1e0  vcvt.f64.f32 d2, s0                       
+           0003e1e4  mov      r0, #0                       
+           0003e1e8  str      r0, [fp, #0x48]              
+           0003e1ec  mov      r0, #0                       
+           0003e1f0  str      r0, [fp, #0x4c]              
+           0003e1f4  mov      r0, #0                       
+           0003e1f8  str      r0, [fp, #0x50]              
+           0003e1fc  add      r0, fp, #0x48                
+           0003e200  vcvt.f32.f64 s0, d4                       
+           0003e204  vstr     s0, [sp, #-8]                
+           0003e208  ldr      r1, [sp, #-8]                
+           0003e20c  vcvt.f32.f64 s0, d3                       
+           0003e210  vstr     s0, [sp, #-8]                
+           0003e214  ldr      r2, [sp, #-8]                
+           0003e218  vcvt.f32.f64 s0, d2                       
+           0003e21c  vstr     s0, [sp, #-8]                
+           0003e220  ldr      r3, [sp, #-8]                
+           0003e224  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           0003e228  ldr      ip, [fp, #0xac]              
+           0003e22c  ldr      r0, [fp, #0x48]              
+           0003e230  str      r0, [fp, #0x6c]              
+           0003e234  ldr      r0, [fp, #0x4c]              
+           0003e238  str      r0, [fp, #0x70]              
+           0003e23c  ldr      r0, [fp, #0x50]              
+           0003e240  str      r0, [fp, #0x74]              
+           0003e244  add      r0, fp, #0x78                
+           0003e248  str      r0, [fp, #0xa8]              
+           0003e24c  mov      r1, ip                       
+           0003e250  ldr      r2, [fp, #0x6c]              
+           0003e254  ldr      r3, [fp, #0x70]              
+           0003e258  ldr      r0, [fp, #0x74]              
+           0003e25c  str      r0, [sp]                     
+           0003e260  ldr      r0, [fp, #0xa8]              
+           0003e264  ldr      lr, [ip]                     
+           0003e268  bl       #0xbb210                     ; CALL UnityEngine.Camera::ScreenToWorldPoint
+           0003e26c  ldr      ip, [fp, #0xa4]              
+           0003e270  add      r0, fp, #0x84                
+           0003e274  str      r0, [fp, #0xa0]              
+           0003e278  mov      r1, ip                       
+           0003e27c  ldr      r2, [fp, #0x78]              
+           0003e280  ldr      r3, [fp, #0x7c]              
+           0003e284  ldr      r0, [fp, #0x80]              
+           0003e288  str      r0, [sp]                     
+           0003e28c  ldr      r0, [fp, #0xa0]              
+           0003e290  ldr      lr, [ip]                     
+           0003e294  bl       #0xbc9c0                     ; CALL UnityEngine.Transform::InverseTransformPoint
+           0003e298  ldr      r0, [fp, #0x10]              
+           0003e29c  ldr      r1, [fp, #0x84]              
+           0003e2a0  str      r1, [r0]                     
+           0003e2a4  ldr      r1, [fp, #0x88]              
+           0003e2a8  str      r1, [r0, #4]                 ; field+0x4 
+           0003e2ac  ldr      r1, [fp, #0x8c]              
+           0003e2b0  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003e2b4  add      sp, fp, #0xb8                
+           0003e2b8  pop      {r8, fp}                     
+           0003e2bc  ldr      r7, [sp, #8]                 
+           0003e2c0  ldm      sp, {sp, pc}                 
+
+== UghSlider::OnUghInputDown  token 0x060003d2 @0x0003e2c4 (72 bytes)
+   args: r0=this, 
+           0003e2c4  mov      ip, sp                       
+           0003e2c8  push     {r7, lr}                     
+           0003e2cc  mov      r7, sp                       
+           0003e2d0  push     {r8, fp, ip, lr}             
+           0003e2d4  sub      sp, sp, #8                   
+           0003e2d8  mov      fp, sp                       
+           0003e2dc  str      r0, [fp]                     
+           0003e2e0  ldr      r0, [pc]                     
+           0003e2e4  b        #0x3e2ec                     ; -> L_3e2ec
+           0003e2e8  .word    0x00f5ebac                   ; literal 16116652 / 
+L_3e2ec:   0003e2ec  ldr      r0, [pc, r0]                 ; GOT[542] VTABLE UghSlider/<OnUghInputDown>c__Iterator24
+           0003e2f0  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003e2f4  ldr      r1, [fp]                     
+           0003e2f8  str      r1, [r0, #0x10]              ; field+0x10 (this-class: normal)
+           0003e2fc  add      sp, fp, #8                   
+           0003e300  pop      {r8, fp}                     
+           0003e304  ldr      r7, [sp, #8]                 
+           0003e308  ldm      sp, {sp, pc}                 
+
+== UghSlider::OnUghInputUp  token 0x060003d3 @0x0003e30c (64 bytes)
+   args: r0=this, 
+           0003e30c  mov      ip, sp                       
+           0003e310  push     {r7, lr}                     
+           0003e314  mov      r7, sp                       
+           0003e318  push     {r8, sl, fp, ip, lr}         
+           0003e31c  sub      sp, sp, #4                   
+           0003e320  mov      fp, sp                       
+           0003e324  mov      sl, r0                       
+           0003e328  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: normal)
+           0003e32c  mov      r0, sl                       
+           0003e330  ldr      r2, [sl]                     
+           0003e334  mov      lr, pc                       
+           0003e338  ldr      pc, [r2, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           0003e33c  add      sp, fp, #4                   
+           0003e340  pop      {r8, sl, fp}                 
+           0003e344  ldr      r7, [sp, #8]                 
+           0003e348  ldm      sp, {sp, pc}                 
+
+== UghSlider::OnUghInputUpAsButton  token 0x060003d4 @0x0003e34c (64 bytes)
+   args: r0=this, 
+           0003e34c  mov      ip, sp                       
+           0003e350  push     {r7, lr}                     
+           0003e354  mov      r7, sp                       
+           0003e358  push     {r8, sl, fp, ip, lr}         
+           0003e35c  sub      sp, sp, #4                   
+           0003e360  mov      fp, sp                       
+           0003e364  mov      sl, r0                       
+           0003e368  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: normal)
+           0003e36c  mov      r0, sl                       
+           0003e370  ldr      r2, [sl]                     
+           0003e374  mov      lr, pc                       
+           0003e378  ldr      pc, [r2, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           0003e37c  add      sp, fp, #4                   
+           0003e380  pop      {r8, sl, fp}                 
+           0003e384  ldr      r7, [sp, #8]                 
+           0003e388  ldm      sp, {sp, pc}                 
+
+== UghSlider::UpdatePosition  token 0x060003d5 @0x0003e38c (484 bytes)
+   args: r0=this, 
+           0003e38c  mov      ip, sp                       
+           0003e390  push     {r7, lr}                     
+           0003e394  mov      r7, sp                       
+           0003e398  push     {r8, sl, fp, ip, lr}         
+           0003e39c  sub      sp, sp, #0x94                
+           0003e3a0  mov      fp, sp                       
+           0003e3a4  mov      sl, r0                       
+           0003e3a8  mov      r0, #0                       
+           0003e3ac  str      r0, [fp, #0x10]              
+           0003e3b0  mov      r0, #0                       
+           0003e3b4  str      r0, [fp, #0x14]              
+           0003e3b8  mov      r0, #0                       
+           0003e3bc  str      r0, [fp, #0x18]              
+           0003e3c0  add      r0, fp, #0x10                
+           0003e3c4  bl       #0xb9f60                     ; CALL UnityEngine.Vector3::get_one
+           0003e3c8  mov      r0, sl                       
+           0003e3cc  bl       #0xba480                     ; CALL UnityEngine.Component::get_transform
+           0003e3d0  mov      r1, r0                       
+           0003e3d4  ldr      lr, [r1]                     
+           0003e3d8  bl       #0xbb820                     ; CALL UnityEngine.Transform::get_parent
+           0003e3dc  mov      r1, #0                       
+           0003e3e0  bl       #0xba460                     ; CALL UnityEngine.Object::op_Inequality
+           0003e3e4  cmp      r0, #0                       
+           0003e3e8  beq      #0x3e45c                     ; -> L_3e45c
+           0003e3ec  mov      r0, sl                       
+           0003e3f0  bl       #0xba480                     ; CALL UnityEngine.Component::get_transform
+           0003e3f4  mov      r1, r0                       
+           0003e3f8  ldr      lr, [r1]                     
+           0003e3fc  bl       #0xbb820                     ; CALL UnityEngine.Transform::get_parent
+           0003e400  mov      r2, r0                       
+           0003e404  add      r0, fp, #0x10                
+           0003e408  mov      r1, r2                       
+           0003e40c  ldr      lr, [r2]                     
+           0003e410  bl       #0xbc970                     ; CALL UnityEngine.Transform::get_lossyScale
+           0003e414  vldr     s4, [pc]                     ; float 1.0
+           0003e418  b        #0x3e420                     ; -> L_3e420
+           0003e41c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_3e420:   0003e420  vcvt.f64.f32 d2, s4                       
+           0003e424  vldr     s0, [fp, #0x10]              
+           0003e428  vcvt.f64.f32 d3, s0                       
+           0003e42c  vdiv.f64 d2, d2, d3                   
+           0003e430  vcvt.f32.f64 s0, d2                       
+           0003e434  vstr     s0, [fp, #0x10]              
+           0003e438  vldr     s4, [pc]                     ; float 1.0
+           0003e43c  b        #0x3e444                     ; -> L_3e444
+           0003e440  .word    0x3f800000                   ; literal 1065353216 / 1
+L_3e444:   0003e444  vcvt.f64.f32 d2, s4                       
+           0003e448  vldr     s0, [fp, #0x14]              
+           0003e44c  vcvt.f64.f32 d3, s0                       
+           0003e450  vdiv.f64 d2, d2, d3                   
+           0003e454  vcvt.f32.f64 s0, d2                       
+           0003e458  vstr     s0, [fp, #0x14]              
+L_3e45c:   0003e45c  mov      r0, sl                       
+           0003e460  bl       #0xba480                     ; CALL UnityEngine.Component::get_transform
+           0003e464  str      r0, [fp, #0x88]              
+           0003e468  add      r0, sl, #0x50                
+           0003e46c  ldr      r1, [r0]                     
+           0003e470  str      r1, [fp, #0x34]              
+           0003e474  ldr      r1, [r0, #4]                 ; field+0x4 
+           0003e478  str      r1, [fp, #0x38]              
+           0003e47c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003e480  str      r0, [fp, #0x3c]              
+           0003e484  add      r0, fp, #0x40                
+           0003e488  bl       #0xbb060                     ; CALL UnityEngine.Vector3::get_right
+           0003e48c  vldr     s0, [sl, #0x48]              ; field+0x48 (this-class: visualWidthUnits)
+           0003e490  vcvt.f64.f32 d2, s0                       
+           0003e494  add      r0, fp, #0x4c                
+           0003e498  ldr      r1, [fp, #0x40]              
+           0003e49c  ldr      r2, [fp, #0x44]              
+           0003e4a0  ldr      r3, [fp, #0x48]              
+           0003e4a4  vcvt.f32.f64 s0, d2                       
+           0003e4a8  vstr     s0, [sp]                     
+           0003e4ac  bl       #0xb9fa0                     ; CALL UnityEngine.Vector3::op_Multiply
+           0003e4b0  vldr     s0, [sl, #0x4c]              ; field+0x4c (this-class: currentNormalized)
+           0003e4b4  vcvt.f64.f32 d2, s0                       
+           0003e4b8  add      r0, fp, #0x58                
+           0003e4bc  ldr      r1, [fp, #0x4c]              
+           0003e4c0  ldr      r2, [fp, #0x50]              
+           0003e4c4  ldr      r3, [fp, #0x54]              
+           0003e4c8  vcvt.f32.f64 s0, d2                       
+           0003e4cc  vstr     s0, [sp]                     
+           0003e4d0  bl       #0xb9fa0                     ; CALL UnityEngine.Vector3::op_Multiply
+           0003e4d4  ldr      r0, [fp, #0x10]              
+           0003e4d8  str      r0, [fp, #0x64]              
+           0003e4dc  ldr      r0, [fp, #0x14]              
+           0003e4e0  str      r0, [fp, #0x68]              
+           0003e4e4  ldr      r0, [fp, #0x18]              
+           0003e4e8  str      r0, [fp, #0x6c]              
+           0003e4ec  add      r0, fp, #0x70                
+           0003e4f0  ldr      r1, [fp, #0x58]              
+           0003e4f4  ldr      r2, [fp, #0x5c]              
+           0003e4f8  ldr      r3, [fp, #0x60]              
+           0003e4fc  ldr      ip, [fp, #0x64]              
+           0003e500  str      ip, [sp]                     
+           0003e504  ldr      ip, [fp, #0x68]              
+           0003e508  str      ip, [sp, #4]                 
+           0003e50c  ldr      ip, [fp, #0x6c]              
+           0003e510  str      ip, [sp, #8]                 
+           0003e514  bl       #0xbb1f0                     ; CALL UnityEngine.Vector3::Scale
+           0003e518  add      r0, fp, #0x7c                
+           0003e51c  ldr      r1, [fp, #0x34]              
+           0003e520  ldr      r2, [fp, #0x38]              
+           0003e524  ldr      r3, [fp, #0x3c]              
+           0003e528  ldr      ip, [fp, #0x70]              
+           0003e52c  str      ip, [sp]                     
+           0003e530  ldr      ip, [fp, #0x74]              
+           0003e534  str      ip, [sp, #4]                 
+           0003e538  ldr      ip, [fp, #0x78]              
+           0003e53c  str      ip, [sp, #8]                 
+           0003e540  bl       #0xbaf20                     ; CALL UnityEngine.Vector3::op_Addition
+           0003e544  ldr      ip, [fp, #0x88]              
+           0003e548  mov      r0, ip                       
+           0003e54c  ldr      r1, [fp, #0x7c]              
+           0003e550  ldr      r2, [fp, #0x80]              
+           0003e554  ldr      r3, [fp, #0x84]              
+           0003e558  ldr      lr, [ip]                     
+           0003e55c  bl       #0xbc990                     ; CALL UnityEngine.Transform::set_localPosition
+           0003e560  add      sp, fp, #0x94                
+           0003e564  pop      {r8, sl, fp}                 
+           0003e568  ldr      r7, [sp, #8]                 
+           0003e56c  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE UghSlider/<OnUghInputDown>c__Iterator24  (instance size 0x40)
+#   +0x08 <pressedPrototype>__0          UghSpritePrototype
+#   +0x0c $current                       object
+#   +0x10 <>f__this                      UghSlider
+#   +0x14 <hotLocalInputPosition>__1     UnityEngine.Vector3
+#   +0x20 <localInputPosition>__2        UnityEngine.Vector3
+#   +0x2c <delta>__3                     UnityEngine.Vector3
+#   +0x38 <normalizedDelta>__4           float
+#   +0x3c $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== UghSlider/<OnUghInputDown>c__Iterator24::.ctor  token 0x060005eb @0x0005d600 (44 bytes)
+   args: r0=this, 
+           0005d600  mov      ip, sp                       
+           0005d604  push     {r7, lr}                     
+           0005d608  mov      r7, sp                       
+           0005d60c  push     {r8, fp, ip, lr}             
+           0005d610  sub      sp, sp, #8                   
+           0005d614  mov      fp, sp                       
+           0005d618  str      r0, [fp]                     
+           0005d61c  add      sp, fp, #8                   
+           0005d620  pop      {r8, fp}                     
+           0005d624  ldr      r7, [sp, #8]                 
+           0005d628  ldm      sp, {sp, pc}                 
+
+== UghSlider/<OnUghInputDown>c__Iterator24::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x060005ec @0x0005d62c (52 bytes)
+   args: r0=this, 
+           0005d62c  mov      ip, sp                       
+           0005d630  push     {r7, lr}                     
+           0005d634  mov      r7, sp                       
+           0005d638  push     {r8, fp, ip, lr}             
+           0005d63c  sub      sp, sp, #8                   
+           0005d640  mov      fp, sp                       
+           0005d644  str      r0, [fp]                     
+           0005d648  ldr      r0, [fp]                     
+           0005d64c  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           0005d650  add      sp, fp, #8                   
+           0005d654  pop      {r8, fp}                     
+           0005d658  ldr      r7, [sp, #8]                 
+           0005d65c  ldm      sp, {sp, pc}                 
+
+== UghSlider/<OnUghInputDown>c__Iterator24::System.Collections.IEnumerator.get_Current  token 0x060005ed @0x0005d660 (52 bytes)
+   args: r0=this, 
+           0005d660  mov      ip, sp                       
+           0005d664  push     {r7, lr}                     
+           0005d668  mov      r7, sp                       
+           0005d66c  push     {r8, fp, ip, lr}             
+           0005d670  sub      sp, sp, #8                   
+           0005d674  mov      fp, sp                       
+           0005d678  str      r0, [fp]                     
+           0005d67c  ldr      r0, [fp]                     
+           0005d680  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           0005d684  add      sp, fp, #8                   
+           0005d688  pop      {r8, fp}                     
+           0005d68c  ldr      r7, [sp, #8]                 
+           0005d690  ldm      sp, {sp, pc}                 
+
+== UghSlider/<OnUghInputDown>c__Iterator24::MoveNext  token 0x060005ee @0x0005d694 (672 bytes)
+   args: r0=this, 
+           0005d694  mov      ip, sp                       
+           0005d698  push     {r7, lr}                     
+           0005d69c  mov      r7, sp                       
+           0005d6a0  push     {r8, sl, fp, ip, lr}         
+           0005d6a4  sub      sp, sp, #0x84                
+           0005d6a8  mov      fp, sp                       
+           0005d6ac  mov      sl, r0                       
+           0005d6b0  ldr      r0, [sl, #0x3c]              ; field+0x3c (this-class: $PC)
+           0005d6b4  mvn      r1, #0                       
+           0005d6b8  str      r1, [sl, #0x3c]              ; field+0x3c (this-class: $PC)
+           0005d6bc  str      r0, [fp, #0x1c]              
+           0005d6c0  cmp      r0, #2                       
+           0005d6c4  bhs      #0x5d918                     ; -> L_5d918
+           0005d6c8  ldr      r0, [fp, #0x1c]              
+           0005d6cc  lsl      r1, r0, #2                   
+           0005d6d0  ldr      r0, [pc]                     
+           0005d6d4  b        #0x5d6dc                     ; -> L_5d6dc
+           0005d6d8  .word    0x00f3fafc                   ; literal 15989500 / 
+L_5d6dc:   0005d6dc  ldr      r0, [pc, r0]                 ; GOT[750] SWITCH switch table[2]
+           0005d6e0  add      r0, r0, r1                   
+           0005d6e4  ldr      r0, [r0]                     
+           0005d6e8  mov      pc, r0                       
+           0005d6ec  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           0005d6f0  ldr      r0, [r0, #0x3c]              ; field+0x3c (this-class: $PC)
+           0005d6f4  str      r0, [sl, #8]                 ; field+0x8 (this-class: <pressedPrototype>__0)
+           0005d6f8  bl       #0xbae70                     ; CALL UnityEngine.Object::op_Implicit
+           0005d6fc  cmp      r0, #0                       
+           0005d700  bne      #0x5d710                     ; -> L_5d710
+           0005d704  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           0005d708  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: <>f__this)
+           0005d70c  str      r0, [sl, #8]                 ; field+0x8 (this-class: <pressedPrototype>__0)
+L_5d710:   0005d710  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           0005d714  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: <pressedPrototype>__0)
+           0005d718  mov      r0, r2                       
+           0005d71c  ldr      r2, [r2]                     
+           0005d720  mov      lr, pc                       
+           0005d724  ldr      pc, [r2, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           0005d728  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           0005d72c  str      r0, [fp, #0x78]              
+           0005d730  add      r0, fp, #0x20                
+           0005d734  bl       #0xbccc0                     ; CALL UghInput::get_InputPosition
+           0005d738  ldr      r1, [fp, #0x78]              
+           0005d73c  add      r0, fp, #0x2c                
+           0005d740  ldr      r2, [fp, #0x20]              
+           0005d744  ldr      r3, [fp, #0x24]              
+           0005d748  ldr      ip, [fp, #0x28]              
+           0005d74c  str      ip, [sp]                     
+           0005d750  bl       #0x3e0dc                     ; CALL UghSlider::LocalPositionForInput (direct)
+           0005d754  add      r0, sl, #0x14                
+           0005d758  ldr      r1, [fp, #0x2c]              
+           0005d75c  str      r1, [r0]                     
+           0005d760  ldr      r1, [fp, #0x30]              
+           0005d764  str      r1, [r0, #4]                 ; field+0x4 
+           0005d768  ldr      r1, [fp, #0x34]              
+           0005d76c  str      r1, [r0, #8]                 ; field+0x8 (this-class: <pressedPrototype>__0)
+           0005d770  b        #0x5d904                     ; -> L_5d904
+L_5d774:   0005d774  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           0005d778  str      r0, [fp, #0x78]              
+           0005d77c  add      r0, fp, #0x38                
+           0005d780  bl       #0xbccc0                     ; CALL UghInput::get_InputPosition
+           0005d784  ldr      r1, [fp, #0x78]              
+           0005d788  add      r0, fp, #0x44                
+           0005d78c  ldr      r2, [fp, #0x38]              
+           0005d790  ldr      r3, [fp, #0x3c]              
+           0005d794  ldr      ip, [fp, #0x40]              
+           0005d798  str      ip, [sp]                     
+           0005d79c  bl       #0x3e0dc                     ; CALL UghSlider::LocalPositionForInput (direct)
+           0005d7a0  add      r0, sl, #0x20                
+           0005d7a4  ldr      r1, [fp, #0x44]              
+           0005d7a8  str      r1, [r0]                     
+           0005d7ac  ldr      r1, [fp, #0x48]              
+           0005d7b0  str      r1, [r0, #4]                 ; field+0x4 
+           0005d7b4  ldr      r1, [fp, #0x4c]              
+           0005d7b8  str      r1, [r0, #8]                 ; field+0x8 (this-class: <pressedPrototype>__0)
+           0005d7bc  add      r0, sl, #0x20                
+           0005d7c0  ldr      r1, [r0]                     
+           0005d7c4  str      r1, [fp, #0x50]              
+           0005d7c8  ldr      r1, [r0, #4]                 ; field+0x4 
+           0005d7cc  str      r1, [fp, #0x54]              
+           0005d7d0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: <pressedPrototype>__0)
+           0005d7d4  str      r0, [fp, #0x58]              
+           0005d7d8  add      r0, sl, #0x14                
+           0005d7dc  ldr      r1, [r0]                     
+           0005d7e0  str      r1, [fp, #0x5c]              
+           0005d7e4  ldr      r1, [r0, #4]                 ; field+0x4 
+           0005d7e8  str      r1, [fp, #0x60]              
+           0005d7ec  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: <pressedPrototype>__0)
+           0005d7f0  str      r0, [fp, #0x64]              
+           0005d7f4  add      r0, fp, #0x68                
+           0005d7f8  ldr      r1, [fp, #0x50]              
+           0005d7fc  ldr      r2, [fp, #0x54]              
+           0005d800  ldr      r3, [fp, #0x58]              
+           0005d804  ldr      ip, [fp, #0x5c]              
+           0005d808  str      ip, [sp]                     
+           0005d80c  ldr      ip, [fp, #0x60]              
+           0005d810  str      ip, [sp, #4]                 
+           0005d814  ldr      ip, [fp, #0x64]              
+           0005d818  str      ip, [sp, #8]                 
+           0005d81c  bl       #0xbafa0                     ; CALL UnityEngine.Vector3::op_Subtraction
+           0005d820  add      r0, sl, #0x2c                
+           0005d824  ldr      r1, [fp, #0x68]              
+           0005d828  str      r1, [r0]                     
+           0005d82c  ldr      r1, [fp, #0x6c]              
+           0005d830  str      r1, [r0, #4]                 ; field+0x4 
+           0005d834  ldr      r1, [fp, #0x70]              
+           0005d838  str      r1, [r0, #8]                 ; field+0x8 (this-class: <pressedPrototype>__0)
+           0005d83c  add      r0, sl, #0x2c                
+           0005d840  add      r1, sl, #0x2c                
+           0005d844  vldr     s4, [pc]                     ; float 0.0
+           0005d848  b        #0x5d850                     ; -> L_5d850
+           0005d84c  .word    0x00000000                   ; literal 0 / 0
+L_5d850:   0005d850  vcvt.f64.f32 d2, s4                       
+           0005d854  vmov.f64 d3, d2                       
+           0005d858  vmov.f64 d3, d3                       
+           0005d85c  vmov.f64 d2, d3                       
+           0005d860  vmov.f64 d2, d2                       
+           0005d864  vmov.f64 d3, d3                       
+           0005d868  vcvt.f32.f64 s0, d3                       
+           0005d86c  vstr     s0, [fp, #0x18]              
+           0005d870  vcvt.f32.f64 s0, d2                       
+           0005d874  vstr     s0, [r1, #8]                 ; field+0x8 (this-class: <pressedPrototype>__0)
+           0005d878  vldr     s0, [fp, #0x18]              
+           0005d87c  vcvt.f64.f32 d2, s0                       
+           0005d880  vcvt.f32.f64 s0, d2                       
+           0005d884  vstr     s0, [r0, #4]                 ; field+0x4 
+           0005d888  add      r0, sl, #0x2c                
+           0005d88c  vldr     s0, [r0]                     
+           0005d890  vcvt.f64.f32 d2, s0                       
+           0005d894  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           0005d898  vldr     s0, [r0, #0x48]              ; field+0x48 
+           0005d89c  vcvt.f64.f32 d3, s0                       
+           0005d8a0  vdiv.f64 d2, d2, d3                   
+           0005d8a4  vcvt.f32.f64 s0, d2                       
+           0005d8a8  vstr     s0, [sl, #0x38]              ; field+0x38 (this-class: <normalizedDelta>__4)
+           0005d8ac  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           0005d8b0  mov      r1, r0                       
+           0005d8b4  vldr     s0, [r1, #0x4c]              ; field+0x4c 
+           0005d8b8  vcvt.f64.f32 d2, s0                       
+           0005d8bc  vldr     s0, [sl, #0x38]              ; field+0x38 (this-class: <normalizedDelta>__4)
+           0005d8c0  vcvt.f64.f32 d3, s0                       
+           0005d8c4  vadd.f64 d2, d2, d3                   
+           0005d8c8  vcvt.f32.f64 s0, d2                       
+           0005d8cc  vstr     s0, [sp, #8]                 
+           0005d8d0  ldr      r1, [sp, #8]                 
+           0005d8d4  bl       #0x3dff4                     ; CALL UghSlider::set_CurrentNormalized (direct)
+           0005d8d8  ldr      r0, [pc]                     
+           0005d8dc  b        #0x5d8e4                     ; -> L_5d8e4
+           0005d8e0  .word    0x00f3edb8                   ; literal 15986104 / 
+L_5d8e4:   0005d8e4  ldr      r0, [pc, r0]                 ; GOT[31] VTABLE System.Int32
+           0005d8e8  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0005d8ec  mov      r1, #0                       
+           0005d8f0  str      r1, [r0, #8]                 ; field+0x8 (this-class: <pressedPrototype>__0)
+           0005d8f4  str      r0, [sl, #0xc]               ; field+0xc (this-class: $current)
+           0005d8f8  mov      r0, #1                       
+           0005d8fc  str      r0, [sl, #0x3c]              ; field+0x3c (this-class: $PC)
+           0005d900  b        #0x5d920                     ; -> L_5d920
+L_5d904:   0005d904  bl       #0xbd7a0                     ; CALL UghInput::get_IsInputDown
+           0005d908  cmp      r0, #0                       
+           0005d90c  bne      #0x5d774                     ; -> L_5d774
+           0005d910  mvn      r0, #0                       
+           0005d914  str      r0, [sl, #0x3c]              ; field+0x3c (this-class: $PC)
+L_5d918:   0005d918  mov      r0, #0                       
+           0005d91c  b        #0x5d924                     ; -> L_5d924
+L_5d920:   0005d920  mov      r0, #1                       
+L_5d924:   0005d924  add      sp, fp, #0x84                
+           0005d928  pop      {r8, sl, fp}                 
+           0005d92c  ldr      r7, [sp, #8]                 
+           0005d930  ldm      sp, {sp, pc}                 
+
+== UghSlider/<OnUghInputDown>c__Iterator24::Dispose  token 0x060005ef @0x0005d934 (56 bytes)
+   args: r0=this, 
+           0005d934  mov      ip, sp                       
+           0005d938  push     {r7, lr}                     
+           0005d93c  mov      r7, sp                       
+           0005d940  push     {r8, fp, ip, lr}             
+           0005d944  sub      sp, sp, #8                   
+           0005d948  mov      fp, sp                       
+           0005d94c  str      r0, [fp]                     
+           0005d950  ldr      r0, [fp]                     
+           0005d954  mvn      r1, #0                       
+           0005d958  str      r1, [r0, #0x3c]              ; field+0x3c (this-class: $PC)
+           0005d95c  add      sp, fp, #8                   
+           0005d960  pop      {r8, fp}                     
+           0005d964  ldr      r7, [sp, #8]                 
+           0005d968  ldm      sp, {sp, pc}                 
+
+== UghSlider/<OnUghInputDown>c__Iterator24::Reset  token 0x060005f0 @0x0005d96c (64 bytes)
+   args: r0=this, 
+           0005d96c  mov      ip, sp                       
+           0005d970  push     {r7, lr}                     
+           0005d974  mov      r7, sp                       
+           0005d978  push     {r8, fp, ip, lr}             
+           0005d97c  sub      sp, sp, #8                   
+           0005d980  mov      fp, sp                       
+           0005d984  str      r0, [fp]                     
+           0005d988  mov      r0, #0x49                    
+           0005d98c  add      r0, r0, #0x100               
+           0005d990  add      r0, r0, #0x2000000           
+           0005d994  bl       #0xbc540                     ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           0005d998  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0005d99c  add      sp, fp, #8                   
+           0005d9a0  pop      {r8, fp}                     
+           0005d9a4  ldr      r7, [sp, #8]                 
+           0005d9a8  ldm      sp, {sp, pc}                 

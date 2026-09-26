@@ -1,0 +1,188 @@
+####################################################################################################
+# TYPE PieHitEffect  (instance size 0x20)
+#   +0x08 time                           float
+#   +0x0c power                          int
+#   +0x10 effectType                     BaseEffect/EffectTypes
+#   +0x14 isMultiLevel                   bool
+#   +0x18 powerLevel                     int
+#   +0x1c hitDirection                   PieHitEffect/HitDirection
+#   vtable slots: 5:GetEffectSnapShot, 6:Stack, 7:Shutdown, 8:Update, 9:Init
+####################################################################################################
+== PieHitEffect::.ctor  token 0x06000395 @0x000f5298 (76 bytes)
+   args: r0=this, owner, dir
+           000f5298  mov      ip, sp                       
+           000f529c  push     {r7, lr}                     
+           000f52a0  mov      r7, sp                       
+           000f52a4  push     {r6, r8, fp, ip, lr}         
+           000f52a8  sub      sp, sp, #0xc                 
+           000f52ac  mov      fp, sp                       
+           000f52b0  mov      r6, r0                       
+           000f52b4  str      r1, [fp]                     
+           000f52b8  str      r2, [fp, #4]                 
+           000f52bc  mov      r0, #1                       
+           000f52c0  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: hitDirection)
+           000f52c4  mov      r0, #1                       
+           000f52c8  str      r0, [r6, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f52cc  ldr      r0, [fp, #4]                 
+           000f52d0  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: hitDirection)
+           000f52d4  add      sp, fp, #0xc                 
+           000f52d8  pop      {r6, r8, fp}                 
+           000f52dc  ldr      r7, [sp, #8]                 
+           000f52e0  ldm      sp, {sp, pc}                 
+
+== PieHitEffect::Init  token 0x06000396 @0x000f52e4 (352 bytes)
+   args: r0=this, 
+           000f52e4  mov      ip, sp                       
+           000f52e8  push     {r7, lr}                     
+           000f52ec  mov      r7, sp                       
+           000f52f0  push     {r4, r5, r6, r8, fp, ip, lr} 
+           000f52f4  sub      sp, sp, #0x34                
+           000f52f8  mov      fp, sp                       
+           000f52fc  str      r0, [fp, #0x2c]              
+           000f5300  bl       #0x22b2a0                    ; CALL ParticleLibrary::get_Instance
+           000f5304  mov      r2, r0                       
+           000f5308  ldr      r1, [pc]                     
+           000f530c  b        #0xf5314                     ; -> L_f5314
+           000f5310  .word    0x00eb04b4                   ; literal 15402164 / 
+L_f5314:   000f5314  ldr      r1, [pc, r1]                 ; GOT[666] LDSTR 'Pie Splat'
+           000f5318  mov      r0, r2                       
+           000f531c  ldr      lr, [r2]                     
+           000f5320  bl       #0x22b2b0                    ; CALL ParticleLibrary::GetPrefab
+           000f5324  mov      r5, r0                       
+           000f5328  mov      r1, #0                       
+           000f532c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f5330  cmp      r0, #0                       
+           000f5334  beq      #0xf5434                     ; -> L_f5434
+           000f5338  mov      r0, r5                       
+           000f533c  bl       #0x22ad70                    ; CALL UnityEngine.Object::Instantiate
+           000f5340  mov      r5, r0                       
+           000f5344  mov      r4, r5                       
+           000f5348  cmp      r5, #0                       
+           000f534c  beq      #0xf537c                     ; -> L_f537c
+           000f5350  ldr      r0, [r5]                     
+           000f5354  ldr      r0, [r0]                     
+           000f5358  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f535c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f5360  ldr      r1, [pc]                     
+           000f5364  b        #0xf536c                     ; -> L_f536c
+           000f5368  .word    0x00eafbe0                   ; literal 15399904 / 
+L_f536c:   000f536c  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           000f5370  cmp      r0, r1                       
+           000f5374  beq      #0xf537c                     ; -> L_f537c
+           000f5378  mov      r4, #0                       
+L_f537c:   000f537c  mov      r6, r4                       
+           000f5380  ldr      r0, [pc]                     
+           000f5384  b        #0xf538c                     ; -> L_f538c
+           000f5388  .word    0x00eb0440                   ; literal 15402048 / 
+L_f538c:   000f538c  ldr      r0, [pc, r0]                 ; GOT[667] METHOD_RGCTX UnityEngine.GameObject::GetComponent<PieSplat>
+           000f5390  ldr      lr, [r4]                     
+           000f5394  mov      r8, r0                       
+           000f5398  mov      r0, r4                       
+           000f539c  bl       #0x22d170                    ; CALL UnityEngine.GameObject::GetComponent<PieSplat>
+           000f53a0  mov      r1, r0                       
+           000f53a4  ldr      r0, [fp, #0x2c]              
+           000f53a8  vldr     s0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f53ac  vcvt.f64.f32 d2, s0                       
+           000f53b0  vcvt.f32.f64 s0, d2                       
+           000f53b4  vstr     s0, [r1, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f53b8  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: hitDirection)
+           000f53bc  cmp      r0, #0                       
+           000f53c0  bne      #0xf5434                     ; -> L_f5434
+           000f53c4  mov      r0, r6                       
+           000f53c8  ldr      lr, [r6]                     
+           000f53cc  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f53d0  mov      ip, r0                       
+           000f53d4  vldr     s8, [pc]                     ; float 0.0
+           000f53d8  b        #0xf53e0                     ; -> L_f53e0
+           000f53dc  .word    0x00000000                   ; literal 0 / 0
+L_f53e0:   000f53e0  vcvt.f64.f32 d4, s8                       
+           000f53e4  vldr     s6, [pc]                     ; float 0.0
+           000f53e8  b        #0xf53f0                     ; -> L_f53f0
+           000f53ec  .word    0x00000000                   ; literal 0 / 0
+L_f53f0:   000f53f0  vcvt.f64.f32 d3, s6                       
+           000f53f4  vldr     s4, [pc]                     ; float 180.0
+           000f53f8  b        #0xf5400                     ; -> L_f5400
+           000f53fc  .word    0x43340000                   ; literal 1127481344 / 180
+L_f5400:   000f5400  vcvt.f64.f32 d2, s4                       
+           000f5404  mov      r0, ip                       
+           000f5408  vcvt.f32.f64 s0, d4                       
+           000f540c  vstr     s0, [sp, #-8]                
+           000f5410  ldr      r1, [sp, #-8]                
+           000f5414  vcvt.f32.f64 s0, d3                       
+           000f5418  vstr     s0, [sp, #-8]                
+           000f541c  ldr      r2, [sp, #-8]                
+           000f5420  vcvt.f32.f64 s0, d2                       
+           000f5424  vstr     s0, [sp, #-8]                
+           000f5428  ldr      r3, [sp, #-8]                
+           000f542c  ldr      lr, [ip]                     
+           000f5430  bl       #0x22bd40                    ; CALL UnityEngine.Transform::Rotate
+L_f5434:   000f5434  add      sp, fp, #0x34                
+           000f5438  pop      {r4, r5, r6, r8, fp}         
+           000f543c  ldr      r7, [sp, #8]                 
+           000f5440  ldm      sp, {sp, pc}                 
+
+== PieHitEffect::Update  token 0x06000397 @0x000f5444 (44 bytes)
+   args: r0=this, 
+           000f5444  mov      ip, sp                       
+           000f5448  push     {r7, lr}                     
+           000f544c  mov      r7, sp                       
+           000f5450  push     {r8, fp, ip, lr}             
+           000f5454  sub      sp, sp, #8                   
+           000f5458  mov      fp, sp                       
+           000f545c  str      r0, [fp]                     
+           000f5460  add      sp, fp, #8                   
+           000f5464  pop      {r8, fp}                     
+           000f5468  ldr      r7, [sp, #8]                 
+           000f546c  ldm      sp, {sp, pc}                 
+
+== PieHitEffect::Shutdown  token 0x06000398 @0x000f5470 (44 bytes)
+   args: r0=this, 
+           000f5470  mov      ip, sp                       
+           000f5474  push     {r7, lr}                     
+           000f5478  mov      r7, sp                       
+           000f547c  push     {r8, fp, ip, lr}             
+           000f5480  sub      sp, sp, #8                   
+           000f5484  mov      fp, sp                       
+           000f5488  str      r0, [fp]                     
+           000f548c  add      sp, fp, #8                   
+           000f5490  pop      {r8, fp}                     
+           000f5494  ldr      r7, [sp, #8]                 
+           000f5498  ldm      sp, {sp, pc}                 
+
+== PieHitEffect::Stack  token 0x06000399 @0x000f549c (52 bytes)
+   args: r0=this, second
+           000f549c  mov      ip, sp                       
+           000f54a0  push     {r7, lr}                     
+           000f54a4  mov      r7, sp                       
+           000f54a8  push     {r8, fp, ip, lr}             
+           000f54ac  sub      sp, sp, #8                   
+           000f54b0  mov      fp, sp                       
+           000f54b4  str      r0, [fp]                     
+           000f54b8  str      r1, [fp, #4]                 
+           000f54bc  mov      r0, #0                       
+           000f54c0  add      sp, fp, #8                   
+           000f54c4  pop      {r8, fp}                     
+           000f54c8  ldr      r7, [sp, #8]                 
+           000f54cc  ldm      sp, {sp, pc}                 
+
+== PieHitEffect::GetEffectSnapShot  token 0x0600039a @0x000f54d0 (48 bytes)
+   args: r0=this, 
+           000f54d0  mov      ip, sp                       
+           000f54d4  push     {r7, lr}                     
+           000f54d8  mov      r7, sp                       
+           000f54dc  push     {r8, fp, ip, lr}             
+           000f54e0  sub      sp, sp, #8                   
+           000f54e4  mov      fp, sp                       
+           000f54e8  str      r0, [fp]                     
+           000f54ec  ldr      r0, [fp]                     
+           000f54f0  add      sp, fp, #8                   
+           000f54f4  pop      {r8, fp}                     
+           000f54f8  ldr      r7, [sp, #8]                 
+           000f54fc  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE PieHitEffect/HitDirection  (instance size 0xc)
+#   static PieHitEffect/HitDirection Left  = const 00000000
+#   static PieHitEffect/HitDirection Right  = const 01000000
+#   vtable slots: 
+####################################################################################################

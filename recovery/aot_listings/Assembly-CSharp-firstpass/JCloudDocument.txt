@@ -1,0 +1,1871 @@
+####################################################################################################
+# TYPE JCloudDocument  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   static bool AcceptJailbrokenDevices
+#   vtable slots: 
+####################################################################################################
+== JCloudDocument::.ctor  token 0x06000292 @0x0002fe80 (52 bytes)
+   args: r0=this, 
+           0002fe80  mov      ip, sp                       
+           0002fe84  push     {r7, lr}                     
+           0002fe88  mov      r7, sp                       
+           0002fe8c  push     {r8, fp, ip, lr}             
+           0002fe90  sub      sp, sp, #8                   
+           0002fe94  mov      fp, sp                       
+           0002fe98  str      r0, [fp]                     
+           0002fe9c  ldr      r0, [fp]                     
+           0002fea0  bl       #0xb98f0                     ; CALL UnityEngine.MonoBehaviour::.ctor
+           0002fea4  add      sp, fp, #8                   
+           0002fea8  pop      {r8, fp}                     
+           0002feac  ldr      r7, [sp, #8]                 
+           0002feb0  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::.cctor  token 0x06000293 @0x0002feb4 (60 bytes) static
+   args: 
+           0002feb4  mov      ip, sp                       
+           0002feb8  push     {r7, lr}                     
+           0002febc  mov      r7, sp                       
+           0002fec0  push     {r8, fp, ip, lr}             
+           0002fec4  mov      fp, sp                       
+           0002fec8  ldr      r0, [pc]                     
+           0002fecc  b        #0x2fed4                     ; -> L_2fed4
+           0002fed0  .word    0x00f6cce8                   ; literal 16174312 / 
+L_2fed4:   0002fed4  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           0002fed8  mov      r1, #1                       
+           0002fedc  strb     r1, [r0]                     
+           0002fee0  add      sp, fp, #0                   
+           0002fee4  pop      {r8, fp}                     
+           0002fee8  ldr      r7, [sp, #8]                 
+           0002feec  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::NewCloudDocument  token 0x06000294 @0x0002fef0 (76 bytes) static
+   args: path, isDirectory
+           0002fef0  mov      ip, sp                       
+           0002fef4  push     {r7, lr}                     
+           0002fef8  mov      r7, sp                       
+           0002fefc  push     {r8, fp, ip, lr}             
+           0002ff00  sub      sp, sp, #0x10                
+           0002ff04  mov      fp, sp                       
+           0002ff08  str      r0, [fp]                     
+           0002ff0c  strb     r1, [fp, #4]                 
+           0002ff10  bl       #0xbbe50                     ; CALL JCloudManager::CheckManagerStatus
+           0002ff14  ldr      r0, [fp]                     
+           0002ff18  ldrb     r1, [fp, #4]                 
+           0002ff1c  bl       #0xbbe60                     ; CALL JCloudExtern::PrepareCloudItem
+           0002ff20  str      r0, [fp, #8]                 
+           0002ff24  bl       #0xbbe70                     ; CALL JCloudManager::WatchDocument
+           0002ff28  ldr      r0, [fp, #8]                 
+           0002ff2c  add      sp, fp, #0x10                
+           0002ff30  pop      {r8, fp}                     
+           0002ff34  ldr      r7, [sp, #8]                 
+           0002ff38  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::DismissCloudDocument  token 0x06000295 @0x0002ff3c (60 bytes) static
+   args: uid
+           0002ff3c  mov      ip, sp                       
+           0002ff40  push     {r7, lr}                     
+           0002ff44  mov      r7, sp                       
+           0002ff48  push     {r8, fp, ip, lr}             
+           0002ff4c  sub      sp, sp, #8                   
+           0002ff50  mov      fp, sp                       
+           0002ff54  str      r0, [fp]                     
+           0002ff58  ldr      r0, [fp]                     
+           0002ff5c  bl       #0xbbe80                     ; CALL JCloudManager::UnwatchDocument
+           0002ff60  ldr      r0, [fp]                     
+           0002ff64  bl       #0xbbe90                     ; CALL JCloudExtern::DismissCloudItem
+           0002ff68  add      sp, fp, #8                   
+           0002ff6c  pop      {r8, fp}                     
+           0002ff70  ldr      r7, [sp, #8]                 
+           0002ff74  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::FileExists  token 0x06000296 @0x0002ff78 (304 bytes) static
+   args: path
+           0002ff78  mov      ip, sp                       
+           0002ff7c  push     {r7, lr}                     
+           0002ff80  mov      r7, sp                       
+           0002ff84  push     {r6, r8, sl, fp, ip, lr}     
+           0002ff88  sub      sp, sp, #0x18                
+           0002ff8c  mov      fp, sp                       
+           0002ff90  mov      sl, r0                       
+           0002ff94  mov      r0, #0                       
+           0002ff98  strb     r0, [fp, #2]                 
+           0002ff9c  cmp      sl, #0                       
+           0002ffa0  beq      #0x2ffc8                     ; -> L_2ffc8
+           0002ffa4  ldr      r0, [pc]                     
+           0002ffa8  b        #0x2ffb0                     ; -> L_2ffb0
+           0002ffac  .word    0x00f6c6f0                   ; literal 16172784 / 
+L_2ffb0:   0002ffb0  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           0002ffb4  ldr      r1, [r0]                     
+           0002ffb8  mov      r0, sl                       
+           0002ffbc  bl       #0xbae80                     ; CALL System.String::op_Equality
+           0002ffc0  cmp      r0, #0                       
+           0002ffc4  beq      #0x2ffd0                     ; -> L_2ffd0
+L_2ffc8:   0002ffc8  mov      r0, #0                       
+           0002ffcc  b        #0x30098                     ; -> L_30098
+L_2ffd0:   0002ffd0  ldr      r0, [pc]                     
+           0002ffd4  b        #0x2ffdc                     ; -> L_2ffdc
+           0002ffd8  .word    0x00f6cb90                   ; literal 16173968 / 
+L_2ffdc:   0002ffdc  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           0002ffe0  ldrb     r0, [r0]                     
+           0002ffe4  cmp      r0, #0                       
+           0002ffe8  beq      #0x3003c                     ; -> L_3003c
+           0002ffec  ldr      r0, [pc]                     
+           0002fff0  b        #0x2fff8                     ; -> L_2fff8
+           0002fff4  .word    0x00f6cbc4                   ; literal 16174020 / 
+L_2fff8:   0002fff8  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           0002fffc  ldrb     r0, [r0]                     
+           00030000  cmp      r0, #0                       
+           00030004  bne      #0x30014                     ; -> L_30014
+           00030008  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           0003000c  cmp      r0, #0                       
+           00030010  bne      #0x3003c                     ; -> L_3003c
+L_30014:   00030014  mov      r0, sl                       
+           00030018  mov      r1, #0                       
+           0003001c  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           00030020  mov      r6, r0                       
+           00030024  bl       #0xbbea0                     ; CALL JCloudExtern::GetCloudItemExistenceSync
+           00030028  strb     r0, [fp]                     
+           0003002c  mov      r0, r6                       
+           00030030  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00030034  ldrb     r0, [fp]                     
+           00030038  b        #0x30098                     ; -> L_30098
+L_3003c:   0003003c  ldr      r0, [pc]                     
+           00030040  b        #0x30048                     ; -> L_30048
+           00030044  .word    0x00f6cb78                   ; literal 16173944 / 
+L_30048:   00030048  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           0003004c  ldr      r0, [r0]                     
+           00030050  mov      r1, sl                       
+           00030054  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030058  bl       #0xba330                     ; CALL System.IO.File::Exists
+           0003005c  strb     r0, [fp, #1]                 
+           00030060  b        #0x3008c                     ; -> L_3008c
+           00030064  ldr      r0, [fp, #4]                 
+           00030068  mov      r0, #0                       
+           0003006c  strb     r0, [fp, #2]                 
+           00030070  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           00030074  str      r0, [fp, #0x14]              
+           00030078  cmp      r0, #0                       
+           0003007c  beq      #0x30088                     ; -> L_30088
+           00030080  ldr      r0, [fp, #0x14]              
+           00030084  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_30088:   00030088  b        #0x30094                     ; -> L_30094
+L_3008c:   0003008c  ldrb     r0, [fp, #1]                 
+           00030090  b        #0x30098                     ; -> L_30098
+L_30094:   00030094  ldrb     r0, [fp, #2]                 
+L_30098:   00030098  add      sp, fp, #0x18                
+           0003009c  pop      {r6, r8, sl, fp}             
+           000300a0  ldr      r7, [sp, #8]                 
+           000300a4  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::FileDelete  token 0x06000297 @0x000300a8 (300 bytes) static
+   args: path
+           000300a8  mov      ip, sp                       
+           000300ac  push     {r7, lr}                     
+           000300b0  mov      r7, sp                       
+           000300b4  push     {r6, r8, sl, fp, ip, lr}     
+           000300b8  sub      sp, sp, #0x18                
+           000300bc  mov      fp, sp                       
+           000300c0  mov      sl, r0                       
+           000300c4  mov      r0, #0                       
+           000300c8  strb     r0, [fp, #1]                 
+           000300cc  cmp      sl, #0                       
+           000300d0  beq      #0x300f8                     ; -> L_300f8
+           000300d4  ldr      r0, [pc]                     
+           000300d8  b        #0x300e0                     ; -> L_300e0
+           000300dc  .word    0x00f6c5c0                   ; literal 16172480 / 
+L_300e0:   000300e0  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           000300e4  ldr      r1, [r0]                     
+           000300e8  mov      r0, sl                       
+           000300ec  bl       #0xbae80                     ; CALL System.String::op_Equality
+           000300f0  cmp      r0, #0                       
+           000300f4  beq      #0x30100                     ; -> L_30100
+L_300f8:   000300f8  mov      r0, #0                       
+           000300fc  b        #0x301c4                     ; -> L_301c4
+L_30100:   00030100  ldr      r0, [pc]                     
+           00030104  b        #0x3010c                     ; -> L_3010c
+           00030108  .word    0x00f6ca60                   ; literal 16173664 / 
+L_3010c:   0003010c  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           00030110  ldrb     r0, [r0]                     
+           00030114  cmp      r0, #0                       
+           00030118  beq      #0x3016c                     ; -> L_3016c
+           0003011c  ldr      r0, [pc]                     
+           00030120  b        #0x30128                     ; -> L_30128
+           00030124  .word    0x00f6ca94                   ; literal 16173716 / 
+L_30128:   00030128  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           0003012c  ldrb     r0, [r0]                     
+           00030130  cmp      r0, #0                       
+           00030134  bne      #0x30144                     ; -> L_30144
+           00030138  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           0003013c  cmp      r0, #0                       
+           00030140  bne      #0x3016c                     ; -> L_3016c
+L_30144:   00030144  mov      r0, sl                       
+           00030148  mov      r1, #0                       
+           0003014c  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           00030150  mov      r6, r0                       
+           00030154  bl       #0xbbec0                     ; CALL JCloudExtern::DeleteCloudItemSync
+           00030158  strb     r0, [fp]                     
+           0003015c  mov      r0, r6                       
+           00030160  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00030164  ldrb     r0, [fp]                     
+           00030168  b        #0x301c4                     ; -> L_301c4
+L_3016c:   0003016c  ldr      r0, [pc]                     
+           00030170  b        #0x30178                     ; -> L_30178
+           00030174  .word    0x00f6ca48                   ; literal 16173640 / 
+L_30178:   00030178  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           0003017c  ldr      r0, [r0]                     
+           00030180  mov      r1, sl                       
+           00030184  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030188  bl       #0xba340                     ; CALL System.IO.File::Delete
+           0003018c  b        #0x301b8                     ; -> L_301b8
+           00030190  ldr      r0, [fp, #4]                 
+           00030194  mov      r0, #0                       
+           00030198  strb     r0, [fp, #1]                 
+           0003019c  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           000301a0  str      r0, [fp, #0x14]              
+           000301a4  cmp      r0, #0                       
+           000301a8  beq      #0x301b4                     ; -> L_301b4
+           000301ac  ldr      r0, [fp, #0x14]              
+           000301b0  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_301b4:   000301b4  b        #0x301c0                     ; -> L_301c0
+L_301b8:   000301b8  mov      r0, #1                       
+           000301bc  b        #0x301c4                     ; -> L_301c4
+L_301c0:   000301c0  ldrb     r0, [fp, #1]                 
+L_301c4:   000301c4  add      sp, fp, #0x18                
+           000301c8  pop      {r6, r8, sl, fp}             
+           000301cc  ldr      r7, [sp, #8]                 
+           000301d0  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::FileWriteAllBytes  token 0x06000298 @0x000301d4 (348 bytes) static
+   args: path, bytes
+           000301d4  mov      ip, sp                       
+           000301d8  push     {r7, lr}                     
+           000301dc  mov      r7, sp                       
+           000301e0  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000301e4  sub      sp, sp, #0x1c                
+           000301e8  mov      fp, sp                       
+           000301ec  mov      r6, r0                       
+           000301f0  mov      sl, r1                       
+           000301f4  mov      r0, #0                       
+           000301f8  strb     r0, [fp, #1]                 
+           000301fc  cmp      r6, #0                       
+           00030200  beq      #0x30228                     ; -> L_30228
+           00030204  ldr      r0, [pc]                     
+           00030208  b        #0x30210                     ; -> L_30210
+           0003020c  .word    0x00f6c490                   ; literal 16172176 / 
+L_30210:   00030210  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           00030214  ldr      r1, [r0]                     
+           00030218  mov      r0, r6                       
+           0003021c  bl       #0xbae80                     ; CALL System.String::op_Equality
+           00030220  cmp      r0, #0                       
+           00030224  beq      #0x30230                     ; -> L_30230
+L_30228:   00030228  mov      r0, #0                       
+           0003022c  b        #0x30320                     ; -> L_30320
+L_30230:   00030230  ldr      r0, [pc]                     
+           00030234  b        #0x3023c                     ; -> L_3023c
+           00030238  .word    0x00f6c930                   ; literal 16173360 / 
+L_3023c:   0003023c  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           00030240  ldrb     r0, [r0]                     
+           00030244  cmp      r0, #0                       
+           00030248  beq      #0x302c4                     ; -> L_302c4
+           0003024c  ldr      r0, [pc]                     
+           00030250  b        #0x30258                     ; -> L_30258
+           00030254  .word    0x00f6c964                   ; literal 16173412 / 
+L_30258:   00030258  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           0003025c  ldrb     r0, [r0]                     
+           00030260  cmp      r0, #0                       
+           00030264  bne      #0x30274                     ; -> L_30274
+           00030268  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           0003026c  cmp      r0, #0                       
+           00030270  bne      #0x302c4                     ; -> L_302c4
+L_30274:   00030274  mov      r0, r6                       
+           00030278  mov      r1, #0                       
+           0003027c  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           00030280  mov      r5, r0                       
+           00030284  bl       #0xbbed0                     ; CALL JCloudExtern::CreateOrOpenCloudItemSync
+           00030288  cmp      r0, #0                       
+           0003028c  bne      #0x302a0                     ; -> L_302a0
+           00030290  mov      r0, r5                       
+           00030294  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00030298  mov      r0, #0                       
+           0003029c  b        #0x30320                     ; -> L_30320
+L_302a0:   000302a0  ldr      r1, [sl, #0xc]               ; field+0xc 
+           000302a4  mov      r0, sl                       
+           000302a8  mov      r2, r5                       
+           000302ac  bl       #0xbbee0                     ; CALL JCloudExtern::WriteCloudItemContents
+           000302b0  strb     r0, [fp]                     
+           000302b4  mov      r0, r5                       
+           000302b8  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           000302bc  ldrb     r0, [fp]                     
+           000302c0  b        #0x30320                     ; -> L_30320
+L_302c4:   000302c4  ldr      r0, [pc]                     
+           000302c8  b        #0x302d0                     ; -> L_302d0
+           000302cc  .word    0x00f6c8f0                   ; literal 16173296 / 
+L_302d0:   000302d0  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000302d4  ldr      r0, [r0]                     
+           000302d8  mov      r1, r6                       
+           000302dc  bl       #0xb9be0                     ; CALL System.String::Concat
+           000302e0  mov      r1, sl                       
+           000302e4  bl       #0xbbef0                     ; CALL System.IO.File::WriteAllBytes
+           000302e8  b        #0x30314                     ; -> L_30314
+           000302ec  ldr      r0, [fp, #4]                 
+           000302f0  mov      r0, #0                       
+           000302f4  strb     r0, [fp, #1]                 
+           000302f8  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           000302fc  str      r0, [fp, #0x14]              
+           00030300  cmp      r0, #0                       
+           00030304  beq      #0x30310                     ; -> L_30310
+           00030308  ldr      r0, [fp, #0x14]              
+           0003030c  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_30310:   00030310  b        #0x3031c                     ; -> L_3031c
+L_30314:   00030314  mov      r0, #1                       
+           00030318  b        #0x30320                     ; -> L_30320
+L_3031c:   0003031c  ldrb     r0, [fp, #1]                 
+L_30320:   00030320  add      sp, fp, #0x1c                
+           00030324  pop      {r5, r6, r8, sl, fp}         
+           00030328  ldr      r7, [sp, #8]                 
+           0003032c  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::FileReadAllBytes  token 0x06000299 @0x00030330 (432 bytes) static
+   args: path
+           00030330  mov      ip, sp                       
+           00030334  push     {r7, lr}                     
+           00030338  mov      r7, sp                       
+           0003033c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00030340  sub      sp, sp, #0x20                
+           00030344  mov      fp, sp                       
+           00030348  mov      sl, r0                       
+           0003034c  mov      r0, #0                       
+           00030350  str      r0, [fp]                     
+           00030354  mov      r0, #0                       
+           00030358  str      r0, [fp, #8]                 
+           0003035c  cmp      sl, #0                       
+           00030360  beq      #0x30388                     ; -> L_30388
+           00030364  ldr      r0, [pc]                     
+           00030368  b        #0x30370                     ; -> L_30370
+           0003036c  .word    0x00f6c330                   ; literal 16171824 / 
+L_30370:   00030370  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           00030374  ldr      r1, [r0]                     
+           00030378  mov      r0, sl                       
+           0003037c  bl       #0xbae80                     ; CALL System.String::op_Equality
+           00030380  cmp      r0, #0                       
+           00030384  beq      #0x30390                     ; -> L_30390
+L_30388:   00030388  mov      r0, #0                       
+           0003038c  b        #0x304d0                     ; -> L_304d0
+L_30390:   00030390  ldr      r0, [pc]                     
+           00030394  b        #0x3039c                     ; -> L_3039c
+           00030398  .word    0x00f6c7d0                   ; literal 16173008 / 
+L_3039c:   0003039c  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           000303a0  ldrb     r0, [r0]                     
+           000303a4  cmp      r0, #0                       
+           000303a8  beq      #0x30474                     ; -> L_30474
+           000303ac  ldr      r0, [pc]                     
+           000303b0  b        #0x303b8                     ; -> L_303b8
+           000303b4  .word    0x00f6c804                   ; literal 16173060 / 
+L_303b8:   000303b8  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           000303bc  ldrb     r0, [r0]                     
+           000303c0  cmp      r0, #0                       
+           000303c4  bne      #0x303d4                     ; -> L_303d4
+           000303c8  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           000303cc  cmp      r0, #0                       
+           000303d0  bne      #0x30474                     ; -> L_30474
+L_303d4:   000303d4  mov      r0, sl                       
+           000303d8  mov      r1, #0                       
+           000303dc  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           000303e0  mov      r6, r0                       
+           000303e4  bl       #0xbbf00                     ; CALL JCloudExtern::OpenCloudItemSync
+           000303e8  cmp      r0, #0                       
+           000303ec  bne      #0x30400                     ; -> L_30400
+           000303f0  mov      r0, r6                       
+           000303f4  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           000303f8  mov      r0, #0                       
+           000303fc  b        #0x304d0                     ; -> L_304d0
+L_30400:   00030400  mov      r0, r6                       
+           00030404  mov      r1, fp                       
+           00030408  bl       #0xbbf10                     ; CALL JCloudExtern::ReadCloudItemContents
+           0003040c  mov      r5, r0                       
+           00030410  mvn      r1, #0                       
+           00030414  cmp      r0, r1                       
+           00030418  beq      #0x30464                     ; -> L_30464
+           0003041c  ldr      r0, [pc]                     
+           00030420  b        #0x30428                     ; -> L_30428
+           00030424  .word    0x00f6c528                   ; literal 16172328 / 
+L_30428:   00030428  ldr      r0, [pc, r0]                 ; GOT[204] VTABLE System.Byte[]
+           0003042c  mov      r1, r5                       
+           00030430  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           00030434  mov      r4, r0                       
+           00030438  ldr      r0, [fp]                     
+           0003043c  mov      r1, r4                       
+           00030440  mov      r2, #0                       
+           00030444  mov      r3, r5                       
+           00030448  bl       #0xba630                     ; CALL System.Runtime.InteropServices.Marshal::Copy
+           0003044c  ldr      r0, [fp]                     
+           00030450  bl       #0xbbbf0                     ; CALL JCloudExtern::FreeMemory
+           00030454  mov      r0, r6                       
+           00030458  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           0003045c  mov      r0, r4                       
+           00030460  b        #0x304d0                     ; -> L_304d0
+L_30464:   00030464  mov      r0, r6                       
+           00030468  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           0003046c  mov      r0, #0                       
+           00030470  b        #0x304d0                     ; -> L_304d0
+L_30474:   00030474  ldr      r0, [pc]                     
+           00030478  b        #0x30480                     ; -> L_30480
+           0003047c  .word    0x00f6c740                   ; literal 16172864 / 
+L_30480:   00030480  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00030484  ldr      r0, [r0]                     
+           00030488  mov      r1, sl                       
+           0003048c  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030490  bl       #0xbbf20                     ; CALL System.IO.File::ReadAllBytes
+           00030494  str      r0, [fp, #4]                 
+           00030498  b        #0x304c4                     ; -> L_304c4
+           0003049c  ldr      r0, [fp, #0xc]               
+           000304a0  mov      r0, #0                       
+           000304a4  str      r0, [fp, #8]                 
+           000304a8  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           000304ac  str      r0, [fp, #0x1c]              
+           000304b0  cmp      r0, #0                       
+           000304b4  beq      #0x304c0                     ; -> L_304c0
+           000304b8  ldr      r0, [fp, #0x1c]              
+           000304bc  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_304c0:   000304c0  b        #0x304cc                     ; -> L_304cc
+L_304c4:   000304c4  ldr      r0, [fp, #4]                 
+           000304c8  b        #0x304d0                     ; -> L_304d0
+L_304cc:   000304cc  ldr      r0, [fp, #8]                 
+L_304d0:   000304d0  add      sp, fp, #0x20                
+           000304d4  pop      {r4, r5, r6, r8, sl, fp}     
+           000304d8  ldr      r7, [sp, #8]                 
+           000304dc  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::FileModificationDate  token 0x0600029a @0x000304e0 (672 bytes) static
+   args: path, modificationDate
+           000304e0  mov      ip, sp                       
+           000304e4  push     {r7, lr}                     
+           000304e8  mov      r7, sp                       
+           000304ec  push     {r6, r8, sl, fp, ip, lr}     
+           000304f0  sub      sp, sp, #0x78                
+           000304f4  mov      fp, sp                       
+           000304f8  mov      sl, r0                       
+           000304fc  str      r1, [fp, #0x68]              
+           00030500  mov      r0, #0                       
+           00030504  str      r0, [fp, #0x18]              
+           00030508  mov      r0, #0                       
+           0003050c  str      r0, [fp, #0x1c]              
+           00030510  mov      r0, #0                       
+           00030514  strb     r0, [fp, #0x21]              
+           00030518  mov      r0, #0                       
+           0003051c  str      r0, [fp, #0x24]              
+           00030520  mov      r0, #0                       
+           00030524  str      r0, [fp, #0x28]              
+           00030528  mov      r0, #0                       
+           0003052c  str      r0, [fp, #0x2c]              
+           00030530  mov      r0, #0                       
+           00030534  str      r0, [fp, #0x30]              
+           00030538  mov      r0, #0                       
+           0003053c  str      r0, [fp, #0x34]              
+           00030540  mov      r0, #0                       
+           00030544  str      r0, [fp, #0x38]              
+           00030548  cmp      sl, #0                       
+           0003054c  beq      #0x30574                     ; -> L_30574
+           00030550  ldr      r0, [pc]                     
+           00030554  b        #0x3055c                     ; -> L_3055c
+           00030558  .word    0x00f6c144                   ; literal 16171332 / 
+L_3055c:   0003055c  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           00030560  ldr      r1, [r0]                     
+           00030564  mov      r0, sl                       
+           00030568  bl       #0xbae80                     ; CALL System.String::op_Equality
+           0003056c  cmp      r0, #0                       
+           00030570  beq      #0x3058c                     ; -> L_3058c
+L_30574:   00030574  ldr      r0, [fp, #0x68]              
+           00030578  mov      r1, #0                       
+           0003057c  mov      r2, #0                       
+           00030580  bl       #0xbbf30                     ; CALL System.DateTime::.ctor
+           00030584  mov      r0, #0                       
+           00030588  b        #0x30770                     ; -> L_30770
+L_3058c:   0003058c  ldr      r0, [pc]                     
+           00030590  b        #0x30598                     ; -> L_30598
+           00030594  .word    0x00f6c5d4                   ; literal 16172500 / 
+L_30598:   00030598  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           0003059c  ldrb     r0, [r0]                     
+           000305a0  cmp      r0, #0                       
+           000305a4  beq      #0x306c0                     ; -> L_306c0
+           000305a8  ldr      r0, [pc]                     
+           000305ac  b        #0x305b4                     ; -> L_305b4
+           000305b0  .word    0x00f6c608                   ; literal 16172552 / 
+L_305b4:   000305b4  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           000305b8  ldrb     r0, [r0]                     
+           000305bc  cmp      r0, #0                       
+           000305c0  bne      #0x305d0                     ; -> L_305d0
+           000305c4  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           000305c8  cmp      r0, #0                       
+           000305cc  bne      #0x306c0                     ; -> L_306c0
+L_305d0:   000305d0  mov      r0, sl                       
+           000305d4  mov      r1, #0                       
+           000305d8  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           000305dc  mov      r6, r0                       
+           000305e0  mov      r0, #0                       
+           000305e4  str      r0, [fp, #0x18]              
+           000305e8  mov      r0, #0                       
+           000305ec  str      r0, [fp, #0x1c]              
+           000305f0  add      r1, fp, #0x18                
+           000305f4  mov      r0, r6                       
+           000305f8  bl       #0xbbf40                     ; CALL JCloudExtern::GetCloudItemModificationDateSync
+           000305fc  strb     r0, [fp, #0x20]              
+           00030600  mov      r0, r6                       
+           00030604  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00030608  ldrb     r0, [fp, #0x20]              
+           0003060c  cmp      r0, #0                       
+           00030610  beq      #0x306a8                     ; -> L_306a8
+           00030614  ldr      r0, [fp, #0x68]              
+           00030618  str      r0, [fp, #0x70]              
+           0003061c  add      r0, fp, #0x24                
+           00030620  mov      r1, #0xb2                    
+           00030624  add      r1, r1, #0x700               
+           00030628  mov      r2, #1                       
+           0003062c  mov      r3, #1                       
+           00030630  mov      ip, #0                       
+           00030634  str      ip, [sp]                     
+           00030638  mov      ip, #0                       
+           0003063c  str      ip, [sp, #4]                 
+           00030640  mov      ip, #0                       
+           00030644  str      ip, [sp, #8]                 
+           00030648  bl       #0xbbf50                     ; CALL System.DateTime::.ctor
+           0003064c  add      r0, fp, #0x24                
+           00030650  str      r0, [fp, #0x74]              
+           00030654  ldr      r0, [fp, #0x18]              
+           00030658  ldr      r1, [fp, #0x1c]              
+           0003065c  bl       #0xbbf60                     ; CALL [INTERNAL_METHOD] __emul_lconv_to_r8
+           00030660  vmov     d2, r0, r1                   
+           00030664  ldr      r1, [fp, #0x74]              
+           00030668  add      r0, fp, #0x30                
+           0003066c  vstr     d2, [sp, #8]                 
+           00030670  ldr      r2, [sp, #8]                 
+           00030674  ldr      r3, [sp, #0xc]               
+           00030678  bl       #0xb9680                     ; CALL System.DateTime::AddSeconds
+           0003067c  add      r1, fp, #0x30                
+           00030680  add      r0, fp, #0x50                
+           00030684  bl       #0xbbf70                     ; CALL System.DateTime::ToLocalTime
+           00030688  ldr      r0, [fp, #0x70]              
+           0003068c  ldr      r1, [fp, #0x50]              
+           00030690  str      r1, [r0]                     
+           00030694  ldr      r1, [fp, #0x54]              
+           00030698  str      r1, [r0, #4]                 ; field+0x4 
+           0003069c  ldr      r1, [fp, #0x58]              
+           000306a0  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000306a4  b        #0x306b8                     ; -> L_306b8
+L_306a8:   000306a8  ldr      r0, [fp, #0x68]              
+           000306ac  mov      r1, #0                       
+           000306b0  mov      r2, #0                       
+           000306b4  bl       #0xbbf30                     ; CALL System.DateTime::.ctor
+L_306b8:   000306b8  ldrb     r0, [fp, #0x20]              
+           000306bc  b        #0x30770                     ; -> L_30770
+L_306c0:   000306c0  ldr      r0, [pc]                     
+           000306c4  b        #0x306cc                     ; -> L_306cc
+           000306c8  .word    0x00f6c4f4                   ; literal 16172276 / 
+L_306cc:   000306cc  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000306d0  ldr      r0, [r0]                     
+           000306d4  mov      r1, sl                       
+           000306d8  bl       #0xb9be0                     ; CALL System.String::Concat
+           000306dc  bl       #0xba330                     ; CALL System.IO.File::Exists
+           000306e0  strb     r0, [fp, #0x21]              
+           000306e4  ldr      r0, [fp, #0x68]              
+           000306e8  str      r0, [fp, #0x70]              
+           000306ec  ldr      r0, [pc]                     
+           000306f0  b        #0x306f8                     ; -> L_306f8
+           000306f4  .word    0x00f6c4c8                   ; literal 16172232 / 
+L_306f8:   000306f8  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000306fc  ldr      r0, [r0]                     
+           00030700  mov      r1, sl                       
+           00030704  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030708  mov      r1, r0                       
+           0003070c  add      r0, fp, #0x5c                
+           00030710  bl       #0xbbf80                     ; CALL System.IO.File::GetLastWriteTime
+           00030714  ldr      r0, [fp, #0x70]              
+           00030718  ldr      r1, [fp, #0x5c]              
+           0003071c  str      r1, [r0]                     
+           00030720  ldr      r1, [fp, #0x60]              
+           00030724  str      r1, [r0, #4]                 ; field+0x4 
+           00030728  ldr      r1, [fp, #0x64]              
+           0003072c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00030730  b        #0x3076c                     ; -> L_3076c
+           00030734  ldr      r0, [fp, #0x3c]              
+           00030738  ldr      r0, [fp, #0x68]              
+           0003073c  mov      r1, #0                       
+           00030740  mov      r2, #0                       
+           00030744  bl       #0xbbf30                     ; CALL System.DateTime::.ctor
+           00030748  mov      r0, #0                       
+           0003074c  strb     r0, [fp, #0x21]              
+           00030750  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           00030754  str      r0, [fp, #0x4c]              
+           00030758  cmp      r0, #0                       
+           0003075c  beq      #0x30768                     ; -> L_30768
+           00030760  ldr      r0, [fp, #0x4c]              
+           00030764  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_30768:   00030768  b        #0x3076c                     ; -> L_3076c
+L_3076c:   0003076c  ldrb     r0, [fp, #0x21]              
+L_30770:   00030770  add      sp, fp, #0x78                
+           00030774  pop      {r6, r8, sl, fp}             
+           00030778  ldr      r7, [sp, #8]                 
+           0003077c  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::FileCopy  token 0x0600029b @0x00030780 (500 bytes) static
+   args: sourcePath, destinationPath, overwrite
+           00030780  mov      ip, sp                       
+           00030784  push     {r7, lr}                     
+           00030788  mov      r7, sp                       
+           0003078c  push     {r5, r6, r8, sl, fp, ip, lr} 
+           00030790  sub      sp, sp, #0x2c                
+           00030794  mov      fp, sp                       
+           00030798  mov      r6, r0                       
+           0003079c  mov      sl, r1                       
+           000307a0  strb     r2, [fp, #0x18]              
+           000307a4  mov      r0, #0                       
+           000307a8  strb     r0, [fp, #1]                 
+           000307ac  cmp      r6, #0                       
+           000307b0  beq      #0x30804                     ; -> L_30804
+           000307b4  ldr      r0, [pc]                     
+           000307b8  b        #0x307c0                     ; -> L_307c0
+           000307bc  .word    0x00f6bee0                   ; literal 16170720 / 
+L_307c0:   000307c0  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           000307c4  ldr      r1, [r0]                     
+           000307c8  mov      r0, r6                       
+           000307cc  bl       #0xbae80                     ; CALL System.String::op_Equality
+           000307d0  cmp      r0, #0                       
+           000307d4  bne      #0x30804                     ; -> L_30804
+           000307d8  cmp      sl, #0                       
+           000307dc  beq      #0x30804                     ; -> L_30804
+           000307e0  ldr      r0, [pc]                     
+           000307e4  b        #0x307ec                     ; -> L_307ec
+           000307e8  .word    0x00f6beb4                   ; literal 16170676 / 
+L_307ec:   000307ec  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           000307f0  ldr      r1, [r0]                     
+           000307f4  mov      r0, sl                       
+           000307f8  bl       #0xbae80                     ; CALL System.String::op_Equality
+           000307fc  cmp      r0, #0                       
+           00030800  beq      #0x3080c                     ; -> L_3080c
+L_30804:   00030804  mov      r0, #0                       
+           00030808  b        #0x30964                     ; -> L_30964
+L_3080c:   0003080c  ldr      r0, [pc]                     
+           00030810  b        #0x30818                     ; -> L_30818
+           00030814  .word    0x00f6c354                   ; literal 16171860 / 
+L_30818:   00030818  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           0003081c  ldrb     r0, [r0]                     
+           00030820  cmp      r0, #0                       
+           00030824  beq      #0x30880                     ; -> L_30880
+           00030828  ldr      r0, [pc]                     
+           0003082c  b        #0x30834                     ; -> L_30834
+           00030830  .word    0x00f6c388                   ; literal 16171912 / 
+L_30834:   00030834  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           00030838  ldrb     r0, [r0]                     
+           0003083c  cmp      r0, #0                       
+           00030840  bne      #0x30850                     ; -> L_30850
+           00030844  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           00030848  cmp      r0, #0                       
+           0003084c  bne      #0x30880                     ; -> L_30880
+L_30850:   00030850  mov      r0, r6                       
+           00030854  mov      r1, #0                       
+           00030858  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           0003085c  mov      r5, r0                       
+           00030860  mov      r1, sl                       
+           00030864  ldrb     r2, [fp, #0x18]              
+           00030868  bl       #0xbbf90                     ; CALL JCloudExtern::CopyCloudItemSync
+           0003086c  strb     r0, [fp]                     
+           00030870  mov      r0, r5                       
+           00030874  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00030878  ldrb     r0, [fp]                     
+           0003087c  b        #0x30964                     ; -> L_30964
+L_30880:   00030880  ldr      r0, [pc]                     
+           00030884  b        #0x3088c                     ; -> L_3088c
+           00030888  .word    0x00f6c334                   ; literal 16171828 / 
+L_3088c:   0003088c  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00030890  ldr      r0, [r0]                     
+           00030894  mov      r1, sl                       
+           00030898  bl       #0xb9be0                     ; CALL System.String::Concat
+           0003089c  bl       #0xba330                     ; CALL System.IO.File::Exists
+           000308a0  cmp      r0, #0                       
+           000308a4  beq      #0x308e4                     ; -> L_308e4
+           000308a8  ldrb     r0, [fp, #0x18]              
+           000308ac  cmp      r0, #0                       
+           000308b0  beq      #0x308d8                     ; -> L_308d8
+           000308b4  ldr      r0, [pc]                     
+           000308b8  b        #0x308c0                     ; -> L_308c0
+           000308bc  .word    0x00f6c300                   ; literal 16171776 / 
+L_308c0:   000308c0  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000308c4  ldr      r0, [r0]                     
+           000308c8  mov      r1, sl                       
+           000308cc  bl       #0xb9be0                     ; CALL System.String::Concat
+           000308d0  bl       #0xba340                     ; CALL System.IO.File::Delete
+           000308d4  b        #0x308e4                     ; -> L_308e4
+L_308d8:   000308d8  mov      r0, #0                       
+           000308dc  strb     r0, [fp, #1]                 
+           000308e0  b        #0x30960                     ; -> L_30960
+L_308e4:   000308e4  ldr      r0, [pc]                     
+           000308e8  b        #0x308f0                     ; -> L_308f0
+           000308ec  .word    0x00f6c2d0                   ; literal 16171728 / 
+L_308f0:   000308f0  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000308f4  ldr      r0, [r0]                     
+           000308f8  mov      r1, r6                       
+           000308fc  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030900  str      r0, [fp, #0x20]              
+           00030904  ldr      r0, [pc]                     
+           00030908  b        #0x30910                     ; -> L_30910
+           0003090c  .word    0x00f6c2b0                   ; literal 16171696 / 
+L_30910:   00030910  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00030914  ldr      r0, [r0]                     
+           00030918  mov      r1, sl                       
+           0003091c  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030920  mov      r1, r0                       
+           00030924  ldr      r0, [fp, #0x20]              
+           00030928  bl       #0xbbfa0                     ; CALL System.IO.File::Copy
+           0003092c  b        #0x30958                     ; -> L_30958
+           00030930  ldr      r0, [fp, #4]                 
+           00030934  mov      r0, #0                       
+           00030938  strb     r0, [fp, #1]                 
+           0003093c  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           00030940  str      r0, [fp, #0x14]              
+           00030944  cmp      r0, #0                       
+           00030948  beq      #0x30954                     ; -> L_30954
+           0003094c  ldr      r0, [fp, #0x14]              
+           00030950  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_30954:   00030954  b        #0x30960                     ; -> L_30960
+L_30958:   00030958  mov      r0, #1                       
+           0003095c  b        #0x30964                     ; -> L_30964
+L_30960:   00030960  ldrb     r0, [fp, #1]                 
+L_30964:   00030964  add      sp, fp, #0x2c                
+           00030968  pop      {r5, r6, r8, sl, fp}         
+           0003096c  ldr      r7, [sp, #8]                 
+           00030970  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::FileMove  token 0x0600029c @0x00030974 (500 bytes) static
+   args: sourcePath, destinationPath, overwrite
+           00030974  mov      ip, sp                       
+           00030978  push     {r7, lr}                     
+           0003097c  mov      r7, sp                       
+           00030980  push     {r5, r6, r8, sl, fp, ip, lr} 
+           00030984  sub      sp, sp, #0x2c                
+           00030988  mov      fp, sp                       
+           0003098c  mov      r6, r0                       
+           00030990  mov      sl, r1                       
+           00030994  strb     r2, [fp, #0x18]              
+           00030998  mov      r0, #0                       
+           0003099c  strb     r0, [fp, #1]                 
+           000309a0  cmp      r6, #0                       
+           000309a4  beq      #0x309f8                     ; -> L_309f8
+           000309a8  ldr      r0, [pc]                     
+           000309ac  b        #0x309b4                     ; -> L_309b4
+           000309b0  .word    0x00f6bcec                   ; literal 16170220 / 
+L_309b4:   000309b4  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           000309b8  ldr      r1, [r0]                     
+           000309bc  mov      r0, r6                       
+           000309c0  bl       #0xbae80                     ; CALL System.String::op_Equality
+           000309c4  cmp      r0, #0                       
+           000309c8  bne      #0x309f8                     ; -> L_309f8
+           000309cc  cmp      sl, #0                       
+           000309d0  beq      #0x309f8                     ; -> L_309f8
+           000309d4  ldr      r0, [pc]                     
+           000309d8  b        #0x309e0                     ; -> L_309e0
+           000309dc  .word    0x00f6bcc0                   ; literal 16170176 / 
+L_309e0:   000309e0  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           000309e4  ldr      r1, [r0]                     
+           000309e8  mov      r0, sl                       
+           000309ec  bl       #0xbae80                     ; CALL System.String::op_Equality
+           000309f0  cmp      r0, #0                       
+           000309f4  beq      #0x30a00                     ; -> L_30a00
+L_309f8:   000309f8  mov      r0, #0                       
+           000309fc  b        #0x30b58                     ; -> L_30b58
+L_30a00:   00030a00  ldr      r0, [pc]                     
+           00030a04  b        #0x30a0c                     ; -> L_30a0c
+           00030a08  .word    0x00f6c160                   ; literal 16171360 / 
+L_30a0c:   00030a0c  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           00030a10  ldrb     r0, [r0]                     
+           00030a14  cmp      r0, #0                       
+           00030a18  beq      #0x30a74                     ; -> L_30a74
+           00030a1c  ldr      r0, [pc]                     
+           00030a20  b        #0x30a28                     ; -> L_30a28
+           00030a24  .word    0x00f6c194                   ; literal 16171412 / 
+L_30a28:   00030a28  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           00030a2c  ldrb     r0, [r0]                     
+           00030a30  cmp      r0, #0                       
+           00030a34  bne      #0x30a44                     ; -> L_30a44
+           00030a38  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           00030a3c  cmp      r0, #0                       
+           00030a40  bne      #0x30a74                     ; -> L_30a74
+L_30a44:   00030a44  mov      r0, r6                       
+           00030a48  mov      r1, #0                       
+           00030a4c  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           00030a50  mov      r5, r0                       
+           00030a54  mov      r1, sl                       
+           00030a58  ldrb     r2, [fp, #0x18]              
+           00030a5c  bl       #0xbbfb0                     ; CALL JCloudExtern::MoveCloudItemSync
+           00030a60  strb     r0, [fp]                     
+           00030a64  mov      r0, r5                       
+           00030a68  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00030a6c  ldrb     r0, [fp]                     
+           00030a70  b        #0x30b58                     ; -> L_30b58
+L_30a74:   00030a74  ldr      r0, [pc]                     
+           00030a78  b        #0x30a80                     ; -> L_30a80
+           00030a7c  .word    0x00f6c140                   ; literal 16171328 / 
+L_30a80:   00030a80  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00030a84  ldr      r0, [r0]                     
+           00030a88  mov      r1, sl                       
+           00030a8c  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030a90  bl       #0xba330                     ; CALL System.IO.File::Exists
+           00030a94  cmp      r0, #0                       
+           00030a98  beq      #0x30ad8                     ; -> L_30ad8
+           00030a9c  ldrb     r0, [fp, #0x18]              
+           00030aa0  cmp      r0, #0                       
+           00030aa4  beq      #0x30acc                     ; -> L_30acc
+           00030aa8  ldr      r0, [pc]                     
+           00030aac  b        #0x30ab4                     ; -> L_30ab4
+           00030ab0  .word    0x00f6c10c                   ; literal 16171276 / 
+L_30ab4:   00030ab4  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00030ab8  ldr      r0, [r0]                     
+           00030abc  mov      r1, sl                       
+           00030ac0  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030ac4  bl       #0xba340                     ; CALL System.IO.File::Delete
+           00030ac8  b        #0x30ad8                     ; -> L_30ad8
+L_30acc:   00030acc  mov      r0, #0                       
+           00030ad0  strb     r0, [fp, #1]                 
+           00030ad4  b        #0x30b54                     ; -> L_30b54
+L_30ad8:   00030ad8  ldr      r0, [pc]                     
+           00030adc  b        #0x30ae4                     ; -> L_30ae4
+           00030ae0  .word    0x00f6c0dc                   ; literal 16171228 / 
+L_30ae4:   00030ae4  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00030ae8  ldr      r0, [r0]                     
+           00030aec  mov      r1, r6                       
+           00030af0  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030af4  str      r0, [fp, #0x20]              
+           00030af8  ldr      r0, [pc]                     
+           00030afc  b        #0x30b04                     ; -> L_30b04
+           00030b00  .word    0x00f6c0bc                   ; literal 16171196 / 
+L_30b04:   00030b04  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00030b08  ldr      r0, [r0]                     
+           00030b0c  mov      r1, sl                       
+           00030b10  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030b14  mov      r1, r0                       
+           00030b18  ldr      r0, [fp, #0x20]              
+           00030b1c  bl       #0xbbfc0                     ; CALL System.IO.File::Move
+           00030b20  b        #0x30b4c                     ; -> L_30b4c
+           00030b24  ldr      r0, [fp, #4]                 
+           00030b28  mov      r0, #0                       
+           00030b2c  strb     r0, [fp, #1]                 
+           00030b30  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           00030b34  str      r0, [fp, #0x14]              
+           00030b38  cmp      r0, #0                       
+           00030b3c  beq      #0x30b48                     ; -> L_30b48
+           00030b40  ldr      r0, [fp, #0x14]              
+           00030b44  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_30b48:   00030b48  b        #0x30b54                     ; -> L_30b54
+L_30b4c:   00030b4c  mov      r0, #1                       
+           00030b50  b        #0x30b58                     ; -> L_30b58
+L_30b54:   00030b54  ldrb     r0, [fp, #1]                 
+L_30b58:   00030b58  add      sp, fp, #0x2c                
+           00030b5c  pop      {r5, r6, r8, sl, fp}         
+           00030b60  ldr      r7, [sp, #8]                 
+           00030b64  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::DirectoryCreate  token 0x0600029d @0x00030b68 (320 bytes) static
+   args: path
+           00030b68  mov      ip, sp                       
+           00030b6c  push     {r7, lr}                     
+           00030b70  mov      r7, sp                       
+           00030b74  push     {r6, r8, sl, fp, ip, lr}     
+           00030b78  sub      sp, sp, #0x18                
+           00030b7c  mov      fp, sp                       
+           00030b80  mov      sl, r0                       
+           00030b84  mov      r0, #0                       
+           00030b88  strb     r0, [fp]                     
+           00030b8c  cmp      sl, #0                       
+           00030b90  beq      #0x30bb8                     ; -> L_30bb8
+           00030b94  ldr      r0, [pc]                     
+           00030b98  b        #0x30ba0                     ; -> L_30ba0
+           00030b9c  .word    0x00f6bb00                   ; literal 16169728 / 
+L_30ba0:   00030ba0  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           00030ba4  ldr      r1, [r0]                     
+           00030ba8  mov      r0, sl                       
+           00030bac  bl       #0xbae80                     ; CALL System.String::op_Equality
+           00030bb0  cmp      r0, #0                       
+           00030bb4  beq      #0x30bc0                     ; -> L_30bc0
+L_30bb8:   00030bb8  mov      r0, #0                       
+           00030bbc  b        #0x30c98                     ; -> L_30c98
+L_30bc0:   00030bc0  ldr      r0, [pc]                     
+           00030bc4  b        #0x30bcc                     ; -> L_30bcc
+           00030bc8  .word    0x00f6bfa0                   ; literal 16170912 / 
+L_30bcc:   00030bcc  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           00030bd0  ldrb     r0, [r0]                     
+           00030bd4  cmp      r0, #0                       
+           00030bd8  beq      #0x30c40                     ; -> L_30c40
+           00030bdc  ldr      r0, [pc]                     
+           00030be0  b        #0x30be8                     ; -> L_30be8
+           00030be4  .word    0x00f6bfd4                   ; literal 16170964 / 
+L_30be8:   00030be8  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           00030bec  ldrb     r0, [r0]                     
+           00030bf0  cmp      r0, #0                       
+           00030bf4  bne      #0x30c04                     ; -> L_30c04
+           00030bf8  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           00030bfc  cmp      r0, #0                       
+           00030c00  bne      #0x30c40                     ; -> L_30c40
+L_30c04:   00030c04  mov      r0, sl                       
+           00030c08  mov      r1, #1                       
+           00030c0c  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           00030c10  mov      r6, r0                       
+           00030c14  bl       #0xbbed0                     ; CALL JCloudExtern::CreateOrOpenCloudItemSync
+           00030c18  cmp      r0, #0                       
+           00030c1c  bne      #0x30c30                     ; -> L_30c30
+           00030c20  mov      r0, r6                       
+           00030c24  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00030c28  mov      r0, #0                       
+           00030c2c  b        #0x30c98                     ; -> L_30c98
+L_30c30:   00030c30  mov      r0, r6                       
+           00030c34  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00030c38  mov      r0, #1                       
+           00030c3c  b        #0x30c98                     ; -> L_30c98
+L_30c40:   00030c40  ldr      r0, [pc]                     
+           00030c44  b        #0x30c4c                     ; -> L_30c4c
+           00030c48  .word    0x00f6bf74                   ; literal 16170868 / 
+L_30c4c:   00030c4c  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00030c50  ldr      r0, [r0]                     
+           00030c54  mov      r1, sl                       
+           00030c58  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030c5c  bl       #0xbbfd0                     ; CALL System.IO.Directory::CreateDirectory
+           00030c60  b        #0x30c8c                     ; -> L_30c8c
+           00030c64  ldr      r0, [fp, #4]                 
+           00030c68  mov      r0, #0                       
+           00030c6c  strb     r0, [fp]                     
+           00030c70  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           00030c74  str      r0, [fp, #0x14]              
+           00030c78  cmp      r0, #0                       
+           00030c7c  beq      #0x30c88                     ; -> L_30c88
+           00030c80  ldr      r0, [fp, #0x14]              
+           00030c84  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_30c88:   00030c88  b        #0x30c94                     ; -> L_30c94
+L_30c8c:   00030c8c  mov      r0, #1                       
+           00030c90  b        #0x30c98                     ; -> L_30c98
+L_30c94:   00030c94  ldrb     r0, [fp]                     
+L_30c98:   00030c98  add      sp, fp, #0x18                
+           00030c9c  pop      {r6, r8, sl, fp}             
+           00030ca0  ldr      r7, [sp, #8]                 
+           00030ca4  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::DirectoryExists  token 0x0600029e @0x00030ca8 (304 bytes) static
+   args: path
+           00030ca8  mov      ip, sp                       
+           00030cac  push     {r7, lr}                     
+           00030cb0  mov      r7, sp                       
+           00030cb4  push     {r6, r8, sl, fp, ip, lr}     
+           00030cb8  sub      sp, sp, #0x20                
+           00030cbc  mov      fp, sp                       
+           00030cc0  mov      sl, r0                       
+           00030cc4  mov      r0, #0                       
+           00030cc8  strb     r0, [fp, #2]                 
+           00030ccc  cmp      sl, #0                       
+           00030cd0  beq      #0x30cf8                     ; -> L_30cf8
+           00030cd4  ldr      r0, [pc]                     
+           00030cd8  b        #0x30ce0                     ; -> L_30ce0
+           00030cdc  .word    0x00f6b9c0                   ; literal 16169408 / 
+L_30ce0:   00030ce0  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           00030ce4  ldr      r1, [r0]                     
+           00030ce8  mov      r0, sl                       
+           00030cec  bl       #0xbae80                     ; CALL System.String::op_Equality
+           00030cf0  cmp      r0, #0                       
+           00030cf4  beq      #0x30d00                     ; -> L_30d00
+L_30cf8:   00030cf8  mov      r0, #0                       
+           00030cfc  b        #0x30dc8                     ; -> L_30dc8
+L_30d00:   00030d00  ldr      r0, [pc]                     
+           00030d04  b        #0x30d0c                     ; -> L_30d0c
+           00030d08  .word    0x00f6be60                   ; literal 16170592 / 
+L_30d0c:   00030d0c  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           00030d10  ldrb     r0, [r0]                     
+           00030d14  cmp      r0, #0                       
+           00030d18  beq      #0x30d6c                     ; -> L_30d6c
+           00030d1c  ldr      r0, [pc]                     
+           00030d20  b        #0x30d28                     ; -> L_30d28
+           00030d24  .word    0x00f6be94                   ; literal 16170644 / 
+L_30d28:   00030d28  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           00030d2c  ldrb     r0, [r0]                     
+           00030d30  cmp      r0, #0                       
+           00030d34  bne      #0x30d44                     ; -> L_30d44
+           00030d38  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           00030d3c  cmp      r0, #0                       
+           00030d40  bne      #0x30d6c                     ; -> L_30d6c
+L_30d44:   00030d44  mov      r0, sl                       
+           00030d48  mov      r1, #1                       
+           00030d4c  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           00030d50  mov      r6, r0                       
+           00030d54  bl       #0xbbea0                     ; CALL JCloudExtern::GetCloudItemExistenceSync
+           00030d58  strb     r0, [fp]                     
+           00030d5c  mov      r0, r6                       
+           00030d60  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00030d64  ldrb     r0, [fp]                     
+           00030d68  b        #0x30dc8                     ; -> L_30dc8
+L_30d6c:   00030d6c  ldr      r0, [pc]                     
+           00030d70  b        #0x30d78                     ; -> L_30d78
+           00030d74  .word    0x00f6be48                   ; literal 16170568 / 
+L_30d78:   00030d78  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00030d7c  ldr      r0, [r0]                     
+           00030d80  mov      r1, sl                       
+           00030d84  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030d88  bl       #0xbbfe0                     ; CALL System.IO.Directory::Exists
+           00030d8c  strb     r0, [fp, #1]                 
+           00030d90  b        #0x30dbc                     ; -> L_30dbc
+           00030d94  ldr      r0, [fp, #4]                 
+           00030d98  mov      r0, #0                       
+           00030d9c  strb     r0, [fp, #2]                 
+           00030da0  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           00030da4  str      r0, [fp, #0x18]              
+           00030da8  cmp      r0, #0                       
+           00030dac  beq      #0x30db8                     ; -> L_30db8
+           00030db0  ldr      r0, [fp, #0x18]              
+           00030db4  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_30db8:   00030db8  b        #0x30dc4                     ; -> L_30dc4
+L_30dbc:   00030dbc  ldrb     r0, [fp, #1]                 
+           00030dc0  b        #0x30dc8                     ; -> L_30dc8
+L_30dc4:   00030dc4  ldrb     r0, [fp, #2]                 
+L_30dc8:   00030dc8  add      sp, fp, #0x20                
+           00030dcc  pop      {r6, r8, sl, fp}             
+           00030dd0  ldr      r7, [sp, #8]                 
+           00030dd4  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::DirectoryDelete  token 0x0600029f @0x00030dd8 (300 bytes) static
+   args: path
+           00030dd8  mov      ip, sp                       
+           00030ddc  push     {r7, lr}                     
+           00030de0  mov      r7, sp                       
+           00030de4  push     {r6, r8, sl, fp, ip, lr}     
+           00030de8  sub      sp, sp, #0x18                
+           00030dec  mov      fp, sp                       
+           00030df0  mov      sl, r0                       
+           00030df4  mov      r0, #0                       
+           00030df8  strb     r0, [fp, #1]                 
+           00030dfc  cmp      sl, #0                       
+           00030e00  beq      #0x30e28                     ; -> L_30e28
+           00030e04  ldr      r0, [pc]                     
+           00030e08  b        #0x30e10                     ; -> L_30e10
+           00030e0c  .word    0x00f6b890                   ; literal 16169104 / 
+L_30e10:   00030e10  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           00030e14  ldr      r1, [r0]                     
+           00030e18  mov      r0, sl                       
+           00030e1c  bl       #0xbae80                     ; CALL System.String::op_Equality
+           00030e20  cmp      r0, #0                       
+           00030e24  beq      #0x30e30                     ; -> L_30e30
+L_30e28:   00030e28  mov      r0, #0                       
+           00030e2c  b        #0x30ef4                     ; -> L_30ef4
+L_30e30:   00030e30  ldr      r0, [pc]                     
+           00030e34  b        #0x30e3c                     ; -> L_30e3c
+           00030e38  .word    0x00f6bd30                   ; literal 16170288 / 
+L_30e3c:   00030e3c  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           00030e40  ldrb     r0, [r0]                     
+           00030e44  cmp      r0, #0                       
+           00030e48  beq      #0x30e9c                     ; -> L_30e9c
+           00030e4c  ldr      r0, [pc]                     
+           00030e50  b        #0x30e58                     ; -> L_30e58
+           00030e54  .word    0x00f6bd64                   ; literal 16170340 / 
+L_30e58:   00030e58  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           00030e5c  ldrb     r0, [r0]                     
+           00030e60  cmp      r0, #0                       
+           00030e64  bne      #0x30e74                     ; -> L_30e74
+           00030e68  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           00030e6c  cmp      r0, #0                       
+           00030e70  bne      #0x30e9c                     ; -> L_30e9c
+L_30e74:   00030e74  mov      r0, sl                       
+           00030e78  mov      r1, #1                       
+           00030e7c  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           00030e80  mov      r6, r0                       
+           00030e84  bl       #0xbbec0                     ; CALL JCloudExtern::DeleteCloudItemSync
+           00030e88  strb     r0, [fp]                     
+           00030e8c  mov      r0, r6                       
+           00030e90  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00030e94  ldrb     r0, [fp]                     
+           00030e98  b        #0x30ef4                     ; -> L_30ef4
+L_30e9c:   00030e9c  ldr      r0, [pc]                     
+           00030ea0  b        #0x30ea8                     ; -> L_30ea8
+           00030ea4  .word    0x00f6bd18                   ; literal 16170264 / 
+L_30ea8:   00030ea8  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00030eac  ldr      r0, [r0]                     
+           00030eb0  mov      r1, sl                       
+           00030eb4  bl       #0xb9be0                     ; CALL System.String::Concat
+           00030eb8  bl       #0xbbff0                     ; CALL System.IO.Directory::Delete
+           00030ebc  b        #0x30ee8                     ; -> L_30ee8
+           00030ec0  ldr      r0, [fp, #4]                 
+           00030ec4  mov      r0, #0                       
+           00030ec8  strb     r0, [fp, #1]                 
+           00030ecc  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           00030ed0  str      r0, [fp, #0x14]              
+           00030ed4  cmp      r0, #0                       
+           00030ed8  beq      #0x30ee4                     ; -> L_30ee4
+           00030edc  ldr      r0, [fp, #0x14]              
+           00030ee0  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_30ee4:   00030ee4  b        #0x30ef0                     ; -> L_30ef0
+L_30ee8:   00030ee8  mov      r0, #1                       
+           00030eec  b        #0x30ef4                     ; -> L_30ef4
+L_30ef0:   00030ef0  ldrb     r0, [fp, #1]                 
+L_30ef4:   00030ef4  add      sp, fp, #0x18                
+           00030ef8  pop      {r6, r8, sl, fp}             
+           00030efc  ldr      r7, [sp, #8]                 
+           00030f00  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::DirectoryGetFiles  token 0x060002a0 @0x00030f04 (604 bytes) static
+   args: path
+           00030f04  mov      ip, sp                       
+           00030f08  push     {r7, lr}                     
+           00030f0c  mov      r7, sp                       
+           00030f10  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00030f14  sub      sp, sp, #0x38                
+           00030f18  mov      fp, sp                       
+           00030f1c  str      r0, [fp, #0x30]              
+           00030f20  mov      r0, #0                       
+           00030f24  str      r0, [fp, #4]                 
+           00030f28  mov      r0, #0                       
+           00030f2c  str      r0, [fp, #0x18]              
+           00030f30  ldr      r0, [fp, #0x30]              
+           00030f34  cmp      r0, #0                       
+           00030f38  bne      #0x30f44                     ; -> L_30f44
+           00030f3c  mov      r0, #0                       
+           00030f40  b        #0x31140                     ; -> L_31140
+L_30f44:   00030f44  ldr      r0, [pc]                     
+           00030f48  b        #0x30f50                     ; -> L_30f50
+           00030f4c  .word    0x00f6bc1c                   ; literal 16170012 / 
+L_30f50:   00030f50  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           00030f54  ldrb     r0, [r0]                     
+           00030f58  cmp      r0, #0                       
+           00030f5c  beq      #0x31034                     ; -> L_31034
+           00030f60  ldr      r0, [pc]                     
+           00030f64  b        #0x30f6c                     ; -> L_30f6c
+           00030f68  .word    0x00f6bc50                   ; literal 16170064 / 
+L_30f6c:   00030f6c  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           00030f70  ldrb     r0, [r0]                     
+           00030f74  cmp      r0, #0                       
+           00030f78  bne      #0x30f88                     ; -> L_30f88
+           00030f7c  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           00030f80  cmp      r0, #0                       
+           00030f84  bne      #0x31034                     ; -> L_31034
+L_30f88:   00030f88  ldr      r0, [fp, #0x30]              
+           00030f8c  mov      r1, #1                       
+           00030f90  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           00030f94  str      r0, [fp]                     
+           00030f98  bl       #0xbbf00                     ; CALL JCloudExtern::OpenCloudItemSync
+           00030f9c  cmp      r0, #0                       
+           00030fa0  bne      #0x30fb4                     ; -> L_30fb4
+           00030fa4  ldr      r0, [fp]                     
+           00030fa8  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00030fac  mov      r0, #0                       
+           00030fb0  b        #0x31140                     ; -> L_31140
+L_30fb4:   00030fb4  add      r1, fp, #4                   
+           00030fb8  ldr      r0, [fp]                     
+           00030fbc  bl       #0xbbf10                     ; CALL JCloudExtern::ReadCloudItemContents
+           00030fc0  str      r0, [fp, #8]                 
+           00030fc4  mvn      r1, #0                       
+           00030fc8  cmp      r0, r1                       
+           00030fcc  beq      #0x31024                     ; -> L_31024
+           00030fd0  ldr      r0, [pc]                     
+           00030fd4  b        #0x30fdc                     ; -> L_30fdc
+           00030fd8  .word    0x00f6b974                   ; literal 16169332 / 
+L_30fdc:   00030fdc  ldr      r0, [pc, r0]                 ; GOT[204] VTABLE System.Byte[]
+           00030fe0  ldr      r1, [fp, #8]                 
+           00030fe4  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           00030fe8  str      r0, [fp, #0xc]               
+           00030fec  ldr      r0, [fp, #4]                 
+           00030ff0  ldr      r1, [fp, #0xc]               
+           00030ff4  mov      r2, #0                       
+           00030ff8  ldr      r3, [fp, #8]                 
+           00030ffc  bl       #0xba630                     ; CALL System.Runtime.InteropServices.Marshal::Copy
+           00031000  ldr      r0, [fp, #4]                 
+           00031004  bl       #0xbbbf0                     ; CALL JCloudExtern::FreeMemory
+           00031008  ldr      r0, [fp]                     
+           0003100c  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00031010  ldr      r0, [fp, #0xc]               
+           00031014  mov      r1, #0                       
+           00031018  bl       #0xbc000                     ; CALL JCloudManager::PathListFromBytes
+           0003101c  str      r0, [fp, #0x10]              
+           00031020  b        #0x31140                     ; -> L_31140
+L_31024:   00031024  ldr      r0, [fp]                     
+           00031028  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           0003102c  mov      r0, #0                       
+           00031030  b        #0x31140                     ; -> L_31140
+L_31034:   00031034  ldr      r0, [pc]                     
+           00031038  b        #0x31040                     ; -> L_31040
+           0003103c  .word    0x00f6bb80                   ; literal 16169856 / 
+L_31040:   00031040  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00031044  ldr      r0, [r0]                     
+           00031048  ldr      r1, [fp, #0x30]              
+           0003104c  bl       #0xb9be0                     ; CALL System.String::Concat
+           00031050  bl       #0xbc010                     ; CALL System.IO.Directory::GetFiles
+           00031054  str      r0, [fp, #0x14]              
+           00031058  b        #0x31084                     ; -> L_31084
+           0003105c  ldr      r0, [fp, #0x1c]              
+           00031060  mov      r0, #0                       
+           00031064  str      r0, [fp, #0x18]              
+           00031068  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           0003106c  str      r0, [fp, #0x2c]              
+           00031070  cmp      r0, #0                       
+           00031074  beq      #0x31080                     ; -> L_31080
+           00031078  ldr      r0, [fp, #0x2c]              
+           0003107c  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_31080:   00031080  b        #0x3113c                     ; -> L_3113c
+L_31084:   00031084  ldr      r0, [pc]                     
+           00031088  b        #0x31090                     ; -> L_31090
+           0003108c  .word    0x00f6bb00                   ; literal 16169728 / 
+L_31090:   00031090  ldr      r0, [pc, r0]                 ; GOT[348] VTABLE System.Collections.Generic.List`1<string>
+           00031094  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00031098  ldr      r1, [pc]                     
+           0003109c  b        #0x310a4                     ; -> L_310a4
+           000310a0  .word    0x00f6baf0                   ; literal 16169712 / 
+L_310a4:   000310a4  ldr      r1, [pc, r1]                 ; GOT[349] SFLDA System.Collections.Generic.List`1<string>::EmptyArray
+           000310a8  ldr      r1, [r1]                     
+           000310ac  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000310b0  mov      sl, r0                       
+           000310b4  ldr      r4, [fp, #0x14]              
+           000310b8  mov      r5, #0                       
+           000310bc  b        #0x31120                     ; -> L_31120
+L_310c0:   000310c0  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000310c4  cmp      r0, r5                       
+           000310c8  blls     #0x31150                     ; THROW System.IndexOutOfRangeException (if ls)
+           000310cc  lsl      r0, r5, #2                   
+           000310d0  add      r0, r4, r0                   
+           000310d4  add      r0, r0, #0x10                
+           000310d8  ldr      r6, [r0]                     
+           000310dc  ldr      r0, [pc]                     
+           000310e0  b        #0x310e8                     ; -> L_310e8
+           000310e4  .word    0x00f6bad8                   ; literal 16169688 / 
+L_310e8:   000310e8  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000310ec  ldr      r0, [r0]                     
+           000310f0  ldr      r1, [fp, #0x30]              
+           000310f4  bl       #0xb9be0                     ; CALL System.String::Concat
+           000310f8  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000310fc  mov      r0, r6                       
+           00031100  mov      r1, #0                       
+           00031104  ldr      lr, [r6]                     
+           00031108  bl       #0xbc020                     ; CALL System.String::Remove
+           0003110c  mov      r1, r0                       
+           00031110  mov      r0, sl                       
+           00031114  ldr      lr, [sl]                     
+           00031118  bl       #0xbbd00                     ; CALL System.Collections.Generic.List`1<string>::Add
+           0003111c  add      r5, r5, #1                   
+L_31120:   00031120  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00031124  cmp      r5, r0                       
+           00031128  blt      #0x310c0                     ; -> L_310c0
+           0003112c  mov      r0, sl                       
+           00031130  ldr      lr, [sl]                     
+           00031134  bl       #0xbbd10                     ; CALL System.Collections.Generic.List`1<string>::ToArray
+           00031138  b        #0x31140                     ; -> L_31140
+L_3113c:   0003113c  ldr      r0, [fp, #0x18]              
+L_31140:   00031140  add      sp, fp, #0x38                
+           00031144  pop      {r4, r5, r6, r8, sl, fp}     
+           00031148  ldr      r7, [sp, #8]                 
+           0003114c  ldm      sp, {sp, pc}                 
+           00031150  mov      r1, lr                       
+           00031154  ldr      r0, [pc]                     
+           00031158  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0003115c  andeq    r0, r0, #0xf8                
+
+== JCloudDocument::DirectoryGetDirectories  token 0x060002a1 @0x00031160 (604 bytes) static
+   args: path
+           00031160  mov      ip, sp                       
+           00031164  push     {r7, lr}                     
+           00031168  mov      r7, sp                       
+           0003116c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00031170  sub      sp, sp, #0x38                
+           00031174  mov      fp, sp                       
+           00031178  str      r0, [fp, #0x30]              
+           0003117c  mov      r0, #0                       
+           00031180  str      r0, [fp, #4]                 
+           00031184  mov      r0, #0                       
+           00031188  str      r0, [fp, #0x18]              
+           0003118c  ldr      r0, [fp, #0x30]              
+           00031190  cmp      r0, #0                       
+           00031194  bne      #0x311a0                     ; -> L_311a0
+           00031198  mov      r0, #0                       
+           0003119c  b        #0x3139c                     ; -> L_3139c
+L_311a0:   000311a0  ldr      r0, [pc]                     
+           000311a4  b        #0x311ac                     ; -> L_311ac
+           000311a8  .word    0x00f6b9c0                   ; literal 16169408 / 
+L_311ac:   000311ac  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           000311b0  ldrb     r0, [r0]                     
+           000311b4  cmp      r0, #0                       
+           000311b8  beq      #0x31290                     ; -> L_31290
+           000311bc  ldr      r0, [pc]                     
+           000311c0  b        #0x311c8                     ; -> L_311c8
+           000311c4  .word    0x00f6b9f4                   ; literal 16169460 / 
+L_311c8:   000311c8  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           000311cc  ldrb     r0, [r0]                     
+           000311d0  cmp      r0, #0                       
+           000311d4  bne      #0x311e4                     ; -> L_311e4
+           000311d8  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           000311dc  cmp      r0, #0                       
+           000311e0  bne      #0x31290                     ; -> L_31290
+L_311e4:   000311e4  ldr      r0, [fp, #0x30]              
+           000311e8  mov      r1, #1                       
+           000311ec  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           000311f0  str      r0, [fp]                     
+           000311f4  bl       #0xbbf00                     ; CALL JCloudExtern::OpenCloudItemSync
+           000311f8  cmp      r0, #0                       
+           000311fc  bne      #0x31210                     ; -> L_31210
+           00031200  ldr      r0, [fp]                     
+           00031204  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00031208  mov      r0, #0                       
+           0003120c  b        #0x3139c                     ; -> L_3139c
+L_31210:   00031210  add      r1, fp, #4                   
+           00031214  ldr      r0, [fp]                     
+           00031218  bl       #0xbbf10                     ; CALL JCloudExtern::ReadCloudItemContents
+           0003121c  str      r0, [fp, #8]                 
+           00031220  mvn      r1, #0                       
+           00031224  cmp      r0, r1                       
+           00031228  beq      #0x31280                     ; -> L_31280
+           0003122c  ldr      r0, [pc]                     
+           00031230  b        #0x31238                     ; -> L_31238
+           00031234  .word    0x00f6b718                   ; literal 16168728 / 
+L_31238:   00031238  ldr      r0, [pc, r0]                 ; GOT[204] VTABLE System.Byte[]
+           0003123c  ldr      r1, [fp, #8]                 
+           00031240  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           00031244  str      r0, [fp, #0xc]               
+           00031248  ldr      r0, [fp, #4]                 
+           0003124c  ldr      r1, [fp, #0xc]               
+           00031250  mov      r2, #0                       
+           00031254  ldr      r3, [fp, #8]                 
+           00031258  bl       #0xba630                     ; CALL System.Runtime.InteropServices.Marshal::Copy
+           0003125c  ldr      r0, [fp, #4]                 
+           00031260  bl       #0xbbbf0                     ; CALL JCloudExtern::FreeMemory
+           00031264  ldr      r0, [fp]                     
+           00031268  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           0003126c  ldr      r0, [fp, #0xc]               
+           00031270  mov      r1, #1                       
+           00031274  bl       #0xbc000                     ; CALL JCloudManager::PathListFromBytes
+           00031278  str      r0, [fp, #0x10]              
+           0003127c  b        #0x3139c                     ; -> L_3139c
+L_31280:   00031280  ldr      r0, [fp]                     
+           00031284  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00031288  mov      r0, #0                       
+           0003128c  b        #0x3139c                     ; -> L_3139c
+L_31290:   00031290  ldr      r0, [pc]                     
+           00031294  b        #0x3129c                     ; -> L_3129c
+           00031298  .word    0x00f6b924                   ; literal 16169252 / 
+L_3129c:   0003129c  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000312a0  ldr      r0, [r0]                     
+           000312a4  ldr      r1, [fp, #0x30]              
+           000312a8  bl       #0xb9be0                     ; CALL System.String::Concat
+           000312ac  bl       #0xbc030                     ; CALL System.IO.Directory::GetDirectories
+           000312b0  str      r0, [fp, #0x14]              
+           000312b4  b        #0x312e0                     ; -> L_312e0
+           000312b8  ldr      r0, [fp, #0x1c]              
+           000312bc  mov      r0, #0                       
+           000312c0  str      r0, [fp, #0x18]              
+           000312c4  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           000312c8  str      r0, [fp, #0x2c]              
+           000312cc  cmp      r0, #0                       
+           000312d0  beq      #0x312dc                     ; -> L_312dc
+           000312d4  ldr      r0, [fp, #0x2c]              
+           000312d8  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_312dc:   000312dc  b        #0x31398                     ; -> L_31398
+L_312e0:   000312e0  ldr      r0, [pc]                     
+           000312e4  b        #0x312ec                     ; -> L_312ec
+           000312e8  .word    0x00f6b8a4                   ; literal 16169124 / 
+L_312ec:   000312ec  ldr      r0, [pc, r0]                 ; GOT[348] VTABLE System.Collections.Generic.List`1<string>
+           000312f0  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000312f4  ldr      r1, [pc]                     
+           000312f8  b        #0x31300                     ; -> L_31300
+           000312fc  .word    0x00f6b894                   ; literal 16169108 / 
+L_31300:   00031300  ldr      r1, [pc, r1]                 ; GOT[349] SFLDA System.Collections.Generic.List`1<string>::EmptyArray
+           00031304  ldr      r1, [r1]                     
+           00031308  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003130c  mov      sl, r0                       
+           00031310  ldr      r4, [fp, #0x14]              
+           00031314  mov      r5, #0                       
+           00031318  b        #0x3137c                     ; -> L_3137c
+L_3131c:   0003131c  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00031320  cmp      r0, r5                       
+           00031324  blls     #0x313ac                     ; THROW System.IndexOutOfRangeException (if ls)
+           00031328  lsl      r0, r5, #2                   
+           0003132c  add      r0, r4, r0                   
+           00031330  add      r0, r0, #0x10                
+           00031334  ldr      r6, [r0]                     
+           00031338  ldr      r0, [pc]                     
+           0003133c  b        #0x31344                     ; -> L_31344
+           00031340  .word    0x00f6b87c                   ; literal 16169084 / 
+L_31344:   00031344  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00031348  ldr      r0, [r0]                     
+           0003134c  ldr      r1, [fp, #0x30]              
+           00031350  bl       #0xb9be0                     ; CALL System.String::Concat
+           00031354  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00031358  mov      r0, r6                       
+           0003135c  mov      r1, #0                       
+           00031360  ldr      lr, [r6]                     
+           00031364  bl       #0xbc020                     ; CALL System.String::Remove
+           00031368  mov      r1, r0                       
+           0003136c  mov      r0, sl                       
+           00031370  ldr      lr, [sl]                     
+           00031374  bl       #0xbbd00                     ; CALL System.Collections.Generic.List`1<string>::Add
+           00031378  add      r5, r5, #1                   
+L_3137c:   0003137c  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00031380  cmp      r5, r0                       
+           00031384  blt      #0x3131c                     ; -> L_3131c
+           00031388  mov      r0, sl                       
+           0003138c  ldr      lr, [sl]                     
+           00031390  bl       #0xbbd10                     ; CALL System.Collections.Generic.List`1<string>::ToArray
+           00031394  b        #0x3139c                     ; -> L_3139c
+L_31398:   00031398  ldr      r0, [fp, #0x18]              
+L_3139c:   0003139c  add      sp, fp, #0x38                
+           000313a0  pop      {r4, r5, r6, r8, sl, fp}     
+           000313a4  ldr      r7, [sp, #8]                 
+           000313a8  ldm      sp, {sp, pc}                 
+           000313ac  mov      r1, lr                       
+           000313b0  ldr      r0, [pc]                     
+           000313b4  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000313b8  andeq    r0, r0, #0xf8                
+
+== JCloudDocument::DirectoryModificationDate  token 0x060002a2 @0x000313bc (672 bytes) static
+   args: path, modificationDate
+           000313bc  mov      ip, sp                       
+           000313c0  push     {r7, lr}                     
+           000313c4  mov      r7, sp                       
+           000313c8  push     {r6, r8, sl, fp, ip, lr}     
+           000313cc  sub      sp, sp, #0x78                
+           000313d0  mov      fp, sp                       
+           000313d4  mov      sl, r0                       
+           000313d8  str      r1, [fp, #0x6c]              
+           000313dc  mov      r0, #0                       
+           000313e0  str      r0, [fp, #0x18]              
+           000313e4  mov      r0, #0                       
+           000313e8  str      r0, [fp, #0x1c]              
+           000313ec  mov      r0, #0                       
+           000313f0  strb     r0, [fp, #0x21]              
+           000313f4  mov      r0, #0                       
+           000313f8  str      r0, [fp, #0x24]              
+           000313fc  mov      r0, #0                       
+           00031400  str      r0, [fp, #0x28]              
+           00031404  mov      r0, #0                       
+           00031408  str      r0, [fp, #0x2c]              
+           0003140c  mov      r0, #0                       
+           00031410  str      r0, [fp, #0x30]              
+           00031414  mov      r0, #0                       
+           00031418  str      r0, [fp, #0x34]              
+           0003141c  mov      r0, #0                       
+           00031420  str      r0, [fp, #0x38]              
+           00031424  cmp      sl, #0                       
+           00031428  beq      #0x31450                     ; -> L_31450
+           0003142c  ldr      r0, [pc]                     
+           00031430  b        #0x31438                     ; -> L_31438
+           00031434  .word    0x00f6b268                   ; literal 16167528 / 
+L_31438:   00031438  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           0003143c  ldr      r1, [r0]                     
+           00031440  mov      r0, sl                       
+           00031444  bl       #0xbae80                     ; CALL System.String::op_Equality
+           00031448  cmp      r0, #0                       
+           0003144c  beq      #0x31468                     ; -> L_31468
+L_31450:   00031450  ldr      r0, [fp, #0x6c]              
+           00031454  mov      r1, #0                       
+           00031458  mov      r2, #0                       
+           0003145c  bl       #0xbbf30                     ; CALL System.DateTime::.ctor
+           00031460  mov      r0, #0                       
+           00031464  b        #0x3164c                     ; -> L_3164c
+L_31468:   00031468  ldr      r0, [pc]                     
+           0003146c  b        #0x31474                     ; -> L_31474
+           00031470  .word    0x00f6b6f8                   ; literal 16168696 / 
+L_31474:   00031474  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           00031478  ldrb     r0, [r0]                     
+           0003147c  cmp      r0, #0                       
+           00031480  beq      #0x3159c                     ; -> L_3159c
+           00031484  ldr      r0, [pc]                     
+           00031488  b        #0x31490                     ; -> L_31490
+           0003148c  .word    0x00f6b72c                   ; literal 16168748 / 
+L_31490:   00031490  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           00031494  ldrb     r0, [r0]                     
+           00031498  cmp      r0, #0                       
+           0003149c  bne      #0x314ac                     ; -> L_314ac
+           000314a0  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           000314a4  cmp      r0, #0                       
+           000314a8  bne      #0x3159c                     ; -> L_3159c
+L_314ac:   000314ac  mov      r0, sl                       
+           000314b0  mov      r1, #1                       
+           000314b4  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           000314b8  mov      r6, r0                       
+           000314bc  mov      r0, #0                       
+           000314c0  str      r0, [fp, #0x18]              
+           000314c4  mov      r0, #0                       
+           000314c8  str      r0, [fp, #0x1c]              
+           000314cc  add      r1, fp, #0x18                
+           000314d0  mov      r0, r6                       
+           000314d4  bl       #0xbbf40                     ; CALL JCloudExtern::GetCloudItemModificationDateSync
+           000314d8  strb     r0, [fp, #0x20]              
+           000314dc  mov      r0, r6                       
+           000314e0  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           000314e4  ldrb     r0, [fp, #0x20]              
+           000314e8  cmp      r0, #0                       
+           000314ec  beq      #0x31584                     ; -> L_31584
+           000314f0  ldr      r0, [fp, #0x6c]              
+           000314f4  str      r0, [fp, #0x70]              
+           000314f8  add      r0, fp, #0x24                
+           000314fc  mov      r1, #0xb2                    
+           00031500  add      r1, r1, #0x700               
+           00031504  mov      r2, #1                       
+           00031508  mov      r3, #1                       
+           0003150c  mov      ip, #0                       
+           00031510  str      ip, [sp]                     
+           00031514  mov      ip, #0                       
+           00031518  str      ip, [sp, #4]                 
+           0003151c  mov      ip, #0                       
+           00031520  str      ip, [sp, #8]                 
+           00031524  bl       #0xbbf50                     ; CALL System.DateTime::.ctor
+           00031528  add      r0, fp, #0x24                
+           0003152c  str      r0, [fp, #0x74]              
+           00031530  ldr      r0, [fp, #0x18]              
+           00031534  ldr      r1, [fp, #0x1c]              
+           00031538  bl       #0xbbf60                     ; CALL [INTERNAL_METHOD] __emul_lconv_to_r8
+           0003153c  vmov     d2, r0, r1                   
+           00031540  ldr      r1, [fp, #0x74]              
+           00031544  add      r0, fp, #0x30                
+           00031548  vstr     d2, [sp, #8]                 
+           0003154c  ldr      r2, [sp, #8]                 
+           00031550  ldr      r3, [sp, #0xc]               
+           00031554  bl       #0xb9680                     ; CALL System.DateTime::AddSeconds
+           00031558  add      r1, fp, #0x30                
+           0003155c  add      r0, fp, #0x54                
+           00031560  bl       #0xbbf70                     ; CALL System.DateTime::ToLocalTime
+           00031564  ldr      r0, [fp, #0x70]              
+           00031568  ldr      r1, [fp, #0x54]              
+           0003156c  str      r1, [r0]                     
+           00031570  ldr      r1, [fp, #0x58]              
+           00031574  str      r1, [r0, #4]                 ; field+0x4 
+           00031578  ldr      r1, [fp, #0x5c]              
+           0003157c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00031580  b        #0x31594                     ; -> L_31594
+L_31584:   00031584  ldr      r0, [fp, #0x6c]              
+           00031588  mov      r1, #0                       
+           0003158c  mov      r2, #0                       
+           00031590  bl       #0xbbf30                     ; CALL System.DateTime::.ctor
+L_31594:   00031594  ldrb     r0, [fp, #0x20]              
+           00031598  b        #0x3164c                     ; -> L_3164c
+L_3159c:   0003159c  ldr      r0, [pc]                     
+           000315a0  b        #0x315a8                     ; -> L_315a8
+           000315a4  .word    0x00f6b618                   ; literal 16168472 / 
+L_315a8:   000315a8  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000315ac  ldr      r0, [r0]                     
+           000315b0  mov      r1, sl                       
+           000315b4  bl       #0xb9be0                     ; CALL System.String::Concat
+           000315b8  bl       #0xbbfe0                     ; CALL System.IO.Directory::Exists
+           000315bc  strb     r0, [fp, #0x21]              
+           000315c0  ldr      r0, [fp, #0x6c]              
+           000315c4  str      r0, [fp, #0x70]              
+           000315c8  ldr      r0, [pc]                     
+           000315cc  b        #0x315d4                     ; -> L_315d4
+           000315d0  .word    0x00f6b5ec                   ; literal 16168428 / 
+L_315d4:   000315d4  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000315d8  ldr      r0, [r0]                     
+           000315dc  mov      r1, sl                       
+           000315e0  bl       #0xb9be0                     ; CALL System.String::Concat
+           000315e4  mov      r1, r0                       
+           000315e8  add      r0, fp, #0x60                
+           000315ec  bl       #0xbc040                     ; CALL System.IO.Directory::GetLastWriteTime
+           000315f0  ldr      r0, [fp, #0x70]              
+           000315f4  ldr      r1, [fp, #0x60]              
+           000315f8  str      r1, [r0]                     
+           000315fc  ldr      r1, [fp, #0x64]              
+           00031600  str      r1, [r0, #4]                 ; field+0x4 
+           00031604  ldr      r1, [fp, #0x68]              
+           00031608  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003160c  b        #0x31648                     ; -> L_31648
+           00031610  ldr      r0, [fp, #0x3c]              
+           00031614  ldr      r0, [fp, #0x6c]              
+           00031618  mov      r1, #0                       
+           0003161c  mov      r2, #0                       
+           00031620  bl       #0xbbf30                     ; CALL System.DateTime::.ctor
+           00031624  mov      r0, #0                       
+           00031628  strb     r0, [fp, #0x21]              
+           0003162c  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           00031630  str      r0, [fp, #0x50]              
+           00031634  cmp      r0, #0                       
+           00031638  beq      #0x31644                     ; -> L_31644
+           0003163c  ldr      r0, [fp, #0x50]              
+           00031640  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_31644:   00031644  b        #0x31648                     ; -> L_31648
+L_31648:   00031648  ldrb     r0, [fp, #0x21]              
+L_3164c:   0003164c  add      sp, fp, #0x78                
+           00031650  pop      {r6, r8, sl, fp}             
+           00031654  ldr      r7, [sp, #8]                 
+           00031658  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::DirectoryCopy  token 0x060002a3 @0x0003165c (500 bytes) static
+   args: sourcePath, destinationPath, overwrite
+           0003165c  mov      ip, sp                       
+           00031660  push     {r7, lr}                     
+           00031664  mov      r7, sp                       
+           00031668  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0003166c  sub      sp, sp, #0x2c                
+           00031670  mov      fp, sp                       
+           00031674  mov      r6, r0                       
+           00031678  mov      sl, r1                       
+           0003167c  strb     r2, [fp, #0x1c]              
+           00031680  mov      r0, #0                       
+           00031684  strb     r0, [fp, #1]                 
+           00031688  cmp      r6, #0                       
+           0003168c  beq      #0x316e0                     ; -> L_316e0
+           00031690  ldr      r0, [pc]                     
+           00031694  b        #0x3169c                     ; -> L_3169c
+           00031698  .word    0x00f6b004                   ; literal 16166916 / 
+L_3169c:   0003169c  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           000316a0  ldr      r1, [r0]                     
+           000316a4  mov      r0, r6                       
+           000316a8  bl       #0xbae80                     ; CALL System.String::op_Equality
+           000316ac  cmp      r0, #0                       
+           000316b0  bne      #0x316e0                     ; -> L_316e0
+           000316b4  cmp      sl, #0                       
+           000316b8  beq      #0x316e0                     ; -> L_316e0
+           000316bc  ldr      r0, [pc]                     
+           000316c0  b        #0x316c8                     ; -> L_316c8
+           000316c4  .word    0x00f6afd8                   ; literal 16166872 / 
+L_316c8:   000316c8  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           000316cc  ldr      r1, [r0]                     
+           000316d0  mov      r0, sl                       
+           000316d4  bl       #0xbae80                     ; CALL System.String::op_Equality
+           000316d8  cmp      r0, #0                       
+           000316dc  beq      #0x316e8                     ; -> L_316e8
+L_316e0:   000316e0  mov      r0, #0                       
+           000316e4  b        #0x31840                     ; -> L_31840
+L_316e8:   000316e8  ldr      r0, [pc]                     
+           000316ec  b        #0x316f4                     ; -> L_316f4
+           000316f0  .word    0x00f6b478                   ; literal 16168056 / 
+L_316f4:   000316f4  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           000316f8  ldrb     r0, [r0]                     
+           000316fc  cmp      r0, #0                       
+           00031700  beq      #0x3175c                     ; -> L_3175c
+           00031704  ldr      r0, [pc]                     
+           00031708  b        #0x31710                     ; -> L_31710
+           0003170c  .word    0x00f6b4ac                   ; literal 16168108 / 
+L_31710:   00031710  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           00031714  ldrb     r0, [r0]                     
+           00031718  cmp      r0, #0                       
+           0003171c  bne      #0x3172c                     ; -> L_3172c
+           00031720  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           00031724  cmp      r0, #0                       
+           00031728  bne      #0x3175c                     ; -> L_3175c
+L_3172c:   0003172c  mov      r0, r6                       
+           00031730  mov      r1, #1                       
+           00031734  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           00031738  mov      r5, r0                       
+           0003173c  mov      r1, sl                       
+           00031740  ldrb     r2, [fp, #0x1c]              
+           00031744  bl       #0xbbf90                     ; CALL JCloudExtern::CopyCloudItemSync
+           00031748  strb     r0, [fp]                     
+           0003174c  mov      r0, r5                       
+           00031750  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00031754  ldrb     r0, [fp]                     
+           00031758  b        #0x31840                     ; -> L_31840
+L_3175c:   0003175c  ldr      r0, [pc]                     
+           00031760  b        #0x31768                     ; -> L_31768
+           00031764  .word    0x00f6b458                   ; literal 16168024 / 
+L_31768:   00031768  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           0003176c  ldr      r0, [r0]                     
+           00031770  mov      r1, sl                       
+           00031774  bl       #0xb9be0                     ; CALL System.String::Concat
+           00031778  bl       #0xbbfe0                     ; CALL System.IO.Directory::Exists
+           0003177c  cmp      r0, #0                       
+           00031780  beq      #0x317c0                     ; -> L_317c0
+           00031784  ldrb     r0, [fp, #0x1c]              
+           00031788  cmp      r0, #0                       
+           0003178c  beq      #0x317b4                     ; -> L_317b4
+           00031790  ldr      r0, [pc]                     
+           00031794  b        #0x3179c                     ; -> L_3179c
+           00031798  .word    0x00f6b424                   ; literal 16167972 / 
+L_3179c:   0003179c  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000317a0  ldr      r0, [r0]                     
+           000317a4  mov      r1, sl                       
+           000317a8  bl       #0xb9be0                     ; CALL System.String::Concat
+           000317ac  bl       #0xbbff0                     ; CALL System.IO.Directory::Delete
+           000317b0  b        #0x317c0                     ; -> L_317c0
+L_317b4:   000317b4  mov      r0, #0                       
+           000317b8  strb     r0, [fp, #1]                 
+           000317bc  b        #0x3183c                     ; -> L_3183c
+L_317c0:   000317c0  ldr      r0, [pc]                     
+           000317c4  b        #0x317cc                     ; -> L_317cc
+           000317c8  .word    0x00f6b3f4                   ; literal 16167924 / 
+L_317cc:   000317cc  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000317d0  ldr      r0, [r0]                     
+           000317d4  mov      r1, r6                       
+           000317d8  bl       #0xb9be0                     ; CALL System.String::Concat
+           000317dc  str      r0, [fp, #0x20]              
+           000317e0  ldr      r0, [pc]                     
+           000317e4  b        #0x317ec                     ; -> L_317ec
+           000317e8  .word    0x00f6b3d4                   ; literal 16167892 / 
+L_317ec:   000317ec  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000317f0  ldr      r0, [r0]                     
+           000317f4  mov      r1, sl                       
+           000317f8  bl       #0xb9be0                     ; CALL System.String::Concat
+           000317fc  mov      r1, r0                       
+           00031800  ldr      r0, [fp, #0x20]              
+           00031804  bl       #0xbc050                     ; CALL JCloudManager::CopyDirectory
+           00031808  b        #0x31834                     ; -> L_31834
+           0003180c  ldr      r0, [fp, #4]                 
+           00031810  mov      r0, #0                       
+           00031814  strb     r0, [fp, #1]                 
+           00031818  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           0003181c  str      r0, [fp, #0x18]              
+           00031820  cmp      r0, #0                       
+           00031824  beq      #0x31830                     ; -> L_31830
+           00031828  ldr      r0, [fp, #0x18]              
+           0003182c  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_31830:   00031830  b        #0x3183c                     ; -> L_3183c
+L_31834:   00031834  mov      r0, #1                       
+           00031838  b        #0x31840                     ; -> L_31840
+L_3183c:   0003183c  ldrb     r0, [fp, #1]                 
+L_31840:   00031840  add      sp, fp, #0x2c                
+           00031844  pop      {r5, r6, r8, sl, fp}         
+           00031848  ldr      r7, [sp, #8]                 
+           0003184c  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::DirectoryMove  token 0x060002a4 @0x00031850 (500 bytes) static
+   args: sourcePath, destinationPath, overwrite
+           00031850  mov      ip, sp                       
+           00031854  push     {r7, lr}                     
+           00031858  mov      r7, sp                       
+           0003185c  push     {r5, r6, r8, sl, fp, ip, lr} 
+           00031860  sub      sp, sp, #0x2c                
+           00031864  mov      fp, sp                       
+           00031868  mov      r6, r0                       
+           0003186c  mov      sl, r1                       
+           00031870  strb     r2, [fp, #0x1c]              
+           00031874  mov      r0, #0                       
+           00031878  strb     r0, [fp, #1]                 
+           0003187c  cmp      r6, #0                       
+           00031880  beq      #0x318d4                     ; -> L_318d4
+           00031884  ldr      r0, [pc]                     
+           00031888  b        #0x31890                     ; -> L_31890
+           0003188c  .word    0x00f6ae10                   ; literal 16166416 / 
+L_31890:   00031890  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           00031894  ldr      r1, [r0]                     
+           00031898  mov      r0, r6                       
+           0003189c  bl       #0xbae80                     ; CALL System.String::op_Equality
+           000318a0  cmp      r0, #0                       
+           000318a4  bne      #0x318d4                     ; -> L_318d4
+           000318a8  cmp      sl, #0                       
+           000318ac  beq      #0x318d4                     ; -> L_318d4
+           000318b0  ldr      r0, [pc]                     
+           000318b4  b        #0x318bc                     ; -> L_318bc
+           000318b8  .word    0x00f6ade4                   ; literal 16166372 / 
+L_318bc:   000318bc  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           000318c0  ldr      r1, [r0]                     
+           000318c4  mov      r0, sl                       
+           000318c8  bl       #0xbae80                     ; CALL System.String::op_Equality
+           000318cc  cmp      r0, #0                       
+           000318d0  beq      #0x318dc                     ; -> L_318dc
+L_318d4:   000318d4  mov      r0, #0                       
+           000318d8  b        #0x31a34                     ; -> L_31a34
+L_318dc:   000318dc  ldr      r0, [pc]                     
+           000318e0  b        #0x318e8                     ; -> L_318e8
+           000318e4  .word    0x00f6b284                   ; literal 16167556 / 
+L_318e8:   000318e8  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           000318ec  ldrb     r0, [r0]                     
+           000318f0  cmp      r0, #0                       
+           000318f4  beq      #0x31950                     ; -> L_31950
+           000318f8  ldr      r0, [pc]                     
+           000318fc  b        #0x31904                     ; -> L_31904
+           00031900  .word    0x00f6b2b8                   ; literal 16167608 / 
+L_31904:   00031904  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           00031908  ldrb     r0, [r0]                     
+           0003190c  cmp      r0, #0                       
+           00031910  bne      #0x31920                     ; -> L_31920
+           00031914  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           00031918  cmp      r0, #0                       
+           0003191c  bne      #0x31950                     ; -> L_31950
+L_31920:   00031920  mov      r0, r6                       
+           00031924  mov      r1, #1                       
+           00031928  bl       #0x2fef0                     ; CALL JCloudDocument::NewCloudDocument (direct)
+           0003192c  mov      r5, r0                       
+           00031930  mov      r1, sl                       
+           00031934  ldrb     r2, [fp, #0x1c]              
+           00031938  bl       #0xbbfb0                     ; CALL JCloudExtern::MoveCloudItemSync
+           0003193c  strb     r0, [fp]                     
+           00031940  mov      r0, r5                       
+           00031944  bl       #0x2ff3c                     ; CALL JCloudDocument::DismissCloudDocument (direct)
+           00031948  ldrb     r0, [fp]                     
+           0003194c  b        #0x31a34                     ; -> L_31a34
+L_31950:   00031950  ldr      r0, [pc]                     
+           00031954  b        #0x3195c                     ; -> L_3195c
+           00031958  .word    0x00f6b264                   ; literal 16167524 / 
+L_3195c:   0003195c  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00031960  ldr      r0, [r0]                     
+           00031964  mov      r1, sl                       
+           00031968  bl       #0xb9be0                     ; CALL System.String::Concat
+           0003196c  bl       #0xbbfe0                     ; CALL System.IO.Directory::Exists
+           00031970  cmp      r0, #0                       
+           00031974  beq      #0x319b4                     ; -> L_319b4
+           00031978  ldrb     r0, [fp, #0x1c]              
+           0003197c  cmp      r0, #0                       
+           00031980  beq      #0x319a8                     ; -> L_319a8
+           00031984  ldr      r0, [pc]                     
+           00031988  b        #0x31990                     ; -> L_31990
+           0003198c  .word    0x00f6b230                   ; literal 16167472 / 
+L_31990:   00031990  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           00031994  ldr      r0, [r0]                     
+           00031998  mov      r1, sl                       
+           0003199c  bl       #0xb9be0                     ; CALL System.String::Concat
+           000319a0  bl       #0xbbff0                     ; CALL System.IO.Directory::Delete
+           000319a4  b        #0x319b4                     ; -> L_319b4
+L_319a8:   000319a8  mov      r0, #0                       
+           000319ac  strb     r0, [fp, #1]                 
+           000319b0  b        #0x31a30                     ; -> L_31a30
+L_319b4:   000319b4  ldr      r0, [pc]                     
+           000319b8  b        #0x319c0                     ; -> L_319c0
+           000319bc  .word    0x00f6b200                   ; literal 16167424 / 
+L_319c0:   000319c0  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000319c4  ldr      r0, [r0]                     
+           000319c8  mov      r1, r6                       
+           000319cc  bl       #0xb9be0                     ; CALL System.String::Concat
+           000319d0  str      r0, [fp, #0x20]              
+           000319d4  ldr      r0, [pc]                     
+           000319d8  b        #0x319e0                     ; -> L_319e0
+           000319dc  .word    0x00f6b1e0                   ; literal 16167392 / 
+L_319e0:   000319e0  ldr      r0, [pc, r0]                 ; GOT[360] SFLDA JCloudExtern::JCloudDocumentFallbackPath
+           000319e4  ldr      r0, [r0]                     
+           000319e8  mov      r1, sl                       
+           000319ec  bl       #0xb9be0                     ; CALL System.String::Concat
+           000319f0  mov      r1, r0                       
+           000319f4  ldr      r0, [fp, #0x20]              
+           000319f8  bl       #0xbc060                     ; CALL System.IO.Directory::Move
+           000319fc  b        #0x31a28                     ; -> L_31a28
+           00031a00  ldr      r0, [fp, #4]                 
+           00031a04  mov      r0, #0                       
+           00031a08  strb     r0, [fp, #1]                 
+           00031a0c  bl       #0xbbeb0                     ; CALL [INTERNAL_METHOD] mono_thread_get_undeniable_exception
+           00031a10  str      r0, [fp, #0x18]              
+           00031a14  cmp      r0, #0                       
+           00031a18  beq      #0x31a24                     ; -> L_31a24
+           00031a1c  ldr      r0, [fp, #0x18]              
+           00031a20  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+L_31a24:   00031a24  b        #0x31a30                     ; -> L_31a30
+L_31a28:   00031a28  mov      r0, #1                       
+           00031a2c  b        #0x31a34                     ; -> L_31a34
+L_31a30:   00031a30  ldrb     r0, [fp, #1]                 
+L_31a34:   00031a34  add      sp, fp, #0x2c                
+           00031a38  pop      {r5, r6, r8, sl, fp}         
+           00031a3c  ldr      r7, [sp, #8]                 
+           00031a40  ldm      sp, {sp, pc}                 
+
+== JCloudDocument::PollCloudDocumentAvailability  token 0x060002a5 @0x00031a44 (116 bytes) static
+   args: 
+           00031a44  mov      ip, sp                       
+           00031a48  push     {r7, lr}                     
+           00031a4c  mov      r7, sp                       
+           00031a50  push     {r8, fp, ip, lr}             
+           00031a54  mov      fp, sp                       
+           00031a58  ldr      r0, [pc]                     
+           00031a5c  b        #0x31a64                     ; -> L_31a64
+           00031a60  .word    0x00f6b108                   ; literal 16167176 / 
+L_31a64:   00031a64  ldr      r0, [pc, r0]                 ; GOT[339] SFLDA JCloudExtern::platformIsCloudCompatible
+           00031a68  ldrb     r0, [r0]                     
+           00031a6c  cmp      r0, #0                       
+           00031a70  beq      #0x31aa4                     ; -> L_31aa4
+           00031a74  ldr      r0, [pc]                     
+           00031a78  b        #0x31a80                     ; -> L_31a80
+           00031a7c  .word    0x00f6b13c                   ; literal 16167228 / 
+L_31a80:   00031a80  ldr      r0, [pc, r0]                 ; GOT[359] SFLDA JCloudDocument::AcceptJailbrokenDevices
+           00031a84  ldrb     r0, [r0]                     
+           00031a88  cmp      r0, #0                       
+           00031a8c  bne      #0x31a9c                     ; -> L_31a9c
+           00031a90  bl       #0xbbb40                     ; CALL JCloudExtern::IsJailbroken
+           00031a94  cmp      r0, #0                       
+           00031a98  bne      #0x31aa4                     ; -> L_31aa4
+L_31a9c:   00031a9c  bl       #0xbbe20                     ; CALL JCloudExtern::GetUbiquitousContainerAvailability
+           00031aa0  b        #0x31aa8                     ; -> L_31aa8
+L_31aa4:   00031aa4  mov      r0, #0                       
+L_31aa8:   00031aa8  add      sp, fp, #0                   
+           00031aac  pop      {r8, fp}                     
+           00031ab0  ldr      r7, [sp, #8]                 
+           00031ab4  ldm      sp, {sp, pc}                 

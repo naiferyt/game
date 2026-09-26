@@ -1,0 +1,1467 @@
+####################################################################################################
+# TYPE Car_Script  (instance size 0x6c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 wheelFR                        UnityEngine.Transform
+#   +0x14 wheelFL                        UnityEngine.Transform
+#   +0x18 wheelBR                        UnityEngine.Transform
+#   +0x1c wheelBL                        UnityEngine.Transform
+#   +0x20 wheels                         WheelData[]
+#   +0x24 suspensionDistance             float
+#   +0x28 springs                        float
+#   +0x2c dampers                        float
+#   +0x30 torque                         float
+#   +0x34 brakeTorque                    float
+#   +0x38 wheelWeight                    float
+#   +0x3c shiftCenter                    UnityEngine.Vector3
+#   +0x48 frontWheelRadius               float
+#   +0x4c backWheelRadius                float
+#   +0x50 maxSteerAngle                  float
+#   +0x54 idleRPM                        float
+#   +0x58 currentGear                    int
+#   +0x5c wheelRadius                    float
+#   +0x60 wantedRPM                      float
+#   +0x64 motorRPM                       float
+#   +0x68 killEngine                     float
+#   vtable slots: 4:Main, 5:FixedUpdate, 6:Start, 7:SetWheelParams
+####################################################################################################
+== Car_Script::.ctor  token 0x06000006 @0x002367e4 (468 bytes)
+   args: r0=this, 
+           002367e4  mov      ip, sp                       
+           002367e8  push     {r7, lr}                     
+           002367ec  mov      r7, sp                       
+           002367f0  push     {r8, sl, fp, ip, lr}         
+           002367f4  sub      sp, sp, #0x24                
+           002367f8  mov      fp, sp                       
+           002367fc  mov      sl, r0                       
+           00236800  mov      r0, sl                       
+           00236804  bl       #0x238530                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00236808  vldr     s4, [pc]                     ; float 0.44999998807907104
+           0023680c  b        #0x236814                    ; -> L_236814
+           00236810  .word    0x3ee66666                   ; literal 1055286886 / 0.45
+L_236814:  00236814  vcvt.f64.f32 d2, s4                       
+           00236818  vcvt.f32.f64 s0, d2                       
+           0023681c  vstr     s0, [sl, #0x24]              ; field+0x24 (this-class: suspensionDistance)
+           00236820  vldr     s4, [pc]                     ; float 1000.0
+           00236824  b        #0x23682c                    ; -> L_23682c
+           00236828  .word    0x447a0000                   ; literal 1148846080 / 1000
+L_23682c:  0023682c  vcvt.f64.f32 d2, s4                       
+           00236830  vcvt.f32.f64 s0, d2                       
+           00236834  vstr     s0, [sl, #0x28]              ; field+0x28 (this-class: springs)
+           00236838  mov      r0, #0x14                    
+           0023683c  vmov     s0, r0                       
+           00236840  vcvt.f32.s32 s0, s0                       
+           00236844  vcvt.f64.f32 d2, s0                       
+           00236848  vcvt.f32.f64 s0, d2                       
+           0023684c  vstr     s0, [sl, #0x2c]              ; field+0x2c (this-class: dampers)
+           00236850  mov      r0, #0xc8                    
+           00236854  vmov     s0, r0                       
+           00236858  vcvt.f32.s32 s0, s0                       
+           0023685c  vcvt.f64.f32 d2, s0                       
+           00236860  vcvt.f32.f64 s0, d2                       
+           00236864  vstr     s0, [sl, #0x30]              ; field+0x30 (this-class: torque)
+           00236868  mov      r0, #0x7d0                   
+           0023686c  vmov     s0, r0                       
+           00236870  vcvt.f32.s32 s0, s0                       
+           00236874  vcvt.f64.f32 d2, s0                       
+           00236878  vcvt.f32.f64 s0, d2                       
+           0023687c  vstr     s0, [sl, #0x34]              ; field+0x34 (this-class: brakeTorque)
+           00236880  mov      r0, #4                       
+           00236884  vmov     s0, r0                       
+           00236888  vcvt.f32.s32 s0, s0                       
+           0023688c  vcvt.f64.f32 d2, s0                       
+           00236890  vcvt.f32.f64 s0, d2                       
+           00236894  vstr     s0, [sl, #0x38]              ; field+0x38 (this-class: wheelWeight)
+           00236898  mov      r0, #0                       
+           0023689c  vmov     s0, r0                       
+           002368a0  vcvt.f32.s32 s0, s0                       
+           002368a4  vcvt.f64.f32 d4, s0                       
+           002368a8  vldr     s6, [pc]                     ; float -1.0
+           002368ac  b        #0x2368b4                    ; -> L_2368b4
+           002368b0  .word    0xbf800000                   ; literal -1082130432 / -1
+L_2368b4:  002368b4  vcvt.f64.f32 d3, s6                       
+           002368b8  mov      r0, #0                       
+           002368bc  vmov     s0, r0                       
+           002368c0  vcvt.f32.s32 s0, s0                       
+           002368c4  vcvt.f64.f32 d2, s0                       
+           002368c8  mov      r0, #0                       
+           002368cc  str      r0, [fp, #8]                 
+           002368d0  mov      r0, #0                       
+           002368d4  str      r0, [fp, #0xc]               
+           002368d8  mov      r0, #0                       
+           002368dc  str      r0, [fp, #0x10]              
+           002368e0  add      r0, fp, #8                   
+           002368e4  vcvt.f32.f64 s0, d4                       
+           002368e8  vstr     s0, [sp, #-8]                
+           002368ec  ldr      r1, [sp, #-8]                
+           002368f0  vcvt.f32.f64 s0, d3                       
+           002368f4  vstr     s0, [sp, #-8]                
+           002368f8  ldr      r2, [sp, #-8]                
+           002368fc  vcvt.f32.f64 s0, d2                       
+           00236900  vstr     s0, [sp, #-8]                
+           00236904  ldr      r3, [sp, #-8]                
+           00236908  bl       #0x238680                    ; CALL UnityEngine.Vector3::.ctor
+           0023690c  ldr      r0, [fp, #8]                 
+           00236910  str      r0, [fp, #0x14]              
+           00236914  ldr      r0, [fp, #0xc]               
+           00236918  str      r0, [fp, #0x18]              
+           0023691c  ldr      r0, [fp, #0x10]              
+           00236920  str      r0, [fp, #0x1c]              
+           00236924  add      r0, sl, #0x3c                
+           00236928  ldr      r1, [fp, #0x14]              
+           0023692c  str      r1, [r0]                     
+           00236930  ldr      r1, [fp, #0x18]              
+           00236934  str      r1, [r0, #4]                 ; field+0x4 
+           00236938  ldr      r1, [fp, #0x1c]              
+           0023693c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00236940  vldr     s4, [pc]                     ; float 0.30000001192092896
+           00236944  b        #0x23694c                    ; -> L_23694c
+           00236948  .word    0x3e99999a                   ; literal 1050253722 / 0.3
+L_23694c:  0023694c  vcvt.f64.f32 d2, s4                       
+           00236950  vcvt.f32.f64 s0, d2                       
+           00236954  vstr     s0, [sl, #0x48]              ; field+0x48 (this-class: frontWheelRadius)
+           00236958  vldr     s4, [pc]                     ; float 0.5
+           0023695c  b        #0x236964                    ; -> L_236964
+           00236960  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_236964:  00236964  vcvt.f64.f32 d2, s4                       
+           00236968  vcvt.f32.f64 s0, d2                       
+           0023696c  vstr     s0, [sl, #0x4c]              ; field+0x4c (this-class: backWheelRadius)
+           00236970  vldr     s4, [pc]                     ; float 15.0
+           00236974  b        #0x23697c                    ; -> L_23697c
+           00236978  .word    0x41700000                   ; literal 1097859072 / 15
+L_23697c:  0023697c  vcvt.f64.f32 d2, s4                       
+           00236980  vcvt.f32.f64 s0, d2                       
+           00236984  vstr     s0, [sl, #0x50]              ; field+0x50 (this-class: maxSteerAngle)
+           00236988  vldr     s4, [pc]                     ; float 500.0
+           0023698c  b        #0x236994                    ; -> L_236994
+           00236990  .word    0x43fa0000                   ; literal 1140457472 / 500
+L_236994:  00236994  vcvt.f64.f32 d2, s4                       
+           00236998  vcvt.f32.f64 s0, d2                       
+           0023699c  vstr     s0, [sl, #0x54]              ; field+0x54 (this-class: idleRPM)
+           002369a0  mov      r0, #1                       
+           002369a4  str      r0, [sl, #0x58]              ; field+0x58 (this-class: currentGear)
+           002369a8  add      sp, fp, #0x24                
+           002369ac  pop      {r8, sl, fp}                 
+           002369b0  ldr      r7, [sp, #8]                 
+           002369b4  ldm      sp, {sp, pc}                 
+
+== Car_Script::SetWheelParams  token 0x06000007 @0x002369b8 (540 bytes)
+   args: r0=this, wheel, maxSteer, motor, rad
+           002369b8  mov      ip, sp                       
+           002369bc  push     {r7, lr}                     
+           002369c0  mov      r7, sp                       
+           002369c4  push     {r4, r6, r8, sl, fp, ip, lr} 
+           002369c8  sub      sp, sp, #0x74                
+           002369cc  mov      fp, sp                       
+           002369d0  mov      r6, r0                       
+           002369d4  str      r1, [fp, #0x4c]              
+           002369d8  str      r2, [fp, #0x50]              
+           002369dc  strb     r3, [fp, #0x54]              
+           002369e0  ldr      lr, [sp, #0x98]              
+           002369e4  str      lr, [fp, #0x58]              
+           002369e8  ldr      r0, [pc]                     
+           002369ec  b        #0x2369f4                    ; -> L_2369f4
+           002369f0  .word    0x00d73b44                   ; literal 14105412 / 
+L_2369f4:  002369f4  ldr      r0, [pc, r0]                 ; GOT[6] VTABLE WheelData
+           002369f8  bl       #0x238690                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           002369fc  mov      r4, r0                       
+           00236a00  ldr      r0, [pc]                     
+           00236a04  b        #0x236a0c                    ; -> L_236a0c
+           00236a08  .word    0x00d73b30                   ; literal 14105392 / 
+L_236a0c:  00236a0c  ldr      r0, [pc, r0]                 ; GOT[7] LDSTR 'WheelCollider'
+           00236a10  str      r0, [fp, #0x6c]              
+           00236a14  ldr      r0, [pc]                     
+           00236a18  b        #0x236a20                    ; -> L_236a20
+           00236a1c  .word    0x00d73b20                   ; literal 14105376 / 
+L_236a20:  00236a20  ldr      r0, [pc, r0]                 ; GOT[8] VTABLE UnityEngine.GameObject
+           00236a24  bl       #0x2386a0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           00236a28  ldr      r1, [fp, #0x6c]              
+           00236a2c  str      r0, [fp, #0x68]              
+           00236a30  bl       #0x2386b0                    ; CALL UnityEngine.GameObject::.ctor
+           00236a34  ldr      r0, [fp, #0x68]              
+           00236a38  mov      sl, r0                       
+           00236a3c  mov      r1, sl                       
+           00236a40  mov      r0, r1                       
+           00236a44  ldr      lr, [r1]                     
+           00236a48  bl       #0x2386c0                    ; CALL UnityEngine.GameObject::get_transform
+           00236a4c  str      r0, [fp, #0x64]              
+           00236a50  mov      r0, r6                       
+           00236a54  ldr      lr, [r6]                     
+           00236a58  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00236a5c  mov      r1, r0                       
+           00236a60  ldr      r2, [fp, #0x64]              
+           00236a64  mov      r0, r2                       
+           00236a68  ldr      lr, [r2]                     
+           00236a6c  bl       #0x2386d0                    ; CALL UnityEngine.Transform::set_parent
+           00236a70  mov      r0, sl                       
+           00236a74  ldr      lr, [sl]                     
+           00236a78  bl       #0x2386c0                    ; CALL UnityEngine.GameObject::get_transform
+           00236a7c  str      r0, [fp, #0x60]              
+           00236a80  add      r0, fp, #0x34                
+           00236a84  ldr      r1, [fp, #0x4c]              
+           00236a88  mov      r2, r1                       
+           00236a8c  ldr      lr, [r2]                     
+           00236a90  bl       #0x238600                    ; CALL UnityEngine.Transform::get_position
+           00236a94  ldr      ip, [fp, #0x60]              
+           00236a98  mov      r0, ip                       
+           00236a9c  ldr      r1, [fp, #0x34]              
+           00236aa0  ldr      r2, [fp, #0x38]              
+           00236aa4  ldr      r3, [fp, #0x3c]              
+           00236aa8  ldr      lr, [ip]                     
+           00236aac  bl       #0x238610                    ; CALL UnityEngine.Transform::set_position
+           00236ab0  ldr      r1, [pc]                     
+           00236ab4  b        #0x236abc                    ; -> L_236abc
+           00236ab8  .word    0x00d73a80                   ; literal 14105216 / 
+L_236abc:  00236abc  ldr      r1, [pc, r1]                 ; GOT[7] LDSTR 'WheelCollider'
+           00236ac0  mov      r0, sl                       
+           00236ac4  ldr      lr, [sl]                     
+           00236ac8  bl       #0x2386e0                    ; CALL UnityEngine.GameObject::AddComponent
+           00236acc  str      r0, [fp, #0x30]              
+           00236ad0  cmp      r0, #0                       
+           00236ad4  beq      #0x236b04                    ; -> L_236b04
+           00236ad8  ldr      r0, [fp, #0x30]              
+           00236adc  ldr      r0, [r0]                     
+           00236ae0  ldr      r0, [r0]                     
+           00236ae4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00236ae8  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: wheelFR)
+           00236aec  ldr      r1, [pc]                     
+           00236af0  b        #0x236af8                    ; -> L_236af8
+           00236af4  .word    0x00d73a4c                   ; literal 14105164 / 
+L_236af8:  00236af8  ldr      r1, [pc, r1]                 ; GOT[9] CLASS UnityEngine.WheelCollider
+           00236afc  cmp      r0, r1                       
+           00236b00  blne     #0x236bc4                    ; THROW System.InvalidCastException (if ne)
+L_236b04:  00236b04  ldr      r0, [fp, #0x30]              
+           00236b08  str      r0, [fp, #8]                 
+           00236b0c  mov      r0, #0                       
+           00236b10  vmov     s0, r0                       
+           00236b14  vcvt.f32.s32 s0, s0                       
+           00236b18  vcvt.f64.f32 d2, s0                       
+           00236b1c  ldr      r0, [fp, #0x30]              
+           00236b20  vcvt.f32.f64 s0, d2                       
+           00236b24  vstr     s0, [sp, #-8]                
+           00236b28  ldr      r1, [sp, #-8]                
+           00236b2c  ldr      r2, [fp, #0x30]              
+           00236b30  ldr      lr, [r2]                     
+           00236b34  bl       #0x2386f0                    ; CALL UnityEngine.WheelCollider::set_motorTorque
+           00236b38  ldr      r0, [fp, #0x4c]              
+           00236b3c  str      r0, [r4, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00236b40  str      sl, [r4, #0xc]               ; field+0xc 
+           00236b44  ldr      r0, [fp, #0x30]              
+           00236b48  str      r0, [r4, #0x10]              ; field+0x10 (this-class: wheelFR)
+           00236b4c  mov      r0, sl                       
+           00236b50  ldr      lr, [sl]                     
+           00236b54  bl       #0x2386c0                    ; CALL UnityEngine.GameObject::get_transform
+           00236b58  mov      r2, r0                       
+           00236b5c  add      r0, fp, #0x40                
+           00236b60  mov      r1, r2                       
+           00236b64  ldr      lr, [r2]                     
+           00236b68  bl       #0x238700                    ; CALL UnityEngine.Transform::get_localPosition
+           00236b6c  add      r0, r4, #0x14                
+           00236b70  ldr      r1, [fp, #0x40]              
+           00236b74  str      r1, [r0]                     
+           00236b78  ldr      r1, [fp, #0x44]              
+           00236b7c  str      r1, [r0, #4]                 ; field+0x4 
+           00236b80  ldr      r1, [fp, #0x48]              
+           00236b84  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00236b88  vldr     s0, [fp, #0x50]              
+           00236b8c  vcvt.f64.f32 d2, s0                       
+           00236b90  vcvt.f32.f64 s0, d2                       
+           00236b94  vstr     s0, [r4, #0x24]              ; field+0x24 (this-class: suspensionDistance)
+           00236b98  ldrb     r0, [fp, #0x54]              
+           00236b9c  strb     r0, [r4, #0x28]              ; field+0x28 (this-class: springs)
+           00236ba0  vldr     s0, [fp, #0x58]              
+           00236ba4  vcvt.f64.f32 d2, s0                       
+           00236ba8  vcvt.f32.f64 s0, d2                       
+           00236bac  vstr     s0, [r4, #0x2c]              ; field+0x2c (this-class: dampers)
+           00236bb0  mov      r0, r4                       
+           00236bb4  add      sp, fp, #0x74                
+           00236bb8  pop      {r4, r6, r8, sl, fp}         
+           00236bbc  ldr      r7, [sp, #8]                 
+           00236bc0  ldm      sp, {sp, pc}                 
+           00236bc4  mov      r1, lr                       
+           00236bc8  ldr      r0, [pc]                     
+           00236bcc  bl       #0x238710                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00236bd0  andeq    r0, r0, #0xfd                
+
+== Car_Script::Start  token 0x06000008 @0x00236bd4 (1416 bytes)
+   args: r0=this, 
+           00236bd4  mov      ip, sp                       
+           00236bd8  push     {r7, lr}                     
+           00236bdc  mov      r7, sp                       
+           00236be0  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00236be4  sub      sp, sp, #80, #30             
+           00236be8  mov      fp, sp                       
+           00236bec  mov      sl, r0                       
+           00236bf0  mov      r0, #0                       
+           00236bf4  str      r0, [fp, #0x18]              
+           00236bf8  mov      r0, #0                       
+           00236bfc  str      r0, [fp, #0x1c]              
+           00236c00  mov      r0, #0                       
+           00236c04  str      r0, [fp, #0x20]              
+           00236c08  mov      r0, #0                       
+           00236c0c  str      r0, [fp, #0x24]              
+           00236c10  mov      r0, #0                       
+           00236c14  str      r0, [fp, #0x28]              
+           00236c18  mov      r0, #0                       
+           00236c1c  str      r0, [fp, #0x2c]              
+           00236c20  mov      r0, #0                       
+           00236c24  str      r0, [fp, #0x30]              
+           00236c28  mov      r0, #0                       
+           00236c2c  str      r0, [fp, #0x34]              
+           00236c30  ldr      r0, [pc]                     
+           00236c34  b        #0x236c3c                    ; -> L_236c3c
+           00236c38  .word    0x00d7390c                   ; literal 14104844 / 
+L_236c3c:  00236c3c  ldr      r0, [pc, r0]                 ; GOT[10] VTABLE WheelData[]
+           00236c40  mov      r1, #4                       
+           00236c44  bl       #0x238720                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           00236c48  str      r0, [sl, #0x20]              ; field+0x20 (this-class: wheels)
+           00236c4c  str      r0, [fp, #0x13c]             
+           00236c50  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: wheelFR)
+           00236c54  vldr     s0, [sl, #0x50]              ; field+0x50 (this-class: maxSteerAngle)
+           00236c58  vcvt.f64.f32 d3, s0                       
+           00236c5c  vldr     s0, [sl, #0x48]              ; field+0x48 (this-class: frontWheelRadius)
+           00236c60  vcvt.f64.f32 d2, s0                       
+           00236c64  mov      r0, sl                       
+           00236c68  vcvt.f32.f64 s0, d3                       
+           00236c6c  vstr     s0, [sp, #-8]                
+           00236c70  ldr      r2, [sp, #-8]                
+           00236c74  mov      r3, #1                       
+           00236c78  vcvt.f32.f64 s0, d2                       
+           00236c7c  vstr     s0, [sp]                     
+           00236c80  ldr      ip, [sl]                     
+           00236c84  mov      lr, pc                       
+           00236c88  ldr      pc, [ip, #0x40]              ; VIRTUAL CALL slot +0x40: AchievementListener::IsAvailable | BaseCarAIState::Init | BaseEffect::Shutdown | BaseMission::Update | BoatAnchorEffect::Shutdown | BoosterEffect::Shutdown | BrakeMission::Update | BuyPowerupMission::Update ...(74)
+           00236c8c  mov      r2, r0                       
+           00236c90  ldr      r0, [fp, #0x13c]             
+           00236c94  mov      r1, #0                       
+           00236c98  bl       #0x238730                    ; CALL wrapper stelemref
+           00236c9c  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: wheels)
+           00236ca0  str      r0, [fp, #0x138]             
+           00236ca4  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: wheelFL)
+           00236ca8  vldr     s0, [sl, #0x50]              ; field+0x50 (this-class: maxSteerAngle)
+           00236cac  vcvt.f64.f32 d3, s0                       
+           00236cb0  vldr     s0, [sl, #0x48]              ; field+0x48 (this-class: frontWheelRadius)
+           00236cb4  vcvt.f64.f32 d2, s0                       
+           00236cb8  mov      r0, sl                       
+           00236cbc  vcvt.f32.f64 s0, d3                       
+           00236cc0  vstr     s0, [sp]                     
+           00236cc4  ldr      r2, [sp]                     
+           00236cc8  mov      r3, #1                       
+           00236ccc  vcvt.f32.f64 s0, d2                       
+           00236cd0  vstr     s0, [sp]                     
+           00236cd4  ldr      ip, [sl]                     
+           00236cd8  mov      lr, pc                       
+           00236cdc  ldr      pc, [ip, #0x40]              ; VIRTUAL CALL slot +0x40: AchievementListener::IsAvailable | BaseCarAIState::Init | BaseEffect::Shutdown | BaseMission::Update | BoatAnchorEffect::Shutdown | BoosterEffect::Shutdown | BrakeMission::Update | BuyPowerupMission::Update ...(74)
+           00236ce0  mov      r2, r0                       
+           00236ce4  ldr      r0, [fp, #0x138]             
+           00236ce8  mov      r1, #1                       
+           00236cec  bl       #0x238730                    ; CALL wrapper stelemref
+           00236cf0  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: wheels)
+           00236cf4  str      r0, [fp, #0x134]             
+           00236cf8  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: wheelBR)
+           00236cfc  mov      r0, #0                       
+           00236d00  vmov     s0, r0                       
+           00236d04  vcvt.f32.s32 s0, s0                       
+           00236d08  vcvt.f64.f32 d3, s0                       
+           00236d0c  vldr     s0, [sl, #0x4c]              ; field+0x4c (this-class: backWheelRadius)
+           00236d10  vcvt.f64.f32 d2, s0                       
+           00236d14  mov      r0, sl                       
+           00236d18  vcvt.f32.f64 s0, d3                       
+           00236d1c  vstr     s0, [sp]                     
+           00236d20  ldr      r2, [sp]                     
+           00236d24  mov      r3, #0                       
+           00236d28  vcvt.f32.f64 s0, d2                       
+           00236d2c  vstr     s0, [sp]                     
+           00236d30  ldr      ip, [sl]                     
+           00236d34  mov      lr, pc                       
+           00236d38  ldr      pc, [ip, #0x40]              ; VIRTUAL CALL slot +0x40: AchievementListener::IsAvailable | BaseCarAIState::Init | BaseEffect::Shutdown | BaseMission::Update | BoatAnchorEffect::Shutdown | BoosterEffect::Shutdown | BrakeMission::Update | BuyPowerupMission::Update ...(74)
+           00236d3c  mov      r2, r0                       
+           00236d40  ldr      r0, [fp, #0x134]             
+           00236d44  mov      r1, #2                       
+           00236d48  bl       #0x238730                    ; CALL wrapper stelemref
+           00236d4c  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: wheels)
+           00236d50  str      r0, [fp, #0x130]             
+           00236d54  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: wheelBL)
+           00236d58  mov      r0, #0                       
+           00236d5c  vmov     s0, r0                       
+           00236d60  vcvt.f32.s32 s0, s0                       
+           00236d64  vcvt.f64.f32 d3, s0                       
+           00236d68  vldr     s0, [sl, #0x4c]              ; field+0x4c (this-class: backWheelRadius)
+           00236d6c  vcvt.f64.f32 d2, s0                       
+           00236d70  mov      r0, sl                       
+           00236d74  vcvt.f32.f64 s0, d3                       
+           00236d78  vstr     s0, [sp]                     
+           00236d7c  ldr      r2, [sp]                     
+           00236d80  mov      r3, #0                       
+           00236d84  vcvt.f32.f64 s0, d2                       
+           00236d88  vstr     s0, [sp]                     
+           00236d8c  ldr      ip, [sl]                     
+           00236d90  mov      lr, pc                       
+           00236d94  ldr      pc, [ip, #0x40]              ; VIRTUAL CALL slot +0x40: AchievementListener::IsAvailable | BaseCarAIState::Init | BaseEffect::Shutdown | BaseMission::Update | BoatAnchorEffect::Shutdown | BoosterEffect::Shutdown | BrakeMission::Update | BuyPowerupMission::Update ...(74)
+           00236d98  mov      r2, r0                       
+           00236d9c  ldr      r0, [fp, #0x130]             
+           00236da0  mov      r1, #3                       
+           00236da4  bl       #0x238730                    ; CALL wrapper stelemref
+           00236da8  mov      r5, #0                       
+           00236dac  ldr      r4, [sl, #0x20]              ; field+0x20 (this-class: wheels)
+           00236db0  mov      r0, r4                       
+           00236db4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           00236db8  str      r0, [fp, #0x38]              
+           00236dbc  b        #0x23709c                    ; -> L_23709c
+L_236dc0:  00236dc0  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00236dc4  cmp      r0, r5                       
+           00236dc8  blls     #0x23714c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00236dcc  lsl      r0, r5, #2                   
+           00236dd0  add      r0, r4, r0                   
+           00236dd4  add      r0, r0, #0x10                
+           00236dd8  ldr      r0, [r0]                     
+           00236ddc  ldr      r6, [r0, #0x10]              ; field+0x10 (this-class: wheelFR)
+           00236de0  mov      r2, r6                       
+           00236de4  vldr     s0, [sl, #0x24]              ; field+0x24 (this-class: suspensionDistance)
+           00236de8  vcvt.f64.f32 d2, s0                       
+           00236dec  mov      r0, r2                       
+           00236df0  vcvt.f32.f64 s0, d2                       
+           00236df4  vstr     s0, [sp]                     
+           00236df8  ldr      r1, [sp]                     
+           00236dfc  ldr      lr, [r2]                     
+           00236e00  bl       #0x238740                    ; CALL UnityEngine.WheelCollider::set_suspensionDistance
+           00236e04  add      r0, fp, #0x18                
+           00236e08  mov      r1, r6                       
+           00236e0c  ldr      lr, [r6]                     
+           00236e10  bl       #0x238750                    ; CALL UnityEngine.WheelCollider::get_suspensionSpring
+           00236e14  vldr     s0, [sl, #0x28]              ; field+0x28 (this-class: springs)
+           00236e18  vcvt.f64.f32 d2, s0                       
+           00236e1c  vcvt.f32.f64 s0, d2                       
+           00236e20  vstr     s0, [fp, #0x18]              
+           00236e24  vldr     s0, [sl, #0x2c]              ; field+0x2c (this-class: dampers)
+           00236e28  vcvt.f64.f32 d2, s0                       
+           00236e2c  vcvt.f32.f64 s0, d2                       
+           00236e30  vstr     s0, [fp, #0x1c]              
+           00236e34  ldr      r0, [fp, #0x18]              
+           00236e38  str      r0, [fp, #0xd8]              
+           00236e3c  ldr      r0, [fp, #0x1c]              
+           00236e40  str      r0, [fp, #0xdc]              
+           00236e44  ldr      r0, [fp, #0x20]              
+           00236e48  str      r0, [fp, #0xe0]              
+           00236e4c  mov      r0, r6                       
+           00236e50  ldr      r1, [fp, #0xd8]              
+           00236e54  ldr      r2, [fp, #0xdc]              
+           00236e58  ldr      r3, [fp, #0xe0]              
+           00236e5c  ldr      lr, [r6]                     
+           00236e60  bl       #0x238760                    ; CALL UnityEngine.WheelCollider::set_suspensionSpring
+           00236e64  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00236e68  cmp      r0, r5                       
+           00236e6c  blls     #0x23714c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00236e70  lsl      r0, r5, #2                   
+           00236e74  add      r0, r4, r0                   
+           00236e78  add      r0, r0, #0x10                
+           00236e7c  ldr      r0, [r0]                     
+           00236e80  vldr     s0, [r0, #0x2c]              ; field+0x2c (this-class: dampers)
+           00236e84  vcvt.f64.f32 d2, s0                       
+           00236e88  mov      r0, r6                       
+           00236e8c  vcvt.f32.f64 s0, d2                       
+           00236e90  vstr     s0, [sp]                     
+           00236e94  ldr      r1, [sp]                     
+           00236e98  ldr      lr, [r6]                     
+           00236e9c  bl       #0x238770                    ; CALL UnityEngine.WheelCollider::set_radius
+           00236ea0  vldr     s0, [sl, #0x38]              ; field+0x38 (this-class: wheelWeight)
+           00236ea4  vcvt.f64.f32 d2, s0                       
+           00236ea8  mov      r0, r6                       
+           00236eac  vcvt.f32.f64 s0, d2                       
+           00236eb0  vstr     s0, [sp]                     
+           00236eb4  ldr      r1, [sp]                     
+           00236eb8  ldr      lr, [r6]                     
+           00236ebc  bl       #0x238780                    ; CALL UnityEngine.WheelCollider::set_mass
+           00236ec0  add      r0, fp, #0x24                
+           00236ec4  mov      r1, r6                       
+           00236ec8  ldr      lr, [r6]                     
+           00236ecc  bl       #0x238790                    ; CALL UnityEngine.WheelCollider::get_forwardFriction
+           00236ed0  vldr     s4, [pc]                     ; float 10000.0
+           00236ed4  b        #0x236edc                    ; -> L_236edc
+           00236ed8  .word    0x461c4000                   ; literal 1176256512 / 10000
+L_236edc:  00236edc  vcvt.f64.f32 d2, s4                       
+           00236ee0  vcvt.f32.f64 s0, d2                       
+           00236ee4  vstr     s0, [fp, #0x68]              
+           00236ee8  vldr     s0, [fp, #0x68]              
+           00236eec  vcvt.f64.f32 d2, s0                       
+           00236ef0  vcvt.f32.f64 s0, d2                       
+           00236ef4  vstr     s0, [fp, #0x30]              
+           00236ef8  vldr     s4, [pc]                     ; float 2.0
+           00236efc  b        #0x236f04                    ; -> L_236f04
+           00236f00  .word    0x40000000                   ; literal 1073741824 / 2
+L_236f04:  00236f04  vcvt.f64.f32 d2, s4                       
+           00236f08  vcvt.f32.f64 s0, d2                       
+           00236f0c  vstr     s0, [fp, #0x6c]              
+           00236f10  vldr     s0, [fp, #0x6c]              
+           00236f14  vcvt.f64.f32 d2, s0                       
+           00236f18  vcvt.f32.f64 s0, d2                       
+           00236f1c  vstr     s0, [fp, #0x24]              
+           00236f20  vldr     s4, [pc]                     ; float 20.0
+           00236f24  b        #0x236f2c                    ; -> L_236f2c
+           00236f28  .word    0x41a00000                   ; literal 1101004800 / 20
+L_236f2c:  00236f2c  vcvt.f64.f32 d2, s4                       
+           00236f30  vcvt.f32.f64 s0, d2                       
+           00236f34  vstr     s0, [fp, #0x70]              
+           00236f38  vldr     s0, [fp, #0x70]              
+           00236f3c  vcvt.f64.f32 d2, s0                       
+           00236f40  vcvt.f32.f64 s0, d2                       
+           00236f44  vstr     s0, [fp, #0x2c]              
+           00236f48  vldr     s4, [pc]                     ; float 0.029999999329447746
+           00236f4c  b        #0x236f54                    ; -> L_236f54
+           00236f50  .word    0x3cf5c28f                   ; literal 1022739087 / 0.03
+L_236f54:  00236f54  vcvt.f64.f32 d2, s4                       
+           00236f58  vcvt.f32.f64 s0, d2                       
+           00236f5c  vstr     s0, [fp, #0x74]              
+           00236f60  vldr     s0, [fp, #0x74]              
+           00236f64  vcvt.f64.f32 d2, s0                       
+           00236f68  vcvt.f32.f64 s0, d2                       
+           00236f6c  vstr     s0, [fp, #0x34]              
+           00236f70  ldr      r0, [fp, #0x24]              
+           00236f74  str      r0, [fp, #0xe4]              
+           00236f78  ldr      r0, [fp, #0x28]              
+           00236f7c  str      r0, [fp, #0xe8]              
+           00236f80  ldr      r0, [fp, #0x2c]              
+           00236f84  str      r0, [fp, #0xec]              
+           00236f88  ldr      r0, [fp, #0x30]              
+           00236f8c  str      r0, [fp, #0xf0]              
+           00236f90  ldr      r0, [fp, #0x34]              
+           00236f94  str      r0, [fp, #0xf4]              
+           00236f98  mov      r0, r6                       
+           00236f9c  ldr      r1, [fp, #0xe4]              
+           00236fa0  ldr      r2, [fp, #0xe8]              
+           00236fa4  ldr      r3, [fp, #0xec]              
+           00236fa8  ldr      ip, [fp, #0xf0]              
+           00236fac  str      ip, [sp]                     
+           00236fb0  ldr      ip, [fp, #0xf4]              
+           00236fb4  str      ip, [sp, #4]                 
+           00236fb8  ldr      lr, [r6]                     
+           00236fbc  bl       #0x2387a0                    ; CALL UnityEngine.WheelCollider::set_forwardFriction
+           00236fc0  add      r0, fp, #0x24                
+           00236fc4  mov      r1, r6                       
+           00236fc8  ldr      lr, [r6]                     
+           00236fcc  bl       #0x2387b0                    ; CALL UnityEngine.WheelCollider::get_sidewaysFriction
+           00236fd0  vldr     s4, [pc]                     ; float 15000.0
+           00236fd4  b        #0x236fdc                    ; -> L_236fdc
+           00236fd8  .word    0x466a6000                   ; literal 1181376512 / 15000
+L_236fdc:  00236fdc  vcvt.f64.f32 d2, s4                       
+           00236fe0  vcvt.f32.f64 s0, d2                       
+           00236fe4  vstr     s0, [fp, #0xa0]              
+           00236fe8  vldr     s0, [fp, #0xa0]              
+           00236fec  vcvt.f64.f32 d2, s0                       
+           00236ff0  vcvt.f32.f64 s0, d2                       
+           00236ff4  vstr     s0, [fp, #0x30]              
+           00236ff8  vldr     s4, [pc]                     ; float 1.0
+           00236ffc  b        #0x237004                    ; -> L_237004
+           00237000  .word    0x3f800000                   ; literal 1065353216 / 1
+L_237004:  00237004  vcvt.f64.f32 d2, s4                       
+           00237008  vcvt.f32.f64 s0, d2                       
+           0023700c  vstr     s0, [fp, #0xa4]              
+           00237010  vldr     s0, [fp, #0xa4]              
+           00237014  vcvt.f64.f32 d2, s0                       
+           00237018  vcvt.f32.f64 s0, d2                       
+           0023701c  vstr     s0, [fp, #0x2c]              
+           00237020  vldr     s4, [pc]                     ; float 0.029999999329447746
+           00237024  b        #0x23702c                    ; -> L_23702c
+           00237028  .word    0x3cf5c28f                   ; literal 1022739087 / 0.03
+L_23702c:  0023702c  vcvt.f64.f32 d2, s4                       
+           00237030  vcvt.f32.f64 s0, d2                       
+           00237034  vstr     s0, [fp, #0xa8]              
+           00237038  vldr     s0, [fp, #0xa8]              
+           0023703c  vcvt.f64.f32 d2, s0                       
+           00237040  vcvt.f32.f64 s0, d2                       
+           00237044  vstr     s0, [fp, #0x34]              
+           00237048  ldr      r0, [fp, #0x24]              
+           0023704c  str      r0, [fp, #0xf8]              
+           00237050  ldr      r0, [fp, #0x28]              
+           00237054  str      r0, [fp, #0xfc]              
+           00237058  ldr      r0, [fp, #0x2c]              
+           0023705c  str      r0, [fp, #0x100]             
+           00237060  ldr      r0, [fp, #0x30]              
+           00237064  str      r0, [fp, #0x104]             
+           00237068  ldr      r0, [fp, #0x34]              
+           0023706c  str      r0, [fp, #0x108]             
+           00237070  mov      r0, r6                       
+           00237074  ldr      r1, [fp, #0xf8]              
+           00237078  ldr      r2, [fp, #0xfc]              
+           0023707c  ldr      r3, [fp, #0x100]             
+           00237080  ldr      ip, [fp, #0x104]             
+           00237084  str      ip, [sp]                     
+           00237088  ldr      ip, [fp, #0x108]             
+           0023708c  str      ip, [sp, #4]                 
+           00237090  ldr      lr, [r6]                     
+           00237094  bl       #0x2387c0                    ; CALL UnityEngine.WheelCollider::set_sidewaysFriction
+           00237098  add      r5, r5, #1                   
+L_23709c:  0023709c  ldr      r0, [fp, #0x38]              
+           002370a0  cmp      r5, r0                       
+           002370a4  blt      #0x236dc0                    ; -> L_236dc0
+           002370a8  mov      r0, sl                       
+           002370ac  ldr      lr, [sl]                     
+           002370b0  bl       #0x2387d0                    ; CALL UnityEngine.Component::get_rigidbody
+           002370b4  str      r0, [fp, #0x130]             
+           002370b8  mov      r0, sl                       
+           002370bc  ldr      lr, [sl]                     
+           002370c0  bl       #0x2387d0                    ; CALL UnityEngine.Component::get_rigidbody
+           002370c4  mov      r2, r0                       
+           002370c8  add      r0, fp, #0x10c               
+           002370cc  mov      r1, r2                       
+           002370d0  ldr      lr, [r2]                     
+           002370d4  bl       #0x2387e0                    ; CALL UnityEngine.Rigidbody::get_centerOfMass
+           002370d8  add      r0, sl, #0x3c                
+           002370dc  ldr      r1, [r0]                     
+           002370e0  str      r1, [fp, #0x118]             
+           002370e4  ldr      r1, [r0, #4]                 ; field+0x4 
+           002370e8  str      r1, [fp, #0x11c]             
+           002370ec  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           002370f0  str      r0, [fp, #0x120]             
+           002370f4  add      r0, fp, #0x124               
+           002370f8  ldr      r1, [fp, #0x10c]             
+           002370fc  ldr      r2, [fp, #0x110]             
+           00237100  ldr      r3, [fp, #0x114]             
+           00237104  ldr      ip, [fp, #0x118]             
+           00237108  str      ip, [sp]                     
+           0023710c  ldr      ip, [fp, #0x11c]             
+           00237110  str      ip, [sp, #4]                 
+           00237114  ldr      ip, [fp, #0x120]             
+           00237118  str      ip, [sp, #8]                 
+           0023711c  bl       #0x2387f0                    ; CALL UnityEngine.Vector3::op_Addition
+           00237120  ldr      ip, [fp, #0x130]             
+           00237124  mov      r0, ip                       
+           00237128  ldr      r1, [fp, #0x124]             
+           0023712c  ldr      r2, [fp, #0x128]             
+           00237130  ldr      r3, [fp, #0x12c]             
+           00237134  ldr      lr, [ip]                     
+           00237138  bl       #0x238800                    ; CALL UnityEngine.Rigidbody::set_centerOfMass
+           0023713c  add      sp, fp, #80, #30             
+           00237140  pop      {r4, r5, r6, r8, sl, fp}     
+           00237144  ldr      r7, [sp, #8]                 
+           00237148  ldm      sp, {sp, pc}                 
+           0023714c  mov      r1, lr                       
+           00237150  ldr      r0, [pc]                     
+           00237154  bl       #0x238710                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00237158  andeq    r0, r0, #0xf8                
+
+== Car_Script::FixedUpdate  token 0x06000009 @0x0023715c (2800 bytes)
+   args: r0=this, 
+           0023715c  mov      ip, sp                       
+           00237160  push     {r7, lr}                     
+           00237164  mov      r7, sp                       
+           00237168  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0023716c  sub      sp, sp, #0x1b8               
+           00237170  mov      fp, sp                       
+           00237174  mov      sl, r0                       
+           00237178  add      r0, fp, #0x34                
+           0023717c  mov      r1, #0                       
+           00237180  mov      r2, #0x40                    
+           00237184  bl       #0x238810                    ; CALL System.String::memset
+           00237188  mov      r0, #0                       
+           0023718c  str      r0, [fp, #0x74]              
+           00237190  mov      r0, #0                       
+           00237194  str      r0, [fp, #0x78]              
+           00237198  mov      r0, #0                       
+           0023719c  str      r0, [fp, #0x7c]              
+           002371a0  bl       #0x238820                    ; CALL UnityEngine.Time::get_fixedDeltaTime
+           002371a4  vmov     s4, r0                       
+           002371a8  vcvt.f64.f32 d2, s4                       
+           002371ac  vcvt.f32.f64 s0, d2                       
+           002371b0  vstr     s0, [fp, #0x18]              
+           002371b4  ldr      r0, [pc]                     
+           002371b8  b        #0x2371c0                    ; -> L_2371c0
+           002371bc  .word    0x00d73370                   ; literal 14103408 / 
+L_2371c0:  002371c0  ldr      r0, [pc, r0]                 ; GOT[4] LDSTR 'Horizontal'
+           002371c4  bl       #0x2385b0                    ; CALL UnityEngine.Input::GetAxis
+           002371c8  vmov     s4, r0                       
+           002371cc  vcvt.f64.f32 d2, s4                       
+           002371d0  vcvt.f32.f64 s0, d2                       
+           002371d4  vstr     s0, [fp, #0x1c]              
+           002371d8  ldr      r0, [pc]                     
+           002371dc  b        #0x2371e4                    ; -> L_2371e4
+           002371e0  .word    0x00d73350                   ; literal 14103376 / 
+L_2371e4:  002371e4  ldr      r0, [pc, r0]                 ; GOT[5] LDSTR 'Vertical'
+           002371e8  bl       #0x2385b0                    ; CALL UnityEngine.Input::GetAxis
+           002371ec  vmov     s4, r0                       
+           002371f0  vcvt.f64.f32 d2, s4                       
+           002371f4  vcvt.f32.f64 s0, d2                       
+           002371f8  vstr     s0, [fp, #0x20]              
+           002371fc  ldr      r0, [pc]                     
+           00237200  b        #0x237208                    ; -> L_237208
+           00237204  .word    0x00d73344                   ; literal 14103364 / 
+L_237208:  00237208  ldr      r0, [pc, r0]                 ; GOT[11] LDSTR 'Jump'
+           0023720c  bl       #0x238830                    ; CALL UnityEngine.Input::GetButton
+           00237210  strb     r0, [fp, #0x24]              
+           00237214  mov      r0, #0                       
+           00237218  strb     r0, [fp, #0x25]              
+           0023721c  vldr     s0, [fp, #0x20]              
+           00237220  vcvt.f64.f32 d2, s0                       
+           00237224  mov      r0, #0                       
+           00237228  vmov     s0, r0                       
+           0023722c  vcvt.f32.s32 s0, s0                       
+           00237230  vcvt.f64.f32 d3, s0                       
+           00237234  vcmp.f64 d2, d3                       
+           00237238  vmrs     apsr_nzcv, fpscr             
+           0023723c  bge      #0x237290                    ; -> L_237290
+           00237240  ldr      r0, [sl, #0x58]              ; field+0x58 (this-class: currentGear)
+           00237244  cmp      r0, #1                       
+           00237248  bne      #0x237284                    ; -> L_237284
+           0023724c  mov      r0, #1                       
+           00237250  strb     r0, [fp, #0x24]              
+           00237254  mov      r0, #0                       
+           00237258  vmov     s0, r0                       
+           0023725c  vcvt.f32.s32 s0, s0                       
+           00237260  vcvt.f64.f32 d2, s0                       
+           00237264  vcvt.f32.f64 s0, d2                       
+           00237268  vstr     s0, [fp, #0x20]              
+           0023726c  mov      r0, #0                       
+           00237270  vmov     s0, r0                       
+           00237274  vcvt.f32.s32 s0, s0                       
+           00237278  vcvt.f64.f32 d2, s0                       
+           0023727c  vcvt.f32.f64 s0, d2                       
+           00237280  vstr     s0, [sl, #0x60]              ; field+0x60 (this-class: wantedRPM)
+L_237284:  00237284  mov      r0, #0                       
+           00237288  str      r0, [sl, #0x58]              ; field+0x58 (this-class: currentGear)
+           0023728c  b        #0x237300                    ; -> L_237300
+L_237290:  00237290  vldr     s0, [fp, #0x20]              
+           00237294  vcvt.f64.f32 d3, s0                       
+           00237298  mov      r0, #0                       
+           0023729c  vmov     s0, r0                       
+           002372a0  vcvt.f32.s32 s0, s0                       
+           002372a4  vcvt.f64.f32 d2, s0                       
+           002372a8  vcmp.f64 d2, d3                       
+           002372ac  vmrs     apsr_nzcv, fpscr             
+           002372b0  bge      #0x237300                    ; -> L_237300
+           002372b4  ldr      r0, [sl, #0x58]              ; field+0x58 (this-class: currentGear)
+           002372b8  cmp      r0, #0                       
+           002372bc  bne      #0x2372f8                    ; -> L_2372f8
+           002372c0  mov      r0, #1                       
+           002372c4  strb     r0, [fp, #0x24]              
+           002372c8  mov      r0, #0                       
+           002372cc  vmov     s0, r0                       
+           002372d0  vcvt.f32.s32 s0, s0                       
+           002372d4  vcvt.f64.f32 d2, s0                       
+           002372d8  vcvt.f32.f64 s0, d2                       
+           002372dc  vstr     s0, [fp, #0x20]              
+           002372e0  mov      r0, #0                       
+           002372e4  vmov     s0, r0                       
+           002372e8  vcvt.f32.s32 s0, s0                       
+           002372ec  vcvt.f64.f32 d2, s0                       
+           002372f0  vcvt.f32.f64 s0, d2                       
+           002372f4  vstr     s0, [sl, #0x60]              ; field+0x60 (this-class: wantedRPM)
+L_2372f8:  002372f8  mov      r0, #1                       
+           002372fc  str      r0, [sl, #0x58]              ; field+0x58 (this-class: currentGear)
+L_237300:  00237300  vldr     s0, [fp, #0x20]              
+           00237304  vcvt.f64.f32 d2, s0                       
+           00237308  mov      r0, #0                       
+           0023730c  vmov     s0, r0                       
+           00237310  vcvt.f32.s32 s0, s0                       
+           00237314  vcvt.f64.f32 d3, s0                       
+           00237318  vcmp.f64 d2, d3                       
+           0023731c  vmrs     apsr_nzcv, fpscr             
+           00237320  bge      #0x23732c                    ; -> L_23732c
+           00237324  ldrb     r0, [fp, #0x25]              
+           00237328  cmp      r0, #0                       
+L_23732c:  0023732c  vldr     s4, [pc]                     ; float 5500.0
+           00237330  b        #0x237338                    ; -> L_237338
+           00237334  .word    0x45abe000                   ; literal 1168891904 / 5500
+L_237338:  00237338  vcvt.f64.f32 d2, s4                       
+           0023733c  vldr     s0, [fp, #0x20]              
+           00237340  vcvt.f64.f32 d3, s0                       
+           00237344  vmul.f64 d2, d2, d3                   
+           00237348  vldr     s6, [pc]                     ; float 0.10000000149011612
+           0023734c  b        #0x237354                    ; -> L_237354
+           00237350  .word    0x3dcccccd                   ; literal 1036831949 / 0.1
+L_237354:  00237354  vcvt.f64.f32 d3, s6                       
+           00237358  vmul.f64 d2, d2, d3                   
+           0023735c  vldr     s0, [sl, #0x60]              ; field+0x60 (this-class: wantedRPM)
+           00237360  vcvt.f64.f32 d3, s0                       
+           00237364  vldr     s8, [pc]                     ; float 0.8999999761581421
+           00237368  b        #0x237370                    ; -> L_237370
+           0023736c  .word    0x3f666666                   ; literal 1063675494 / 0.9
+L_237370:  00237370  vcvt.f64.f32 d4, s8                       
+           00237374  vmul.f64 d3, d3, d4                   
+           00237378  vadd.f64 d2, d2, d3                   
+           0023737c  vcvt.f32.f64 s0, d2                       
+           00237380  vstr     s0, [sl, #0x60]              ; field+0x60 (this-class: wantedRPM)
+           00237384  vldr     s0, [sl, #0x60]              ; field+0x60 (this-class: wantedRPM)
+           00237388  vcvt.f64.f32 d2, s0                       
+           0023738c  mov      r0, #0xa                     
+           00237390  vmov     s0, r0                       
+           00237394  vcvt.f32.s32 s0, s0                       
+           00237398  vcvt.f64.f32 d3, s0                       
+           0023739c  vcmp.f64 d2, d3                       
+           002373a0  vmrs     apsr_nzcv, fpscr             
+           002373a4  bge      #0x2373c0                    ; -> L_2373c0
+           002373a8  mov      r0, #0                       
+           002373ac  vmov     s0, r0                       
+           002373b0  vcvt.f32.s32 s0, s0                       
+           002373b4  vcvt.f64.f32 d2, s0                       
+           002373b8  vcvt.f32.f64 s0, d2                       
+           002373bc  vstr     s0, [sl, #0x60]              ; field+0x60 (this-class: wantedRPM)
+L_2373c0:  002373c0  mov      r0, #0                       
+           002373c4  vmov     s0, r0                       
+           002373c8  vcvt.f32.s32 s0, s0                       
+           002373cc  vcvt.f64.f32 d2, s0                       
+           002373d0  vcvt.f32.f64 s0, d2                       
+           002373d4  vstr     s0, [fp, #0x28]              
+           002373d8  mov      r0, #0                       
+           002373dc  vmov     s0, r0                       
+           002373e0  vcvt.f32.s32 s0, s0                       
+           002373e4  vcvt.f64.f32 d2, s0                       
+           002373e8  vcvt.f32.f64 s0, d2                       
+           002373ec  vstr     s0, [fp, #0x2c]              
+           002373f0  mov      r0, #0                       
+           002373f4  strb     r0, [fp, #0x30]              
+           002373f8  mov      r6, #0                       
+           002373fc  mov      r5, #0                       
+           00237400  ldr      r4, [sl, #0x20]              ; field+0x20 (this-class: wheels)
+           00237404  mov      r0, r4                       
+           00237408  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0023740c  str      r0, [fp, #0x88]              
+           00237410  b        #0x237890                    ; -> L_237890
+L_237414:  00237414  add      r0, fp, #0x34                
+           00237418  mov      r1, #0                       
+           0023741c  mov      r2, #0x40                    
+           00237420  bl       #0x238810                    ; CALL System.String::memset
+           00237424  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00237428  cmp      r0, r5                       
+           0023742c  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00237430  lsl      r0, r5, #2                   
+           00237434  add      r0, r4, r0                   
+           00237438  add      r0, r0, #0x10                
+           0023743c  ldr      r0, [r0]                     
+           00237440  ldr      r6, [r0, #0x10]              ; field+0x10 (this-class: wheelFR)
+           00237444  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00237448  cmp      r0, r5                       
+           0023744c  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00237450  lsl      r0, r5, #2                   
+           00237454  add      r0, r4, r0                   
+           00237458  add      r0, r0, #0x10                
+           0023745c  ldr      r0, [r0]                     
+           00237460  ldrb     r0, [r0, #0x28]              ; field+0x28 (this-class: springs)
+           00237464  cmp      r0, #0                       
+           00237468  beq      #0x2374c0                    ; -> L_2374c0
+           0023746c  vldr     s0, [fp, #0x28]              
+           00237470  vcvt.f64.f32 d2, s0                       
+           00237474  vstr     d2, [fp, #0x180]             
+           00237478  mov      r0, r6                       
+           0023747c  ldr      lr, [r6]                     
+           00237480  bl       #0x238840                    ; CALL UnityEngine.WheelCollider::get_rpm
+           00237484  vmov     s6, r0                       
+           00237488  vcvt.f64.f32 d3, s6                       
+           0023748c  vldr     d2, [fp, #0x180]             
+           00237490  vadd.f64 d2, d2, d3                   
+           00237494  vcvt.f32.f64 s0, d2                       
+           00237498  vstr     s0, [fp, #0x28]              
+           0023749c  vldr     s0, [fp, #0x2c]              
+           002374a0  vcvt.f64.f32 d2, s0                       
+           002374a4  mov      r0, #1                       
+           002374a8  vmov     s0, r0                       
+           002374ac  vcvt.f32.s32 s0, s0                       
+           002374b0  vcvt.f64.f32 d3, s0                       
+           002374b4  vadd.f64 d2, d2, d3                   
+           002374b8  vcvt.f32.f64 s0, d2                       
+           002374bc  vstr     s0, [fp, #0x2c]              
+L_2374c0:  002374c0  ldr      r0, [r4, #0xc]               ; field+0xc 
+           002374c4  cmp      r0, r5                       
+           002374c8  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           002374cc  lsl      r0, r5, #2                   
+           002374d0  add      r0, r4, r0                   
+           002374d4  add      r0, r0, #0x10                
+           002374d8  ldr      r0, [r0]                     
+           002374dc  str      r0, [fp, #0x198]             
+           002374e0  ldr      r0, [r4, #0xc]               ; field+0xc 
+           002374e4  cmp      r0, r5                       
+           002374e8  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           002374ec  lsl      r0, r5, #2                   
+           002374f0  add      r0, r4, r0                   
+           002374f4  add      r0, r0, #0x10                
+           002374f8  ldr      r0, [r0]                     
+           002374fc  vldr     s0, [r0, #0x20]              ; field+0x20 (this-class: wheels)
+           00237500  vcvt.f64.f32 d2, s0                       
+           00237504  vstr     d2, [fp, #0x1a0]             
+           00237508  vldr     s0, [fp, #0x18]              
+           0023750c  vcvt.f64.f32 d2, s0                       
+           00237510  vstr     d2, [fp, #0x1a8]             
+           00237514  mov      r0, r6                       
+           00237518  ldr      lr, [r6]                     
+           0023751c  bl       #0x238840                    ; CALL UnityEngine.WheelCollider::get_rpm
+           00237520  vmov     s8, r0                       
+           00237524  vcvt.f64.f32 d4, s8                       
+           00237528  vldr     d2, [fp, #0x1a0]             
+           0023752c  vldr     d3, [fp, #0x1a8]             
+           00237530  vmul.f64 d3, d3, d4                   
+           00237534  vldr     s8, [pc]                     ; float 360.0
+           00237538  b        #0x237540                    ; -> L_237540
+           0023753c  .word    0x43b40000                   ; literal 1135869952 / 360
+L_237540:  00237540  vcvt.f64.f32 d4, s8                       
+           00237544  vmul.f64 d3, d3, d4                   
+           00237548  vldr     s10, [pc]                    ; float 60.0
+           0023754c  b        #0x237554                    ; -> L_237554
+           00237550  .word    0x42700000                   ; literal 1114636288 / 60
+L_237554:  00237554  vcvt.f64.f32 d5, s10                      
+           00237558  vmov.f64 d4, d3                       
+           0023755c  vdiv.f64 d4, d4, d5                   
+           00237560  vmov.f64 d3, d2                       
+           00237564  vsub.f64 d3, d3, d4                   
+           00237568  vldr     s4, [pc]                     ; float 360.0
+           0023756c  b        #0x237574                    ; -> L_237574
+           00237570  .word    0x43b40000                   ; literal 1135869952 / 360
+L_237574:  00237574  vcvt.f64.f32 d2, s4                       
+           00237578  vcvt.f32.f64 s0, d3                       
+           0023757c  vstr     s0, [sp, #-8]                
+           00237580  ldr      r0, [sp, #-8]                
+           00237584  vcvt.f32.f64 s0, d2                       
+           00237588  vstr     s0, [sp, #-8]                
+           0023758c  ldr      r1, [sp, #-8]                
+           00237590  bl       #0x238850                    ; CALL UnityEngine.Mathf::Repeat
+           00237594  vmov     s4, r0                       
+           00237598  vcvt.f64.f32 d2, s4                       
+           0023759c  ldr      r0, [fp, #0x198]             
+           002375a0  vcvt.f32.f64 s0, d2                       
+           002375a4  vstr     s0, [r0, #0x20]              ; field+0x20 (this-class: wheels)
+           002375a8  ldr      r0, [r4, #0xc]               ; field+0xc 
+           002375ac  cmp      r0, r5                       
+           002375b0  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           002375b4  lsl      r0, r5, #2                   
+           002375b8  add      r0, r4, r0                   
+           002375bc  add      r0, r0, #0x10                
+           002375c0  ldr      r0, [r0]                     
+           002375c4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           002375c8  str      r0, [fp, #0x18c]             
+           002375cc  ldr      r0, [r4, #0xc]               ; field+0xc 
+           002375d0  cmp      r0, r5                       
+           002375d4  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           002375d8  lsl      r0, r5, #2                   
+           002375dc  add      r0, r4, r0                   
+           002375e0  add      r0, r0, #0x10                
+           002375e4  ldr      r0, [r0]                     
+           002375e8  vldr     s0, [r0, #0x20]              ; field+0x20 (this-class: wheels)
+           002375ec  vcvt.f64.f32 d2, s0                       
+           002375f0  vstr     d2, [fp, #0x190]             
+           002375f4  mov      r0, r6                       
+           002375f8  ldr      lr, [r6]                     
+           002375fc  bl       #0x238860                    ; CALL UnityEngine.WheelCollider::get_steerAngle
+           00237600  vmov     s6, r0                       
+           00237604  vcvt.f64.f32 d3, s6                       
+           00237608  vldr     d4, [fp, #0x190]             
+           0023760c  mov      r0, #0                       
+           00237610  vmov     s0, r0                       
+           00237614  vcvt.f32.s32 s0, s0                       
+           00237618  vcvt.f64.f32 d2, s0                       
+           0023761c  add      r0, fp, #76, #30             
+           00237620  vcvt.f32.f64 s0, d4                       
+           00237624  vstr     s0, [sp, #-8]                
+           00237628  ldr      r1, [sp, #-8]                
+           0023762c  vcvt.f32.f64 s0, d3                       
+           00237630  vstr     s0, [sp, #-8]                
+           00237634  ldr      r2, [sp, #-8]                
+           00237638  vcvt.f32.f64 s0, d2                       
+           0023763c  vstr     s0, [sp, #-8]                
+           00237640  ldr      r3, [sp, #-8]                
+           00237644  bl       #0x238870                    ; CALL UnityEngine.Quaternion::Euler
+           00237648  ldr      ip, [fp, #0x18c]             
+           0023764c  mov      r0, ip                       
+           00237650  str      r0, [fp, #0x188]             
+           00237654  ldr      r1, [fp, #0x130]             
+           00237658  ldr      r2, [fp, #0x134]             
+           0023765c  ldr      r3, [fp, #0x138]             
+           00237660  ldr      r0, [fp, #0x13c]             
+           00237664  str      r0, [sp]                     
+           00237668  ldr      r0, [fp, #0x188]             
+           0023766c  ldr      lr, [ip]                     
+           00237670  bl       #0x238880                    ; CALL UnityEngine.Transform::set_localRotation
+           00237674  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00237678  cmp      r0, r5                       
+           0023767c  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00237680  lsl      r0, r5, #2                   
+           00237684  add      r0, r4, r0                   
+           00237688  add      r0, r0, #0x10                
+           0023768c  ldr      r0, [r0]                     
+           00237690  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00237694  add      r0, fp, #0x74                
+           00237698  mov      r1, r2                       
+           0023769c  ldr      lr, [r2]                     
+           002376a0  bl       #0x238700                    ; CALL UnityEngine.Transform::get_localPosition
+           002376a4  add      r1, fp, #0x34                
+           002376a8  mov      r0, r6                       
+           002376ac  ldr      lr, [r6]                     
+           002376b0  bl       #0x238890                    ; CALL UnityEngine.WheelCollider::GetGroundHit
+           002376b4  cmp      r0, #0                       
+           002376b8  beq      #0x237800                    ; -> L_237800
+           002376bc  vldr     s0, [fp, #0x78]              
+           002376c0  vcvt.f64.f32 d2, s0                       
+           002376c4  vstr     d2, [fp, #0x180]             
+           002376c8  ldr      r0, [r4, #0xc]               ; field+0xc 
+           002376cc  cmp      r0, r5                       
+           002376d0  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           002376d4  lsl      r0, r5, #2                   
+           002376d8  add      r0, r4, r0                   
+           002376dc  add      r0, r0, #0x10                
+           002376e0  ldr      r0, [r0]                     
+           002376e4  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           002376e8  add      r0, fp, #80, #30             
+           002376ec  mov      r1, r2                       
+           002376f0  ldr      lr, [r2]                     
+           002376f4  bl       #0x238600                    ; CALL UnityEngine.Transform::get_position
+           002376f8  add      r0, fp, #0x34                
+           002376fc  ldr      r1, [r0]                     
+           00237700  str      r1, [fp, #0x14c]             
+           00237704  ldr      r1, [r0, #4]                 ; field+0x4 
+           00237708  str      r1, [fp, #0x150]             
+           0023770c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00237710  str      r0, [fp, #0x154]             
+           00237714  add      r0, fp, #0x158               
+           00237718  ldr      r1, [fp, #0x140]             
+           0023771c  ldr      r2, [fp, #0x144]             
+           00237720  ldr      r3, [fp, #0x148]             
+           00237724  ldr      ip, [fp, #0x14c]             
+           00237728  str      ip, [sp]                     
+           0023772c  ldr      ip, [fp, #0x150]             
+           00237730  str      ip, [sp, #4]                 
+           00237734  ldr      ip, [fp, #0x154]             
+           00237738  str      ip, [sp, #8]                 
+           0023773c  bl       #0x2388a0                    ; CALL UnityEngine.Vector3::op_Subtraction
+           00237740  mov      r0, sl                       
+           00237744  ldr      lr, [sl]                     
+           00237748  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           0023774c  mov      r2, r0                       
+           00237750  add      r0, fp, #0x164               
+           00237754  mov      r1, r2                       
+           00237758  ldr      lr, [r2]                     
+           0023775c  bl       #0x2388b0                    ; CALL UnityEngine.Transform::get_up
+           00237760  ldr      r0, [fp, #0x158]             
+           00237764  ldr      r1, [fp, #0x15c]             
+           00237768  ldr      r2, [fp, #0x160]             
+           0023776c  ldr      r3, [fp, #0x164]             
+           00237770  ldr      ip, [fp, #0x168]             
+           00237774  str      ip, [sp]                     
+           00237778  ldr      ip, [fp, #0x16c]             
+           0023777c  str      ip, [sp, #4]                 
+           00237780  bl       #0x2388c0                    ; CALL UnityEngine.Vector3::Dot
+           00237784  vmov     s4, r0                       
+           00237788  vcvt.f64.f32 d2, s4                       
+           0023778c  vstr     d2, [fp, #0x1b0]             
+           00237790  mov      r0, r6                       
+           00237794  ldr      lr, [r6]                     
+           00237798  bl       #0x2388d0                    ; CALL UnityEngine.WheelCollider::get_radius
+           0023779c  vmov     s8, r0                       
+           002377a0  vcvt.f64.f32 d4, s8                       
+           002377a4  vldr     d2, [fp, #0x180]             
+           002377a8  vldr     d3, [fp, #0x1b0]             
+           002377ac  vsub.f64 d3, d3, d4                   
+           002377b0  vsub.f64 d2, d2, d3                   
+           002377b4  vcvt.f32.f64 s0, d2                       
+           002377b8  vstr     s0, [fp, #0x78]              
+           002377bc  ldrb     r0, [fp, #0x30]              
+           002377c0  str      r0, [fp, #0xe4]              
+           002377c4  ldrb     r0, [fp, #0x30]              
+           002377c8  cmp      r0, #0                       
+           002377cc  bne      #0x2377f4                    ; -> L_2377f4
+           002377d0  ldr      r0, [r4, #0xc]               ; field+0xc 
+           002377d4  cmp      r0, r5                       
+           002377d8  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           002377dc  lsl      r0, r5, #2                   
+           002377e0  add      r0, r4, r0                   
+           002377e4  add      r0, r0, #0x10                
+           002377e8  ldr      r0, [r0]                     
+           002377ec  ldrb     r0, [r0, #0x28]              ; field+0x28 (this-class: springs)
+           002377f0  str      r0, [fp, #0xe4]              
+L_2377f4:  002377f4  ldr      r0, [fp, #0xe4]              
+           002377f8  strb     r0, [fp, #0x30]              
+           002377fc  b        #0x23783c                    ; -> L_23783c
+L_237800:  00237800  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00237804  cmp      r0, r5                       
+           00237808  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           0023780c  lsl      r0, r5, #2                   
+           00237810  add      r0, r4, r0                   
+           00237814  add      r0, r0, #0x10                
+           00237818  ldr      r0, [r0]                     
+           0023781c  add      r0, r0, #0x14                
+           00237820  vldr     s0, [r0, #4]                 ; field+0x4 
+           00237824  vcvt.f64.f32 d2, s0                       
+           00237828  vldr     s0, [sl, #0x24]              ; field+0x24 (this-class: suspensionDistance)
+           0023782c  vcvt.f64.f32 d3, s0                       
+           00237830  vsub.f64 d2, d2, d3                   
+           00237834  vcvt.f32.f64 s0, d2                       
+           00237838  vstr     s0, [fp, #0x78]              
+L_23783c:  0023783c  ldr      r0, [r4, #0xc]               ; field+0xc 
+           00237840  cmp      r0, r5                       
+           00237844  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00237848  lsl      r0, r5, #2                   
+           0023784c  add      r0, r4, r0                   
+           00237850  add      r0, r0, #0x10                
+           00237854  ldr      r0, [r0]                     
+           00237858  ldr      ip, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0023785c  ldr      r0, [fp, #0x74]              
+           00237860  str      r0, [fp, #0x170]             
+           00237864  ldr      r0, [fp, #0x78]              
+           00237868  str      r0, [fp, #0x174]             
+           0023786c  ldr      r0, [fp, #0x7c]              
+           00237870  str      r0, [fp, #0x178]             
+           00237874  mov      r0, ip                       
+           00237878  ldr      r1, [fp, #0x170]             
+           0023787c  ldr      r2, [fp, #0x174]             
+           00237880  ldr      r3, [fp, #0x178]             
+           00237884  ldr      lr, [ip]                     
+           00237888  bl       #0x2388e0                    ; CALL UnityEngine.Transform::set_localPosition
+           0023788c  add      r5, r5, #1                   
+L_237890:  00237890  ldr      r0, [fp, #0x88]              
+           00237894  cmp      r5, r0                       
+           00237898  blt      #0x237414                    ; -> L_237414
+           0023789c  vldr     s0, [fp, #0x2c]              
+           002378a0  vcvt.f64.f32 d3, s0                       
+           002378a4  mov      r0, #1                       
+           002378a8  vmov     s0, r0                       
+           002378ac  vcvt.f32.s32 s0, s0                       
+           002378b0  vcvt.f64.f32 d2, s0                       
+           002378b4  vcmp.f64 d2, d3                       
+           002378b8  vmrs     apsr_nzcv, fpscr             
+           002378bc  bge      #0x2378dc                    ; -> L_2378dc
+           002378c0  vldr     s0, [fp, #0x28]              
+           002378c4  vcvt.f64.f32 d2, s0                       
+           002378c8  vldr     s0, [fp, #0x2c]              
+           002378cc  vcvt.f64.f32 d3, s0                       
+           002378d0  vdiv.f64 d2, d2, d3                   
+           002378d4  vcvt.f32.f64 s0, d2                       
+           002378d8  vstr     s0, [fp, #0x28]              
+L_2378dc:  002378dc  vldr     s4, [pc]                     ; float 0.949999988079071
+           002378e0  b        #0x2378e8                    ; -> L_2378e8
+           002378e4  .word    0x3f733333                   ; literal 1064514355 / 0.95
+L_2378e8:  002378e8  vcvt.f64.f32 d2, s4                       
+           002378ec  vldr     s0, [sl, #0x64]              ; field+0x64 (this-class: motorRPM)
+           002378f0  vcvt.f64.f32 d3, s0                       
+           002378f4  vmov.f64 d4, d2                       
+           002378f8  vmul.f64 d4, d4, d3                   
+           002378fc  vldr     s6, [pc]                     ; float 0.05000000074505806
+           00237900  b        #0x237908                    ; -> L_237908
+           00237904  .word    0x3d4ccccd                   ; literal 1028443341 / 0.05
+L_237908:  00237908  vcvt.f64.f32 d3, s6                       
+           0023790c  vldr     s0, [fp, #0x28]              
+           00237910  vcvt.f64.f32 d2, s0                       
+           00237914  ldr      r0, [sl, #0x58]              ; field+0x58 (this-class: currentGear)
+           00237918  mov      r5, sl                       
+           0023791c  vstr     d4, [fp, #0xf4]              
+           00237920  vstr     d3, [fp, #0xfc]              
+           00237924  vstr     d2, [fp, #0x104]             
+           00237928  cmp      r0, #1                       
+           0023792c  bne      #0x237950                    ; -> L_237950
+           00237930  vldr     d4, [fp, #0xf4]              
+           00237934  vldr     d3, [fp, #0xfc]              
+           00237938  vldr     d2, [fp, #0x104]             
+           0023793c  vstr     d4, [fp, #0xf4]              
+           00237940  vstr     d3, [fp, #0xfc]              
+           00237944  vstr     d2, [fp, #0x104]             
+           00237948  mov      r4, #2                       
+           0023794c  b        #0x23796c                    ; -> L_23796c
+L_237950:  00237950  vldr     d4, [fp, #0xf4]              
+           00237954  vldr     d3, [fp, #0xfc]              
+           00237958  vldr     d2, [fp, #0x104]             
+           0023795c  vstr     d4, [fp, #0xf4]              
+           00237960  vstr     d3, [fp, #0xfc]              
+           00237964  vstr     d2, [fp, #0x104]             
+           00237968  mvn      r4, #5                       
+L_23796c:  0023796c  vldr     d2, [fp, #0xf4]              
+           00237970  vstr     d2, [fp, #0x180]             
+           00237974  vldr     d2, [fp, #0xfc]              
+           00237978  vstr     d2, [fp, #0x1b0]             
+           0023797c  vldr     d2, [fp, #0x104]             
+           00237980  vmov     s0, r4                       
+           00237984  vcvt.f32.s32 s0, s0                       
+           00237988  vcvt.f64.f32 d3, s0                       
+           0023798c  vmul.f64 d2, d2, d3                   
+           00237990  vcvt.f32.f64 s0, d2                       
+           00237994  vstr     s0, [sp, #8]                 
+           00237998  ldr      r0, [sp, #8]                 
+           0023799c  bl       #0x2388f0                    ; CALL UnityEngine.Mathf::Abs
+           002379a0  vmov     s8, r0                       
+           002379a4  vcvt.f64.f32 d4, s8                       
+           002379a8  vldr     d2, [fp, #0x180]             
+           002379ac  vldr     d3, [fp, #0x1b0]             
+           002379b0  vmul.f64 d3, d3, d4                   
+           002379b4  vadd.f64 d2, d2, d3                   
+           002379b8  vcvt.f32.f64 s0, d2                       
+           002379bc  vstr     s0, [r5, #0x64]              ; field+0x64 (this-class: motorRPM)
+           002379c0  vldr     s0, [sl, #0x64]              ; field+0x64 (this-class: motorRPM)
+           002379c4  vcvt.f64.f32 d3, s0                       
+           002379c8  vldr     s4, [pc]                     ; float 5500.0
+           002379cc  b        #0x2379d4                    ; -> L_2379d4
+           002379d0  .word    0x45abe000                   ; literal 1168891904 / 5500
+L_2379d4:  002379d4  vcvt.f64.f32 d2, s4                       
+           002379d8  vcmp.f64 d2, d3                       
+           002379dc  vmrs     apsr_nzcv, fpscr             
+           002379e0  bge      #0x2379fc                    ; -> L_2379fc
+           002379e4  vldr     s4, [pc]                     ; float 5500.0
+           002379e8  b        #0x2379f0                    ; -> L_2379f0
+           002379ec  .word    0x45abe000                   ; literal 1168891904 / 5500
+L_2379f0:  002379f0  vcvt.f64.f32 d2, s4                       
+           002379f4  vcvt.f32.f64 s0, d2                       
+           002379f8  vstr     s0, [sl, #0x64]              ; field+0x64 (this-class: motorRPM)
+L_2379fc:  002379fc  vldr     s0, [sl, #0x30]              ; field+0x30 (this-class: torque)
+           00237a00  vcvt.f64.f32 d2, s0                       
+           00237a04  ldr      r0, [sl, #0x58]              ; field+0x58 (this-class: currentGear)
+           00237a08  vstr     d2, [fp, #0x114]             
+           00237a0c  cmp      r0, #1                       
+           00237a10  bne      #0x237a28                    ; -> L_237a28
+           00237a14  vldr     d2, [fp, #0x114]             
+           00237a18  vstr     d2, [fp, #0x114]             
+           00237a1c  mov      r0, #5                       
+           00237a20  str      r0, [fp, #0x11c]             
+           00237a24  b        #0x237a38                    ; -> L_237a38
+L_237a28:  00237a28  vldr     d2, [fp, #0x114]             
+           00237a2c  vstr     d2, [fp, #0x114]             
+           00237a30  mvn      r0, #4                       
+           00237a34  str      r0, [fp, #0x11c]             
+L_237a38:  00237a38  vldr     d2, [fp, #0x114]             
+           00237a3c  ldr      r0, [fp, #0x11c]             
+           00237a40  vmov     s0, r0                       
+           00237a44  vcvt.f32.s32 s0, s0                       
+           00237a48  vcvt.f64.f32 d3, s0                       
+           00237a4c  vmul.f64 d2, d2, d3                   
+           00237a50  vcvt.f32.f64 s0, d2                       
+           00237a54  vstr     s0, [fp, #0x80]              
+           00237a58  mov      r0, #0                       
+           00237a5c  str      r0, [fp, #0x8c]              
+           00237a60  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: wheels)
+           00237a64  str      r0, [fp, #0x90]              
+           00237a68  ldr      r0, [r0, #0xc]               ; field+0xc 
+           00237a6c  str      r0, [fp, #0x94]              
+           00237a70  b        #0x237c1c                    ; -> L_237c1c
+L_237a74:  00237a74  ldr      r0, [fp, #0x90]              
+           00237a78  ldr      r2, [r0, #0xc]               ; field+0xc 
+           00237a7c  ldr      r1, [fp, #0x8c]              
+           00237a80  cmp      r2, r1                       
+           00237a84  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00237a88  lsl      r2, r1, #2                   
+           00237a8c  add      r2, r0, r2                   
+           00237a90  add      r2, r2, #0x10                
+           00237a94  ldr      r2, [r2]                     
+           00237a98  ldr      r6, [r2, #0x10]              ; field+0x10 (this-class: wheelFR)
+           00237a9c  ldr      r2, [r0, #0xc]               ; field+0xc 
+           00237aa0  cmp      r2, r1                       
+           00237aa4  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00237aa8  lsl      r1, r1, #2                   
+           00237aac  add      r0, r0, r1                   
+           00237ab0  add      r0, r0, #0x10                
+           00237ab4  ldr      r0, [r0]                     
+           00237ab8  ldrb     r0, [r0, #0x28]              ; field+0x28 (this-class: springs)
+           00237abc  cmp      r0, #0                       
+           00237ac0  beq      #0x237bc0                    ; -> L_237bc0
+           00237ac4  mov      r0, r6                       
+           00237ac8  ldr      lr, [r6]                     
+           00237acc  bl       #0x238840                    ; CALL UnityEngine.WheelCollider::get_rpm
+           00237ad0  vmov     s4, r0                       
+           00237ad4  vcvt.f64.f32 d2, s4                       
+           00237ad8  vcvt.f32.f64 s0, d2                       
+           00237adc  vstr     s0, [sp, #8]                 
+           00237ae0  ldr      r0, [sp, #8]                 
+           00237ae4  bl       #0x2388f0                    ; CALL UnityEngine.Mathf::Abs
+           00237ae8  vmov     s4, r0                       
+           00237aec  vcvt.f64.f32 d2, s4                       
+           00237af0  vstr     d2, [fp, #0x180]             
+           00237af4  vldr     s0, [sl, #0x60]              ; field+0x60 (this-class: wantedRPM)
+           00237af8  vcvt.f64.f32 d2, s0                       
+           00237afc  vcvt.f32.f64 s0, d2                       
+           00237b00  vstr     s0, [sp, #8]                 
+           00237b04  ldr      r0, [sp, #8]                 
+           00237b08  bl       #0x2388f0                    ; CALL UnityEngine.Mathf::Abs
+           00237b0c  vmov     s4, r0                       
+           00237b10  vcvt.f64.f32 d2, s4                       
+           00237b14  vldr     d3, [fp, #0x180]             
+           00237b18  vcmp.f64 d2, d3                       
+           00237b1c  vmrs     apsr_nzcv, fpscr             
+           00237b20  bge      #0x237b50                    ; -> L_237b50
+           00237b24  mov      r0, #0                       
+           00237b28  vmov     s0, r0                       
+           00237b2c  vcvt.f32.s32 s0, s0                       
+           00237b30  vcvt.f64.f32 d2, s0                       
+           00237b34  mov      r0, r6                       
+           00237b38  vcvt.f32.f64 s0, d2                       
+           00237b3c  vstr     s0, [sp, #8]                 
+           00237b40  ldr      r1, [sp, #8]                 
+           00237b44  ldr      lr, [r6]                     
+           00237b48  bl       #0x2386f0                    ; CALL UnityEngine.WheelCollider::set_motorTorque
+           00237b4c  b        #0x237bc0                    ; -> L_237bc0
+L_237b50:  00237b50  mov      r0, r6                       
+           00237b54  ldr      lr, [r6]                     
+           00237b58  bl       #0x238900                    ; CALL UnityEngine.WheelCollider::get_motorTorque
+           00237b5c  vmov     s4, r0                       
+           00237b60  vcvt.f64.f32 d2, s4                       
+           00237b64  vcvt.f32.f64 s0, d2                       
+           00237b68  vstr     s0, [fp, #0x84]              
+           00237b6c  vldr     s0, [fp, #0x84]              
+           00237b70  vcvt.f64.f32 d2, s0                       
+           00237b74  vldr     s6, [pc]                     ; float 0.699999988079071
+           00237b78  b        #0x237b80                    ; -> L_237b80
+           00237b7c  .word    0x3f333333                   ; literal 1060320051 / 0.7
+L_237b80:  00237b80  vcvt.f64.f32 d3, s6                       
+           00237b84  vmul.f64 d2, d2, d3                   
+           00237b88  vldr     s0, [fp, #0x80]              
+           00237b8c  vcvt.f64.f32 d3, s0                       
+           00237b90  vldr     s8, [pc]                     ; float 0.30000001192092896
+           00237b94  b        #0x237b9c                    ; -> L_237b9c
+           00237b98  .word    0x3e99999a                   ; literal 1050253722 / 0.3
+L_237b9c:  00237b9c  vcvt.f64.f32 d4, s8                       
+           00237ba0  vmul.f64 d3, d3, d4                   
+           00237ba4  vadd.f64 d2, d2, d3                   
+           00237ba8  mov      r0, r6                       
+           00237bac  vcvt.f32.f64 s0, d2                       
+           00237bb0  vstr     s0, [sp, #8]                 
+           00237bb4  ldr      r1, [sp, #8]                 
+           00237bb8  ldr      lr, [r6]                     
+           00237bbc  bl       #0x2386f0                    ; CALL UnityEngine.WheelCollider::set_motorTorque
+L_237bc0:  00237bc0  vldr     s0, [fp, #0x1c]              
+           00237bc4  vcvt.f64.f32 d2, s0                       
+           00237bc8  ldr      r0, [fp, #0x90]              
+           00237bcc  ldr      r2, [r0, #0xc]               ; field+0xc 
+           00237bd0  ldr      r1, [fp, #0x8c]              
+           00237bd4  cmp      r2, r1                       
+           00237bd8  blls     #0x237c3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           00237bdc  lsl      r1, r1, #2                   
+           00237be0  add      r0, r0, r1                   
+           00237be4  add      r0, r0, #0x10                
+           00237be8  ldr      r0, [r0]                     
+           00237bec  vldr     s0, [r0, #0x24]              ; field+0x24 (this-class: suspensionDistance)
+           00237bf0  vcvt.f64.f32 d3, s0                       
+           00237bf4  vmul.f64 d2, d2, d3                   
+           00237bf8  mov      r0, r6                       
+           00237bfc  vcvt.f32.f64 s0, d2                       
+           00237c00  vstr     s0, [sp, #8]                 
+           00237c04  ldr      r1, [sp, #8]                 
+           00237c08  ldr      lr, [r6]                     
+           00237c0c  bl       #0x238910                    ; CALL UnityEngine.WheelCollider::set_steerAngle
+           00237c10  ldr      r0, [fp, #0x8c]              
+           00237c14  add      r0, r0, #1                   
+           00237c18  str      r0, [fp, #0x8c]              
+L_237c1c:  00237c1c  ldr      r0, [fp, #0x8c]              
+           00237c20  ldr      r1, [fp, #0x94]              
+           00237c24  cmp      r0, r1                       
+           00237c28  blt      #0x237a74                    ; -> L_237a74
+           00237c2c  add      sp, fp, #0x1b8               
+           00237c30  pop      {r4, r5, r6, r8, sl, fp}     
+           00237c34  ldr      r7, [sp, #8]                 
+           00237c38  ldm      sp, {sp, pc}                 
+           00237c3c  mov      r1, lr                       
+           00237c40  ldr      r0, [pc]                     
+           00237c44  bl       #0x238710                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00237c48  andeq    r0, r0, #0xf8                
+
+== Car_Script::Main  token 0x0600000a @0x00237c4c (484 bytes)
+   args: r0=this, 
+           00237c4c  mov      ip, sp                       
+           00237c50  push     {r7, lr}                     
+           00237c54  mov      r7, sp                       
+           00237c58  push     {r8, fp, ip, lr}             
+           00237c5c  sub      sp, sp, #0x78                
+           00237c60  mov      fp, sp                       
+           00237c64  str      r0, [fp, #0x70]              
+           00237c68  vldr     s10, [pc]                    ; float 0.800000011920929
+           00237c6c  b        #0x237c74                    ; -> L_237c74
+           00237c70  .word    0x3f4ccccd                   ; literal 1061997773 / 0.8
+L_237c74:  00237c74  vcvt.f64.f32 d5, s10                      
+           00237c78  vldr     s8, [pc]                     ; float 0.800000011920929
+           00237c7c  b        #0x237c84                    ; -> L_237c84
+           00237c80  .word    0x3f4ccccd                   ; literal 1061997773 / 0.8
+L_237c84:  00237c84  vcvt.f64.f32 d4, s8                       
+           00237c88  vldr     s6, [pc]                     ; float 0.800000011920929
+           00237c8c  b        #0x237c94                    ; -> L_237c94
+           00237c90  .word    0x3f4ccccd                   ; literal 1061997773 / 0.8
+L_237c94:  00237c94  vcvt.f64.f32 d3, s6                       
+           00237c98  mov      r0, #1                       
+           00237c9c  vmov     s0, r0                       
+           00237ca0  vcvt.f32.s32 s0, s0                       
+           00237ca4  vcvt.f64.f32 d2, s0                       
+           00237ca8  mov      r0, #0                       
+           00237cac  str      r0, [fp, #0x10]              
+           00237cb0  mov      r0, #0                       
+           00237cb4  str      r0, [fp, #0x14]              
+           00237cb8  mov      r0, #0                       
+           00237cbc  str      r0, [fp, #0x18]              
+           00237cc0  mov      r0, #0                       
+           00237cc4  str      r0, [fp, #0x1c]              
+           00237cc8  add      r0, fp, #0x10                
+           00237ccc  vcvt.f32.f64 s0, d5                       
+           00237cd0  vstr     s0, [sp, #-8]                
+           00237cd4  ldr      r1, [sp, #-8]                
+           00237cd8  vcvt.f32.f64 s0, d4                       
+           00237cdc  vstr     s0, [sp, #-8]                
+           00237ce0  ldr      r2, [sp, #-8]                
+           00237ce4  vcvt.f32.f64 s0, d3                       
+           00237ce8  vstr     s0, [sp, #-8]                
+           00237cec  ldr      r3, [sp, #-8]                
+           00237cf0  vcvt.f32.f64 s0, d2                       
+           00237cf4  vstr     s0, [sp]                     
+           00237cf8  bl       #0x238630                    ; CALL UnityEngine.Color::.ctor
+           00237cfc  ldr      r0, [fp, #0x10]              
+           00237d00  str      r0, [fp, #0x50]              
+           00237d04  ldr      r0, [fp, #0x14]              
+           00237d08  str      r0, [fp, #0x54]              
+           00237d0c  ldr      r0, [fp, #0x18]              
+           00237d10  str      r0, [fp, #0x58]              
+           00237d14  ldr      r0, [fp, #0x1c]              
+           00237d18  str      r0, [fp, #0x5c]              
+           00237d1c  ldr      r0, [fp, #0x50]              
+           00237d20  ldr      r1, [fp, #0x54]              
+           00237d24  ldr      r2, [fp, #0x58]              
+           00237d28  ldr      r3, [fp, #0x5c]              
+           00237d2c  bl       #0x238640                    ; CALL UnityEngine.RenderSettings::set_ambientLight
+           00237d30  vldr     s4, [pc]                     ; float 0.007000000216066837
+           00237d34  b        #0x237d3c                    ; -> L_237d3c
+           00237d38  .word    0x3be56042                   ; literal 1004888130 / 0.007
+L_237d3c:  00237d3c  vcvt.f64.f32 d2, s4                       
+           00237d40  vcvt.f32.f64 s0, d2                       
+           00237d44  vstr     s0, [sp]                     
+           00237d48  ldr      r0, [sp]                     
+           00237d4c  bl       #0x238650                    ; CALL UnityEngine.RenderSettings::set_fogDensity
+           00237d50  mov      r0, #0                       
+           00237d54  vmov     s0, r0                       
+           00237d58  vcvt.f32.s32 s0, s0                       
+           00237d5c  vcvt.f64.f32 d5, s0                       
+           00237d60  vldr     s8, [pc]                     ; float 0.5
+           00237d64  b        #0x237d6c                    ; -> L_237d6c
+           00237d68  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_237d6c:  00237d6c  vcvt.f64.f32 d4, s8                       
+           00237d70  vldr     s6, [pc]                     ; float 0.4000000059604645
+           00237d74  b        #0x237d7c                    ; -> L_237d7c
+           00237d78  .word    0x3ecccccd                   ; literal 1053609165 / 0.4
+L_237d7c:  00237d7c  vcvt.f64.f32 d3, s6                       
+           00237d80  mov      r0, #1                       
+           00237d84  vmov     s0, r0                       
+           00237d88  vcvt.f32.s32 s0, s0                       
+           00237d8c  vcvt.f64.f32 d2, s0                       
+           00237d90  mov      r0, #0                       
+           00237d94  str      r0, [fp, #0x30]              
+           00237d98  mov      r0, #0                       
+           00237d9c  str      r0, [fp, #0x34]              
+           00237da0  mov      r0, #0                       
+           00237da4  str      r0, [fp, #0x38]              
+           00237da8  mov      r0, #0                       
+           00237dac  str      r0, [fp, #0x3c]              
+           00237db0  add      r0, fp, #0x30                
+           00237db4  vcvt.f32.f64 s0, d5                       
+           00237db8  vstr     s0, [sp]                     
+           00237dbc  ldr      r1, [sp]                     
+           00237dc0  vcvt.f32.f64 s0, d4                       
+           00237dc4  vstr     s0, [sp]                     
+           00237dc8  ldr      r2, [sp]                     
+           00237dcc  vcvt.f32.f64 s0, d3                       
+           00237dd0  vstr     s0, [sp]                     
+           00237dd4  ldr      r3, [sp]                     
+           00237dd8  vcvt.f32.f64 s0, d2                       
+           00237ddc  vstr     s0, [sp]                     
+           00237de0  bl       #0x238630                    ; CALL UnityEngine.Color::.ctor
+           00237de4  ldr      r0, [fp, #0x30]              
+           00237de8  str      r0, [fp, #0x60]              
+           00237dec  ldr      r0, [fp, #0x34]              
+           00237df0  str      r0, [fp, #0x64]              
+           00237df4  ldr      r0, [fp, #0x38]              
+           00237df8  str      r0, [fp, #0x68]              
+           00237dfc  ldr      r0, [fp, #0x3c]              
+           00237e00  str      r0, [fp, #0x6c]              
+           00237e04  ldr      r0, [fp, #0x60]              
+           00237e08  ldr      r1, [fp, #0x64]              
+           00237e0c  ldr      r2, [fp, #0x68]              
+           00237e10  ldr      r3, [fp, #0x6c]              
+           00237e14  bl       #0x238660                    ; CALL UnityEngine.RenderSettings::set_fogColor
+           00237e18  mov      r0, #1                       
+           00237e1c  bl       #0x238670                    ; CALL UnityEngine.RenderSettings::set_fog
+           00237e20  add      sp, fp, #0x78                
+           00237e24  pop      {r8, fp}                     
+           00237e28  ldr      r7, [sp, #8]                 
+           00237e2c  ldm      sp, {sp, pc}                 

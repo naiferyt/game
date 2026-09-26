@@ -1,0 +1,219 @@
+####################################################################################################
+# TYPE AudioManager  (instance size 0x20)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 dialogIn                       AudioCrumb
+#   +0x14 dialogOut                      AudioCrumb
+#   +0x18 dirty                          bool
+#   +0x1c volume                         float
+#   static AudioManager s_Instance
+#   vtable slots: 
+####################################################################################################
+== AudioManager::.ctor  token 0x060000c2 @0x00012f70 (84 bytes)
+   args: r0=this, 
+           00012f70  mov      ip, sp                       
+           00012f74  push     {r7, lr}                     
+           00012f78  mov      r7, sp                       
+           00012f7c  push     {r8, sl, fp, ip, lr}         
+           00012f80  sub      sp, sp, #4                   
+           00012f84  mov      fp, sp                       
+           00012f88  mov      sl, r0                       
+           00012f8c  mov      r0, #1                       
+           00012f90  strb     r0, [sl, #0x18]              ; field+0x18 (this-class: dirty)
+           00012f94  vldr     s4, [pc]                     ; float 1.0
+           00012f98  b        #0x12fa0                     ; -> L_12fa0
+           00012f9c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_12fa0:   00012fa0  vcvt.f64.f32 d2, s4                       
+           00012fa4  vcvt.f32.f64 s0, d2                       
+           00012fa8  vstr     s0, [sl, #0x1c]              ; field+0x1c (this-class: volume)
+           00012fac  mov      r0, sl                       
+           00012fb0  bl       #0xb98f0                     ; CALL UnityEngine.MonoBehaviour::.ctor
+           00012fb4  add      sp, fp, #4                   
+           00012fb8  pop      {r8, sl, fp}                 
+           00012fbc  ldr      r7, [sp, #8]                 
+           00012fc0  ldm      sp, {sp, pc}                 
+
+== AudioManager::.cctor  token 0x060000c3 @0x00012fc4 (36 bytes) static
+   args: 
+           00012fc4  mov      ip, sp                       
+           00012fc8  push     {r7, lr}                     
+           00012fcc  mov      r7, sp                       
+           00012fd0  push     {r8, fp, ip, lr}             
+           00012fd4  mov      fp, sp                       
+           00012fd8  add      sp, fp, #0                   
+           00012fdc  pop      {r8, fp}                     
+           00012fe0  ldr      r7, [sp, #8]                 
+           00012fe4  ldm      sp, {sp, pc}                 
+
+== AudioManager::get_instance  token 0x060000c4 @0x00012fe8 (248 bytes) static
+   args: 
+           00012fe8  mov      ip, sp                       
+           00012fec  push     {r7, lr}                     
+           00012ff0  mov      r7, sp                       
+           00012ff4  push     {r6, r8, sl, fp, ip, lr}     
+           00012ff8  mov      fp, sp                       
+           00012ffc  ldr      r0, [pc]                     
+           00013000  b        #0x13008                     ; -> L_13008
+           00013004  .word    0x00f898d8                   ; literal 16292056 / 
+L_13008:   00013008  ldr      r0, [pc, r0]                 ; GOT[176] SFLDA AudioManager::s_Instance
+           0001300c  ldr      r0, [r0]                     
+           00013010  mov      r1, #0                       
+           00013014  bl       #0xb9ec0                     ; CALL UnityEngine.Object::op_Equality
+           00013018  cmp      r0, #0                       
+           0001301c  beq      #0x130bc                     ; -> L_130bc
+           00013020  ldr      r0, [pc]                     
+           00013024  b        #0x1302c                     ; -> L_1302c
+           00013028  .word    0x00f898b8                   ; literal 16292024 / 
+L_1302c:   0001302c  ldr      r0, [pc, r0]                 ; GOT[177] TYPE_FROM_HANDLE typeof(AudioManager)
+           00013030  bl       #0xb9ed0                     ; CALL UnityEngine.Object::FindObjectOfType
+           00013034  mov      sl, r0                       
+           00013038  mov      r6, sl                       
+           0001303c  cmp      sl, #0                       
+           00013040  beq      #0x13070                     ; -> L_13070
+           00013044  ldr      r0, [sl]                     
+           00013048  ldr      r0, [r0]                     
+           0001304c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00013050  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: dialogOut)
+           00013054  ldr      r1, [pc]                     
+           00013058  b        #0x13060                     ; -> L_13060
+           0001305c  .word    0x00f89888                   ; literal 16291976 / 
+L_13060:   00013060  ldr      r1, [pc, r1]                 ; GOT[178] CLASS AudioManager
+           00013064  cmp      r0, r1                       
+           00013068  beq      #0x13070                     ; -> L_13070
+           0001306c  mov      r6, #0                       
+L_13070:   00013070  ldr      r0, [pc]                     
+           00013074  b        #0x1307c                     ; -> L_1307c
+           00013078  .word    0x00f89864                   ; literal 16291940 / 
+L_1307c:   0001307c  ldr      r0, [pc, r0]                 ; GOT[176] SFLDA AudioManager::s_Instance
+           00013080  str      r6, [r0]                     
+           00013084  ldr      r0, [pc]                     
+           00013088  b        #0x13090                     ; -> L_13090
+           0001308c  .word    0x00f89850                   ; literal 16291920 / 
+L_13090:   00013090  ldr      r0, [pc, r0]                 ; GOT[176] SFLDA AudioManager::s_Instance
+           00013094  ldr      r0, [r0]                     
+           00013098  mov      r1, #0                       
+           0001309c  bl       #0xb9ec0                     ; CALL UnityEngine.Object::op_Equality
+           000130a0  cmp      r0, #0                       
+           000130a4  beq      #0x130bc                     ; -> L_130bc
+           000130a8  ldr      r0, [pc]                     
+           000130ac  b        #0x130b4                     ; -> L_130b4
+           000130b0  .word    0x00f89838                   ; literal 16291896 / 
+L_130b4:   000130b4  ldr      r0, [pc, r0]                 ; GOT[179] LDSTR 'Error: There needs to be exactly one AudioManager in the scene.'
+           000130b8  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_130bc:   000130bc  ldr      r0, [pc]                     
+           000130c0  b        #0x130c8                     ; -> L_130c8
+           000130c4  .word    0x00f89818                   ; literal 16291864 / 
+L_130c8:   000130c8  ldr      r0, [pc, r0]                 ; GOT[176] SFLDA AudioManager::s_Instance
+           000130cc  ldr      r0, [r0]                     
+           000130d0  add      sp, fp, #0                   
+           000130d4  pop      {r6, r8, sl, fp}             
+           000130d8  ldr      r7, [sp, #8]                 
+           000130dc  ldm      sp, {sp, pc}                 
+
+== AudioManager::OnDisable  token 0x060000c5 @0x000130e0 (68 bytes)
+   args: r0=this, 
+           000130e0  mov      ip, sp                       
+           000130e4  push     {r7, lr}                     
+           000130e8  mov      r7, sp                       
+           000130ec  push     {r8, fp, ip, lr}             
+           000130f0  sub      sp, sp, #8                   
+           000130f4  mov      fp, sp                       
+           000130f8  str      r0, [fp]                     
+           000130fc  ldr      r0, [pc]                     
+           00013100  b        #0x13108                     ; -> L_13108
+           00013104  .word    0x00f897d8                   ; literal 16291800 / 
+L_13108:   00013108  ldr      r0, [pc, r0]                 ; GOT[176] SFLDA AudioManager::s_Instance
+           0001310c  mov      r1, #0                       
+           00013110  str      r1, [r0]                     
+           00013114  add      sp, fp, #8                   
+           00013118  pop      {r8, fp}                     
+           0001311c  ldr      r7, [sp, #8]                 
+           00013120  ldm      sp, {sp, pc}                 
+
+== AudioManager::OnEnable  token 0x060000c6 @0x00013124 (68 bytes)
+   args: r0=this, 
+           00013124  mov      ip, sp                       
+           00013128  push     {r7, lr}                     
+           0001312c  mov      r7, sp                       
+           00013130  push     {r8, fp, ip, lr}             
+           00013134  sub      sp, sp, #8                   
+           00013138  mov      fp, sp                       
+           0001313c  str      r0, [fp]                     
+           00013140  ldr      r0, [pc]                     
+           00013144  b        #0x1314c                     ; -> L_1314c
+           00013148  .word    0x00f89794                   ; literal 16291732 / 
+L_1314c:   0001314c  ldr      r0, [pc, r0]                 ; GOT[176] SFLDA AudioManager::s_Instance
+           00013150  ldr      r1, [fp]                     
+           00013154  str      r1, [r0]                     
+           00013158  add      sp, fp, #8                   
+           0001315c  pop      {r8, fp}                     
+           00013160  ldr      r7, [sp, #8]                 
+           00013164  ldm      sp, {sp, pc}                 
+
+== AudioManager::get_SoundEffectsVolume  token 0x060000c7 @0x00013168 (144 bytes)
+   args: r0=this, 
+           00013168  mov      ip, sp                       
+           0001316c  push     {r7, lr}                     
+           00013170  mov      r7, sp                       
+           00013174  push     {r8, sl, fp, ip, lr}         
+           00013178  sub      sp, sp, #0xc                 
+           0001317c  mov      fp, sp                       
+           00013180  mov      sl, r0                       
+           00013184  ldrb     r0, [sl, #0x18]              ; field+0x18 (this-class: dirty)
+           00013188  cmp      r0, #0                       
+           0001318c  beq      #0x131d8                     ; -> L_131d8
+           00013190  ldr      r0, [pc]                     
+           00013194  b        #0x1319c                     ; -> L_1319c
+           00013198  .word    0x00f89754                   ; literal 16291668 / 
+L_1319c:   0001319c  ldr      r0, [pc, r0]                 ; GOT[180] LDSTR 'SoundEffectsVol'
+           000131a0  vldr     s4, [pc]                     ; float 1.0
+           000131a4  b        #0x131ac                     ; -> L_131ac
+           000131a8  .word    0x3f800000                   ; literal 1065353216 / 1
+L_131ac:   000131ac  vcvt.f64.f32 d2, s4                       
+           000131b0  vcvt.f32.f64 s0, d2                       
+           000131b4  vstr     s0, [sp, #-8]                
+           000131b8  ldr      r1, [sp, #-8]                
+           000131bc  bl       #0xb9ee0                     ; CALL UnityEngine.PlayerPrefs::GetFloat
+           000131c0  vmov     s4, r0                       
+           000131c4  vcvt.f64.f32 d2, s4                       
+           000131c8  vcvt.f32.f64 s0, d2                       
+           000131cc  vstr     s0, [sl, #0x1c]              ; field+0x1c (this-class: volume)
+           000131d0  mov      r0, #0                       
+           000131d4  strb     r0, [sl, #0x18]              ; field+0x18 (this-class: dirty)
+L_131d8:   000131d8  vldr     s0, [sl, #0x1c]              ; field+0x1c (this-class: volume)
+           000131dc  vcvt.f64.f32 d2, s0                       
+           000131e0  vcvt.f32.f64 s0, d2                       
+           000131e4  vmov     r0, s0                       
+           000131e8  add      sp, fp, #0xc                 
+           000131ec  pop      {r8, sl, fp}                 
+           000131f0  ldr      r7, [sp, #8]                 
+           000131f4  ldm      sp, {sp, pc}                 
+
+== AudioManager::set_SoundEffectsVolume  token 0x060000c8 @0x000131f8 (108 bytes)
+   args: r0=this, value
+           000131f8  mov      ip, sp                       
+           000131fc  push     {r7, lr}                     
+           00013200  mov      r7, sp                       
+           00013204  push     {r8, fp, ip, lr}             
+           00013208  sub      sp, sp, #0x10                
+           0001320c  mov      fp, sp                       
+           00013210  str      r0, [fp, #8]                 
+           00013214  str      r1, [fp, #0xc]               
+           00013218  ldr      r0, [pc]                     
+           0001321c  b        #0x13224                     ; -> L_13224
+           00013220  .word    0x00f896cc                   ; literal 16291532 / 
+L_13224:   00013224  ldr      r0, [pc, r0]                 ; GOT[180] LDSTR 'SoundEffectsVol'
+           00013228  vldr     s0, [fp, #0xc]               
+           0001322c  vcvt.f64.f32 d2, s0                       
+           00013230  vcvt.f32.f64 s0, d2                       
+           00013234  vstr     s0, [sp, #-8]                
+           00013238  ldr      r1, [sp, #-8]                
+           0001323c  bl       #0xb9ef0                     ; CALL UnityEngine.PlayerPrefs::SetFloat
+           00013240  vldr     s0, [fp, #0xc]               
+           00013244  vcvt.f64.f32 d2, s0                       
+           00013248  ldr      r0, [fp, #8]                 
+           0001324c  vcvt.f32.f64 s0, d2                       
+           00013250  vstr     s0, [r0, #0x1c]              ; field+0x1c (this-class: volume)
+           00013254  add      sp, fp, #0x10                
+           00013258  pop      {r8, fp}                     
+           0001325c  ldr      r7, [sp, #8]                 
+           00013260  ldm      sp, {sp, pc}                 

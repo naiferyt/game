@@ -1,0 +1,216 @@
+####################################################################################################
+# TYPE CartPart  (instance size 0x30)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 UIName                         LocalizedString
+#   +0x14 bundlePath                     UnlocalizedString
+#   +0x18 resourcePath                   UnlocalizedString
+#   +0x1c alternateForms                 AlternateForm
+#   +0x20 cartAttributeMods              CartAttributes
+#   +0x24 validPaintJobs                 PaintJob[]
+#   +0x28 cost                           int
+#   +0x2c cartSlot                       CartSlot/Slots
+#   vtable slots: 
+####################################################################################################
+== CartPart::.ctor  token 0x0600021a @0x000e1e5c (52 bytes)
+   args: r0=this, 
+           000e1e5c  mov      ip, sp                       
+           000e1e60  push     {r7, lr}                     
+           000e1e64  mov      r7, sp                       
+           000e1e68  push     {r8, fp, ip, lr}             
+           000e1e6c  sub      sp, sp, #8                   
+           000e1e70  mov      fp, sp                       
+           000e1e74  str      r0, [fp]                     
+           000e1e78  ldr      r0, [fp]                     
+           000e1e7c  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000e1e80  add      sp, fp, #8                   
+           000e1e84  pop      {r8, fp}                     
+           000e1e88  ldr      r7, [sp, #8]                 
+           000e1e8c  ldm      sp, {sp, pc}                 
+
+== CartPart::get_IsLocked  token 0x0600021b @0x000e1e90 (112 bytes)
+   args: r0=this, 
+           000e1e90  mov      ip, sp                       
+           000e1e94  push     {r7, lr}                     
+           000e1e98  mov      r7, sp                       
+           000e1e9c  push     {r8, fp, ip, lr}             
+           000e1ea0  sub      sp, sp, #8                   
+           000e1ea4  mov      fp, sp                       
+           000e1ea8  str      r0, [fp]                     
+           000e1eac  ldr      r0, [fp]                     
+           000e1eb0  ldr      r0, [r0, #0x28]              ; field+0x28 (this-class: cost)
+           000e1eb4  cmp      r0, #0                       
+           000e1eb8  bne      #0xe1ec4                     ; -> L_e1ec4
+           000e1ebc  mov      r0, #0                       
+           000e1ec0  b        #0xe1ef0                     ; -> L_e1ef0
+L_e1ec4:   000e1ec4  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000e1ec8  mov      r2, r0                       
+           000e1ecc  ldr      r0, [fp]                     
+           000e1ed0  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: UIName)
+           000e1ed4  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e1ed8  mov      r0, r2                       
+           000e1edc  ldr      lr, [r2]                     
+           000e1ee0  bl       #0xe6794                     ; CALL DataUtility::IsUnlocked (direct)
+           000e1ee4  cmp      r0, #0                       
+           000e1ee8  movne    r0, #0                       
+           000e1eec  moveq    r0, #1                       
+L_e1ef0:   000e1ef0  add      sp, fp, #8                   
+           000e1ef4  pop      {r8, fp}                     
+           000e1ef8  ldr      r7, [sp, #8]                 
+           000e1efc  ldm      sp, {sp, pc}                 
+
+== CartPart::get_AreAllAlternateFormsLocked  token 0x0600021c @0x000e1f00 (180 bytes)
+   args: r0=this, 
+           000e1f00  mov      ip, sp                       
+           000e1f04  push     {r7, lr}                     
+           000e1f08  mov      r7, sp                       
+           000e1f0c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e1f10  mov      fp, sp                       
+           000e1f14  mov      sl, r0                       
+           000e1f18  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: alternateForms)
+           000e1f1c  mov      r1, #0                       
+           000e1f20  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e1f24  cmp      r0, #0                       
+           000e1f28  beq      #0xe1f8c                     ; -> L_e1f8c
+           000e1f2c  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: alternateForms)
+           000e1f30  ldr      r5, [r0, #0x10]              ; field+0x10 (this-class: UIName)
+           000e1f34  mov      r4, #0                       
+           000e1f38  b        #0xe1f80                     ; -> L_e1f80
+L_e1f3c:   000e1f3c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000e1f40  cmp      r0, r4                       
+           000e1f44  blls     #0xe1fa4                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e1f48  lsl      r0, r4, #2                   
+           000e1f4c  add      r0, r5, r0                   
+           000e1f50  add      r0, r0, #0x10                
+           000e1f54  ldr      r6, [r0]                     
+           000e1f58  mov      r0, r6                       
+           000e1f5c  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e1f60  mov      r0, r1                       
+           000e1f64  ldr      lr, [r1]                     
+           000e1f68  bl       #0xe1e90                     ; CALL CartPart::get_IsLocked (direct)
+           000e1f6c  cmp      r0, #0                       
+           000e1f70  bne      #0xe1f7c                     ; -> L_e1f7c
+           000e1f74  mov      r0, #0                       
+           000e1f78  b        #0xe1f94                     ; -> L_e1f94
+L_e1f7c:   000e1f7c  add      r4, r4, #1                   
+L_e1f80:   000e1f80  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000e1f84  cmp      r4, r0                       
+           000e1f88  blt      #0xe1f3c                     ; -> L_e1f3c
+L_e1f8c:   000e1f8c  mov      r0, sl                       
+           000e1f90  bl       #0xe1e90                     ; CALL CartPart::get_IsLocked (direct)
+L_e1f94:   000e1f94  add      sp, fp, #0                   
+           000e1f98  pop      {r4, r5, r6, r8, sl, fp}     
+           000e1f9c  ldr      r7, [sp, #8]                 
+           000e1fa0  ldm      sp, {sp, pc}                 
+           000e1fa4  mov      r1, lr                       
+           000e1fa8  ldr      r0, [pc]                     
+           000e1fac  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e1fb0  andeq    r0, r0, #0xf8                
+
+== CartPart::get_bodyFormType  token 0x0600021d @0x000e1fb4 (200 bytes)
+   args: r0=this, 
+           000e1fb4  mov      ip, sp                       
+           000e1fb8  push     {r7, lr}                     
+           000e1fbc  mov      r7, sp                       
+           000e1fc0  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e1fc4  mov      fp, sp                       
+           000e1fc8  mov      sl, r0                       
+           000e1fcc  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: alternateForms)
+           000e1fd0  mov      r1, #0                       
+           000e1fd4  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000e1fd8  cmp      r0, #0                       
+           000e1fdc  bne      #0xe1ff4                     ; -> L_e1ff4
+           000e1fe0  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: alternateForms)
+           000e1fe4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: UIName)
+           000e1fe8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e1fec  cmp      r0, #0                       
+           000e1ff0  bne      #0xe1ffc                     ; -> L_e1ffc
+L_e1ff4:   000e1ff4  mov      r0, #0                       
+           000e1ff8  b        #0xe205c                     ; -> L_e205c
+L_e1ffc:   000e1ffc  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: alternateForms)
+           000e2000  ldr      r5, [r0, #0x10]              ; field+0x10 (this-class: UIName)
+           000e2004  mov      r4, #0                       
+           000e2008  b        #0xe204c                     ; -> L_e204c
+L_e200c:   000e200c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000e2010  cmp      r0, r4                       
+           000e2014  blls     #0xe206c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e2018  lsl      r0, r4, #2                   
+           000e201c  add      r0, r5, r0                   
+           000e2020  add      r0, r0, #0x10                
+           000e2024  ldr      r6, [r0]                     
+           000e2028  mov      r0, r6                       
+           000e202c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e2030  mov      r1, sl                       
+           000e2034  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000e2038  cmp      r0, #0                       
+           000e203c  beq      #0xe2048                     ; -> L_e2048
+           000e2040  ldr      r0, [r6, #0xc]               ; field+0xc 
+           000e2044  b        #0xe205c                     ; -> L_e205c
+L_e2048:   000e2048  add      r4, r4, #1                   
+L_e204c:   000e204c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000e2050  cmp      r4, r0                       
+           000e2054  blt      #0xe200c                     ; -> L_e200c
+           000e2058  mov      r0, #0                       
+L_e205c:   000e205c  add      sp, fp, #0                   
+           000e2060  pop      {r4, r5, r6, r8, sl, fp}     
+           000e2064  ldr      r7, [sp, #8]                 
+           000e2068  ldm      sp, {sp, pc}                 
+           000e206c  mov      r1, lr                       
+           000e2070  ldr      r0, [pc]                     
+           000e2074  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e2078  andeq    r0, r0, #0xf8                
+
+== CartPart::GetAlternatePartOfForm  token 0x0600021e @0x000e207c (212 bytes)
+   args: r0=this, form
+           000e207c  mov      ip, sp                       
+           000e2080  push     {r7, lr}                     
+           000e2084  mov      r7, sp                       
+           000e2088  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e208c  sub      sp, sp, #8                   
+           000e2090  mov      fp, sp                       
+           000e2094  mov      r6, r0                       
+           000e2098  mov      sl, r1                       
+           000e209c  ldr      r0, [r6, #0x1c]              ; field+0x1c (this-class: alternateForms)
+           000e20a0  mov      r1, #0                       
+           000e20a4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e20a8  cmp      r0, #0                       
+           000e20ac  beq      #0xe212c                     ; -> L_e212c
+           000e20b0  ldr      r0, [r6, #0x1c]              ; field+0x1c (this-class: alternateForms)
+           000e20b4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: UIName)
+           000e20b8  cmp      r0, #0                       
+           000e20bc  beq      #0xe212c                     ; -> L_e212c
+           000e20c0  ldr      r0, [r6, #0x1c]              ; field+0x1c (this-class: alternateForms)
+           000e20c4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: UIName)
+           000e20c8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e20cc  cmp      r0, #0                       
+           000e20d0  ble      #0xe212c                     ; -> L_e212c
+           000e20d4  ldr      r0, [r6, #0x1c]              ; field+0x1c (this-class: alternateForms)
+           000e20d8  ldr      r4, [r0, #0x10]              ; field+0x10 (this-class: UIName)
+           000e20dc  mov      r5, #0                       
+           000e20e0  b        #0xe2120                     ; -> L_e2120
+L_e20e4:   000e20e4  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000e20e8  cmp      r0, r5                       
+           000e20ec  blls     #0xe2140                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e20f0  lsl      r0, r5, #2                   
+           000e20f4  add      r0, r4, r0                   
+           000e20f8  add      r0, r0, #0x10                
+           000e20fc  ldr      r0, [r0]                     
+           000e2100  str      r0, [fp]                     
+           000e2104  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e2108  cmp      r0, sl                       
+           000e210c  bne      #0xe211c                     ; -> L_e211c
+           000e2110  ldr      r0, [fp]                     
+           000e2114  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e2118  b        #0xe2130                     ; -> L_e2130
+L_e211c:   000e211c  add      r5, r5, #1                   
+L_e2120:   000e2120  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000e2124  cmp      r5, r0                       
+           000e2128  blt      #0xe20e4                     ; -> L_e20e4
+L_e212c:   000e212c  mov      r0, r6                       
+L_e2130:   000e2130  add      sp, fp, #8                   
+           000e2134  pop      {r4, r5, r6, r8, sl, fp}     
+           000e2138  ldr      r7, [sp, #8]                 
+           000e213c  ldm      sp, {sp, pc}                 
+           000e2140  mov      r1, lr                       
+           000e2144  ldr      r0, [pc]                     
+           000e2148  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e214c  andeq    r0, r0, #0xf8                

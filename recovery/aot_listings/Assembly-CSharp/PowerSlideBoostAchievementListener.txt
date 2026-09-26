@@ -1,0 +1,390 @@
+####################################################################################################
+# TYPE PowerSlideBoostAchievementListener  (instance size 0x3c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 UIName                         LocalizedString
+#   +0x14 description                    LocalizedString
+#   +0x18 rewardDescription              LocalizedString
+#   +0x1c rewardUnlocks                  string[]
+#   +0x20 gcIdentifier                   UnlocalizedString
+#   +0x24 areaType                       AchievementListener/AchievementAreaType
+#   +0x28 rewardCoins                    int
+#   +0x2c categoryFilter                 AchievementListener/AchievementFilterCategory
+#   +0x30 state                          AchievementListener/AchievementState
+#   +0x34 metrics                        CarMetrics
+#   +0x38 numTimes                       int
+#   vtable slots: 4:Reward, 5:Postrace, 6:Prerace, 7:IsAvailable
+####################################################################################################
+== PowerSlideBoostAchievementListener::.ctor  token 0x06000157 @0x000d3d54 (60 bytes)
+   args: r0=this, 
+           000d3d54  mov      ip, sp                       
+           000d3d58  push     {r7, lr}                     
+           000d3d5c  mov      r7, sp                       
+           000d3d60  push     {r8, fp, ip, lr}             
+           000d3d64  sub      sp, sp, #8                   
+           000d3d68  mov      fp, sp                       
+           000d3d6c  str      r0, [fp]                     
+           000d3d70  ldr      r0, [fp]                     
+           000d3d74  mov      r1, #1                       
+           000d3d78  str      r1, [r0, #0x38]              ; field+0x38 (this-class: numTimes)
+           000d3d7c  bl       #0xcf738                     ; CALL AchievementListener::.ctor (direct)
+           000d3d80  add      sp, fp, #8                   
+           000d3d84  pop      {r8, fp}                     
+           000d3d88  ldr      r7, [sp, #8]                 
+           000d3d8c  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener::Start  token 0x06000158 @0x000d3d90 (88 bytes)
+   args: r0=this, 
+           000d3d90  mov      ip, sp                       
+           000d3d94  push     {r7, lr}                     
+           000d3d98  mov      r7, sp                       
+           000d3d9c  push     {r8, sl, fp, ip, lr}         
+           000d3da0  sub      sp, sp, #4                   
+           000d3da4  mov      fp, sp                       
+           000d3da8  mov      sl, r0                       
+           000d3dac  mov      r0, #1                       
+           000d3db0  str      r0, [sl, #0x30]              ; field+0x30 (this-class: state)
+           000d3db4  ldr      r0, [pc]                     
+           000d3db8  b        #0xd3dc0                     ; -> L_d3dc0
+           000d3dbc  .word    0x00ed134c                   ; literal 15536972 / 
+L_d3dc0:   000d3dc0  ldr      r0, [pc, r0]                 ; GOT[235] VTABLE PowerSlideBoostAchievementListener/<CheckMetricsPump>c__Iterator13
+           000d3dc4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000d3dc8  mov      r1, r0                       
+           000d3dcc  str      sl, [r1, #0xc]               ; field+0xc 
+           000d3dd0  mov      r0, sl                       
+           000d3dd4  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000d3dd8  add      sp, fp, #4                   
+           000d3ddc  pop      {r8, sl, fp}                 
+           000d3de0  ldr      r7, [sp, #8]                 
+           000d3de4  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener::Update  token 0x06000159 @0x000d3de8 (136 bytes)
+   args: r0=this, 
+           000d3de8  mov      ip, sp                       
+           000d3dec  push     {r7, lr}                     
+           000d3df0  mov      r7, sp                       
+           000d3df4  push     {r6, r8, fp, ip, lr}         
+           000d3df8  sub      sp, sp, #0xc                 
+           000d3dfc  mov      fp, sp                       
+           000d3e00  str      r0, [fp]                     
+           000d3e04  ldr      r0, [fp]                     
+           000d3e08  ldr      r0, [r0, #0x34]              ; field+0x34 (this-class: metrics)
+           000d3e0c  mov      r1, #0                       
+           000d3e10  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000d3e14  cmp      r0, #0                       
+           000d3e18  beq      #0xd3e60                     ; -> L_d3e60
+           000d3e1c  bl       #0x1129cc                    ; CALL RaceManager::GetPlayerCar (direct)
+           000d3e20  mov      r6, r0                       
+           000d3e24  mov      r1, #0                       
+           000d3e28  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d3e2c  cmp      r0, #0                       
+           000d3e30  beq      #0xd3e60                     ; -> L_d3e60
+           000d3e34  ldr      r0, [pc]                     
+           000d3e38  b        #0xd3e40                     ; -> L_d3e40
+           000d3e3c  .word    0x00ed10f4                   ; literal 15536372 / 
+L_d3e40:   000d3e40  ldr      r0, [pc, r0]                 ; GOT[117] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarMetrics>
+           000d3e44  ldr      lr, [r6]                     
+           000d3e48  mov      r8, r0                       
+           000d3e4c  mov      r0, r6                       
+           000d3e50  bl       #0x22b280                    ; CALL UnityEngine.GameObject::GetComponent<CarMetrics>
+           000d3e54  mov      r1, r0                       
+           000d3e58  ldr      r0, [fp]                     
+           000d3e5c  str      r1, [r0, #0x34]              ; field+0x34 (this-class: metrics)
+L_d3e60:   000d3e60  add      sp, fp, #0xc                 
+           000d3e64  pop      {r6, r8, fp}                 
+           000d3e68  ldr      r7, [sp, #8]                 
+           000d3e6c  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener::IsAvailable  token 0x0600015a @0x000d3e70 (64 bytes)
+   args: r0=this, 
+           000d3e70  mov      ip, sp                       
+           000d3e74  push     {r7, lr}                     
+           000d3e78  mov      r7, sp                       
+           000d3e7c  push     {r8, fp, ip, lr}             
+           000d3e80  sub      sp, sp, #8                   
+           000d3e84  mov      fp, sp                       
+           000d3e88  str      r0, [fp]                     
+           000d3e8c  ldr      r0, [fp]                     
+           000d3e90  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           000d3e94  cmp      r0, #0                       
+           000d3e98  movne    r0, #0                       
+           000d3e9c  moveq    r0, #1                       
+           000d3ea0  add      sp, fp, #8                   
+           000d3ea4  pop      {r8, fp}                     
+           000d3ea8  ldr      r7, [sp, #8]                 
+           000d3eac  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener::CheckMetricsPump  token 0x0600015b @0x000d3eb0 (72 bytes)
+   args: r0=this, 
+           000d3eb0  mov      ip, sp                       
+           000d3eb4  push     {r7, lr}                     
+           000d3eb8  mov      r7, sp                       
+           000d3ebc  push     {r8, fp, ip, lr}             
+           000d3ec0  sub      sp, sp, #8                   
+           000d3ec4  mov      fp, sp                       
+           000d3ec8  str      r0, [fp]                     
+           000d3ecc  ldr      r0, [pc]                     
+           000d3ed0  b        #0xd3ed8                     ; -> L_d3ed8
+           000d3ed4  .word    0x00ed1234                   ; literal 15536692 / 
+L_d3ed8:   000d3ed8  ldr      r0, [pc, r0]                 ; GOT[235] VTABLE PowerSlideBoostAchievementListener/<CheckMetricsPump>c__Iterator13
+           000d3edc  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000d3ee0  ldr      r1, [fp]                     
+           000d3ee4  str      r1, [r0, #0xc]               ; field+0xc 
+           000d3ee8  add      sp, fp, #8                   
+           000d3eec  pop      {r8, fp}                     
+           000d3ef0  ldr      r7, [sp, #8]                 
+           000d3ef4  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener::CheckMetrics  token 0x0600015c @0x000d3ef8 (188 bytes)
+   args: r0=this, 
+           000d3ef8  mov      ip, sp                       
+           000d3efc  push     {r7, lr}                     
+           000d3f00  mov      r7, sp                       
+           000d3f04  push     {r8, sl, fp, ip, lr}         
+           000d3f08  sub      sp, sp, #0xc                 
+           000d3f0c  mov      fp, sp                       
+           000d3f10  mov      sl, r0                       
+           000d3f14  ldr      r0, [sl, #0x34]              ; field+0x34 (this-class: metrics)
+           000d3f18  mov      r1, #0                       
+           000d3f1c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d3f20  cmp      r0, #0                       
+           000d3f24  beq      #0xd3fa0                     ; -> L_d3fa0
+           000d3f28  ldr      r0, [sl, #0x34]              ; field+0x34 (this-class: metrics)
+           000d3f2c  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: UIName)
+           000d3f30  ldr      r1, [pc]                     
+           000d3f34  b        #0xd3f3c                     ; -> L_d3f3c
+           000d3f38  .word    0x00ed11d4                   ; literal 15536596 / 
+L_d3f3c:   000d3f3c  ldr      r1, [pc, r1]                 ; GOT[236] LDSTR 'PowerSlide Boost'
+           000d3f40  mov      r0, r2                       
+           000d3f44  ldr      lr, [r2]                     
+           000d3f48  bl       #0x22b7a0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::ContainsKey
+           000d3f4c  cmp      r0, #0                       
+           000d3f50  beq      #0xd3fa0                     ; -> L_d3fa0
+           000d3f54  ldr      r0, [sl, #0x34]              ; field+0x34 (this-class: metrics)
+           000d3f58  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: UIName)
+           000d3f5c  ldr      r1, [pc]                     
+           000d3f60  b        #0xd3f68                     ; -> L_d3f68
+           000d3f64  .word    0x00ed11a8                   ; literal 15536552 / 
+L_d3f68:   000d3f68  ldr      r1, [pc, r1]                 ; GOT[236] LDSTR 'PowerSlide Boost'
+           000d3f6c  mov      r0, r2                       
+           000d3f70  ldr      lr, [r2]                     
+           000d3f74  bl       #0x22b7b0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::get_Item
+           000d3f78  vmov     s4, r0                       
+           000d3f7c  vcvt.f64.f32 d2, s4                       
+           000d3f80  vcvt.s32.f64 s0, d2                       
+           000d3f84  vmov     r0, s0                       
+           000d3f88  str      r0, [fp]                     
+           000d3f8c  ldr      r1, [sl, #0x38]              ; field+0x38 (this-class: numTimes)
+           000d3f90  cmp      r0, r1                       
+           000d3f94  blt      #0xd3fa0                     ; -> L_d3fa0
+           000d3f98  mov      r0, #1                       
+           000d3f9c  b        #0xd3fa4                     ; -> L_d3fa4
+L_d3fa0:   000d3fa0  mov      r0, #0                       
+L_d3fa4:   000d3fa4  add      sp, fp, #0xc                 
+           000d3fa8  pop      {r8, sl, fp}                 
+           000d3fac  ldr      r7, [sp, #8]                 
+           000d3fb0  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener::Postrace  token 0x0600015d @0x000d3fb4 (84 bytes)
+   args: r0=this, 
+           000d3fb4  mov      ip, sp                       
+           000d3fb8  push     {r7, lr}                     
+           000d3fbc  mov      r7, sp                       
+           000d3fc0  push     {r8, sl, fp, ip, lr}         
+           000d3fc4  sub      sp, sp, #4                   
+           000d3fc8  mov      fp, sp                       
+           000d3fcc  mov      sl, r0                       
+           000d3fd0  mov      r0, sl                       
+           000d3fd4  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           000d3fd8  cmp      r0, #0                       
+           000d3fdc  bne      #0xd3ff8                     ; -> L_d3ff8
+           000d3fe0  mov      r0, sl                       
+           000d3fe4  bl       #0x22b820                    ; CALL PowerSlideBoostAchievementListener::CheckMetrics
+           000d3fe8  cmp      r0, #0                       
+           000d3fec  beq      #0xd3ff8                     ; -> L_d3ff8
+           000d3ff0  mov      r0, sl                       
+           000d3ff4  bl       #0xcf80c                     ; CALL AchievementListener::Achieve (direct)
+L_d3ff8:   000d3ff8  add      sp, fp, #4                   
+           000d3ffc  pop      {r8, sl, fp}                 
+           000d4000  ldr      r7, [sp, #8]                 
+           000d4004  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener::Prerace  token 0x0600015e @0x000d4008 (44 bytes)
+   args: r0=this, 
+           000d4008  mov      ip, sp                       
+           000d400c  push     {r7, lr}                     
+           000d4010  mov      r7, sp                       
+           000d4014  push     {r8, fp, ip, lr}             
+           000d4018  sub      sp, sp, #8                   
+           000d401c  mov      fp, sp                       
+           000d4020  str      r0, [fp]                     
+           000d4024  add      sp, fp, #8                   
+           000d4028  pop      {r8, fp}                     
+           000d402c  ldr      r7, [sp, #8]                 
+           000d4030  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener::Reward  token 0x0600015f @0x000d4034 (64 bytes)
+   args: r0=this, 
+           000d4034  mov      ip, sp                       
+           000d4038  push     {r7, lr}                     
+           000d403c  mov      r7, sp                       
+           000d4040  push     {r8, fp, ip, lr}             
+           000d4044  sub      sp, sp, #8                   
+           000d4048  mov      fp, sp                       
+           000d404c  str      r0, [fp]                     
+           000d4050  ldr      r0, [pc]                     
+           000d4054  b        #0xd405c                     ; -> L_d405c
+           000d4058  .word    0x00ed10b8                   ; literal 15536312 / 
+L_d405c:   000d405c  ldr      r0, [pc, r0]                 ; GOT[237] LDSTR 'TODO: Triggered Powerslide Boost Achievement'
+           000d4060  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           000d4064  add      sp, fp, #8                   
+           000d4068  pop      {r8, fp}                     
+           000d406c  ldr      r7, [sp, #8]                 
+           000d4070  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE PowerSlideBoostAchievementListener/<CheckMetricsPump>c__Iterator13  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      PowerSlideBoostAchievementListener
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== PowerSlideBoostAchievementListener/<CheckMetricsPump>c__Iterator13::.ctor  token 0x0600083f @0x00143d58 (44 bytes)
+   args: r0=this, 
+           00143d58  mov      ip, sp                       
+           00143d5c  push     {r7, lr}                     
+           00143d60  mov      r7, sp                       
+           00143d64  push     {r8, fp, ip, lr}             
+           00143d68  sub      sp, sp, #8                   
+           00143d6c  mov      fp, sp                       
+           00143d70  str      r0, [fp]                     
+           00143d74  add      sp, fp, #8                   
+           00143d78  pop      {r8, fp}                     
+           00143d7c  ldr      r7, [sp, #8]                 
+           00143d80  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener/<CheckMetricsPump>c__Iterator13::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x06000840 @0x00143d84 (52 bytes)
+   args: r0=this, 
+           00143d84  mov      ip, sp                       
+           00143d88  push     {r7, lr}                     
+           00143d8c  mov      r7, sp                       
+           00143d90  push     {r8, fp, ip, lr}             
+           00143d94  sub      sp, sp, #8                   
+           00143d98  mov      fp, sp                       
+           00143d9c  str      r0, [fp]                     
+           00143da0  ldr      r0, [fp]                     
+           00143da4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00143da8  add      sp, fp, #8                   
+           00143dac  pop      {r8, fp}                     
+           00143db0  ldr      r7, [sp, #8]                 
+           00143db4  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener/<CheckMetricsPump>c__Iterator13::System.Collections.IEnumerator.get_Current  token 0x06000841 @0x00143db8 (52 bytes)
+   args: r0=this, 
+           00143db8  mov      ip, sp                       
+           00143dbc  push     {r7, lr}                     
+           00143dc0  mov      r7, sp                       
+           00143dc4  push     {r8, fp, ip, lr}             
+           00143dc8  sub      sp, sp, #8                   
+           00143dcc  mov      fp, sp                       
+           00143dd0  str      r0, [fp]                     
+           00143dd4  ldr      r0, [fp]                     
+           00143dd8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00143ddc  add      sp, fp, #8                   
+           00143de0  pop      {r8, fp}                     
+           00143de4  ldr      r7, [sp, #8]                 
+           00143de8  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener/<CheckMetricsPump>c__Iterator13::MoveNext  token 0x06000842 @0x00143dec (224 bytes)
+   args: r0=this, 
+           00143dec  mov      ip, sp                       
+           00143df0  push     {r7, lr}                     
+           00143df4  mov      r7, sp                       
+           00143df8  push     {r8, sl, fp, ip, lr}         
+           00143dfc  sub      sp, sp, #0x14                
+           00143e00  mov      fp, sp                       
+           00143e04  mov      sl, r0                       
+           00143e08  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00143e0c  mvn      r1, #0                       
+           00143e10  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00143e14  str      r0, [fp, #4]                 
+           00143e18  cmp      r0, #2                       
+           00143e1c  bhs      #0x143eb0                    ; -> L_143eb0
+           00143e20  ldr      r0, [fp, #4]                 
+           00143e24  lsl      r1, r0, #2                   
+           00143e28  ldr      r0, [pc]                     
+           00143e2c  b        #0x143e34                    ; -> L_143e34
+           00143e30  .word    0x00e62a18                   ; literal 15084056 / 
+L_143e34:  00143e34  ldr      r0, [pc, r0]                 ; GOT[1723] SWITCH switch table[2]
+           00143e38  add      r0, r0, r1                   
+           00143e3c  ldr      r0, [r0]                     
+           00143e40  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00143e44  bl       #0x22b820                    ; CALL PowerSlideBoostAchievementListener::CheckMetrics
+           00143e48  cmp      r0, #0                       
+           00143e4c  beq      #0x143e5c                    ; -> L_143e5c
+           00143e50  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00143e54  bl       #0xcf80c                     ; CALL AchievementListener::Achieve (direct)
+           00143e58  b        #0x143eb0                    ; -> L_143eb0
+L_143e5c:  00143e5c  vldr     s4, [pc]                     ; float 1.0
+           00143e60  b        #0x143e68                    ; -> L_143e68
+           00143e64  .word    0x3f800000                   ; literal 1065353216 / 1
+L_143e68:  00143e68  vcvt.f64.f32 d2, s4                       
+           00143e6c  vstr     d2, [fp, #8]                 
+           00143e70  ldr      r0, [pc]                     
+           00143e74  b        #0x143e7c                    ; -> L_143e7c
+           00143e78  .word    0x00e6297c                   ; literal 15083900 / 
+L_143e7c:  00143e7c  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           00143e80  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           00143e84  vldr     d2, [fp, #8]                 
+           00143e88  vcvt.f32.f64 s0, d2                       
+           00143e8c  vstr     s0, [fp]                     
+           00143e90  vldr     s0, [fp]                     
+           00143e94  vcvt.f64.f32 d2, s0                       
+           00143e98  vcvt.f32.f64 s0, d2                       
+           00143e9c  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00143ea0  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           00143ea4  mov      r0, #1                       
+           00143ea8  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00143eac  b        #0x143eb8                    ; -> L_143eb8
+L_143eb0:  00143eb0  mov      r0, #0                       
+           00143eb4  b        #0x143ebc                    ; -> L_143ebc
+L_143eb8:  00143eb8  mov      r0, #1                       
+L_143ebc:  00143ebc  add      sp, fp, #0x14                
+           00143ec0  pop      {r8, sl, fp}                 
+           00143ec4  ldr      r7, [sp, #8]                 
+           00143ec8  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener/<CheckMetricsPump>c__Iterator13::Dispose  token 0x06000843 @0x00143ecc (56 bytes)
+   args: r0=this, 
+           00143ecc  mov      ip, sp                       
+           00143ed0  push     {r7, lr}                     
+           00143ed4  mov      r7, sp                       
+           00143ed8  push     {r8, fp, ip, lr}             
+           00143edc  sub      sp, sp, #8                   
+           00143ee0  mov      fp, sp                       
+           00143ee4  str      r0, [fp]                     
+           00143ee8  ldr      r0, [fp]                     
+           00143eec  mvn      r1, #0                       
+           00143ef0  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           00143ef4  add      sp, fp, #8                   
+           00143ef8  pop      {r8, fp}                     
+           00143efc  ldr      r7, [sp, #8]                 
+           00143f00  ldm      sp, {sp, pc}                 
+
+== PowerSlideBoostAchievementListener/<CheckMetricsPump>c__Iterator13::Reset  token 0x06000844 @0x00143f04 (64 bytes)
+   args: r0=this, 
+           00143f04  mov      ip, sp                       
+           00143f08  push     {r7, lr}                     
+           00143f0c  mov      r7, sp                       
+           00143f10  push     {r8, fp, ip, lr}             
+           00143f14  sub      sp, sp, #8                   
+           00143f18  mov      fp, sp                       
+           00143f1c  str      r0, [fp]                     
+           00143f20  mov      r0, #0x49                    
+           00143f24  add      r0, r0, #0x100               
+           00143f28  add      r0, r0, #0x2000000           
+           00143f2c  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00143f30  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00143f34  add      sp, fp, #8                   
+           00143f38  pop      {r8, fp}                     
+           00143f3c  ldr      r7, [sp, #8]                 
+           00143f40  ldm      sp, {sp, pc}                 

@@ -1,0 +1,298 @@
+####################################################################################################
+# TYPE UghHeldButton  (instance size 0x54)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 normal                         UghSpritePrototype
+#   +0x14 anchor                         UghSprite/Anchor
+#   +0x18 customAnchorOffset             UnityEngine.Vector3
+#   +0x24 flippedHorizontal              bool
+#   +0x25 flippedVertical                bool
+#   +0x28 offset                         UnityEngine.Vector3
+#   +0x34 autoSizeCollider               bool
+#   +0x35 passThrough                    bool
+#   +0x38 <HotFingerID>k__BackingField   int
+#   +0x3c pressed                        UghSpritePrototype
+#   +0x40 mouseOver                      UghSpritePrototype
+#   +0x44 OnPressed                      System.Action`1<UghButton>
+#   +0x48 OnDown                         System.Action`2<UghButton,bool>
+#   +0x4c wasDown                        bool
+#   +0x50 isDownState                    bool
+#   vtable slots: 13:OnButtonHeld, 14:OnButtonUp, 15:OnButtonDown
+####################################################################################################
+== UghHeldButton::.ctor  token 0x06000783 @0x0013ccb8 (52 bytes)
+   args: r0=this, 
+           0013ccb8  mov      ip, sp                       
+           0013ccbc  push     {r7, lr}                     
+           0013ccc0  mov      r7, sp                       
+           0013ccc4  push     {r8, fp, ip, lr}             
+           0013ccc8  sub      sp, sp, #8                   
+           0013cccc  mov      fp, sp                       
+           0013ccd0  str      r0, [fp]                     
+           0013ccd4  ldr      r0, [fp]                     
+           0013ccd8  bl       #0x22f330                    ; CALL UghButton::.ctor
+           0013ccdc  add      sp, fp, #8                   
+           0013cce0  pop      {r8, fp}                     
+           0013cce4  ldr      r7, [sp, #8]                 
+           0013cce8  ldm      sp, {sp, pc}                 
+
+== UghHeldButton::get_isDown  token 0x06000784 @0x0013ccec (52 bytes)
+   args: r0=this, 
+           0013ccec  mov      ip, sp                       
+           0013ccf0  push     {r7, lr}                     
+           0013ccf4  mov      r7, sp                       
+           0013ccf8  push     {r8, fp, ip, lr}             
+           0013ccfc  sub      sp, sp, #8                   
+           0013cd00  mov      fp, sp                       
+           0013cd04  str      r0, [fp]                     
+           0013cd08  ldr      r0, [fp]                     
+           0013cd0c  ldrb     r0, [r0, #0x50]              ; field+0x50 (this-class: isDownState)
+           0013cd10  add      sp, fp, #8                   
+           0013cd14  pop      {r8, fp}                     
+           0013cd18  ldr      r7, [sp, #8]                 
+           0013cd1c  ldm      sp, {sp, pc}                 
+
+== UghHeldButton::set_isDown  token 0x06000785 @0x0013cd20 (64 bytes)
+   args: r0=this, value
+           0013cd20  mov      ip, sp                       
+           0013cd24  push     {r7, lr}                     
+           0013cd28  mov      r7, sp                       
+           0013cd2c  push     {r8, fp, ip, lr}             
+           0013cd30  sub      sp, sp, #8                   
+           0013cd34  mov      fp, sp                       
+           0013cd38  str      r0, [fp]                     
+           0013cd3c  strb     r1, [fp, #4]                 
+           0013cd40  ldrb     r1, [fp, #4]                 
+           0013cd44  ldr      r0, [fp]                     
+           0013cd48  strb     r1, [r0, #0x50]              ; field+0x50 (this-class: isDownState)
+           0013cd4c  bl       #0x13cd60                    ; CALL UghHeldButton::SetButtonVisualState (direct)
+           0013cd50  add      sp, fp, #8                   
+           0013cd54  pop      {r8, fp}                     
+           0013cd58  ldr      r7, [sp, #8]                 
+           0013cd5c  ldm      sp, {sp, pc}                 
+
+== UghHeldButton::SetButtonVisualState  token 0x06000786 @0x0013cd60 (128 bytes)
+   args: r0=this, state
+           0013cd60  mov      ip, sp                       
+           0013cd64  push     {r7, lr}                     
+           0013cd68  mov      r7, sp                       
+           0013cd6c  push     {r6, r8, sl, fp, ip, lr}     
+           0013cd70  sub      sp, sp, #8                   
+           0013cd74  mov      fp, sp                       
+           0013cd78  mov      sl, r0                       
+           0013cd7c  strb     r1, [fp]                     
+           0013cd80  ldrb     r0, [fp]                     
+           0013cd84  cmp      r0, #0                       
+           0013cd88  beq      #0x13cdbc                    ; -> L_13cdbc
+           0013cd8c  ldr      r6, [sl, #0x3c]              ; field+0x3c (this-class: pressed)
+           0013cd90  mov      r0, r6                       
+           0013cd94  bl       #0x22b210                    ; CALL UnityEngine.Object::op_Implicit
+           0013cd98  cmp      r0, #0                       
+           0013cd9c  bne      #0x13cda4                    ; -> L_13cda4
+           0013cda0  ldr      r6, [sl, #0x10]              ; field+0x10 (this-class: normal)
+L_13cda4:  0013cda4  mov      r0, sl                       
+           0013cda8  mov      r1, r6                       
+           0013cdac  ldr      r2, [sl]                     
+           0013cdb0  mov      lr, pc                       
+           0013cdb4  ldr      pc, [r2, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           0013cdb8  b        #0x13cdd0                    ; -> L_13cdd0
+L_13cdbc:  0013cdbc  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: normal)
+           0013cdc0  mov      r0, sl                       
+           0013cdc4  ldr      r2, [sl]                     
+           0013cdc8  mov      lr, pc                       
+           0013cdcc  ldr      pc, [r2, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+L_13cdd0:  0013cdd0  add      sp, fp, #8                   
+           0013cdd4  pop      {r6, r8, sl, fp}             
+           0013cdd8  ldr      r7, [sp, #8]                 
+           0013cddc  ldm      sp, {sp, pc}                 
+
+== UghHeldButton::Update  token 0x06000787 @0x0013cde0 (592 bytes)
+   args: r0=this, 
+           0013cde0  mov      ip, sp                       
+           0013cde4  push     {r7, lr}                     
+           0013cde8  mov      r7, sp                       
+           0013cdec  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0013cdf0  sub      sp, sp, #0xd8                
+           0013cdf4  mov      fp, sp                       
+           0013cdf8  mov      sl, r0                       
+           0013cdfc  add      r0, fp, #0x1c                
+           0013ce00  mov      r1, #0                       
+           0013ce04  mov      r2, #0x28                    
+           0013ce08  bl       #0x22a990                    ; CALL System.String::memset
+           0013ce0c  add      r0, fp, #0x44                
+           0013ce10  mov      r1, #0                       
+           0013ce14  mov      r2, #0x2c                    
+           0013ce18  bl       #0x22a990                    ; CALL System.String::memset
+           0013ce1c  add      r0, fp, #0x70                
+           0013ce20  mov      r1, #0                       
+           0013ce24  mov      r2, #0x18                    
+           0013ce28  bl       #0x22a990                    ; CALL System.String::memset
+           0013ce2c  mov      r0, #0                       
+           0013ce30  strb     r0, [fp, #0x18]              
+           0013ce34  bl       #0x22f1a0                    ; CALL UnityEngine.Input::get_touches
+           0013ce38  mov      r5, r0                       
+           0013ce3c  mov      r4, #0                       
+           0013ce40  b        #0x13cf9c                    ; -> L_13cf9c
+L_13ce44:  0013ce44  ldr      r0, [r5, #0xc]               ; field+0xc 
+           0013ce48  cmp      r0, r4                       
+           0013ce4c  blls     #0x13d020                    ; THROW System.IndexOutOfRangeException (if ls)
+           0013ce50  mov      r0, #0x28                    
+           0013ce54  mul      r0, r4, r0                   
+           0013ce58  add      r0, r5, r0                   
+           0013ce5c  add      r1, r0, #0x10                
+           0013ce60  add      r0, fp, #0x1c                
+           0013ce64  mov      r2, #0x28                    
+           0013ce68  bl       #0x22aa20                    ; CALL System.String::memcpy
+           0013ce6c  ldr      r0, [fp, #0x40]              
+           0013ce70  cmp      r0, #0                       
+           0013ce74  beq      #0x13ce90                    ; -> L_13ce90
+           0013ce78  ldr      r0, [fp, #0x40]              
+           0013ce7c  cmp      r0, #1                       
+           0013ce80  beq      #0x13ce90                    ; -> L_13ce90
+           0013ce84  ldr      r0, [fp, #0x40]              
+           0013ce88  cmp      r0, #2                       
+           0013ce8c  bne      #0x13cf98                    ; -> L_13cf98
+L_13ce90:  0013ce90  bl       #0x22ebc0                    ; CALL UghCamera::get_Instance
+           0013ce94  mov      r6, r0                       
+           0013ce98  mov      r1, r6                       
+           0013ce9c  mov      r0, r1                       
+           0013cea0  ldr      lr, [r1]                     
+           0013cea4  bl       #0x22bac0                    ; CALL UnityEngine.Component::get_camera
+           0013cea8  str      r0, [fp, #0xd4]              
+           0013ceac  add      r0, fp, #0x1c                
+           0013ceb0  add      r0, r0, #4                   
+           0013ceb4  ldr      r1, [r0]                     
+           0013ceb8  str      r1, [fp, #0xb4]              
+           0013cebc  ldr      r0, [r0, #4]                 ; field+0x4 
+           0013cec0  str      r0, [fp, #0xb8]              
+           0013cec4  add      r0, fp, #0xbc                
+           0013cec8  ldr      r1, [fp, #0xb4]              
+           0013cecc  ldr      r2, [fp, #0xb8]              
+           0013ced0  bl       #0x22f1b0                    ; CALL UnityEngine.Vector2::op_Implicit
+           0013ced4  ldr      ip, [fp, #0xd4]              
+           0013ced8  add      r0, fp, #0x70                
+           0013cedc  str      r0, [fp, #0xd0]              
+           0013cee0  mov      r1, ip                       
+           0013cee4  ldr      r2, [fp, #0xbc]              
+           0013cee8  ldr      r3, [fp, #0xc0]              
+           0013ceec  ldr      r0, [fp, #0xc4]              
+           0013cef0  str      r0, [sp]                     
+           0013cef4  ldr      r0, [fp, #0xd0]              
+           0013cef8  ldr      lr, [ip]                     
+           0013cefc  bl       #0x22f1c0                    ; CALL UnityEngine.Camera::ScreenPointToRay
+           0013cf00  mov      r0, sl                       
+           0013cf04  bl       #0x22b080                    ; CALL UnityEngine.Component::get_collider
+           0013cf08  mov      ip, r0                       
+           0013cf0c  add      r0, fp, #0x44                
+           0013cf10  str      r0, [fp, #0xcc]              
+           0013cf14  vldr     s4, [pc]                     ; float inf
+           0013cf18  b        #0x13cf20                    ; -> L_13cf20
+           0013cf1c  .word    0x7f800000                   ; literal 2139095040 / 
+L_13cf20:  0013cf20  vcvt.f64.f32 d2, s4                       
+           0013cf24  mov      r0, ip                       
+           0013cf28  str      r0, [fp, #0xc8]              
+           0013cf2c  ldr      r1, [fp, #0x70]              
+           0013cf30  ldr      r2, [fp, #0x74]              
+           0013cf34  ldr      r3, [fp, #0x78]              
+           0013cf38  ldr      r0, [fp, #0x7c]              
+           0013cf3c  str      r0, [sp]                     
+           0013cf40  ldr      r0, [fp, #0x80]              
+           0013cf44  str      r0, [sp, #4]                 
+           0013cf48  ldr      r0, [fp, #0x84]              
+           0013cf4c  str      r0, [sp, #8]                 
+           0013cf50  ldr      r0, [fp, #0xcc]              
+           0013cf54  str      r0, [sp, #0xc]               
+           0013cf58  ldr      r0, [fp, #0xc8]              
+           0013cf5c  vcvt.f32.f64 s0, d2                       
+           0013cf60  vstr     s0, [sp, #0x10]              
+           0013cf64  ldr      lr, [ip]                     
+           0013cf68  bl       #0x22f1d0                    ; CALL UnityEngine.Collider::Raycast
+           0013cf6c  cmp      r0, #0                       
+           0013cf70  beq      #0x13cf98                    ; -> L_13cf98
+           0013cf74  ldrb     r0, [sl, #0x50]              ; field+0x50 (this-class: isDownState)
+           0013cf78  cmp      r0, #0                       
+           0013cf7c  beq      #0x13cf8c                    ; -> L_13cf8c
+           0013cf80  mov      r0, #1                       
+           0013cf84  strb     r0, [fp, #0x18]              
+           0013cf88  b        #0x13cfa8                    ; -> L_13cfa8
+L_13cf8c:  0013cf8c  mov      r0, #1                       
+           0013cf90  strb     r0, [fp, #0x18]              
+           0013cf94  b        #0x13cfa8                    ; -> L_13cfa8
+L_13cf98:  0013cf98  add      r4, r4, #1                   
+L_13cf9c:  0013cf9c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           0013cfa0  cmp      r4, r0                       
+           0013cfa4  blt      #0x13ce44                    ; -> L_13ce44
+L_13cfa8:  0013cfa8  ldrb     r0, [fp, #0x18]              
+           0013cfac  cmp      r0, #0                       
+           0013cfb0  beq      #0x13cff4                    ; -> L_13cff4
+           0013cfb4  ldrb     r0, [sl, #0x50]              ; field+0x50 (this-class: isDownState)
+           0013cfb8  cmp      r0, #0                       
+           0013cfbc  beq      #0x13cfd4                    ; -> L_13cfd4
+           0013cfc0  mov      r0, sl                       
+           0013cfc4  ldr      r1, [sl]                     
+           0013cfc8  mov      lr, pc                       
+           0013cfcc  ldr      pc, [r1, #0x58]              ; VIRTUAL CALL slot +0x58: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::System.Collections.Generic.IEnumerator<object>.get_Current | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::System.Collections.Generic.IEnumerator<object>.get_Current | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::System.Collections.Generic.IEnumerator<object>.get_Current | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::System.Collections.Generic.IEnumerator<object>.get_Current | AnimatedTexture/<UpdateTexture>c__Iterator1A::System.Collections.Generic.IEnumerator<object>.get_Current | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::System.Collections.Generic.IEnumerator<object>.get_Current | BarrelLauncher/<LaunchPump>c__Iterator33::System.Collections.Generic.IEnumerator<object>.get_Current | BarrelSpawner/<SpawnCheck>c__Iterator34::System.Collections.Generic.IEnumerator<object>.get_Current ...(201)
+           0013cfd0  b        #0x13d010                    ; -> L_13d010
+L_13cfd4:  0013cfd4  mov      r0, sl                       
+           0013cfd8  mov      r1, #1                       
+           0013cfdc  bl       #0x13cd20                    ; CALL UghHeldButton::set_isDown (direct)
+           0013cfe0  mov      r0, sl                       
+           0013cfe4  ldr      r1, [sl]                     
+           0013cfe8  mov      lr, pc                       
+           0013cfec  ldr      pc, [r1, #0x60]              ; VIRTUAL CALL slot +0x60: DriftButton::OnButtonDown | ReverseButton::OnButtonDown | System.Exception::get_Message | System.IConvertible::ToSByte | UghHeldButton::OnButtonDown
+           0013cff0  b        #0x13d010                    ; -> L_13d010
+L_13cff4:  0013cff4  mov      r0, sl                       
+           0013cff8  mov      r1, #0                       
+           0013cffc  bl       #0x13cd20                    ; CALL UghHeldButton::set_isDown (direct)
+           0013d000  mov      r0, sl                       
+           0013d004  ldr      r1, [sl]                     
+           0013d008  mov      lr, pc                       
+           0013d00c  ldr      pc, [r1, #0x5c]              ; VIRTUAL CALL slot +0x5c: DriftButton::OnButtonUp | ReverseButton::OnButtonUp | System.Exception::get_Source | System.IConvertible::ToInt64 | UghHeldButton::OnButtonUp
+L_13d010:  0013d010  add      sp, fp, #0xd8                
+           0013d014  pop      {r4, r5, r6, r8, sl, fp}     
+           0013d018  ldr      r7, [sp, #8]                 
+           0013d01c  ldm      sp, {sp, pc}                 
+           0013d020  mov      r1, lr                       
+           0013d024  ldr      r0, [pc]                     
+           0013d028  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0013d02c  andeq    r0, r0, #0xf8                
+
+== UghHeldButton::OnButtonDown  token 0x06000788 @0x0013d030 (44 bytes)
+   args: r0=this, 
+           0013d030  mov      ip, sp                       
+           0013d034  push     {r7, lr}                     
+           0013d038  mov      r7, sp                       
+           0013d03c  push     {r8, fp, ip, lr}             
+           0013d040  sub      sp, sp, #8                   
+           0013d044  mov      fp, sp                       
+           0013d048  str      r0, [fp]                     
+           0013d04c  add      sp, fp, #8                   
+           0013d050  pop      {r8, fp}                     
+           0013d054  ldr      r7, [sp, #8]                 
+           0013d058  ldm      sp, {sp, pc}                 
+
+== UghHeldButton::OnButtonUp  token 0x06000789 @0x0013d05c (44 bytes)
+   args: r0=this, 
+           0013d05c  mov      ip, sp                       
+           0013d060  push     {r7, lr}                     
+           0013d064  mov      r7, sp                       
+           0013d068  push     {r8, fp, ip, lr}             
+           0013d06c  sub      sp, sp, #8                   
+           0013d070  mov      fp, sp                       
+           0013d074  str      r0, [fp]                     
+           0013d078  add      sp, fp, #8                   
+           0013d07c  pop      {r8, fp}                     
+           0013d080  ldr      r7, [sp, #8]                 
+           0013d084  ldm      sp, {sp, pc}                 
+
+== UghHeldButton::OnButtonHeld  token 0x0600078a @0x0013d088 (44 bytes)
+   args: r0=this, 
+           0013d088  mov      ip, sp                       
+           0013d08c  push     {r7, lr}                     
+           0013d090  mov      r7, sp                       
+           0013d094  push     {r8, fp, ip, lr}             
+           0013d098  sub      sp, sp, #8                   
+           0013d09c  mov      fp, sp                       
+           0013d0a0  str      r0, [fp]                     
+           0013d0a4  add      sp, fp, #8                   
+           0013d0a8  pop      {r8, fp}                     
+           0013d0ac  ldr      r7, [sp, #8]                 
+           0013d0b0  ldm      sp, {sp, pc}                 

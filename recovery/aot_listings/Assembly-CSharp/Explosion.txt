@@ -1,0 +1,245 @@
+####################################################################################################
+# TYPE Explosion  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   vtable slots: 
+####################################################################################################
+== Explosion::.ctor  token 0x060002f2 @0x000ed08c (52 bytes)
+   args: r0=this, 
+           000ed08c  mov      ip, sp                       
+           000ed090  push     {r7, lr}                     
+           000ed094  mov      r7, sp                       
+           000ed098  push     {r8, fp, ip, lr}             
+           000ed09c  sub      sp, sp, #8                   
+           000ed0a0  mov      fp, sp                       
+           000ed0a4  str      r0, [fp]                     
+           000ed0a8  ldr      r0, [fp]                     
+           000ed0ac  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000ed0b0  add      sp, fp, #8                   
+           000ed0b4  pop      {r8, fp}                     
+           000ed0b8  ldr      r7, [sp, #8]                 
+           000ed0bc  ldm      sp, {sp, pc}                 
+
+== Explosion::Start  token 0x060002f3 @0x000ed0c0 (172 bytes)
+   args: r0=this, 
+           000ed0c0  mov      ip, sp                       
+           000ed0c4  push     {r7, lr}                     
+           000ed0c8  mov      r7, sp                       
+           000ed0cc  push     {r8, sl, fp, ip, lr}         
+           000ed0d0  sub      sp, sp, #0x14                
+           000ed0d4  mov      fp, sp                       
+           000ed0d8  mov      sl, r0                       
+           000ed0dc  mov      r0, sl                       
+           000ed0e0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000ed0e4  bl       #0x22b640                    ; CALL UnityEngine.Object::DontDestroyOnLoad
+           000ed0e8  mov      r0, sl                       
+           000ed0ec  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed0f0  mov      r1, #0                       
+           000ed0f4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000ed0f8  cmp      r0, #0                       
+           000ed0fc  beq      #0xed138                     ; -> L_ed138
+           000ed100  mov      r0, sl                       
+           000ed104  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed108  str      r0, [fp, #8]                 
+           000ed10c  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000ed110  ldr      r2, [fp, #8]                 
+           000ed114  ldr      r0, [r0, #0x18]              ; field+0x18 
+           000ed118  vldr     s0, [r0, #0x14]              ; field+0x14 
+           000ed11c  vcvt.f64.f32 d2, s0                       
+           000ed120  mov      r0, r2                       
+           000ed124  vcvt.f32.f64 s0, d2                       
+           000ed128  vstr     s0, [sp, #-8]                
+           000ed12c  ldr      r1, [sp, #-8]                
+           000ed130  ldr      lr, [r2]                     
+           000ed134  bl       #0x22bc20                    ; CALL UnityEngine.AudioSource::set_volume
+L_ed138:   000ed138  ldr      r0, [pc]                     
+           000ed13c  b        #0xed144                     ; -> L_ed144
+           000ed140  .word    0x00eb8524                   ; literal 15435044 / 
+L_ed144:   000ed144  ldr      r0, [pc, r0]                 ; GOT[578] VTABLE Explosion/<ExplosionDeath>c__Iterator24
+           000ed148  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ed14c  mov      r1, r0                       
+           000ed150  str      sl, [r1, #0xc]               ; field+0xc 
+           000ed154  mov      r0, sl                       
+           000ed158  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000ed15c  add      sp, fp, #0x14                
+           000ed160  pop      {r8, sl, fp}                 
+           000ed164  ldr      r7, [sp, #8]                 
+           000ed168  ldm      sp, {sp, pc}                 
+
+== Explosion::Update  token 0x060002f4 @0x000ed16c (44 bytes)
+   args: r0=this, 
+           000ed16c  mov      ip, sp                       
+           000ed170  push     {r7, lr}                     
+           000ed174  mov      r7, sp                       
+           000ed178  push     {r8, fp, ip, lr}             
+           000ed17c  sub      sp, sp, #8                   
+           000ed180  mov      fp, sp                       
+           000ed184  str      r0, [fp]                     
+           000ed188  add      sp, fp, #8                   
+           000ed18c  pop      {r8, fp}                     
+           000ed190  ldr      r7, [sp, #8]                 
+           000ed194  ldm      sp, {sp, pc}                 
+
+== Explosion::ExplosionDeath  token 0x060002f5 @0x000ed198 (72 bytes)
+   args: r0=this, 
+           000ed198  mov      ip, sp                       
+           000ed19c  push     {r7, lr}                     
+           000ed1a0  mov      r7, sp                       
+           000ed1a4  push     {r8, fp, ip, lr}             
+           000ed1a8  sub      sp, sp, #8                   
+           000ed1ac  mov      fp, sp                       
+           000ed1b0  str      r0, [fp]                     
+           000ed1b4  ldr      r0, [pc]                     
+           000ed1b8  b        #0xed1c0                     ; -> L_ed1c0
+           000ed1bc  .word    0x00eb84a8                   ; literal 15434920 / 
+L_ed1c0:   000ed1c0  ldr      r0, [pc, r0]                 ; GOT[578] VTABLE Explosion/<ExplosionDeath>c__Iterator24
+           000ed1c4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ed1c8  ldr      r1, [fp]                     
+           000ed1cc  str      r1, [r0, #0xc]               ; field+0xc 
+           000ed1d0  add      sp, fp, #8                   
+           000ed1d4  pop      {r8, fp}                     
+           000ed1d8  ldr      r7, [sp, #8]                 
+           000ed1dc  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE Explosion/<ExplosionDeath>c__Iterator24  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      Explosion
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== Explosion/<ExplosionDeath>c__Iterator24::.ctor  token 0x060008a5 @0x001482dc (44 bytes)
+   args: r0=this, 
+           001482dc  mov      ip, sp                       
+           001482e0  push     {r7, lr}                     
+           001482e4  mov      r7, sp                       
+           001482e8  push     {r8, fp, ip, lr}             
+           001482ec  sub      sp, sp, #8                   
+           001482f0  mov      fp, sp                       
+           001482f4  str      r0, [fp]                     
+           001482f8  add      sp, fp, #8                   
+           001482fc  pop      {r8, fp}                     
+           00148300  ldr      r7, [sp, #8]                 
+           00148304  ldm      sp, {sp, pc}                 
+
+== Explosion/<ExplosionDeath>c__Iterator24::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x060008a6 @0x00148308 (52 bytes)
+   args: r0=this, 
+           00148308  mov      ip, sp                       
+           0014830c  push     {r7, lr}                     
+           00148310  mov      r7, sp                       
+           00148314  push     {r8, fp, ip, lr}             
+           00148318  sub      sp, sp, #8                   
+           0014831c  mov      fp, sp                       
+           00148320  str      r0, [fp]                     
+           00148324  ldr      r0, [fp]                     
+           00148328  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014832c  add      sp, fp, #8                   
+           00148330  pop      {r8, fp}                     
+           00148334  ldr      r7, [sp, #8]                 
+           00148338  ldm      sp, {sp, pc}                 
+
+== Explosion/<ExplosionDeath>c__Iterator24::System.Collections.IEnumerator.get_Current  token 0x060008a7 @0x0014833c (52 bytes)
+   args: r0=this, 
+           0014833c  mov      ip, sp                       
+           00148340  push     {r7, lr}                     
+           00148344  mov      r7, sp                       
+           00148348  push     {r8, fp, ip, lr}             
+           0014834c  sub      sp, sp, #8                   
+           00148350  mov      fp, sp                       
+           00148354  str      r0, [fp]                     
+           00148358  ldr      r0, [fp]                     
+           0014835c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00148360  add      sp, fp, #8                   
+           00148364  pop      {r8, fp}                     
+           00148368  ldr      r7, [sp, #8]                 
+           0014836c  ldm      sp, {sp, pc}                 
+
+== Explosion/<ExplosionDeath>c__Iterator24::MoveNext  token 0x060008a8 @0x00148370 (208 bytes)
+   args: r0=this, 
+           00148370  mov      ip, sp                       
+           00148374  push     {r7, lr}                     
+           00148378  mov      r7, sp                       
+           0014837c  push     {r8, sl, fp, ip, lr}         
+           00148380  sub      sp, sp, #0xc                 
+           00148384  mov      fp, sp                       
+           00148388  mov      sl, r0                       
+           0014838c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00148390  mvn      r1, #0                       
+           00148394  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00148398  str      r0, [fp, #4]                 
+           0014839c  cmp      r0, #2                       
+           001483a0  bhs      #0x148424                    ; -> L_148424
+           001483a4  ldr      r0, [fp, #4]                 
+           001483a8  lsl      r1, r0, #2                   
+           001483ac  ldr      r0, [pc]                     
+           001483b0  b        #0x1483b8                    ; -> L_1483b8
+           001483b4  .word    0x00e5e574                   ; literal 15066484 / 
+L_1483b8:  001483b8  ldr      r0, [pc, r0]                 ; GOT[1779] SWITCH switch table[2]
+           001483bc  add      r0, r0, r1                   
+           001483c0  ldr      r0, [r0]                     
+           001483c4  mov      pc, r0                       
+L_1483c8:  001483c8  ldr      r0, [pc]                     
+           001483cc  b        #0x1483d4                    ; -> L_1483d4
+           001483d0  .word    0x00e5c9cc                   ; literal 15059404 / 
+L_1483d4:  001483d4  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           001483d8  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           001483dc  mov      r1, #0                       
+           001483e0  str      r1, [r0, #8]                 ; field+0x8 (this-class: $current)
+           001483e4  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           001483e8  mov      r0, #1                       
+           001483ec  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           001483f0  b        #0x14842c                    ; -> L_14842c
+           001483f4  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           001483f8  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           001483fc  mov      r1, r0                       
+           00148400  ldr      lr, [r1]                     
+           00148404  bl       #0x22cbb0                    ; CALL UnityEngine.AudioSource::get_isPlaying
+           00148408  cmp      r0, #0                       
+           0014840c  bne      #0x1483c8                    ; -> L_1483c8
+           00148410  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00148414  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00148418  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+           0014841c  mvn      r0, #0                       
+           00148420  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+L_148424:  00148424  mov      r0, #0                       
+           00148428  b        #0x148430                    ; -> L_148430
+L_14842c:  0014842c  mov      r0, #1                       
+L_148430:  00148430  add      sp, fp, #0xc                 
+           00148434  pop      {r8, sl, fp}                 
+           00148438  ldr      r7, [sp, #8]                 
+           0014843c  ldm      sp, {sp, pc}                 
+
+== Explosion/<ExplosionDeath>c__Iterator24::Dispose  token 0x060008a9 @0x00148440 (56 bytes)
+   args: r0=this, 
+           00148440  mov      ip, sp                       
+           00148444  push     {r7, lr}                     
+           00148448  mov      r7, sp                       
+           0014844c  push     {r8, fp, ip, lr}             
+           00148450  sub      sp, sp, #8                   
+           00148454  mov      fp, sp                       
+           00148458  str      r0, [fp]                     
+           0014845c  ldr      r0, [fp]                     
+           00148460  mvn      r1, #0                       
+           00148464  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           00148468  add      sp, fp, #8                   
+           0014846c  pop      {r8, fp}                     
+           00148470  ldr      r7, [sp, #8]                 
+           00148474  ldm      sp, {sp, pc}                 
+
+== Explosion/<ExplosionDeath>c__Iterator24::Reset  token 0x060008aa @0x00148478 (64 bytes)
+   args: r0=this, 
+           00148478  mov      ip, sp                       
+           0014847c  push     {r7, lr}                     
+           00148480  mov      r7, sp                       
+           00148484  push     {r8, fp, ip, lr}             
+           00148488  sub      sp, sp, #8                   
+           0014848c  mov      fp, sp                       
+           00148490  str      r0, [fp]                     
+           00148494  mov      r0, #0x49                    
+           00148498  add      r0, r0, #0x100               
+           0014849c  add      r0, r0, #0x2000000           
+           001484a0  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           001484a4  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           001484a8  add      sp, fp, #8                   
+           001484ac  pop      {r8, fp}                     
+           001484b0  ldr      r7, [sp, #8]                 
+           001484b4  ldm      sp, {sp, pc}                 

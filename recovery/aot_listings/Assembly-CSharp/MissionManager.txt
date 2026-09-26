@@ -1,0 +1,909 @@
+####################################################################################################
+# TYPE MissionManager  (instance size 0x20)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 missionList                    System.Collections.Generic.List`1<BaseMission>
+#   +0x14 missionsPendingCompletion      System.Collections.Generic.List`1<BaseMission>
+#   +0x18 missionsPendingAdd             System.Collections.Generic.List`1<BaseMission>
+#   +0x1c hasStartedFirstMission         bool
+#   +0x1d curMissionComplete             bool
+#   +0x1e raceEnd                        bool
+#   vtable slots: 
+####################################################################################################
+== MissionManager::.ctor  token 0x060002cd @0x000ebb88 (196 bytes)
+   args: r0=this, 
+           000ebb88  mov      ip, sp                       
+           000ebb8c  push     {r7, lr}                     
+           000ebb90  mov      r7, sp                       
+           000ebb94  push     {r8, sl, fp, ip, lr}         
+           000ebb98  sub      sp, sp, #4                   
+           000ebb9c  mov      fp, sp                       
+           000ebba0  mov      sl, r0                       
+           000ebba4  ldr      r0, [pc]                     
+           000ebba8  b        #0xebbb0                     ; -> L_ebbb0
+           000ebbac  .word    0x00eb9a80                   ; literal 15440512 / 
+L_ebbb0:   000ebbb0  ldr      r0, [pc, r0]                 ; GOT[564] VTABLE System.Collections.Generic.List`1<BaseMission>
+           000ebbb4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ebbb8  ldr      r1, [pc]                     
+           000ebbbc  b        #0xebbc4                     ; -> L_ebbc4
+           000ebbc0  .word    0x00eb9a70                   ; literal 15440496 / 
+L_ebbc4:   000ebbc4  ldr      r1, [pc, r1]                 ; GOT[565] SFLDA System.Collections.Generic.List`1<BaseMission>::EmptyArray
+           000ebbc8  ldr      r1, [r1]                     
+           000ebbcc  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ebbd0  str      r0, [sl, #0x10]              ; field+0x10 (this-class: missionList)
+           000ebbd4  ldr      r0, [pc]                     
+           000ebbd8  b        #0xebbe0                     ; -> L_ebbe0
+           000ebbdc  .word    0x00eb9a50                   ; literal 15440464 / 
+L_ebbe0:   000ebbe0  ldr      r0, [pc, r0]                 ; GOT[564] VTABLE System.Collections.Generic.List`1<BaseMission>
+           000ebbe4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ebbe8  ldr      r1, [pc]                     
+           000ebbec  b        #0xebbf4                     ; -> L_ebbf4
+           000ebbf0  .word    0x00eb9a40                   ; literal 15440448 / 
+L_ebbf4:   000ebbf4  ldr      r1, [pc, r1]                 ; GOT[565] SFLDA System.Collections.Generic.List`1<BaseMission>::EmptyArray
+           000ebbf8  ldr      r1, [r1]                     
+           000ebbfc  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ebc00  str      r0, [sl, #0x14]              ; field+0x14 (this-class: missionsPendingCompletion)
+           000ebc04  ldr      r0, [pc]                     
+           000ebc08  b        #0xebc10                     ; -> L_ebc10
+           000ebc0c  .word    0x00eb9a20                   ; literal 15440416 / 
+L_ebc10:   000ebc10  ldr      r0, [pc, r0]                 ; GOT[564] VTABLE System.Collections.Generic.List`1<BaseMission>
+           000ebc14  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ebc18  ldr      r1, [pc]                     
+           000ebc1c  b        #0xebc24                     ; -> L_ebc24
+           000ebc20  .word    0x00eb9a10                   ; literal 15440400 / 
+L_ebc24:   000ebc24  ldr      r1, [pc, r1]                 ; GOT[565] SFLDA System.Collections.Generic.List`1<BaseMission>::EmptyArray
+           000ebc28  ldr      r1, [r1]                     
+           000ebc2c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ebc30  str      r0, [sl, #0x18]              ; field+0x18 (this-class: missionsPendingAdd)
+           000ebc34  mov      r0, sl                       
+           000ebc38  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000ebc3c  add      sp, fp, #4                   
+           000ebc40  pop      {r8, sl, fp}                 
+           000ebc44  ldr      r7, [sp, #8]                 
+           000ebc48  ldm      sp, {sp, pc}                 
+
+== MissionManager::GetHasStartedFirstMission  token 0x060002ce @0x000ebc4c (52 bytes)
+   args: r0=this, 
+           000ebc4c  mov      ip, sp                       
+           000ebc50  push     {r7, lr}                     
+           000ebc54  mov      r7, sp                       
+           000ebc58  push     {r8, fp, ip, lr}             
+           000ebc5c  sub      sp, sp, #8                   
+           000ebc60  mov      fp, sp                       
+           000ebc64  str      r0, [fp]                     
+           000ebc68  ldr      r0, [fp]                     
+           000ebc6c  ldrb     r0, [r0, #0x1c]              ; field+0x1c (this-class: hasStartedFirstMission)
+           000ebc70  add      sp, fp, #8                   
+           000ebc74  pop      {r8, fp}                     
+           000ebc78  ldr      r7, [sp, #8]                 
+           000ebc7c  ldm      sp, {sp, pc}                 
+
+== MissionManager::WaitForNextMission  token 0x060002cf @0x000ebc80 (88 bytes)
+   args: r0=this, mission
+           000ebc80  mov      ip, sp                       
+           000ebc84  push     {r7, lr}                     
+           000ebc88  mov      r7, sp                       
+           000ebc8c  push     {r8, fp, ip, lr}             
+           000ebc90  sub      sp, sp, #8                   
+           000ebc94  mov      fp, sp                       
+           000ebc98  str      r0, [fp]                     
+           000ebc9c  str      r1, [fp, #4]                 
+           000ebca0  ldr      r0, [pc]                     
+           000ebca4  b        #0xebcac                     ; -> L_ebcac
+           000ebca8  .word    0x00eb998c                   ; literal 15440268 / 
+L_ebcac:   000ebcac  ldr      r0, [pc, r0]                 ; GOT[566] VTABLE MissionManager/<WaitForNextMission>c__Iterator23
+           000ebcb0  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ebcb4  ldr      r1, [fp, #4]                 
+           000ebcb8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ebcbc  str      r1, [r0, #0x10]              ; field+0x10 (this-class: missionList)
+           000ebcc0  ldr      r1, [fp]                     
+           000ebcc4  str      r1, [r0, #0x14]              ; field+0x14 (this-class: missionsPendingCompletion)
+           000ebcc8  add      sp, fp, #8                   
+           000ebccc  pop      {r8, fp}                     
+           000ebcd0  ldr      r7, [sp, #8]                 
+           000ebcd4  ldm      sp, {sp, pc}                 
+
+== MissionManager::Start  token 0x060002d0 @0x000ebcd8 (56 bytes)
+   args: r0=this, 
+           000ebcd8  mov      ip, sp                       
+           000ebcdc  push     {r7, lr}                     
+           000ebce0  mov      r7, sp                       
+           000ebce4  push     {r8, fp, ip, lr}             
+           000ebce8  sub      sp, sp, #8                   
+           000ebcec  mov      fp, sp                       
+           000ebcf0  str      r0, [fp]                     
+           000ebcf4  ldr      r0, [fp]                     
+           000ebcf8  mov      r1, #0                       
+           000ebcfc  strb     r1, [r0, #0x1c]              ; field+0x1c (this-class: hasStartedFirstMission)
+           000ebd00  add      sp, fp, #8                   
+           000ebd04  pop      {r8, fp}                     
+           000ebd08  ldr      r7, [sp, #8]                 
+           000ebd0c  ldm      sp, {sp, pc}                 
+
+== MissionManager::get_CurrentMissionComplete  token 0x060002d1 @0x000ebd10 (52 bytes)
+   args: r0=this, 
+           000ebd10  mov      ip, sp                       
+           000ebd14  push     {r7, lr}                     
+           000ebd18  mov      r7, sp                       
+           000ebd1c  push     {r8, fp, ip, lr}             
+           000ebd20  sub      sp, sp, #8                   
+           000ebd24  mov      fp, sp                       
+           000ebd28  str      r0, [fp]                     
+           000ebd2c  ldr      r0, [fp]                     
+           000ebd30  ldrb     r0, [r0, #0x1d]              ; field+0x1d (this-class: curMissionComplete)
+           000ebd34  add      sp, fp, #8                   
+           000ebd38  pop      {r8, fp}                     
+           000ebd3c  ldr      r7, [sp, #8]                 
+           000ebd40  ldm      sp, {sp, pc}                 
+
+== MissionManager::get_AllMissionsComplete  token 0x060002d2 @0x000ebd44 (76 bytes)
+   args: r0=this, 
+           000ebd44  mov      ip, sp                       
+           000ebd48  push     {r7, lr}                     
+           000ebd4c  mov      r7, sp                       
+           000ebd50  push     {r8, fp, ip, lr}             
+           000ebd54  sub      sp, sp, #8                   
+           000ebd58  mov      fp, sp                       
+           000ebd5c  str      r0, [fp]                     
+           000ebd60  ldr      r0, [fp]                     
+           000ebd64  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: missionList)
+           000ebd68  mov      r1, r0                       
+           000ebd6c  ldr      lr, [r1]                     
+           000ebd70  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000ebd74  cmp      r0, #0                       
+           000ebd78  movne    r0, #0                       
+           000ebd7c  moveq    r0, #1                       
+           000ebd80  add      sp, fp, #8                   
+           000ebd84  pop      {r8, fp}                     
+           000ebd88  ldr      r7, [sp, #8]                 
+           000ebd8c  ldm      sp, {sp, pc}                 
+
+== MissionManager::Update  token 0x060002d3 @0x000ebd90 (1048 bytes)
+   args: r0=this, 
+           000ebd90  mov      ip, sp                       
+           000ebd94  push     {r7, lr}                     
+           000ebd98  mov      r7, sp                       
+           000ebd9c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000ebda0  sub      sp, sp, #0xb0                
+           000ebda4  mov      fp, sp                       
+           000ebda8  mov      sl, r0                       
+           000ebdac  mov      r0, #0                       
+           000ebdb0  str      r0, [fp]                     
+           000ebdb4  mov      r0, #0                       
+           000ebdb8  str      r0, [fp, #4]                 
+           000ebdbc  mov      r0, #0                       
+           000ebdc0  str      r0, [fp, #8]                 
+           000ebdc4  mov      r0, #0                       
+           000ebdc8  str      r0, [fp, #0xc]               
+           000ebdcc  mov      r0, #0                       
+           000ebdd0  str      r0, [fp, #0x10]              
+           000ebdd4  mov      r0, #0                       
+           000ebdd8  str      r0, [fp, #0x14]              
+           000ebddc  mov      r0, #0                       
+           000ebde0  str      r0, [fp, #0x18]              
+           000ebde4  mov      r0, #0                       
+           000ebde8  str      r0, [fp, #0x1c]              
+           000ebdec  mov      r0, #0                       
+           000ebdf0  str      r0, [fp, #0x20]              
+           000ebdf4  mov      r0, #0                       
+           000ebdf8  str      r0, [fp, #0x24]              
+           000ebdfc  mov      r0, #0                       
+           000ebe00  str      r0, [fp, #0x28]              
+           000ebe04  mov      r0, #0                       
+           000ebe08  str      r0, [fp, #0x2c]              
+           000ebe0c  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: missionsPendingAdd)
+           000ebe10  mov      r1, r2                       
+           000ebe14  mov      r0, fp                       
+           000ebe18  ldr      lr, [r2]                     
+           000ebe1c  bl       #0x22ca90                    ; CALL System.Collections.Generic.List`1<BaseMission>::GetEnumerator
+           000ebe20  b        #0xebe4c                     ; -> L_ebe4c
+L_ebe24:   000ebe24  ldr      r0, [pc]                     
+           000ebe28  b        #0xebe30                     ; -> L_ebe30
+           000ebe2c  .word    0x00eb980c                   ; literal 15439884 / 
+L_ebe30:   000ebe30  ldr      r0, [pc, r0]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ebe34  ldr      r6, [fp, #0xc]               
+           000ebe38  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: missionList)
+           000ebe3c  mov      r0, r2                       
+           000ebe40  mov      r1, r6                       
+           000ebe44  ldr      lr, [r2]                     
+           000ebe48  bl       #0x22caa0                    ; CALL System.Collections.Generic.List`1<BaseMission>::Add
+L_ebe4c:   000ebe4c  ldr      r8, [pc]                     
+           000ebe50  b        #0xebe58                     ; -> L_ebe58
+           000ebe54  .word    0x00eb97e4                   ; literal 15439844 / 
+L_ebe58:   000ebe58  ldr      r8, [pc, r8]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ebe5c  mov      r0, fp                       
+           000ebe60  bl       #0x22cab0                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseMission>::MoveNext
+           000ebe64  cmp      r0, #0                       
+           000ebe68  bne      #0xebe24                     ; -> L_ebe24
+           000ebe6c  bl       #0xebe74                     ; CALL 0xebe74
+           000ebe70  b        #0xebf00                     ; -> L_ebf00
+           000ebe74  str      lr, [fp, #0x68]              
+           000ebe78  ldr      r0, [fp]                     
+           000ebe7c  str      r0, [fp, #0x7c]              
+           000ebe80  ldr      r0, [fp, #4]                 
+           000ebe84  str      r0, [fp, #0x80]              
+           000ebe88  ldr      r0, [fp, #8]                 
+           000ebe8c  str      r0, [fp, #0x84]              
+           000ebe90  ldr      r0, [fp, #0xc]               
+           000ebe94  str      r0, [fp, #0x88]              
+           000ebe98  ldr      r0, [pc]                     
+           000ebe9c  b        #0xebea4                     ; -> L_ebea4
+           000ebea0  .word    0x00eb9798                   ; literal 15439768 / 
+L_ebea4:   000ebea4  ldr      r0, [pc, r0]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ebea8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ebeac  mov      r1, r0                       
+           000ebeb0  add      r0, r1, #8                   
+           000ebeb4  ldr      r2, [fp, #0x7c]              
+           000ebeb8  str      r2, [r0]                     
+           000ebebc  ldr      r2, [fp, #0x80]              
+           000ebec0  str      r2, [r0, #4]                 ; field+0x4 
+           000ebec4  ldr      r2, [fp, #0x84]              
+           000ebec8  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ebecc  ldr      r2, [fp, #0x88]              
+           000ebed0  str      r2, [r0, #0xc]               ; field+0xc 
+           000ebed4  mov      r0, r1                       
+           000ebed8  ldr      r1, [r1]                     
+           000ebedc  ldr      r8, [pc]                     
+           000ebee0  b        #0xebee8                     ; -> L_ebee8
+           000ebee4  .word    0x00eb8ec0                   ; literal 15437504 / 
+L_ebee8:   000ebee8  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000ebeec  add      lr, pc, #4                   
+           000ebef0  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000ebef4  andeq    r0, r0, r0                   
+           000ebef8  ldr      ip, [fp, #0x68]              
+           000ebefc  mov      pc, ip                       
+L_ebf00:   000ebf00  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: missionsPendingAdd)
+           000ebf04  mov      r0, r1                       
+           000ebf08  ldr      lr, [r1]                     
+           000ebf0c  bl       #0x22cac0                    ; CALL System.Collections.Generic.List`1<BaseMission>::Clear
+           000ebf10  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: missionList)
+           000ebf14  add      r0, fp, #0x10                
+           000ebf18  mov      r1, r2                       
+           000ebf1c  ldr      lr, [r2]                     
+           000ebf20  bl       #0x22ca90                    ; CALL System.Collections.Generic.List`1<BaseMission>::GetEnumerator
+           000ebf24  b        #0xebf80                     ; -> L_ebf80
+L_ebf28:   000ebf28  ldr      r0, [pc]                     
+           000ebf2c  b        #0xebf34                     ; -> L_ebf34
+           000ebf30  .word    0x00eb9708                   ; literal 15439624 / 
+L_ebf34:   000ebf34  ldr      r0, [pc, r0]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ebf38  ldr      r5, [fp, #0x1c]              
+           000ebf3c  ldrb     r0, [sl, #0x1c]              ; field+0x1c (this-class: hasStartedFirstMission)
+           000ebf40  cmp      r0, #0                       
+           000ebf44  bne      #0xebf70                     ; -> L_ebf70
+           000ebf48  mov      r0, #1                       
+           000ebf4c  strb     r0, [sl, #0x1c]              ; field+0x1c (this-class: hasStartedFirstMission)
+           000ebf50  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000ebf54  mov      r2, r0                       
+           000ebf58  mov      r1, #0                       
+           000ebf5c  ldr      lr, [r2]                     
+           000ebf60  bl       #0x22cad0                    ; CALL HUDLogic::SignalMissionStart
+           000ebf64  mov      r1, r0                       
+           000ebf68  mov      r0, sl                       
+           000ebf6c  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+L_ebf70:   000ebf70  mov      r0, r5                       
+           000ebf74  ldr      r1, [r5]                     
+           000ebf78  mov      lr, pc                       
+           000ebf7c  ldr      pc, [r1, #0x40]              ; VIRTUAL CALL slot +0x40: AchievementListener::IsAvailable | BaseCarAIState::Init | BaseEffect::Shutdown | BaseMission::Update | BoatAnchorEffect::Shutdown | BoosterEffect::Shutdown | BrakeMission::Update | BuyPowerupMission::Update ...(74)
+L_ebf80:   000ebf80  add      r0, fp, #0x10                
+           000ebf84  ldr      r8, [pc]                     
+           000ebf88  b        #0xebf90                     ; -> L_ebf90
+           000ebf8c  .word    0x00eb96ac                   ; literal 15439532 / 
+L_ebf90:   000ebf90  ldr      r8, [pc, r8]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ebf94  bl       #0x22cab0                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseMission>::MoveNext
+           000ebf98  cmp      r0, #0                       
+           000ebf9c  bne      #0xebf28                     ; -> L_ebf28
+           000ebfa0  bl       #0xebfa8                     ; CALL 0xebfa8
+           000ebfa4  b        #0xec034                     ; -> L_ec034
+           000ebfa8  str      lr, [fp, #0x70]              
+           000ebfac  ldr      r0, [fp, #0x10]              
+           000ebfb0  str      r0, [fp, #0x8c]              
+           000ebfb4  ldr      r0, [fp, #0x14]              
+           000ebfb8  str      r0, [fp, #0x90]              
+           000ebfbc  ldr      r0, [fp, #0x18]              
+           000ebfc0  str      r0, [fp, #0x94]              
+           000ebfc4  ldr      r0, [fp, #0x1c]              
+           000ebfc8  str      r0, [fp, #0x98]              
+           000ebfcc  ldr      r0, [pc]                     
+           000ebfd0  b        #0xebfd8                     ; -> L_ebfd8
+           000ebfd4  .word    0x00eb9664                   ; literal 15439460 / 
+L_ebfd8:   000ebfd8  ldr      r0, [pc, r0]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ebfdc  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ebfe0  mov      r1, r0                       
+           000ebfe4  add      r0, r1, #8                   
+           000ebfe8  ldr      r2, [fp, #0x8c]              
+           000ebfec  str      r2, [r0]                     
+           000ebff0  ldr      r2, [fp, #0x90]              
+           000ebff4  str      r2, [r0, #4]                 ; field+0x4 
+           000ebff8  ldr      r2, [fp, #0x94]              
+           000ebffc  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ec000  ldr      r2, [fp, #0x98]              
+           000ec004  str      r2, [r0, #0xc]               ; field+0xc 
+           000ec008  mov      r0, r1                       
+           000ec00c  ldr      r1, [r1]                     
+           000ec010  ldr      r8, [pc]                     
+           000ec014  b        #0xec01c                     ; -> L_ec01c
+           000ec018  .word    0x00eb8d8c                   ; literal 15437196 / 
+L_ec01c:   000ec01c  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000ec020  add      lr, pc, #4                   
+           000ec024  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000ec028  andeq    r0, r0, r0                   
+           000ec02c  ldr      ip, [fp, #0x70]              
+           000ec030  mov      pc, ip                       
+L_ec034:   000ec034  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: missionsPendingCompletion)
+           000ec038  add      r0, fp, #0x20                
+           000ec03c  mov      r1, r2                       
+           000ec040  ldr      lr, [r2]                     
+           000ec044  bl       #0x22ca90                    ; CALL System.Collections.Generic.List`1<BaseMission>::GetEnumerator
+           000ec048  b        #0xec088                     ; -> L_ec088
+L_ec04c:   000ec04c  ldr      r0, [pc]                     
+           000ec050  b        #0xec058                     ; -> L_ec058
+           000ec054  .word    0x00eb95e4                   ; literal 15439332 / 
+L_ec058:   000ec058  ldr      r0, [pc, r0]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ec05c  ldr      r4, [fp, #0x2c]              
+           000ec060  mov      r1, r4                       
+           000ec064  mov      r0, r1                       
+           000ec068  ldr      r1, [r1]                     
+           000ec06c  mov      lr, pc                       
+           000ec070  ldr      pc, [r1, #0x3c]              ; VIRTUAL CALL slot +0x3c: AchievementListener::Prerace | BaseCarAIState::Update | BaseEffect::Stack | BaseMission::Shutdown | BoatAnchorEffect::Stack | BoosterEffect::Stack | BrakeMission::Shutdown | BuyPowerupMission::Shutdown ...(74)
+           000ec074  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: missionList)
+           000ec078  mov      r0, r2                       
+           000ec07c  mov      r1, r4                       
+           000ec080  ldr      lr, [r2]                     
+           000ec084  bl       #0x22cae0                    ; CALL System.Collections.Generic.List`1<BaseMission>::Remove
+L_ec088:   000ec088  add      r0, fp, #0x20                
+           000ec08c  ldr      r8, [pc]                     
+           000ec090  b        #0xec098                     ; -> L_ec098
+           000ec094  .word    0x00eb95a4                   ; literal 15439268 / 
+L_ec098:   000ec098  ldr      r8, [pc, r8]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ec09c  bl       #0x22cab0                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseMission>::MoveNext
+           000ec0a0  cmp      r0, #0                       
+           000ec0a4  bne      #0xec04c                     ; -> L_ec04c
+           000ec0a8  bl       #0xec0b0                     ; CALL 0xec0b0
+           000ec0ac  b        #0xec13c                     ; -> L_ec13c
+           000ec0b0  str      lr, [fp, #0x78]              
+           000ec0b4  ldr      r0, [fp, #0x20]              
+           000ec0b8  str      r0, [fp, #0x9c]              
+           000ec0bc  ldr      r0, [fp, #0x24]              
+           000ec0c0  str      r0, [fp, #0xa0]              
+           000ec0c4  ldr      r0, [fp, #0x28]              
+           000ec0c8  str      r0, [fp, #0xa4]              
+           000ec0cc  ldr      r0, [fp, #0x2c]              
+           000ec0d0  str      r0, [fp, #0xa8]              
+           000ec0d4  ldr      r0, [pc]                     
+           000ec0d8  b        #0xec0e0                     ; -> L_ec0e0
+           000ec0dc  .word    0x00eb955c                   ; literal 15439196 / 
+L_ec0e0:   000ec0e0  ldr      r0, [pc, r0]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ec0e4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ec0e8  mov      r1, r0                       
+           000ec0ec  add      r0, r1, #8                   
+           000ec0f0  ldr      r2, [fp, #0x9c]              
+           000ec0f4  str      r2, [r0]                     
+           000ec0f8  ldr      r2, [fp, #0xa0]              
+           000ec0fc  str      r2, [r0, #4]                 ; field+0x4 
+           000ec100  ldr      r2, [fp, #0xa4]              
+           000ec104  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ec108  ldr      r2, [fp, #0xa8]              
+           000ec10c  str      r2, [r0, #0xc]               ; field+0xc 
+           000ec110  mov      r0, r1                       
+           000ec114  ldr      r1, [r1]                     
+           000ec118  ldr      r8, [pc]                     
+           000ec11c  b        #0xec124                     ; -> L_ec124
+           000ec120  .word    0x00eb8c84                   ; literal 15436932 / 
+L_ec124:   000ec124  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000ec128  add      lr, pc, #4                   
+           000ec12c  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000ec130  andeq    r0, r0, r0                   
+           000ec134  ldr      ip, [fp, #0x78]              
+           000ec138  mov      pc, ip                       
+L_ec13c:   000ec13c  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: missionsPendingCompletion)
+           000ec140  mov      r0, r1                       
+           000ec144  ldr      lr, [r1]                     
+           000ec148  bl       #0x22cac0                    ; CALL System.Collections.Generic.List`1<BaseMission>::Clear
+           000ec14c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: missionList)
+           000ec150  mov      r1, r0                       
+           000ec154  ldr      lr, [r1]                     
+           000ec158  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000ec15c  cmp      r0, #0                       
+           000ec160  bne      #0xec198                     ; -> L_ec198
+           000ec164  ldrb     r0, [sl, #0x1e]              ; field+0x1e (this-class: raceEnd)
+           000ec168  cmp      r0, #0                       
+           000ec16c  bne      #0xec198                     ; -> L_ec198
+           000ec170  bl       #0x22bb60                    ; CALL RaceManager::get_Instance
+           000ec174  mov      r2, r0                       
+           000ec178  mov      r1, #0                       
+           000ec17c  ldr      lr, [r2]                     
+           000ec180  bl       #0x22caf0                    ; CALL RaceManager::PostRaceCountdown
+           000ec184  mov      r1, r0                       
+           000ec188  mov      r0, sl                       
+           000ec18c  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000ec190  mov      r0, #1                       
+           000ec194  strb     r0, [sl, #0x1e]              ; field+0x1e (this-class: raceEnd)
+L_ec198:   000ec198  add      sp, fp, #0xb0                
+           000ec19c  pop      {r4, r5, r6, r8, sl, fp}     
+           000ec1a0  ldr      r7, [sp, #8]                 
+           000ec1a4  ldm      sp, {sp, pc}                 
+
+== MissionManager::AddMission  token 0x060002d4 @0x000ec1a8 (96 bytes)
+   args: r0=this, mission
+           000ec1a8  mov      ip, sp                       
+           000ec1ac  push     {r7, lr}                     
+           000ec1b0  mov      r7, sp                       
+           000ec1b4  push     {r8, sl, fp, ip, lr}         
+           000ec1b8  sub      sp, sp, #0xc                 
+           000ec1bc  mov      fp, sp                       
+           000ec1c0  str      r0, [fp]                     
+           000ec1c4  mov      sl, r1                       
+           000ec1c8  ldr      r0, [fp]                     
+           000ec1cc  str      r0, [sl, #0x1c]              ; field+0x1c (this-class: hasStartedFirstMission)
+           000ec1d0  mov      r0, sl                       
+           000ec1d4  ldr      r1, [sl]                     
+           000ec1d8  mov      lr, pc                       
+           000ec1dc  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           000ec1e0  ldr      r0, [fp]                     
+           000ec1e4  ldr      r2, [r0, #0x18]              ; field+0x18 (this-class: missionsPendingAdd)
+           000ec1e8  mov      r0, r2                       
+           000ec1ec  mov      r1, sl                       
+           000ec1f0  ldr      lr, [r2]                     
+           000ec1f4  bl       #0x22caa0                    ; CALL System.Collections.Generic.List`1<BaseMission>::Add
+           000ec1f8  add      sp, fp, #0xc                 
+           000ec1fc  pop      {r8, sl, fp}                 
+           000ec200  ldr      r7, [sp, #8]                 
+           000ec204  ldm      sp, {sp, pc}                 
+
+== MissionManager::CompleteMission  token 0x060002d5 @0x000ec208 (236 bytes)
+   args: r0=this, mission
+           000ec208  mov      ip, sp                       
+           000ec20c  push     {r7, lr}                     
+           000ec210  mov      r7, sp                       
+           000ec214  push     {r6, r8, sl, fp, ip, lr}     
+           000ec218  mov      fp, sp                       
+           000ec21c  mov      r6, r0                       
+           000ec220  mov      sl, r1                       
+           000ec224  mov      r0, #1                       
+           000ec228  strb     r0, [r6, #0x1d]              ; field+0x1d (this-class: curMissionComplete)
+           000ec22c  ldr      r0, [pc]                     
+           000ec230  b        #0xec238                     ; -> L_ec238
+           000ec234  .word    0x00eb9408                   ; literal 15438856 / 
+L_ec238:   000ec238  ldr      r0, [pc, r0]                 ; GOT[568] LDSTR 'Mission complete: '
+           000ec23c  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: missionList)
+           000ec240  bl       #0x22a8c0                    ; CALL System.String::Concat
+           000ec244  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           000ec248  ldr      r0, [sl, #0x20]              ; field+0x20 
+           000ec24c  mov      r1, #0                       
+           000ec250  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000ec254  cmp      r0, #0                       
+           000ec258  beq      #0xec2b0                     ; -> L_ec2b0
+           000ec25c  ldr      r2, [r6, #0x14]              ; field+0x14 (this-class: missionsPendingCompletion)
+           000ec260  mov      r0, r2                       
+           000ec264  mov      r1, sl                       
+           000ec268  ldr      lr, [r2]                     
+           000ec26c  bl       #0x22caa0                    ; CALL System.Collections.Generic.List`1<BaseMission>::Add
+           000ec270  ldr      r1, [pc]                     
+           000ec274  b        #0xec27c                     ; -> L_ec27c
+           000ec278  .word    0x00eb93a4                   ; literal 15438756 / 
+L_ec27c:   000ec27c  ldr      r1, [pc, r1]                 ; GOT[560] LDSTR 'Mission Complete'
+           000ec280  mov      r0, r6                       
+           000ec284  mov      r2, sl                       
+           000ec288  bl       #0x22cb00                    ; CALL MissionManager::Signal
+           000ec28c  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000ec290  mov      r2, r0                       
+           000ec294  mov      r1, #1                       
+           000ec298  ldr      lr, [r2]                     
+           000ec29c  bl       #0x22ca70                    ; CALL HUDLogic::SignalMissionComplete
+           000ec2a0  mov      r1, r0                       
+           000ec2a4  mov      r0, r6                       
+           000ec2a8  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000ec2ac  b        #0xec2e4                     ; -> L_ec2e4
+L_ec2b0:   000ec2b0  ldr      r1, [pc]                     
+           000ec2b4  b        #0xec2bc                     ; -> L_ec2bc
+           000ec2b8  .word    0x00eb9364                   ; literal 15438692 / 
+L_ec2bc:   000ec2bc  ldr      r1, [pc, r1]                 ; GOT[560] LDSTR 'Mission Complete'
+           000ec2c0  mov      r0, r6                       
+           000ec2c4  mov      r2, sl                       
+           000ec2c8  bl       #0x22cb00                    ; CALL MissionManager::Signal
+           000ec2cc  mov      r0, r6                       
+           000ec2d0  mov      r1, sl                       
+           000ec2d4  bl       #0x22cb10                    ; CALL MissionManager::WaitForNextMission
+           000ec2d8  mov      r1, r0                       
+           000ec2dc  mov      r0, r6                       
+           000ec2e0  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+L_ec2e4:   000ec2e4  add      sp, fp, #0                   
+           000ec2e8  pop      {r6, r8, sl, fp}             
+           000ec2ec  ldr      r7, [sp, #8]                 
+           000ec2f0  ldm      sp, {sp, pc}                 
+
+== MissionManager::Signal  token 0x060002d6 @0x000ec2f4 (332 bytes)
+   args: r0=this, signal
+           000ec2f4  mov      ip, sp                       
+           000ec2f8  push     {r7, lr}                     
+           000ec2fc  mov      r7, sp                       
+           000ec300  push     {r5, r8, sl, fp, ip, lr}     
+           000ec304  sub      sp, sp, #0x40                
+           000ec308  mov      fp, sp                       
+           000ec30c  str      r0, [fp, #0x3c]              
+           000ec310  mov      sl, r1                       
+           000ec314  mov      r0, #0                       
+           000ec318  str      r0, [fp]                     
+           000ec31c  mov      r0, #0                       
+           000ec320  str      r0, [fp, #4]                 
+           000ec324  mov      r0, #0                       
+           000ec328  str      r0, [fp, #8]                 
+           000ec32c  mov      r0, #0                       
+           000ec330  str      r0, [fp, #0xc]               
+           000ec334  ldr      r0, [fp, #0x3c]              
+           000ec338  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: missionList)
+           000ec33c  mov      r1, r2                       
+           000ec340  mov      r0, fp                       
+           000ec344  ldr      lr, [r2]                     
+           000ec348  bl       #0x22ca90                    ; CALL System.Collections.Generic.List`1<BaseMission>::GetEnumerator
+           000ec34c  b        #0xec37c                     ; -> L_ec37c
+L_ec350:   000ec350  ldr      r0, [pc]                     
+           000ec354  b        #0xec35c                     ; -> L_ec35c
+           000ec358  .word    0x00eb92e0                   ; literal 15438560 / 
+L_ec35c:   000ec35c  ldr      r0, [pc, r0]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ec360  ldr      r5, [fp, #0xc]               
+           000ec364  mov      r2, r5                       
+           000ec368  mov      r0, r2                       
+           000ec36c  mov      r1, sl                       
+           000ec370  ldr      r2, [r2]                     
+           000ec374  mov      lr, pc                       
+           000ec378  ldr      pc, [r2, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+L_ec37c:   000ec37c  ldr      r8, [pc]                     
+           000ec380  b        #0xec388                     ; -> L_ec388
+           000ec384  .word    0x00eb92b4                   ; literal 15438516 / 
+L_ec388:   000ec388  ldr      r8, [pc, r8]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ec38c  mov      r0, fp                       
+           000ec390  bl       #0x22cab0                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseMission>::MoveNext
+           000ec394  cmp      r0, #0                       
+           000ec398  bne      #0xec350                     ; -> L_ec350
+           000ec39c  bl       #0xec3a4                     ; CALL 0xec3a4
+           000ec3a0  b        #0xec430                     ; -> L_ec430
+           000ec3a4  str      lr, [fp, #0x28]              
+           000ec3a8  ldr      r0, [fp]                     
+           000ec3ac  str      r0, [fp, #0x2c]              
+           000ec3b0  ldr      r0, [fp, #4]                 
+           000ec3b4  str      r0, [fp, #0x30]              
+           000ec3b8  ldr      r0, [fp, #8]                 
+           000ec3bc  str      r0, [fp, #0x34]              
+           000ec3c0  ldr      r0, [fp, #0xc]               
+           000ec3c4  str      r0, [fp, #0x38]              
+           000ec3c8  ldr      r0, [pc]                     
+           000ec3cc  b        #0xec3d4                     ; -> L_ec3d4
+           000ec3d0  .word    0x00eb9268                   ; literal 15438440 / 
+L_ec3d4:   000ec3d4  ldr      r0, [pc, r0]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ec3d8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ec3dc  mov      r1, r0                       
+           000ec3e0  add      r0, r1, #8                   
+           000ec3e4  ldr      r2, [fp, #0x2c]              
+           000ec3e8  str      r2, [r0]                     
+           000ec3ec  ldr      r2, [fp, #0x30]              
+           000ec3f0  str      r2, [r0, #4]                 ; field+0x4 
+           000ec3f4  ldr      r2, [fp, #0x34]              
+           000ec3f8  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ec3fc  ldr      r2, [fp, #0x38]              
+           000ec400  str      r2, [r0, #0xc]               ; field+0xc 
+           000ec404  mov      r0, r1                       
+           000ec408  ldr      r1, [r1]                     
+           000ec40c  ldr      r8, [pc]                     
+           000ec410  b        #0xec418                     ; -> L_ec418
+           000ec414  .word    0x00eb8990                   ; literal 15436176 / 
+L_ec418:   000ec418  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000ec41c  add      lr, pc, #4                   
+           000ec420  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000ec424  andeq    r0, r0, r0                   
+           000ec428  ldr      ip, [fp, #0x28]              
+           000ec42c  mov      pc, ip                       
+L_ec430:   000ec430  add      sp, fp, #0x40                
+           000ec434  pop      {r5, r8, sl, fp}             
+           000ec438  ldr      r7, [sp, #8]                 
+           000ec43c  ldm      sp, {sp, pc}                 
+
+== MissionManager::Signal  token 0x060002d7 @0x000ec440 (340 bytes)
+   args: r0=this, signal, value
+           000ec440  mov      ip, sp                       
+           000ec444  push     {r7, lr}                     
+           000ec448  mov      r7, sp                       
+           000ec44c  push     {r4, r6, r8, sl, fp, ip, lr} 
+           000ec450  sub      sp, sp, #0x44                
+           000ec454  mov      fp, sp                       
+           000ec458  str      r0, [fp, #0x3c]              
+           000ec45c  mov      r6, r1                       
+           000ec460  mov      sl, r2                       
+           000ec464  mov      r0, #0                       
+           000ec468  str      r0, [fp]                     
+           000ec46c  mov      r0, #0                       
+           000ec470  str      r0, [fp, #4]                 
+           000ec474  mov      r0, #0                       
+           000ec478  str      r0, [fp, #8]                 
+           000ec47c  mov      r0, #0                       
+           000ec480  str      r0, [fp, #0xc]               
+           000ec484  ldr      r0, [fp, #0x3c]              
+           000ec488  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: missionList)
+           000ec48c  mov      r1, r2                       
+           000ec490  mov      r0, fp                       
+           000ec494  ldr      lr, [r2]                     
+           000ec498  bl       #0x22ca90                    ; CALL System.Collections.Generic.List`1<BaseMission>::GetEnumerator
+           000ec49c  b        #0xec4d0                     ; -> L_ec4d0
+L_ec4a0:   000ec4a0  ldr      r0, [pc]                     
+           000ec4a4  b        #0xec4ac                     ; -> L_ec4ac
+           000ec4a8  .word    0x00eb9190                   ; literal 15438224 / 
+L_ec4ac:   000ec4ac  ldr      r0, [pc, r0]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ec4b0  ldr      r4, [fp, #0xc]               
+           000ec4b4  mov      r3, r4                       
+           000ec4b8  mov      r0, r3                       
+           000ec4bc  mov      r1, r6                       
+           000ec4c0  mov      r2, sl                       
+           000ec4c4  ldr      r3, [r3]                     
+           000ec4c8  mov      lr, pc                       
+           000ec4cc  ldr      pc, [r3, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+L_ec4d0:   000ec4d0  ldr      r8, [pc]                     
+           000ec4d4  b        #0xec4dc                     ; -> L_ec4dc
+           000ec4d8  .word    0x00eb9160                   ; literal 15438176 / 
+L_ec4dc:   000ec4dc  ldr      r8, [pc, r8]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ec4e0  mov      r0, fp                       
+           000ec4e4  bl       #0x22cab0                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseMission>::MoveNext
+           000ec4e8  cmp      r0, #0                       
+           000ec4ec  bne      #0xec4a0                     ; -> L_ec4a0
+           000ec4f0  bl       #0xec4f8                     ; CALL 0xec4f8
+           000ec4f4  b        #0xec584                     ; -> L_ec584
+           000ec4f8  str      lr, [fp, #0x28]              
+           000ec4fc  ldr      r0, [fp]                     
+           000ec500  str      r0, [fp, #0x2c]              
+           000ec504  ldr      r0, [fp, #4]                 
+           000ec508  str      r0, [fp, #0x30]              
+           000ec50c  ldr      r0, [fp, #8]                 
+           000ec510  str      r0, [fp, #0x34]              
+           000ec514  ldr      r0, [fp, #0xc]               
+           000ec518  str      r0, [fp, #0x38]              
+           000ec51c  ldr      r0, [pc]                     
+           000ec520  b        #0xec528                     ; -> L_ec528
+           000ec524  .word    0x00eb9114                   ; literal 15438100 / 
+L_ec528:   000ec528  ldr      r0, [pc, r0]                 ; GOT[567] VTABLE System.Collections.Generic.List`1/Enumerator<BaseMission>
+           000ec52c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ec530  mov      r1, r0                       
+           000ec534  add      r0, r1, #8                   
+           000ec538  ldr      r2, [fp, #0x2c]              
+           000ec53c  str      r2, [r0]                     
+           000ec540  ldr      r2, [fp, #0x30]              
+           000ec544  str      r2, [r0, #4]                 ; field+0x4 
+           000ec548  ldr      r2, [fp, #0x34]              
+           000ec54c  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ec550  ldr      r2, [fp, #0x38]              
+           000ec554  str      r2, [r0, #0xc]               ; field+0xc 
+           000ec558  mov      r0, r1                       
+           000ec55c  ldr      r1, [r1]                     
+           000ec560  ldr      r8, [pc]                     
+           000ec564  b        #0xec56c                     ; -> L_ec56c
+           000ec568  .word    0x00eb883c                   ; literal 15435836 / 
+L_ec56c:   000ec56c  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000ec570  add      lr, pc, #4                   
+           000ec574  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000ec578  andeq    r0, r0, r0                   
+           000ec57c  ldr      ip, [fp, #0x28]              
+           000ec580  mov      pc, ip                       
+L_ec584:   000ec584  add      sp, fp, #0x44                
+           000ec588  pop      {r4, r6, r8, sl, fp}         
+           000ec58c  ldr      r7, [sp, #8]                 
+           000ec590  ldm      sp, {sp, pc}                 
+
+== MissionManager::GetCurrentMission  token 0x060002d8 @0x000ec594 (68 bytes)
+   args: r0=this, 
+           000ec594  mov      ip, sp                       
+           000ec598  push     {r7, lr}                     
+           000ec59c  mov      r7, sp                       
+           000ec5a0  push     {r8, fp, ip, lr}             
+           000ec5a4  sub      sp, sp, #8                   
+           000ec5a8  mov      fp, sp                       
+           000ec5ac  str      r0, [fp]                     
+           000ec5b0  ldr      r0, [fp]                     
+           000ec5b4  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: missionList)
+           000ec5b8  mov      r0, r2                       
+           000ec5bc  mov      r1, #0                       
+           000ec5c0  ldr      lr, [r2]                     
+           000ec5c4  bl       #0x22cb20                    ; CALL System.Collections.Generic.List`1<BaseMission>::get_Item
+           000ec5c8  add      sp, fp, #8                   
+           000ec5cc  pop      {r8, fp}                     
+           000ec5d0  ldr      r7, [sp, #8]                 
+           000ec5d4  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE MissionManager/<WaitForNextMission>c__Iterator23  (instance size 0x20)
+#   +0x08 mission                        BaseMission
+#   +0x0c $current                       object
+#   +0x10 <$>mission                     BaseMission
+#   +0x14 <>f__this                      MissionManager
+#   +0x18 <timer>__0                     float
+#   +0x1c $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== MissionManager/<WaitForNextMission>c__Iterator23::.ctor  token 0x0600089f @0x00148020 (44 bytes)
+   args: r0=this, 
+           00148020  mov      ip, sp                       
+           00148024  push     {r7, lr}                     
+           00148028  mov      r7, sp                       
+           0014802c  push     {r8, fp, ip, lr}             
+           00148030  sub      sp, sp, #8                   
+           00148034  mov      fp, sp                       
+           00148038  str      r0, [fp]                     
+           0014803c  add      sp, fp, #8                   
+           00148040  pop      {r8, fp}                     
+           00148044  ldr      r7, [sp, #8]                 
+           00148048  ldm      sp, {sp, pc}                 
+
+== MissionManager/<WaitForNextMission>c__Iterator23::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x060008a0 @0x0014804c (52 bytes)
+   args: r0=this, 
+           0014804c  mov      ip, sp                       
+           00148050  push     {r7, lr}                     
+           00148054  mov      r7, sp                       
+           00148058  push     {r8, fp, ip, lr}             
+           0014805c  sub      sp, sp, #8                   
+           00148060  mov      fp, sp                       
+           00148064  str      r0, [fp]                     
+           00148068  ldr      r0, [fp]                     
+           0014806c  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           00148070  add      sp, fp, #8                   
+           00148074  pop      {r8, fp}                     
+           00148078  ldr      r7, [sp, #8]                 
+           0014807c  ldm      sp, {sp, pc}                 
+
+== MissionManager/<WaitForNextMission>c__Iterator23::System.Collections.IEnumerator.get_Current  token 0x060008a1 @0x00148080 (52 bytes)
+   args: r0=this, 
+           00148080  mov      ip, sp                       
+           00148084  push     {r7, lr}                     
+           00148088  mov      r7, sp                       
+           0014808c  push     {r8, fp, ip, lr}             
+           00148090  sub      sp, sp, #8                   
+           00148094  mov      fp, sp                       
+           00148098  str      r0, [fp]                     
+           0014809c  ldr      r0, [fp]                     
+           001480a0  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           001480a4  add      sp, fp, #8                   
+           001480a8  pop      {r8, fp}                     
+           001480ac  ldr      r7, [sp, #8]                 
+           001480b0  ldm      sp, {sp, pc}                 
+
+== MissionManager/<WaitForNextMission>c__Iterator23::MoveNext  token 0x060008a2 @0x001480b4 (432 bytes)
+   args: r0=this, 
+           001480b4  mov      ip, sp                       
+           001480b8  push     {r7, lr}                     
+           001480bc  mov      r7, sp                       
+           001480c0  push     {r8, sl, fp, ip, lr}         
+           001480c4  sub      sp, sp, #0x14                
+           001480c8  mov      fp, sp                       
+           001480cc  mov      sl, r0                       
+           001480d0  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: $PC)
+           001480d4  mvn      r1, #0                       
+           001480d8  str      r1, [sl, #0x1c]              ; field+0x1c (this-class: $PC)
+           001480dc  str      r0, [fp]                     
+           001480e0  cmp      r0, #4                       
+           001480e4  bhs      #0x148248                    ; -> L_148248
+           001480e8  ldr      r0, [fp]                     
+           001480ec  lsl      r1, r0, #2                   
+           001480f0  ldr      r0, [pc]                     
+           001480f4  b        #0x1480fc                    ; -> L_1480fc
+           001480f8  .word    0x00e5e82c                   ; literal 15067180 / 
+L_1480fc:  001480fc  ldr      r0, [pc, r0]                 ; GOT[1778] SWITCH switch table[4]
+           00148100  add      r0, r0, r1                   
+           00148104  ldr      r0, [r0]                     
+           00148108  mov      pc, r0                       
+           0014810c  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: mission)
+           00148110  ldr      r0, [r0, #0x20]              ; field+0x20 
+           00148114  mov      r1, #0                       
+           00148118  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0014811c  cmp      r0, #0                       
+           00148120  beq      #0x148240                    ; -> L_148240
+           00148124  vldr     s4, [pc]                     ; float 0.0
+           00148128  b        #0x148130                    ; -> L_148130
+           0014812c  .word    0x00000000                   ; literal 0 / 0
+L_148130:  00148130  vcvt.f64.f32 d2, s4                       
+           00148134  vcvt.f32.f64 s0, d2                       
+           00148138  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: <timer>__0)
+           0014813c  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: mission)
+           00148140  ldr      r0, [r0, #0x20]              ; field+0x20 
+           00148144  ldr      lr, [r0]                     
+           00148148  mov      r1, #0                       
+           0014814c  strb     r1, [r0, #0x3c]              ; field+0x3c 
+           00148150  ldr      r0, [pc]                     
+           00148154  b        #0x14815c                    ; -> L_14815c
+           00148158  .word    0x00e5cc44                   ; literal 15060036 / 
+L_14815c:  0014815c  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           00148160  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00148164  mov      r1, #0                       
+           00148168  str      r1, [r0, #8]                 ; field+0x8 (this-class: mission)
+           0014816c  str      r0, [sl, #0xc]               ; field+0xc (this-class: $current)
+           00148170  mov      r0, #1                       
+           00148174  str      r0, [sl, #0x1c]              ; field+0x1c (this-class: $PC)
+           00148178  b        #0x148250                    ; -> L_148250
+L_14817c:  0014817c  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: <timer>__0)
+           00148180  vcvt.f64.f32 d2, s0                       
+           00148184  vstr     d2, [fp, #8]                 
+           00148188  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           0014818c  vmov     s6, r0                       
+           00148190  vcvt.f64.f32 d3, s6                       
+           00148194  vldr     d2, [fp, #8]                 
+           00148198  vadd.f64 d2, d2, d3                   
+           0014819c  vcvt.f32.f64 s0, d2                       
+           001481a0  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: <timer>__0)
+           001481a4  ldr      r0, [pc]                     
+           001481a8  b        #0x1481b0                    ; -> L_1481b0
+           001481ac  .word    0x00e5cbf0                   ; literal 15059952 / 
+L_1481b0:  001481b0  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           001481b4  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           001481b8  mov      r1, #0                       
+           001481bc  str      r1, [r0, #8]                 ; field+0x8 (this-class: mission)
+           001481c0  str      r0, [sl, #0xc]               ; field+0xc (this-class: $current)
+           001481c4  mov      r0, #2                       
+           001481c8  str      r0, [sl, #0x1c]              ; field+0x1c (this-class: $PC)
+           001481cc  b        #0x148250                    ; -> L_148250
+           001481d0  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: <timer>__0)
+           001481d4  vcvt.f64.f32 d2, s0                       
+           001481d8  vldr     s6, [pc]                     ; float 3.4000000953674316
+           001481dc  b        #0x1481e4                    ; -> L_1481e4
+           001481e0  .word    0x4059999a                   ; literal 1079613850 / 3.4
+L_1481e4:  001481e4  vcvt.f64.f32 d3, s6                       
+           001481e8  vcmp.f64 d2, d3                       
+           001481ec  vmrs     apsr_nzcv, fpscr             
+           001481f0  bmi      #0x14817c                    ; -> L_14817c
+           001481f4  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: mission)
+           001481f8  ldr      r0, [r0, #0x20]              ; field+0x20 
+           001481fc  ldr      lr, [r0]                     
+           00148200  mov      r1, #1                       
+           00148204  strb     r1, [r0, #0x3c]              ; field+0x3c 
+           00148208  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014820c  mov      r1, #0                       
+           00148210  strb     r1, [r0, #0x1d]              ; field+0x1d 
+           00148214  ldr      r0, [pc]                     
+           00148218  b        #0x148220                    ; -> L_148220
+           0014821c  .word    0x00e5cb80                   ; literal 15059840 / 
+L_148220:  00148220  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           00148224  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00148228  mov      r1, #0                       
+           0014822c  str      r1, [r0, #8]                 ; field+0x8 (this-class: mission)
+           00148230  str      r0, [sl, #0xc]               ; field+0xc (this-class: $current)
+           00148234  mov      r0, #3                       
+           00148238  str      r0, [sl, #0x1c]              ; field+0x1c (this-class: $PC)
+           0014823c  b        #0x148250                    ; -> L_148250
+L_148240:  00148240  mvn      r0, #0                       
+           00148244  str      r0, [sl, #0x1c]              ; field+0x1c (this-class: $PC)
+L_148248:  00148248  mov      r0, #0                       
+           0014824c  b        #0x148254                    ; -> L_148254
+L_148250:  00148250  mov      r0, #1                       
+L_148254:  00148254  add      sp, fp, #0x14                
+           00148258  pop      {r8, sl, fp}                 
+           0014825c  ldr      r7, [sp, #8]                 
+           00148260  ldm      sp, {sp, pc}                 
+
+== MissionManager/<WaitForNextMission>c__Iterator23::Dispose  token 0x060008a3 @0x00148264 (56 bytes)
+   args: r0=this, 
+           00148264  mov      ip, sp                       
+           00148268  push     {r7, lr}                     
+           0014826c  mov      r7, sp                       
+           00148270  push     {r8, fp, ip, lr}             
+           00148274  sub      sp, sp, #8                   
+           00148278  mov      fp, sp                       
+           0014827c  str      r0, [fp]                     
+           00148280  ldr      r0, [fp]                     
+           00148284  mvn      r1, #0                       
+           00148288  str      r1, [r0, #0x1c]              ; field+0x1c (this-class: $PC)
+           0014828c  add      sp, fp, #8                   
+           00148290  pop      {r8, fp}                     
+           00148294  ldr      r7, [sp, #8]                 
+           00148298  ldm      sp, {sp, pc}                 
+
+== MissionManager/<WaitForNextMission>c__Iterator23::Reset  token 0x060008a4 @0x0014829c (64 bytes)
+   args: r0=this, 
+           0014829c  mov      ip, sp                       
+           001482a0  push     {r7, lr}                     
+           001482a4  mov      r7, sp                       
+           001482a8  push     {r8, fp, ip, lr}             
+           001482ac  sub      sp, sp, #8                   
+           001482b0  mov      fp, sp                       
+           001482b4  str      r0, [fp]                     
+           001482b8  mov      r0, #0x49                    
+           001482bc  add      r0, r0, #0x100               
+           001482c0  add      r0, r0, #0x2000000           
+           001482c4  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           001482c8  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           001482cc  add      sp, fp, #8                   
+           001482d0  pop      {r8, fp}                     
+           001482d4  ldr      r7, [sp, #8]                 
+           001482d8  ldm      sp, {sp, pc}                 

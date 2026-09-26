@@ -1,0 +1,390 @@
+####################################################################################################
+# TYPE PathMoverAI  (instance size 0x74)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 targetTransform                UnityEngine.Transform
+#   +0x14 transitionDuration             float
+#   +0x18 originPosition                 UnityEngine.Vector3
+#   +0x24 originRotation                 UnityEngine.Quaternion
+#   +0x34 travelDirection                bool
+#   +0x38 transitionStartPos             UnityEngine.Vector3
+#   +0x44 transitionStartRot             UnityEngine.Quaternion
+#   +0x54 transitionTargetPos            UnityEngine.Vector3
+#   +0x60 transitionTargetRot            UnityEngine.Quaternion
+#   +0x70 transitionAccumulatedTime      float
+#   vtable slots: 
+####################################################################################################
+== PathMoverAI::.ctor  token 0x06000099 @0x000ce7a8 (244 bytes)
+   args: r0=this, 
+           000ce7a8  mov      ip, sp                       
+           000ce7ac  push     {r7, lr}                     
+           000ce7b0  mov      r7, sp                       
+           000ce7b4  push     {r8, sl, fp, ip, lr}         
+           000ce7b8  sub      sp, sp, #0x3c                
+           000ce7bc  mov      fp, sp                       
+           000ce7c0  mov      sl, r0                       
+           000ce7c4  vldr     s4, [pc]                     ; float 1.0
+           000ce7c8  b        #0xce7d0                     ; -> L_ce7d0
+           000ce7cc  .word    0x3f800000                   ; literal 1065353216 / 1
+L_ce7d0:   000ce7d0  vcvt.f64.f32 d2, s4                       
+           000ce7d4  vcvt.f32.f64 s0, d2                       
+           000ce7d8  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: transitionDuration)
+           000ce7dc  mov      r0, #1                       
+           000ce7e0  strb     r0, [sl, #0x34]              ; field+0x34 (this-class: travelDirection)
+           000ce7e4  mov      r0, fp                       
+           000ce7e8  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           000ce7ec  add      r0, sl, #0x38                
+           000ce7f0  ldr      r1, [fp]                     
+           000ce7f4  str      r1, [r0]                     
+           000ce7f8  ldr      r1, [fp, #4]                 
+           000ce7fc  str      r1, [r0, #4]                 ; field+0x4 
+           000ce800  ldr      r1, [fp, #8]                 
+           000ce804  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce808  add      r0, fp, #0xc                 
+           000ce80c  bl       #0x22b050                    ; CALL UnityEngine.Quaternion::get_identity
+           000ce810  add      r0, sl, #0x44                
+           000ce814  ldr      r1, [fp, #0xc]               
+           000ce818  str      r1, [r0]                     
+           000ce81c  ldr      r1, [fp, #0x10]              
+           000ce820  str      r1, [r0, #4]                 ; field+0x4 
+           000ce824  ldr      r1, [fp, #0x14]              
+           000ce828  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce82c  ldr      r1, [fp, #0x18]              
+           000ce830  str      r1, [r0, #0xc]               ; field+0xc 
+           000ce834  add      r0, fp, #0x1c                
+           000ce838  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           000ce83c  add      r0, sl, #0x54                
+           000ce840  ldr      r1, [fp, #0x1c]              
+           000ce844  str      r1, [r0]                     
+           000ce848  ldr      r1, [fp, #0x20]              
+           000ce84c  str      r1, [r0, #4]                 ; field+0x4 
+           000ce850  ldr      r1, [fp, #0x24]              
+           000ce854  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce858  add      r0, fp, #0x28                
+           000ce85c  bl       #0x22b050                    ; CALL UnityEngine.Quaternion::get_identity
+           000ce860  add      r0, sl, #0x60                
+           000ce864  ldr      r1, [fp, #0x28]              
+           000ce868  str      r1, [r0]                     
+           000ce86c  ldr      r1, [fp, #0x2c]              
+           000ce870  str      r1, [r0, #4]                 ; field+0x4 
+           000ce874  ldr      r1, [fp, #0x30]              
+           000ce878  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce87c  ldr      r1, [fp, #0x34]              
+           000ce880  str      r1, [r0, #0xc]               ; field+0xc 
+           000ce884  mov      r0, sl                       
+           000ce888  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000ce88c  add      sp, fp, #0x3c                
+           000ce890  pop      {r8, sl, fp}                 
+           000ce894  ldr      r7, [sp, #8]                 
+           000ce898  ldm      sp, {sp, pc}                 
+
+== PathMoverAI::StartTransition  token 0x0600009a @0x000ce89c (296 bytes)
+   args: r0=this, desiredPos, desiredRot
+           000ce89c  mov      ip, sp                       
+           000ce8a0  push     {r7, lr}                     
+           000ce8a4  mov      r7, sp                       
+           000ce8a8  push     {r8, sl, fp, ip, lr}         
+           000ce8ac  sub      sp, sp, #0x5c                
+           000ce8b0  mov      fp, sp                       
+           000ce8b4  mov      sl, r0                       
+           000ce8b8  str      r1, [fp, #0x38]              
+           000ce8bc  str      r2, [fp, #0x3c]              
+           000ce8c0  str      r3, [fp, #0x40]              
+           000ce8c4  ldr      lr, [sp, #0x78]              
+           000ce8c8  str      lr, [fp, #0x44]              
+           000ce8cc  ldr      lr, [sp, #0x7c]              
+           000ce8d0  str      lr, [fp, #0x48]              
+           000ce8d4  ldr      lr, [sp, #0x80]              
+           000ce8d8  str      lr, [fp, #0x4c]              
+           000ce8dc  ldr      lr, [sp, #0x84]              
+           000ce8e0  str      lr, [fp, #0x50]              
+           000ce8e4  mov      r0, sl                       
+           000ce8e8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ce8ec  mov      r2, r0                       
+           000ce8f0  add      r0, fp, #0x1c                
+           000ce8f4  mov      r1, r2                       
+           000ce8f8  ldr      lr, [r2]                     
+           000ce8fc  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000ce900  add      r0, sl, #0x38                
+           000ce904  ldr      r1, [fp, #0x1c]              
+           000ce908  str      r1, [r0]                     
+           000ce90c  ldr      r1, [fp, #0x20]              
+           000ce910  str      r1, [r0, #4]                 ; field+0x4 
+           000ce914  ldr      r1, [fp, #0x24]              
+           000ce918  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce91c  mov      r0, sl                       
+           000ce920  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ce924  mov      r2, r0                       
+           000ce928  add      r0, fp, #0x28                
+           000ce92c  mov      r1, r2                       
+           000ce930  ldr      lr, [r2]                     
+           000ce934  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000ce938  add      r0, sl, #0x44                
+           000ce93c  ldr      r1, [fp, #0x28]              
+           000ce940  str      r1, [r0]                     
+           000ce944  ldr      r1, [fp, #0x2c]              
+           000ce948  str      r1, [r0, #4]                 ; field+0x4 
+           000ce94c  ldr      r1, [fp, #0x30]              
+           000ce950  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce954  ldr      r1, [fp, #0x34]              
+           000ce958  str      r1, [r0, #0xc]               ; field+0xc 
+           000ce95c  vldr     s4, [pc]                     ; float 0.0
+           000ce960  b        #0xce968                     ; -> L_ce968
+           000ce964  .word    0x00000000                   ; literal 0 / 0
+L_ce968:   000ce968  vcvt.f64.f32 d2, s4                       
+           000ce96c  vcvt.f32.f64 s0, d2                       
+           000ce970  vstr     s0, [sl, #0x70]              ; field+0x70 (this-class: transitionAccumulatedTime)
+           000ce974  add      r0, sl, #0x54                
+           000ce978  ldr      r1, [fp, #0x38]              
+           000ce97c  str      r1, [r0]                     
+           000ce980  ldr      r1, [fp, #0x3c]              
+           000ce984  str      r1, [r0, #4]                 ; field+0x4 
+           000ce988  ldr      r1, [fp, #0x40]              
+           000ce98c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce990  add      r0, sl, #0x60                
+           000ce994  ldr      r1, [fp, #0x44]              
+           000ce998  str      r1, [r0]                     
+           000ce99c  ldr      r1, [fp, #0x48]              
+           000ce9a0  str      r1, [r0, #4]                 ; field+0x4 
+           000ce9a4  ldr      r1, [fp, #0x4c]              
+           000ce9a8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ce9ac  ldr      r1, [fp, #0x50]              
+           000ce9b0  str      r1, [r0, #0xc]               ; field+0xc 
+           000ce9b4  add      sp, fp, #0x5c                
+           000ce9b8  pop      {r8, sl, fp}                 
+           000ce9bc  ldr      r7, [sp, #8]                 
+           000ce9c0  ldm      sp, {sp, pc}                 
+
+== PathMoverAI::Start  token 0x0600009b @0x000ce9c4 (164 bytes)
+   args: r0=this, 
+           000ce9c4  mov      ip, sp                       
+           000ce9c8  push     {r7, lr}                     
+           000ce9cc  mov      r7, sp                       
+           000ce9d0  push     {r8, sl, fp, ip, lr}         
+           000ce9d4  sub      sp, sp, #0x3c                
+           000ce9d8  mov      fp, sp                       
+           000ce9dc  mov      sl, r0                       
+           000ce9e0  mov      r0, sl                       
+           000ce9e4  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ce9e8  mov      r2, r0                       
+           000ce9ec  add      r0, fp, #0x1c                
+           000ce9f0  mov      r1, r2                       
+           000ce9f4  ldr      lr, [r2]                     
+           000ce9f8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000ce9fc  add      r0, sl, #0x18                
+           000cea00  ldr      r1, [fp, #0x1c]              
+           000cea04  str      r1, [r0]                     
+           000cea08  ldr      r1, [fp, #0x20]              
+           000cea0c  str      r1, [r0, #4]                 ; field+0x4 
+           000cea10  ldr      r1, [fp, #0x24]              
+           000cea14  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000cea18  mov      r0, sl                       
+           000cea1c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000cea20  mov      r2, r0                       
+           000cea24  add      r0, fp, #0x28                
+           000cea28  mov      r1, r2                       
+           000cea2c  ldr      lr, [r2]                     
+           000cea30  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000cea34  add      r0, sl, #0x24                
+           000cea38  ldr      r1, [fp, #0x28]              
+           000cea3c  str      r1, [r0]                     
+           000cea40  ldr      r1, [fp, #0x2c]              
+           000cea44  str      r1, [r0, #4]                 ; field+0x4 
+           000cea48  ldr      r1, [fp, #0x30]              
+           000cea4c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000cea50  ldr      r1, [fp, #0x34]              
+           000cea54  str      r1, [r0, #0xc]               ; field+0xc 
+           000cea58  add      sp, fp, #0x3c                
+           000cea5c  pop      {r8, sl, fp}                 
+           000cea60  ldr      r7, [sp, #8]                 
+           000cea64  ldm      sp, {sp, pc}                 
+
+== PathMoverAI::FixedUpdate  token 0x0600009c @0x000cea68 (752 bytes)
+   args: r0=this, 
+           000cea68  mov      ip, sp                       
+           000cea6c  push     {r7, lr}                     
+           000cea70  mov      r7, sp                       
+           000cea74  push     {r8, sl, fp, ip, lr}         
+           000cea78  sub      sp, sp, #0x124               
+           000cea7c  mov      fp, sp                       
+           000cea80  mov      sl, r0                       
+           000cea84  vldr     s0, [sl, #0x70]              ; field+0x70 (this-class: transitionAccumulatedTime)
+           000cea88  vcvt.f64.f32 d2, s0                       
+           000cea8c  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: transitionDuration)
+           000cea90  vcvt.f64.f32 d3, s0                       
+           000cea94  vcmp.f64 d2, d3                       
+           000cea98  vmrs     apsr_nzcv, fpscr             
+           000cea9c  bvs      #0xcec54                     ; -> L_cec54
+           000ceaa0  bge      #0xcec54                     ; -> L_cec54
+           000ceaa4  vldr     s0, [sl, #0x70]              ; field+0x70 (this-class: transitionAccumulatedTime)
+           000ceaa8  vcvt.f64.f32 d2, s0                       
+           000ceaac  vstr     d2, [fp, #0x118]             
+           000ceab0  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000ceab4  vmov     s6, r0                       
+           000ceab8  vcvt.f64.f32 d3, s6                       
+           000ceabc  vldr     d2, [fp, #0x118]             
+           000ceac0  vadd.f64 d2, d2, d3                   
+           000ceac4  vcvt.f32.f64 s0, d2                       
+           000ceac8  vstr     s0, [sl, #0x70]              ; field+0x70 (this-class: transitionAccumulatedTime)
+           000ceacc  vldr     s0, [sl, #0x70]              ; field+0x70 (this-class: transitionAccumulatedTime)
+           000cead0  vcvt.f64.f32 d2, s0                       
+           000cead4  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: transitionDuration)
+           000cead8  vcvt.f64.f32 d3, s0                       
+           000ceadc  vdiv.f64 d2, d2, d3                   
+           000ceae0  vcvt.f32.f64 s0, d2                       
+           000ceae4  vstr     s0, [fp, #0x18]              
+           000ceae8  mov      r0, sl                       
+           000ceaec  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ceaf0  str      r0, [fp, #0x110]             
+           000ceaf4  add      r0, sl, #0x38                
+           000ceaf8  ldr      r1, [r0]                     
+           000ceafc  str      r1, [fp, #0x78]              
+           000ceb00  ldr      r1, [r0, #4]                 ; field+0x4 
+           000ceb04  str      r1, [fp, #0x7c]              
+           000ceb08  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ceb0c  str      r0, [fp, #0x80]              
+           000ceb10  add      r0, sl, #0x54                
+           000ceb14  ldr      r1, [r0]                     
+           000ceb18  str      r1, [fp, #0x84]              
+           000ceb1c  ldr      r1, [r0, #4]                 ; field+0x4 
+           000ceb20  str      r1, [fp, #0x88]              
+           000ceb24  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ceb28  str      r0, [fp, #0x8c]              
+           000ceb2c  vldr     s0, [fp, #0x18]              
+           000ceb30  vcvt.f64.f32 d2, s0                       
+           000ceb34  add      r0, fp, #0x90                
+           000ceb38  ldr      r1, [fp, #0x78]              
+           000ceb3c  ldr      r2, [fp, #0x7c]              
+           000ceb40  ldr      r3, [fp, #0x80]              
+           000ceb44  ldr      ip, [fp, #0x84]              
+           000ceb48  str      ip, [sp]                     
+           000ceb4c  ldr      ip, [fp, #0x88]              
+           000ceb50  str      ip, [sp, #4]                 
+           000ceb54  ldr      ip, [fp, #0x8c]              
+           000ceb58  str      ip, [sp, #8]                 
+           000ceb5c  vcvt.f32.f64 s0, d2                       
+           000ceb60  vstr     s0, [sp, #0xc]               
+           000ceb64  bl       #0x22afa0                    ; CALL UnityEngine.Vector3::Lerp
+           000ceb68  ldr      ip, [fp, #0x110]             
+           000ceb6c  mov      r0, ip                       
+           000ceb70  ldr      r1, [fp, #0x90]              
+           000ceb74  ldr      r2, [fp, #0x94]              
+           000ceb78  ldr      r3, [fp, #0x98]              
+           000ceb7c  ldr      lr, [ip]                     
+           000ceb80  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000ceb84  mov      r0, sl                       
+           000ceb88  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ceb8c  str      r0, [fp, #0x10c]             
+           000ceb90  add      r0, sl, #0x44                
+           000ceb94  ldr      r1, [r0]                     
+           000ceb98  str      r1, [fp, #0x9c]              
+           000ceb9c  ldr      r1, [r0, #4]                 ; field+0x4 
+           000ceba0  str      r1, [fp, #0xa0]              
+           000ceba4  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ceba8  str      r1, [fp, #0xa4]              
+           000cebac  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000cebb0  str      r0, [fp, #0xa8]              
+           000cebb4  add      r0, sl, #0x60                
+           000cebb8  ldr      r1, [r0]                     
+           000cebbc  str      r1, [fp, #0xac]              
+           000cebc0  ldr      r1, [r0, #4]                 ; field+0x4 
+           000cebc4  str      r1, [fp, #0xb0]              
+           000cebc8  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000cebcc  str      r1, [fp, #0xb4]              
+           000cebd0  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000cebd4  str      r0, [fp, #0xb8]              
+           000cebd8  vldr     s0, [fp, #0x18]              
+           000cebdc  vcvt.f64.f32 d2, s0                       
+           000cebe0  add      r0, fp, #0xbc                
+           000cebe4  ldr      r1, [fp, #0x9c]              
+           000cebe8  ldr      r2, [fp, #0xa0]              
+           000cebec  ldr      r3, [fp, #0xa4]              
+           000cebf0  ldr      ip, [fp, #0xa8]              
+           000cebf4  str      ip, [sp]                     
+           000cebf8  ldr      ip, [fp, #0xac]              
+           000cebfc  str      ip, [sp, #4]                 
+           000cec00  ldr      ip, [fp, #0xb0]              
+           000cec04  str      ip, [sp, #8]                 
+           000cec08  ldr      ip, [fp, #0xb4]              
+           000cec0c  str      ip, [sp, #0xc]               
+           000cec10  ldr      ip, [fp, #0xb8]              
+           000cec14  str      ip, [sp, #0x10]              
+           000cec18  vcvt.f32.f64 s0, d2                       
+           000cec1c  vstr     s0, [sp, #0x14]              
+           000cec20  bl       #0x22b180                    ; CALL UnityEngine.Quaternion::Slerp
+           000cec24  ldr      ip, [fp, #0x10c]             
+           000cec28  mov      r0, ip                       
+           000cec2c  str      r0, [fp, #0x108]             
+           000cec30  ldr      r1, [fp, #0xbc]              
+           000cec34  ldr      r2, [fp, #0xc0]              
+           000cec38  ldr      r3, [fp, #0xc4]              
+           000cec3c  ldr      r0, [fp, #0xc8]              
+           000cec40  str      r0, [sp]                     
+           000cec44  ldr      r0, [fp, #0x108]             
+           000cec48  ldr      lr, [ip]                     
+           000cec4c  bl       #0x22b190                    ; CALL UnityEngine.Transform::set_rotation
+           000cec50  b        #0xced48                     ; -> L_ced48
+L_cec54:   000cec54  ldrb     r0, [sl, #0x34]              ; field+0x34 (this-class: travelDirection)
+           000cec58  cmp      r0, #0                       
+           000cec5c  beq      #0xcecd8                     ; -> L_cecd8
+           000cec60  add      r0, sl, #0x18                
+           000cec64  ldr      r1, [r0]                     
+           000cec68  str      r1, [fp, #0xcc]              
+           000cec6c  ldr      r1, [r0, #4]                 ; field+0x4 
+           000cec70  str      r1, [fp, #0xd0]              
+           000cec74  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000cec78  str      r0, [fp, #0xd4]              
+           000cec7c  add      r0, sl, #0x24                
+           000cec80  ldr      r1, [r0]                     
+           000cec84  str      r1, [fp, #0xd8]              
+           000cec88  ldr      r1, [r0, #4]                 ; field+0x4 
+           000cec8c  str      r1, [fp, #0xdc]              
+           000cec90  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000cec94  str      r1, [fp, #0xe0]              
+           000cec98  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000cec9c  str      r0, [fp, #0xe4]              
+           000ceca0  mov      r0, sl                       
+           000ceca4  ldr      r1, [fp, #0xcc]              
+           000ceca8  ldr      r2, [fp, #0xd0]              
+           000cecac  ldr      r3, [fp, #0xd4]              
+           000cecb0  ldr      ip, [fp, #0xd8]              
+           000cecb4  str      ip, [sp]                     
+           000cecb8  ldr      ip, [fp, #0xdc]              
+           000cecbc  str      ip, [sp, #4]                 
+           000cecc0  ldr      ip, [fp, #0xe0]              
+           000cecc4  str      ip, [sp, #8]                 
+           000cecc8  ldr      ip, [fp, #0xe4]              
+           000ceccc  str      ip, [sp, #0xc]               
+           000cecd0  bl       #0xce89c                     ; CALL PathMoverAI::StartTransition (direct)
+           000cecd4  b        #0xced34                     ; -> L_ced34
+L_cecd8:   000cecd8  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: targetTransform)
+           000cecdc  add      r0, fp, #0xe8                
+           000cece0  mov      r1, r2                       
+           000cece4  ldr      lr, [r2]                     
+           000cece8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000cecec  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: targetTransform)
+           000cecf0  add      r0, fp, #0xf4                
+           000cecf4  mov      r1, r2                       
+           000cecf8  ldr      lr, [r2]                     
+           000cecfc  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000ced00  mov      r0, sl                       
+           000ced04  ldr      r1, [fp, #0xe8]              
+           000ced08  ldr      r2, [fp, #0xec]              
+           000ced0c  ldr      r3, [fp, #0xf0]              
+           000ced10  ldr      ip, [fp, #0xf4]              
+           000ced14  str      ip, [sp]                     
+           000ced18  ldr      ip, [fp, #0xf8]              
+           000ced1c  str      ip, [sp, #4]                 
+           000ced20  ldr      ip, [fp, #0xfc]              
+           000ced24  str      ip, [sp, #8]                 
+           000ced28  ldr      ip, [fp, #0x100]             
+           000ced2c  str      ip, [sp, #0xc]               
+           000ced30  bl       #0xce89c                     ; CALL PathMoverAI::StartTransition (direct)
+L_ced34:   000ced34  ldrb     r0, [sl, #0x34]              ; field+0x34 (this-class: travelDirection)
+           000ced38  cmp      r0, #0                       
+           000ced3c  movne    r0, #0                       
+           000ced40  moveq    r0, #1                       
+           000ced44  strb     r0, [sl, #0x34]              ; field+0x34 (this-class: travelDirection)
+L_ced48:   000ced48  add      sp, fp, #0x124               
+           000ced4c  pop      {r8, sl, fp}                 
+           000ced50  ldr      r7, [sp, #8]                 
+           000ced54  ldm      sp, {sp, pc}                 

@@ -1,0 +1,100 @@
+####################################################################################################
+# TYPE EdgePixels  (instance size 0x18)
+#   +0x08 top                            float
+#   +0x0c bottom                         float
+#   +0x10 right                          float
+#   +0x14 left                           float
+#   vtable slots: 
+####################################################################################################
+== EdgePixels::.ctor  token 0x0600046a @0x0004a398 (44 bytes)
+   args: r0=this, 
+           0004a398  mov      ip, sp                       
+           0004a39c  push     {r7, lr}                     
+           0004a3a0  mov      r7, sp                       
+           0004a3a4  push     {r8, fp, ip, lr}             
+           0004a3a8  sub      sp, sp, #8                   
+           0004a3ac  mov      fp, sp                       
+           0004a3b0  str      r0, [fp]                     
+           0004a3b4  add      sp, fp, #8                   
+           0004a3b8  pop      {r8, fp}                     
+           0004a3bc  ldr      r7, [sp, #8]                 
+           0004a3c0  ldm      sp, {sp, pc}                 
+
+== EdgePixels::get_xSum  token 0x0600046b @0x0004a3c4 (76 bytes)
+   args: r0=this, 
+           0004a3c4  mov      ip, sp                       
+           0004a3c8  push     {r7, lr}                     
+           0004a3cc  mov      r7, sp                       
+           0004a3d0  push     {r8, fp, ip, lr}             
+           0004a3d4  sub      sp, sp, #8                   
+           0004a3d8  mov      fp, sp                       
+           0004a3dc  str      r0, [fp]                     
+           0004a3e0  ldr      r0, [fp]                     
+           0004a3e4  vldr     s0, [r0, #0x10]              ; field+0x10 (this-class: right)
+           0004a3e8  vcvt.f64.f32 d2, s0                       
+           0004a3ec  vldr     s0, [r0, #0x14]              ; field+0x14 (this-class: left)
+           0004a3f0  vcvt.f64.f32 d3, s0                       
+           0004a3f4  vadd.f64 d2, d2, d3                   
+           0004a3f8  vcvt.f32.f64 s0, d2                       
+           0004a3fc  vmov     r0, s0                       
+           0004a400  add      sp, fp, #8                   
+           0004a404  pop      {r8, fp}                     
+           0004a408  ldr      r7, [sp, #8]                 
+           0004a40c  ldm      sp, {sp, pc}                 
+
+== EdgePixels::get_ySum  token 0x0600046c @0x0004a410 (76 bytes)
+   args: r0=this, 
+           0004a410  mov      ip, sp                       
+           0004a414  push     {r7, lr}                     
+           0004a418  mov      r7, sp                       
+           0004a41c  push     {r8, fp, ip, lr}             
+           0004a420  sub      sp, sp, #8                   
+           0004a424  mov      fp, sp                       
+           0004a428  str      r0, [fp]                     
+           0004a42c  ldr      r0, [fp]                     
+           0004a430  vldr     s0, [r0, #8]                 ; field+0x8 (this-class: top)
+           0004a434  vcvt.f64.f32 d2, s0                       
+           0004a438  vldr     s0, [r0, #0xc]               ; field+0xc (this-class: bottom)
+           0004a43c  vcvt.f64.f32 d3, s0                       
+           0004a440  vadd.f64 d2, d2, d3                   
+           0004a444  vcvt.f32.f64 s0, d2                       
+           0004a448  vmov     r0, s0                       
+           0004a44c  add      sp, fp, #8                   
+           0004a450  pop      {r8, fp}                     
+           0004a454  ldr      r7, [sp, #8]                 
+           0004a458  ldm      sp, {sp, pc}                 
+
+== EdgePixels::DeepCopy  token 0x0600046d @0x0004a45c (128 bytes)
+   args: r0=this, 
+           0004a45c  mov      ip, sp                       
+           0004a460  push     {r7, lr}                     
+           0004a464  mov      r7, sp                       
+           0004a468  push     {r8, sl, fp, ip, lr}         
+           0004a46c  sub      sp, sp, #0xc                 
+           0004a470  mov      fp, sp                       
+           0004a474  mov      sl, r0                       
+           0004a478  mov      r0, sl                       
+           0004a47c  bl       #0xbd040                     ; CALL System.Object::MemberwiseClone
+           0004a480  mov      sl, r0                       
+           0004a484  cmp      sl, #0                       
+           0004a488  beq      #0x4a4b4                     ; -> L_4a4b4
+           0004a48c  ldr      r0, [sl]                     
+           0004a490  ldr      r0, [r0]                     
+           0004a494  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: top)
+           0004a498  ldr      r0, [r0, #4]                 ; field+0x4 
+           0004a49c  ldr      r1, [pc]                     
+           0004a4a0  b        #0x4a4a8                     ; -> L_4a4a8
+           0004a4a4  .word    0x00f52b14                   ; literal 16067348 / 
+L_4a4a8:   0004a4a8  ldr      r1, [pc, r1]                 ; GOT[615] CLASS EdgePixels
+           0004a4ac  cmp      r0, r1                       
+           0004a4b0  blne     #0x4a4cc                     ; THROW System.InvalidCastException (if ne)
+L_4a4b4:   0004a4b4  str      sl, [fp]                     
+           0004a4b8  mov      r0, sl                       
+           0004a4bc  add      sp, fp, #0xc                 
+           0004a4c0  pop      {r8, sl, fp}                 
+           0004a4c4  ldr      r7, [sp, #8]                 
+           0004a4c8  ldm      sp, {sp, pc}                 
+           0004a4cc  mov      r1, lr                       
+           0004a4d0  ldr      r0, [pc]                     
+           0004a4d4  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0004a4d8  andeq    r0, r0, #0xfd                

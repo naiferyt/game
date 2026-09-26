@@ -1,0 +1,546 @@
+####################################################################################################
+# TYPE DebugMoreCoinsPublisher  (instance size 0x58)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 transformReferences            UghPublisher/TransformReference[]
+#   +0x14 transformsDictionary           UghPublisher/TransformsDictionary
+#   +0x18 ughTextReferences              UghPublisher/UghTextReference[]
+#   +0x1c ughTextsDictionary             UghPublisher/UghTextsDictionary
+#   +0x20 ledScrollerReferences          UghPublisher/LEDScrollerReference[]
+#   +0x24 ledScrollersDictionary         UghPublisher/LEDScrollersDictionary
+#   +0x28 ughButtonReferences            UghPublisher/UghButtonReference[]
+#   +0x2c ughButtonsDictionary           UghPublisher/UghButtonsDictionary
+#   +0x30 ughSlideToggleReferences       UghPublisher/UghSlideToggleReference[]
+#   +0x34 ughSlideTogglesDictionary      UghPublisher/UghSlideToggleDictionary
+#   +0x38 ughSliderReferences            UghPublisher/UghSliderReference[]
+#   +0x3c ughSlidersDictionary           UghPublisher/UghSliderDictionary
+#   +0x40 ughSprites                     System.Collections.Generic.List`1<UghSprite>
+#   +0x44 identifier                     UnlocalizedString
+#   +0x48 appToggleOffMessage            LocalizedString
+#   +0x4c appPurchasesOffMessage         LocalizedString
+#   +0x50 cost                           int
+#   +0x54 coinButtonPressed              bool
+#   vtable slots: 
+####################################################################################################
+== DebugMoreCoinsPublisher::.ctor  token 0x060005ac @0x0011c530 (52 bytes)
+   args: r0=this, 
+           0011c530  mov      ip, sp                       
+           0011c534  push     {r7, lr}                     
+           0011c538  mov      r7, sp                       
+           0011c53c  push     {r8, fp, ip, lr}             
+           0011c540  sub      sp, sp, #8                   
+           0011c544  mov      fp, sp                       
+           0011c548  str      r0, [fp]                     
+           0011c54c  ldr      r0, [fp]                     
+           0011c550  bl       #0x22e1d0                    ; CALL UghPublisher::.ctor
+           0011c554  add      sp, fp, #8                   
+           0011c558  pop      {r8, fp}                     
+           0011c55c  ldr      r7, [sp, #8]                 
+           0011c560  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher::ReBuyHelper  token 0x060005ad @0x0011c564 (164 bytes)
+   args: r0=this, tier
+           0011c564  mov      ip, sp                       
+           0011c568  push     {r7, lr}                     
+           0011c56c  mov      r7, sp                       
+           0011c570  push     {r6, r8, fp, ip, lr}         
+           0011c574  sub      sp, sp, #0xc                 
+           0011c578  mov      fp, sp                       
+           0011c57c  mov      r6, r0                       
+           0011c580  str      r1, [fp]                     
+           0011c584  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0011c588  mov      r2, r0                       
+           0011c58c  ldr      r1, [fp]                     
+           0011c590  ldr      lr, [r2]                     
+           0011c594  bl       #0x22e210                    ; CALL DataUtility::PurchaseCoinsFromStoreKit
+           0011c598  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0011c59c  mov      r3, r0                       
+           0011c5a0  ldr      r0, [r6, #0x44]              ; field+0x44 (this-class: identifier)
+           0011c5a4  mov      r1, r0                       
+           0011c5a8  ldr      lr, [r1]                     
+           0011c5ac  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0011c5b0  ldr      r2, [r6, #0x50]              ; field+0x50 (this-class: cost)
+           0011c5b4  mov      r0, r3                       
+           0011c5b8  ldr      lr, [r3]                     
+           0011c5bc  bl       #0x22e220                    ; CALL DataUtility::BuyItem
+           0011c5c0  cmp      r0, #0                       
+           0011c5c4  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0011c5c8  ldr      lr, [r0]                     
+           0011c5cc  mov      r1, #1                       
+           0011c5d0  strb     r1, [r0, #0x34]              ; field+0x34 (this-class: ughSlideTogglesDictionary)
+           0011c5d4  ldr      r0, [pc]                     
+           0011c5d8  b        #0x11c5e0                    ; -> L_11c5e0
+           0011c5dc  .word    0x00e8986c                   ; literal 15243372 / 
+L_11c5e0:  0011c5e0  ldr      r0, [pc, r0]                 ; GOT[1083] VTABLE DebugMoreCoinsPublisher/<DestroyThis>c__Iterator4B
+           0011c5e4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0011c5e8  mov      r1, r0                       
+           0011c5ec  str      r6, [r1, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0011c5f0  mov      r0, r6                       
+           0011c5f4  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           0011c5f8  add      sp, fp, #0xc                 
+           0011c5fc  pop      {r6, r8, fp}                 
+           0011c600  ldr      r7, [sp, #8]                 
+           0011c604  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher::DestroyThis  token 0x060005ae @0x0011c608 (72 bytes)
+   args: r0=this, 
+           0011c608  mov      ip, sp                       
+           0011c60c  push     {r7, lr}                     
+           0011c610  mov      r7, sp                       
+           0011c614  push     {r8, fp, ip, lr}             
+           0011c618  sub      sp, sp, #8                   
+           0011c61c  mov      fp, sp                       
+           0011c620  str      r0, [fp]                     
+           0011c624  ldr      r0, [pc]                     
+           0011c628  b        #0x11c630                    ; -> L_11c630
+           0011c62c  .word    0x00e8981c                   ; literal 15243292 / 
+L_11c630:  0011c630  ldr      r0, [pc, r0]                 ; GOT[1083] VTABLE DebugMoreCoinsPublisher/<DestroyThis>c__Iterator4B
+           0011c634  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0011c638  ldr      r1, [fp]                     
+           0011c63c  str      r1, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0011c640  add      sp, fp, #8                   
+           0011c644  pop      {r8, fp}                     
+           0011c648  ldr      r7, [sp, #8]                 
+           0011c64c  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher::Start  token 0x060005af @0x0011c650 (48 bytes)
+   args: r0=this, 
+           0011c650  mov      ip, sp                       
+           0011c654  push     {r7, lr}                     
+           0011c658  mov      r7, sp                       
+           0011c65c  push     {r8, fp, ip, lr}             
+           0011c660  sub      sp, sp, #8                   
+           0011c664  mov      fp, sp                       
+           0011c668  str      r0, [fp]                     
+           0011c66c  bl       #0x22e230                    ; CALL SoundLibrary::PlayRandomWhoosh
+           0011c670  add      sp, fp, #8                   
+           0011c674  pop      {r8, fp}                     
+           0011c678  ldr      r7, [sp, #8]                 
+           0011c67c  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher::CoinPackOnePressed  token 0x060005b0 @0x0011c680 (96 bytes)
+   args: r0=this, 
+           0011c680  mov      ip, sp                       
+           0011c684  push     {r7, lr}                     
+           0011c688  mov      r7, sp                       
+           0011c68c  push     {r8, sl, fp, ip, lr}         
+           0011c690  sub      sp, sp, #4                   
+           0011c694  mov      fp, sp                       
+           0011c698  mov      sl, r0                       
+           0011c69c  ldrb     r0, [sl, #0x54]              ; field+0x54 (this-class: coinButtonPressed)
+           0011c6a0  cmp      r0, #0                       
+           0011c6a4  bne      #0x11c6d0                    ; -> L_11c6d0
+           0011c6a8  ldr      r0, [pc]                     
+           0011c6ac  b        #0x11c6b4                    ; -> L_11c6b4
+           0011c6b0  .word    0x00e8979c                   ; literal 15243164 / 
+L_11c6b4:  0011c6b4  ldr      r0, [pc, r0]                 ; GOT[1084] LDSTR 'Coin Button pressed! 1'
+           0011c6b8  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           0011c6bc  mov      r0, #1                       
+           0011c6c0  strb     r0, [sl, #0x54]              ; field+0x54 (this-class: coinButtonPressed)
+           0011c6c4  mov      r0, sl                       
+           0011c6c8  mov      r1, #0                       
+           0011c6cc  bl       #0x22e240                    ; CALL DebugMoreCoinsPublisher::ReBuyHelper
+L_11c6d0:  0011c6d0  add      sp, fp, #4                   
+           0011c6d4  pop      {r8, sl, fp}                 
+           0011c6d8  ldr      r7, [sp, #8]                 
+           0011c6dc  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher::CoinPackTwoPressed  token 0x060005b1 @0x0011c6e0 (96 bytes)
+   args: r0=this, 
+           0011c6e0  mov      ip, sp                       
+           0011c6e4  push     {r7, lr}                     
+           0011c6e8  mov      r7, sp                       
+           0011c6ec  push     {r8, sl, fp, ip, lr}         
+           0011c6f0  sub      sp, sp, #4                   
+           0011c6f4  mov      fp, sp                       
+           0011c6f8  mov      sl, r0                       
+           0011c6fc  ldrb     r0, [sl, #0x54]              ; field+0x54 (this-class: coinButtonPressed)
+           0011c700  cmp      r0, #0                       
+           0011c704  bne      #0x11c730                    ; -> L_11c730
+           0011c708  ldr      r0, [pc]                     
+           0011c70c  b        #0x11c714                    ; -> L_11c714
+           0011c710  .word    0x00e89740                   ; literal 15243072 / 
+L_11c714:  0011c714  ldr      r0, [pc, r0]                 ; GOT[1085] LDSTR 'Coin Button pressed! 2'
+           0011c718  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           0011c71c  mov      r0, #1                       
+           0011c720  strb     r0, [sl, #0x54]              ; field+0x54 (this-class: coinButtonPressed)
+           0011c724  mov      r0, sl                       
+           0011c728  mov      r1, #1                       
+           0011c72c  bl       #0x22e240                    ; CALL DebugMoreCoinsPublisher::ReBuyHelper
+L_11c730:  0011c730  add      sp, fp, #4                   
+           0011c734  pop      {r8, sl, fp}                 
+           0011c738  ldr      r7, [sp, #8]                 
+           0011c73c  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher::CoinPackThreePressed  token 0x060005b2 @0x0011c740 (96 bytes)
+   args: r0=this, 
+           0011c740  mov      ip, sp                       
+           0011c744  push     {r7, lr}                     
+           0011c748  mov      r7, sp                       
+           0011c74c  push     {r8, sl, fp, ip, lr}         
+           0011c750  sub      sp, sp, #4                   
+           0011c754  mov      fp, sp                       
+           0011c758  mov      sl, r0                       
+           0011c75c  ldrb     r0, [sl, #0x54]              ; field+0x54 (this-class: coinButtonPressed)
+           0011c760  cmp      r0, #0                       
+           0011c764  bne      #0x11c790                    ; -> L_11c790
+           0011c768  ldr      r0, [pc]                     
+           0011c76c  b        #0x11c774                    ; -> L_11c774
+           0011c770  .word    0x00e896e4                   ; literal 15242980 / 
+L_11c774:  0011c774  ldr      r0, [pc, r0]                 ; GOT[1086] LDSTR 'Coin Button pressed! 3'
+           0011c778  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           0011c77c  mov      r0, #1                       
+           0011c780  strb     r0, [sl, #0x54]              ; field+0x54 (this-class: coinButtonPressed)
+           0011c784  mov      r0, sl                       
+           0011c788  mov      r1, #2                       
+           0011c78c  bl       #0x22e240                    ; CALL DebugMoreCoinsPublisher::ReBuyHelper
+L_11c790:  0011c790  add      sp, fp, #4                   
+           0011c794  pop      {r8, sl, fp}                 
+           0011c798  ldr      r7, [sp, #8]                 
+           0011c79c  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher::CancelPressed  token 0x060005b3 @0x0011c7a0 (96 bytes)
+   args: r0=this, 
+           0011c7a0  mov      ip, sp                       
+           0011c7a4  push     {r7, lr}                     
+           0011c7a8  mov      r7, sp                       
+           0011c7ac  push     {r8, fp, ip, lr}             
+           0011c7b0  sub      sp, sp, #8                   
+           0011c7b4  mov      fp, sp                       
+           0011c7b8  str      r0, [fp]                     
+           0011c7bc  ldr      r0, [pc]                     
+           0011c7c0  b        #0x11c7c8                    ; -> L_11c7c8
+           0011c7c4  .word    0x00e89684                   ; literal 15242884 / 
+L_11c7c8:  0011c7c8  ldr      r0, [pc, r0]                 ; GOT[1083] VTABLE DebugMoreCoinsPublisher/<DestroyThis>c__Iterator4B
+           0011c7cc  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0011c7d0  mov      r1, r0                       
+           0011c7d4  ldr      r0, [fp]                     
+           0011c7d8  str      r0, [r1, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0011c7dc  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           0011c7e0  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0011c7e4  ldr      lr, [r0]                     
+           0011c7e8  mov      r1, #1                       
+           0011c7ec  strb     r1, [r0, #0x34]              ; field+0x34 (this-class: ughSlideTogglesDictionary)
+           0011c7f0  add      sp, fp, #8                   
+           0011c7f4  pop      {r8, fp}                     
+           0011c7f8  ldr      r7, [sp, #8]                 
+           0011c7fc  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher::GetInstance  token 0x060005b4 @0x0011c800 (132 bytes) static
+   args: 
+           0011c800  mov      ip, sp                       
+           0011c804  push     {r7, lr}                     
+           0011c808  mov      r7, sp                       
+           0011c80c  push     {r6, r8, sl, fp, ip, lr}     
+           0011c810  mov      fp, sp                       
+           0011c814  ldr      r0, [pc]                     
+           0011c818  b        #0x11c820                    ; -> L_11c820
+           0011c81c  .word    0x00e8963c                   ; literal 15242812 / 
+L_11c820:  0011c820  ldr      r0, [pc, r0]                 ; GOT[1087] TYPE_FROM_HANDLE typeof(DebugMoreCoinsPublisher)
+           0011c824  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           0011c828  mov      sl, r0                       
+           0011c82c  mov      r6, sl                       
+           0011c830  cmp      sl, #0                       
+           0011c834  beq      #0x11c870                    ; -> L_11c870
+           0011c838  ldr      r0, [sl]                     
+           0011c83c  ldr      sl, [r0]                     
+           0011c840  ldrh     r0, [sl, #0xc]               ; field+0xc 
+           0011c844  cmp      r0, #8                       
+           0011c848  blo      #0x11c86c                    ; -> L_11c86c
+           0011c84c  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0011c850  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0011c854  ldr      r1, [pc]                     
+           0011c858  b        #0x11c860                    ; -> L_11c860
+           0011c85c  .word    0x00e89600                   ; literal 15242752 / 
+L_11c860:  0011c860  ldr      r1, [pc, r1]                 ; GOT[1088] CLASS DebugMoreCoinsPublisher
+           0011c864  cmp      r0, r1                       
+           0011c868  beq      #0x11c870                    ; -> L_11c870
+L_11c86c:  0011c86c  mov      r6, #0                       
+L_11c870:  0011c870  mov      r0, r6                       
+           0011c874  add      sp, fp, #0                   
+           0011c878  pop      {r6, r8, sl, fp}             
+           0011c87c  ldr      r7, [sp, #8]                 
+           0011c880  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher::AddButtonsToLegalControls  token 0x060005b5 @0x0011c884 (412 bytes) static
+   args: 
+           0011c884  mov      ip, sp                       
+           0011c888  push     {r7, lr}                     
+           0011c88c  mov      r7, sp                       
+           0011c890  push     {r6, r8, sl, fp, ip, lr}     
+           0011c894  mov      fp, sp                       
+           0011c898  bl       #0x22e250                    ; CALL DebugMoreCoinsPublisher::GetInstance
+           0011c89c  mov      r6, r0                       
+           0011c8a0  mov      r1, #0                       
+           0011c8a4  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0011c8a8  cmp      r0, #0                       
+           0011c8ac  bne      #0x11ca10                    ; -> L_11ca10
+           0011c8b0  ldr      r0, [pc]                     
+           0011c8b4  b        #0x11c8bc                    ; -> L_11c8bc
+           0011c8b8  .word    0x00e895a8                   ; literal 15242664 / 
+L_11c8bc:  0011c8bc  ldr      r0, [pc, r0]                 ; GOT[1089] VTABLE System.Collections.Generic.List`1<UghControl>
+           0011c8c0  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0011c8c4  ldr      r1, [pc]                     
+           0011c8c8  b        #0x11c8d0                    ; -> L_11c8d0
+           0011c8cc  .word    0x00e89598                   ; literal 15242648 / 
+L_11c8d0:  0011c8d0  ldr      r1, [pc, r1]                 ; GOT[1090] SFLDA System.Collections.Generic.List`1<UghControl>::EmptyArray
+           0011c8d4  ldr      r1, [r1]                     
+           0011c8d8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0011c8dc  mov      sl, r0                       
+           0011c8e0  ldr      r0, [pc]                     
+           0011c8e4  b        #0x11c8ec                    ; -> L_11c8ec
+           0011c8e8  .word    0x00e89580                   ; literal 15242624 / 
+L_11c8ec:  0011c8ec  ldr      r0, [pc, r0]                 ; GOT[1091] SFLDA UghControl::theOnlyLegalControls
+           0011c8f0  ldr      r0, [r0]                     
+           0011c8f4  cmp      r0, #0                       
+           0011c8f8  beq      #0x11c91c                    ; -> L_11c91c
+           0011c8fc  ldr      r0, [pc]                     
+           0011c900  b        #0x11c908                    ; -> L_11c908
+           0011c904  .word    0x00e89564                   ; literal 15242596 / 
+L_11c908:  0011c908  ldr      r0, [pc, r0]                 ; GOT[1091] SFLDA UghControl::theOnlyLegalControls
+           0011c90c  ldr      r1, [r0]                     
+           0011c910  mov      r0, sl                       
+           0011c914  ldr      lr, [sl]                     
+           0011c918  bl       #0x22e260                    ; CALL System.Collections.Generic.List`1<UghControl>::AddRange
+L_11c91c:  0011c91c  ldr      lr, [r6]                     
+           0011c920  ldr      r2, [r6, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           0011c924  ldr      r1, [pc]                     
+           0011c928  b        #0x11c930                    ; -> L_11c930
+           0011c92c  .word    0x00e89540                   ; literal 15242560 / 
+L_11c930:  0011c930  ldr      r1, [pc, r1]                 ; GOT[1092] LDSTR 'coinPack1'
+           0011c934  mov      r0, r2                       
+           0011c938  ldr      lr, [r2]                     
+           0011c93c  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           0011c940  mov      r1, r0                       
+           0011c944  mov      r0, sl                       
+           0011c948  ldr      lr, [sl]                     
+           0011c94c  bl       #0x22e270                    ; CALL System.Collections.Generic.List`1<UghControl>::Add
+           0011c950  ldr      lr, [r6]                     
+           0011c954  ldr      r2, [r6, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           0011c958  ldr      r1, [pc]                     
+           0011c95c  b        #0x11c964                    ; -> L_11c964
+           0011c960  .word    0x00e89510                   ; literal 15242512 / 
+L_11c964:  0011c964  ldr      r1, [pc, r1]                 ; GOT[1093] LDSTR 'coinPack2'
+           0011c968  mov      r0, r2                       
+           0011c96c  ldr      lr, [r2]                     
+           0011c970  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           0011c974  mov      r1, r0                       
+           0011c978  mov      r0, sl                       
+           0011c97c  ldr      lr, [sl]                     
+           0011c980  bl       #0x22e270                    ; CALL System.Collections.Generic.List`1<UghControl>::Add
+           0011c984  ldr      lr, [r6]                     
+           0011c988  ldr      r2, [r6, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           0011c98c  ldr      r1, [pc]                     
+           0011c990  b        #0x11c998                    ; -> L_11c998
+           0011c994  .word    0x00e894e0                   ; literal 15242464 / 
+L_11c998:  0011c998  ldr      r1, [pc, r1]                 ; GOT[1094] LDSTR 'coinPack3'
+           0011c99c  mov      r0, r2                       
+           0011c9a0  ldr      lr, [r2]                     
+           0011c9a4  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           0011c9a8  mov      r1, r0                       
+           0011c9ac  mov      r0, sl                       
+           0011c9b0  ldr      lr, [sl]                     
+           0011c9b4  bl       #0x22e270                    ; CALL System.Collections.Generic.List`1<UghControl>::Add
+           0011c9b8  ldr      lr, [r6]                     
+           0011c9bc  ldr      r2, [r6, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           0011c9c0  ldr      r1, [pc]                     
+           0011c9c4  b        #0x11c9cc                    ; -> L_11c9cc
+           0011c9c8  .word    0x00e894b0                   ; literal 15242416 / 
+L_11c9cc:  0011c9cc  ldr      r1, [pc, r1]                 ; GOT[1095] LDSTR 'Cancel'
+           0011c9d0  mov      r0, r2                       
+           0011c9d4  ldr      lr, [r2]                     
+           0011c9d8  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           0011c9dc  mov      r1, r0                       
+           0011c9e0  mov      r0, sl                       
+           0011c9e4  ldr      lr, [sl]                     
+           0011c9e8  bl       #0x22e270                    ; CALL System.Collections.Generic.List`1<UghControl>::Add
+           0011c9ec  mov      r0, sl                       
+           0011c9f0  ldr      lr, [sl]                     
+           0011c9f4  bl       #0x22e280                    ; CALL System.Collections.Generic.List`1<UghControl>::ToArray
+           0011c9f8  mov      r1, r0                       
+           0011c9fc  ldr      r0, [pc]                     
+           0011ca00  b        #0x11ca08                    ; -> L_11ca08
+           0011ca04  .word    0x00e89464                   ; literal 15242340 / 
+L_11ca08:  0011ca08  ldr      r0, [pc, r0]                 ; GOT[1091] SFLDA UghControl::theOnlyLegalControls
+           0011ca0c  str      r1, [r0]                     
+L_11ca10:  0011ca10  add      sp, fp, #0                   
+           0011ca14  pop      {r6, r8, sl, fp}             
+           0011ca18  ldr      r7, [sp, #8]                 
+           0011ca1c  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE DebugMoreCoinsPublisher/<DestroyThis>c__Iterator4B  (instance size 0x18)
+#   +0x08 <anim>__0                      UnityEngine.Animation
+#   +0x0c $current                       object
+#   +0x10 <>f__this                      DebugMoreCoinsPublisher
+#   +0x14 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== DebugMoreCoinsPublisher/<DestroyThis>c__Iterator4B::.ctor  token 0x06000993 @0x00150dbc (44 bytes)
+   args: r0=this, 
+           00150dbc  mov      ip, sp                       
+           00150dc0  push     {r7, lr}                     
+           00150dc4  mov      r7, sp                       
+           00150dc8  push     {r8, fp, ip, lr}             
+           00150dcc  sub      sp, sp, #8                   
+           00150dd0  mov      fp, sp                       
+           00150dd4  str      r0, [fp]                     
+           00150dd8  add      sp, fp, #8                   
+           00150ddc  pop      {r8, fp}                     
+           00150de0  ldr      r7, [sp, #8]                 
+           00150de4  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher/<DestroyThis>c__Iterator4B::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x06000994 @0x00150de8 (52 bytes)
+   args: r0=this, 
+           00150de8  mov      ip, sp                       
+           00150dec  push     {r7, lr}                     
+           00150df0  mov      r7, sp                       
+           00150df4  push     {r8, fp, ip, lr}             
+           00150df8  sub      sp, sp, #8                   
+           00150dfc  mov      fp, sp                       
+           00150e00  str      r0, [fp]                     
+           00150e04  ldr      r0, [fp]                     
+           00150e08  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           00150e0c  add      sp, fp, #8                   
+           00150e10  pop      {r8, fp}                     
+           00150e14  ldr      r7, [sp, #8]                 
+           00150e18  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher/<DestroyThis>c__Iterator4B::System.Collections.IEnumerator.get_Current  token 0x06000995 @0x00150e1c (52 bytes)
+   args: r0=this, 
+           00150e1c  mov      ip, sp                       
+           00150e20  push     {r7, lr}                     
+           00150e24  mov      r7, sp                       
+           00150e28  push     {r8, fp, ip, lr}             
+           00150e2c  sub      sp, sp, #8                   
+           00150e30  mov      fp, sp                       
+           00150e34  str      r0, [fp]                     
+           00150e38  ldr      r0, [fp]                     
+           00150e3c  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           00150e40  add      sp, fp, #8                   
+           00150e44  pop      {r8, fp}                     
+           00150e48  ldr      r7, [sp, #8]                 
+           00150e4c  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher/<DestroyThis>c__Iterator4B::MoveNext  token 0x06000996 @0x00150e50 (340 bytes)
+   args: r0=this, 
+           00150e50  mov      ip, sp                       
+           00150e54  push     {r7, lr}                     
+           00150e58  mov      r7, sp                       
+           00150e5c  push     {r8, sl, fp, ip, lr}         
+           00150e60  sub      sp, sp, #0x1c                
+           00150e64  mov      fp, sp                       
+           00150e68  mov      sl, r0                       
+           00150e6c  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           00150e70  mvn      r1, #0                       
+           00150e74  str      r1, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           00150e78  str      r0, [fp, #8]                 
+           00150e7c  cmp      r0, #2                       
+           00150e80  bhs      #0x150f88                    ; -> L_150f88
+           00150e84  ldr      r0, [fp, #8]                 
+           00150e88  lsl      r1, r0, #2                   
+           00150e8c  ldr      r0, [pc]                     
+           00150e90  b        #0x150e98                    ; -> L_150e98
+           00150e94  .word    0x00e55bf4                   ; literal 15031284 / 
+L_150e98:  00150e98  ldr      r0, [pc, r0]                 ; GOT[1867] SWITCH switch table[2]
+           00150e9c  add      r0, r0, r1                   
+           00150ea0  ldr      r0, [r0]                     
+           00150ea4  mov      pc, r0                       
+           00150ea8  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           00150eac  ldr      r8, [pc]                     
+           00150eb0  b        #0x150eb8                    ; -> L_150eb8
+           00150eb4  .word    0x00e53fc8                   ; literal 15024072 / 
+L_150eb8:  00150eb8  ldr      r8, [pc, r8]                 ; GOT[72] METHOD_RGCTX UnityEngine.Component::GetComponentInChildren<UnityEngine.Animation>
+           00150ebc  bl       #0x22ad80                    ; CALL UnityEngine.Component::GetComponentInChildren<UnityEngine.Animation>
+           00150ec0  str      r0, [sl, #8]                 ; field+0x8 (this-class: <anim>__0)
+           00150ec4  mov      r1, #0                       
+           00150ec8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00150ecc  cmp      r0, #0                       
+           00150ed0  beq      #0x150ef4                    ; -> L_150ef4
+           00150ed4  ldr      r2, [sl, #8]                 ; field+0x8 (this-class: <anim>__0)
+           00150ed8  ldr      r1, [pc]                     
+           00150edc  b        #0x150ee4                    ; -> L_150ee4
+           00150ee0  .word    0x00e55bac                   ; literal 15031212 / 
+L_150ee4:  00150ee4  ldr      r1, [pc, r1]                 ; GOT[1868] LDSTR 'AchievementOUT'
+           00150ee8  mov      r0, r2                       
+           00150eec  ldr      lr, [r2]                     
+           00150ef0  bl       #0x22e6f0                    ; CALL UnityEngine.Animation::Play
+L_150ef4:  00150ef4  bl       #0x22e230                    ; CALL SoundLibrary::PlayRandomWhoosh
+           00150ef8  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           00150efc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00150f00  mov      r2, r0                       
+           00150f04  ldr      r1, [pc]                     
+           00150f08  b        #0x150f10                    ; -> L_150f10
+           00150f0c  .word    0x00e55b84                   ; literal 15031172 / 
+L_150f10:  00150f10  ldr      r1, [pc, r1]                 ; GOT[1869] LDSTR 'FadeOut'
+           00150f14  mov      r0, r2                       
+           00150f18  ldr      lr, [r2]                     
+           00150f1c  bl       #0x22f870                    ; CALL UnityEngine.GameObject::BroadcastMessage
+           00150f20  vldr     s4, [pc]                     ; float 0.5
+           00150f24  b        #0x150f2c                    ; -> L_150f2c
+           00150f28  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_150f2c:  00150f2c  vcvt.f64.f32 d2, s4                       
+           00150f30  vstr     d2, [fp, #0x10]              
+           00150f34  ldr      r0, [pc]                     
+           00150f38  b        #0x150f40                    ; -> L_150f40
+           00150f3c  .word    0x00e558b8                   ; literal 15030456 / 
+L_150f40:  00150f40  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           00150f44  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           00150f48  vldr     d2, [fp, #0x10]              
+           00150f4c  vcvt.f32.f64 s0, d2                       
+           00150f50  vstr     s0, [fp]                     
+           00150f54  vldr     s0, [fp]                     
+           00150f58  vcvt.f64.f32 d2, s0                       
+           00150f5c  vcvt.f32.f64 s0, d2                       
+           00150f60  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: <anim>__0)
+           00150f64  str      r0, [sl, #0xc]               ; field+0xc (this-class: $current)
+           00150f68  mov      r0, #1                       
+           00150f6c  str      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           00150f70  b        #0x150f90                    ; -> L_150f90
+           00150f74  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           00150f78  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00150f7c  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+           00150f80  mvn      r0, #0                       
+           00150f84  str      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+L_150f88:  00150f88  mov      r0, #0                       
+           00150f8c  b        #0x150f94                    ; -> L_150f94
+L_150f90:  00150f90  mov      r0, #1                       
+L_150f94:  00150f94  add      sp, fp, #0x1c                
+           00150f98  pop      {r8, sl, fp}                 
+           00150f9c  ldr      r7, [sp, #8]                 
+           00150fa0  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher/<DestroyThis>c__Iterator4B::Dispose  token 0x06000997 @0x00150fa4 (56 bytes)
+   args: r0=this, 
+           00150fa4  mov      ip, sp                       
+           00150fa8  push     {r7, lr}                     
+           00150fac  mov      r7, sp                       
+           00150fb0  push     {r8, fp, ip, lr}             
+           00150fb4  sub      sp, sp, #8                   
+           00150fb8  mov      fp, sp                       
+           00150fbc  str      r0, [fp]                     
+           00150fc0  ldr      r0, [fp]                     
+           00150fc4  mvn      r1, #0                       
+           00150fc8  str      r1, [r0, #0x14]              ; field+0x14 (this-class: $PC)
+           00150fcc  add      sp, fp, #8                   
+           00150fd0  pop      {r8, fp}                     
+           00150fd4  ldr      r7, [sp, #8]                 
+           00150fd8  ldm      sp, {sp, pc}                 
+
+== DebugMoreCoinsPublisher/<DestroyThis>c__Iterator4B::Reset  token 0x06000998 @0x00150fdc (64 bytes)
+   args: r0=this, 
+           00150fdc  mov      ip, sp                       
+           00150fe0  push     {r7, lr}                     
+           00150fe4  mov      r7, sp                       
+           00150fe8  push     {r8, fp, ip, lr}             
+           00150fec  sub      sp, sp, #8                   
+           00150ff0  mov      fp, sp                       
+           00150ff4  str      r0, [fp]                     
+           00150ff8  mov      r0, #0x49                    
+           00150ffc  add      r0, r0, #0x100               
+           00151000  add      r0, r0, #0x2000000           
+           00151004  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00151008  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0015100c  add      sp, fp, #8                   
+           00151010  pop      {r8, fp}                     
+           00151014  ldr      r7, [sp, #8]                 
+           00151018  ldm      sp, {sp, pc}                 

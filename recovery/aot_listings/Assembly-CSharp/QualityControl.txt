@@ -1,0 +1,123 @@
+####################################################################################################
+# TYPE QualityControl  (instance size 0x8)
+#   vtable slots: 
+####################################################################################################
+== QualityControl::get_IsGameHardcore  token 0x06000472 @0x00103310 (40 bytes) static
+   args: 
+           00103310  mov      ip, sp                       
+           00103314  push     {r7, lr}                     
+           00103318  mov      r7, sp                       
+           0010331c  push     {r8, fp, ip, lr}             
+           00103320  mov      fp, sp                       
+           00103324  mov      r0, #0                       
+           00103328  add      sp, fp, #0                   
+           0010332c  pop      {r8, fp}                     
+           00103330  ldr      r7, [sp, #8]                 
+           00103334  ldm      sp, {sp, pc}                 
+
+== QualityControl::get_DoPhysicsAt30fps  token 0x06000473 @0x00103338 (48 bytes) static
+   args: 
+           00103338  mov      ip, sp                       
+           0010333c  push     {r7, lr}                     
+           00103340  mov      r7, sp                       
+           00103344  push     {r8, fp, ip, lr}             
+           00103348  mov      fp, sp                       
+           0010334c  mov      r0, #0                       
+           00103350  cmp      r0, #0                       
+           00103354  mov      r0, #0                       
+           00103358  add      sp, fp, #0                   
+           0010335c  pop      {r8, fp}                     
+           00103360  ldr      r7, [sp, #8]                 
+           00103364  ldm      sp, {sp, pc}                 
+
+== QualityControl::get_DoPerFrameCollision  token 0x06000474 @0x00103368 (48 bytes) static
+   args: 
+           00103368  mov      ip, sp                       
+           0010336c  push     {r7, lr}                     
+           00103370  mov      r7, sp                       
+           00103374  push     {r8, fp, ip, lr}             
+           00103378  mov      fp, sp                       
+           0010337c  mov      r0, #0                       
+           00103380  cmp      r0, #0                       
+           00103384  mov      r0, #1                       
+           00103388  add      sp, fp, #0                   
+           0010338c  pop      {r8, fp}                     
+           00103390  ldr      r7, [sp, #8]                 
+           00103394  ldm      sp, {sp, pc}                 
+
+== QualityControl::get_DoDummiedPlayerCollision  token 0x06000475 @0x00103398 (48 bytes) static
+   args: 
+           00103398  mov      ip, sp                       
+           0010339c  push     {r7, lr}                     
+           001033a0  mov      r7, sp                       
+           001033a4  push     {r8, fp, ip, lr}             
+           001033a8  mov      fp, sp                       
+           001033ac  mov      r0, #0                       
+           001033b0  cmp      r0, #0                       
+           001033b4  mov      r0, #1                       
+           001033b8  add      sp, fp, #0                   
+           001033bc  pop      {r8, fp}                     
+           001033c0  ldr      r7, [sp, #8]                 
+           001033c4  ldm      sp, {sp, pc}                 
+
+== QualityControl::get_DoFullTriFoot  token 0x06000476 @0x001033c8 (48 bytes) static
+   args: 
+           001033c8  mov      ip, sp                       
+           001033cc  push     {r7, lr}                     
+           001033d0  mov      r7, sp                       
+           001033d4  push     {r8, fp, ip, lr}             
+           001033d8  mov      fp, sp                       
+           001033dc  mov      r0, #0                       
+           001033e0  cmp      r0, #0                       
+           001033e4  mov      r0, #1                       
+           001033e8  add      sp, fp, #0                   
+           001033ec  pop      {r8, fp}                     
+           001033f0  ldr      r7, [sp, #8]                 
+           001033f4  ldm      sp, {sp, pc}                 
+
+== QualityControl::get_DoFullAI  token 0x06000477 @0x001033f8 (48 bytes) static
+   args: 
+           001033f8  mov      ip, sp                       
+           001033fc  push     {r7, lr}                     
+           00103400  mov      r7, sp                       
+           00103404  push     {r8, fp, ip, lr}             
+           00103408  mov      fp, sp                       
+           0010340c  mov      r0, #0                       
+           00103410  cmp      r0, #0                       
+           00103414  mov      r0, #0                       
+           00103418  add      sp, fp, #0                   
+           0010341c  pop      {r8, fp}                     
+           00103420  ldr      r7, [sp, #8]                 
+           00103424  ldm      sp, {sp, pc}                 
+
+== QualityControl::Apply  token 0x06000478 @0x00103428 (116 bytes) static
+   args: 
+           00103428  mov      ip, sp                       
+           0010342c  push     {r7, lr}                     
+           00103430  mov      r7, sp                       
+           00103434  push     {r8, fp, ip, lr}             
+           00103438  sub      sp, sp, #8                   
+           0010343c  mov      fp, sp                       
+           00103440  bl       #0x103338                    ; CALL QualityControl::get_DoPhysicsAt30fps (direct)
+           00103444  cmp      r0, #0                       
+           00103448  beq      #0x10348c                    ; -> L_10348c
+           0010344c  vldr     s4, [pc]                     ; float 0.0333000011742115
+           00103450  b        #0x103458                    ; -> L_103458
+           00103454  .word    0x3d086595                   ; literal 1023960469 / 0.0333
+L_103458:  00103458  vcvt.f64.f32 d2, s4                       
+           0010345c  vcvt.f32.f64 s0, d2                       
+           00103460  vstr     s0, [sp, #-8]                
+           00103464  ldr      r0, [sp, #-8]                
+           00103468  bl       #0x22d7c0                    ; CALL UnityEngine.Time::set_fixedDeltaTime
+           0010346c  vldr     s4, [pc]                     ; float 0.33329999446868896
+           00103470  b        #0x103478                    ; -> L_103478
+           00103474  .word    0x3eaaa64c                   ; literal 1051371084 / 0.3333
+L_103478:  00103478  vcvt.f64.f32 d2, s4                       
+           0010347c  vcvt.f32.f64 s0, d2                       
+           00103480  vstr     s0, [sp, #-8]                
+           00103484  ldr      r0, [sp, #-8]                
+           00103488  bl       #0x22d7d0                    ; CALL UnityEngine.Time::set_maximumDeltaTime
+L_10348c:  0010348c  add      sp, fp, #8                   
+           00103490  pop      {r8, fp}                     
+           00103494  ldr      r7, [sp, #8]                 
+           00103498  ldm      sp, {sp, pc}                 

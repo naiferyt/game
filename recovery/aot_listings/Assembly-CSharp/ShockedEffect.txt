@@ -1,0 +1,278 @@
+####################################################################################################
+# TYPE ShockedEffect  (instance size 0x24)
+#   +0x08 time                           float
+#   +0x0c power                          int
+#   +0x10 effectType                     BaseEffect/EffectTypes
+#   +0x14 isMultiLevel                   bool
+#   +0x18 powerLevel                     int
+#   +0x1c parentObject                   UnityEngine.GameObject
+#   +0x20 shockParticle                  UnityEngine.GameObject
+#   vtable slots: 5:GetEffectSnapShot, 6:Stack, 7:Shutdown, 8:Update, 9:Init
+####################################################################################################
+== ShockedEffect::.ctor  token 0x060003c1 @0x000f8084 (104 bytes)
+   args: r0=this, owner
+           000f8084  mov      ip, sp                       
+           000f8088  push     {r7, lr}                     
+           000f808c  mov      r7, sp                       
+           000f8090  push     {r6, r8, fp, ip, lr}         
+           000f8094  sub      sp, sp, #0xc                 
+           000f8098  mov      fp, sp                       
+           000f809c  mov      r6, r0                       
+           000f80a0  str      r1, [fp]                     
+           000f80a4  mov      r0, #1                       
+           000f80a8  str      r0, [r6, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f80ac  mov      r0, #0x11                    
+           000f80b0  str      r0, [r6, #0x10]              ; field+0x10 (this-class: effectType)
+           000f80b4  ldr      r0, [fp]                     
+           000f80b8  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f80bc  mov      r0, #0x32                    
+           000f80c0  str      r0, [r6, #0xc]               ; field+0xc (this-class: power)
+           000f80c4  vldr     s4, [pc]                     ; float 4.0
+           000f80c8  b        #0xf80d0                     ; -> L_f80d0
+           000f80cc  .word    0x40800000                   ; literal 1082130432 / 4
+L_f80d0:   000f80d0  vcvt.f64.f32 d2, s4                       
+           000f80d4  vcvt.f32.f64 s0, d2                       
+           000f80d8  vstr     s0, [r6, #8]                 ; field+0x8 (this-class: time)
+           000f80dc  add      sp, fp, #0xc                 
+           000f80e0  pop      {r6, r8, fp}                 
+           000f80e4  ldr      r7, [sp, #8]                 
+           000f80e8  ldm      sp, {sp, pc}                 
+
+== ShockedEffect::Init  token 0x060003c2 @0x000f80ec (684 bytes)
+   args: r0=this, 
+           000f80ec  mov      ip, sp                       
+           000f80f0  push     {r7, lr}                     
+           000f80f4  mov      r7, sp                       
+           000f80f8  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000f80fc  sub      sp, sp, #0x60                
+           000f8100  mov      fp, sp                       
+           000f8104  mov      sl, r0                       
+           000f8108  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f810c  ldr      r1, [pc]                     
+           000f8110  b        #0xf8118                     ; -> L_f8118
+           000f8114  .word    0x00eacdc0                   ; literal 15388096 / 
+L_f8118:   000f8118  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f811c  ldr      lr, [r0]                     
+           000f8120  mov      r8, r1                       
+           000f8124  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f8128  mov      r4, r0                       
+           000f812c  mov      r1, #0                       
+           000f8130  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f8134  cmp      r0, #0                       
+           000f8138  beq      #0xf8194                     ; -> L_f8194
+           000f813c  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8140  str      r0, [fp, #0x54]              
+           000f8144  ldr      r0, [pc]                     
+           000f8148  b        #0xf8150                     ; -> L_f8150
+           000f814c  .word    0x00ead5b8                   ; literal 15390136 / 
+L_f8150:   000f8150  ldr      r0, [pc, r0]                 ; GOT[618] VTABLE SlowdownEffect
+           000f8154  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f8158  ldr      r1, [fp, #0x54]              
+           000f815c  str      r0, [fp, #0x50]              
+           000f8160  bl       #0xf869c                     ; CALL SlowdownEffect::.ctor (direct)
+           000f8164  ldr      r0, [fp, #0x50]              
+           000f8168  mov      r6, r0                       
+           000f816c  vldr     s0, [sl, #8]                 ; field+0x8 (this-class: time)
+           000f8170  vcvt.f64.f32 d2, s0                       
+           000f8174  vcvt.f32.f64 s0, d2                       
+           000f8178  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f817c  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: power)
+           000f8180  str      r1, [r0, #0xc]               ; field+0xc (this-class: power)
+           000f8184  mov      r0, r4                       
+           000f8188  mov      r1, r6                       
+           000f818c  ldr      lr, [r4]                     
+           000f8190  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+L_f8194:   000f8194  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8198  mov      r0, r1                       
+           000f819c  ldr      lr, [r1]                     
+           000f81a0  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f81a4  mov      r2, r0                       
+           000f81a8  ldr      r1, [pc]                     
+           000f81ac  b        #0xf81b4                     ; -> L_f81b4
+           000f81b0  .word    0x00ead640                   ; literal 15390272 / 
+L_f81b4:   000f81b4  ldr      r1, [pc, r1]                 ; GOT[677] LDSTR 'Shocked Engine Particle'
+           000f81b8  mov      r0, r2                       
+           000f81bc  ldr      lr, [r2]                     
+           000f81c0  bl       #0x22b290                    ; CALL UnityEngine.Transform::FindChild
+           000f81c4  mov      r1, #0                       
+           000f81c8  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000f81cc  cmp      r0, #0                       
+           000f81d0  beq      #0xf8360                     ; -> L_f8360
+           000f81d4  ldr      r0, [pc]                     
+           000f81d8  b        #0xf81e0                     ; -> L_f81e0
+           000f81dc  .word    0x00ead618                   ; literal 15390232 / 
+L_f81e0:   000f81e0  ldr      r0, [pc, r0]                 ; GOT[678] LDSTR 'ShockedParticle'
+           000f81e4  str      r0, [fp, #0x58]              
+           000f81e8  ldr      r0, [pc]                     
+           000f81ec  b        #0xf81f4                     ; -> L_f81f4
+           000f81f0  .word    0x00eacb98                   ; literal 15387544 / 
+L_f81f4:   000f81f4  ldr      r0, [pc, r0]                 ; GOT[11] VTABLE UnityEngine.GameObject
+           000f81f8  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           000f81fc  ldr      r1, [fp, #0x58]              
+           000f8200  str      r0, [fp, #0x54]              
+           000f8204  bl       #0x22a850                    ; CALL UnityEngine.GameObject::.ctor
+           000f8208  ldr      r0, [fp, #0x54]              
+           000f820c  str      r0, [sl, #0x20]              ; field+0x20 (this-class: shockParticle)
+           000f8210  mov      r5, sl                       
+           000f8214  bl       #0x22b2a0                    ; CALL ParticleLibrary::get_Instance
+           000f8218  mov      r2, r0                       
+           000f821c  ldr      r1, [pc]                     
+           000f8220  b        #0xf8228                     ; -> L_f8228
+           000f8224  .word    0x00ead5d4                   ; literal 15390164 / 
+L_f8228:   000f8228  ldr      r1, [pc, r1]                 ; GOT[679] LDSTR 'ShockedEngine'
+           000f822c  mov      r0, r2                       
+           000f8230  ldr      lr, [r2]                     
+           000f8234  bl       #0x22b2b0                    ; CALL ParticleLibrary::GetPrefab
+           000f8238  str      r0, [fp, #0x50]              
+           000f823c  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8240  mov      r0, r1                       
+           000f8244  ldr      lr, [r1]                     
+           000f8248  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f824c  mov      r2, r0                       
+           000f8250  add      r0, fp, #0x34                
+           000f8254  mov      r1, r2                       
+           000f8258  ldr      lr, [r2]                     
+           000f825c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f8260  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8264  mov      r0, r1                       
+           000f8268  ldr      lr, [r1]                     
+           000f826c  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f8270  mov      r2, r0                       
+           000f8274  add      r0, fp, #0x40                
+           000f8278  mov      r1, r2                       
+           000f827c  ldr      lr, [r2]                     
+           000f8280  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000f8284  ldr      r0, [fp, #0x50]              
+           000f8288  ldr      r1, [fp, #0x34]              
+           000f828c  ldr      r2, [fp, #0x38]              
+           000f8290  ldr      r3, [fp, #0x3c]              
+           000f8294  ldr      ip, [fp, #0x40]              
+           000f8298  str      ip, [sp]                     
+           000f829c  ldr      ip, [fp, #0x44]              
+           000f82a0  str      ip, [sp, #4]                 
+           000f82a4  ldr      ip, [fp, #0x48]              
+           000f82a8  str      ip, [sp, #8]                 
+           000f82ac  ldr      ip, [fp, #0x4c]              
+           000f82b0  str      ip, [sp, #0xc]               
+           000f82b4  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           000f82b8  str      r0, [fp, #0x2c]              
+           000f82bc  str      r0, [fp, #0x30]              
+           000f82c0  ldr      r0, [fp, #0x2c]              
+           000f82c4  cmp      r0, #0                       
+           000f82c8  beq      #0xf8300                     ; -> L_f8300
+           000f82cc  ldr      r0, [fp, #0x2c]              
+           000f82d0  ldr      r0, [r0]                     
+           000f82d4  ldr      r0, [r0]                     
+           000f82d8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f82dc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f82e0  ldr      r1, [pc]                     
+           000f82e4  b        #0xf82ec                     ; -> L_f82ec
+           000f82e8  .word    0x00eacc60                   ; literal 15387744 / 
+L_f82ec:   000f82ec  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           000f82f0  cmp      r0, r1                       
+           000f82f4  beq      #0xf8300                     ; -> L_f8300
+           000f82f8  mov      r0, #0                       
+           000f82fc  str      r0, [fp, #0x30]              
+L_f8300:   000f8300  ldr      r0, [fp, #0x30]              
+           000f8304  str      r0, [r5, #0x20]              ; field+0x20 (this-class: shockParticle)
+           000f8308  ldr      r2, [sl, #0x20]              ; field+0x20 (this-class: shockParticle)
+           000f830c  ldr      r1, [pc]                     
+           000f8310  b        #0xf8318                     ; -> L_f8318
+           000f8314  .word    0x00ead4dc                   ; literal 15389916 / 
+L_f8318:   000f8318  ldr      r1, [pc, r1]                 ; GOT[677] LDSTR 'Shocked Engine Particle'
+           000f831c  mov      r0, r2                       
+           000f8320  ldr      lr, [r2]                     
+           000f8324  bl       #0x22b2e0                    ; CALL UnityEngine.Object::set_name
+           000f8328  ldr      r1, [sl, #0x20]              ; field+0x20 (this-class: shockParticle)
+           000f832c  mov      r0, r1                       
+           000f8330  ldr      lr, [r1]                     
+           000f8334  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f8338  str      r0, [fp, #0x50]              
+           000f833c  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8340  mov      r0, r1                       
+           000f8344  ldr      lr, [r1]                     
+           000f8348  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f834c  mov      r1, r0                       
+           000f8350  ldr      r2, [fp, #0x50]              
+           000f8354  mov      r0, r2                       
+           000f8358  ldr      lr, [r2]                     
+           000f835c  bl       #0x22b2d0                    ; CALL UnityEngine.Transform::set_parent
+L_f8360:   000f8360  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8364  bl       #0x22b270                    ; CALL CharacterVOControllerGameObjectExtender::GetVOController
+           000f8368  mov      r5, r0                       
+           000f836c  mov      r1, #0                       
+           000f8370  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f8374  cmp      r0, #0                       
+           000f8378  beq      #0xf8388                     ; -> L_f8388
+           000f837c  mov      r0, r5                       
+           000f8380  ldr      lr, [r5]                     
+           000f8384  bl       #0xecffc                     ; CALL CharacterVOController::PlayPout (direct)
+L_f8388:   000f8388  add      sp, fp, #0x60                
+           000f838c  pop      {r4, r5, r6, r8, sl, fp}     
+           000f8390  ldr      r7, [sp, #8]                 
+           000f8394  ldm      sp, {sp, pc}                 
+
+== ShockedEffect::Update  token 0x060003c3 @0x000f8398 (44 bytes)
+   args: r0=this, 
+           000f8398  mov      ip, sp                       
+           000f839c  push     {r7, lr}                     
+           000f83a0  mov      r7, sp                       
+           000f83a4  push     {r8, fp, ip, lr}             
+           000f83a8  sub      sp, sp, #8                   
+           000f83ac  mov      fp, sp                       
+           000f83b0  str      r0, [fp]                     
+           000f83b4  add      sp, fp, #8                   
+           000f83b8  pop      {r8, fp}                     
+           000f83bc  ldr      r7, [sp, #8]                 
+           000f83c0  ldm      sp, {sp, pc}                 
+
+== ShockedEffect::Shutdown  token 0x060003c4 @0x000f83c4 (44 bytes)
+   args: r0=this, 
+           000f83c4  mov      ip, sp                       
+           000f83c8  push     {r7, lr}                     
+           000f83cc  mov      r7, sp                       
+           000f83d0  push     {r8, fp, ip, lr}             
+           000f83d4  sub      sp, sp, #8                   
+           000f83d8  mov      fp, sp                       
+           000f83dc  str      r0, [fp]                     
+           000f83e0  add      sp, fp, #8                   
+           000f83e4  pop      {r8, fp}                     
+           000f83e8  ldr      r7, [sp, #8]                 
+           000f83ec  ldm      sp, {sp, pc}                 
+
+== ShockedEffect::Stack  token 0x060003c5 @0x000f83f0 (76 bytes)
+   args: r0=this, second
+           000f83f0  mov      ip, sp                       
+           000f83f4  push     {r7, lr}                     
+           000f83f8  mov      r7, sp                       
+           000f83fc  push     {r8, fp, ip, lr}             
+           000f8400  sub      sp, sp, #8                   
+           000f8404  mov      fp, sp                       
+           000f8408  str      r0, [fp]                     
+           000f840c  str      r1, [fp, #4]                 
+           000f8410  ldr      r0, [fp, #4]                 
+           000f8414  vldr     s0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f8418  vcvt.f64.f32 d2, s0                       
+           000f841c  ldr      r0, [fp]                     
+           000f8420  vcvt.f32.f64 s0, d2                       
+           000f8424  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f8428  mov      r0, #0                       
+           000f842c  add      sp, fp, #8                   
+           000f8430  pop      {r8, fp}                     
+           000f8434  ldr      r7, [sp, #8]                 
+           000f8438  ldm      sp, {sp, pc}                 
+
+== ShockedEffect::GetEffectSnapShot  token 0x060003c6 @0x000f843c (48 bytes)
+   args: r0=this, 
+           000f843c  mov      ip, sp                       
+           000f8440  push     {r7, lr}                     
+           000f8444  mov      r7, sp                       
+           000f8448  push     {r8, fp, ip, lr}             
+           000f844c  sub      sp, sp, #8                   
+           000f8450  mov      fp, sp                       
+           000f8454  str      r0, [fp]                     
+           000f8458  ldr      r0, [fp]                     
+           000f845c  add      sp, fp, #8                   
+           000f8460  pop      {r8, fp}                     
+           000f8464  ldr      r7, [sp, #8]                 
+           000f8468  ldm      sp, {sp, pc}                 

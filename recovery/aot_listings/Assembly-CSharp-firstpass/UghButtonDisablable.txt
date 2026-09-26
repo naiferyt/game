@@ -1,0 +1,289 @@
+####################################################################################################
+# TYPE UghButtonDisablable  (instance size 0x58)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 normal                         UghSpritePrototype
+#   +0x14 anchor                         UghSprite/Anchor
+#   +0x18 customAnchorOffset             UnityEngine.Vector3
+#   +0x24 flippedHorizontal              bool
+#   +0x25 flippedVertical                bool
+#   +0x28 offset                         UnityEngine.Vector3
+#   +0x34 autoSizeCollider               bool
+#   +0x35 passThrough                    bool
+#   +0x38 <HotFingerID>k__BackingField   int
+#   +0x3c pressed                        UghSpritePrototype
+#   +0x40 mouseOver                      UghSpritePrototype
+#   +0x44 OnPressed                      System.Action`1<UghButton>
+#   +0x48 OnDown                         System.Action`2<UghButton,bool>
+#   +0x4c wasDown                        bool
+#   +0x50 unlocked                       UghSpritePrototype
+#   +0x54 locked                         UghSpritePrototype
+#   vtable slots: 9:OnUghInputUpAsButton, 12:OnUghInputDown
+####################################################################################################
+== UghButtonDisablable::.ctor  token 0x06000390 @0x0003ae38 (52 bytes)
+   args: r0=this, 
+           0003ae38  mov      ip, sp                       
+           0003ae3c  push     {r7, lr}                     
+           0003ae40  mov      r7, sp                       
+           0003ae44  push     {r8, fp, ip, lr}             
+           0003ae48  sub      sp, sp, #8                   
+           0003ae4c  mov      fp, sp                       
+           0003ae50  str      r0, [fp]                     
+           0003ae54  ldr      r0, [fp]                     
+           0003ae58  bl       #0x3ab9c                     ; CALL UghButton::.ctor (direct)
+           0003ae5c  add      sp, fp, #8                   
+           0003ae60  pop      {r8, fp}                     
+           0003ae64  ldr      r7, [sp, #8]                 
+           0003ae68  ldm      sp, {sp, pc}                 
+
+== UghButtonDisablable::Start  token 0x06000391 @0x0003ae6c (56 bytes)
+   args: r0=this, 
+           0003ae6c  mov      ip, sp                       
+           0003ae70  push     {r7, lr}                     
+           0003ae74  mov      r7, sp                       
+           0003ae78  push     {r8, fp, ip, lr}             
+           0003ae7c  sub      sp, sp, #8                   
+           0003ae80  mov      fp, sp                       
+           0003ae84  str      r0, [fp]                     
+           0003ae88  ldr      r0, [fp]                     
+           0003ae8c  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: normal)
+           0003ae90  str      r1, [r0, #0x54]              ; field+0x54 (this-class: locked)
+           0003ae94  add      sp, fp, #8                   
+           0003ae98  pop      {r8, fp}                     
+           0003ae9c  ldr      r7, [sp, #8]                 
+           0003aea0  ldm      sp, {sp, pc}                 
+
+== UghButtonDisablable::OnUghInputDown  token 0x06000392 @0x0003aea4 (72 bytes)
+   args: r0=this, 
+           0003aea4  mov      ip, sp                       
+           0003aea8  push     {r7, lr}                     
+           0003aeac  mov      r7, sp                       
+           0003aeb0  push     {r8, fp, ip, lr}             
+           0003aeb4  sub      sp, sp, #8                   
+           0003aeb8  mov      fp, sp                       
+           0003aebc  str      r0, [fp]                     
+           0003aec0  ldr      r0, [pc]                     
+           0003aec4  b        #0x3aecc                     ; -> L_3aecc
+           0003aec8  .word    0x00f61f84                   ; literal 16129924 / 
+L_3aecc:   0003aecc  ldr      r0, [pc, r0]                 ; GOT[524] VTABLE UghButtonDisablable/<OnUghInputDown>c__Iterator1C
+           0003aed0  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003aed4  ldr      r1, [fp]                     
+           0003aed8  str      r1, [r0, #0xc]               ; field+0xc 
+           0003aedc  add      sp, fp, #8                   
+           0003aee0  pop      {r8, fp}                     
+           0003aee4  ldr      r7, [sp, #8]                 
+           0003aee8  ldm      sp, {sp, pc}                 
+
+== UghButtonDisablable::OnUghInputUpAsButton  token 0x06000393 @0x0003aeec (92 bytes)
+   args: r0=this, 
+           0003aeec  mov      ip, sp                       
+           0003aef0  push     {r7, lr}                     
+           0003aef4  mov      r7, sp                       
+           0003aef8  push     {r8, sl, fp, ip, lr}         
+           0003aefc  sub      sp, sp, #4                   
+           0003af00  mov      fp, sp                       
+           0003af04  mov      sl, r0                       
+           0003af08  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: normal)
+           0003af0c  ldr      r1, [sl, #0x50]              ; field+0x50 (this-class: unlocked)
+           0003af10  bl       #0xb9ec0                     ; CALL UnityEngine.Object::op_Equality
+           0003af14  cmp      r0, #0                       
+           0003af18  bne      #0x3af30                     ; -> L_3af30
+           0003af1c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: normal)
+           0003af20  ldr      r1, [sl, #0x3c]              ; field+0x3c (this-class: pressed)
+           0003af24  bl       #0xb9ec0                     ; CALL UnityEngine.Object::op_Equality
+           0003af28  cmp      r0, #0                       
+           0003af2c  beq      #0x3af38                     ; -> L_3af38
+L_3af30:   0003af30  mov      r0, sl                       
+           0003af34  bl       #0x3ac90                     ; CALL UghButton::OnUghInputUpAsButton (direct)
+L_3af38:   0003af38  add      sp, fp, #4                   
+           0003af3c  pop      {r8, sl, fp}                 
+           0003af40  ldr      r7, [sp, #8]                 
+           0003af44  ldm      sp, {sp, pc}                 
+
+== UghButtonDisablable::SetLock  token 0x06000394 @0x0003af48 (100 bytes)
+   args: r0=this, b
+           0003af48  mov      ip, sp                       
+           0003af4c  push     {r7, lr}                     
+           0003af50  mov      r7, sp                       
+           0003af54  push     {r8, sl, fp, ip, lr}         
+           0003af58  sub      sp, sp, #0xc                 
+           0003af5c  mov      fp, sp                       
+           0003af60  mov      sl, r0                       
+           0003af64  strb     r1, [fp]                     
+           0003af68  ldrb     r0, [fp]                     
+           0003af6c  cmp      r0, #0                       
+           0003af70  beq      #0x3af80                     ; -> L_3af80
+           0003af74  ldr      r0, [sl, #0x54]              ; field+0x54 (this-class: locked)
+           0003af78  str      r0, [sl, #0x10]              ; field+0x10 (this-class: normal)
+           0003af7c  b        #0x3af88                     ; -> L_3af88
+L_3af80:   0003af80  ldr      r0, [sl, #0x50]              ; field+0x50 (this-class: unlocked)
+           0003af84  str      r0, [sl, #0x10]              ; field+0x10 (this-class: normal)
+L_3af88:   0003af88  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: normal)
+           0003af8c  mov      r0, sl                       
+           0003af90  ldr      r2, [sl]                     
+           0003af94  mov      lr, pc                       
+           0003af98  ldr      pc, [r2, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           0003af9c  add      sp, fp, #0xc                 
+           0003afa0  pop      {r8, sl, fp}                 
+           0003afa4  ldr      r7, [sp, #8]                 
+           0003afa8  ldm      sp, {sp, pc}                 
+
+== UghButtonDisablable::ToggleLock  token 0x06000395 @0x0003afac (104 bytes)
+   args: r0=this, 
+           0003afac  mov      ip, sp                       
+           0003afb0  push     {r7, lr}                     
+           0003afb4  mov      r7, sp                       
+           0003afb8  push     {r8, sl, fp, ip, lr}         
+           0003afbc  sub      sp, sp, #4                   
+           0003afc0  mov      fp, sp                       
+           0003afc4  mov      sl, r0                       
+           0003afc8  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: normal)
+           0003afcc  ldr      r1, [sl, #0x54]              ; field+0x54 (this-class: locked)
+           0003afd0  bl       #0xb9ec0                     ; CALL UnityEngine.Object::op_Equality
+           0003afd4  cmp      r0, #0                       
+           0003afd8  beq      #0x3afe8                     ; -> L_3afe8
+           0003afdc  ldr      r0, [sl, #0x50]              ; field+0x50 (this-class: unlocked)
+           0003afe0  str      r0, [sl, #0x10]              ; field+0x10 (this-class: normal)
+           0003afe4  b        #0x3aff0                     ; -> L_3aff0
+L_3afe8:   0003afe8  ldr      r0, [sl, #0x54]              ; field+0x54 (this-class: locked)
+           0003afec  str      r0, [sl, #0x10]              ; field+0x10 (this-class: normal)
+L_3aff0:   0003aff0  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: normal)
+           0003aff4  mov      r0, sl                       
+           0003aff8  ldr      r2, [sl]                     
+           0003affc  mov      lr, pc                       
+           0003b000  ldr      pc, [r2, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           0003b004  add      sp, fp, #4                   
+           0003b008  pop      {r8, sl, fp}                 
+           0003b00c  ldr      r7, [sp, #8]                 
+           0003b010  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE UghButtonDisablable/<OnUghInputDown>c__Iterator1C  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      UghButtonDisablable
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== UghButtonDisablable/<OnUghInputDown>c__Iterator1C::.ctor  token 0x060005bb @0x00057770 (44 bytes)
+   args: r0=this, 
+           00057770  mov      ip, sp                       
+           00057774  push     {r7, lr}                     
+           00057778  mov      r7, sp                       
+           0005777c  push     {r8, fp, ip, lr}             
+           00057780  sub      sp, sp, #8                   
+           00057784  mov      fp, sp                       
+           00057788  str      r0, [fp]                     
+           0005778c  add      sp, fp, #8                   
+           00057790  pop      {r8, fp}                     
+           00057794  ldr      r7, [sp, #8]                 
+           00057798  ldm      sp, {sp, pc}                 
+
+== UghButtonDisablable/<OnUghInputDown>c__Iterator1C::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x060005bc @0x0005779c (52 bytes)
+   args: r0=this, 
+           0005779c  mov      ip, sp                       
+           000577a0  push     {r7, lr}                     
+           000577a4  mov      r7, sp                       
+           000577a8  push     {r8, fp, ip, lr}             
+           000577ac  sub      sp, sp, #8                   
+           000577b0  mov      fp, sp                       
+           000577b4  str      r0, [fp]                     
+           000577b8  ldr      r0, [fp]                     
+           000577bc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           000577c0  add      sp, fp, #8                   
+           000577c4  pop      {r8, fp}                     
+           000577c8  ldr      r7, [sp, #8]                 
+           000577cc  ldm      sp, {sp, pc}                 
+
+== UghButtonDisablable/<OnUghInputDown>c__Iterator1C::System.Collections.IEnumerator.get_Current  token 0x060005bd @0x000577d0 (52 bytes)
+   args: r0=this, 
+           000577d0  mov      ip, sp                       
+           000577d4  push     {r7, lr}                     
+           000577d8  mov      r7, sp                       
+           000577dc  push     {r8, fp, ip, lr}             
+           000577e0  sub      sp, sp, #8                   
+           000577e4  mov      fp, sp                       
+           000577e8  str      r0, [fp]                     
+           000577ec  ldr      r0, [fp]                     
+           000577f0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           000577f4  add      sp, fp, #8                   
+           000577f8  pop      {r8, fp}                     
+           000577fc  ldr      r7, [sp, #8]                 
+           00057800  ldm      sp, {sp, pc}                 
+
+== UghButtonDisablable/<OnUghInputDown>c__Iterator1C::MoveNext  token 0x060005be @0x00057804 (160 bytes)
+   args: r0=this, 
+           00057804  mov      ip, sp                       
+           00057808  push     {r7, lr}                     
+           0005780c  mov      r7, sp                       
+           00057810  push     {r8, sl, fp, ip, lr}         
+           00057814  sub      sp, sp, #0xc                 
+           00057818  mov      fp, sp                       
+           0005781c  mov      sl, r0                       
+           00057820  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00057824  mvn      r1, #0                       
+           00057828  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0005782c  cmp      r0, #0                       
+           00057830  bne      #0x57890                     ; -> L_57890
+           00057834  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00057838  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0005783c  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00057840  ldr      r1, [r1, #0x50]              ; field+0x50 
+           00057844  bl       #0xb9ec0                     ; CALL UnityEngine.Object::op_Equality
+           00057848  cmp      r0, #0                       
+           0005784c  bne      #0x5786c                     ; -> L_5786c
+           00057850  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00057854  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           00057858  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0005785c  ldr      r1, [r1, #0x3c]              ; field+0x3c 
+           00057860  bl       #0xb9ec0                     ; CALL UnityEngine.Object::op_Equality
+           00057864  cmp      r0, #0                       
+           00057868  beq      #0x57890                     ; -> L_57890
+L_5786c:   0005786c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00057870  str      r0, [fp]                     
+           00057874  ldr      r0, [pc]                     
+           00057878  b        #0x57880                     ; -> L_57880
+           0005787c  .word    0x00f455cc                   ; literal 16012748 / 
+L_57880:   00057880  ldr      r0, [pc, r0]                 ; GOT[523] VTABLE UghButton/<OnUghInputDown>c__Iterator1B
+           00057884  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00057888  ldr      r1, [fp]                     
+           0005788c  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+L_57890:   00057890  mov      r0, #0                       
+           00057894  add      sp, fp, #0xc                 
+           00057898  pop      {r8, sl, fp}                 
+           0005789c  ldr      r7, [sp, #8]                 
+           000578a0  ldm      sp, {sp, pc}                 
+
+== UghButtonDisablable/<OnUghInputDown>c__Iterator1C::Dispose  token 0x060005bf @0x000578a4 (56 bytes)
+   args: r0=this, 
+           000578a4  mov      ip, sp                       
+           000578a8  push     {r7, lr}                     
+           000578ac  mov      r7, sp                       
+           000578b0  push     {r8, fp, ip, lr}             
+           000578b4  sub      sp, sp, #8                   
+           000578b8  mov      fp, sp                       
+           000578bc  str      r0, [fp]                     
+           000578c0  ldr      r0, [fp]                     
+           000578c4  mvn      r1, #0                       
+           000578c8  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           000578cc  add      sp, fp, #8                   
+           000578d0  pop      {r8, fp}                     
+           000578d4  ldr      r7, [sp, #8]                 
+           000578d8  ldm      sp, {sp, pc}                 
+
+== UghButtonDisablable/<OnUghInputDown>c__Iterator1C::Reset  token 0x060005c0 @0x000578dc (64 bytes)
+   args: r0=this, 
+           000578dc  mov      ip, sp                       
+           000578e0  push     {r7, lr}                     
+           000578e4  mov      r7, sp                       
+           000578e8  push     {r8, fp, ip, lr}             
+           000578ec  sub      sp, sp, #8                   
+           000578f0  mov      fp, sp                       
+           000578f4  str      r0, [fp]                     
+           000578f8  mov      r0, #0x49                    
+           000578fc  add      r0, r0, #0x100               
+           00057900  add      r0, r0, #0x2000000           
+           00057904  bl       #0xbc540                     ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00057908  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0005790c  add      sp, fp, #8                   
+           00057910  pop      {r8, fp}                     
+           00057914  ldr      r7, [sp, #8]                 
+           00057918  ldm      sp, {sp, pc}                 

@@ -1,0 +1,146 @@
+####################################################################################################
+# TYPE SlowdownEffect  (instance size 0x20)
+#   +0x08 time                           float
+#   +0x0c power                          int
+#   +0x10 effectType                     BaseEffect/EffectTypes
+#   +0x14 isMultiLevel                   bool
+#   +0x18 powerLevel                     int
+#   +0x1c parentObject                   UnityEngine.GameObject
+#   vtable slots: 5:GetEffectSnapShot, 6:Stack, 7:Shutdown, 8:Update, 9:Init
+####################################################################################################
+== SlowdownEffect::.ctor  token 0x060003cd @0x000f869c (104 bytes)
+   args: r0=this, parent
+           000f869c  mov      ip, sp                       
+           000f86a0  push     {r7, lr}                     
+           000f86a4  mov      r7, sp                       
+           000f86a8  push     {r6, r8, fp, ip, lr}         
+           000f86ac  sub      sp, sp, #0xc                 
+           000f86b0  mov      fp, sp                       
+           000f86b4  mov      r6, r0                       
+           000f86b8  str      r1, [fp]                     
+           000f86bc  mov      r0, #1                       
+           000f86c0  str      r0, [r6, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f86c4  ldr      r0, [fp]                     
+           000f86c8  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f86cc  mov      r0, #1                       
+           000f86d0  str      r0, [r6, #0x10]              ; field+0x10 (this-class: effectType)
+           000f86d4  mov      r0, #0x32                    
+           000f86d8  str      r0, [r6, #0xc]               ; field+0xc (this-class: power)
+           000f86dc  vldr     s4, [pc]                     ; float 2.0
+           000f86e0  b        #0xf86e8                     ; -> L_f86e8
+           000f86e4  .word    0x40000000                   ; literal 1073741824 / 2
+L_f86e8:   000f86e8  vcvt.f64.f32 d2, s4                       
+           000f86ec  vcvt.f32.f64 s0, d2                       
+           000f86f0  vstr     s0, [r6, #8]                 ; field+0x8 (this-class: time)
+           000f86f4  add      sp, fp, #0xc                 
+           000f86f8  pop      {r6, r8, fp}                 
+           000f86fc  ldr      r7, [sp, #8]                 
+           000f8700  ldm      sp, {sp, pc}                 
+
+== SlowdownEffect::Init  token 0x060003ce @0x000f8704 (44 bytes)
+   args: r0=this, 
+           000f8704  mov      ip, sp                       
+           000f8708  push     {r7, lr}                     
+           000f870c  mov      r7, sp                       
+           000f8710  push     {r8, fp, ip, lr}             
+           000f8714  sub      sp, sp, #8                   
+           000f8718  mov      fp, sp                       
+           000f871c  str      r0, [fp]                     
+           000f8720  add      sp, fp, #8                   
+           000f8724  pop      {r8, fp}                     
+           000f8728  ldr      r7, [sp, #8]                 
+           000f872c  ldm      sp, {sp, pc}                 
+
+== SlowdownEffect::Update  token 0x060003cf @0x000f8730 (44 bytes)
+   args: r0=this, 
+           000f8730  mov      ip, sp                       
+           000f8734  push     {r7, lr}                     
+           000f8738  mov      r7, sp                       
+           000f873c  push     {r8, fp, ip, lr}             
+           000f8740  sub      sp, sp, #8                   
+           000f8744  mov      fp, sp                       
+           000f8748  str      r0, [fp]                     
+           000f874c  add      sp, fp, #8                   
+           000f8750  pop      {r8, fp}                     
+           000f8754  ldr      r7, [sp, #8]                 
+           000f8758  ldm      sp, {sp, pc}                 
+
+== SlowdownEffect::Shutdown  token 0x060003d0 @0x000f875c (184 bytes)
+   args: r0=this, 
+           000f875c  mov      ip, sp                       
+           000f8760  push     {r7, lr}                     
+           000f8764  mov      r7, sp                       
+           000f8768  push     {r6, r8, fp, ip, lr}         
+           000f876c  sub      sp, sp, #0xc                 
+           000f8770  mov      fp, sp                       
+           000f8774  str      r0, [fp, #4]                 
+           000f8778  ldr      r0, [fp, #4]                 
+           000f877c  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8780  ldr      r1, [pc]                     
+           000f8784  b        #0xf878c                     ; -> L_f878c
+           000f8788  .word    0x00eac74c                   ; literal 15386444 / 
+L_f878c:   000f878c  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f8790  ldr      lr, [r0]                     
+           000f8794  mov      r8, r1                       
+           000f8798  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f879c  mov      r1, #0                       
+           000f87a0  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f87a4  cmp      r0, #0                       
+           000f87a8  beq      #0xf8804                     ; -> L_f8804
+           000f87ac  ldr      r0, [fp, #4]                 
+           000f87b0  ldr      r1, [r0, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f87b4  mov      r0, r1                       
+           000f87b8  ldr      lr, [r1]                     
+           000f87bc  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f87c0  mov      r2, r0                       
+           000f87c4  ldr      r1, [pc]                     
+           000f87c8  b        #0xf87d0                     ; -> L_f87d0
+           000f87cc  .word    0x00ead024                   ; literal 15388708 / 
+L_f87d0:   000f87d0  ldr      r1, [pc, r1]                 ; GOT[677] LDSTR 'Shocked Engine Particle'
+           000f87d4  mov      r0, r2                       
+           000f87d8  ldr      lr, [r2]                     
+           000f87dc  bl       #0x22b290                    ; CALL UnityEngine.Transform::FindChild
+           000f87e0  mov      r6, r0                       
+           000f87e4  mov      r1, #0                       
+           000f87e8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f87ec  cmp      r0, #0                       
+           000f87f0  beq      #0xf8804                     ; -> L_f8804
+           000f87f4  mov      r0, r6                       
+           000f87f8  ldr      lr, [r6]                     
+           000f87fc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000f8800  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_f8804:   000f8804  add      sp, fp, #0xc                 
+           000f8808  pop      {r6, r8, fp}                 
+           000f880c  ldr      r7, [sp, #8]                 
+           000f8810  ldm      sp, {sp, pc}                 
+
+== SlowdownEffect::Stack  token 0x060003d1 @0x000f8814 (52 bytes)
+   args: r0=this, second
+           000f8814  mov      ip, sp                       
+           000f8818  push     {r7, lr}                     
+           000f881c  mov      r7, sp                       
+           000f8820  push     {r8, fp, ip, lr}             
+           000f8824  sub      sp, sp, #8                   
+           000f8828  mov      fp, sp                       
+           000f882c  str      r0, [fp]                     
+           000f8830  str      r1, [fp, #4]                 
+           000f8834  mov      r0, #1                       
+           000f8838  add      sp, fp, #8                   
+           000f883c  pop      {r8, fp}                     
+           000f8840  ldr      r7, [sp, #8]                 
+           000f8844  ldm      sp, {sp, pc}                 
+
+== SlowdownEffect::GetEffectSnapShot  token 0x060003d2 @0x000f8848 (48 bytes)
+   args: r0=this, 
+           000f8848  mov      ip, sp                       
+           000f884c  push     {r7, lr}                     
+           000f8850  mov      r7, sp                       
+           000f8854  push     {r8, fp, ip, lr}             
+           000f8858  sub      sp, sp, #8                   
+           000f885c  mov      fp, sp                       
+           000f8860  str      r0, [fp]                     
+           000f8864  ldr      r0, [fp]                     
+           000f8868  add      sp, fp, #8                   
+           000f886c  pop      {r8, fp}                     
+           000f8870  ldr      r7, [sp, #8]                 
+           000f8874  ldm      sp, {sp, pc}                 

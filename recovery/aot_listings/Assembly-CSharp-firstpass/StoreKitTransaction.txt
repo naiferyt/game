@@ -1,0 +1,341 @@
+####################################################################################################
+# TYPE StoreKitTransaction  (instance size 0x14)
+#   +0x08 productIdentifier              string
+#   +0x0c base64EncodedTransactionReceipt string
+#   +0x10 quantity                       int
+#   vtable slots: 0:ToString
+####################################################################################################
+== StoreKitTransaction::.ctor  token 0x06000381 @0x00039948 (44 bytes)
+   args: r0=this, 
+           00039948  mov      ip, sp                       
+           0003994c  push     {r7, lr}                     
+           00039950  mov      r7, sp                       
+           00039954  push     {r8, fp, ip, lr}             
+           00039958  sub      sp, sp, #8                   
+           0003995c  mov      fp, sp                       
+           00039960  str      r0, [fp]                     
+           00039964  add      sp, fp, #8                   
+           00039968  pop      {r8, fp}                     
+           0003996c  ldr      r7, [sp, #8]                 
+           00039970  ldm      sp, {sp, pc}                 
+
+== StoreKitTransaction::transactionsFromJson  token 0x06000382 @0x00039974 (696 bytes) static
+   args: json
+           00039974  mov      ip, sp                       
+           00039978  push     {r7, lr}                     
+           0003997c  mov      r7, sp                       
+           00039980  push     {r5, r6, r8, sl, fp, ip, lr} 
+           00039984  sub      sp, sp, #0x3c                
+           00039988  mov      fp, sp                       
+           0003998c  mov      sl, r0                       
+           00039990  mov      r0, #0                       
+           00039994  str      r0, [fp]                     
+           00039998  mov      r0, #0                       
+           0003999c  str      r0, [fp, #4]                 
+           000399a0  ldr      r0, [pc]                     
+           000399a4  b        #0x399ac                     ; -> L_399ac
+           000399a8  .word    0x00f63370                   ; literal 16135024 / 
+L_399ac:   000399ac  ldr      r0, [pc, r0]                 ; GOT[447] VTABLE System.Collections.Generic.List`1<StoreKitTransaction>
+           000399b0  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000399b4  ldr      r1, [pc]                     
+           000399b8  b        #0x399c0                     ; -> L_399c0
+           000399bc  .word    0x00f63360                   ; literal 16135008 / 
+L_399c0:   000399c0  ldr      r1, [pc, r1]                 ; GOT[448] SFLDA System.Collections.Generic.List`1<StoreKitTransaction>::EmptyArray
+           000399c4  ldr      r1, [r1]                     
+           000399c8  str      r1, [r0, #8]                 ; field+0x8 (this-class: productIdentifier)
+           000399cc  mov      r5, r0                       
+           000399d0  mov      r0, sl                       
+           000399d4  bl       #0xb96b0                     ; CALL MiniJsonExtensions::arrayListFromJson
+           000399d8  mov      r1, r0                       
+           000399dc  ldr      r1, [r1]                     
+           000399e0  mov      lr, pc                       
+           000399e4  ldr      pc, [r1, #0x90]              ; VIRTUAL CALL slot +0x90: System.Enum::System.IConvertible.ToUInt64
+           000399e8  str      r0, [fp]                     
+           000399ec  b        #0x39a68                     ; -> L_39a68
+L_399f0:   000399f0  ldr      r1, [fp]                     
+           000399f4  mov      r0, r1                       
+           000399f8  ldr      r1, [r1]                     
+           000399fc  ldr      r8, [pc]                     
+           00039a00  b        #0x39a08                     ; -> L_39a08
+           00039a04  .word    0x00f62c44                   ; literal 16133188 / 
+L_39a08:   00039a08  ldr      r8, [pc, r8]                 ; GOT[11] METHODCONST System.Collections.IEnumerator::get_Current
+           00039a0c  add      lr, pc, #4                   
+           00039a10  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           00039a14  andeq    r0, r0, r0                   
+           00039a18  mov      sl, r0                       
+           00039a1c  cmp      sl, #0                       
+           00039a20  beq      #0x39a4c                     ; -> L_39a4c
+           00039a24  ldr      r0, [sl]                     
+           00039a28  ldr      r0, [r0]                     
+           00039a2c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: productIdentifier)
+           00039a30  ldr      r0, [r0, #4]                 ; field+0x4 
+           00039a34  ldr      r1, [pc]                     
+           00039a38  b        #0x39a40                     ; -> L_39a40
+           00039a3c  .word    0x00f62c10                   ; literal 16133136 / 
+L_39a40:   00039a40  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           00039a44  cmp      r0, r1                       
+           00039a48  blne     #0x39c1c                     ; THROW System.InvalidCastException (if ne)
+L_39a4c:   00039a4c  mov      r6, sl                       
+           00039a50  mov      r0, sl                       
+           00039a54  bl       #0xbc7f0                     ; CALL StoreKitTransaction::transactionFromHashtable
+           00039a58  mov      r1, r0                       
+           00039a5c  mov      r0, r5                       
+           00039a60  ldr      lr, [r5]                     
+           00039a64  bl       #0xbc800                     ; CALL System.Collections.Generic.List`1<StoreKitTransaction>::Add
+L_39a68:   00039a68  ldr      r1, [fp]                     
+           00039a6c  mov      r0, r1                       
+           00039a70  ldr      r1, [r1]                     
+           00039a74  ldr      r8, [pc]                     
+           00039a78  b        #0x39a80                     ; -> L_39a80
+           00039a7c  .word    0x00f62bd8                   ; literal 16133080 / 
+L_39a80:   00039a80  ldr      r8, [pc, r8]                 ; GOT[14] METHODCONST System.Collections.IEnumerator::MoveNext
+           00039a84  add      lr, pc, #4                   
+           00039a88  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           00039a8c  andeq    r0, r0, r0                   
+           00039a90  cmp      r0, #0                       
+           00039a94  bne      #0x399f0                     ; -> L_399f0
+           00039a98  bl       #0x39aa0                     ; CALL 0x39aa0
+           00039a9c  b        #0x39c08                     ; -> L_39c08
+           00039aa0  str      lr, [fp, #0x24]              
+           00039aa4  ldr      r0, [fp]                     
+           00039aa8  str      r0, [fp, #0xc]               
+           00039aac  ldr      r0, [fp, #0xc]               
+           00039ab0  str      r0, [fp, #0x28]              
+           00039ab4  cmp      r0, #0                       
+           00039ab8  beq      #0x39b50                     ; -> L_39b50
+           00039abc  ldr      r0, [fp, #0x28]              
+           00039ac0  ldr      r0, [r0]                     
+           00039ac4  str      r0, [fp, #0x2c]              
+           00039ac8  ldrh     r0, [r0, #0x18]              ; field+0x18 
+           00039acc  ldr      r1, [pc]                     
+           00039ad0  b        #0x39ad8                     ; -> L_39ad8
+           00039ad4  .word    0x00f62b84                   ; literal 16132996 / 
+L_39ad8:   00039ad8  ldr      r1, [pc, r1]                 ; GOT[15] IID System.IDisposable
+           00039adc  cmp      r0, r1                       
+           00039ae0  blo      #0x39b20                     ; -> L_39b20
+           00039ae4  ldr      r0, [fp, #0x2c]              
+           00039ae8  ldr      r0, [r0, #0x14]              ; field+0x14 
+           00039aec  ldr      r1, [pc]                     
+           00039af0  b        #0x39af8                     ; -> L_39af8
+           00039af4  .word    0x00f62b64                   ; literal 16132964 / 
+L_39af8:   00039af8  ldr      r1, [pc, r1]                 ; GOT[15] IID System.IDisposable
+           00039afc  asr      r2, r1, #3                   
+           00039b00  add      r0, r0, r2                   
+           00039b04  ldrb     r0, [r0]                     
+           00039b08  and      r2, r1, #7                   
+           00039b0c  mov      r1, #1                       
+           00039b10  lsl      r1, r1, r2                   
+           00039b14  and      r0, r0, r1                   
+           00039b18  cmp      r0, #0                       
+           00039b1c  bne      #0x39b68                     ; -> L_39b68
+L_39b20:   00039b20  ldr      r0, [fp, #0x2c]              
+           00039b24  ldr      r0, [r0]                     
+           00039b28  ldr      r1, [pc]                     
+           00039b2c  b        #0x39b34                     ; -> L_39b34
+           00039b30  .word    0x00f62b2c                   ; literal 16132908 / 
+L_39b34:   00039b34  ldr      r1, [pc, r1]                 ; GOT[16] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           00039b38  cmp      r0, r1                       
+           00039b3c  bne      #0x39b50                     ; -> L_39b50
+           00039b40  ldr      r0, [fp, #0x28]              
+           00039b44  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: quantity)
+           00039b48  cmp      r0, #0                       
+           00039b4c  bne      #0x39b5c                     ; -> L_39b5c
+L_39b50:   00039b50  mov      r0, #1                       
+           00039b54  str      r0, [fp, #0x30]              
+           00039b58  b        #0x39b70                     ; -> L_39b70
+L_39b5c:   00039b5c  mov      r0, #2                       
+           00039b60  str      r0, [fp, #0x30]              
+           00039b64  b        #0x39b70                     ; -> L_39b70
+L_39b68:   00039b68  mov      r0, #0                       
+           00039b6c  str      r0, [fp, #0x30]              
+L_39b70:   00039b70  ldr      r0, [fp, #0x30]              
+           00039b74  str      r0, [fp, #0x10]              
+           00039b78  mov      r1, r0                       
+           00039b7c  ldr      r0, [fp, #0x10]              
+           00039b80  str      r1, [fp, #0x14]              
+           00039b84  cmp      r0, #0                       
+           00039b88  beq      #0x39bb4                     ; -> L_39bb4
+           00039b8c  ldr      r0, [fp, #0x14]              
+           00039b90  cmp      r0, #2                       
+           00039b94  bne      #0x39ba8                     ; -> L_39ba8
+           00039b98  ldr      r0, [fp, #0xc]               
+           00039b9c  bl       #0xb96e0                     ; CALL wrapper wrapper20(System.IDisposable)
+           00039ba0  str      r0, [fp, #0x18]              
+           00039ba4  b        #0x39bbc                     ; -> L_39bbc
+L_39ba8:   00039ba8  mov      r0, #0                       
+           00039bac  str      r0, [fp, #0x18]              
+           00039bb0  b        #0x39bbc                     ; -> L_39bbc
+L_39bb4:   00039bb4  ldr      r0, [fp, #0xc]               
+           00039bb8  str      r0, [fp, #0x18]              
+L_39bbc:   00039bbc  ldr      r0, [fp, #0x18]              
+           00039bc0  str      r0, [fp, #8]                 
+           00039bc4  str      r0, [fp, #4]                 
+           00039bc8  cmp      r0, #0                       
+           00039bcc  bne      #0x39bd8                     ; -> L_39bd8
+           00039bd0  ldr      ip, [fp, #0x24]              
+           00039bd4  mov      pc, ip                       
+L_39bd8:   00039bd8  ldr      r1, [fp, #4]                 
+           00039bdc  mov      r0, r1                       
+           00039be0  ldr      r1, [r1]                     
+           00039be4  ldr      r8, [pc]                     
+           00039be8  b        #0x39bf0                     ; -> L_39bf0
+           00039bec  .word    0x00f62a74                   ; literal 16132724 / 
+L_39bf0:   00039bf0  ldr      r8, [pc, r8]                 ; GOT[17] METHODCONST System.IDisposable::Dispose
+           00039bf4  add      lr, pc, #4                   
+           00039bf8  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           00039bfc  andeq    r0, r0, r0                   
+           00039c00  ldr      ip, [fp, #0x24]              
+           00039c04  mov      pc, ip                       
+L_39c08:   00039c08  mov      r0, r5                       
+           00039c0c  add      sp, fp, #0x3c                
+           00039c10  pop      {r5, r6, r8, sl, fp}         
+           00039c14  ldr      r7, [sp, #8]                 
+           00039c18  ldm      sp, {sp, pc}                 
+           00039c1c  mov      r1, lr                       
+           00039c20  ldr      r0, [pc]                     
+           00039c24  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00039c28  andeq    r0, r0, #0xfd                
+
+== StoreKitTransaction::transactionFromJson  token 0x06000383 @0x00039c2c (56 bytes) static
+   args: json
+           00039c2c  mov      ip, sp                       
+           00039c30  push     {r7, lr}                     
+           00039c34  mov      r7, sp                       
+           00039c38  push     {r8, fp, ip, lr}             
+           00039c3c  sub      sp, sp, #8                   
+           00039c40  mov      fp, sp                       
+           00039c44  str      r0, [fp]                     
+           00039c48  ldr      r0, [fp]                     
+           00039c4c  bl       #0xb9c90                     ; CALL MiniJsonExtensions::hashtableFromJson
+           00039c50  bl       #0xbc7f0                     ; CALL StoreKitTransaction::transactionFromHashtable
+           00039c54  add      sp, fp, #8                   
+           00039c58  pop      {r8, fp}                     
+           00039c5c  ldr      r7, [sp, #8]                 
+           00039c60  ldm      sp, {sp, pc}                 
+
+== StoreKitTransaction::transactionFromHashtable  token 0x06000384 @0x00039c64 (348 bytes) static
+   args: ht
+           00039c64  mov      ip, sp                       
+           00039c68  push     {r7, lr}                     
+           00039c6c  mov      r7, sp                       
+           00039c70  push     {r6, r8, sl, fp, ip, lr}     
+           00039c74  mov      fp, sp                       
+           00039c78  mov      sl, r0                       
+           00039c7c  ldr      r0, [pc]                     
+           00039c80  b        #0x39c88                     ; -> L_39c88
+           00039c84  .word    0x00f63168                   ; literal 16134504 / 
+L_39c88:   00039c88  ldr      r0, [pc, r0]                 ; GOT[500] VTABLE StoreKitTransaction
+           00039c8c  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00039c90  mov      r6, r0                       
+           00039c94  ldr      r1, [pc]                     
+           00039c98  b        #0x39ca0                     ; -> L_39ca0
+           00039c9c  .word    0x00f63130                   ; literal 16134448 / 
+L_39ca0:   00039ca0  ldr      r1, [pc, r1]                 ; GOT[492] LDSTR 'productIdentifier'
+           00039ca4  mov      r0, sl                       
+           00039ca8  ldr      r2, [sl]                     
+           00039cac  mov      lr, pc                       
+           00039cb0  ldr      pc, [r2, #0x94]              ; VIRTUAL CALL slot +0x94: System.Enum::System.IConvertible.ToUInt32
+           00039cb4  cmp      r0, #0                       
+           00039cb8  beq      #0x39cf0                     ; -> L_39cf0
+           00039cbc  ldr      r1, [pc]                     
+           00039cc0  b        #0x39cc8                     ; -> L_39cc8
+           00039cc4  .word    0x00f63108                   ; literal 16134408 / 
+L_39cc8:   00039cc8  ldr      r1, [pc, r1]                 ; GOT[492] LDSTR 'productIdentifier'
+           00039ccc  mov      r0, sl                       
+           00039cd0  ldr      r2, [sl]                     
+           00039cd4  mov      lr, pc                       
+           00039cd8  ldr      pc, [r2, #0xb4]              ; VIRTUAL CALL slot +0xb4: System.Enum::System.IConvertible.ToDouble
+           00039cdc  mov      r1, r0                       
+           00039ce0  ldr      r1, [r1]                     
+           00039ce4  mov      lr, pc                       
+           00039ce8  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           00039cec  str      r0, [r6, #8]                 ; field+0x8 (this-class: productIdentifier)
+L_39cf0:   00039cf0  ldr      r1, [pc]                     
+           00039cf4  b        #0x39cfc                     ; -> L_39cfc
+           00039cf8  .word    0x00f630f8                   ; literal 16134392 / 
+L_39cfc:   00039cfc  ldr      r1, [pc, r1]                 ; GOT[501] LDSTR 'base64EncodedReceipt'
+           00039d00  mov      r0, sl                       
+           00039d04  ldr      r2, [sl]                     
+           00039d08  mov      lr, pc                       
+           00039d0c  ldr      pc, [r2, #0x94]              ; VIRTUAL CALL slot +0x94: System.Enum::System.IConvertible.ToUInt32
+           00039d10  cmp      r0, #0                       
+           00039d14  beq      #0x39d4c                     ; -> L_39d4c
+           00039d18  ldr      r1, [pc]                     
+           00039d1c  b        #0x39d24                     ; -> L_39d24
+           00039d20  .word    0x00f630d0                   ; literal 16134352 / 
+L_39d24:   00039d24  ldr      r1, [pc, r1]                 ; GOT[501] LDSTR 'base64EncodedReceipt'
+           00039d28  mov      r0, sl                       
+           00039d2c  ldr      r2, [sl]                     
+           00039d30  mov      lr, pc                       
+           00039d34  ldr      pc, [r2, #0xb4]              ; VIRTUAL CALL slot +0xb4: System.Enum::System.IConvertible.ToDouble
+           00039d38  mov      r1, r0                       
+           00039d3c  ldr      r1, [r1]                     
+           00039d40  mov      lr, pc                       
+           00039d44  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           00039d48  str      r0, [r6, #0xc]               ; field+0xc (this-class: base64EncodedTransactionReceipt)
+L_39d4c:   00039d4c  ldr      r1, [pc]                     
+           00039d50  b        #0x39d58                     ; -> L_39d58
+           00039d54  .word    0x00f630a0                   ; literal 16134304 / 
+L_39d58:   00039d58  ldr      r1, [pc, r1]                 ; GOT[502] LDSTR 'quantity'
+           00039d5c  mov      r0, sl                       
+           00039d60  ldr      r2, [sl]                     
+           00039d64  mov      lr, pc                       
+           00039d68  ldr      pc, [r2, #0x94]              ; VIRTUAL CALL slot +0x94: System.Enum::System.IConvertible.ToUInt32
+           00039d6c  cmp      r0, #0                       
+           00039d70  beq      #0x39dac                     ; -> L_39dac
+           00039d74  ldr      r1, [pc]                     
+           00039d78  b        #0x39d80                     ; -> L_39d80
+           00039d7c  .word    0x00f63078                   ; literal 16134264 / 
+L_39d80:   00039d80  ldr      r1, [pc, r1]                 ; GOT[502] LDSTR 'quantity'
+           00039d84  mov      r0, sl                       
+           00039d88  ldr      r2, [sl]                     
+           00039d8c  mov      lr, pc                       
+           00039d90  ldr      pc, [r2, #0xb4]              ; VIRTUAL CALL slot +0xb4: System.Enum::System.IConvertible.ToDouble
+           00039d94  mov      r1, r0                       
+           00039d98  ldr      r1, [r1]                     
+           00039d9c  mov      lr, pc                       
+           00039da0  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           00039da4  bl       #0xb9730                     ; CALL System.Int32::Parse
+           00039da8  str      r0, [r6, #0x10]              ; field+0x10 (this-class: quantity)
+L_39dac:   00039dac  mov      r0, r6                       
+           00039db0  add      sp, fp, #0                   
+           00039db4  pop      {r6, r8, sl, fp}             
+           00039db8  ldr      r7, [sp, #8]                 
+           00039dbc  ldm      sp, {sp, pc}                 
+
+== StoreKitTransaction::ToString  token 0x06000385 @0x00039dc0 (136 bytes)
+   args: r0=this, 
+           00039dc0  mov      ip, sp                       
+           00039dc4  push     {r7, lr}                     
+           00039dc8  mov      r7, sp                       
+           00039dcc  push     {r8, sl, fp, ip, lr}         
+           00039dd0  sub      sp, sp, #0x14                
+           00039dd4  mov      fp, sp                       
+           00039dd8  mov      sl, r0                       
+           00039ddc  ldr      r0, [pc]                     
+           00039de0  b        #0x39de8                     ; -> L_39de8
+           00039de4  .word    0x00f63014                   ; literal 16134164 / 
+L_39de8:   00039de8  ldr      r0, [pc, r0]                 ; GOT[503] LDSTR '<StoreKitTransaction>\nID: {0}\nReceipt: {1}\nQuantity: {2}'
+           00039dec  str      r0, [fp]                     
+           00039df0  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: productIdentifier)
+           00039df4  str      r0, [fp, #4]                 
+           00039df8  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: base64EncodedTransactionReceipt)
+           00039dfc  str      r0, [fp, #8]                 
+           00039e00  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: quantity)
+           00039e04  str      r0, [fp, #0xc]               
+           00039e08  ldr      r0, [pc]                     
+           00039e0c  b        #0x39e14                     ; -> L_39e14
+           00039e10  .word    0x00f62888                   ; literal 16132232 / 
+L_39e14:   00039e14  ldr      r0, [pc, r0]                 ; GOT[31] VTABLE System.Int32
+           00039e18  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00039e1c  mov      r3, r0                       
+           00039e20  ldr      r0, [fp]                     
+           00039e24  ldr      r1, [fp, #4]                 
+           00039e28  ldr      r2, [fp, #8]                 
+           00039e2c  ldr      ip, [fp, #0xc]               
+           00039e30  str      ip, [r3, #8]                 ; field+0x8 (this-class: productIdentifier)
+           00039e34  bl       #0xb9da0                     ; CALL System.String::Format
+           00039e38  add      sp, fp, #0x14                
+           00039e3c  pop      {r8, sl, fp}                 
+           00039e40  ldr      r7, [sp, #8]                 
+           00039e44  ldm      sp, {sp, pc}                 

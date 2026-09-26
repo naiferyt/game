@@ -1,0 +1,735 @@
+####################################################################################################
+# TYPE CarMetrics  (instance size 0x34)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 otherMetrics                   System.Collections.Generic.Dictionary`2<string,float>
+#   +0x14 carCollider                    CarCollider
+#   +0x18 worstPlaceHeld                 int
+#   +0x1c bestPlaceHeld                  int
+#   +0x20 maxSpeed                       float
+#   +0x24 longestTimeInAir               float
+#   +0x28 totalTimeInAir                 float
+#   +0x2c isPlayer                       bool
+#   +0x30 timeInAirAccumulator           float
+#   vtable slots: 
+####################################################################################################
+== CarMetrics::.ctor  token 0x0600050d @0x0010cff0 (104 bytes)
+   args: r0=this, 
+           0010cff0  mov      ip, sp                       
+           0010cff4  push     {r7, lr}                     
+           0010cff8  mov      r7, sp                       
+           0010cffc  push     {r8, sl, fp, ip, lr}         
+           0010d000  sub      sp, sp, #0xc                 
+           0010d004  mov      fp, sp                       
+           0010d008  mov      sl, r0                       
+           0010d00c  mov      r0, #128, #8                 
+           0010d010  str      r0, [sl, #0x18]              ; field+0x18 (this-class: worstPlaceHeld)
+           0010d014  mvn      r0, #128, #8                 
+           0010d018  str      r0, [sl, #0x1c]              ; field+0x1c (this-class: bestPlaceHeld)
+           0010d01c  ldr      r0, [pc]                     
+           0010d020  b        #0x10d028                    ; -> L_10d028
+           0010d024  .word    0x00e985a0                   ; literal 15304096 / 
+L_10d028:  0010d028  ldr      r0, [pc, r0]                 ; GOT[538] VTABLE System.Collections.Generic.Dictionary`2<string,float>
+           0010d02c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010d030  str      r0, [fp]                     
+           0010d034  bl       #0x22c9b0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::.ctor
+           0010d038  ldr      r0, [fp]                     
+           0010d03c  str      r0, [sl, #0x10]              ; field+0x10 (this-class: otherMetrics)
+           0010d040  mov      r0, sl                       
+           0010d044  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0010d048  add      sp, fp, #0xc                 
+           0010d04c  pop      {r8, sl, fp}                 
+           0010d050  ldr      r7, [sp, #8]                 
+           0010d054  ldm      sp, {sp, pc}                 
+
+== CarMetrics::Start  token 0x0600050e @0x0010d058 (88 bytes)
+   args: r0=this, 
+           0010d058  mov      ip, sp                       
+           0010d05c  push     {r7, lr}                     
+           0010d060  mov      r7, sp                       
+           0010d064  push     {r8, sl, fp, ip, lr}         
+           0010d068  sub      sp, sp, #4                   
+           0010d06c  mov      fp, sp                       
+           0010d070  mov      sl, r0                       
+           0010d074  ldr      r8, [pc]                     
+           0010d078  b        #0x10d080                    ; -> L_10d080
+           0010d07c  .word    0x00e97d44                   ; literal 15301956 / 
+L_10d080:  0010d080  ldr      r8, [pc, r8]                 ; GOT[25] METHOD_RGCTX UnityEngine.Component::GetComponent<CarCollider>
+           0010d084  mov      r0, sl                       
+           0010d088  bl       #0x22aa80                    ; CALL UnityEngine.Component::GetComponent<CarCollider>
+           0010d08c  str      r0, [sl, #0x14]              ; field+0x14 (this-class: carCollider)
+           0010d090  mov      r0, sl                       
+           0010d094  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010d098  bl       #0x1129f8                    ; CALL RaceManager::IsPlayerCar (direct)
+           0010d09c  strb     r0, [sl, #0x2c]              ; field+0x2c (this-class: isPlayer)
+           0010d0a0  add      sp, fp, #4                   
+           0010d0a4  pop      {r8, sl, fp}                 
+           0010d0a8  ldr      r7, [sp, #8]                 
+           0010d0ac  ldm      sp, {sp, pc}                 
+
+== CarMetrics::Update  token 0x0600050f @0x0010d0b0 (496 bytes)
+   args: r0=this, 
+           0010d0b0  mov      ip, sp                       
+           0010d0b4  push     {r7, lr}                     
+           0010d0b8  mov      r7, sp                       
+           0010d0bc  push     {r6, r8, sl, fp, ip, lr}     
+           0010d0c0  sub      sp, sp, #0x30                
+           0010d0c4  mov      fp, sp                       
+           0010d0c8  mov      sl, r0                       
+           0010d0cc  mov      r0, #0                       
+           0010d0d0  str      r0, [fp, #0xc]               
+           0010d0d4  mov      r0, #0                       
+           0010d0d8  str      r0, [fp, #0x10]              
+           0010d0dc  mov      r0, #0                       
+           0010d0e0  str      r0, [fp, #0x14]              
+           0010d0e4  mov      r0, sl                       
+           0010d0e8  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010d0ec  bl       #0x112160                    ; CALL RaceManager::GetCarPosition (direct)
+           0010d0f0  mov      r6, r0                       
+           0010d0f4  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: worstPlaceHeld)
+           0010d0f8  cmp      r0, r1                       
+           0010d0fc  ble      #0x10d104                    ; -> L_10d104
+           0010d100  str      r6, [sl, #0x18]              ; field+0x18 (this-class: worstPlaceHeld)
+L_10d104:  0010d104  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: bestPlaceHeld)
+           0010d108  cmp      r6, r0                       
+           0010d10c  bge      #0x10d114                    ; -> L_10d114
+           0010d110  str      r6, [sl, #0x1c]              ; field+0x1c (this-class: bestPlaceHeld)
+L_10d114:  0010d114  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: carCollider)
+           0010d118  mov      r1, r0                       
+           0010d11c  ldr      lr, [r1]                     
+           0010d120  add      r0, r0, #0x48                
+           0010d124  ldr      r1, [r0]                     
+           0010d128  str      r1, [fp, #0xc]               
+           0010d12c  ldr      r1, [r0, #4]                 ; field+0x4 
+           0010d130  str      r1, [fp, #0x10]              
+           0010d134  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010d138  str      r0, [fp, #0x14]              
+           0010d13c  add      r0, fp, #0xc                 
+           0010d140  bl       #0x22a970                    ; CALL UnityEngine.Vector3::get_magnitude
+           0010d144  vmov     s4, r0                       
+           0010d148  vcvt.f64.f32 d2, s4                       
+           0010d14c  vcvt.f32.f64 s0, d2                       
+           0010d150  vstr     s0, [fp, #8]                 
+           0010d154  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: carCollider)
+           0010d158  mov      r0, r1                       
+           0010d15c  ldr      lr, [r1]                     
+           0010d160  bl       #0x22aaa0                    ; CALL CarCollider::get_isInAir
+           0010d164  cmp      r0, #0                       
+           0010d168  bne      #0x10d19c                    ; -> L_10d19c
+           0010d16c  vldr     s0, [fp, #8]                 
+           0010d170  vcvt.f64.f32 d3, s0                       
+           0010d174  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: maxSpeed)
+           0010d178  vcvt.f64.f32 d2, s0                       
+           0010d17c  vcmp.f64 d2, d3                       
+           0010d180  vmrs     apsr_nzcv, fpscr             
+           0010d184  bvs      #0x10d19c                    ; -> L_10d19c
+           0010d188  bge      #0x10d19c                    ; -> L_10d19c
+           0010d18c  vldr     s0, [fp, #8]                 
+           0010d190  vcvt.f64.f32 d2, s0                       
+           0010d194  vcvt.f32.f64 s0, d2                       
+           0010d198  vstr     s0, [sl, #0x20]              ; field+0x20 (this-class: maxSpeed)
+L_10d19c:  0010d19c  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: carCollider)
+           0010d1a0  mov      r0, r1                       
+           0010d1a4  ldr      lr, [r1]                     
+           0010d1a8  bl       #0x22aaa0                    ; CALL CarCollider::get_isInAir
+           0010d1ac  cmp      r0, #0                       
+           0010d1b0  beq      #0x10d248                    ; -> L_10d248
+           0010d1b4  vldr     s0, [sl, #0x30]              ; field+0x30 (this-class: timeInAirAccumulator)
+           0010d1b8  vcvt.f64.f32 d2, s0                       
+           0010d1bc  vstr     d2, [fp, #0x20]              
+           0010d1c0  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           0010d1c4  vmov     s6, r0                       
+           0010d1c8  vcvt.f64.f32 d3, s6                       
+           0010d1cc  vldr     d2, [fp, #0x20]              
+           0010d1d0  vadd.f64 d2, d2, d3                   
+           0010d1d4  vcvt.f32.f64 s0, d2                       
+           0010d1d8  vstr     s0, [sl, #0x30]              ; field+0x30 (this-class: timeInAirAccumulator)
+           0010d1dc  vldr     s0, [sl, #0x28]              ; field+0x28 (this-class: totalTimeInAir)
+           0010d1e0  vcvt.f64.f32 d2, s0                       
+           0010d1e4  vstr     d2, [fp, #0x18]              
+           0010d1e8  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           0010d1ec  vmov     s6, r0                       
+           0010d1f0  vcvt.f64.f32 d3, s6                       
+           0010d1f4  vldr     d2, [fp, #0x18]              
+           0010d1f8  vadd.f64 d2, d2, d3                   
+           0010d1fc  vcvt.f32.f64 s0, d2                       
+           0010d200  vstr     s0, [sl, #0x28]              ; field+0x28 (this-class: totalTimeInAir)
+           0010d204  ldrb     r0, [sl, #0x2c]              ; field+0x2c (this-class: isPlayer)
+           0010d208  cmp      r0, #0                       
+           0010d20c  beq      #0x10d290                    ; -> L_10d290
+           0010d210  ldr      r0, [pc]                     
+           0010d214  b        #0x10d21c                    ; -> L_10d21c
+           0010d218  .word    0x00e988f4                   ; literal 15304948 / 
+L_10d21c:  0010d21c  ldr      r0, [pc, r0]                 ; GOT[876] LDSTR 'Total Time In Air'
+           0010d220  str      r0, [fp, #0x28]              
+           0010d224  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           0010d228  vmov     s4, r0                       
+           0010d22c  vcvt.f64.f32 d2, s4                       
+           0010d230  ldr      r0, [fp, #0x28]              
+           0010d234  vcvt.f32.f64 s0, d2                       
+           0010d238  vstr     s0, [sp, #-8]                
+           0010d23c  ldr      r1, [sp, #-8]                
+           0010d240  bl       #0x22c470                    ; CALL LifetimeMetrics::Signal
+           0010d244  b        #0x10d290                    ; -> L_10d290
+L_10d248:  0010d248  vldr     s0, [sl, #0x30]              ; field+0x30 (this-class: timeInAirAccumulator)
+           0010d24c  vcvt.f64.f32 d3, s0                       
+           0010d250  vldr     s0, [sl, #0x24]              ; field+0x24 (this-class: longestTimeInAir)
+           0010d254  vcvt.f64.f32 d2, s0                       
+           0010d258  vcmp.f64 d2, d3                       
+           0010d25c  vmrs     apsr_nzcv, fpscr             
+           0010d260  bvs      #0x10d278                    ; -> L_10d278
+           0010d264  bge      #0x10d278                    ; -> L_10d278
+           0010d268  vldr     s0, [sl, #0x30]              ; field+0x30 (this-class: timeInAirAccumulator)
+           0010d26c  vcvt.f64.f32 d2, s0                       
+           0010d270  vcvt.f32.f64 s0, d2                       
+           0010d274  vstr     s0, [sl, #0x24]              ; field+0x24 (this-class: longestTimeInAir)
+L_10d278:  0010d278  vldr     s4, [pc]                     ; float 0.0
+           0010d27c  b        #0x10d284                    ; -> L_10d284
+           0010d280  .word    0x00000000                   ; literal 0 / 0
+L_10d284:  0010d284  vcvt.f64.f32 d2, s4                       
+           0010d288  vcvt.f32.f64 s0, d2                       
+           0010d28c  vstr     s0, [sl, #0x30]              ; field+0x30 (this-class: timeInAirAccumulator)
+L_10d290:  0010d290  add      sp, fp, #0x30                
+           0010d294  pop      {r6, r8, sl, fp}             
+           0010d298  ldr      r7, [sp, #8]                 
+           0010d29c  ldm      sp, {sp, pc}                 
+
+== CarMetrics::Signal  token 0x06000510 @0x0010d2a0 (228 bytes)
+   args: r0=this, signal, value
+           0010d2a0  mov      ip, sp                       
+           0010d2a4  push     {r7, lr}                     
+           0010d2a8  mov      r7, sp                       
+           0010d2ac  push     {r6, r8, sl, fp, ip, lr}     
+           0010d2b0  sub      sp, sp, #0x20                
+           0010d2b4  mov      fp, sp                       
+           0010d2b8  mov      r6, r0                       
+           0010d2bc  mov      sl, r1                       
+           0010d2c0  str      r2, [fp, #0x14]              
+           0010d2c4  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: otherMetrics)
+           0010d2c8  mov      r0, r2                       
+           0010d2cc  mov      r1, sl                       
+           0010d2d0  ldr      lr, [r2]                     
+           0010d2d4  bl       #0x22b7a0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::ContainsKey
+           0010d2d8  cmp      r0, #0                       
+           0010d2dc  beq      #0x10d34c                    ; -> L_10d34c
+           0010d2e0  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: otherMetrics)
+           0010d2e4  mov      r0, r2                       
+           0010d2e8  str      r0, [fp, #0x18]              
+           0010d2ec  str      r2, [fp, #8]                 
+           0010d2f0  str      sl, [fp, #0xc]               
+           0010d2f4  mov      r0, r2                       
+           0010d2f8  mov      r1, sl                       
+           0010d2fc  ldr      lr, [r2]                     
+           0010d300  bl       #0x22b7b0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::get_Item
+           0010d304  vmov     s4, r0                       
+           0010d308  vcvt.f64.f32 d2, s4                       
+           0010d30c  ldr      r3, [fp, #0x18]              
+           0010d310  vcvt.f32.f64 s0, d2                       
+           0010d314  vstr     s0, [fp, #0x10]              
+           0010d318  vldr     s0, [fp, #0x10]              
+           0010d31c  vcvt.f64.f32 d2, s0                       
+           0010d320  vldr     s0, [fp, #0x14]              
+           0010d324  vcvt.f64.f32 d3, s0                       
+           0010d328  vadd.f64 d2, d2, d3                   
+           0010d32c  mov      r0, r3                       
+           0010d330  mov      r1, sl                       
+           0010d334  vcvt.f32.f64 s0, d2                       
+           0010d338  vstr     s0, [sp, #-8]                
+           0010d33c  ldr      r2, [sp, #-8]                
+           0010d340  ldr      lr, [r3]                     
+           0010d344  bl       #0x22be20                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::set_Item
+           0010d348  b        #0x10d374                    ; -> L_10d374
+L_10d34c:  0010d34c  ldr      r3, [r6, #0x10]              ; field+0x10 (this-class: otherMetrics)
+           0010d350  vldr     s0, [fp, #0x14]              
+           0010d354  vcvt.f64.f32 d2, s0                       
+           0010d358  mov      r0, r3                       
+           0010d35c  mov      r1, sl                       
+           0010d360  vcvt.f32.f64 s0, d2                       
+           0010d364  vstr     s0, [sp, #-8]                
+           0010d368  ldr      r2, [sp, #-8]                
+           0010d36c  ldr      lr, [r3]                     
+           0010d370  bl       #0x22be30                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::Add
+L_10d374:  0010d374  add      sp, fp, #0x20                
+           0010d378  pop      {r6, r8, sl, fp}             
+           0010d37c  ldr      r7, [sp, #8]                 
+           0010d380  ldm      sp, {sp, pc}                 
+
+== CarMetrics::Signal  token 0x06000511 @0x0010d384 (88 bytes)
+   args: r0=this, signal
+           0010d384  mov      ip, sp                       
+           0010d388  push     {r7, lr}                     
+           0010d38c  mov      r7, sp                       
+           0010d390  push     {r8, fp, ip, lr}             
+           0010d394  sub      sp, sp, #0x10                
+           0010d398  mov      fp, sp                       
+           0010d39c  str      r0, [fp, #8]                 
+           0010d3a0  str      r1, [fp, #0xc]               
+           0010d3a4  vldr     s4, [pc]                     ; float 1.0
+           0010d3a8  b        #0x10d3b0                    ; -> L_10d3b0
+           0010d3ac  .word    0x3f800000                   ; literal 1065353216 / 1
+L_10d3b0:  0010d3b0  vcvt.f64.f32 d2, s4                       
+           0010d3b4  ldr      r0, [fp, #8]                 
+           0010d3b8  ldr      r1, [fp, #0xc]               
+           0010d3bc  vcvt.f32.f64 s0, d2                       
+           0010d3c0  vstr     s0, [sp, #-8]                
+           0010d3c4  ldr      r2, [sp, #-8]                
+           0010d3c8  bl       #0x10d2a0                    ; CALL CarMetrics::Signal (direct)
+           0010d3cc  add      sp, fp, #0x10                
+           0010d3d0  pop      {r8, fp}                     
+           0010d3d4  ldr      r7, [sp, #8]                 
+           0010d3d8  ldm      sp, {sp, pc}                 
+
+== CarMetrics::CloneToObject  token 0x06000512 @0x0010d3dc (236 bytes)
+   args: r0=this, go
+           0010d3dc  mov      ip, sp                       
+           0010d3e0  push     {r7, lr}                     
+           0010d3e4  mov      r7, sp                       
+           0010d3e8  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0010d3ec  sub      sp, sp, #0xc                 
+           0010d3f0  mov      fp, sp                       
+           0010d3f4  mov      r6, r0                       
+           0010d3f8  mov      sl, r1                       
+           0010d3fc  ldr      r0, [pc]                     
+           0010d400  b        #0x10d408                    ; -> L_10d408
+           0010d404  .word    0x00e97b2c                   ; literal 15301420 / 
+L_10d408:  0010d408  ldr      r0, [pc, r0]                 ; GOT[117] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarMetrics>
+           0010d40c  ldr      lr, [sl]                     
+           0010d410  mov      r8, r0                       
+           0010d414  mov      r0, sl                       
+           0010d418  bl       #0x22b280                    ; CALL UnityEngine.GameObject::GetComponent<CarMetrics>
+           0010d41c  mov      r5, r0                       
+           0010d420  mov      r1, #0                       
+           0010d424  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010d428  cmp      r0, #0                       
+           0010d42c  beq      #0x10d454                    ; -> L_10d454
+           0010d430  ldr      r0, [pc]                     
+           0010d434  b        #0x10d43c                    ; -> L_10d43c
+           0010d438  .word    0x00e986d8                   ; literal 15304408 / 
+L_10d43c:  0010d43c  ldr      r0, [pc, r0]                 ; GOT[877] METHOD_RGCTX UnityEngine.GameObject::AddComponent<CarMetrics>
+           0010d440  ldr      lr, [sl]                     
+           0010d444  mov      r8, r0                       
+           0010d448  mov      r0, sl                       
+           0010d44c  bl       #0x22dba0                    ; CALL UnityEngine.GameObject::AddComponent<CarMetrics>
+           0010d450  mov      r5, r0                       
+L_10d454:  0010d454  ldr      r0, [r6, #0x18]              ; field+0x18 (this-class: worstPlaceHeld)
+           0010d458  str      r0, [r5, #0x18]              ; field+0x18 (this-class: worstPlaceHeld)
+           0010d45c  ldr      r0, [r6, #0x1c]              ; field+0x1c (this-class: bestPlaceHeld)
+           0010d460  str      r0, [r5, #0x1c]              ; field+0x1c (this-class: bestPlaceHeld)
+           0010d464  vldr     s0, [r6, #0x20]              ; field+0x20 (this-class: maxSpeed)
+           0010d468  vcvt.f64.f32 d2, s0                       
+           0010d46c  vcvt.f32.f64 s0, d2                       
+           0010d470  vstr     s0, [r5, #0x20]              ; field+0x20 (this-class: maxSpeed)
+           0010d474  vldr     s0, [r6, #0x24]              ; field+0x24 (this-class: longestTimeInAir)
+           0010d478  vcvt.f64.f32 d2, s0                       
+           0010d47c  vcvt.f32.f64 s0, d2                       
+           0010d480  vstr     s0, [r5, #0x24]              ; field+0x24 (this-class: longestTimeInAir)
+           0010d484  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: otherMetrics)
+           0010d488  str      r0, [fp, #4]                 
+           0010d48c  ldr      r0, [pc]                     
+           0010d490  b        #0x10d498                    ; -> L_10d498
+           0010d494  .word    0x00e98130                   ; literal 15302960 / 
+L_10d498:  0010d498  ldr      r0, [pc, r0]                 ; GOT[538] VTABLE System.Collections.Generic.Dictionary`2<string,float>
+           0010d49c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010d4a0  ldr      r1, [fp, #4]                 
+           0010d4a4  str      r0, [fp]                     
+           0010d4a8  bl       #0x22dbb0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::.ctor
+           0010d4ac  ldr      r0, [fp]                     
+           0010d4b0  str      r0, [r5, #0x10]              ; field+0x10 (this-class: otherMetrics)
+           0010d4b4  mov      r0, r5                       
+           0010d4b8  add      sp, fp, #0xc                 
+           0010d4bc  pop      {r5, r6, r8, sl, fp}         
+           0010d4c0  ldr      r7, [sp, #8]                 
+           0010d4c4  ldm      sp, {sp, pc}                 
+
+== CarMetrics::CopyMetrics  token 0x06000513 @0x0010d4c8 (260 bytes)
+   args: r0=this, 
+           0010d4c8  mov      ip, sp                       
+           0010d4cc  push     {r7, lr}                     
+           0010d4d0  mov      r7, sp                       
+           0010d4d4  push     {r8, sl, fp, ip, lr}         
+           0010d4d8  sub      sp, sp, #0x1c                
+           0010d4dc  mov      fp, sp                       
+           0010d4e0  mov      sl, r0                       
+           0010d4e4  ldr      r0, [pc]                     
+           0010d4e8  b        #0x10d4f0                    ; -> L_10d4f0
+           0010d4ec  .word    0x00e98628                   ; literal 15304232 / 
+L_10d4f0:  0010d4f0  ldr      r0, [pc, r0]                 ; GOT[878] LDSTR 'Copied Metrics'
+           0010d4f4  str      r0, [fp, #0x14]              
+           0010d4f8  ldr      r0, [pc]                     
+           0010d4fc  b        #0x10d504                    ; -> L_10d504
+           0010d500  .word    0x00e97888                   ; literal 15300744 / 
+L_10d504:  0010d504  ldr      r0, [pc, r0]                 ; GOT[11] VTABLE UnityEngine.GameObject
+           0010d508  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           0010d50c  ldr      r1, [fp, #0x14]              
+           0010d510  str      r0, [fp, #0x10]              
+           0010d514  bl       #0x22a850                    ; CALL UnityEngine.GameObject::.ctor
+           0010d518  ldr      r0, [fp, #0x10]              
+           0010d51c  str      r0, [fp, #0xc]               
+           0010d520  bl       #0x22b640                    ; CALL UnityEngine.Object::DontDestroyOnLoad
+           0010d524  ldr      r0, [fp, #0xc]               
+           0010d528  ldr      r1, [pc]                     
+           0010d52c  b        #0x10d534                    ; -> L_10d534
+           0010d530  .word    0x00e985e0                   ; literal 15304160 / 
+L_10d534:  0010d534  ldr      r1, [pc, r1]                 ; GOT[877] METHOD_RGCTX UnityEngine.GameObject::AddComponent<CarMetrics>
+           0010d538  ldr      lr, [r0]                     
+           0010d53c  mov      r8, r1                       
+           0010d540  bl       #0x22dba0                    ; CALL UnityEngine.GameObject::AddComponent<CarMetrics>
+           0010d544  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: bestPlaceHeld)
+           0010d548  str      r1, [r0, #0x1c]              ; field+0x1c (this-class: bestPlaceHeld)
+           0010d54c  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: worstPlaceHeld)
+           0010d550  str      r1, [r0, #0x18]              ; field+0x18 (this-class: worstPlaceHeld)
+           0010d554  vldr     s0, [sl, #0x24]              ; field+0x24 (this-class: longestTimeInAir)
+           0010d558  vcvt.f64.f32 d2, s0                       
+           0010d55c  vcvt.f32.f64 s0, d2                       
+           0010d560  vstr     s0, [r0, #0x24]              ; field+0x24 (this-class: longestTimeInAir)
+           0010d564  vldr     s0, [sl, #0x28]              ; field+0x28 (this-class: totalTimeInAir)
+           0010d568  vcvt.f64.f32 d2, s0                       
+           0010d56c  vcvt.f32.f64 s0, d2                       
+           0010d570  vstr     s0, [r0, #0x28]              ; field+0x28 (this-class: totalTimeInAir)
+           0010d574  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: maxSpeed)
+           0010d578  vcvt.f64.f32 d2, s0                       
+           0010d57c  vcvt.f32.f64 s0, d2                       
+           0010d580  vstr     s0, [r0, #0x20]              ; field+0x20 (this-class: maxSpeed)
+           0010d584  str      r0, [fp]                     
+           0010d588  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: otherMetrics)
+           0010d58c  str      r0, [fp, #8]                 
+           0010d590  ldr      r0, [pc]                     
+           0010d594  b        #0x10d59c                    ; -> L_10d59c
+           0010d598  .word    0x00e9802c                   ; literal 15302700 / 
+L_10d59c:  0010d59c  ldr      r0, [pc, r0]                 ; GOT[538] VTABLE System.Collections.Generic.Dictionary`2<string,float>
+           0010d5a0  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010d5a4  ldr      r1, [fp, #8]                 
+           0010d5a8  str      r0, [fp, #4]                 
+           0010d5ac  bl       #0x22dbb0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::.ctor
+           0010d5b0  ldr      r0, [fp]                     
+           0010d5b4  ldr      r1, [fp, #4]                 
+           0010d5b8  str      r1, [r0, #0x10]              ; field+0x10 (this-class: otherMetrics)
+           0010d5bc  add      sp, fp, #0x1c                
+           0010d5c0  pop      {r8, sl, fp}                 
+           0010d5c4  ldr      r7, [sp, #8]                 
+           0010d5c8  ldm      sp, {sp, pc}                 
+
+== CarMetrics::DebugDump  token 0x06000514 @0x0010d5cc (968 bytes)
+   args: r0=this, 
+           0010d5cc  mov      ip, sp                       
+           0010d5d0  push     {r7, lr}                     
+           0010d5d4  mov      r7, sp                       
+           0010d5d8  push     {r6, r8, sl, fp, ip, lr}     
+           0010d5dc  sub      sp, sp, #0x98                
+           0010d5e0  mov      fp, sp                       
+           0010d5e4  mov      sl, r0                       
+           0010d5e8  mov      r0, #0                       
+           0010d5ec  str      r0, [fp]                     
+           0010d5f0  mov      r0, #0                       
+           0010d5f4  str      r0, [fp, #4]                 
+           0010d5f8  mov      r0, #0                       
+           0010d5fc  str      r0, [fp, #8]                 
+           0010d600  mov      r0, #0                       
+           0010d604  str      r0, [fp, #0xc]               
+           0010d608  mov      r0, #0                       
+           0010d60c  str      r0, [fp, #0x10]              
+           0010d610  mov      r0, #0                       
+           0010d614  str      r0, [fp, #0x14]              
+           0010d618  mov      r0, #0                       
+           0010d61c  str      r0, [fp, #0x18]              
+           0010d620  ldr      r0, [pc]                     
+           0010d624  b        #0x10d62c                    ; -> L_10d62c
+           0010d628  .word    0x00e97fa8                   ; literal 15302568 / 
+L_10d62c:  0010d62c  ldr      r0, [pc, r0]                 ; GOT[541] VTABLE System.Text.StringBuilder
+           0010d630  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010d634  str      r0, [fp, #0x88]              
+           0010d638  bl       #0x22c9f0                    ; CALL System.Text.StringBuilder::.ctor
+           0010d63c  ldr      r0, [fp, #0x88]              
+           0010d640  mov      r6, r0                       
+           0010d644  mov      r2, r6                       
+           0010d648  ldr      r1, [pc]                     
+           0010d64c  b        #0x10d654                    ; -> L_10d654
+           0010d650  .word    0x00e984c8                   ; literal 15303880 / 
+L_10d654:  0010d654  ldr      r1, [pc, r1]                 ; GOT[879] LDSTR '**********************************'
+           0010d658  mov      r0, r2                       
+           0010d65c  ldr      lr, [r2]                     
+           0010d660  bl       #0x22ca00                    ; CALL System.Text.StringBuilder::AppendLine
+           0010d664  ldr      r1, [pc]                     
+           0010d668  b        #0x10d670                    ; -> L_10d670
+           0010d66c  .word    0x00e984b0                   ; literal 15303856 / 
+L_10d670:  0010d670  ldr      r1, [pc, r1]                 ; GOT[880] LDSTR '***   Car Metrics'
+           0010d674  mov      r0, r6                       
+           0010d678  ldr      lr, [r6]                     
+           0010d67c  bl       #0x22ca00                    ; CALL System.Text.StringBuilder::AppendLine
+           0010d680  ldr      r1, [pc]                     
+           0010d684  b        #0x10d68c                    ; -> L_10d68c
+           0010d688  .word    0x00e98498                   ; literal 15303832 / 
+L_10d68c:  0010d68c  ldr      r1, [pc, r1]                 ; GOT[881] LDSTR '* Race Data'
+           0010d690  mov      r0, r6                       
+           0010d694  ldr      lr, [r6]                     
+           0010d698  bl       #0x22ca00                    ; CALL System.Text.StringBuilder::AppendLine
+           0010d69c  ldr      r0, [pc]                     
+           0010d6a0  b        #0x10d6a8                    ; -> L_10d6a8
+           0010d6a4  .word    0x00e98480                   ; literal 15303808 / 
+L_10d6a8:  0010d6a8  ldr      r0, [pc, r0]                 ; GOT[882] LDSTR 'Worst Place Held: '
+           0010d6ac  str      r0, [fp, #0x80]              
+           0010d6b0  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: worstPlaceHeld)
+           0010d6b4  str      r0, [fp, #0x84]              
+           0010d6b8  ldr      r0, [pc]                     
+           0010d6bc  b        #0x10d6c4                    ; -> L_10d6c4
+           0010d6c0  .word    0x00e976dc                   ; literal 15300316 / 
+L_10d6c4:  0010d6c4  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           0010d6c8  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0010d6cc  mov      r1, r0                       
+           0010d6d0  ldr      r0, [fp, #0x80]              
+           0010d6d4  ldr      r2, [fp, #0x84]              
+           0010d6d8  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010d6dc  bl       #0x22a8c0                    ; CALL System.String::Concat
+           0010d6e0  mov      r1, r0                       
+           0010d6e4  mov      r0, r6                       
+           0010d6e8  ldr      lr, [r6]                     
+           0010d6ec  bl       #0x22ca00                    ; CALL System.Text.StringBuilder::AppendLine
+           0010d6f0  ldr      r0, [pc]                     
+           0010d6f4  b        #0x10d6fc                    ; -> L_10d6fc
+           0010d6f8  .word    0x00e98430                   ; literal 15303728 / 
+L_10d6fc:  0010d6fc  ldr      r0, [pc, r0]                 ; GOT[883] LDSTR 'Best Place Held: '
+           0010d700  str      r0, [fp, #0x78]              
+           0010d704  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: bestPlaceHeld)
+           0010d708  str      r0, [fp, #0x7c]              
+           0010d70c  ldr      r0, [pc]                     
+           0010d710  b        #0x10d718                    ; -> L_10d718
+           0010d714  .word    0x00e97688                   ; literal 15300232 / 
+L_10d718:  0010d718  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           0010d71c  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0010d720  mov      r1, r0                       
+           0010d724  ldr      r0, [fp, #0x78]              
+           0010d728  ldr      r2, [fp, #0x7c]              
+           0010d72c  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010d730  bl       #0x22a8c0                    ; CALL System.String::Concat
+           0010d734  mov      r1, r0                       
+           0010d738  mov      r0, r6                       
+           0010d73c  ldr      lr, [r6]                     
+           0010d740  bl       #0x22ca00                    ; CALL System.Text.StringBuilder::AppendLine
+           0010d744  ldr      r0, [pc]                     
+           0010d748  b        #0x10d750                    ; -> L_10d750
+           0010d74c  .word    0x00e983e0                   ; literal 15303648 / 
+L_10d750:  0010d750  ldr      r0, [pc, r0]                 ; GOT[884] LDSTR 'Max Speed: '
+           0010d754  str      r0, [fp, #0x68]              
+           0010d758  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: maxSpeed)
+           0010d75c  vcvt.f64.f32 d2, s0                       
+           0010d760  vstr     d2, [fp, #0x70]              
+           0010d764  ldr      r0, [pc]                     
+           0010d768  b        #0x10d770                    ; -> L_10d770
+           0010d76c  .word    0x00e97af4                   ; literal 15301364 / 
+L_10d770:  0010d770  ldr      r0, [pc, r0]                 ; GOT[321] VTABLE System.Single
+           0010d774  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0010d778  mov      r1, r0                       
+           0010d77c  ldr      r0, [fp, #0x68]              
+           0010d780  vldr     d2, [fp, #0x70]              
+           0010d784  vcvt.f32.f64 s0, d2                       
+           0010d788  vstr     s0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010d78c  bl       #0x22a8c0                    ; CALL System.String::Concat
+           0010d790  mov      r1, r0                       
+           0010d794  mov      r0, r6                       
+           0010d798  ldr      lr, [r6]                     
+           0010d79c  bl       #0x22ca00                    ; CALL System.Text.StringBuilder::AppendLine
+           0010d7a0  ldr      r0, [pc]                     
+           0010d7a4  b        #0x10d7ac                    ; -> L_10d7ac
+           0010d7a8  .word    0x00e98388                   ; literal 15303560 / 
+L_10d7ac:  0010d7ac  ldr      r0, [pc, r0]                 ; GOT[885] LDSTR 'Longest Time In Air: '
+           0010d7b0  str      r0, [fp, #0x58]              
+           0010d7b4  vldr     s0, [sl, #0x24]              ; field+0x24 (this-class: longestTimeInAir)
+           0010d7b8  vcvt.f64.f32 d2, s0                       
+           0010d7bc  vstr     d2, [fp, #0x60]              
+           0010d7c0  ldr      r0, [pc]                     
+           0010d7c4  b        #0x10d7cc                    ; -> L_10d7cc
+           0010d7c8  .word    0x00e97a98                   ; literal 15301272 / 
+L_10d7cc:  0010d7cc  ldr      r0, [pc, r0]                 ; GOT[321] VTABLE System.Single
+           0010d7d0  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0010d7d4  mov      r1, r0                       
+           0010d7d8  ldr      r0, [fp, #0x58]              
+           0010d7dc  vldr     d2, [fp, #0x60]              
+           0010d7e0  vcvt.f32.f64 s0, d2                       
+           0010d7e4  vstr     s0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010d7e8  bl       #0x22a8c0                    ; CALL System.String::Concat
+           0010d7ec  mov      r1, r0                       
+           0010d7f0  mov      r0, r6                       
+           0010d7f4  ldr      lr, [r6]                     
+           0010d7f8  bl       #0x22ca00                    ; CALL System.Text.StringBuilder::AppendLine
+           0010d7fc  ldr      r1, [pc]                     
+           0010d800  b        #0x10d808                    ; -> L_10d808
+           0010d804  .word    0x00e98330                   ; literal 15303472 / 
+L_10d808:  0010d808  ldr      r1, [pc, r1]                 ; GOT[886] LDSTR '* Other Data'
+           0010d80c  mov      r0, r6                       
+           0010d810  ldr      lr, [r6]                     
+           0010d814  bl       #0x22ca00                    ; CALL System.Text.StringBuilder::AppendLine
+           0010d818  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: otherMetrics)
+           0010d81c  add      r0, fp, #8                   
+           0010d820  mov      r1, r2                       
+           0010d824  ldr      lr, [r2]                     
+           0010d828  bl       #0x22c990                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::GetEnumerator
+           0010d82c  b        #0x10d8c0                    ; -> L_10d8c0
+L_10d830:  0010d830  add      r0, fp, #8                   
+           0010d834  add      r0, r0, #0xc                 
+           0010d838  ldr      r1, [r0]                     
+           0010d83c  str      r1, [fp]                     
+           0010d840  ldr      r0, [r0, #4]                 ; field+0x4 
+           0010d844  str      r0, [fp, #4]                 
+           0010d848  ldr      r0, [fp]                     
+           0010d84c  str      r0, [fp, #0x58]              
+           0010d850  ldr      r0, [pc]                     
+           0010d854  b        #0x10d85c                    ; -> L_10d85c
+           0010d858  .word    0x00e978f8                   ; literal 15300856 / 
+L_10d85c:  0010d85c  ldr      r0, [pc, r0]                 ; GOT[253] LDSTR ': '
+           0010d860  str      r0, [fp, #0x8c]              
+           0010d864  vldr     s0, [fp, #4]                 
+           0010d868  vcvt.f64.f32 d2, s0                       
+           0010d86c  vcvt.f32.f64 s0, d2                       
+           0010d870  vstr     s0, [fp, #0x30]              
+           0010d874  vldr     s0, [fp, #0x30]              
+           0010d878  vcvt.f64.f32 d2, s0                       
+           0010d87c  vstr     d2, [fp, #0x90]              
+           0010d880  ldr      r0, [pc]                     
+           0010d884  b        #0x10d88c                    ; -> L_10d88c
+           0010d888  .word    0x00e979d8                   ; literal 15301080 / 
+L_10d88c:  0010d88c  ldr      r0, [pc, r0]                 ; GOT[321] VTABLE System.Single
+           0010d890  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0010d894  mov      r2, r0                       
+           0010d898  ldr      r0, [fp, #0x58]              
+           0010d89c  ldr      r1, [fp, #0x8c]              
+           0010d8a0  vldr     d2, [fp, #0x90]              
+           0010d8a4  vcvt.f32.f64 s0, d2                       
+           0010d8a8  vstr     s0, [r2, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010d8ac  bl       #0x22b5f0                    ; CALL System.String::Concat
+           0010d8b0  mov      r1, r0                       
+           0010d8b4  mov      r0, r6                       
+           0010d8b8  ldr      lr, [r6]                     
+           0010d8bc  bl       #0x22ca00                    ; CALL System.Text.StringBuilder::AppendLine
+L_10d8c0:  0010d8c0  add      r0, fp, #8                   
+           0010d8c4  bl       #0x22c9a0                    ; CALL System.Collections.Generic.Dictionary`2/Enumerator<string,float>::MoveNext
+           0010d8c8  cmp      r0, #0                       
+           0010d8cc  bne      #0x10d830                    ; -> L_10d830
+           0010d8d0  bl       #0x10d8d8                    ; CALL 0x10d8d8
+           0010d8d4  b        #0x10d974                    ; -> L_10d974
+           0010d8d8  str      lr, [fp, #0x3c]              
+           0010d8dc  ldr      r0, [fp, #8]                 
+           0010d8e0  str      r0, [fp, #0x40]              
+           0010d8e4  ldr      r0, [fp, #0xc]               
+           0010d8e8  str      r0, [fp, #0x44]              
+           0010d8ec  ldr      r0, [fp, #0x10]              
+           0010d8f0  str      r0, [fp, #0x48]              
+           0010d8f4  ldr      r0, [fp, #0x14]              
+           0010d8f8  str      r0, [fp, #0x4c]              
+           0010d8fc  ldr      r0, [fp, #0x18]              
+           0010d900  str      r0, [fp, #0x50]              
+           0010d904  ldr      r0, [pc]                     
+           0010d908  b        #0x10d910                    ; -> L_10d910
+           0010d90c  .word    0x00e97cb0                   ; literal 15301808 / 
+L_10d910:  0010d910  ldr      r0, [pc, r0]                 ; GOT[536] VTABLE System.Collections.Generic.Dictionary`2/Enumerator<string,float>
+           0010d914  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010d918  mov      r1, r0                       
+           0010d91c  add      r0, r1, #8                   
+           0010d920  ldr      r2, [fp, #0x40]              
+           0010d924  str      r2, [r0]                     
+           0010d928  ldr      r2, [fp, #0x44]              
+           0010d92c  str      r2, [r0, #4]                 ; field+0x4 
+           0010d930  ldr      r2, [fp, #0x48]              
+           0010d934  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010d938  ldr      r2, [fp, #0x4c]              
+           0010d93c  str      r2, [r0, #0xc]               ; field+0xc 
+           0010d940  ldr      r2, [fp, #0x50]              
+           0010d944  str      r2, [r0, #0x10]              ; field+0x10 (this-class: otherMetrics)
+           0010d948  mov      r0, r1                       
+           0010d94c  ldr      r1, [r1]                     
+           0010d950  ldr      r8, [pc]                     
+           0010d954  b        #0x10d95c                    ; -> L_10d95c
+           0010d958  .word    0x00e9744c                   ; literal 15299660 / 
+L_10d95c:  0010d95c  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           0010d960  add      lr, pc, #4                   
+           0010d964  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           0010d968  andeq    r0, r0, r0                   
+           0010d96c  ldr      ip, [fp, #0x3c]              
+           0010d970  mov      pc, ip                       
+L_10d974:  0010d974  mov      r0, r6                       
+           0010d978  ldr      lr, [r6]                     
+           0010d97c  bl       #0x22ca10                    ; CALL System.Text.StringBuilder::ToString
+           0010d980  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           0010d984  add      sp, fp, #0x98                
+           0010d988  pop      {r6, r8, sl, fp}             
+           0010d98c  ldr      r7, [sp, #8]                 
+           0010d990  ldm      sp, {sp, pc}                 
+
+== CarMetrics::CleanupCopiedMetrics  token 0x06000515 @0x0010d994 (312 bytes) static
+   args: 
+           0010d994  mov      ip, sp                       
+           0010d998  push     {r7, lr}                     
+           0010d99c  mov      r7, sp                       
+           0010d9a0  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0010d9a4  sub      sp, sp, #0xc                 
+           0010d9a8  mov      fp, sp                       
+           0010d9ac  ldr      r0, [pc]                     
+           0010d9b0  b        #0x10d9b8                    ; -> L_10d9b8
+           0010d9b4  .word    0x00e98184                   ; literal 15303044 / 
+L_10d9b8:  0010d9b8  ldr      r0, [pc, r0]                 ; GOT[887] TYPE_FROM_HANDLE typeof(CarMetrics)
+           0010d9bc  bl       #0x22b650                    ; CALL UnityEngine.Object::FindObjectsOfType
+           0010d9c0  mov      r5, r0                       
+           0010d9c4  cmp      r5, #0                       
+           0010d9c8  beq      #0x10da10                    ; -> L_10da10
+           0010d9cc  ldr      r0, [r5]                     
+           0010d9d0  ldr      r0, [r0]                     
+           0010d9d4  ldrb     r1, [r0, #0xe]               ; field+0xe 
+           0010d9d8  cmp      r1, #1                       
+           0010d9dc  blne     #0x10dabc                    ; THROW System.InvalidCastException (if ne)
+           0010d9e0  ldr      r0, [r0, #4]                 ; field+0x4 
+           0010d9e4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010d9e8  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: carCollider)
+           0010d9ec  ldr      r1, [pc]                     
+           0010d9f0  b        #0x10d9f8                    ; -> L_10d9f8
+           0010d9f4  .word    0x00e98148                   ; literal 15302984 / 
+L_10d9f8:  0010d9f8  ldr      r1, [pc, r1]                 ; GOT[888] CLASS CarMetrics
+           0010d9fc  cmp      r0, r1                       
+           0010da00  blne     #0x10dabc                    ; THROW System.InvalidCastException (if ne)
+           0010da04  ldr      r0, [r5, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010da08  cmp      r0, #0                       
+           0010da0c  blne     #0x10dabc                    ; THROW System.InvalidCastException (if ne)
+L_10da10:  0010da10  mov      sl, r5                       
+           0010da14  mov      r6, #0                       
+           0010da18  b        #0x10da90                    ; -> L_10da90
+L_10da1c:  0010da1c  ldr      r0, [sl, #0xc]               ; field+0xc 
+           0010da20  cmp      r0, r6                       
+           0010da24  blls     #0x10daac                    ; THROW System.IndexOutOfRangeException (if ls)
+           0010da28  lsl      r0, r6, #2                   
+           0010da2c  add      r0, sl, r0                   
+           0010da30  add      r0, r0, #0x10                
+           0010da34  ldr      r1, [r0]                     
+           0010da38  mov      r0, r1                       
+           0010da3c  ldr      lr, [r1]                     
+           0010da40  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           0010da44  ldr      r1, [pc]                     
+           0010da48  b        #0x10da50                    ; -> L_10da50
+           0010da4c  .word    0x00e980c8                   ; literal 15302856 / 
+L_10da50:  0010da50  ldr      r1, [pc, r1]                 ; GOT[878] LDSTR 'Copied Metrics'
+           0010da54  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           0010da58  cmp      r0, #0                       
+           0010da5c  beq      #0x10da8c                    ; -> L_10da8c
+           0010da60  ldr      r0, [sl, #0xc]               ; field+0xc 
+           0010da64  cmp      r0, r6                       
+           0010da68  blls     #0x10daac                    ; THROW System.IndexOutOfRangeException (if ls)
+           0010da6c  lsl      r0, r6, #2                   
+           0010da70  add      r0, sl, r0                   
+           0010da74  add      r0, r0, #0x10                
+           0010da78  ldr      r1, [r0]                     
+           0010da7c  mov      r0, r1                       
+           0010da80  ldr      lr, [r1]                     
+           0010da84  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010da88  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_10da8c:  0010da8c  add      r6, r6, #1                   
+L_10da90:  0010da90  ldr      r0, [sl, #0xc]               ; field+0xc 
+           0010da94  cmp      r6, r0                       
+           0010da98  blt      #0x10da1c                    ; -> L_10da1c
+           0010da9c  add      sp, fp, #0xc                 
+           0010daa0  pop      {r5, r6, r8, sl, fp}         
+           0010daa4  ldr      r7, [sp, #8]                 
+           0010daa8  ldm      sp, {sp, pc}                 
+           0010daac  mov      r1, lr                       
+           0010dab0  ldr      r0, [pc]                     
+           0010dab4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0010dab8  andeq    r0, r0, #0xf8                
+           0010dabc  mov      r1, lr                       
+           0010dac0  ldr      r0, [pc]                     
+           0010dac4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0010dac8  andeq    r0, r0, #0xfd                

@@ -1,0 +1,531 @@
+####################################################################################################
+# TYPE PlayMenuPublisher  (instance size 0x48)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 transformReferences            UghPublisher/TransformReference[]
+#   +0x14 transformsDictionary           UghPublisher/TransformsDictionary
+#   +0x18 ughTextReferences              UghPublisher/UghTextReference[]
+#   +0x1c ughTextsDictionary             UghPublisher/UghTextsDictionary
+#   +0x20 ledScrollerReferences          UghPublisher/LEDScrollerReference[]
+#   +0x24 ledScrollersDictionary         UghPublisher/LEDScrollersDictionary
+#   +0x28 ughButtonReferences            UghPublisher/UghButtonReference[]
+#   +0x2c ughButtonsDictionary           UghPublisher/UghButtonsDictionary
+#   +0x30 ughSlideToggleReferences       UghPublisher/UghSlideToggleReference[]
+#   +0x34 ughSlideTogglesDictionary      UghPublisher/UghSlideToggleDictionary
+#   +0x38 ughSliderReferences            UghPublisher/UghSliderReference[]
+#   +0x3c ughSlidersDictionary           UghPublisher/UghSliderDictionary
+#   +0x40 ughSprites                     System.Collections.Generic.List`1<UghSprite>
+#   +0x44 settings                       UnityEngine.GameObject
+#   vtable slots: 
+####################################################################################################
+== PlayMenuPublisher::.ctor  token 0x060006ae @0x0012eea4 (52 bytes)
+   args: r0=this, 
+           0012eea4  mov      ip, sp                       
+           0012eea8  push     {r7, lr}                     
+           0012eeac  mov      r7, sp                       
+           0012eeb0  push     {r8, fp, ip, lr}             
+           0012eeb4  sub      sp, sp, #8                   
+           0012eeb8  mov      fp, sp                       
+           0012eebc  str      r0, [fp]                     
+           0012eec0  ldr      r0, [fp]                     
+           0012eec4  bl       #0x22e1d0                    ; CALL UghPublisher::.ctor
+           0012eec8  add      sp, fp, #8                   
+           0012eecc  pop      {r8, fp}                     
+           0012eed0  ldr      r7, [sp, #8]                 
+           0012eed4  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher::Update  token 0x060006af @0x0012eed8 (128 bytes)
+   args: r0=this, 
+           0012eed8  mov      ip, sp                       
+           0012eedc  push     {r7, lr}                     
+           0012eee0  mov      r7, sp                       
+           0012eee4  push     {r8, fp, ip, lr}             
+           0012eee8  sub      sp, sp, #8                   
+           0012eeec  mov      fp, sp                       
+           0012eef0  str      r0, [fp]                     
+           0012eef4  bl       #0x22c0e0                    ; CALL UnityEngine.Application::get_isWebPlayer
+           0012eef8  cmp      r0, #0                       
+           0012eefc  bne      #0x12ef0c                    ; -> L_12ef0c
+           0012ef00  bl       #0x22bfc0                    ; CALL UnityEngine.Application::get_isEditor
+           0012ef04  cmp      r0, #0                       
+           0012ef08  beq      #0x12ef48                    ; -> L_12ef48
+L_12ef0c:  0012ef0c  mov      r0, #0x20                    
+           0012ef10  bl       #0x22d740                    ; CALL UnityEngine.Input::GetKeyDown
+           0012ef14  cmp      r0, #0                       
+           0012ef18  beq      #0x12ef48                    ; -> L_12ef48
+           0012ef1c  ldr      r0, [pc]                     
+           0012ef20  b        #0x12ef28                    ; -> L_12ef28
+           0012ef24  .word    0x00e773ec                   ; literal 15168492 / 
+L_12ef28:  0012ef28  ldr      r0, [pc, r0]                 ; GOT[1389] TYPE_FROM_HANDLE typeof(TutorialLauncherPublisher)
+           0012ef2c  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           0012ef30  mov      r1, #0                       
+           0012ef34  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0012ef38  cmp      r0, #0                       
+           0012ef3c  beq      #0x12ef48                    ; -> L_12ef48
+           0012ef40  ldr      r0, [fp]                     
+           0012ef44  bl       #0x22ed10                    ; CALL PlayMenuPublisher::PressedPlayButton
+L_12ef48:  0012ef48  add      sp, fp, #8                   
+           0012ef4c  pop      {r8, fp}                     
+           0012ef50  ldr      r7, [sp, #8]                 
+           0012ef54  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher::Start  token 0x060006b0 @0x0012ef58 (364 bytes)
+   args: r0=this, 
+           0012ef58  mov      ip, sp                       
+           0012ef5c  push     {r7, lr}                     
+           0012ef60  mov      r7, sp                       
+           0012ef64  push     {r6, r8, sl, fp, ip, lr}     
+           0012ef68  mov      fp, sp                       
+           0012ef6c  mov      sl, r0                       
+           0012ef70  ldr      r8, [pc]                     
+           0012ef74  b        #0x12ef7c                    ; -> L_12ef7c
+           0012ef78  .word    0x00e7739c                   ; literal 15168412 / 
+L_12ef7c:  0012ef7c  ldr      r8, [pc, r8]                 ; GOT[1390] METHOD_RGCTX UnityEngine.Object::FindObjectOfType<ShiftUIPublisher>
+           0012ef80  bl       #0x22ed20                    ; CALL UnityEngine.Object::FindObjectOfType<ShiftUIPublisher>
+           0012ef84  mov      r6, r0                       
+           0012ef88  mov      r1, #0                       
+           0012ef8c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012ef90  cmp      r0, #0                       
+           0012ef94  beq      #0x12efa8                    ; -> L_12efa8
+           0012ef98  mov      r0, r6                       
+           0012ef9c  mov      r1, #1                       
+           0012efa0  ldr      lr, [r6]                     
+           0012efa4  bl       #0x22ed30                    ; CALL ShiftUIPublisher::Hide
+L_12efa8:  0012efa8  bl       #0x22c0e0                    ; CALL UnityEngine.Application::get_isWebPlayer
+           0012efac  cmp      r0, #0                       
+           0012efb0  bne      #0x12efc4                    ; -> L_12efc4
+           0012efb4  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012efb8  ldrb     r0, [r0, #0x30]              ; field+0x30 (this-class: ughSlideToggleReferences)
+           0012efbc  cmp      r0, #0                       
+           0012efc0  beq      #0x12f0b4                    ; -> L_12f0b4
+L_12efc4:  0012efc4  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012efc8  ldr      r1, [pc]                     
+           0012efcc  b        #0x12efd4                    ; -> L_12efd4
+           0012efd0  .word    0x00e77348                   ; literal 15168328 / 
+L_12efd4:  0012efd4  ldr      r1, [pc, r1]                 ; GOT[1391] LDSTR 'XD'
+           0012efd8  mov      r0, r2                       
+           0012efdc  ldr      lr, [r2]                     
+           0012efe0  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012efe4  mov      r1, r0                       
+           0012efe8  ldr      lr, [r1]                     
+           0012efec  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012eff0  mov      r2, r0                       
+           0012eff4  mov      r1, #0                       
+           0012eff8  ldr      lr, [r2]                     
+           0012effc  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           0012f000  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012f004  ldr      r1, [pc]                     
+           0012f008  b        #0x12f010                    ; -> L_12f010
+           0012f00c  .word    0x00e77310                   ; literal 15168272 / 
+L_12f010:  0012f010  ldr      r1, [pc, r1]                 ; GOT[1392] LDSTR 'Channel'
+           0012f014  mov      r0, r2                       
+           0012f018  ldr      lr, [r2]                     
+           0012f01c  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012f020  mov      r1, r0                       
+           0012f024  ldr      lr, [r1]                     
+           0012f028  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012f02c  mov      r2, r0                       
+           0012f030  mov      r1, #0                       
+           0012f034  ldr      lr, [r2]                     
+           0012f038  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           0012f03c  ldr      r2, [sl, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           0012f040  ldr      r1, [pc]                     
+           0012f044  b        #0x12f04c                    ; -> L_12f04c
+           0012f048  .word    0x00e772d8                   ; literal 15168216 / 
+L_12f04c:  0012f04c  ldr      r1, [pc, r1]                 ; GOT[1393] LDSTR 'Info'
+           0012f050  mov      r0, r2                       
+           0012f054  ldr      lr, [r2]                     
+           0012f058  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           0012f05c  mov      r1, r0                       
+           0012f060  ldr      lr, [r1]                     
+           0012f064  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012f068  mov      r2, r0                       
+           0012f06c  mov      r1, #0                       
+           0012f070  ldr      lr, [r2]                     
+           0012f074  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           0012f078  ldr      r2, [sl, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           0012f07c  ldr      r1, [pc]                     
+           0012f080  b        #0x12f088                    ; -> L_12f088
+           0012f084  .word    0x00e772a0                   ; literal 15168160 / 
+L_12f088:  0012f088  ldr      r1, [pc, r1]                 ; GOT[1394] LDSTR 'MoreDisney'
+           0012f08c  mov      r0, r2                       
+           0012f090  ldr      lr, [r2]                     
+           0012f094  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           0012f098  mov      r1, r0                       
+           0012f09c  ldr      lr, [r1]                     
+           0012f0a0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012f0a4  mov      r2, r0                       
+           0012f0a8  mov      r1, #0                       
+           0012f0ac  ldr      lr, [r2]                     
+           0012f0b0  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+L_12f0b4:  0012f0b4  add      sp, fp, #0                   
+           0012f0b8  pop      {r6, r8, sl, fp}             
+           0012f0bc  ldr      r7, [sp, #8]                 
+           0012f0c0  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher::PressedPlayButton  token 0x060006b1 @0x0012f0c4 (164 bytes)
+   args: r0=this, 
+           0012f0c4  mov      ip, sp                       
+           0012f0c8  push     {r7, lr}                     
+           0012f0cc  mov      r7, sp                       
+           0012f0d0  push     {r6, r8, fp, ip, lr}         
+           0012f0d4  sub      sp, sp, #0xc                 
+           0012f0d8  mov      fp, sp                       
+           0012f0dc  str      r0, [fp]                     
+           0012f0e0  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012f0e4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0012f0e8  ldrb     r0, [r0, #0x28]              ; field+0x28 (this-class: ughButtonReferences)
+           0012f0ec  cmp      r0, #0                       
+           0012f0f0  beq      #0x12f100                    ; -> L_12f100
+           0012f0f4  ldr      r0, [fp]                     
+           0012f0f8  bl       #0x22ed40                    ; CALL PlayMenuPublisher::StartTutorial
+           0012f0fc  b        #0x12f158                    ; -> L_12f158
+L_12f100:  0012f100  ldr      r8, [pc]                     
+           0012f104  b        #0x12f10c                    ; -> L_12f10c
+           0012f108  .word    0x00e7720c                   ; literal 15168012 / 
+L_12f10c:  0012f10c  ldr      r8, [pc, r8]                 ; GOT[1390] METHOD_RGCTX UnityEngine.Object::FindObjectOfType<ShiftUIPublisher>
+           0012f110  bl       #0x22ed20                    ; CALL UnityEngine.Object::FindObjectOfType<ShiftUIPublisher>
+           0012f114  mov      r6, r0                       
+           0012f118  mov      r1, #0                       
+           0012f11c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012f120  cmp      r0, #0                       
+           0012f124  beq      #0x12f158                    ; -> L_12f158
+           0012f128  mov      r0, r6                       
+           0012f12c  mov      r1, #1                       
+           0012f130  ldr      lr, [r6]                     
+           0012f134  bl       #0x22ea70                    ; CALL ShiftUIPublisher::Show
+           0012f138  ldr      r1, [pc]                     
+           0012f13c  b        #0x12f144                    ; -> L_12f144
+           0012f140  .word    0x00e771e8                   ; literal 15167976 / 
+L_12f144:  0012f144  ldr      r1, [pc, r1]                 ; GOT[1395] LDSTR 'PressedPlayButton'
+           0012f148  mov      r0, r6                       
+           0012f14c  ldr      lr, [r6]                     
+           0012f150  bl       #0x22d710                    ; CALL UnityEngine.Component::SendMessage
+           0012f154  bl       #0x22ed50                    ; CALL FrontEndLogic::HideMenu
+L_12f158:  0012f158  add      sp, fp, #0xc                 
+           0012f15c  pop      {r6, r8, fp}                 
+           0012f160  ldr      r7, [sp, #8]                 
+           0012f164  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher::PressedMoreDisney  token 0x060006b2 @0x0012f168 (80 bytes)
+   args: r0=this, 
+           0012f168  mov      ip, sp                       
+           0012f16c  push     {r7, lr}                     
+           0012f170  mov      r7, sp                       
+           0012f174  push     {r8, fp, ip, lr}             
+           0012f178  sub      sp, sp, #8                   
+           0012f17c  mov      fp, sp                       
+           0012f180  str      r0, [fp]                     
+           0012f184  bl       #0x22dbd0                    ; CALL ScreenFader::get_Instance
+           0012f188  mov      r2, r0                       
+           0012f18c  ldr      r1, [pc]                     
+           0012f190  b        #0x12f198                    ; -> L_12f198
+           0012f194  .word    0x00e77190                   ; literal 15167888 / 
+L_12f198:  0012f198  ldr      r1, [pc, r1]                 ; GOT[1394] LDSTR 'MoreDisney'
+           0012f19c  mov      r0, r2                       
+           0012f1a0  ldr      lr, [r2]                     
+           0012f1a4  bl       #0x22e2a0                    ; CALL ScreenFader::LoadLevel
+           0012f1a8  add      sp, fp, #8                   
+           0012f1ac  pop      {r8, fp}                     
+           0012f1b0  ldr      r7, [sp, #8]                 
+           0012f1b4  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher::PressedSettings  token 0x060006b3 @0x0012f1b8 (128 bytes)
+   args: r0=this, 
+           0012f1b8  mov      ip, sp                       
+           0012f1bc  push     {r7, lr}                     
+           0012f1c0  mov      r7, sp                       
+           0012f1c4  push     {r8, sl, fp, ip, lr}         
+           0012f1c8  sub      sp, sp, #0xc                 
+           0012f1cc  mov      fp, sp                       
+           0012f1d0  str      r0, [fp]                     
+           0012f1d4  ldr      r8, [pc]                     
+           0012f1d8  b        #0x12f1e0                    ; -> L_12f1e0
+           0012f1dc  .word    0x00e77138                   ; literal 15167800 / 
+L_12f1e0:  0012f1e0  ldr      r8, [pc, r8]                 ; GOT[1390] METHOD_RGCTX UnityEngine.Object::FindObjectOfType<ShiftUIPublisher>
+           0012f1e4  bl       #0x22ed20                    ; CALL UnityEngine.Object::FindObjectOfType<ShiftUIPublisher>
+           0012f1e8  mov      sl, r0                       
+           0012f1ec  mov      r1, #0                       
+           0012f1f0  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012f1f4  cmp      r0, #0                       
+           0012f1f8  beq      #0x12f228                    ; -> L_12f228
+           0012f1fc  mov      r0, sl                       
+           0012f200  mov      r1, #1                       
+           0012f204  ldr      lr, [sl]                     
+           0012f208  bl       #0x22ea70                    ; CALL ShiftUIPublisher::Show
+           0012f20c  ldr      r1, [pc]                     
+           0012f210  b        #0x12f218                    ; -> L_12f218
+           0012f214  .word    0x00e77118                   ; literal 15167768 / 
+L_12f218:  0012f218  ldr      r1, [pc, r1]                 ; GOT[1396] LDSTR 'PressedOptions'
+           0012f21c  mov      r0, sl                       
+           0012f220  ldr      lr, [sl]                     
+           0012f224  bl       #0x22d710                    ; CALL UnityEngine.Component::SendMessage
+L_12f228:  0012f228  add      sp, fp, #0xc                 
+           0012f22c  pop      {r8, sl, fp}                 
+           0012f230  ldr      r7, [sp, #8]                 
+           0012f234  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher::PressedInfo  token 0x060006b4 @0x0012f238 (148 bytes)
+   args: r0=this, 
+           0012f238  mov      ip, sp                       
+           0012f23c  push     {r7, lr}                     
+           0012f240  mov      r7, sp                       
+           0012f244  push     {r8, sl, fp, ip, lr}         
+           0012f248  sub      sp, sp, #0xc                 
+           0012f24c  mov      fp, sp                       
+           0012f250  str      r0, [fp]                     
+           0012f254  ldr      r8, [pc]                     
+           0012f258  b        #0x12f260                    ; -> L_12f260
+           0012f25c  .word    0x00e770b8                   ; literal 15167672 / 
+L_12f260:  0012f260  ldr      r8, [pc, r8]                 ; GOT[1390] METHOD_RGCTX UnityEngine.Object::FindObjectOfType<ShiftUIPublisher>
+           0012f264  bl       #0x22ed20                    ; CALL UnityEngine.Object::FindObjectOfType<ShiftUIPublisher>
+           0012f268  mov      sl, r0                       
+           0012f26c  mov      r1, #0                       
+           0012f270  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012f274  cmp      r0, #0                       
+           0012f278  beq      #0x12f2a8                    ; -> L_12f2a8
+           0012f27c  mov      r0, sl                       
+           0012f280  mov      r1, #1                       
+           0012f284  ldr      lr, [sl]                     
+           0012f288  bl       #0x22ea70                    ; CALL ShiftUIPublisher::Show
+           0012f28c  ldr      r1, [pc]                     
+           0012f290  b        #0x12f298                    ; -> L_12f298
+           0012f294  .word    0x00e77098                   ; literal 15167640 / 
+L_12f298:  0012f298  ldr      r1, [pc, r1]                 ; GOT[1396] LDSTR 'PressedOptions'
+           0012f29c  mov      r0, sl                       
+           0012f2a0  ldr      lr, [sl]                     
+           0012f2a4  bl       #0x22d710                    ; CALL UnityEngine.Component::SendMessage
+L_12f2a8:  0012f2a8  ldr      r0, [pc]                     
+           0012f2ac  b        #0x12f2b4                    ; -> L_12f2b4
+           0012f2b0  .word    0x00e77080                   ; literal 15167616 / 
+L_12f2b4:  0012f2b4  ldr      r0, [pc, r0]                 ; GOT[1397] LDSTR 'Credits'
+           0012f2b8  bl       #0x22e2f0                    ; CALL FrontEndLogic::RequestMenuChange
+           0012f2bc  add      sp, fp, #0xc                 
+           0012f2c0  pop      {r8, sl, fp}                 
+           0012f2c4  ldr      r7, [sp, #8]                 
+           0012f2c8  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher::StartTutorial  token 0x060006b5 @0x0012f2cc (264 bytes)
+   args: r0=this, 
+           0012f2cc  mov      ip, sp                       
+           0012f2d0  push     {r7, lr}                     
+           0012f2d4  mov      r7, sp                       
+           0012f2d8  push     {r6, r8, sl, fp, ip, lr}     
+           0012f2dc  sub      sp, sp, #8                   
+           0012f2e0  mov      fp, sp                       
+           0012f2e4  mov      sl, r0                       
+           0012f2e8  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012f2ec  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0012f2f0  mov      r1, #0                       
+           0012f2f4  strb     r1, [r0, #0x28]              ; field+0x28 (this-class: ughButtonReferences)
+           0012f2f8  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012f2fc  mov      r1, r0                       
+           0012f300  ldr      lr, [r1]                     
+           0012f304  bl       #0x22c330                    ; CALL DataUtility::Save
+           0012f308  ldr      r0, [sl, #0x44]              ; field+0x44 (this-class: settings)
+           0012f30c  mov      r1, #0                       
+           0012f310  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012f314  cmp      r0, #0                       
+           0012f318  beq      #0x12f378                    ; -> L_12f378
+           0012f31c  ldr      r0, [sl, #0x44]              ; field+0x44 (this-class: settings)
+           0012f320  ldr      r8, [pc]                     
+           0012f324  b        #0x12f32c                    ; -> L_12f32c
+           0012f328  .word    0x00e76b68                   ; literal 15166312 / 
+L_12f32c:  0012f32c  ldr      r8, [pc, r8]                 ; GOT[1101] METHOD_RGCTX Script::Instantiate<UnityEngine.GameObject>
+           0012f330  bl       #0x22e2b0                    ; CALL Script::Instantiate<UnityEngine.GameObject>
+           0012f334  mov      r6, r0                       
+           0012f338  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012f33c  str      r0, [fp]                     
+           0012f340  ldr      r0, [pc]                     
+           0012f344  b        #0x12f34c                    ; -> L_12f34c
+           0012f348  .word    0x00e76fec                   ; literal 15167468 / 
+L_12f34c:  0012f34c  ldr      r0, [pc, r0]                 ; GOT[1398] METHOD_RGCTX UnityEngine.GameObject::GetComponent<RaceSettings>
+           0012f350  ldr      lr, [r6]                     
+           0012f354  mov      r8, r0                       
+           0012f358  mov      r0, r6                       
+           0012f35c  bl       #0x22ed60                    ; CALL UnityEngine.GameObject::GetComponent<RaceSettings>
+           0012f360  mov      r1, r0                       
+           0012f364  ldr      r2, [fp]                     
+           0012f368  mov      r0, r2                       
+           0012f36c  ldr      lr, [r2]                     
+           0012f370  bl       #0xe66ac                     ; CALL DataUtility::set_CurSettings (direct)
+           0012f374  b        #0x12f390                    ; -> L_12f390
+L_12f378:  0012f378  ldr      r0, [pc]                     
+           0012f37c  b        #0x12f384                    ; -> L_12f384
+           0012f380  .word    0x00e76fb8                   ; literal 15167416 / 
+L_12f384:  0012f384  ldr      r0, [pc, r0]                 ; GOT[1399] LDSTR 'This tutorial launcher needs a settings object!!'
+           0012f388  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           0012f38c  b        #0x12f3c4                    ; -> L_12f3c4
+L_12f390:  0012f390  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012f394  mov      r2, r0                       
+           0012f398  mov      r1, #0x64                    
+           0012f39c  ldr      lr, [r2]                     
+           0012f3a0  bl       #0xe7e7c                     ; CALL DataUtility::AddPlayerMoney (direct)
+           0012f3a4  ldr      r0, [pc]                     
+           0012f3a8  b        #0x12f3b0                    ; -> L_12f3b0
+           0012f3ac  .word    0x00e76f90                   ; literal 15167376 / 
+L_12f3b0:  0012f3b0  ldr      r0, [pc, r0]                 ; GOT[1400] VTABLE PlayMenuPublisher/<StartTutLoad>c__Iterator65
+           0012f3b4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0012f3b8  mov      r1, r0                       
+           0012f3bc  mov      r0, sl                       
+           0012f3c0  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+L_12f3c4:  0012f3c4  add      sp, fp, #8                   
+           0012f3c8  pop      {r6, r8, sl, fp}             
+           0012f3cc  ldr      r7, [sp, #8]                 
+           0012f3d0  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher::StartTutLoad  token 0x060006b6 @0x0012f3d4 (64 bytes)
+   args: r0=this, 
+           0012f3d4  mov      ip, sp                       
+           0012f3d8  push     {r7, lr}                     
+           0012f3dc  mov      r7, sp                       
+           0012f3e0  push     {r8, fp, ip, lr}             
+           0012f3e4  sub      sp, sp, #8                   
+           0012f3e8  mov      fp, sp                       
+           0012f3ec  str      r0, [fp]                     
+           0012f3f0  ldr      r0, [pc]                     
+           0012f3f4  b        #0x12f3fc                    ; -> L_12f3fc
+           0012f3f8  .word    0x00e76f44                   ; literal 15167300 / 
+L_12f3fc:  0012f3fc  ldr      r0, [pc, r0]                 ; GOT[1400] VTABLE PlayMenuPublisher/<StartTutLoad>c__Iterator65
+           0012f400  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0012f404  add      sp, fp, #8                   
+           0012f408  pop      {r8, fp}                     
+           0012f40c  ldr      r7, [sp, #8]                 
+           0012f410  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE PlayMenuPublisher/<StartTutLoad>c__Iterator65  (instance size 0x10)
+#   +0x08 $current                       object
+#   +0x0c $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== PlayMenuPublisher/<StartTutLoad>c__Iterator65::.ctor  token 0x06000a2f @0x001573dc (44 bytes)
+   args: r0=this, 
+           001573dc  mov      ip, sp                       
+           001573e0  push     {r7, lr}                     
+           001573e4  mov      r7, sp                       
+           001573e8  push     {r8, fp, ip, lr}             
+           001573ec  sub      sp, sp, #8                   
+           001573f0  mov      fp, sp                       
+           001573f4  str      r0, [fp]                     
+           001573f8  add      sp, fp, #8                   
+           001573fc  pop      {r8, fp}                     
+           00157400  ldr      r7, [sp, #8]                 
+           00157404  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher/<StartTutLoad>c__Iterator65::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x06000a30 @0x00157408 (52 bytes)
+   args: r0=this, 
+           00157408  mov      ip, sp                       
+           0015740c  push     {r7, lr}                     
+           00157410  mov      r7, sp                       
+           00157414  push     {r8, fp, ip, lr}             
+           00157418  sub      sp, sp, #8                   
+           0015741c  mov      fp, sp                       
+           00157420  str      r0, [fp]                     
+           00157424  ldr      r0, [fp]                     
+           00157428  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0015742c  add      sp, fp, #8                   
+           00157430  pop      {r8, fp}                     
+           00157434  ldr      r7, [sp, #8]                 
+           00157438  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher/<StartTutLoad>c__Iterator65::System.Collections.IEnumerator.get_Current  token 0x06000a31 @0x0015743c (52 bytes)
+   args: r0=this, 
+           0015743c  mov      ip, sp                       
+           00157440  push     {r7, lr}                     
+           00157444  mov      r7, sp                       
+           00157448  push     {r8, fp, ip, lr}             
+           0015744c  sub      sp, sp, #8                   
+           00157450  mov      fp, sp                       
+           00157454  str      r0, [fp]                     
+           00157458  ldr      r0, [fp]                     
+           0015745c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00157460  add      sp, fp, #8                   
+           00157464  pop      {r8, fp}                     
+           00157468  ldr      r7, [sp, #8]                 
+           0015746c  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher/<StartTutLoad>c__Iterator65::MoveNext  token 0x06000a32 @0x00157470 (188 bytes)
+   args: r0=this, 
+           00157470  mov      ip, sp                       
+           00157474  push     {r7, lr}                     
+           00157478  mov      r7, sp                       
+           0015747c  push     {r8, sl, fp, ip, lr}         
+           00157480  sub      sp, sp, #0xc                 
+           00157484  mov      fp, sp                       
+           00157488  mov      sl, r0                       
+           0015748c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: $PC)
+           00157490  mvn      r1, #0                       
+           00157494  str      r1, [sl, #0xc]               ; field+0xc (this-class: $PC)
+           00157498  str      r0, [fp]                     
+           0015749c  cmp      r0, #2                       
+           001574a0  bhs      #0x157510                    ; -> L_157510
+           001574a4  ldr      r0, [fp]                     
+           001574a8  lsl      r1, r0, #2                   
+           001574ac  ldr      r0, [pc]                     
+           001574b0  b        #0x1574b8                    ; -> L_1574b8
+           001574b4  .word    0x00e4f6d8                   ; literal 15005400 / 
+L_1574b8:  001574b8  ldr      r0, [pc, r0]                 ; GOT[1932] SWITCH switch table[2]
+           001574bc  add      r0, r0, r1                   
+           001574c0  ldr      r0, [r0]                     
+           001574c4  mov      pc, r0                       
+L_1574c8:  001574c8  ldr      r0, [pc]                     
+           001574cc  b        #0x1574d4                    ; -> L_1574d4
+           001574d0  .word    0x00e4d8cc                   ; literal 14997708 / 
+L_1574d4:  001574d4  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           001574d8  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           001574dc  mov      r1, #0                       
+           001574e0  str      r1, [r0, #8]                 ; field+0x8 (this-class: $current)
+           001574e4  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           001574e8  mov      r0, #1                       
+           001574ec  str      r0, [sl, #0xc]               ; field+0xc (this-class: $PC)
+           001574f0  b        #0x157518                    ; -> L_157518
+           001574f4  bl       #0x22e4a0                    ; CALL PreviewCart::get_IsLoading
+           001574f8  cmp      r0, #0                       
+           001574fc  bne      #0x1574c8                    ; -> L_1574c8
+           00157500  bl       #0x22ed50                    ; CALL FrontEndLogic::HideMenu
+           00157504  bl       #0x22eda0                    ; CALL PreviewCart::StartDriveout
+           00157508  mvn      r0, #0                       
+           0015750c  str      r0, [sl, #0xc]               ; field+0xc (this-class: $PC)
+L_157510:  00157510  mov      r0, #0                       
+           00157514  b        #0x15751c                    ; -> L_15751c
+L_157518:  00157518  mov      r0, #1                       
+L_15751c:  0015751c  add      sp, fp, #0xc                 
+           00157520  pop      {r8, sl, fp}                 
+           00157524  ldr      r7, [sp, #8]                 
+           00157528  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher/<StartTutLoad>c__Iterator65::Dispose  token 0x06000a33 @0x0015752c (56 bytes)
+   args: r0=this, 
+           0015752c  mov      ip, sp                       
+           00157530  push     {r7, lr}                     
+           00157534  mov      r7, sp                       
+           00157538  push     {r8, fp, ip, lr}             
+           0015753c  sub      sp, sp, #8                   
+           00157540  mov      fp, sp                       
+           00157544  str      r0, [fp]                     
+           00157548  ldr      r0, [fp]                     
+           0015754c  mvn      r1, #0                       
+           00157550  str      r1, [r0, #0xc]               ; field+0xc (this-class: $PC)
+           00157554  add      sp, fp, #8                   
+           00157558  pop      {r8, fp}                     
+           0015755c  ldr      r7, [sp, #8]                 
+           00157560  ldm      sp, {sp, pc}                 
+
+== PlayMenuPublisher/<StartTutLoad>c__Iterator65::Reset  token 0x06000a34 @0x00157564 (64 bytes)
+   args: r0=this, 
+           00157564  mov      ip, sp                       
+           00157568  push     {r7, lr}                     
+           0015756c  mov      r7, sp                       
+           00157570  push     {r8, fp, ip, lr}             
+           00157574  sub      sp, sp, #8                   
+           00157578  mov      fp, sp                       
+           0015757c  str      r0, [fp]                     
+           00157580  mov      r0, #0x49                    
+           00157584  add      r0, r0, #0x100               
+           00157588  add      r0, r0, #0x2000000           
+           0015758c  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00157590  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00157594  add      sp, fp, #8                   
+           00157598  pop      {r8, fp}                     
+           0015759c  ldr      r7, [sp, #8]                 
+           001575a0  ldm      sp, {sp, pc}                 

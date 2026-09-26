@@ -1,0 +1,96 @@
+####################################################################################################
+# TYPE RocketRideRemover  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   vtable slots: 
+####################################################################################################
+== RocketRideRemover::.ctor  token 0x0600056c @0x00114db0 (52 bytes)
+   args: r0=this, 
+           00114db0  mov      ip, sp                       
+           00114db4  push     {r7, lr}                     
+           00114db8  mov      r7, sp                       
+           00114dbc  push     {r8, fp, ip, lr}             
+           00114dc0  sub      sp, sp, #8                   
+           00114dc4  mov      fp, sp                       
+           00114dc8  str      r0, [fp]                     
+           00114dcc  ldr      r0, [fp]                     
+           00114dd0  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00114dd4  add      sp, fp, #8                   
+           00114dd8  pop      {r8, fp}                     
+           00114ddc  ldr      r7, [sp, #8]                 
+           00114de0  ldm      sp, {sp, pc}                 
+
+== RocketRideRemover::Start  token 0x0600056d @0x00114de4 (44 bytes)
+   args: r0=this, 
+           00114de4  mov      ip, sp                       
+           00114de8  push     {r7, lr}                     
+           00114dec  mov      r7, sp                       
+           00114df0  push     {r8, fp, ip, lr}             
+           00114df4  sub      sp, sp, #8                   
+           00114df8  mov      fp, sp                       
+           00114dfc  str      r0, [fp]                     
+           00114e00  add      sp, fp, #8                   
+           00114e04  pop      {r8, fp}                     
+           00114e08  ldr      r7, [sp, #8]                 
+           00114e0c  ldm      sp, {sp, pc}                 
+
+== RocketRideRemover::Update  token 0x0600056e @0x00114e10 (44 bytes)
+   args: r0=this, 
+           00114e10  mov      ip, sp                       
+           00114e14  push     {r7, lr}                     
+           00114e18  mov      r7, sp                       
+           00114e1c  push     {r8, fp, ip, lr}             
+           00114e20  sub      sp, sp, #8                   
+           00114e24  mov      fp, sp                       
+           00114e28  str      r0, [fp]                     
+           00114e2c  add      sp, fp, #8                   
+           00114e30  pop      {r8, fp}                     
+           00114e34  ldr      r7, [sp, #8]                 
+           00114e38  ldm      sp, {sp, pc}                 
+
+== RocketRideRemover::OnTriggerEnter  token 0x0600056f @0x00114e3c (180 bytes)
+   args: r0=this, other
+           00114e3c  mov      ip, sp                       
+           00114e40  push     {r7, lr}                     
+           00114e44  mov      r7, sp                       
+           00114e48  push     {r8, sl, fp, ip, lr}         
+           00114e4c  sub      sp, sp, #0xc                 
+           00114e50  mov      fp, sp                       
+           00114e54  str      r0, [fp]                     
+           00114e58  mov      sl, r1                       
+           00114e5c  ldr      r0, [pc]                     
+           00114e60  b        #0x114e68                    ; -> L_114e68
+           00114e64  .word    0x00e9039c                   ; literal 15270812 / 
+L_114e68:  00114e68  ldr      r0, [pc, r0]                 ; GOT[297] METHOD_RGCTX UnityEngine.Component::GetComponent<EffectManager>
+           00114e6c  ldr      lr, [sl]                     
+           00114e70  mov      r8, r0                       
+           00114e74  mov      r0, sl                       
+           00114e78  bl       #0x22bc50                    ; CALL UnityEngine.Component::GetComponent<EffectManager>
+           00114e7c  mov      sl, r0                       
+           00114e80  mov      r1, #0                       
+           00114e84  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00114e88  cmp      r0, #0                       
+           00114e8c  beq      #0x114ee0                    ; -> L_114ee0
+           00114e90  ldr      r1, [pc]                     
+           00114e94  b        #0x114e9c                    ; -> L_114e9c
+           00114e98  .word    0x00e908f0                   ; literal 15272176 / 
+L_114e9c:  00114e9c  ldr      r1, [pc, r1]                 ; GOT[651] TYPE_FROM_HANDLE typeof(RocketRideEffect)
+           00114ea0  mov      r0, sl                       
+           00114ea4  ldr      lr, [sl]                     
+           00114ea8  bl       #0x22b030                    ; CALL EffectManager::HasEffect
+           00114eac  cmp      r0, #0                       
+           00114eb0  beq      #0x114ee0                    ; -> L_114ee0
+           00114eb4  ldr      r1, [pc]                     
+           00114eb8  b        #0x114ec0                    ; -> L_114ec0
+           00114ebc  .word    0x00e908cc                   ; literal 15272140 / 
+L_114ec0:  00114ec0  ldr      r1, [pc, r1]                 ; GOT[651] TYPE_FROM_HANDLE typeof(RocketRideEffect)
+           00114ec4  mov      r0, sl                       
+           00114ec8  ldr      lr, [sl]                     
+           00114ecc  bl       #0x22b230                    ; CALL EffectManager::GetStrongestEffect
+           00114ed0  mov      r1, r0                       
+           00114ed4  mov      r0, sl                       
+           00114ed8  ldr      lr, [sl]                     
+           00114edc  bl       #0xf2c38                     ; CALL EffectManager::RemoveEffect (direct)
+L_114ee0:  00114ee0  add      sp, fp, #0xc                 
+           00114ee4  pop      {r8, sl, fp}                 
+           00114ee8  ldr      r7, [sp, #8]                 
+           00114eec  ldm      sp, {sp, pc}                 

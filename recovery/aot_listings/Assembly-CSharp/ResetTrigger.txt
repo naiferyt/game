@@ -1,0 +1,90 @@
+####################################################################################################
+# TYPE ResetTrigger  (instance size 0x18)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 spawnPoint                     UnityEngine.Transform
+#   +0x14 underGap                       bool
+#   vtable slots: 
+####################################################################################################
+== ResetTrigger::.ctor  token 0x0600056a @0x00114c78 (52 bytes)
+   args: r0=this, 
+           00114c78  mov      ip, sp                       
+           00114c7c  push     {r7, lr}                     
+           00114c80  mov      r7, sp                       
+           00114c84  push     {r8, fp, ip, lr}             
+           00114c88  sub      sp, sp, #8                   
+           00114c8c  mov      fp, sp                       
+           00114c90  str      r0, [fp]                     
+           00114c94  ldr      r0, [fp]                     
+           00114c98  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00114c9c  add      sp, fp, #8                   
+           00114ca0  pop      {r8, fp}                     
+           00114ca4  ldr      r7, [sp, #8]                 
+           00114ca8  ldm      sp, {sp, pc}                 
+
+== ResetTrigger::OnTriggerEnter  token 0x0600056b @0x00114cac (260 bytes)
+   args: r0=this, other
+           00114cac  mov      ip, sp                       
+           00114cb0  push     {r7, lr}                     
+           00114cb4  mov      r7, sp                       
+           00114cb8  push     {r6, r8, sl, fp, ip, lr}     
+           00114cbc  sub      sp, sp, #0x38                
+           00114cc0  mov      fp, sp                       
+           00114cc4  mov      r6, r0                       
+           00114cc8  mov      sl, r1                       
+           00114ccc  mov      r0, sl                       
+           00114cd0  ldr      lr, [sl]                     
+           00114cd4  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00114cd8  ldr      r1, [pc]                     
+           00114cdc  b        #0x114ce4                    ; -> L_114ce4
+           00114ce0  .word    0x00e90220                   ; literal 15270432 / 
+L_114ce4:  00114ce4  ldr      r1, [pc, r1]                 ; GOT[105] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarCollider>
+           00114ce8  ldr      lr, [r0]                     
+           00114cec  mov      r8, r1                       
+           00114cf0  bl       #0x22b100                    ; CALL UnityEngine.GameObject::GetComponent<CarCollider>
+           00114cf4  mov      sl, r0                       
+           00114cf8  mov      r1, #0                       
+           00114cfc  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00114d00  cmp      r0, #0                       
+           00114d04  beq      #0x114da0                    ; -> L_114da0
+           00114d08  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: spawnPoint)
+           00114d0c  mov      r1, #0                       
+           00114d10  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00114d14  cmp      r0, #0                       
+           00114d18  beq      #0x114d5c                    ; -> L_114d5c
+           00114d1c  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: underGap)
+           00114d20  str      r0, [fp, #0x30]              
+           00114d24  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: spawnPoint)
+           00114d28  add      r0, fp, #0x14                
+           00114d2c  mov      r1, r2                       
+           00114d30  ldr      lr, [r2]                     
+           00114d34  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00114d38  ldr      r1, [fp, #0x30]              
+           00114d3c  mov      r0, sl                       
+           00114d40  ldr      r2, [fp, #0x14]              
+           00114d44  ldr      r3, [fp, #0x18]              
+           00114d48  ldr      ip, [fp, #0x1c]              
+           00114d4c  str      ip, [sp]                     
+           00114d50  ldr      lr, [sl]                     
+           00114d54  bl       #0x22be90                    ; CALL CarCollider::DoResetCarOnTrack
+           00114d58  b        #0x114da0                    ; -> L_114da0
+L_114d5c:  00114d5c  ldr      r0, [pc]                     
+           00114d60  b        #0x114d68                    ; -> L_114d68
+           00114d64  .word    0x00e9105c                   ; literal 15274076 / 
+L_114d68:  00114d68  ldr      r0, [pc, r0]                 ; GOT[1049] LDSTR 'You should have a spawnPoint set in this Trigger!'
+           00114d6c  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           00114d70  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: underGap)
+           00114d74  str      r0, [fp, #0x30]              
+           00114d78  add      r0, fp, #0x20                
+           00114d7c  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           00114d80  ldr      r1, [fp, #0x30]              
+           00114d84  mov      r0, sl                       
+           00114d88  ldr      r2, [fp, #0x20]              
+           00114d8c  ldr      r3, [fp, #0x24]              
+           00114d90  ldr      ip, [fp, #0x28]              
+           00114d94  str      ip, [sp]                     
+           00114d98  ldr      lr, [sl]                     
+           00114d9c  bl       #0x22be90                    ; CALL CarCollider::DoResetCarOnTrack
+L_114da0:  00114da0  add      sp, fp, #0x38                
+           00114da4  pop      {r6, r8, sl, fp}             
+           00114da8  ldr      r7, [sp, #8]                 
+           00114dac  ldm      sp, {sp, pc}                 

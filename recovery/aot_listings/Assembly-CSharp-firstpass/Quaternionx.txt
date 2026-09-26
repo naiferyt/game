@@ -1,0 +1,335 @@
+####################################################################################################
+# TYPE Quaternionx  (instance size 0x8)
+#   vtable slots: 
+####################################################################################################
+== Quaternionx::.ctor  token 0x06000188 @0x0002091c (44 bytes)
+   args: r0=this, 
+           0002091c  mov      ip, sp                       
+           00020920  push     {r7, lr}                     
+           00020924  mov      r7, sp                       
+           00020928  push     {r8, fp, ip, lr}             
+           0002092c  sub      sp, sp, #8                   
+           00020930  mov      fp, sp                       
+           00020934  str      r0, [fp]                     
+           00020938  add      sp, fp, #8                   
+           0002093c  pop      {r8, fp}                     
+           00020940  ldr      r7, [sp, #8]                 
+           00020944  ldm      sp, {sp, pc}                 
+
+== Quaternionx::QuaternionToMatrix4x4  token 0x06000189 @0x00020948 (1260 bytes) static
+   args: quat
+           00020948  mov      ip, sp                       
+           0002094c  push     {r7, lr}                     
+           00020950  mov      r7, sp                       
+           00020954  push     {r8, fp, ip, lr}             
+           00020958  sub      sp, sp, #0xa0                
+           0002095c  mov      fp, sp                       
+           00020960  str      r0, [fp, #8]                 
+           00020964  str      r1, [fp, #0x8c]              
+           00020968  str      r2, [fp, #0x90]              
+           0002096c  str      r3, [fp, #0x94]              
+           00020970  ldr      lr, [sp, #0xb8]              
+           00020974  str      lr, [fp, #0x98]              
+           00020978  add      r0, fp, #0xc                 
+           0002097c  mov      r1, #0                       
+           00020980  mov      r2, #0x40                    
+           00020984  bl       #0xba6f0                     ; CALL System.String::memset
+           00020988  add      r0, fp, #0xc                 
+           0002098c  mov      r1, #0                       
+           00020990  mov      r2, #0x40                    
+           00020994  bl       #0xba6f0                     ; CALL System.String::memset
+           00020998  add      r0, fp, #0xc                 
+           0002099c  vldr     s4, [pc]                     ; float 1.0
+           000209a0  b        #0x209a8                     ; -> L_209a8
+           000209a4  .word    0x3f800000                   ; literal 1065353216 / 1
+L_209a8:   000209a8  vcvt.f64.f32 d2, s4                       
+           000209ac  vldr     s6, [pc]                     ; float 2.0
+           000209b0  b        #0x209b8                     ; -> L_209b8
+           000209b4  .word    0x40000000                   ; literal 1073741824 / 2
+L_209b8:   000209b8  vcvt.f64.f32 d3, s6                       
+           000209bc  vldr     s0, [fp, #0x90]              
+           000209c0  vcvt.f64.f32 d4, s0                       
+           000209c4  vldr     s0, [fp, #0x90]              
+           000209c8  vcvt.f64.f32 d5, s0                       
+           000209cc  vmul.f64 d4, d4, d5                   
+           000209d0  vldr     s0, [fp, #0x94]              
+           000209d4  vcvt.f64.f32 d5, s0                       
+           000209d8  vldr     s0, [fp, #0x94]              
+           000209dc  vcvt.f64.f32 d6, s0                       
+           000209e0  vmul.f64 d5, d5, d6                   
+           000209e4  vadd.f64 d4, d4, d5                   
+           000209e8  vmul.f64 d3, d3, d4                   
+           000209ec  vsub.f64 d2, d2, d3                   
+           000209f0  mov      r1, #0                       
+           000209f4  vcvt.f32.f64 s0, d2                       
+           000209f8  vstr     s0, [sp, #-8]                
+           000209fc  ldr      r2, [sp, #-8]                
+           00020a00  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020a04  add      r0, fp, #0xc                 
+           00020a08  vldr     s4, [pc]                     ; float 2.0
+           00020a0c  b        #0x20a14                     ; -> L_20a14
+           00020a10  .word    0x40000000                   ; literal 1073741824 / 2
+L_20a14:   00020a14  vcvt.f64.f32 d2, s4                       
+           00020a18  vldr     s0, [fp, #0x8c]              
+           00020a1c  vcvt.f64.f32 d3, s0                       
+           00020a20  vldr     s0, [fp, #0x90]              
+           00020a24  vcvt.f64.f32 d4, s0                       
+           00020a28  vmul.f64 d3, d3, d4                   
+           00020a2c  vldr     s0, [fp, #0x94]              
+           00020a30  vcvt.f64.f32 d4, s0                       
+           00020a34  vldr     s0, [fp, #0x98]              
+           00020a38  vcvt.f64.f32 d5, s0                       
+           00020a3c  vmul.f64 d4, d4, d5                   
+           00020a40  vadd.f64 d3, d3, d4                   
+           00020a44  vmul.f64 d2, d2, d3                   
+           00020a48  mov      r1, #1                       
+           00020a4c  vcvt.f32.f64 s0, d2                       
+           00020a50  vstr     s0, [sp, #-8]                
+           00020a54  ldr      r2, [sp, #-8]                
+           00020a58  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020a5c  add      r0, fp, #0xc                 
+           00020a60  vldr     s4, [pc]                     ; float 2.0
+           00020a64  b        #0x20a6c                     ; -> L_20a6c
+           00020a68  .word    0x40000000                   ; literal 1073741824 / 2
+L_20a6c:   00020a6c  vcvt.f64.f32 d2, s4                       
+           00020a70  vldr     s0, [fp, #0x8c]              
+           00020a74  vcvt.f64.f32 d3, s0                       
+           00020a78  vldr     s0, [fp, #0x94]              
+           00020a7c  vcvt.f64.f32 d4, s0                       
+           00020a80  vmul.f64 d3, d3, d4                   
+           00020a84  vldr     s0, [fp, #0x90]              
+           00020a88  vcvt.f64.f32 d4, s0                       
+           00020a8c  vldr     s0, [fp, #0x98]              
+           00020a90  vcvt.f64.f32 d5, s0                       
+           00020a94  vmul.f64 d4, d4, d5                   
+           00020a98  vsub.f64 d3, d3, d4                   
+           00020a9c  vmul.f64 d2, d2, d3                   
+           00020aa0  mov      r1, #2                       
+           00020aa4  vcvt.f32.f64 s0, d2                       
+           00020aa8  vstr     s0, [sp, #-8]                
+           00020aac  ldr      r2, [sp, #-8]                
+           00020ab0  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020ab4  add      r0, fp, #0xc                 
+           00020ab8  vldr     s4, [pc]                     ; float 0.0
+           00020abc  b        #0x20ac4                     ; -> L_20ac4
+           00020ac0  .word    0x00000000                   ; literal 0 / 0
+L_20ac4:   00020ac4  vcvt.f64.f32 d2, s4                       
+           00020ac8  mov      r1, #3                       
+           00020acc  vcvt.f32.f64 s0, d2                       
+           00020ad0  vstr     s0, [sp, #-8]                
+           00020ad4  ldr      r2, [sp, #-8]                
+           00020ad8  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020adc  add      r0, fp, #0xc                 
+           00020ae0  vldr     s4, [pc]                     ; float 2.0
+           00020ae4  b        #0x20aec                     ; -> L_20aec
+           00020ae8  .word    0x40000000                   ; literal 1073741824 / 2
+L_20aec:   00020aec  vcvt.f64.f32 d2, s4                       
+           00020af0  vldr     s0, [fp, #0x8c]              
+           00020af4  vcvt.f64.f32 d3, s0                       
+           00020af8  vldr     s0, [fp, #0x90]              
+           00020afc  vcvt.f64.f32 d4, s0                       
+           00020b00  vmul.f64 d3, d3, d4                   
+           00020b04  vldr     s0, [fp, #0x94]              
+           00020b08  vcvt.f64.f32 d4, s0                       
+           00020b0c  vldr     s0, [fp, #0x98]              
+           00020b10  vcvt.f64.f32 d5, s0                       
+           00020b14  vmul.f64 d4, d4, d5                   
+           00020b18  vsub.f64 d3, d3, d4                   
+           00020b1c  vmul.f64 d2, d2, d3                   
+           00020b20  mov      r1, #4                       
+           00020b24  vcvt.f32.f64 s0, d2                       
+           00020b28  vstr     s0, [sp, #-8]                
+           00020b2c  ldr      r2, [sp, #-8]                
+           00020b30  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020b34  add      r0, fp, #0xc                 
+           00020b38  vldr     s4, [pc]                     ; float 1.0
+           00020b3c  b        #0x20b44                     ; -> L_20b44
+           00020b40  .word    0x3f800000                   ; literal 1065353216 / 1
+L_20b44:   00020b44  vcvt.f64.f32 d2, s4                       
+           00020b48  vldr     s6, [pc]                     ; float 2.0
+           00020b4c  b        #0x20b54                     ; -> L_20b54
+           00020b50  .word    0x40000000                   ; literal 1073741824 / 2
+L_20b54:   00020b54  vcvt.f64.f32 d3, s6                       
+           00020b58  vldr     s0, [fp, #0x8c]              
+           00020b5c  vcvt.f64.f32 d4, s0                       
+           00020b60  vldr     s0, [fp, #0x8c]              
+           00020b64  vcvt.f64.f32 d5, s0                       
+           00020b68  vmul.f64 d4, d4, d5                   
+           00020b6c  vldr     s0, [fp, #0x94]              
+           00020b70  vcvt.f64.f32 d5, s0                       
+           00020b74  vldr     s0, [fp, #0x94]              
+           00020b78  vcvt.f64.f32 d6, s0                       
+           00020b7c  vmul.f64 d5, d5, d6                   
+           00020b80  vadd.f64 d4, d4, d5                   
+           00020b84  vmul.f64 d3, d3, d4                   
+           00020b88  vsub.f64 d2, d2, d3                   
+           00020b8c  mov      r1, #5                       
+           00020b90  vcvt.f32.f64 s0, d2                       
+           00020b94  vstr     s0, [sp, #-8]                
+           00020b98  ldr      r2, [sp, #-8]                
+           00020b9c  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020ba0  add      r0, fp, #0xc                 
+           00020ba4  vldr     s4, [pc]                     ; float 2.0
+           00020ba8  b        #0x20bb0                     ; -> L_20bb0
+           00020bac  .word    0x40000000                   ; literal 1073741824 / 2
+L_20bb0:   00020bb0  vcvt.f64.f32 d2, s4                       
+           00020bb4  vldr     s0, [fp, #0x90]              
+           00020bb8  vcvt.f64.f32 d3, s0                       
+           00020bbc  vldr     s0, [fp, #0x94]              
+           00020bc0  vcvt.f64.f32 d4, s0                       
+           00020bc4  vmul.f64 d3, d3, d4                   
+           00020bc8  vldr     s0, [fp, #0x8c]              
+           00020bcc  vcvt.f64.f32 d4, s0                       
+           00020bd0  vldr     s0, [fp, #0x98]              
+           00020bd4  vcvt.f64.f32 d5, s0                       
+           00020bd8  vmul.f64 d4, d4, d5                   
+           00020bdc  vadd.f64 d3, d3, d4                   
+           00020be0  vmul.f64 d2, d2, d3                   
+           00020be4  mov      r1, #6                       
+           00020be8  vcvt.f32.f64 s0, d2                       
+           00020bec  vstr     s0, [sp, #-8]                
+           00020bf0  ldr      r2, [sp, #-8]                
+           00020bf4  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020bf8  add      r0, fp, #0xc                 
+           00020bfc  vldr     s4, [pc]                     ; float 0.0
+           00020c00  b        #0x20c08                     ; -> L_20c08
+           00020c04  .word    0x00000000                   ; literal 0 / 0
+L_20c08:   00020c08  vcvt.f64.f32 d2, s4                       
+           00020c0c  mov      r1, #7                       
+           00020c10  vcvt.f32.f64 s0, d2                       
+           00020c14  vstr     s0, [sp, #-8]                
+           00020c18  ldr      r2, [sp, #-8]                
+           00020c1c  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020c20  add      r0, fp, #0xc                 
+           00020c24  vldr     s4, [pc]                     ; float 2.0
+           00020c28  b        #0x20c30                     ; -> L_20c30
+           00020c2c  .word    0x40000000                   ; literal 1073741824 / 2
+L_20c30:   00020c30  vcvt.f64.f32 d2, s4                       
+           00020c34  vldr     s0, [fp, #0x8c]              
+           00020c38  vcvt.f64.f32 d3, s0                       
+           00020c3c  vldr     s0, [fp, #0x94]              
+           00020c40  vcvt.f64.f32 d4, s0                       
+           00020c44  vmul.f64 d3, d3, d4                   
+           00020c48  vldr     s0, [fp, #0x90]              
+           00020c4c  vcvt.f64.f32 d4, s0                       
+           00020c50  vldr     s0, [fp, #0x98]              
+           00020c54  vcvt.f64.f32 d5, s0                       
+           00020c58  vmul.f64 d4, d4, d5                   
+           00020c5c  vadd.f64 d3, d3, d4                   
+           00020c60  vmul.f64 d2, d2, d3                   
+           00020c64  mov      r1, #8                       
+           00020c68  vcvt.f32.f64 s0, d2                       
+           00020c6c  vstr     s0, [sp, #-8]                
+           00020c70  ldr      r2, [sp, #-8]                
+           00020c74  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020c78  add      r0, fp, #0xc                 
+           00020c7c  vldr     s4, [pc]                     ; float 2.0
+           00020c80  b        #0x20c88                     ; -> L_20c88
+           00020c84  .word    0x40000000                   ; literal 1073741824 / 2
+L_20c88:   00020c88  vcvt.f64.f32 d2, s4                       
+           00020c8c  vldr     s0, [fp, #0x90]              
+           00020c90  vcvt.f64.f32 d3, s0                       
+           00020c94  vldr     s0, [fp, #0x94]              
+           00020c98  vcvt.f64.f32 d4, s0                       
+           00020c9c  vmul.f64 d3, d3, d4                   
+           00020ca0  vldr     s0, [fp, #0x8c]              
+           00020ca4  vcvt.f64.f32 d4, s0                       
+           00020ca8  vldr     s0, [fp, #0x98]              
+           00020cac  vcvt.f64.f32 d5, s0                       
+           00020cb0  vmul.f64 d4, d4, d5                   
+           00020cb4  vsub.f64 d3, d3, d4                   
+           00020cb8  vmul.f64 d2, d2, d3                   
+           00020cbc  mov      r1, #9                       
+           00020cc0  vcvt.f32.f64 s0, d2                       
+           00020cc4  vstr     s0, [sp, #-8]                
+           00020cc8  ldr      r2, [sp, #-8]                
+           00020ccc  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020cd0  add      r0, fp, #0xc                 
+           00020cd4  vldr     s4, [pc]                     ; float 1.0
+           00020cd8  b        #0x20ce0                     ; -> L_20ce0
+           00020cdc  .word    0x3f800000                   ; literal 1065353216 / 1
+L_20ce0:   00020ce0  vcvt.f64.f32 d2, s4                       
+           00020ce4  vldr     s6, [pc]                     ; float 2.0
+           00020ce8  b        #0x20cf0                     ; -> L_20cf0
+           00020cec  .word    0x40000000                   ; literal 1073741824 / 2
+L_20cf0:   00020cf0  vcvt.f64.f32 d3, s6                       
+           00020cf4  vldr     s0, [fp, #0x8c]              
+           00020cf8  vcvt.f64.f32 d4, s0                       
+           00020cfc  vldr     s0, [fp, #0x8c]              
+           00020d00  vcvt.f64.f32 d5, s0                       
+           00020d04  vmul.f64 d4, d4, d5                   
+           00020d08  vldr     s0, [fp, #0x90]              
+           00020d0c  vcvt.f64.f32 d5, s0                       
+           00020d10  vldr     s0, [fp, #0x90]              
+           00020d14  vcvt.f64.f32 d6, s0                       
+           00020d18  vmul.f64 d5, d5, d6                   
+           00020d1c  vadd.f64 d4, d4, d5                   
+           00020d20  vmul.f64 d3, d3, d4                   
+           00020d24  vsub.f64 d2, d2, d3                   
+           00020d28  mov      r1, #0xa                     
+           00020d2c  vcvt.f32.f64 s0, d2                       
+           00020d30  vstr     s0, [sp, #-8]                
+           00020d34  ldr      r2, [sp, #-8]                
+           00020d38  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020d3c  add      r0, fp, #0xc                 
+           00020d40  vldr     s4, [pc]                     ; float 0.0
+           00020d44  b        #0x20d4c                     ; -> L_20d4c
+           00020d48  .word    0x00000000                   ; literal 0 / 0
+L_20d4c:   00020d4c  vcvt.f64.f32 d2, s4                       
+           00020d50  mov      r1, #0xb                     
+           00020d54  vcvt.f32.f64 s0, d2                       
+           00020d58  vstr     s0, [sp, #-8]                
+           00020d5c  ldr      r2, [sp, #-8]                
+           00020d60  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020d64  add      r0, fp, #0xc                 
+           00020d68  vldr     s4, [pc]                     ; float 0.0
+           00020d6c  b        #0x20d74                     ; -> L_20d74
+           00020d70  .word    0x00000000                   ; literal 0 / 0
+L_20d74:   00020d74  vcvt.f64.f32 d2, s4                       
+           00020d78  mov      r1, #0xc                     
+           00020d7c  vcvt.f32.f64 s0, d2                       
+           00020d80  vstr     s0, [sp, #-8]                
+           00020d84  ldr      r2, [sp, #-8]                
+           00020d88  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020d8c  add      r0, fp, #0xc                 
+           00020d90  vldr     s4, [pc]                     ; float 0.0
+           00020d94  b        #0x20d9c                     ; -> L_20d9c
+           00020d98  .word    0x00000000                   ; literal 0 / 0
+L_20d9c:   00020d9c  vcvt.f64.f32 d2, s4                       
+           00020da0  mov      r1, #0xd                     
+           00020da4  vcvt.f32.f64 s0, d2                       
+           00020da8  vstr     s0, [sp, #-8]                
+           00020dac  ldr      r2, [sp, #-8]                
+           00020db0  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020db4  add      r0, fp, #0xc                 
+           00020db8  vldr     s4, [pc]                     ; float 0.0
+           00020dbc  b        #0x20dc4                     ; -> L_20dc4
+           00020dc0  .word    0x00000000                   ; literal 0 / 0
+L_20dc4:   00020dc4  vcvt.f64.f32 d2, s4                       
+           00020dc8  mov      r1, #0xe                     
+           00020dcc  vcvt.f32.f64 s0, d2                       
+           00020dd0  vstr     s0, [sp, #-8]                
+           00020dd4  ldr      r2, [sp, #-8]                
+           00020dd8  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020ddc  add      r0, fp, #0xc                 
+           00020de0  vldr     s4, [pc]                     ; float 1.0
+           00020de4  b        #0x20dec                     ; -> L_20dec
+           00020de8  .word    0x3f800000                   ; literal 1065353216 / 1
+L_20dec:   00020dec  vcvt.f64.f32 d2, s4                       
+           00020df0  mov      r1, #0xf                     
+           00020df4  vcvt.f32.f64 s0, d2                       
+           00020df8  vstr     s0, [sp, #-8]                
+           00020dfc  ldr      r2, [sp, #-8]                
+           00020e00  bl       #0xbaa10                     ; CALL UnityEngine.Matrix4x4::set_Item
+           00020e04  add      r1, fp, #0xc                 
+           00020e08  add      r0, fp, #0x4c                
+           00020e0c  mov      r2, #0x40                    
+           00020e10  bl       #0xba2d0                     ; CALL System.String::memcpy
+           00020e14  add      r1, fp, #0x4c                
+           00020e18  ldr      r0, [fp, #8]                 
+           00020e1c  mov      r2, #0x40                    
+           00020e20  bl       #0xba2d0                     ; CALL System.String::memcpy
+           00020e24  add      sp, fp, #0xa0                
+           00020e28  pop      {r8, fp}                     
+           00020e2c  ldr      r7, [sp, #8]                 
+           00020e30  ldm      sp, {sp, pc}                 

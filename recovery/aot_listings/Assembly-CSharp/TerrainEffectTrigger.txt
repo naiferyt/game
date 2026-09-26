@@ -1,0 +1,280 @@
+####################################################################################################
+# TYPE TerrainEffectTrigger  (instance size 0x24)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 spawnedEffect                  BaseEffect
+#   +0x14 effectType                     BaseEffect/EffectTypes
+#   +0x18 power                          int
+#   +0x1c time                           float
+#   +0x20 removeOnExit                   bool
+#   +0x21 oilSlick                       bool
+#   vtable slots: 
+####################################################################################################
+== TerrainEffectTrigger::.ctor  token 0x060004fe @0x0010c6a4 (84 bytes)
+   args: r0=this, 
+           0010c6a4  mov      ip, sp                       
+           0010c6a8  push     {r7, lr}                     
+           0010c6ac  mov      r7, sp                       
+           0010c6b0  push     {r8, sl, fp, ip, lr}         
+           0010c6b4  sub      sp, sp, #4                   
+           0010c6b8  mov      fp, sp                       
+           0010c6bc  mov      sl, r0                       
+           0010c6c0  mov      r0, #0x32                    
+           0010c6c4  str      r0, [sl, #0x18]              ; field+0x18 (this-class: power)
+           0010c6c8  vldr     s4, [pc]                     ; float 2.0
+           0010c6cc  b        #0x10c6d4                    ; -> L_10c6d4
+           0010c6d0  .word    0x40000000                   ; literal 1073741824 / 2
+L_10c6d4:  0010c6d4  vcvt.f64.f32 d2, s4                       
+           0010c6d8  vcvt.f32.f64 s0, d2                       
+           0010c6dc  vstr     s0, [sl, #0x1c]              ; field+0x1c (this-class: time)
+           0010c6e0  mov      r0, sl                       
+           0010c6e4  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0010c6e8  add      sp, fp, #4                   
+           0010c6ec  pop      {r8, sl, fp}                 
+           0010c6f0  ldr      r7, [sp, #8]                 
+           0010c6f4  ldm      sp, {sp, pc}                 
+
+== TerrainEffectTrigger::Start  token 0x060004ff @0x0010c6f8 (44 bytes)
+   args: r0=this, 
+           0010c6f8  mov      ip, sp                       
+           0010c6fc  push     {r7, lr}                     
+           0010c700  mov      r7, sp                       
+           0010c704  push     {r8, fp, ip, lr}             
+           0010c708  sub      sp, sp, #8                   
+           0010c70c  mov      fp, sp                       
+           0010c710  str      r0, [fp]                     
+           0010c714  add      sp, fp, #8                   
+           0010c718  pop      {r8, fp}                     
+           0010c71c  ldr      r7, [sp, #8]                 
+           0010c720  ldm      sp, {sp, pc}                 
+
+== TerrainEffectTrigger::OnTriggerEnter  token 0x06000500 @0x0010c724 (756 bytes)
+   args: r0=this, other
+           0010c724  mov      ip, sp                       
+           0010c728  push     {r7, lr}                     
+           0010c72c  mov      r7, sp                       
+           0010c730  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0010c734  sub      sp, sp, #0x58                
+           0010c738  mov      fp, sp                       
+           0010c73c  mov      r6, r0                       
+           0010c740  mov      sl, r1                       
+           0010c744  mov      r0, sl                       
+           0010c748  ldr      lr, [sl]                     
+           0010c74c  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010c750  ldr      r1, [pc]                     
+           0010c754  b        #0x10c75c                    ; -> L_10c75c
+           0010c758  .word    0x00e9877c                   ; literal 15304572 / 
+L_10c75c:  0010c75c  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           0010c760  ldr      lr, [r0]                     
+           0010c764  mov      r8, r1                       
+           0010c768  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           0010c76c  str      r0, [fp, #8]                 
+           0010c770  mov      r0, sl                       
+           0010c774  ldr      lr, [sl]                     
+           0010c778  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010c77c  ldr      r1, [pc]                     
+           0010c780  b        #0x10c788                    ; -> L_10c788
+           0010c784  .word    0x00e9877c                   ; literal 15304572 / 
+L_10c788:  0010c788  ldr      r1, [pc, r1]                 ; GOT[105] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarCollider>
+           0010c78c  ldr      lr, [r0]                     
+           0010c790  mov      r8, r1                       
+           0010c794  bl       #0x22b100                    ; CALL UnityEngine.GameObject::GetComponent<CarCollider>
+           0010c798  str      r0, [fp, #0xc]               
+           0010c79c  ldr      r0, [fp, #8]                 
+           0010c7a0  mov      r1, #0                       
+           0010c7a4  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010c7a8  cmp      r0, #0                       
+           0010c7ac  bne      #0x10ca08                    ; -> L_10ca08
+           0010c7b0  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: effectType)
+           0010c7b4  cmp      r0, #0                       
+           0010c7b8  bne      #0x10c858                    ; -> L_10c858
+           0010c7bc  mov      r0, sl                       
+           0010c7c0  ldr      lr, [sl]                     
+           0010c7c4  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0010c7c8  mov      r2, r0                       
+           0010c7cc  add      r0, fp, #0x34                
+           0010c7d0  mov      r1, r2                       
+           0010c7d4  ldr      lr, [r2]                     
+           0010c7d8  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           0010c7dc  mov      r0, r6                       
+           0010c7e0  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0010c7e4  mov      r2, r0                       
+           0010c7e8  add      r0, fp, #0x40                
+           0010c7ec  mov      r1, r2                       
+           0010c7f0  ldr      lr, [r2]                     
+           0010c7f4  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           0010c7f8  ldr      r0, [fp, #0x34]              
+           0010c7fc  ldr      r1, [fp, #0x38]              
+           0010c800  ldr      r2, [fp, #0x3c]              
+           0010c804  ldr      r3, [fp, #0x40]              
+           0010c808  ldr      ip, [fp, #0x44]              
+           0010c80c  str      ip, [sp]                     
+           0010c810  ldr      ip, [fp, #0x48]              
+           0010c814  str      ip, [sp, #4]                 
+           0010c818  bl       #0x22aeb0                    ; CALL UnityEngine.Vector3::Angle
+           0010c81c  vmov     s4, r0                       
+           0010c820  vcvt.f64.f32 d2, s4                       
+           0010c824  vcvt.f32.f64 s0, d2                       
+           0010c828  vstr     s0, [fp, #0x10]              
+           0010c82c  vldr     s0, [fp, #0x10]              
+           0010c830  vcvt.f64.f32 d3, s0                       
+           0010c834  vldr     s4, [pc]                     ; float 90.0
+           0010c838  b        #0x10c840                    ; -> L_10c840
+           0010c83c  .word    0x42b40000                   ; literal 1119092736 / 90
+L_10c840:  0010c840  vcvt.f64.f32 d2, s4                       
+           0010c844  vcmp.f64 d2, d3                       
+           0010c848  vmrs     apsr_nzcv, fpscr             
+           0010c84c  bvs      #0x10c858                    ; -> L_10c858
+           0010c850  bge      #0x10c858                    ; -> L_10c858
+           0010c854  b        #0x10ca08                    ; -> L_10ca08
+L_10c858:  0010c858  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: effectType)
+           0010c85c  str      r0, [fp, #0x50]              
+           0010c860  mov      r0, sl                       
+           0010c864  ldr      lr, [sl]                     
+           0010c868  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010c86c  mov      r1, r0                       
+           0010c870  ldr      r0, [fp, #0x50]              
+           0010c874  bl       #0x22bd30                    ; CALL BaseEffect::GetEffectInstance
+           0010c878  str      r0, [r6, #0x10]              ; field+0x10 (this-class: spawnedEffect)
+           0010c87c  cmp      r0, #0                       
+           0010c880  beq      #0x10ca08                    ; -> L_10ca08
+           0010c884  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: spawnedEffect)
+           0010c888  ldr      r1, [r6, #0x18]              ; field+0x18 (this-class: power)
+           0010c88c  str      r1, [r0, #0xc]               ; field+0xc 
+           0010c890  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: spawnedEffect)
+           0010c894  vldr     s0, [r6, #0x1c]              ; field+0x1c (this-class: time)
+           0010c898  vcvt.f64.f32 d2, s0                       
+           0010c89c  vcvt.f32.f64 s0, d2                       
+           0010c8a0  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010c8a4  ldr      r0, [fp, #0xc]               
+           0010c8a8  mov      r1, #0                       
+           0010c8ac  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010c8b0  cmp      r0, #0                       
+           0010c8b4  beq      #0x10c8f4                    ; -> L_10c8f4
+           0010c8b8  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: effectType)
+           0010c8bc  cmp      r0, #1                       
+           0010c8c0  beq      #0x10c8f4                    ; -> L_10c8f4
+           0010c8c4  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: spawnedEffect)
+           0010c8c8  mov      r0, r1                       
+           0010c8cc  ldr      lr, [r1]                     
+           0010c8d0  bl       #0xf0824                     ; CALL BaseEffect::isBeneficial (direct)
+           0010c8d4  cmp      r0, #0                       
+           0010c8d8  bne      #0x10c8f4                    ; -> L_10c8f4
+           0010c8dc  ldr      r0, [fp, #0xc]               
+           0010c8e0  mov      r1, r0                       
+           0010c8e4  ldr      lr, [r1]                     
+           0010c8e8  bl       #0x22b220                    ; CALL CarCollider::IsShielded
+           0010c8ec  cmp      r0, #0                       
+           0010c8f0  bne      #0x10ca08                    ; -> L_10ca08
+L_10c8f4:  0010c8f4  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: spawnedEffect)
+           0010c8f8  ldr      r0, [fp, #8]                 
+           0010c8fc  mov      r2, r0                       
+           0010c900  ldr      lr, [r2]                     
+           0010c904  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           0010c908  ldrb     r0, [r6, #0x21]              ; field+0x21 (this-class: oilSlick)
+           0010c90c  cmp      r0, #0                       
+           0010c910  beq      #0x10c970                    ; -> L_10c970
+           0010c914  ldr      r0, [fp, #8]                 
+           0010c918  mov      r1, r0                       
+           0010c91c  ldr      lr, [r1]                     
+           0010c920  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010c924  ldr      r1, [pc]                     
+           0010c928  b        #0x10c930                    ; -> L_10c930
+           0010c92c  .word    0x00e98640                   ; literal 15304256 / 
+L_10c930:  0010c930  ldr      r1, [pc, r1]                 ; GOT[132] METHOD_RGCTX UnityEngine.GameObject::GetComponent<SoundSequencer>
+           0010c934  ldr      lr, [r0]                     
+           0010c938  mov      r8, r1                       
+           0010c93c  bl       #0x22b3c0                    ; CALL UnityEngine.GameObject::GetComponent<SoundSequencer>
+           0010c940  mov      r5, r0                       
+           0010c944  mov      r1, #0                       
+           0010c948  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010c94c  cmp      r0, #0                       
+           0010c950  beq      #0x10c970                    ; -> L_10c970
+           0010c954  ldr      r1, [pc]                     
+           0010c958  b        #0x10c960                    ; -> L_10c960
+           0010c95c  .word    0x00e99194                   ; literal 15307156 / 
+L_10c960:  0010c960  ldr      r1, [pc, r1]                 ; GOT[869] LDSTR 'Oil Slide'
+           0010c964  mov      r0, r5                       
+           0010c968  ldr      lr, [r5]                     
+           0010c96c  bl       #0xef614                     ; CALL SoundSequencer::RequestPlay (direct)
+L_10c970:  0010c970  ldr      r0, [pc]                     
+           0010c974  b        #0x10c97c                    ; -> L_10c97c
+           0010c978  .word    0x00e988a0                   ; literal 15304864 / 
+L_10c97c:  0010c97c  ldr      r0, [pc, r0]                 ; GOT[303] METHOD_RGCTX UnityEngine.Component::GetComponent<CarMetrics>
+           0010c980  ldr      lr, [sl]                     
+           0010c984  mov      r8, r0                       
+           0010c988  mov      r0, sl                       
+           0010c98c  bl       #0x22bcc0                    ; CALL UnityEngine.Component::GetComponent<CarMetrics>
+           0010c990  mov      r4, r0                       
+           0010c994  mov      r1, #0                       
+           0010c998  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010c99c  cmp      r0, #0                       
+           0010c9a0  beq      #0x10ca08                    ; -> L_10ca08
+           0010c9a4  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: spawnedEffect)
+           0010c9a8  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: spawnedEffect)
+           0010c9ac  cmp      r0, #0                       
+           0010c9b0  bne      #0x10c9d4                    ; -> L_10c9d4
+           0010c9b4  ldr      r1, [pc]                     
+           0010c9b8  b        #0x10c9c0                    ; -> L_10c9c0
+           0010c9bc  .word    0x00e99138                   ; literal 15307064 / 
+L_10c9c0:  0010c9c0  ldr      r1, [pc, r1]                 ; GOT[870] LDSTR 'Boost Strip Hit'
+           0010c9c4  mov      r0, r4                       
+           0010c9c8  ldr      lr, [r4]                     
+           0010c9cc  bl       #0x10d384                    ; CALL CarMetrics::Signal (direct)
+           0010c9d0  b        #0x10ca08                    ; -> L_10ca08
+L_10c9d4:  0010c9d4  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: spawnedEffect)
+           0010c9d8  mov      r0, r1                       
+           0010c9dc  ldr      lr, [r1]                     
+           0010c9e0  bl       #0xf0824                     ; CALL BaseEffect::isBeneficial (direct)
+           0010c9e4  cmp      r0, #0                       
+           0010c9e8  bne      #0x10ca08                    ; -> L_10ca08
+           0010c9ec  ldr      r1, [pc]                     
+           0010c9f0  b        #0x10c9f8                    ; -> L_10c9f8
+           0010c9f4  .word    0x00e99104                   ; literal 15307012 / 
+L_10c9f8:  0010c9f8  ldr      r1, [pc, r1]                 ; GOT[871] LDSTR 'Hazzard Hit'
+           0010c9fc  mov      r0, r4                       
+           0010ca00  ldr      lr, [r4]                     
+           0010ca04  bl       #0x10d384                    ; CALL CarMetrics::Signal (direct)
+L_10ca08:  0010ca08  add      sp, fp, #0x58                
+           0010ca0c  pop      {r4, r5, r6, r8, sl, fp}     
+           0010ca10  ldr      r7, [sp, #8]                 
+           0010ca14  ldm      sp, {sp, pc}                 
+
+== TerrainEffectTrigger::OnTriggerExit  token 0x06000501 @0x0010ca18 (148 bytes)
+   args: r0=this, other
+           0010ca18  mov      ip, sp                       
+           0010ca1c  push     {r7, lr}                     
+           0010ca20  mov      r7, sp                       
+           0010ca24  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0010ca28  sub      sp, sp, #4                   
+           0010ca2c  mov      fp, sp                       
+           0010ca30  mov      r6, r0                       
+           0010ca34  mov      sl, r1                       
+           0010ca38  ldrb     r0, [r6, #0x20]              ; field+0x20 (this-class: removeOnExit)
+           0010ca3c  cmp      r0, #0                       
+           0010ca40  beq      #0x10ca9c                    ; -> L_10ca9c
+           0010ca44  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: spawnedEffect)
+           0010ca48  cmp      r0, #0                       
+           0010ca4c  beq      #0x10ca9c                    ; -> L_10ca9c
+           0010ca50  mov      r0, sl                       
+           0010ca54  ldr      lr, [sl]                     
+           0010ca58  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010ca5c  ldr      r1, [pc]                     
+           0010ca60  b        #0x10ca68                    ; -> L_10ca68
+           0010ca64  .word    0x00e98470                   ; literal 15303792 / 
+L_10ca68:  0010ca68  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           0010ca6c  ldr      lr, [r0]                     
+           0010ca70  mov      r8, r1                       
+           0010ca74  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           0010ca78  mov      r5, r0                       
+           0010ca7c  mov      r1, #0                       
+           0010ca80  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010ca84  cmp      r0, #0                       
+           0010ca88  beq      #0x10ca9c                    ; -> L_10ca9c
+           0010ca8c  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: spawnedEffect)
+           0010ca90  mov      r0, r5                       
+           0010ca94  ldr      lr, [r5]                     
+           0010ca98  bl       #0xf2c38                     ; CALL EffectManager::RemoveEffect (direct)
+L_10ca9c:  0010ca9c  add      sp, fp, #4                   
+           0010caa0  pop      {r5, r6, r8, sl, fp}         
+           0010caa4  ldr      r7, [sp, #8]                 
+           0010caa8  ldm      sp, {sp, pc}                 

@@ -1,0 +1,347 @@
+####################################################################################################
+# TYPE RandomShotEffect  (instance size 0x28)
+#   +0x08 time                           float
+#   +0x0c power                          int
+#   +0x10 effectType                     BaseEffect/EffectTypes
+#   +0x14 isMultiLevel                   bool
+#   +0x18 powerLevel                     int
+#   +0x1c parentObject                   UnityEngine.GameObject
+#   +0x20 droneOne                       UnityEngine.GameObject
+#   +0x24 droneTwo                       UnityEngine.GameObject
+#   vtable slots: 4:FixedUpdate, 5:GetEffectSnapShot, 6:Stack, 7:Shutdown, 8:Update, 9:Init
+####################################################################################################
+== RandomShotEffect::.ctor  token 0x060003a3 @0x000f60dc (96 bytes)
+   args: r0=this, owner
+           000f60dc  mov      ip, sp                       
+           000f60e0  push     {r7, lr}                     
+           000f60e4  mov      r7, sp                       
+           000f60e8  push     {r6, r8, fp, ip, lr}         
+           000f60ec  sub      sp, sp, #0xc                 
+           000f60f0  mov      fp, sp                       
+           000f60f4  mov      r6, r0                       
+           000f60f8  str      r1, [fp]                     
+           000f60fc  mov      r0, #1                       
+           000f6100  str      r0, [r6, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f6104  mov      r0, #0x10                    
+           000f6108  str      r0, [r6, #0x10]              ; field+0x10 (this-class: effectType)
+           000f610c  ldr      r0, [fp]                     
+           000f6110  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f6114  vldr     s4, [pc]                     ; float 10.0
+           000f6118  b        #0xf6120                     ; -> L_f6120
+           000f611c  .word    0x41200000                   ; literal 1092616192 / 10
+L_f6120:   000f6120  vcvt.f64.f32 d2, s4                       
+           000f6124  vcvt.f32.f64 s0, d2                       
+           000f6128  vstr     s0, [r6, #8]                 ; field+0x8 (this-class: time)
+           000f612c  add      sp, fp, #0xc                 
+           000f6130  pop      {r6, r8, fp}                 
+           000f6134  ldr      r7, [sp, #8]                 
+           000f6138  ldm      sp, {sp, pc}                 
+
+== RandomShotEffect::Start  token 0x060003a4 @0x000f613c (44 bytes)
+   args: r0=this, 
+           000f613c  mov      ip, sp                       
+           000f6140  push     {r7, lr}                     
+           000f6144  mov      r7, sp                       
+           000f6148  push     {r8, fp, ip, lr}             
+           000f614c  sub      sp, sp, #8                   
+           000f6150  mov      fp, sp                       
+           000f6154  str      r0, [fp]                     
+           000f6158  add      sp, fp, #8                   
+           000f615c  pop      {r8, fp}                     
+           000f6160  ldr      r7, [sp, #8]                 
+           000f6164  ldm      sp, {sp, pc}                 
+
+== RandomShotEffect::Init  token 0x060003a5 @0x000f6168 (772 bytes)
+   args: r0=this, 
+           000f6168  mov      ip, sp                       
+           000f616c  push     {r7, lr}                     
+           000f6170  mov      r7, sp                       
+           000f6174  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000f6178  sub      sp, sp, #0x98                
+           000f617c  mov      fp, sp                       
+           000f6180  mov      sl, r0                       
+           000f6184  mov      r0, #0                       
+           000f6188  str      r0, [fp, #0x10]              
+           000f618c  mov      r0, #0                       
+           000f6190  str      r0, [fp, #0x14]              
+           000f6194  mov      r0, #0                       
+           000f6198  str      r0, [fp, #0x18]              
+           000f619c  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f61a0  ldr      r1, [pc]                     
+           000f61a4  b        #0xf61ac                     ; -> L_f61ac
+           000f61a8  .word    0x00eaed2c                   ; literal 15396140 / 
+L_f61ac:   000f61ac  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f61b0  ldr      lr, [r0]                     
+           000f61b4  mov      r8, r1                       
+           000f61b8  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f61bc  mov      r6, r0                       
+           000f61c0  mov      r1, #0                       
+           000f61c4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f61c8  cmp      r0, #0                       
+           000f61cc  beq      #0xf645c                     ; -> L_f645c
+           000f61d0  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f61d4  str      r0, [fp, #0x90]              
+           000f61d8  ldr      r0, [pc]                     
+           000f61dc  b        #0xf61e4                     ; -> L_f61e4
+           000f61e0  .word    0x00eaf034                   ; literal 15396916 / 
+L_f61e4:   000f61e4  ldr      r0, [pc, r0]                 ; GOT[302] VTABLE BoosterEffect
+           000f61e8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f61ec  ldr      r1, [fp, #0x90]              
+           000f61f0  str      r0, [fp, #0x8c]              
+           000f61f4  bl       #0xf18e0                     ; CALL BoosterEffect::.ctor (direct)
+           000f61f8  ldr      r1, [fp, #0x8c]              
+           000f61fc  mov      r0, r6                       
+           000f6200  ldr      lr, [r6]                     
+           000f6204  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           000f6208  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f620c  mov      r0, r1                       
+           000f6210  ldr      lr, [r1]                     
+           000f6214  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f6218  mov      r2, r0                       
+           000f621c  add      r0, fp, #0x10                
+           000f6220  mov      r1, r2                       
+           000f6224  ldr      lr, [r2]                     
+           000f6228  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f622c  vldr     s4, [pc]                     ; float 10.0
+           000f6230  b        #0xf6238                     ; -> L_f6238
+           000f6234  .word    0x41200000                   ; literal 1092616192 / 10
+L_f6238:   000f6238  vcvt.f64.f32 d2, s4                       
+           000f623c  vcvt.f32.f64 s0, d2                       
+           000f6240  vstr     s0, [fp, #0x14]              
+           000f6244  mov      r5, sl                       
+           000f6248  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: droneOne)
+           000f624c  str      r0, [fp, #0x88]              
+           000f6250  ldr      r0, [fp, #0x10]              
+           000f6254  str      r0, [fp, #0x4c]              
+           000f6258  ldr      r0, [fp, #0x14]              
+           000f625c  str      r0, [fp, #0x50]              
+           000f6260  ldr      r0, [fp, #0x18]              
+           000f6264  str      r0, [fp, #0x54]              
+           000f6268  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f626c  mov      r0, r1                       
+           000f6270  ldr      lr, [r1]                     
+           000f6274  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f6278  mov      r2, r0                       
+           000f627c  add      r0, fp, #0x58                
+           000f6280  mov      r1, r2                       
+           000f6284  ldr      lr, [r2]                     
+           000f6288  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000f628c  ldr      r0, [fp, #0x88]              
+           000f6290  ldr      r1, [fp, #0x4c]              
+           000f6294  ldr      r2, [fp, #0x50]              
+           000f6298  ldr      r3, [fp, #0x54]              
+           000f629c  ldr      ip, [fp, #0x58]              
+           000f62a0  str      ip, [sp]                     
+           000f62a4  ldr      ip, [fp, #0x5c]              
+           000f62a8  str      ip, [sp, #4]                 
+           000f62ac  ldr      ip, [fp, #0x60]              
+           000f62b0  str      ip, [sp, #8]                 
+           000f62b4  ldr      ip, [fp, #0x64]              
+           000f62b8  str      ip, [sp, #0xc]               
+           000f62bc  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           000f62c0  mov      r4, r0                       
+           000f62c4  str      r4, [fp, #0x48]              
+           000f62c8  cmp      r4, #0                       
+           000f62cc  beq      #0xf6300                     ; -> L_f6300
+           000f62d0  ldr      r0, [r4]                     
+           000f62d4  ldr      r0, [r0]                     
+           000f62d8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f62dc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f62e0  ldr      r1, [pc]                     
+           000f62e4  b        #0xf62ec                     ; -> L_f62ec
+           000f62e8  .word    0x00eaec60                   ; literal 15395936 / 
+L_f62ec:   000f62ec  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           000f62f0  cmp      r0, r1                       
+           000f62f4  beq      #0xf6300                     ; -> L_f6300
+           000f62f8  mov      r0, #0                       
+           000f62fc  str      r0, [fp, #0x48]              
+L_f6300:   000f6300  ldr      r0, [fp, #0x48]              
+           000f6304  str      r0, [r5, #0x20]              ; field+0x20 (this-class: droneOne)
+           000f6308  ldr      r3, [sl, #0x20]              ; field+0x20 (this-class: droneOne)
+           000f630c  ldr      r1, [pc]                     
+           000f6310  b        #0xf6318                     ; -> L_f6318
+           000f6314  .word    0x00eaec70                   ; literal 15395952 / 
+L_f6318:   000f6318  ldr      r1, [pc, r1]                 ; GOT[138] LDSTR 'SetParent'
+           000f631c  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f6320  mov      r0, r3                       
+           000f6324  ldr      lr, [r3]                     
+           000f6328  bl       #0x22b480                    ; CALL UnityEngine.GameObject::SendMessage
+           000f632c  mov      r5, sl                       
+           000f6330  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: droneOne)
+           000f6334  str      r0, [fp, #0x88]              
+           000f6338  ldr      r0, [fp, #0x10]              
+           000f633c  str      r0, [fp, #0x68]              
+           000f6340  ldr      r0, [fp, #0x14]              
+           000f6344  str      r0, [fp, #0x6c]              
+           000f6348  ldr      r0, [fp, #0x18]              
+           000f634c  str      r0, [fp, #0x70]              
+           000f6350  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f6354  mov      r0, r1                       
+           000f6358  ldr      lr, [r1]                     
+           000f635c  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f6360  mov      r2, r0                       
+           000f6364  add      r0, fp, #0x74                
+           000f6368  mov      r1, r2                       
+           000f636c  ldr      lr, [r2]                     
+           000f6370  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000f6374  ldr      r0, [fp, #0x88]              
+           000f6378  ldr      r1, [fp, #0x68]              
+           000f637c  ldr      r2, [fp, #0x6c]              
+           000f6380  ldr      r3, [fp, #0x70]              
+           000f6384  ldr      ip, [fp, #0x74]              
+           000f6388  str      ip, [sp]                     
+           000f638c  ldr      ip, [fp, #0x78]              
+           000f6390  str      ip, [sp, #4]                 
+           000f6394  ldr      ip, [fp, #0x7c]              
+           000f6398  str      ip, [sp, #8]                 
+           000f639c  ldr      ip, [fp, #0x80]              
+           000f63a0  str      ip, [sp, #0xc]               
+           000f63a4  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           000f63a8  mov      r6, r0                       
+           000f63ac  mov      r4, r6                       
+           000f63b0  cmp      r6, #0                       
+           000f63b4  beq      #0xf63e4                     ; -> L_f63e4
+           000f63b8  ldr      r0, [r6]                     
+           000f63bc  ldr      r0, [r0]                     
+           000f63c0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f63c4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f63c8  ldr      r1, [pc]                     
+           000f63cc  b        #0xf63d4                     ; -> L_f63d4
+           000f63d0  .word    0x00eaeb78                   ; literal 15395704 / 
+L_f63d4:   000f63d4  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           000f63d8  cmp      r0, r1                       
+           000f63dc  beq      #0xf63e4                     ; -> L_f63e4
+           000f63e0  mov      r4, #0                       
+L_f63e4:   000f63e4  str      r4, [r5, #0x24]              ; field+0x24 (this-class: droneTwo)
+           000f63e8  ldr      r3, [sl, #0x24]              ; field+0x24 (this-class: droneTwo)
+           000f63ec  ldr      r1, [pc]                     
+           000f63f0  b        #0xf63f8                     ; -> L_f63f8
+           000f63f4  .word    0x00eaeb90                   ; literal 15395728 / 
+L_f63f8:   000f63f8  ldr      r1, [pc, r1]                 ; GOT[138] LDSTR 'SetParent'
+           000f63fc  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f6400  mov      r0, r3                       
+           000f6404  ldr      lr, [r3]                     
+           000f6408  bl       #0x22b480                    ; CALL UnityEngine.GameObject::SendMessage
+           000f640c  ldr      r0, [sl, #0x24]              ; field+0x24 (this-class: droneTwo)
+           000f6410  str      r0, [fp, #0x8c]              
+           000f6414  ldr      r0, [pc]                     
+           000f6418  b        #0xf6420                     ; -> L_f6420
+           000f641c  .word    0x00eaf3c0                   ; literal 15397824 / 
+L_f6420:   000f6420  ldr      r0, [pc, r0]                 ; GOT[672] LDSTR 'SetSecondUFO'
+           000f6424  str      r0, [fp, #0x88]              
+           000f6428  ldr      r0, [pc]                     
+           000f642c  b        #0xf6434                     ; -> L_f6434
+           000f6430  .word    0x00eaf094                   ; literal 15397012 / 
+L_f6434:   000f6434  ldr      r0, [pc, r0]                 ; GOT[474] VTABLE System.Boolean
+           000f6438  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           000f643c  mov      r2, r0                       
+           000f6440  ldr      r1, [fp, #0x88]              
+           000f6444  ldr      r3, [fp, #0x8c]              
+           000f6448  mov      r0, #1                       
+           000f644c  strb     r0, [r2, #8]                 ; field+0x8 (this-class: time)
+           000f6450  mov      r0, r3                       
+           000f6454  ldr      lr, [r3]                     
+           000f6458  bl       #0x22b480                    ; CALL UnityEngine.GameObject::SendMessage
+L_f645c:   000f645c  add      sp, fp, #0x98                
+           000f6460  pop      {r4, r5, r6, r8, sl, fp}     
+           000f6464  ldr      r7, [sp, #8]                 
+           000f6468  ldm      sp, {sp, pc}                 
+
+== RandomShotEffect::Update  token 0x060003a6 @0x000f646c (44 bytes)
+   args: r0=this, 
+           000f646c  mov      ip, sp                       
+           000f6470  push     {r7, lr}                     
+           000f6474  mov      r7, sp                       
+           000f6478  push     {r8, fp, ip, lr}             
+           000f647c  sub      sp, sp, #8                   
+           000f6480  mov      fp, sp                       
+           000f6484  str      r0, [fp]                     
+           000f6488  add      sp, fp, #8                   
+           000f648c  pop      {r8, fp}                     
+           000f6490  ldr      r7, [sp, #8]                 
+           000f6494  ldm      sp, {sp, pc}                 
+
+== RandomShotEffect::Shutdown  token 0x060003a7 @0x000f6498 (148 bytes)
+   args: r0=this, 
+           000f6498  mov      ip, sp                       
+           000f649c  push     {r7, lr}                     
+           000f64a0  mov      r7, sp                       
+           000f64a4  push     {r8, sl, fp, ip, lr}         
+           000f64a8  sub      sp, sp, #4                   
+           000f64ac  mov      fp, sp                       
+           000f64b0  mov      sl, r0                       
+           000f64b4  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: droneOne)
+           000f64b8  mov      r1, #0                       
+           000f64bc  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f64c0  cmp      r0, #0                       
+           000f64c4  beq      #0xf64e8                     ; -> L_f64e8
+           000f64c8  ldr      r2, [sl, #0x20]              ; field+0x20 (this-class: droneOne)
+           000f64cc  ldr      r1, [pc]                     
+           000f64d0  b        #0xf64d8                     ; -> L_f64d8
+           000f64d4  .word    0x00eaf30c                   ; literal 15397644 / 
+L_f64d8:   000f64d8  ldr      r1, [pc, r1]                 ; GOT[673] LDSTR 'StartFlyaway'
+           000f64dc  mov      r0, r2                       
+           000f64e0  ldr      lr, [r2]                     
+           000f64e4  bl       #0x22b490                    ; CALL UnityEngine.GameObject::SendMessage
+L_f64e8:   000f64e8  ldr      r0, [sl, #0x24]              ; field+0x24 (this-class: droneTwo)
+           000f64ec  mov      r1, #0                       
+           000f64f0  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f64f4  cmp      r0, #0                       
+           000f64f8  beq      #0xf651c                     ; -> L_f651c
+           000f64fc  ldr      r2, [sl, #0x24]              ; field+0x24 (this-class: droneTwo)
+           000f6500  ldr      r1, [pc]                     
+           000f6504  b        #0xf650c                     ; -> L_f650c
+           000f6508  .word    0x00eaf2d8                   ; literal 15397592 / 
+L_f650c:   000f650c  ldr      r1, [pc, r1]                 ; GOT[673] LDSTR 'StartFlyaway'
+           000f6510  mov      r0, r2                       
+           000f6514  ldr      lr, [r2]                     
+           000f6518  bl       #0x22b490                    ; CALL UnityEngine.GameObject::SendMessage
+L_f651c:   000f651c  add      sp, fp, #4                   
+           000f6520  pop      {r8, sl, fp}                 
+           000f6524  ldr      r7, [sp, #8]                 
+           000f6528  ldm      sp, {sp, pc}                 
+
+== RandomShotEffect::Stack  token 0x060003a8 @0x000f652c (52 bytes)
+   args: r0=this, second
+           000f652c  mov      ip, sp                       
+           000f6530  push     {r7, lr}                     
+           000f6534  mov      r7, sp                       
+           000f6538  push     {r8, fp, ip, lr}             
+           000f653c  sub      sp, sp, #8                   
+           000f6540  mov      fp, sp                       
+           000f6544  str      r0, [fp]                     
+           000f6548  str      r1, [fp, #4]                 
+           000f654c  mov      r0, #0                       
+           000f6550  add      sp, fp, #8                   
+           000f6554  pop      {r8, fp}                     
+           000f6558  ldr      r7, [sp, #8]                 
+           000f655c  ldm      sp, {sp, pc}                 
+
+== RandomShotEffect::GetEffectSnapShot  token 0x060003a9 @0x000f6560 (48 bytes)
+   args: r0=this, 
+           000f6560  mov      ip, sp                       
+           000f6564  push     {r7, lr}                     
+           000f6568  mov      r7, sp                       
+           000f656c  push     {r8, fp, ip, lr}             
+           000f6570  sub      sp, sp, #8                   
+           000f6574  mov      fp, sp                       
+           000f6578  str      r0, [fp]                     
+           000f657c  ldr      r0, [fp]                     
+           000f6580  add      sp, fp, #8                   
+           000f6584  pop      {r8, fp}                     
+           000f6588  ldr      r7, [sp, #8]                 
+           000f658c  ldm      sp, {sp, pc}                 
+
+== RandomShotEffect::FixedUpdate  token 0x060003aa @0x000f6590 (44 bytes)
+   args: r0=this, 
+           000f6590  mov      ip, sp                       
+           000f6594  push     {r7, lr}                     
+           000f6598  mov      r7, sp                       
+           000f659c  push     {r8, fp, ip, lr}             
+           000f65a0  sub      sp, sp, #8                   
+           000f65a4  mov      fp, sp                       
+           000f65a8  str      r0, [fp]                     
+           000f65ac  add      sp, fp, #8                   
+           000f65b0  pop      {r8, fp}                     
+           000f65b4  ldr      r7, [sp, #8]                 
+           000f65b8  ldm      sp, {sp, pc}                 

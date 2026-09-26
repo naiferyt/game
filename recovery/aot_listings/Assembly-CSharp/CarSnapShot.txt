@@ -1,0 +1,101 @@
+####################################################################################################
+# TYPE CarSnapShot  (instance size 0x44)
+#   +0x08 name                           string
+#   +0x0c prog                           CarProgress
+#   +0x10 effectList                     System.Collections.Generic.List`1<BaseEffect>
+#   +0x14 powerupHolder                  System.Collections.Generic.List`1<BaseEffect>
+#   +0x18 metrics                        CarMetrics
+#   +0x1c position                       UnityEngine.Vector3
+#   +0x28 rotation                       UnityEngine.Quaternion
+#   +0x38 playerMoney                    int
+#   +0x3c gimpedPathIndex                int
+#   +0x40 gimpedPointIndex               int
+#   vtable slots: 
+####################################################################################################
+== CarSnapShot::.ctor  token 0x0600024c @0x000e5bf8 (172 bytes)
+   args: r0=this, 
+           000e5bf8  mov      ip, sp                       
+           000e5bfc  push     {r7, lr}                     
+           000e5c00  mov      r7, sp                       
+           000e5c04  push     {r8, sl, fp, ip, lr}         
+           000e5c08  sub      sp, sp, #4                   
+           000e5c0c  mov      fp, sp                       
+           000e5c10  mov      sl, r0                       
+           000e5c14  mvn      r0, #0                       
+           000e5c18  str      r0, [sl, #0x38]              ; field+0x38 (this-class: playerMoney)
+           000e5c1c  mvn      r0, #0                       
+           000e5c20  str      r0, [sl, #0x3c]              ; field+0x3c (this-class: gimpedPathIndex)
+           000e5c24  mvn      r0, #0                       
+           000e5c28  str      r0, [sl, #0x40]              ; field+0x40 (this-class: gimpedPointIndex)
+           000e5c2c  ldr      r0, [pc]                     
+           000e5c30  b        #0xe5c38                     ; -> L_e5c38
+           000e5c34  .word    0x00ebf80c                   ; literal 15464460 / 
+L_e5c38:   000e5c38  ldr      r0, [pc, r0]                 ; GOT[441] VTABLE System.Collections.Generic.List`1<BaseEffect>
+           000e5c3c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e5c40  ldr      r1, [pc]                     
+           000e5c44  b        #0xe5c4c                     ; -> L_e5c4c
+           000e5c48  .word    0x00ebf7fc                   ; literal 15464444 / 
+L_e5c4c:   000e5c4c  ldr      r1, [pc, r1]                 ; GOT[442] SFLDA System.Collections.Generic.List`1<BaseEffect>::EmptyArray
+           000e5c50  ldr      r1, [r1]                     
+           000e5c54  str      r1, [r0, #8]                 ; field+0x8 (this-class: name)
+           000e5c58  str      r0, [sl, #0x14]              ; field+0x14 (this-class: powerupHolder)
+           000e5c5c  ldr      r0, [pc]                     
+           000e5c60  b        #0xe5c68                     ; -> L_e5c68
+           000e5c64  .word    0x00ebf7dc                   ; literal 15464412 / 
+L_e5c68:   000e5c68  ldr      r0, [pc, r0]                 ; GOT[441] VTABLE System.Collections.Generic.List`1<BaseEffect>
+           000e5c6c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e5c70  ldr      r1, [pc]                     
+           000e5c74  b        #0xe5c7c                     ; -> L_e5c7c
+           000e5c78  .word    0x00ebf7cc                   ; literal 15464396 / 
+L_e5c7c:   000e5c7c  ldr      r1, [pc, r1]                 ; GOT[442] SFLDA System.Collections.Generic.List`1<BaseEffect>::EmptyArray
+           000e5c80  ldr      r1, [r1]                     
+           000e5c84  str      r1, [r0, #8]                 ; field+0x8 (this-class: name)
+           000e5c88  str      r0, [sl, #0x10]              ; field+0x10 (this-class: effectList)
+           000e5c8c  mov      r0, #0                       
+           000e5c90  str      r0, [sl, #0x18]              ; field+0x18 (this-class: metrics)
+           000e5c94  add      sp, fp, #4                   
+           000e5c98  pop      {r8, sl, fp}                 
+           000e5c9c  ldr      r7, [sp, #8]                 
+           000e5ca0  ldm      sp, {sp, pc}                 
+
+== CarSnapShot::AddToEffectList  token 0x0600024d @0x000e5ca4 (72 bytes)
+   args: r0=this, eff
+           000e5ca4  mov      ip, sp                       
+           000e5ca8  push     {r7, lr}                     
+           000e5cac  mov      r7, sp                       
+           000e5cb0  push     {r8, fp, ip, lr}             
+           000e5cb4  sub      sp, sp, #8                   
+           000e5cb8  mov      fp, sp                       
+           000e5cbc  str      r0, [fp]                     
+           000e5cc0  str      r1, [fp, #4]                 
+           000e5cc4  ldr      r0, [fp]                     
+           000e5cc8  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: effectList)
+           000e5ccc  mov      r0, r2                       
+           000e5cd0  ldr      r1, [fp, #4]                 
+           000e5cd4  ldr      lr, [r2]                     
+           000e5cd8  bl       #0x22c3a0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::Add
+           000e5cdc  add      sp, fp, #8                   
+           000e5ce0  pop      {r8, fp}                     
+           000e5ce4  ldr      r7, [sp, #8]                 
+           000e5ce8  ldm      sp, {sp, pc}                 
+
+== CarSnapShot::AddEffectToPowerUpholder  token 0x0600024e @0x000e5cec (72 bytes)
+   args: r0=this, eff
+           000e5cec  mov      ip, sp                       
+           000e5cf0  push     {r7, lr}                     
+           000e5cf4  mov      r7, sp                       
+           000e5cf8  push     {r8, fp, ip, lr}             
+           000e5cfc  sub      sp, sp, #8                   
+           000e5d00  mov      fp, sp                       
+           000e5d04  str      r0, [fp]                     
+           000e5d08  str      r1, [fp, #4]                 
+           000e5d0c  ldr      r0, [fp]                     
+           000e5d10  ldr      r2, [r0, #0x14]              ; field+0x14 (this-class: powerupHolder)
+           000e5d14  mov      r0, r2                       
+           000e5d18  ldr      r1, [fp, #4]                 
+           000e5d1c  ldr      lr, [r2]                     
+           000e5d20  bl       #0x22c3a0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::Add
+           000e5d24  add      sp, fp, #8                   
+           000e5d28  pop      {r8, fp}                     
+           000e5d2c  ldr      r7, [sp, #8]                 
+           000e5d30  ldm      sp, {sp, pc}                 

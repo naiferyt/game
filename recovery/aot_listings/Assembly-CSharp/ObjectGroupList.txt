@@ -1,0 +1,150 @@
+####################################################################################################
+# TYPE ObjectGroupList  (instance size 0x18)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 list                           System.Collections.Generic.List`1<UnityEngine.GameObject>
+#   +0x14 activationState                bool
+#   +0x15 currentState                   bool
+#   vtable slots: 
+####################################################################################################
+== ObjectGroupList::.ctor  token 0x0600051c @0x0010dea4 (68 bytes)
+   args: r0=this, 
+           0010dea4  mov      ip, sp                       
+           0010dea8  push     {r7, lr}                     
+           0010deac  mov      r7, sp                       
+           0010deb0  push     {r8, sl, fp, ip, lr}         
+           0010deb4  sub      sp, sp, #4                   
+           0010deb8  mov      fp, sp                       
+           0010debc  mov      sl, r0                       
+           0010dec0  mov      r0, #1                       
+           0010dec4  strb     r0, [sl, #0x14]              ; field+0x14 (this-class: activationState)
+           0010dec8  mov      r0, #1                       
+           0010decc  strb     r0, [sl, #0x15]              ; field+0x15 (this-class: currentState)
+           0010ded0  mov      r0, sl                       
+           0010ded4  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0010ded8  add      sp, fp, #4                   
+           0010dedc  pop      {r8, sl, fp}                 
+           0010dee0  ldr      r7, [sp, #8]                 
+           0010dee4  ldm      sp, {sp, pc}                 
+
+== ObjectGroupList::get_CurrentState  token 0x0600051d @0x0010dee8 (52 bytes)
+   args: r0=this, 
+           0010dee8  mov      ip, sp                       
+           0010deec  push     {r7, lr}                     
+           0010def0  mov      r7, sp                       
+           0010def4  push     {r8, fp, ip, lr}             
+           0010def8  sub      sp, sp, #8                   
+           0010defc  mov      fp, sp                       
+           0010df00  str      r0, [fp]                     
+           0010df04  ldr      r0, [fp]                     
+           0010df08  ldrb     r0, [r0, #0x15]              ; field+0x15 (this-class: currentState)
+           0010df0c  add      sp, fp, #8                   
+           0010df10  pop      {r8, fp}                     
+           0010df14  ldr      r7, [sp, #8]                 
+           0010df18  ldm      sp, {sp, pc}                 
+
+== ObjectGroupList::set_CurrentState  token 0x0600051e @0x0010df1c (348 bytes)
+   args: r0=this, value
+           0010df1c  mov      ip, sp                       
+           0010df20  push     {r7, lr}                     
+           0010df24  mov      r7, sp                       
+           0010df28  push     {r6, r8, sl, fp, ip, lr}     
+           0010df2c  sub      sp, sp, #0x40                
+           0010df30  mov      fp, sp                       
+           0010df34  mov      sl, r0                       
+           0010df38  strb     r1, [fp, #0x3c]              
+           0010df3c  mov      r0, #0                       
+           0010df40  str      r0, [fp]                     
+           0010df44  mov      r0, #0                       
+           0010df48  str      r0, [fp, #4]                 
+           0010df4c  mov      r0, #0                       
+           0010df50  str      r0, [fp, #8]                 
+           0010df54  mov      r0, #0                       
+           0010df58  str      r0, [fp, #0xc]               
+           0010df5c  ldrb     r1, [sl, #0x15]              ; field+0x15 (this-class: currentState)
+           0010df60  ldrb     r0, [fp, #0x3c]              
+           0010df64  cmp      r0, r1                       
+           0010df68  beq      #0x10e068                    ; -> L_10e068
+           0010df6c  ldrb     r0, [fp, #0x3c]              
+           0010df70  strb     r0, [sl, #0x15]              ; field+0x15 (this-class: currentState)
+           0010df74  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: list)
+           0010df78  mov      r1, r2                       
+           0010df7c  mov      r0, fp                       
+           0010df80  ldr      lr, [r2]                     
+           0010df84  bl       #0x22d190                    ; CALL System.Collections.Generic.List`1<UnityEngine.GameObject>::GetEnumerator
+           0010df88  b        #0x10dfb4                    ; -> L_10dfb4
+L_10df8c:  0010df8c  ldr      r0, [pc]                     
+           0010df90  b        #0x10df98                    ; -> L_10df98
+           0010df94  .word    0x00e97844                   ; literal 15300676 / 
+L_10df98:  0010df98  ldr      r0, [pc, r0]                 ; GOT[671] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.GameObject>
+           0010df9c  ldr      r6, [fp, #0xc]               
+           0010dfa0  mov      r2, r6                       
+           0010dfa4  ldrb     r1, [sl, #0x15]              ; field+0x15 (this-class: currentState)
+           0010dfa8  mov      r0, r2                       
+           0010dfac  ldr      lr, [r2]                     
+           0010dfb0  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+L_10dfb4:  0010dfb4  ldr      r8, [pc]                     
+           0010dfb8  b        #0x10dfc0                    ; -> L_10dfc0
+           0010dfbc  .word    0x00e9781c                   ; literal 15300636 / 
+L_10dfc0:  0010dfc0  ldr      r8, [pc, r8]                 ; GOT[671] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.GameObject>
+           0010dfc4  mov      r0, fp                       
+           0010dfc8  bl       #0x22d1a0                    ; CALL System.Collections.Generic.List`1/Enumerator<UnityEngine.GameObject>::MoveNext
+           0010dfcc  cmp      r0, #0                       
+           0010dfd0  bne      #0x10df8c                    ; -> L_10df8c
+           0010dfd4  bl       #0x10dfdc                    ; CALL 0x10dfdc
+           0010dfd8  b        #0x10e068                    ; -> L_10e068
+           0010dfdc  str      lr, [fp, #0x28]              
+           0010dfe0  ldr      r0, [fp]                     
+           0010dfe4  str      r0, [fp, #0x2c]              
+           0010dfe8  ldr      r0, [fp, #4]                 
+           0010dfec  str      r0, [fp, #0x30]              
+           0010dff0  ldr      r0, [fp, #8]                 
+           0010dff4  str      r0, [fp, #0x34]              
+           0010dff8  ldr      r0, [fp, #0xc]               
+           0010dffc  str      r0, [fp, #0x38]              
+           0010e000  ldr      r0, [pc]                     
+           0010e004  b        #0x10e00c                    ; -> L_10e00c
+           0010e008  .word    0x00e977d0                   ; literal 15300560 / 
+L_10e00c:  0010e00c  ldr      r0, [pc, r0]                 ; GOT[671] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.GameObject>
+           0010e010  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010e014  mov      r1, r0                       
+           0010e018  add      r0, r1, #8                   
+           0010e01c  ldr      r2, [fp, #0x2c]              
+           0010e020  str      r2, [r0]                     
+           0010e024  ldr      r2, [fp, #0x30]              
+           0010e028  str      r2, [r0, #4]                 ; field+0x4 
+           0010e02c  ldr      r2, [fp, #0x34]              
+           0010e030  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010e034  ldr      r2, [fp, #0x38]              
+           0010e038  str      r2, [r0, #0xc]               ; field+0xc 
+           0010e03c  mov      r0, r1                       
+           0010e040  ldr      r1, [r1]                     
+           0010e044  ldr      r8, [pc]                     
+           0010e048  b        #0x10e050                    ; -> L_10e050
+           0010e04c  .word    0x00e96d58                   ; literal 15297880 / 
+L_10e050:  0010e050  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           0010e054  add      lr, pc, #4                   
+           0010e058  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           0010e05c  andeq    r0, r0, r0                   
+           0010e060  ldr      ip, [fp, #0x28]              
+           0010e064  mov      pc, ip                       
+L_10e068:  0010e068  add      sp, fp, #0x40                
+           0010e06c  pop      {r6, r8, sl, fp}             
+           0010e070  ldr      r7, [sp, #8]                 
+           0010e074  ldm      sp, {sp, pc}                 
+
+== ObjectGroupList::Awake  token 0x0600051f @0x0010e078 (56 bytes)
+   args: r0=this, 
+           0010e078  mov      ip, sp                       
+           0010e07c  push     {r7, lr}                     
+           0010e080  mov      r7, sp                       
+           0010e084  push     {r8, fp, ip, lr}             
+           0010e088  sub      sp, sp, #8                   
+           0010e08c  mov      fp, sp                       
+           0010e090  str      r0, [fp]                     
+           0010e094  ldr      r0, [fp]                     
+           0010e098  ldrb     r1, [r0, #0x14]              ; field+0x14 (this-class: activationState)
+           0010e09c  bl       #0x22db80                    ; CALL ObjectGroupList::set_CurrentState
+           0010e0a0  add      sp, fp, #8                   
+           0010e0a4  pop      {r8, fp}                     
+           0010e0a8  ldr      r7, [sp, #8]                 
+           0010e0ac  ldm      sp, {sp, pc}                 

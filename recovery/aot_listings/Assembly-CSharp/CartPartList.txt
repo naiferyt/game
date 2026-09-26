@@ -1,0 +1,1921 @@
+####################################################################################################
+# TYPE CartPartList  (instance size 0x24)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 cartParts                      CartPart[]
+#   +0x14 paintJobs                      PaintJob[]
+#   +0x18 defaultEquipment               CartPart[]
+#   +0x1c carSlotMap                     System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<CartPart>>
+#   +0x20 paintJobMap                    System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<PaintJob>>
+#   vtable slots: 
+####################################################################################################
+== CartPartList::.ctor  token 0x0600021f @0x000e2150 (52 bytes)
+   args: r0=this, 
+           000e2150  mov      ip, sp                       
+           000e2154  push     {r7, lr}                     
+           000e2158  mov      r7, sp                       
+           000e215c  push     {r8, fp, ip, lr}             
+           000e2160  sub      sp, sp, #8                   
+           000e2164  mov      fp, sp                       
+           000e2168  str      r0, [fp]                     
+           000e216c  ldr      r0, [fp]                     
+           000e2170  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000e2174  add      sp, fp, #8                   
+           000e2178  pop      {r8, fp}                     
+           000e217c  ldr      r7, [sp, #8]                 
+           000e2180  ldm      sp, {sp, pc}                 
+
+== CartPartList::GetInstance  token 0x06000220 @0x000e2184 (168 bytes) static
+   args: 
+           000e2184  mov      ip, sp                       
+           000e2188  push     {r7, lr}                     
+           000e218c  mov      r7, sp                       
+           000e2190  push     {r5, r6, r8, fp, ip, lr}     
+           000e2194  sub      sp, sp, #8                   
+           000e2198  mov      fp, sp                       
+           000e219c  ldr      r0, [pc]                     
+           000e21a0  b        #0xe21a8                     ; -> L_e21a8
+           000e21a4  .word    0x00ec3194                   ; literal 15479188 / 
+L_e21a8:   000e21a8  ldr      r0, [pc, r0]                 ; GOT[375] TYPE_FROM_HANDLE typeof(CartPartList)
+           000e21ac  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           000e21b0  mov      r6, r0                       
+           000e21b4  mov      r5, r6                       
+           000e21b8  cmp      r6, #0                       
+           000e21bc  beq      #0xe21ec                     ; -> L_e21ec
+           000e21c0  ldr      r0, [r6]                     
+           000e21c4  ldr      r0, [r0]                     
+           000e21c8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e21cc  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e21d0  ldr      r1, [pc]                     
+           000e21d4  b        #0xe21dc                     ; -> L_e21dc
+           000e21d8  .word    0x00ec3164                   ; literal 15479140 / 
+L_e21dc:   000e21dc  ldr      r1, [pc, r1]                 ; GOT[376] CLASS CartPartList
+           000e21e0  cmp      r0, r1                       
+           000e21e4  beq      #0xe21ec                     ; -> L_e21ec
+           000e21e8  mov      r5, #0                       
+L_e21ec:   000e21ec  str      r5, [fp]                     
+           000e21f0  mov      r0, r5                       
+           000e21f4  mov      r1, #0                       
+           000e21f8  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000e21fc  cmp      r0, #0                       
+           000e2200  beq      #0xe2218                     ; -> L_e2218
+           000e2204  ldr      r0, [pc]                     
+           000e2208  b        #0xe2210                     ; -> L_e2210
+           000e220c  .word    0x00ec3134                   ; literal 15479092 / 
+L_e2210:   000e2210  ldr      r0, [pc, r0]                 ; GOT[377] LDSTR 'Must have CartPartList in the scene!'
+           000e2214  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+L_e2218:   000e2218  ldr      r0, [fp]                     
+           000e221c  add      sp, fp, #8                   
+           000e2220  pop      {r5, r6, r8, fp}             
+           000e2224  ldr      r7, [sp, #8]                 
+           000e2228  ldm      sp, {sp, pc}                 
+
+== CartPartList::LoadPartCosts  token 0x06000221 @0x000e222c (1612 bytes)
+   args: r0=this, textData
+           000e222c  mov      ip, sp                       
+           000e2230  push     {r7, lr}                     
+           000e2234  mov      r7, sp                       
+           000e2238  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e223c  sub      sp, sp, #0x78                
+           000e2240  mov      fp, sp                       
+           000e2244  str      r0, [fp, #0x64]              
+           000e2248  str      r1, [fp, #0x68]              
+           000e224c  mov      r0, #0                       
+           000e2250  str      r0, [fp, #8]                 
+           000e2254  mov      r0, #0                       
+           000e2258  str      r0, [fp, #0x18]              
+           000e225c  ldr      r0, [fp, #0x68]              
+           000e2260  cmp      r0, #0                       
+           000e2264  beq      #0xe2848                     ; -> L_e2848
+           000e2268  ldr      r0, [fp, #0x68]              
+           000e226c  bl       #0x22c180                    ; CALL MiniJSON::jsonDecode
+           000e2270  str      r0, [fp, #0x3c]              
+           000e2274  cmp      r0, #0                       
+           000e2278  beq      #0xe22a8                     ; -> L_e22a8
+           000e227c  ldr      r0, [fp, #0x3c]              
+           000e2280  ldr      r0, [r0]                     
+           000e2284  ldr      r0, [r0]                     
+           000e2288  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e228c  ldr      r0, [r0, #4]                 ; field+0x4 
+           000e2290  ldr      r1, [pc]                     
+           000e2294  b        #0xe229c                     ; -> L_e229c
+           000e2298  .word    0x00ec30ac                   ; literal 15478956 / 
+L_e229c:   000e229c  ldr      r1, [pc, r1]                 ; GOT[378] CLASS System.Collections.Hashtable
+           000e22a0  cmp      r0, r1                       
+           000e22a4  blne     #0xe2868                     ; THROW System.InvalidCastException (if ne)
+L_e22a8:   000e22a8  ldr      r0, [fp, #0x3c]              
+           000e22ac  str      r0, [fp]                     
+           000e22b0  ldr      r0, [fp, #0x3c]              
+           000e22b4  cmp      r0, #0                       
+           000e22b8  bne      #0xe22dc                     ; -> L_e22dc
+           000e22bc  ldr      r0, [pc]                     
+           000e22c0  b        #0xe22c8                     ; -> L_e22c8
+           000e22c4  .word    0x00ec3084                   ; literal 15478916 / 
+L_e22c8:   000e22c8  ldr      r0, [pc, r0]                 ; GOT[379] LDSTR 'LoadPartCosts: hash table is null:\n'
+           000e22cc  ldr      r1, [fp, #0x68]              
+           000e22d0  bl       #0x22adc0                    ; CALL System.String::Concat
+           000e22d4  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           000e22d8  b        #0xe2848                     ; -> L_e2848
+L_e22dc:   000e22dc  ldr      r1, [pc]                     
+           000e22e0  b        #0xe22e8                     ; -> L_e22e8
+           000e22e4  .word    0x00ec3068                   ; literal 15478888 / 
+L_e22e8:   000e22e8  ldr      r1, [pc, r1]                 ; GOT[380] LDSTR 'Part Costs'
+           000e22ec  ldr      r0, [fp]                     
+           000e22f0  mov      r2, r0                       
+           000e22f4  ldr      r2, [r2]                     
+           000e22f8  mov      lr, pc                       
+           000e22fc  ldr      pc, [r2, #0xa0]              ; VIRTUAL CALL slot +0xa0: System.Enum::System.IConvertible.ToSingle
+           000e2300  cmp      r0, #0                       
+           000e2304  beq      #0xe2848                     ; -> L_e2848
+           000e2308  ldr      r1, [pc]                     
+           000e230c  b        #0xe2314                     ; -> L_e2314
+           000e2310  .word    0x00ec303c                   ; literal 15478844 / 
+L_e2314:   000e2314  ldr      r1, [pc, r1]                 ; GOT[380] LDSTR 'Part Costs'
+           000e2318  ldr      r0, [fp]                     
+           000e231c  mov      r2, r0                       
+           000e2320  ldr      r2, [r2]                     
+           000e2324  mov      lr, pc                       
+           000e2328  ldr      pc, [r2, #0xb4]              ; VIRTUAL CALL slot +0xb4: System.Enum::System.IConvertible.ToDouble
+           000e232c  str      r0, [fp, #0x40]              
+           000e2330  str      r0, [fp, #0x44]              
+           000e2334  ldr      r0, [fp, #0x40]              
+           000e2338  cmp      r0, #0                       
+           000e233c  beq      #0xe2374                     ; -> L_e2374
+           000e2340  ldr      r0, [fp, #0x40]              
+           000e2344  ldr      r0, [r0]                     
+           000e2348  ldr      r0, [r0]                     
+           000e234c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e2350  ldr      r0, [r0, #4]                 ; field+0x4 
+           000e2354  ldr      r1, [pc]                     
+           000e2358  b        #0xe2360                     ; -> L_e2360
+           000e235c  .word    0x00ec2ff4                   ; literal 15478772 / 
+L_e2360:   000e2360  ldr      r1, [pc, r1]                 ; GOT[381] CLASS System.Collections.ArrayList
+           000e2364  cmp      r0, r1                       
+           000e2368  beq      #0xe2374                     ; -> L_e2374
+           000e236c  mov      r0, #0                       
+           000e2370  str      r0, [fp, #0x44]              
+L_e2374:   000e2374  ldr      r0, [fp, #0x44]              
+           000e2378  str      r0, [fp, #4]                 
+           000e237c  ldr      r0, [fp, #0x44]              
+           000e2380  mov      r1, r0                       
+           000e2384  ldr      r1, [r1]                     
+           000e2388  mov      lr, pc                       
+           000e238c  ldr      pc, [r1, #0x90]              ; VIRTUAL CALL slot +0x90: System.Enum::System.IConvertible.ToUInt64
+           000e2390  str      r0, [fp, #8]                 
+           000e2394  b        #0xe26a8                     ; -> L_e26a8
+L_e2398:   000e2398  ldr      r1, [fp, #8]                 
+           000e239c  mov      r0, r1                       
+           000e23a0  ldr      r1, [r1]                     
+           000e23a4  ldr      r8, [pc]                     
+           000e23a8  b        #0xe23b0                     ; -> L_e23b0
+           000e23ac  .word    0x00ec2b08                   ; literal 15477512 / 
+L_e23b0:   000e23b0  ldr      r8, [pc, r8]                 ; GOT[86] METHODCONST System.Collections.IEnumerator::get_Current
+           000e23b4  add      lr, pc, #4                   
+           000e23b8  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           000e23bc  andeq    r0, r0, r0                   
+           000e23c0  mov      r4, r0                       
+           000e23c4  cmp      r4, #0                       
+           000e23c8  beq      #0xe23f4                     ; -> L_e23f4
+           000e23cc  ldr      r0, [r4]                     
+           000e23d0  ldr      r0, [r0]                     
+           000e23d4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e23d8  ldr      r0, [r0, #4]                 ; field+0x4 
+           000e23dc  ldr      r1, [pc]                     
+           000e23e0  b        #0xe23e8                     ; -> L_e23e8
+           000e23e4  .word    0x00ec2f60                   ; literal 15478624 / 
+L_e23e8:   000e23e8  ldr      r1, [pc, r1]                 ; GOT[378] CLASS System.Collections.Hashtable
+           000e23ec  cmp      r0, r1                       
+           000e23f0  blne     #0xe2868                     ; THROW System.InvalidCastException (if ne)
+L_e23f4:   000e23f4  mov      sl, r4                       
+           000e23f8  ldr      r0, [pc]                     
+           000e23fc  b        #0xe2404                     ; -> L_e2404
+           000e2400  .word    0x00ec2f54                   ; literal 15478612 / 
+L_e2404:   000e2404  ldr      r0, [pc, r0]                 ; GOT[382] VTABLE CartPartList/<LoadPartCosts>c__AnonStorey90
+           000e2408  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e240c  mov      r6, r0                       
+           000e2410  ldr      r1, [pc]                     
+           000e2414  b        #0xe241c                     ; -> L_e241c
+           000e2418  .word    0x00ec2f40                   ; literal 15478592 / 
+L_e241c:   000e241c  ldr      r1, [pc, r1]                 ; GOT[383] LDSTR 'Name'
+           000e2420  mov      r0, r4                       
+           000e2424  ldr      r2, [r4]                     
+           000e2428  mov      lr, pc                       
+           000e242c  ldr      pc, [r2, #0xa0]              ; VIRTUAL CALL slot +0xa0: System.Enum::System.IConvertible.ToSingle
+           000e2430  cmp      r0, #0                       
+           000e2434  beq      #0xe2460                     ; -> L_e2460
+           000e2438  ldr      r1, [pc]                     
+           000e243c  b        #0xe2444                     ; -> L_e2444
+           000e2440  .word    0x00ec2f1c                   ; literal 15478556 / 
+L_e2444:   000e2444  ldr      r1, [pc, r1]                 ; GOT[384] LDSTR 'Cost'
+           000e2448  mov      r0, sl                       
+           000e244c  ldr      r2, [sl]                     
+           000e2450  mov      lr, pc                       
+           000e2454  ldr      pc, [r2, #0xa0]              ; VIRTUAL CALL slot +0xa0: System.Enum::System.IConvertible.ToSingle
+           000e2458  cmp      r0, #0                       
+           000e245c  bne      #0xe2478                     ; -> L_e2478
+L_e2460:   000e2460  ldr      r0, [pc]                     
+           000e2464  b        #0xe246c                     ; -> L_e246c
+           000e2468  .word    0x00ec2ef8                   ; literal 15478520 / 
+L_e246c:   000e246c  ldr      r0, [pc, r0]                 ; GOT[385] LDSTR 'LoadPartCosts: incomplete part cost entry!'
+           000e2470  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           000e2474  b        #0xe26a8                     ; -> L_e26a8
+L_e2478:   000e2478  str      r6, [fp, #0x4c]              
+           000e247c  ldr      r1, [pc]                     
+           000e2480  b        #0xe2488                     ; -> L_e2488
+           000e2484  .word    0x00ec2ed4                   ; literal 15478484 / 
+L_e2488:   000e2488  ldr      r1, [pc, r1]                 ; GOT[383] LDSTR 'Name'
+           000e248c  mov      r0, sl                       
+           000e2490  ldr      r2, [sl]                     
+           000e2494  mov      lr, pc                       
+           000e2498  ldr      pc, [r2, #0xb4]              ; VIRTUAL CALL slot +0xb4: System.Enum::System.IConvertible.ToDouble
+           000e249c  mov      r5, r0                       
+           000e24a0  str      r5, [fp, #0x48]              
+           000e24a4  cmp      r5, #0                       
+           000e24a8  beq      #0xe24e0                     ; -> L_e24e0
+           000e24ac  ldr      r0, [r5]                     
+           000e24b0  ldr      r0, [r0]                     
+           000e24b4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e24b8  ldr      r0, [r0, #4]                 ; field+0x4 
+           000e24bc  ldr      r1, [pc]                     
+           000e24c0  b        #0xe24c8                     ; -> L_e24c8
+           000e24c4  .word    0x00ec2ea0                   ; literal 15478432 / 
+L_e24c8:   000e24c8  ldr      r1, [pc, r1]                 ; GOT[386] CLASS System.String
+           000e24cc  cmp      r0, r1                       
+           000e24d0  beq      #0xe24e0                     ; -> L_e24e0
+           000e24d4  mov      r0, #0                       
+           000e24d8  str      r0, [fp, #0x48]              
+           000e24dc  b        #0xe24e0                     ; -> L_e24e0
+L_e24e0:   000e24e0  ldr      r1, [fp, #0x48]              
+           000e24e4  ldr      r0, [fp, #0x4c]              
+           000e24e8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e24ec  ldr      r1, [pc]                     
+           000e24f0  b        #0xe24f8                     ; -> L_e24f8
+           000e24f4  .word    0x00ec2e68                   ; literal 15478376 / 
+L_e24f8:   000e24f8  ldr      r1, [pc, r1]                 ; GOT[384] LDSTR 'Cost'
+           000e24fc  mov      r0, sl                       
+           000e2500  ldr      r2, [sl]                     
+           000e2504  mov      lr, pc                       
+           000e2508  ldr      pc, [r2, #0xb4]              ; VIRTUAL CALL slot +0xb4: System.Enum::System.IConvertible.ToDouble
+           000e250c  str      r0, [fp, #0x50]              
+           000e2510  str      r0, [fp, #0x54]              
+           000e2514  ldr      r0, [fp, #0x50]              
+           000e2518  cmp      r0, #0                       
+           000e251c  beq      #0xe2558                     ; -> L_e2558
+           000e2520  ldr      r0, [fp, #0x50]              
+           000e2524  ldr      r0, [r0]                     
+           000e2528  ldr      r0, [r0]                     
+           000e252c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e2530  ldr      r0, [r0, #4]                 ; field+0x4 
+           000e2534  ldr      r1, [pc]                     
+           000e2538  b        #0xe2540                     ; -> L_e2540
+           000e253c  .word    0x00ec2e28                   ; literal 15478312 / 
+L_e2540:   000e2540  ldr      r1, [pc, r1]                 ; GOT[386] CLASS System.String
+           000e2544  cmp      r0, r1                       
+           000e2548  beq      #0xe2558                     ; -> L_e2558
+           000e254c  mov      r0, #0                       
+           000e2550  str      r0, [fp, #0x54]              
+           000e2554  b        #0xe2558                     ; -> L_e2558
+L_e2558:   000e2558  ldr      r0, [fp, #0x54]              
+           000e255c  bl       #0x22bf40                    ; CALL System.Int32::Parse
+           000e2560  str      r0, [fp, #0xc]               
+           000e2564  ldr      r0, [fp, #0x64]              
+           000e2568  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e256c  str      r0, [fp, #0x70]              
+           000e2570  cmp      r6, #0                       
+           000e2574  bleq     #0xe2858                     ; THROW System.ArgumentException (if eq)
+           000e2578  ldr      r0, [pc]                     
+           000e257c  b        #0xe2584                     ; -> L_e2584
+           000e2580  .word    0x00ec2de8                   ; literal 15478248 / 
+L_e2584:   000e2584  ldr      r0, [pc, r0]                 ; GOT[387] VTABLE System.Predicate`1<CartPart>
+           000e2588  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e258c  mov      r1, r0                       
+           000e2590  ldr      r0, [fp, #0x70]              
+           000e2594  str      r6, [r1, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e2598  ldr      r2, [pc]                     
+           000e259c  b        #0xe25a4                     ; -> L_e25a4
+           000e25a0  .word    0x00ec2dcc                   ; literal 15478220 / 
+L_e25a4:   000e25a4  ldr      r2, [pc, r2]                 ; GOT[388] METHODCONST CartPartList/<LoadPartCosts>c__AnonStorey90::<>m__2
+           000e25a8  str      r2, [r1, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e25ac  ldr      r2, [pc]                     
+           000e25b0  b        #0xe25b8                     ; -> L_e25b8
+           000e25b4  .word    0x00ec2dbc                   ; literal 15478204 / 
+L_e25b8:   000e25b8  ldr      r2, [pc, r2]                 ; GOT[389] DELEGATE_TRAMPOLINE System.Predicate`1<CartPart>
+           000e25bc  str      r2, [r1, #0xc]               ; field+0xc 
+           000e25c0  ldr      r8, [pc]                     
+           000e25c4  b        #0xe25cc                     ; -> L_e25cc
+           000e25c8  .word    0x00ec2dac                   ; literal 15478188 / 
+L_e25cc:   000e25cc  ldr      r8, [pc, r8]                 ; GOT[390] METHOD_RGCTX System.Array::Find<CartPart>
+           000e25d0  bl       #0x22c190                    ; CALL System.Array::Find<CartPart>
+           000e25d4  str      r0, [fp, #0x10]              
+           000e25d8  mov      r1, #0                       
+           000e25dc  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e25e0  cmp      r0, #0                       
+           000e25e4  beq      #0xe25f8                     ; -> L_e25f8
+           000e25e8  ldr      r1, [fp, #0xc]               
+           000e25ec  ldr      r0, [fp, #0x10]              
+           000e25f0  str      r1, [r0, #0x28]              ; field+0x28 
+           000e25f4  b        #0xe26a8                     ; -> L_e26a8
+L_e25f8:   000e25f8  ldr      r0, [fp, #0x64]              
+           000e25fc  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e2600  str      r0, [fp, #0x70]              
+           000e2604  cmp      r6, #0                       
+           000e2608  bleq     #0xe2858                     ; THROW System.ArgumentException (if eq)
+           000e260c  ldr      r0, [pc]                     
+           000e2610  b        #0xe2618                     ; -> L_e2618
+           000e2614  .word    0x00ec2d64                   ; literal 15478116 / 
+L_e2618:   000e2618  ldr      r0, [pc, r0]                 ; GOT[391] VTABLE System.Predicate`1<PaintJob>
+           000e261c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e2620  mov      r1, r0                       
+           000e2624  ldr      r0, [fp, #0x70]              
+           000e2628  str      r6, [r1, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e262c  ldr      r2, [pc]                     
+           000e2630  b        #0xe2638                     ; -> L_e2638
+           000e2634  .word    0x00ec2d48                   ; literal 15478088 / 
+L_e2638:   000e2638  ldr      r2, [pc, r2]                 ; GOT[392] METHODCONST CartPartList/<LoadPartCosts>c__AnonStorey90::<>m__3
+           000e263c  str      r2, [r1, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e2640  ldr      r2, [pc]                     
+           000e2644  b        #0xe264c                     ; -> L_e264c
+           000e2648  .word    0x00ec2d38                   ; literal 15478072 / 
+L_e264c:   000e264c  ldr      r2, [pc, r2]                 ; GOT[393] DELEGATE_TRAMPOLINE System.Predicate`1<PaintJob>
+           000e2650  str      r2, [r1, #0xc]               ; field+0xc 
+           000e2654  ldr      r8, [pc]                     
+           000e2658  b        #0xe2660                     ; -> L_e2660
+           000e265c  .word    0x00ec2d28                   ; literal 15478056 / 
+L_e2660:   000e2660  ldr      r8, [pc, r8]                 ; GOT[394] METHOD_RGCTX System.Array::Find<PaintJob>
+           000e2664  bl       #0x22c1a0                    ; CALL System.Array::Find<PaintJob>
+           000e2668  str      r0, [fp, #0x14]              
+           000e266c  mov      r1, #0                       
+           000e2670  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e2674  cmp      r0, #0                       
+           000e2678  beq      #0xe268c                     ; -> L_e268c
+           000e267c  ldr      r1, [fp, #0xc]               
+           000e2680  ldr      r0, [fp, #0x14]              
+           000e2684  str      r1, [r0, #0x1c]              ; field+0x1c (this-class: carSlotMap)
+           000e2688  b        #0xe26a8                     ; -> L_e26a8
+L_e268c:   000e268c  ldr      r0, [pc]                     
+           000e2690  b        #0xe2698                     ; -> L_e2698
+           000e2694  .word    0x00ec2cf4                   ; literal 15478004 / 
+L_e2698:   000e2698  ldr      r0, [pc, r0]                 ; GOT[395] LDSTR 'Could not find a part to modify with name '
+           000e269c  ldr      r1, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e26a0  bl       #0x22adc0                    ; CALL System.String::Concat
+           000e26a4  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+L_e26a8:   000e26a8  ldr      r1, [fp, #8]                 
+           000e26ac  mov      r0, r1                       
+           000e26b0  ldr      r1, [r1]                     
+           000e26b4  ldr      r8, [pc]                     
+           000e26b8  b        #0xe26c0                     ; -> L_e26c0
+           000e26bc  .word    0x00ec2800                   ; literal 15476736 / 
+L_e26c0:   000e26c0  ldr      r8, [pc, r8]                 ; GOT[88] METHODCONST System.Collections.IEnumerator::MoveNext
+           000e26c4  add      lr, pc, #4                   
+           000e26c8  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           000e26cc  andeq    r0, r0, r0                   
+           000e26d0  cmp      r0, #0                       
+           000e26d4  bne      #0xe2398                     ; -> L_e2398
+           000e26d8  bl       #0xe26e0                     ; CALL 0xe26e0
+           000e26dc  b        #0xe2848                     ; -> L_e2848
+           000e26e0  str      lr, [fp, #0x38]              
+           000e26e4  ldr      r0, [fp, #8]                 
+           000e26e8  str      r0, [fp, #0x20]              
+           000e26ec  ldr      r0, [fp, #0x20]              
+           000e26f0  str      r0, [fp, #0x58]              
+           000e26f4  cmp      r0, #0                       
+           000e26f8  beq      #0xe2790                     ; -> L_e2790
+           000e26fc  ldr      r0, [fp, #0x58]              
+           000e2700  ldr      r0, [r0]                     
+           000e2704  str      r0, [fp, #0x5c]              
+           000e2708  ldrh     r0, [r0, #0x18]              ; field+0x18 (this-class: defaultEquipment)
+           000e270c  ldr      r1, [pc]                     
+           000e2710  b        #0xe2718                     ; -> L_e2718
+           000e2714  .word    0x00ec27ac                   ; literal 15476652 / 
+L_e2718:   000e2718  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           000e271c  cmp      r0, r1                       
+           000e2720  blo      #0xe2760                     ; -> L_e2760
+           000e2724  ldr      r0, [fp, #0x5c]              
+           000e2728  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e272c  ldr      r1, [pc]                     
+           000e2730  b        #0xe2738                     ; -> L_e2738
+           000e2734  .word    0x00ec278c                   ; literal 15476620 / 
+L_e2738:   000e2738  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           000e273c  asr      r2, r1, #3                   
+           000e2740  add      r0, r0, r2                   
+           000e2744  ldrb     r0, [r0]                     
+           000e2748  and      r2, r1, #7                   
+           000e274c  mov      r1, #1                       
+           000e2750  lsl      r1, r1, r2                   
+           000e2754  and      r0, r0, r1                   
+           000e2758  cmp      r0, #0                       
+           000e275c  bne      #0xe27a8                     ; -> L_e27a8
+L_e2760:   000e2760  ldr      r0, [fp, #0x5c]              
+           000e2764  ldr      r0, [r0]                     
+           000e2768  ldr      r1, [pc]                     
+           000e276c  b        #0xe2774                     ; -> L_e2774
+           000e2770  .word    0x00ec2754                   ; literal 15476564 / 
+L_e2774:   000e2774  ldr      r1, [pc, r1]                 ; GOT[90] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           000e2778  cmp      r0, r1                       
+           000e277c  bne      #0xe2790                     ; -> L_e2790
+           000e2780  ldr      r0, [fp, #0x58]              
+           000e2784  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e2788  cmp      r0, #0                       
+           000e278c  bne      #0xe279c                     ; -> L_e279c
+L_e2790:   000e2790  mov      r0, #1                       
+           000e2794  str      r0, [fp, #0x60]              
+           000e2798  b        #0xe27b0                     ; -> L_e27b0
+L_e279c:   000e279c  mov      r0, #2                       
+           000e27a0  str      r0, [fp, #0x60]              
+           000e27a4  b        #0xe27b0                     ; -> L_e27b0
+L_e27a8:   000e27a8  mov      r0, #0                       
+           000e27ac  str      r0, [fp, #0x60]              
+L_e27b0:   000e27b0  ldr      r0, [fp, #0x60]              
+           000e27b4  str      r0, [fp, #0x24]              
+           000e27b8  mov      r1, r0                       
+           000e27bc  ldr      r0, [fp, #0x24]              
+           000e27c0  str      r1, [fp, #0x28]              
+           000e27c4  cmp      r0, #0                       
+           000e27c8  beq      #0xe27f4                     ; -> L_e27f4
+           000e27cc  ldr      r0, [fp, #0x28]              
+           000e27d0  cmp      r0, #2                       
+           000e27d4  bne      #0xe27e8                     ; -> L_e27e8
+           000e27d8  ldr      r0, [fp, #0x20]              
+           000e27dc  bl       #0x22af60                    ; CALL wrapper wrapper20(System.IDisposable)
+           000e27e0  str      r0, [fp, #0x2c]              
+           000e27e4  b        #0xe27fc                     ; -> L_e27fc
+L_e27e8:   000e27e8  mov      r0, #0                       
+           000e27ec  str      r0, [fp, #0x2c]              
+           000e27f0  b        #0xe27fc                     ; -> L_e27fc
+L_e27f4:   000e27f4  ldr      r0, [fp, #0x20]              
+           000e27f8  str      r0, [fp, #0x2c]              
+L_e27fc:   000e27fc  ldr      r0, [fp, #0x2c]              
+           000e2800  str      r0, [fp, #0x1c]              
+           000e2804  str      r0, [fp, #0x18]              
+           000e2808  cmp      r0, #0                       
+           000e280c  bne      #0xe2818                     ; -> L_e2818
+           000e2810  ldr      ip, [fp, #0x38]              
+           000e2814  mov      pc, ip                       
+L_e2818:   000e2818  ldr      r1, [fp, #0x18]              
+           000e281c  mov      r0, r1                       
+           000e2820  ldr      r1, [r1]                     
+           000e2824  ldr      r8, [pc]                     
+           000e2828  b        #0xe2830                     ; -> L_e2830
+           000e282c  .word    0x00ec2578                   ; literal 15476088 / 
+L_e2830:   000e2830  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000e2834  add      lr, pc, #4                   
+           000e2838  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000e283c  andeq    r0, r0, r0                   
+           000e2840  ldr      ip, [fp, #0x38]              
+           000e2844  mov      pc, ip                       
+L_e2848:   000e2848  add      sp, fp, #0x78                
+           000e284c  pop      {r4, r5, r6, r8, sl, fp}     
+           000e2850  ldr      r7, [sp, #8]                 
+           000e2854  ldm      sp, {sp, pc}                 
+           000e2858  mov      r1, lr                       
+           000e285c  ldr      r0, [pc]                     
+           000e2860  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e2864  andeq    r0, r0, #0x4d                
+           000e2868  mov      r1, lr                       
+           000e286c  ldr      r0, [pc]                     
+           000e2870  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e2874  andeq    r0, r0, #0xfd                
+
+== CartPartList::ModifyPartCostsCoroutine  token 0x06000222 @0x000e2878 (72 bytes)
+   args: r0=this, 
+           000e2878  mov      ip, sp                       
+           000e287c  push     {r7, lr}                     
+           000e2880  mov      r7, sp                       
+           000e2884  push     {r8, fp, ip, lr}             
+           000e2888  sub      sp, sp, #8                   
+           000e288c  mov      fp, sp                       
+           000e2890  str      r0, [fp]                     
+           000e2894  ldr      r0, [pc]                     
+           000e2898  b        #0xe28a0                     ; -> L_e28a0
+           000e289c  .word    0x00ec2af0                   ; literal 15477488 / 
+L_e28a0:   000e28a0  ldr      r0, [pc, r0]                 ; GOT[396] VTABLE CartPartList/<ModifyPartCostsCoroutine>c__Iterator1F
+           000e28a4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e28a8  ldr      r1, [fp]                     
+           000e28ac  str      r1, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e28b0  add      sp, fp, #8                   
+           000e28b4  pop      {r8, fp}                     
+           000e28b8  ldr      r7, [sp, #8]                 
+           000e28bc  ldm      sp, {sp, pc}                 
+
+== CartPartList::OnExternalArchiveRead  token 0x06000223 @0x000e28c0 (64 bytes)
+   args: r0=this, archive
+           000e28c0  mov      ip, sp                       
+           000e28c4  push     {r7, lr}                     
+           000e28c8  mov      r7, sp                       
+           000e28cc  push     {r8, sl, fp, ip, lr}         
+           000e28d0  sub      sp, sp, #0xc                 
+           000e28d4  mov      fp, sp                       
+           000e28d8  str      r0, [fp]                     
+           000e28dc  mov      sl, r1                       
+           000e28e0  ldr      lr, [sl]                     
+           000e28e4  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: carSlotMap)
+           000e28e8  ldr      r0, [fp]                     
+           000e28ec  bl       #0x22c1b0                    ; CALL CartPartList::LoadPartCosts
+           000e28f0  add      sp, fp, #0xc                 
+           000e28f4  pop      {r8, sl, fp}                 
+           000e28f8  ldr      r7, [sp, #8]                 
+           000e28fc  ldm      sp, {sp, pc}                 
+
+== CartPartList::OnEnable  token 0x06000224 @0x000e2900 (276 bytes)
+   args: r0=this, 
+           000e2900  mov      ip, sp                       
+           000e2904  push     {r7, lr}                     
+           000e2908  mov      r7, sp                       
+           000e290c  push     {r6, r8, sl, fp, ip, lr}     
+           000e2910  sub      sp, sp, #0x10                
+           000e2914  mov      fp, sp                       
+           000e2918  mov      sl, r0                       
+           000e291c  ldr      r8, [pc]                     
+           000e2920  b        #0xe2928                     ; -> L_e2928
+           000e2924  .word    0x00ec29a8                   ; literal 15477160 / 
+L_e2928:   000e2928  ldr      r8, [pc, r8]                 ; GOT[348] METHOD_RGCTX UnityEngine.Component::GetComponent<ExternalPersistentArchive>
+           000e292c  mov      r0, sl                       
+           000e2930  bl       #0x22bfb0                    ; CALL UnityEngine.Component::GetComponent<ExternalPersistentArchive>
+           000e2934  mov      r6, r0                       
+           000e2938  mov      r1, #0                       
+           000e293c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e2940  cmp      r0, #0                       
+           000e2944  beq      #0xe29e4                     ; -> L_e29e4
+           000e2948  str      r6, [fp]                     
+           000e294c  ldr      r0, [r6, #0x18]              ; field+0x18 (this-class: defaultEquipment)
+           000e2950  str      r0, [fp, #8]                 
+           000e2954  cmp      sl, #0                       
+           000e2958  bleq     #0xe2a04                     ; THROW System.ArgumentException (if eq)
+           000e295c  ldr      r0, [pc]                     
+           000e2960  b        #0xe2968                     ; -> L_e2968
+           000e2964  .word    0x00ec296c                   ; literal 15477100 / 
+L_e2968:   000e2968  ldr      r0, [pc, r0]                 ; GOT[349] VTABLE System.Action`1<ExternalPersistentArchive>
+           000e296c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e2970  mov      r1, r0                       
+           000e2974  ldr      r0, [fp, #8]                 
+           000e2978  str      sl, [r1, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e297c  ldr      r2, [pc]                     
+           000e2980  b        #0xe2988                     ; -> L_e2988
+           000e2984  .word    0x00ec2a0c                   ; literal 15477260 / 
+L_e2988:   000e2988  ldr      r2, [pc, r2]                 ; GOT[397] METHODCONST CartPartList::OnExternalArchiveRead
+           000e298c  str      r2, [r1, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e2990  ldr      r2, [pc]                     
+           000e2994  b        #0xe299c                     ; -> L_e299c
+           000e2998  .word    0x00ec2940                   ; literal 15477056 / 
+L_e299c:   000e299c  ldr      r2, [pc, r2]                 ; GOT[351] DELEGATE_TRAMPOLINE System.Action`1<ExternalPersistentArchive>
+           000e29a0  str      r2, [r1, #0xc]               ; field+0xc 
+           000e29a4  bl       #0x22b670                    ; CALL System.Delegate::Combine
+           000e29a8  mov      sl, r0                       
+           000e29ac  cmp      sl, #0                       
+           000e29b0  beq      #0xe29dc                     ; -> L_e29dc
+           000e29b4  ldr      r0, [sl]                     
+           000e29b8  ldr      r0, [r0]                     
+           000e29bc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e29c0  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e29c4  ldr      r1, [pc]                     
+           000e29c8  b        #0xe29d0                     ; -> L_e29d0
+           000e29cc  .word    0x00ec2910                   ; literal 15477008 / 
+L_e29d0:   000e29d0  ldr      r1, [pc, r1]                 ; GOT[352] CLASS System.Action`1<ExternalPersistentArchive>
+           000e29d4  cmp      r0, r1                       
+           000e29d8  blne     #0xe29f4                     ; THROW System.InvalidCastException (if ne)
+L_e29dc:   000e29dc  ldr      r0, [fp]                     
+           000e29e0  str      sl, [r0, #0x18]              ; field+0x18 (this-class: defaultEquipment)
+L_e29e4:   000e29e4  add      sp, fp, #0x10                
+           000e29e8  pop      {r6, r8, sl, fp}             
+           000e29ec  ldr      r7, [sp, #8]                 
+           000e29f0  ldm      sp, {sp, pc}                 
+           000e29f4  mov      r1, lr                       
+           000e29f8  ldr      r0, [pc]                     
+           000e29fc  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e2a00  andeq    r0, r0, #0xfd                
+           000e2a04  mov      r1, lr                       
+           000e2a08  ldr      r0, [pc]                     
+           000e2a0c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e2a10  andeq    r0, r0, #0x4d                
+
+== CartPartList::OnDisable  token 0x06000225 @0x000e2a14 (276 bytes)
+   args: r0=this, 
+           000e2a14  mov      ip, sp                       
+           000e2a18  push     {r7, lr}                     
+           000e2a1c  mov      r7, sp                       
+           000e2a20  push     {r6, r8, sl, fp, ip, lr}     
+           000e2a24  sub      sp, sp, #0x10                
+           000e2a28  mov      fp, sp                       
+           000e2a2c  mov      sl, r0                       
+           000e2a30  ldr      r8, [pc]                     
+           000e2a34  b        #0xe2a3c                     ; -> L_e2a3c
+           000e2a38  .word    0x00ec2894                   ; literal 15476884 / 
+L_e2a3c:   000e2a3c  ldr      r8, [pc, r8]                 ; GOT[348] METHOD_RGCTX UnityEngine.Component::GetComponent<ExternalPersistentArchive>
+           000e2a40  mov      r0, sl                       
+           000e2a44  bl       #0x22bfb0                    ; CALL UnityEngine.Component::GetComponent<ExternalPersistentArchive>
+           000e2a48  mov      r6, r0                       
+           000e2a4c  mov      r1, #0                       
+           000e2a50  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e2a54  cmp      r0, #0                       
+           000e2a58  beq      #0xe2af8                     ; -> L_e2af8
+           000e2a5c  str      r6, [fp]                     
+           000e2a60  ldr      r0, [r6, #0x18]              ; field+0x18 (this-class: defaultEquipment)
+           000e2a64  str      r0, [fp, #8]                 
+           000e2a68  cmp      sl, #0                       
+           000e2a6c  bleq     #0xe2b18                     ; THROW System.ArgumentException (if eq)
+           000e2a70  ldr      r0, [pc]                     
+           000e2a74  b        #0xe2a7c                     ; -> L_e2a7c
+           000e2a78  .word    0x00ec2858                   ; literal 15476824 / 
+L_e2a7c:   000e2a7c  ldr      r0, [pc, r0]                 ; GOT[349] VTABLE System.Action`1<ExternalPersistentArchive>
+           000e2a80  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e2a84  mov      r1, r0                       
+           000e2a88  ldr      r0, [fp, #8]                 
+           000e2a8c  str      sl, [r1, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e2a90  ldr      r2, [pc]                     
+           000e2a94  b        #0xe2a9c                     ; -> L_e2a9c
+           000e2a98  .word    0x00ec28f8                   ; literal 15476984 / 
+L_e2a9c:   000e2a9c  ldr      r2, [pc, r2]                 ; GOT[397] METHODCONST CartPartList::OnExternalArchiveRead
+           000e2aa0  str      r2, [r1, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e2aa4  ldr      r2, [pc]                     
+           000e2aa8  b        #0xe2ab0                     ; -> L_e2ab0
+           000e2aac  .word    0x00ec282c                   ; literal 15476780 / 
+L_e2ab0:   000e2ab0  ldr      r2, [pc, r2]                 ; GOT[351] DELEGATE_TRAMPOLINE System.Action`1<ExternalPersistentArchive>
+           000e2ab4  str      r2, [r1, #0xc]               ; field+0xc 
+           000e2ab8  bl       #0x22b690                    ; CALL System.Delegate::Remove
+           000e2abc  mov      sl, r0                       
+           000e2ac0  cmp      sl, #0                       
+           000e2ac4  beq      #0xe2af0                     ; -> L_e2af0
+           000e2ac8  ldr      r0, [sl]                     
+           000e2acc  ldr      r0, [r0]                     
+           000e2ad0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e2ad4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e2ad8  ldr      r1, [pc]                     
+           000e2adc  b        #0xe2ae4                     ; -> L_e2ae4
+           000e2ae0  .word    0x00ec27fc                   ; literal 15476732 / 
+L_e2ae4:   000e2ae4  ldr      r1, [pc, r1]                 ; GOT[352] CLASS System.Action`1<ExternalPersistentArchive>
+           000e2ae8  cmp      r0, r1                       
+           000e2aec  blne     #0xe2b08                     ; THROW System.InvalidCastException (if ne)
+L_e2af0:   000e2af0  ldr      r0, [fp]                     
+           000e2af4  str      sl, [r0, #0x18]              ; field+0x18 (this-class: defaultEquipment)
+L_e2af8:   000e2af8  add      sp, fp, #0x10                
+           000e2afc  pop      {r6, r8, sl, fp}             
+           000e2b00  ldr      r7, [sp, #8]                 
+           000e2b04  ldm      sp, {sp, pc}                 
+           000e2b08  mov      r1, lr                       
+           000e2b0c  ldr      r0, [pc]                     
+           000e2b10  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e2b14  andeq    r0, r0, #0xfd                
+           000e2b18  mov      r1, lr                       
+           000e2b1c  ldr      r0, [pc]                     
+           000e2b20  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e2b24  andeq    r0, r0, #0x4d                
+
+== CartPartList::Start  token 0x06000226 @0x000e2b28 (1700 bytes)
+   args: r0=this, 
+           000e2b28  mov      ip, sp                       
+           000e2b2c  push     {r7, lr}                     
+           000e2b30  mov      r7, sp                       
+           000e2b34  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e2b38  sub      sp, sp, #0x78                
+           000e2b3c  mov      fp, sp                       
+           000e2b40  mov      sl, r0                       
+           000e2b44  mov      r0, #0                       
+           000e2b48  str      r0, [fp]                     
+           000e2b4c  mov      r0, #0                       
+           000e2b50  str      r0, [fp, #0x2c]              
+           000e2b54  ldr      r0, [pc]                     
+           000e2b58  b        #0xe2b60                     ; -> L_e2b60
+           000e2b5c  .word    0x00ec2838                   ; literal 15476792 / 
+L_e2b60:   000e2b60  ldr      r0, [pc, r0]                 ; GOT[398] TYPE_FROM_HANDLE typeof(CartSlot/Slots)
+           000e2b64  bl       #0x22af20                    ; CALL System.Enum::GetValues
+           000e2b68  str      r0, [fp, #0x6c]              
+           000e2b6c  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e2b70  str      r0, [fp, #0x74]              
+           000e2b74  ldr      r0, [pc]                     
+           000e2b78  b        #0xe2b80                     ; -> L_e2b80
+           000e2b7c  .word    0x00ec281c                   ; literal 15476764 / 
+L_e2b80:   000e2b80  ldr      r0, [pc, r0]                 ; GOT[399] VTABLE System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<CartPart>>
+           000e2b84  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e2b88  ldr      r1, [fp, #0x74]              
+           000e2b8c  str      r0, [fp, #0x70]              
+           000e2b90  bl       #0x22c1c0                    ; CALL System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<CartPart>>::.ctor
+           000e2b94  ldr      r0, [fp, #0x6c]              
+           000e2b98  ldr      r1, [fp, #0x70]              
+           000e2b9c  str      r1, [sl, #0x1c]              ; field+0x1c (this-class: carSlotMap)
+           000e2ba0  str      r0, [fp, #0x64]              
+           000e2ba4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e2ba8  str      r0, [fp, #0x68]              
+           000e2bac  ldr      r0, [pc]                     
+           000e2bb0  b        #0xe2bb8                     ; -> L_e2bb8
+           000e2bb4  .word    0x00ec27e8                   ; literal 15476712 / 
+L_e2bb8:   000e2bb8  ldr      r0, [pc, r0]                 ; GOT[400] VTABLE System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<PaintJob>>
+           000e2bbc  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e2bc0  ldr      r1, [fp, #0x68]              
+           000e2bc4  str      r0, [fp, #0x60]              
+           000e2bc8  bl       #0x22c1d0                    ; CALL System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<PaintJob>>::.ctor
+           000e2bcc  ldr      r0, [fp, #0x60]              
+           000e2bd0  ldr      r1, [fp, #0x64]              
+           000e2bd4  str      r0, [sl, #0x20]              ; field+0x20 (this-class: paintJobMap)
+           000e2bd8  mov      r0, r1                       
+           000e2bdc  ldr      lr, [r1]                     
+           000e2be0  bl       #0x22af40                    ; CALL System.Array::GetEnumerator
+           000e2be4  str      r0, [fp]                     
+           000e2be8  b        #0xe2ce0                     ; -> L_e2ce0
+L_e2bec:   000e2bec  ldr      r1, [fp]                     
+           000e2bf0  mov      r0, r1                       
+           000e2bf4  ldr      r1, [r1]                     
+           000e2bf8  ldr      r8, [pc]                     
+           000e2bfc  b        #0xe2c04                     ; -> L_e2c04
+           000e2c00  .word    0x00ec22b4                   ; literal 15475380 / 
+L_e2c04:   000e2c04  ldr      r8, [pc, r8]                 ; GOT[86] METHODCONST System.Collections.IEnumerator::get_Current
+           000e2c08  add      lr, pc, #4                   
+           000e2c0c  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           000e2c10  andeq    r0, r0, r0                   
+           000e2c14  ldr      r1, [r0]                     
+           000e2c18  ldrb     r2, [r1, #0x1a]              ; field+0x1a 
+           000e2c1c  cmp      r2, #0                       
+           000e2c20  blne     #0xe31bc                     ; THROW System.InvalidCastException (if ne)
+           000e2c24  ldr      r1, [r1]                     
+           000e2c28  ldr      r1, [r1]                     
+           000e2c2c  ldr      r2, [pc]                     
+           000e2c30  b        #0xe2c38                     ; -> L_e2c38
+           000e2c34  .word    0x00ec2284                   ; literal 15475332 / 
+L_e2c38:   000e2c38  ldr      r2, [pc, r2]                 ; GOT[87] CLASS System.Int32
+           000e2c3c  cmp      r1, r2                       
+           000e2c40  blne     #0xe31bc                     ; THROW System.InvalidCastException (if ne)
+           000e2c44  ldr      r6, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e2c48  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: carSlotMap)
+           000e2c4c  str      r0, [fp, #0x64]              
+           000e2c50  ldr      r0, [pc]                     
+           000e2c54  b        #0xe2c5c                     ; -> L_e2c5c
+           000e2c58  .word    0x00ec2748                   ; literal 15476552 / 
+L_e2c5c:   000e2c5c  ldr      r0, [pc, r0]                 ; GOT[401] VTABLE System.Collections.Generic.List`1<CartPart>
+           000e2c60  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e2c64  mov      r2, r0                       
+           000e2c68  ldr      r3, [fp, #0x64]              
+           000e2c6c  ldr      r0, [pc]                     
+           000e2c70  b        #0xe2c78                     ; -> L_e2c78
+           000e2c74  .word    0x00ec2730                   ; literal 15476528 / 
+L_e2c78:   000e2c78  ldr      r0, [pc, r0]                 ; GOT[402] SFLDA System.Collections.Generic.List`1<CartPart>::EmptyArray
+           000e2c7c  ldr      r0, [r0]                     
+           000e2c80  str      r0, [r2, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e2c84  mov      r0, r3                       
+           000e2c88  mov      r1, r6                       
+           000e2c8c  ldr      lr, [r3]                     
+           000e2c90  bl       #0x22c1e0                    ; CALL System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<CartPart>>::set_Item
+           000e2c94  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: paintJobMap)
+           000e2c98  str      r0, [fp, #0x60]              
+           000e2c9c  ldr      r0, [pc]                     
+           000e2ca0  b        #0xe2ca8                     ; -> L_e2ca8
+           000e2ca4  .word    0x00ec2704                   ; literal 15476484 / 
+L_e2ca8:   000e2ca8  ldr      r0, [pc, r0]                 ; GOT[403] VTABLE System.Collections.Generic.List`1<PaintJob>
+           000e2cac  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e2cb0  mov      r2, r0                       
+           000e2cb4  ldr      r3, [fp, #0x60]              
+           000e2cb8  ldr      r0, [pc]                     
+           000e2cbc  b        #0xe2cc4                     ; -> L_e2cc4
+           000e2cc0  .word    0x00ec26ec                   ; literal 15476460 / 
+L_e2cc4:   000e2cc4  ldr      r0, [pc, r0]                 ; GOT[404] SFLDA System.Collections.Generic.List`1<PaintJob>::EmptyArray
+           000e2cc8  ldr      r0, [r0]                     
+           000e2ccc  str      r0, [r2, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e2cd0  mov      r0, r3                       
+           000e2cd4  mov      r1, r6                       
+           000e2cd8  ldr      lr, [r3]                     
+           000e2cdc  bl       #0x22c1f0                    ; CALL System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<PaintJob>>::set_Item
+L_e2ce0:   000e2ce0  ldr      r1, [fp]                     
+           000e2ce4  mov      r0, r1                       
+           000e2ce8  ldr      r1, [r1]                     
+           000e2cec  ldr      r8, [pc]                     
+           000e2cf0  b        #0xe2cf8                     ; -> L_e2cf8
+           000e2cf4  .word    0x00ec21c8                   ; literal 15475144 / 
+L_e2cf8:   000e2cf8  ldr      r8, [pc, r8]                 ; GOT[88] METHODCONST System.Collections.IEnumerator::MoveNext
+           000e2cfc  add      lr, pc, #4                   
+           000e2d00  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           000e2d04  andeq    r0, r0, r0                   
+           000e2d08  cmp      r0, #0                       
+           000e2d0c  bne      #0xe2bec                     ; -> L_e2bec
+           000e2d10  bl       #0xe2d18                     ; CALL 0xe2d18
+           000e2d14  b        #0xe2e80                     ; -> L_e2e80
+           000e2d18  str      lr, [fp, #0x4c]              
+           000e2d1c  ldr      r0, [fp]                     
+           000e2d20  str      r0, [fp, #0x34]              
+           000e2d24  ldr      r0, [fp, #0x34]              
+           000e2d28  str      r0, [fp, #0x50]              
+           000e2d2c  cmp      r0, #0                       
+           000e2d30  beq      #0xe2dc8                     ; -> L_e2dc8
+           000e2d34  ldr      r0, [fp, #0x50]              
+           000e2d38  ldr      r0, [r0]                     
+           000e2d3c  str      r0, [fp, #0x54]              
+           000e2d40  ldrh     r0, [r0, #0x18]              ; field+0x18 (this-class: defaultEquipment)
+           000e2d44  ldr      r1, [pc]                     
+           000e2d48  b        #0xe2d50                     ; -> L_e2d50
+           000e2d4c  .word    0x00ec2174                   ; literal 15475060 / 
+L_e2d50:   000e2d50  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           000e2d54  cmp      r0, r1                       
+           000e2d58  blo      #0xe2d98                     ; -> L_e2d98
+           000e2d5c  ldr      r0, [fp, #0x54]              
+           000e2d60  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e2d64  ldr      r1, [pc]                     
+           000e2d68  b        #0xe2d70                     ; -> L_e2d70
+           000e2d6c  .word    0x00ec2154                   ; literal 15475028 / 
+L_e2d70:   000e2d70  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           000e2d74  asr      r2, r1, #3                   
+           000e2d78  add      r0, r0, r2                   
+           000e2d7c  ldrb     r0, [r0]                     
+           000e2d80  and      r2, r1, #7                   
+           000e2d84  mov      r1, #1                       
+           000e2d88  lsl      r1, r1, r2                   
+           000e2d8c  and      r0, r0, r1                   
+           000e2d90  cmp      r0, #0                       
+           000e2d94  bne      #0xe2de0                     ; -> L_e2de0
+L_e2d98:   000e2d98  ldr      r0, [fp, #0x54]              
+           000e2d9c  ldr      r0, [r0]                     
+           000e2da0  ldr      r1, [pc]                     
+           000e2da4  b        #0xe2dac                     ; -> L_e2dac
+           000e2da8  .word    0x00ec211c                   ; literal 15474972 / 
+L_e2dac:   000e2dac  ldr      r1, [pc, r1]                 ; GOT[90] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           000e2db0  cmp      r0, r1                       
+           000e2db4  bne      #0xe2dc8                     ; -> L_e2dc8
+           000e2db8  ldr      r0, [fp, #0x50]              
+           000e2dbc  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e2dc0  cmp      r0, #0                       
+           000e2dc4  bne      #0xe2dd4                     ; -> L_e2dd4
+L_e2dc8:   000e2dc8  mov      r0, #1                       
+           000e2dcc  str      r0, [fp, #0x58]              
+           000e2dd0  b        #0xe2de8                     ; -> L_e2de8
+L_e2dd4:   000e2dd4  mov      r0, #2                       
+           000e2dd8  str      r0, [fp, #0x58]              
+           000e2ddc  b        #0xe2de8                     ; -> L_e2de8
+L_e2de0:   000e2de0  mov      r0, #0                       
+           000e2de4  str      r0, [fp, #0x58]              
+L_e2de8:   000e2de8  ldr      r0, [fp, #0x58]              
+           000e2dec  str      r0, [fp, #0x38]              
+           000e2df0  mov      r1, r0                       
+           000e2df4  ldr      r0, [fp, #0x38]              
+           000e2df8  str      r1, [fp, #0x3c]              
+           000e2dfc  cmp      r0, #0                       
+           000e2e00  beq      #0xe2e2c                     ; -> L_e2e2c
+           000e2e04  ldr      r0, [fp, #0x3c]              
+           000e2e08  cmp      r0, #2                       
+           000e2e0c  bne      #0xe2e20                     ; -> L_e2e20
+           000e2e10  ldr      r0, [fp, #0x34]              
+           000e2e14  bl       #0x22af60                    ; CALL wrapper wrapper20(System.IDisposable)
+           000e2e18  str      r0, [fp, #0x40]              
+           000e2e1c  b        #0xe2e34                     ; -> L_e2e34
+L_e2e20:   000e2e20  mov      r0, #0                       
+           000e2e24  str      r0, [fp, #0x40]              
+           000e2e28  b        #0xe2e34                     ; -> L_e2e34
+L_e2e2c:   000e2e2c  ldr      r0, [fp, #0x34]              
+           000e2e30  str      r0, [fp, #0x40]              
+L_e2e34:   000e2e34  ldr      r0, [fp, #0x40]              
+           000e2e38  str      r0, [fp, #0x30]              
+           000e2e3c  str      r0, [fp, #0x2c]              
+           000e2e40  cmp      r0, #0                       
+           000e2e44  bne      #0xe2e50                     ; -> L_e2e50
+           000e2e48  ldr      ip, [fp, #0x4c]              
+           000e2e4c  mov      pc, ip                       
+L_e2e50:   000e2e50  ldr      r1, [fp, #0x2c]              
+           000e2e54  mov      r0, r1                       
+           000e2e58  ldr      r1, [r1]                     
+           000e2e5c  ldr      r8, [pc]                     
+           000e2e60  b        #0xe2e68                     ; -> L_e2e68
+           000e2e64  .word    0x00ec1f40                   ; literal 15474496 / 
+L_e2e68:   000e2e68  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000e2e6c  add      lr, pc, #4                   
+           000e2e70  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000e2e74  andeq    r0, r0, r0                   
+           000e2e78  ldr      ip, [fp, #0x4c]              
+           000e2e7c  mov      pc, ip                       
+L_e2e80:   000e2e80  ldr      r4, [sl, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e2e84  mov      r0, #0                       
+           000e2e88  str      r0, [fp, #4]                 
+           000e2e8c  b        #0xe2ee0                     ; -> L_e2ee0
+L_e2e90:   000e2e90  ldr      r1, [r4, #0xc]               ; field+0xc 
+           000e2e94  ldr      r0, [fp, #4]                 
+           000e2e98  cmp      r1, r0                       
+           000e2e9c  blls     #0xe31ac                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e2ea0  lsl      r0, r0, #2                   
+           000e2ea4  add      r0, r4, r0                   
+           000e2ea8  add      r0, r0, #0x10                
+           000e2eac  ldr      r5, [r0]                     
+           000e2eb0  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: carSlotMap)
+           000e2eb4  ldr      r1, [r5, #0x2c]              ; field+0x2c 
+           000e2eb8  mov      r0, r2                       
+           000e2ebc  ldr      lr, [r2]                     
+           000e2ec0  bl       #0x22c200                    ; CALL System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<CartPart>>::get_Item
+           000e2ec4  mov      r2, r0                       
+           000e2ec8  mov      r1, r5                       
+           000e2ecc  ldr      lr, [r2]                     
+           000e2ed0  bl       #0x22c210                    ; CALL System.Collections.Generic.List`1<CartPart>::Add
+           000e2ed4  ldr      r0, [fp, #4]                 
+           000e2ed8  add      r0, r0, #1                   
+           000e2edc  str      r0, [fp, #4]                 
+L_e2ee0:   000e2ee0  ldr      r1, [r4, #0xc]               ; field+0xc 
+           000e2ee4  ldr      r0, [fp, #4]                 
+           000e2ee8  cmp      r0, r1                       
+           000e2eec  blt      #0xe2e90                     ; -> L_e2e90
+           000e2ef0  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e2ef4  str      r0, [fp, #0xc]               
+           000e2ef8  mov      r0, #0                       
+           000e2efc  str      r0, [fp, #0x10]              
+           000e2f00  b        #0xe2f5c                     ; -> L_e2f5c
+L_e2f04:   000e2f04  ldr      r0, [fp, #0xc]               
+           000e2f08  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000e2f0c  ldr      r1, [fp, #0x10]              
+           000e2f10  cmp      r2, r1                       
+           000e2f14  blls     #0xe31ac                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e2f18  lsl      r1, r1, #2                   
+           000e2f1c  add      r0, r0, r1                   
+           000e2f20  add      r0, r0, #0x10                
+           000e2f24  ldr      r0, [r0]                     
+           000e2f28  str      r0, [fp, #8]                 
+           000e2f2c  ldr      r2, [sl, #0x20]              ; field+0x20 (this-class: paintJobMap)
+           000e2f30  ldr      r1, [r0, #0x18]              ; field+0x18 (this-class: defaultEquipment)
+           000e2f34  mov      r0, r2                       
+           000e2f38  ldr      lr, [r2]                     
+           000e2f3c  bl       #0x22c220                    ; CALL System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<PaintJob>>::get_Item
+           000e2f40  mov      r2, r0                       
+           000e2f44  ldr      r1, [fp, #8]                 
+           000e2f48  ldr      lr, [r2]                     
+           000e2f4c  bl       #0x22c230                    ; CALL System.Collections.Generic.List`1<PaintJob>::Add
+           000e2f50  ldr      r0, [fp, #0x10]              
+           000e2f54  add      r0, r0, #1                   
+           000e2f58  str      r0, [fp, #0x10]              
+L_e2f5c:   000e2f5c  ldr      r0, [fp, #0xc]               
+           000e2f60  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e2f64  ldr      r0, [fp, #0x10]              
+           000e2f68  cmp      r0, r1                       
+           000e2f6c  blt      #0xe2f04                     ; -> L_e2f04
+           000e2f70  ldr      r0, [pc]                     
+           000e2f74  b        #0xe2f7c                     ; -> L_e2f7c
+           000e2f78  .word    0x00ec2414                   ; literal 15475732 / 
+L_e2f7c:   000e2f7c  ldr      r0, [pc, r0]                 ; GOT[396] VTABLE CartPartList/<ModifyPartCostsCoroutine>c__Iterator1F
+           000e2f80  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e2f84  mov      r1, r0                       
+           000e2f88  str      sl, [r1, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e2f8c  mov      r0, sl                       
+           000e2f90  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000e2f94  bl       #0x22c240                    ; CALL UnityEngine.Debug::get_isDebugBuild
+           000e2f98  cmp      r0, #0                       
+           000e2f9c  beq      #0xe319c                     ; -> L_e319c
+           000e2fa0  mov      r0, #0                       
+           000e2fa4  str      r0, [fp, #0x14]              
+           000e2fa8  b        #0xe3078                     ; -> L_e3078
+L_e2fac:   000e2fac  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e2fb0  ldr      r2, [r1, #0xc]               ; field+0xc 
+           000e2fb4  ldr      r0, [fp, #0x14]              
+           000e2fb8  cmp      r2, r0                       
+           000e2fbc  blls     #0xe31ac                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e2fc0  lsl      r2, r0, #2                   
+           000e2fc4  add      r1, r1, r2                   
+           000e2fc8  add      r1, r1, #0x10                
+           000e2fcc  ldr      r1, [r1]                     
+           000e2fd0  str      r1, [fp, #0x18]              
+           000e2fd4  add      r0, r0, #1                   
+           000e2fd8  str      r0, [fp, #0x1c]              
+           000e2fdc  b        #0xe3058                     ; -> L_e3058
+L_e2fe0:   000e2fe0  ldr      r0, [fp, #0x18]              
+           000e2fe4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e2fe8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e2fec  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e2ff0  ldr      r3, [r1, #0xc]               ; field+0xc 
+           000e2ff4  ldr      r2, [fp, #0x1c]              
+           000e2ff8  cmp      r3, r2                       
+           000e2ffc  blls     #0xe31ac                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e3000  lsl      r2, r2, #2                   
+           000e3004  add      r1, r1, r2                   
+           000e3008  add      r1, r1, #0x10                
+           000e300c  ldr      r1, [r1]                     
+           000e3010  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e3014  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e3018  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000e301c  cmp      r0, #0                       
+           000e3020  beq      #0xe304c                     ; -> L_e304c
+           000e3024  ldr      r0, [pc]                     
+           000e3028  b        #0xe3030                     ; -> L_e3030
+           000e302c  .word    0x00ec2384                   ; literal 15475588 / 
+L_e3030:   000e3030  ldr      r0, [pc, r0]                 ; GOT[405] LDSTR 'Duplicate part names found: '
+           000e3034  ldr      r1, [fp, #0x18]              
+           000e3038  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e303c  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e3040  bl       #0x22adc0                    ; CALL System.String::Concat
+           000e3044  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           000e3048  bl       #0x22c250                    ; CALL UnityEngine.Debug::Break
+L_e304c:   000e304c  ldr      r0, [fp, #0x1c]              
+           000e3050  add      r0, r0, #1                   
+           000e3054  str      r0, [fp, #0x1c]              
+L_e3058:   000e3058  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e305c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e3060  ldr      r0, [fp, #0x1c]              
+           000e3064  cmp      r0, r1                       
+           000e3068  blt      #0xe2fe0                     ; -> L_e2fe0
+           000e306c  ldr      r0, [fp, #0x14]              
+           000e3070  add      r0, r0, #1                   
+           000e3074  str      r0, [fp, #0x14]              
+L_e3078:   000e3078  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e307c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e3080  ldr      r0, [fp, #0x14]              
+           000e3084  cmp      r0, r1                       
+           000e3088  blt      #0xe2fac                     ; -> L_e2fac
+           000e308c  mov      r0, #0                       
+           000e3090  str      r0, [fp, #0x20]              
+           000e3094  b        #0xe3188                     ; -> L_e3188
+L_e3098:   000e3098  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e309c  ldr      r2, [r1, #0xc]               ; field+0xc 
+           000e30a0  ldr      r0, [fp, #0x20]              
+           000e30a4  cmp      r2, r0                       
+           000e30a8  blls     #0xe31ac                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e30ac  lsl      r2, r0, #2                   
+           000e30b0  add      r1, r1, r2                   
+           000e30b4  add      r1, r1, #0x10                
+           000e30b8  ldr      r1, [r1]                     
+           000e30bc  str      r1, [fp, #0x24]              
+           000e30c0  add      r0, r0, #1                   
+           000e30c4  str      r0, [fp, #0x28]              
+           000e30c8  b        #0xe3168                     ; -> L_e3168
+L_e30cc:   000e30cc  ldr      r0, [fp, #0x24]              
+           000e30d0  mov      r1, r0                       
+           000e30d4  ldr      lr, [r1]                     
+           000e30d8  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           000e30dc  str      r0, [fp, #0x60]              
+           000e30e0  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e30e4  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000e30e8  ldr      r1, [fp, #0x28]              
+           000e30ec  cmp      r2, r1                       
+           000e30f0  blls     #0xe31ac                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e30f4  lsl      r1, r1, #2                   
+           000e30f8  add      r0, r0, r1                   
+           000e30fc  add      r0, r0, #0x10                
+           000e3100  ldr      r1, [r0]                     
+           000e3104  mov      r0, r1                       
+           000e3108  ldr      lr, [r1]                     
+           000e310c  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           000e3110  mov      r1, r0                       
+           000e3114  ldr      r0, [fp, #0x60]              
+           000e3118  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000e311c  cmp      r0, #0                       
+           000e3120  beq      #0xe315c                     ; -> L_e315c
+           000e3124  ldr      r0, [pc]                     
+           000e3128  b        #0xe3130                     ; -> L_e3130
+           000e312c  .word    0x00ec2288                   ; literal 15475336 / 
+L_e3130:   000e3130  ldr      r0, [pc, r0]                 ; GOT[406] LDSTR 'Duplicate paint job names found: '
+           000e3134  str      r0, [fp, #0x60]              
+           000e3138  ldr      r0, [fp, #0x24]              
+           000e313c  mov      r1, r0                       
+           000e3140  ldr      lr, [r1]                     
+           000e3144  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           000e3148  mov      r1, r0                       
+           000e314c  ldr      r0, [fp, #0x60]              
+           000e3150  bl       #0x22adc0                    ; CALL System.String::Concat
+           000e3154  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           000e3158  bl       #0x22c250                    ; CALL UnityEngine.Debug::Break
+L_e315c:   000e315c  ldr      r0, [fp, #0x28]              
+           000e3160  add      r0, r0, #1                   
+           000e3164  str      r0, [fp, #0x28]              
+L_e3168:   000e3168  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e316c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e3170  ldr      r0, [fp, #0x28]              
+           000e3174  cmp      r0, r1                       
+           000e3178  blt      #0xe30cc                     ; -> L_e30cc
+           000e317c  ldr      r0, [fp, #0x20]              
+           000e3180  add      r0, r0, #1                   
+           000e3184  str      r0, [fp, #0x20]              
+L_e3188:   000e3188  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e318c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e3190  ldr      r0, [fp, #0x20]              
+           000e3194  cmp      r0, r1                       
+           000e3198  blt      #0xe3098                     ; -> L_e3098
+L_e319c:   000e319c  add      sp, fp, #0x78                
+           000e31a0  pop      {r4, r5, r6, r8, sl, fp}     
+           000e31a4  ldr      r7, [sp, #8]                 
+           000e31a8  ldm      sp, {sp, pc}                 
+           000e31ac  mov      r1, lr                       
+           000e31b0  ldr      r0, [pc]                     
+           000e31b4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e31b8  andeq    r0, r0, #0xf8                
+           000e31bc  mov      r1, lr                       
+           000e31c0  ldr      r0, [pc]                     
+           000e31c4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e31c8  andeq    r0, r0, #0xfd                
+
+== CartPartList::CartPartListExists  token 0x06000227 @0x000e31cc (136 bytes) static
+   args: 
+           000e31cc  mov      ip, sp                       
+           000e31d0  push     {r7, lr}                     
+           000e31d4  mov      r7, sp                       
+           000e31d8  push     {r5, r6, r8, fp, ip, lr}     
+           000e31dc  sub      sp, sp, #8                   
+           000e31e0  mov      fp, sp                       
+           000e31e4  ldr      r0, [pc]                     
+           000e31e8  b        #0xe31f0                     ; -> L_e31f0
+           000e31ec  .word    0x00ec214c                   ; literal 15475020 / 
+L_e31f0:   000e31f0  ldr      r0, [pc, r0]                 ; GOT[375] TYPE_FROM_HANDLE typeof(CartPartList)
+           000e31f4  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           000e31f8  mov      r6, r0                       
+           000e31fc  mov      r5, r6                       
+           000e3200  cmp      r6, #0                       
+           000e3204  beq      #0xe3234                     ; -> L_e3234
+           000e3208  ldr      r0, [r6]                     
+           000e320c  ldr      r0, [r0]                     
+           000e3210  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e3214  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e3218  ldr      r1, [pc]                     
+           000e321c  b        #0xe3224                     ; -> L_e3224
+           000e3220  .word    0x00ec211c                   ; literal 15474972 / 
+L_e3224:   000e3224  ldr      r1, [pc, r1]                 ; GOT[376] CLASS CartPartList
+           000e3228  cmp      r0, r1                       
+           000e322c  beq      #0xe3234                     ; -> L_e3234
+           000e3230  mov      r5, #0                       
+L_e3234:   000e3234  str      r5, [fp]                     
+           000e3238  mov      r0, r5                       
+           000e323c  mov      r1, #0                       
+           000e3240  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e3244  add      sp, fp, #8                   
+           000e3248  pop      {r5, r6, r8, fp}             
+           000e324c  ldr      r7, [sp, #8]                 
+           000e3250  ldm      sp, {sp, pc}                 
+
+== CartPartList::GetAllParts  token 0x06000228 @0x000e3254 (44 bytes) static
+   args: 
+           000e3254  mov      ip, sp                       
+           000e3258  push     {r7, lr}                     
+           000e325c  mov      r7, sp                       
+           000e3260  push     {r8, fp, ip, lr}             
+           000e3264  mov      fp, sp                       
+           000e3268  bl       #0x22c260                    ; CALL CartPartList::GetInstance
+           000e326c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e3270  add      sp, fp, #0                   
+           000e3274  pop      {r8, fp}                     
+           000e3278  ldr      r7, [sp, #8]                 
+           000e327c  ldm      sp, {sp, pc}                 
+
+== CartPartList::GetPart  token 0x06000229 @0x000e3280 (300 bytes) static
+   args: name
+           000e3280  mov      ip, sp                       
+           000e3284  push     {r7, lr}                     
+           000e3288  mov      r7, sp                       
+           000e328c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e3290  sub      sp, sp, #0x10                
+           000e3294  mov      fp, sp                       
+           000e3298  str      r0, [fp, #8]                 
+           000e329c  bl       #0x22c260                    ; CALL CartPartList::GetInstance
+           000e32a0  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e32a4  str      r0, [fp, #4]                 
+           000e32a8  mov      sl, #0                       
+           000e32ac  b        #0xe3378                     ; -> L_e3378
+L_e32b0:   000e32b0  ldr      r0, [fp, #4]                 
+           000e32b4  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e32b8  cmp      r1, sl                       
+           000e32bc  blls     #0xe339c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e32c0  lsl      r1, sl, #2                   
+           000e32c4  add      r0, r0, r1                   
+           000e32c8  add      r0, r0, #0x10                
+           000e32cc  ldr      r0, [r0]                     
+           000e32d0  str      r0, [fp]                     
+           000e32d4  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: carSlotMap)
+           000e32d8  mov      r1, #0                       
+           000e32dc  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000e32e0  cmp      r0, #0                       
+           000e32e4  beq      #0xe330c                     ; -> L_e330c
+           000e32e8  ldr      r0, [fp]                     
+           000e32ec  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e32f0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e32f4  ldr      r1, [fp, #8]                 
+           000e32f8  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000e32fc  cmp      r0, #0                       
+           000e3300  beq      #0xe3374                     ; -> L_e3374
+           000e3304  ldr      r0, [fp]                     
+           000e3308  b        #0xe338c                     ; -> L_e338c
+L_e330c:   000e330c  ldr      r0, [fp]                     
+           000e3310  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: carSlotMap)
+           000e3314  ldr      r4, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e3318  mov      r6, #0                       
+           000e331c  b        #0xe3368                     ; -> L_e3368
+L_e3320:   000e3320  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000e3324  cmp      r0, r6                       
+           000e3328  blls     #0xe339c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e332c  lsl      r0, r6, #2                   
+           000e3330  add      r0, r4, r0                   
+           000e3334  add      r0, r0, #0x10                
+           000e3338  ldr      r5, [r0]                     
+           000e333c  mov      r0, r5                       
+           000e3340  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e3344  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e3348  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e334c  ldr      r1, [fp, #8]                 
+           000e3350  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000e3354  cmp      r0, #0                       
+           000e3358  beq      #0xe3364                     ; -> L_e3364
+           000e335c  ldr      r0, [r5, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e3360  b        #0xe338c                     ; -> L_e338c
+L_e3364:   000e3364  add      r6, r6, #1                   
+L_e3368:   000e3368  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000e336c  cmp      r6, r0                       
+           000e3370  blt      #0xe3320                     ; -> L_e3320
+L_e3374:   000e3374  add      sl, sl, #1                   
+L_e3378:   000e3378  ldr      r0, [fp, #4]                 
+           000e337c  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e3380  cmp      sl, r0                       
+           000e3384  blt      #0xe32b0                     ; -> L_e32b0
+           000e3388  mov      r0, #0                       
+L_e338c:   000e338c  add      sp, fp, #0x10                
+           000e3390  pop      {r4, r5, r6, r8, sl, fp}     
+           000e3394  ldr      r7, [sp, #8]                 
+           000e3398  ldm      sp, {sp, pc}                 
+           000e339c  mov      r1, lr                       
+           000e33a0  ldr      r0, [pc]                     
+           000e33a4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e33a8  andeq    r0, r0, #0xf8                
+
+== CartPartList::GetSlotPartList  token 0x0600022a @0x000e33ac (80 bytes) static
+   args: slot
+           000e33ac  mov      ip, sp                       
+           000e33b0  push     {r7, lr}                     
+           000e33b4  mov      r7, sp                       
+           000e33b8  push     {r8, fp, ip, lr}             
+           000e33bc  sub      sp, sp, #8                   
+           000e33c0  mov      fp, sp                       
+           000e33c4  str      r0, [fp]                     
+           000e33c8  bl       #0x22c260                    ; CALL CartPartList::GetInstance
+           000e33cc  ldr      r2, [r0, #0x1c]              ; field+0x1c (this-class: carSlotMap)
+           000e33d0  mov      r0, r2                       
+           000e33d4  ldr      r1, [fp]                     
+           000e33d8  ldr      lr, [r2]                     
+           000e33dc  bl       #0x22c200                    ; CALL System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<CartPart>>::get_Item
+           000e33e0  mov      r1, r0                       
+           000e33e4  ldr      lr, [r1]                     
+           000e33e8  bl       #0x22c270                    ; CALL System.Collections.Generic.List`1<CartPart>::ToArray
+           000e33ec  add      sp, fp, #8                   
+           000e33f0  pop      {r8, fp}                     
+           000e33f4  ldr      r7, [sp, #8]                 
+           000e33f8  ldm      sp, {sp, pc}                 
+
+== CartPartList::GetDefaultParts  token 0x0600022b @0x000e33fc (44 bytes) static
+   args: 
+           000e33fc  mov      ip, sp                       
+           000e3400  push     {r7, lr}                     
+           000e3404  mov      r7, sp                       
+           000e3408  push     {r8, fp, ip, lr}             
+           000e340c  mov      fp, sp                       
+           000e3410  bl       #0x22c260                    ; CALL CartPartList::GetInstance
+           000e3414  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: defaultEquipment)
+           000e3418  add      sp, fp, #0                   
+           000e341c  pop      {r8, fp}                     
+           000e3420  ldr      r7, [sp, #8]                 
+           000e3424  ldm      sp, {sp, pc}                 
+
+== CartPartList::GetAllPaintJobs  token 0x0600022c @0x000e3428 (44 bytes) static
+   args: 
+           000e3428  mov      ip, sp                       
+           000e342c  push     {r7, lr}                     
+           000e3430  mov      r7, sp                       
+           000e3434  push     {r8, fp, ip, lr}             
+           000e3438  mov      fp, sp                       
+           000e343c  bl       #0x22c260                    ; CALL CartPartList::GetInstance
+           000e3440  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e3444  add      sp, fp, #0                   
+           000e3448  pop      {r8, fp}                     
+           000e344c  ldr      r7, [sp, #8]                 
+           000e3450  ldm      sp, {sp, pc}                 
+
+== CartPartList::GetPaintJob  token 0x0600022d @0x000e3454 (160 bytes) static
+   args: name
+           000e3454  mov      ip, sp                       
+           000e3458  push     {r7, lr}                     
+           000e345c  mov      r7, sp                       
+           000e3460  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e3464  mov      fp, sp                       
+           000e3468  mov      sl, r0                       
+           000e346c  bl       #0x22c260                    ; CALL CartPartList::GetInstance
+           000e3470  ldr      r5, [r0, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e3474  mov      r4, #0                       
+           000e3478  b        #0xe34c4                     ; -> L_e34c4
+L_e347c:   000e347c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000e3480  cmp      r0, r4                       
+           000e3484  blls     #0xe34e4                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e3488  lsl      r0, r4, #2                   
+           000e348c  add      r0, r5, r0                   
+           000e3490  add      r0, r0, #0x10                
+           000e3494  ldr      r6, [r0]                     
+           000e3498  mov      r1, r6                       
+           000e349c  mov      r0, r1                       
+           000e34a0  ldr      lr, [r1]                     
+           000e34a4  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           000e34a8  mov      r1, sl                       
+           000e34ac  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000e34b0  cmp      r0, #0                       
+           000e34b4  beq      #0xe34c0                     ; -> L_e34c0
+           000e34b8  mov      r0, r6                       
+           000e34bc  b        #0xe34d4                     ; -> L_e34d4
+L_e34c0:   000e34c0  add      r4, r4, #1                   
+L_e34c4:   000e34c4  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000e34c8  cmp      r4, r0                       
+           000e34cc  blt      #0xe347c                     ; -> L_e347c
+           000e34d0  mov      r0, #0                       
+L_e34d4:   000e34d4  add      sp, fp, #0                   
+           000e34d8  pop      {r4, r5, r6, r8, sl, fp}     
+           000e34dc  ldr      r7, [sp, #8]                 
+           000e34e0  ldm      sp, {sp, pc}                 
+           000e34e4  mov      r1, lr                       
+           000e34e8  ldr      r0, [pc]                     
+           000e34ec  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e34f0  andeq    r0, r0, #0xf8                
+
+== CartPartList::GetSlotPaintJobList  token 0x0600022e @0x000e34f4 (80 bytes) static
+   args: slot
+           000e34f4  mov      ip, sp                       
+           000e34f8  push     {r7, lr}                     
+           000e34fc  mov      r7, sp                       
+           000e3500  push     {r8, fp, ip, lr}             
+           000e3504  sub      sp, sp, #8                   
+           000e3508  mov      fp, sp                       
+           000e350c  str      r0, [fp]                     
+           000e3510  bl       #0x22c260                    ; CALL CartPartList::GetInstance
+           000e3514  ldr      r2, [r0, #0x20]              ; field+0x20 (this-class: paintJobMap)
+           000e3518  mov      r0, r2                       
+           000e351c  ldr      r1, [fp]                     
+           000e3520  ldr      lr, [r2]                     
+           000e3524  bl       #0x22c220                    ; CALL System.Collections.Generic.Dictionary`2<CartSlot/Slots,System.Collections.Generic.List`1<PaintJob>>::get_Item
+           000e3528  mov      r1, r0                       
+           000e352c  ldr      lr, [r1]                     
+           000e3530  bl       #0x22c280                    ; CALL System.Collections.Generic.List`1<PaintJob>::ToArray
+           000e3534  add      sp, fp, #8                   
+           000e3538  pop      {r8, fp}                     
+           000e353c  ldr      r7, [sp, #8]                 
+           000e3540  ldm      sp, {sp, pc}                 
+
+== CartPartList::GetNextPurchasablePartForSlot  token 0x0600022f @0x000e3544 (164 bytes) static
+   args: slot
+           000e3544  mov      ip, sp                       
+           000e3548  push     {r7, lr}                     
+           000e354c  mov      r7, sp                       
+           000e3550  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e3554  mov      fp, sp                       
+           000e3558  mov      sl, r0                       
+           000e355c  bl       #0x22c260                    ; CALL CartPartList::GetInstance
+           000e3560  ldr      r5, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e3564  mov      r4, #0                       
+           000e3568  b        #0xe35b8                     ; -> L_e35b8
+L_e356c:   000e356c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000e3570  cmp      r0, r4                       
+           000e3574  blls     #0xe35d8                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e3578  lsl      r0, r4, #2                   
+           000e357c  add      r0, r5, r0                   
+           000e3580  add      r0, r0, #0x10                
+           000e3584  ldr      r6, [r0]                     
+           000e3588  mov      r0, r6                       
+           000e358c  ldr      r0, [r0, #0x2c]              ; field+0x2c 
+           000e3590  cmp      r0, sl                       
+           000e3594  bne      #0xe35b4                     ; -> L_e35b4
+           000e3598  mov      r0, r6                       
+           000e359c  ldr      lr, [r6]                     
+           000e35a0  bl       #0xe1e90                     ; CALL CartPart::get_IsLocked (direct)
+           000e35a4  cmp      r0, #0                       
+           000e35a8  beq      #0xe35b4                     ; -> L_e35b4
+           000e35ac  mov      r0, r6                       
+           000e35b0  b        #0xe35c8                     ; -> L_e35c8
+L_e35b4:   000e35b4  add      r4, r4, #1                   
+L_e35b8:   000e35b8  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000e35bc  cmp      r4, r0                       
+           000e35c0  blt      #0xe356c                     ; -> L_e356c
+           000e35c4  mov      r0, #0                       
+L_e35c8:   000e35c8  add      sp, fp, #0                   
+           000e35cc  pop      {r4, r5, r6, r8, sl, fp}     
+           000e35d0  ldr      r7, [sp, #8]                 
+           000e35d4  ldm      sp, {sp, pc}                 
+           000e35d8  mov      r1, lr                       
+           000e35dc  ldr      r0, [pc]                     
+           000e35e0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e35e4  andeq    r0, r0, #0xf8                
+
+== CartPartList::GetMostExpensiveAffordablePart  token 0x06000230 @0x000e35e8 (212 bytes) static
+   args: threshold
+           000e35e8  mov      ip, sp                       
+           000e35ec  push     {r7, lr}                     
+           000e35f0  mov      r7, sp                       
+           000e35f4  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e35f8  sub      sp, sp, #8                   
+           000e35fc  mov      fp, sp                       
+           000e3600  mov      sl, r0                       
+           000e3604  bl       #0x22c260                    ; CALL CartPartList::GetInstance
+           000e3608  mov      r1, #0                       
+           000e360c  str      r1, [fp]                     
+           000e3610  ldr      r4, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e3614  mov      r5, #0                       
+           000e3618  b        #0xe368c                     ; -> L_e368c
+L_e361c:   000e361c  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000e3620  cmp      r0, r5                       
+           000e3624  blls     #0xe36ac                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e3628  lsl      r0, r5, #2                   
+           000e362c  add      r0, r4, r0                   
+           000e3630  add      r0, r0, #0x10                
+           000e3634  ldr      r6, [r0]                     
+           000e3638  mov      r1, r6                       
+           000e363c  mov      r0, r1                       
+           000e3640  ldr      lr, [r1]                     
+           000e3644  bl       #0xe1e90                     ; CALL CartPart::get_IsLocked (direct)
+           000e3648  cmp      r0, #0                       
+           000e364c  beq      #0xe3688                     ; -> L_e3688
+           000e3650  ldr      r0, [r6, #0x28]              ; field+0x28 
+           000e3654  cmp      r0, sl                       
+           000e3658  bgt      #0xe3688                     ; -> L_e3688
+           000e365c  ldr      r0, [fp]                     
+           000e3660  mov      r1, #0                       
+           000e3664  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000e3668  cmp      r0, #0                       
+           000e366c  bne      #0xe3684                     ; -> L_e3684
+           000e3670  ldr      r0, [r6, #0x28]              ; field+0x28 
+           000e3674  ldr      r1, [fp]                     
+           000e3678  ldr      r1, [r1, #0x28]              ; field+0x28 
+           000e367c  cmp      r0, r1                       
+           000e3680  ble      #0xe3688                     ; -> L_e3688
+L_e3684:   000e3684  str      r6, [fp]                     
+L_e3688:   000e3688  add      r5, r5, #1                   
+L_e368c:   000e368c  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000e3690  cmp      r5, r0                       
+           000e3694  blt      #0xe361c                     ; -> L_e361c
+           000e3698  ldr      r0, [fp]                     
+           000e369c  add      sp, fp, #8                   
+           000e36a0  pop      {r4, r5, r6, r8, sl, fp}     
+           000e36a4  ldr      r7, [sp, #8]                 
+           000e36a8  ldm      sp, {sp, pc}                 
+           000e36ac  mov      r1, lr                       
+           000e36b0  ldr      r0, [pc]                     
+           000e36b4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e36b8  andeq    r0, r0, #0xf8                
+
+== CartPartList::GetMostExpensiveUnlockableAffordablePart  token 0x06000231 @0x000e36bc (1060 bytes) static
+   args: threshold
+           000e36bc  mov      ip, sp                       
+           000e36c0  push     {r7, lr}                     
+           000e36c4  mov      r7, sp                       
+           000e36c8  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e36cc  sub      sp, sp, #0x78                
+           000e36d0  mov      fp, sp                       
+           000e36d4  str      r0, [fp, #0x70]              
+           000e36d8  mov      r0, #0                       
+           000e36dc  str      r0, [fp]                     
+           000e36e0  mov      r0, #0                       
+           000e36e4  str      r0, [fp, #8]                 
+           000e36e8  mov      r0, #0                       
+           000e36ec  str      r0, [fp, #0xc]               
+           000e36f0  mov      r0, #0                       
+           000e36f4  str      r0, [fp, #0x10]              
+           000e36f8  mov      r0, #0                       
+           000e36fc  str      r0, [fp, #0x14]              
+           000e3700  mov      r0, #0                       
+           000e3704  str      r0, [fp, #0x18]              
+           000e3708  ldr      r0, [pc]                     
+           000e370c  b        #0xe3714                     ; -> L_e3714
+           000e3710  .word    0x00ec1c90                   ; literal 15473808 / 
+L_e3714:   000e3714  ldr      r0, [pc, r0]                 ; GOT[401] VTABLE System.Collections.Generic.List`1<CartPart>
+           000e3718  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e371c  ldr      r1, [pc]                     
+           000e3720  b        #0xe3728                     ; -> L_e3728
+           000e3724  .word    0x00ec1c80                   ; literal 15473792 / 
+L_e3728:   000e3728  ldr      r1, [pc, r1]                 ; GOT[402] SFLDA System.Collections.Generic.List`1<CartPart>::EmptyArray
+           000e372c  ldr      r1, [r1]                     
+           000e3730  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e3734  mov      sl, r0                       
+           000e3738  ldr      r0, [pc]                     
+           000e373c  b        #0xe3744                     ; -> L_e3744
+           000e3740  .word    0x00ec1c54                   ; literal 15473748 / 
+L_e3744:   000e3744  ldr      r0, [pc, r0]                 ; GOT[398] TYPE_FROM_HANDLE typeof(CartSlot/Slots)
+           000e3748  bl       #0x22af20                    ; CALL System.Enum::GetValues
+           000e374c  mov      r1, r0                       
+           000e3750  ldr      lr, [r1]                     
+           000e3754  bl       #0x22af40                    ; CALL System.Array::GetEnumerator
+           000e3758  str      r0, [fp]                     
+           000e375c  b        #0xe37f8                     ; -> L_e37f8
+L_e3760:   000e3760  ldr      r1, [fp]                     
+           000e3764  mov      r0, r1                       
+           000e3768  ldr      r1, [r1]                     
+           000e376c  ldr      r8, [pc]                     
+           000e3770  b        #0xe3778                     ; -> L_e3778
+           000e3774  .word    0x00ec1740                   ; literal 15472448 / 
+L_e3778:   000e3778  ldr      r8, [pc, r8]                 ; GOT[86] METHODCONST System.Collections.IEnumerator::get_Current
+           000e377c  add      lr, pc, #4                   
+           000e3780  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           000e3784  andeq    r0, r0, r0                   
+           000e3788  ldr      r1, [r0]                     
+           000e378c  ldrb     r2, [r1, #0x1a]              ; field+0x1a 
+           000e3790  cmp      r2, #0                       
+           000e3794  blne     #0xe3ad0                     ; THROW System.InvalidCastException (if ne)
+           000e3798  ldr      r1, [r1]                     
+           000e379c  ldr      r1, [r1]                     
+           000e37a0  ldr      r2, [pc]                     
+           000e37a4  b        #0xe37ac                     ; -> L_e37ac
+           000e37a8  .word    0x00ec1710                   ; literal 15472400 / 
+L_e37ac:   000e37ac  ldr      r2, [pc, r2]                 ; GOT[87] CLASS System.Int32
+           000e37b0  cmp      r1, r2                       
+           000e37b4  blne     #0xe3ad0                     ; THROW System.InvalidCastException (if ne)
+           000e37b8  ldr      r6, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e37bc  mov      r0, r6                       
+           000e37c0  cmp      r0, #5                       
+           000e37c4  bne      #0xe37cc                     ; -> L_e37cc
+           000e37c8  b        #0xe37f8                     ; -> L_e37f8
+L_e37cc:   000e37cc  mov      r0, r6                       
+           000e37d0  bl       #0xe3544                     ; CALL CartPartList::GetNextPurchasablePartForSlot (direct)
+           000e37d4  mov      r5, r0                       
+           000e37d8  mov      r1, #0                       
+           000e37dc  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e37e0  cmp      r0, #0                       
+           000e37e4  beq      #0xe37f8                     ; -> L_e37f8
+           000e37e8  mov      r0, sl                       
+           000e37ec  mov      r1, r5                       
+           000e37f0  ldr      lr, [sl]                     
+           000e37f4  bl       #0x22c210                    ; CALL System.Collections.Generic.List`1<CartPart>::Add
+L_e37f8:   000e37f8  ldr      r1, [fp]                     
+           000e37fc  mov      r0, r1                       
+           000e3800  ldr      r1, [r1]                     
+           000e3804  ldr      r8, [pc]                     
+           000e3808  b        #0xe3810                     ; -> L_e3810
+           000e380c  .word    0x00ec16b0                   ; literal 15472304 / 
+L_e3810:   000e3810  ldr      r8, [pc, r8]                 ; GOT[88] METHODCONST System.Collections.IEnumerator::MoveNext
+           000e3814  add      lr, pc, #4                   
+           000e3818  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           000e381c  andeq    r0, r0, r0                   
+           000e3820  cmp      r0, #0                       
+           000e3824  bne      #0xe3760                     ; -> L_e3760
+           000e3828  bl       #0xe3830                     ; CALL 0xe3830
+           000e382c  b        #0xe3998                     ; -> L_e3998
+           000e3830  str      lr, [fp, #0x48]              
+           000e3834  ldr      r0, [fp]                     
+           000e3838  str      r0, [fp, #0x20]              
+           000e383c  ldr      r0, [fp, #0x20]              
+           000e3840  str      r0, [fp, #0x54]              
+           000e3844  cmp      r0, #0                       
+           000e3848  beq      #0xe38e0                     ; -> L_e38e0
+           000e384c  ldr      r0, [fp, #0x54]              
+           000e3850  ldr      r0, [r0]                     
+           000e3854  str      r0, [fp, #0x58]              
+           000e3858  ldrh     r0, [r0, #0x18]              ; field+0x18 (this-class: defaultEquipment)
+           000e385c  ldr      r1, [pc]                     
+           000e3860  b        #0xe3868                     ; -> L_e3868
+           000e3864  .word    0x00ec165c                   ; literal 15472220 / 
+L_e3868:   000e3868  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           000e386c  cmp      r0, r1                       
+           000e3870  blo      #0xe38b0                     ; -> L_e38b0
+           000e3874  ldr      r0, [fp, #0x58]              
+           000e3878  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: paintJobs)
+           000e387c  ldr      r1, [pc]                     
+           000e3880  b        #0xe3888                     ; -> L_e3888
+           000e3884  .word    0x00ec163c                   ; literal 15472188 / 
+L_e3888:   000e3888  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           000e388c  asr      r2, r1, #3                   
+           000e3890  add      r0, r0, r2                   
+           000e3894  ldrb     r0, [r0]                     
+           000e3898  and      r2, r1, #7                   
+           000e389c  mov      r1, #1                       
+           000e38a0  lsl      r1, r1, r2                   
+           000e38a4  and      r0, r0, r1                   
+           000e38a8  cmp      r0, #0                       
+           000e38ac  bne      #0xe38f8                     ; -> L_e38f8
+L_e38b0:   000e38b0  ldr      r0, [fp, #0x58]              
+           000e38b4  ldr      r0, [r0]                     
+           000e38b8  ldr      r1, [pc]                     
+           000e38bc  b        #0xe38c4                     ; -> L_e38c4
+           000e38c0  .word    0x00ec1604                   ; literal 15472132 / 
+L_e38c4:   000e38c4  ldr      r1, [pc, r1]                 ; GOT[90] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           000e38c8  cmp      r0, r1                       
+           000e38cc  bne      #0xe38e0                     ; -> L_e38e0
+           000e38d0  ldr      r0, [fp, #0x54]              
+           000e38d4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: cartParts)
+           000e38d8  cmp      r0, #0                       
+           000e38dc  bne      #0xe38ec                     ; -> L_e38ec
+L_e38e0:   000e38e0  mov      r0, #1                       
+           000e38e4  str      r0, [fp, #0x5c]              
+           000e38e8  b        #0xe3900                     ; -> L_e3900
+L_e38ec:   000e38ec  mov      r0, #2                       
+           000e38f0  str      r0, [fp, #0x5c]              
+           000e38f4  b        #0xe3900                     ; -> L_e3900
+L_e38f8:   000e38f8  mov      r0, #0                       
+           000e38fc  str      r0, [fp, #0x5c]              
+L_e3900:   000e3900  ldr      r0, [fp, #0x5c]              
+           000e3904  str      r0, [fp, #0x24]              
+           000e3908  mov      r1, r0                       
+           000e390c  ldr      r0, [fp, #0x24]              
+           000e3910  str      r1, [fp, #0x28]              
+           000e3914  cmp      r0, #0                       
+           000e3918  beq      #0xe3944                     ; -> L_e3944
+           000e391c  ldr      r0, [fp, #0x28]              
+           000e3920  cmp      r0, #2                       
+           000e3924  bne      #0xe3938                     ; -> L_e3938
+           000e3928  ldr      r0, [fp, #0x20]              
+           000e392c  bl       #0x22af60                    ; CALL wrapper wrapper20(System.IDisposable)
+           000e3930  str      r0, [fp, #0x2c]              
+           000e3934  b        #0xe394c                     ; -> L_e394c
+L_e3938:   000e3938  mov      r0, #0                       
+           000e393c  str      r0, [fp, #0x2c]              
+           000e3940  b        #0xe394c                     ; -> L_e394c
+L_e3944:   000e3944  ldr      r0, [fp, #0x20]              
+           000e3948  str      r0, [fp, #0x2c]              
+L_e394c:   000e394c  ldr      r0, [fp, #0x2c]              
+           000e3950  str      r0, [fp, #0x1c]              
+           000e3954  str      r0, [fp, #0x18]              
+           000e3958  cmp      r0, #0                       
+           000e395c  bne      #0xe3968                     ; -> L_e3968
+           000e3960  ldr      ip, [fp, #0x48]              
+           000e3964  mov      pc, ip                       
+L_e3968:   000e3968  ldr      r1, [fp, #0x18]              
+           000e396c  mov      r0, r1                       
+           000e3970  ldr      r1, [r1]                     
+           000e3974  ldr      r8, [pc]                     
+           000e3978  b        #0xe3980                     ; -> L_e3980
+           000e397c  .word    0x00ec1428                   ; literal 15471656 / 
+L_e3980:   000e3980  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000e3984  add      lr, pc, #4                   
+           000e3988  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000e398c  andeq    r0, r0, r0                   
+           000e3990  ldr      ip, [fp, #0x48]              
+           000e3994  mov      pc, ip                       
+L_e3998:   000e3998  mov      r0, #0                       
+           000e399c  str      r0, [fp, #4]                 
+           000e39a0  add      r0, fp, #8                   
+           000e39a4  mov      r1, sl                       
+           000e39a8  ldr      lr, [sl]                     
+           000e39ac  bl       #0x22c290                    ; CALL System.Collections.Generic.List`1<CartPart>::GetEnumerator
+           000e39b0  b        #0xe3a08                     ; -> L_e3a08
+L_e39b4:   000e39b4  ldr      r0, [pc]                     
+           000e39b8  b        #0xe39c0                     ; -> L_e39c0
+           000e39bc  .word    0x00ec19fc                   ; literal 15473148 / 
+L_e39c0:   000e39c0  ldr      r0, [pc, r0]                 ; GOT[407] VTABLE System.Collections.Generic.List`1/Enumerator<CartPart>
+           000e39c4  ldr      r4, [fp, #0x14]              
+           000e39c8  mov      r0, r4                       
+           000e39cc  ldr      r0, [r0, #0x28]              ; field+0x28 
+           000e39d0  ldr      r1, [fp, #0x70]              
+           000e39d4  cmp      r0, r1                       
+           000e39d8  bgt      #0xe3a08                     ; -> L_e3a08
+           000e39dc  ldr      r0, [fp, #4]                 
+           000e39e0  mov      r1, #0                       
+           000e39e4  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000e39e8  cmp      r0, #0                       
+           000e39ec  bne      #0xe3a04                     ; -> L_e3a04
+           000e39f0  ldr      r0, [r4, #0x28]              ; field+0x28 
+           000e39f4  ldr      r1, [fp, #4]                 
+           000e39f8  ldr      r1, [r1, #0x28]              ; field+0x28 
+           000e39fc  cmp      r0, r1                       
+           000e3a00  ble      #0xe3a08                     ; -> L_e3a08
+L_e3a04:   000e3a04  str      r4, [fp, #4]                 
+L_e3a08:   000e3a08  add      r0, fp, #8                   
+           000e3a0c  ldr      r8, [pc]                     
+           000e3a10  b        #0xe3a18                     ; -> L_e3a18
+           000e3a14  .word    0x00ec19a4                   ; literal 15473060 / 
+L_e3a18:   000e3a18  ldr      r8, [pc, r8]                 ; GOT[407] VTABLE System.Collections.Generic.List`1/Enumerator<CartPart>
+           000e3a1c  bl       #0x22c2a0                    ; CALL System.Collections.Generic.List`1/Enumerator<CartPart>::MoveNext
+           000e3a20  cmp      r0, #0                       
+           000e3a24  bne      #0xe39b4                     ; -> L_e39b4
+           000e3a28  bl       #0xe3a30                     ; CALL 0xe3a30
+           000e3a2c  b        #0xe3abc                     ; -> L_e3abc
+           000e3a30  str      lr, [fp, #0x50]              
+           000e3a34  ldr      r0, [fp, #8]                 
+           000e3a38  str      r0, [fp, #0x60]              
+           000e3a3c  ldr      r0, [fp, #0xc]               
+           000e3a40  str      r0, [fp, #0x64]              
+           000e3a44  ldr      r0, [fp, #0x10]              
+           000e3a48  str      r0, [fp, #0x68]              
+           000e3a4c  ldr      r0, [fp, #0x14]              
+           000e3a50  str      r0, [fp, #0x6c]              
+           000e3a54  ldr      r0, [pc]                     
+           000e3a58  b        #0xe3a60                     ; -> L_e3a60
+           000e3a5c  .word    0x00ec195c                   ; literal 15472988 / 
+L_e3a60:   000e3a60  ldr      r0, [pc, r0]                 ; GOT[407] VTABLE System.Collections.Generic.List`1/Enumerator<CartPart>
+           000e3a64  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e3a68  mov      r1, r0                       
+           000e3a6c  add      r0, r1, #8                   
+           000e3a70  ldr      r2, [fp, #0x60]              
+           000e3a74  str      r2, [r0]                     
+           000e3a78  ldr      r2, [fp, #0x64]              
+           000e3a7c  str      r2, [r0, #4]                 ; field+0x4 
+           000e3a80  ldr      r2, [fp, #0x68]              
+           000e3a84  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e3a88  ldr      r2, [fp, #0x6c]              
+           000e3a8c  str      r2, [r0, #0xc]               ; field+0xc 
+           000e3a90  mov      r0, r1                       
+           000e3a94  ldr      r1, [r1]                     
+           000e3a98  ldr      r8, [pc]                     
+           000e3a9c  b        #0xe3aa4                     ; -> L_e3aa4
+           000e3aa0  .word    0x00ec1304                   ; literal 15471364 / 
+L_e3aa4:   000e3aa4  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000e3aa8  add      lr, pc, #4                   
+           000e3aac  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000e3ab0  andeq    r0, r0, r0                   
+           000e3ab4  ldr      ip, [fp, #0x50]              
+           000e3ab8  mov      pc, ip                       
+L_e3abc:   000e3abc  ldr      r0, [fp, #4]                 
+           000e3ac0  add      sp, fp, #0x78                
+           000e3ac4  pop      {r4, r5, r6, r8, sl, fp}     
+           000e3ac8  ldr      r7, [sp, #8]                 
+           000e3acc  ldm      sp, {sp, pc}                 
+           000e3ad0  mov      r1, lr                       
+           000e3ad4  ldr      r0, [pc]                     
+           000e3ad8  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e3adc  andeq    r0, r0, #0xfd                
+
+####################################################################################################
+# TYPE CartPartList/<ModifyPartCostsCoroutine>c__Iterator1F  (instance size 0x18)
+#   +0x08 <archive>__0                   ExternalPersistentArchive
+#   +0x0c $current                       object
+#   +0x10 <>f__this                      CartPartList
+#   +0x14 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== CartPartList/<ModifyPartCostsCoroutine>c__Iterator1F::.ctor  token 0x06000887 @0x00145b9c (44 bytes)
+   args: r0=this, 
+           00145b9c  mov      ip, sp                       
+           00145ba0  push     {r7, lr}                     
+           00145ba4  mov      r7, sp                       
+           00145ba8  push     {r8, fp, ip, lr}             
+           00145bac  sub      sp, sp, #8                   
+           00145bb0  mov      fp, sp                       
+           00145bb4  str      r0, [fp]                     
+           00145bb8  add      sp, fp, #8                   
+           00145bbc  pop      {r8, fp}                     
+           00145bc0  ldr      r7, [sp, #8]                 
+           00145bc4  ldm      sp, {sp, pc}                 
+
+== CartPartList/<ModifyPartCostsCoroutine>c__Iterator1F::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x06000888 @0x00145bc8 (52 bytes)
+   args: r0=this, 
+           00145bc8  mov      ip, sp                       
+           00145bcc  push     {r7, lr}                     
+           00145bd0  mov      r7, sp                       
+           00145bd4  push     {r8, fp, ip, lr}             
+           00145bd8  sub      sp, sp, #8                   
+           00145bdc  mov      fp, sp                       
+           00145be0  str      r0, [fp]                     
+           00145be4  ldr      r0, [fp]                     
+           00145be8  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           00145bec  add      sp, fp, #8                   
+           00145bf0  pop      {r8, fp}                     
+           00145bf4  ldr      r7, [sp, #8]                 
+           00145bf8  ldm      sp, {sp, pc}                 
+
+== CartPartList/<ModifyPartCostsCoroutine>c__Iterator1F::System.Collections.IEnumerator.get_Current  token 0x06000889 @0x00145bfc (52 bytes)
+   args: r0=this, 
+           00145bfc  mov      ip, sp                       
+           00145c00  push     {r7, lr}                     
+           00145c04  mov      r7, sp                       
+           00145c08  push     {r8, fp, ip, lr}             
+           00145c0c  sub      sp, sp, #8                   
+           00145c10  mov      fp, sp                       
+           00145c14  str      r0, [fp]                     
+           00145c18  ldr      r0, [fp]                     
+           00145c1c  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           00145c20  add      sp, fp, #8                   
+           00145c24  pop      {r8, fp}                     
+           00145c28  ldr      r7, [sp, #8]                 
+           00145c2c  ldm      sp, {sp, pc}                 
+
+== CartPartList/<ModifyPartCostsCoroutine>c__Iterator1F::MoveNext  token 0x0600088a @0x00145c30 (260 bytes)
+   args: r0=this, 
+           00145c30  mov      ip, sp                       
+           00145c34  push     {r7, lr}                     
+           00145c38  mov      r7, sp                       
+           00145c3c  push     {r8, sl, fp, ip, lr}         
+           00145c40  sub      sp, sp, #0xc                 
+           00145c44  mov      fp, sp                       
+           00145c48  mov      sl, r0                       
+           00145c4c  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           00145c50  mvn      r1, #0                       
+           00145c54  str      r1, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           00145c58  str      r0, [fp]                     
+           00145c5c  cmp      r0, #2                       
+           00145c60  bhs      #0x145d18                    ; -> L_145d18
+           00145c64  ldr      r0, [fp]                     
+           00145c68  lsl      r1, r0, #2                   
+           00145c6c  ldr      r0, [pc]                     
+           00145c70  b        #0x145c78                    ; -> L_145c78
+           00145c74  .word    0x00e60c08                   ; literal 15076360 / 
+L_145c78:  00145c78  ldr      r0, [pc, r0]                 ; GOT[1736] SWITCH switch table[2]
+           00145c7c  add      r0, r0, r1                   
+           00145c80  ldr      r0, [r0]                     
+           00145c84  mov      pc, r0                       
+           00145c88  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           00145c8c  ldr      r8, [pc]                     
+           00145c90  b        #0x145c98                    ; -> L_145c98
+           00145c94  .word    0x00e5f638                   ; literal 15070776 / 
+L_145c98:  00145c98  ldr      r8, [pc, r8]                 ; GOT[348] METHOD_RGCTX UnityEngine.Component::GetComponent<ExternalPersistentArchive>
+           00145c9c  bl       #0x22bfb0                    ; CALL UnityEngine.Component::GetComponent<ExternalPersistentArchive>
+           00145ca0  str      r0, [sl, #8]                 ; field+0x8 (this-class: <archive>__0)
+           00145ca4  mov      r1, #0                       
+           00145ca8  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           00145cac  cmp      r0, #0                       
+           00145cb0  beq      #0x145ce0                    ; -> L_145ce0
+           00145cb4  ldr      r0, [pc]                     
+           00145cb8  b        #0x145cc0                    ; -> L_145cc0
+           00145cbc  .word    0x00e60bb8                   ; literal 15076280 / 
+L_145cc0:  00145cc0  ldr      r0, [pc, r0]                 ; GOT[1734] LDSTR 'No ExternalPersistentArchive component!'
+           00145cc4  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           00145cc8  b        #0x145d18                    ; -> L_145d18
+L_145ccc:  00145ccc  mov      r0, #0                       
+           00145cd0  str      r0, [sl, #0xc]               ; field+0xc (this-class: $current)
+           00145cd4  mov      r0, #1                       
+           00145cd8  str      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           00145cdc  b        #0x145d20                    ; -> L_145d20
+L_145ce0:  00145ce0  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: <archive>__0)
+           00145ce4  mov      r1, r0                       
+           00145ce8  ldr      lr, [r1]                     
+           00145cec  ldr      r0, [r0, #0x1c]              ; field+0x1c 
+           00145cf0  cmp      r0, #0                       
+           00145cf4  beq      #0x145ccc                    ; -> L_145ccc
+           00145cf8  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           00145cfc  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: <archive>__0)
+           00145d00  mov      r2, r1                       
+           00145d04  ldr      lr, [r2]                     
+           00145d08  ldr      r1, [r1, #0x1c]              ; field+0x1c 
+           00145d0c  bl       #0x22c1b0                    ; CALL CartPartList::LoadPartCosts
+           00145d10  mvn      r0, #0                       
+           00145d14  str      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+L_145d18:  00145d18  mov      r0, #0                       
+           00145d1c  b        #0x145d24                    ; -> L_145d24
+L_145d20:  00145d20  mov      r0, #1                       
+L_145d24:  00145d24  add      sp, fp, #0xc                 
+           00145d28  pop      {r8, sl, fp}                 
+           00145d2c  ldr      r7, [sp, #8]                 
+           00145d30  ldm      sp, {sp, pc}                 
+
+== CartPartList/<ModifyPartCostsCoroutine>c__Iterator1F::Dispose  token 0x0600088b @0x00145d34 (56 bytes)
+   args: r0=this, 
+           00145d34  mov      ip, sp                       
+           00145d38  push     {r7, lr}                     
+           00145d3c  mov      r7, sp                       
+           00145d40  push     {r8, fp, ip, lr}             
+           00145d44  sub      sp, sp, #8                   
+           00145d48  mov      fp, sp                       
+           00145d4c  str      r0, [fp]                     
+           00145d50  ldr      r0, [fp]                     
+           00145d54  mvn      r1, #0                       
+           00145d58  str      r1, [r0, #0x14]              ; field+0x14 (this-class: $PC)
+           00145d5c  add      sp, fp, #8                   
+           00145d60  pop      {r8, fp}                     
+           00145d64  ldr      r7, [sp, #8]                 
+           00145d68  ldm      sp, {sp, pc}                 
+
+== CartPartList/<ModifyPartCostsCoroutine>c__Iterator1F::Reset  token 0x0600088c @0x00145d6c (64 bytes)
+   args: r0=this, 
+           00145d6c  mov      ip, sp                       
+           00145d70  push     {r7, lr}                     
+           00145d74  mov      r7, sp                       
+           00145d78  push     {r8, fp, ip, lr}             
+           00145d7c  sub      sp, sp, #8                   
+           00145d80  mov      fp, sp                       
+           00145d84  str      r0, [fp]                     
+           00145d88  mov      r0, #0x49                    
+           00145d8c  add      r0, r0, #0x100               
+           00145d90  add      r0, r0, #0x2000000           
+           00145d94  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00145d98  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00145d9c  add      sp, fp, #8                   
+           00145da0  pop      {r8, fp}                     
+           00145da4  ldr      r7, [sp, #8]                 
+           00145da8  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE CartPartList/<LoadPartCosts>c__AnonStorey90  (instance size 0xc)
+#   +0x08 partName                       string
+#   vtable slots: 
+####################################################################################################
+== CartPartList/<LoadPartCosts>c__AnonStorey90::.ctor  token 0x06000b31 @0x0016653c (44 bytes)
+   args: r0=this, 
+           0016653c  mov      ip, sp                       
+           00166540  push     {r7, lr}                     
+           00166544  mov      r7, sp                       
+           00166548  push     {r8, fp, ip, lr}             
+           0016654c  sub      sp, sp, #8                   
+           00166550  mov      fp, sp                       
+           00166554  str      r0, [fp]                     
+           00166558  add      sp, fp, #8                   
+           0016655c  pop      {r8, fp}                     
+           00166560  ldr      r7, [sp, #8]                 
+           00166564  ldm      sp, {sp, pc}                 
+
+== CartPartList/<LoadPartCosts>c__AnonStorey90::<>m__2  token 0x06000b32 @0x00166568 (72 bytes)
+   args: r0=this, x
+           00166568  mov      ip, sp                       
+           0016656c  push     {r7, lr}                     
+           00166570  mov      r7, sp                       
+           00166574  push     {r8, fp, ip, lr}             
+           00166578  sub      sp, sp, #8                   
+           0016657c  mov      fp, sp                       
+           00166580  str      r0, [fp]                     
+           00166584  str      r1, [fp, #4]                 
+           00166588  ldr      r0, [fp, #4]                 
+           0016658c  ldr      r0, [r0, #0x10]              ; field+0x10 
+           00166590  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: partName)
+           00166594  ldr      r1, [fp]                     
+           00166598  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: partName)
+           0016659c  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           001665a0  add      sp, fp, #8                   
+           001665a4  pop      {r8, fp}                     
+           001665a8  ldr      r7, [sp, #8]                 
+           001665ac  ldm      sp, {sp, pc}                 
+
+== CartPartList/<LoadPartCosts>c__AnonStorey90::<>m__3  token 0x06000b33 @0x001665b0 (72 bytes)
+   args: r0=this, x
+           001665b0  mov      ip, sp                       
+           001665b4  push     {r7, lr}                     
+           001665b8  mov      r7, sp                       
+           001665bc  push     {r8, sl, fp, ip, lr}         
+           001665c0  sub      sp, sp, #0xc                 
+           001665c4  mov      fp, sp                       
+           001665c8  str      r0, [fp]                     
+           001665cc  mov      sl, r1                       
+           001665d0  mov      r0, sl                       
+           001665d4  ldr      lr, [sl]                     
+           001665d8  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           001665dc  ldr      r1, [fp]                     
+           001665e0  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: partName)
+           001665e4  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           001665e8  add      sp, fp, #0xc                 
+           001665ec  pop      {r8, sl, fp}                 
+           001665f0  ldr      r7, [sp, #8]                 
+           001665f4  ldm      sp, {sp, pc}                 

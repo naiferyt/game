@@ -1,0 +1,464 @@
+####################################################################################################
+# TYPE Rectx  (instance size 0x8)
+#   vtable slots: 
+####################################################################################################
+== Rectx::.ctor  token 0x06000191 @0x00021130 (44 bytes)
+   args: r0=this, 
+           00021130  mov      ip, sp                       
+           00021134  push     {r7, lr}                     
+           00021138  mov      r7, sp                       
+           0002113c  push     {r8, fp, ip, lr}             
+           00021140  sub      sp, sp, #8                   
+           00021144  mov      fp, sp                       
+           00021148  str      r0, [fp]                     
+           0002114c  add      sp, fp, #8                   
+           00021150  pop      {r8, fp}                     
+           00021154  ldr      r7, [sp, #8]                 
+           00021158  ldm      sp, {sp, pc}                 
+
+== Rectx::GetCenter  token 0x06000192 @0x0002115c (356 bytes) static
+   args: r
+           0002115c  mov      ip, sp                       
+           00021160  push     {r7, lr}                     
+           00021164  mov      r7, sp                       
+           00021168  push     {r8, fp, ip, lr}             
+           0002116c  sub      sp, sp, #0x48                
+           00021170  mov      fp, sp                       
+           00021174  str      r0, [fp, #8]                 
+           00021178  str      r1, [fp, #0x34]              
+           0002117c  str      r2, [fp, #0x38]              
+           00021180  str      r3, [fp, #0x3c]              
+           00021184  ldr      lr, [sp, #0x60]              
+           00021188  str      lr, [fp, #0x40]              
+           0002118c  vldr     s0, [fp, #0x34]              
+           00021190  vcvt.f64.f32 d2, s0                       
+           00021194  vcvt.f32.f64 s0, d2                       
+           00021198  vstr     s0, [fp, #0xc]               
+           0002119c  vldr     s0, [fp, #0xc]               
+           000211a0  vcvt.f64.f32 d2, s0                       
+           000211a4  vldr     s6, [pc]                     ; float 0.5
+           000211a8  b        #0x211b0                     ; -> L_211b0
+           000211ac  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_211b0:   000211b0  vcvt.f64.f32 d3, s6                       
+           000211b4  vldr     s0, [fp, #0x3c]              
+           000211b8  vcvt.f64.f32 d4, s0                       
+           000211bc  vcvt.f32.f64 s0, d4                       
+           000211c0  vstr     s0, [fp, #0x10]              
+           000211c4  vldr     s0, [fp, #0x10]              
+           000211c8  vcvt.f64.f32 d4, s0                       
+           000211cc  vmul.f64 d3, d3, d4                   
+           000211d0  vmov.f64 d4, d2                       
+           000211d4  vadd.f64 d4, d4, d3                   
+           000211d8  vldr     s0, [fp, #0x38]              
+           000211dc  vcvt.f64.f32 d2, s0                       
+           000211e0  vcvt.f32.f64 s0, d2                       
+           000211e4  vstr     s0, [fp, #0x14]              
+           000211e8  vldr     s0, [fp, #0x14]              
+           000211ec  vcvt.f64.f32 d2, s0                       
+           000211f0  vldr     s6, [pc]                     ; float 0.5
+           000211f4  b        #0x211fc                     ; -> L_211fc
+           000211f8  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_211fc:   000211fc  vcvt.f64.f32 d3, s6                       
+           00021200  vldr     s0, [fp, #0x40]              
+           00021204  vcvt.f64.f32 d5, s0                       
+           00021208  vcvt.f32.f64 s0, d5                       
+           0002120c  vstr     s0, [fp, #0x18]              
+           00021210  vldr     s0, [fp, #0x18]              
+           00021214  vcvt.f64.f32 d6, s0                       
+           00021218  vmov.f64 d5, d3                       
+           0002121c  vmul.f64 d5, d5, d6                   
+           00021220  vmov.f64 d3, d2                       
+           00021224  vadd.f64 d3, d3, d5                   
+           00021228  vldr     s4, [pc]                     ; float 0.0
+           0002122c  b        #0x21234                     ; -> L_21234
+           00021230  .word    0x00000000                   ; literal 0 / 0
+L_21234:   00021234  vcvt.f64.f32 d2, s4                       
+           00021238  mov      r0, #0                       
+           0002123c  str      r0, [fp, #0x1c]              
+           00021240  mov      r0, #0                       
+           00021244  str      r0, [fp, #0x20]              
+           00021248  mov      r0, #0                       
+           0002124c  str      r0, [fp, #0x24]              
+           00021250  add      r0, fp, #0x1c                
+           00021254  vcvt.f32.f64 s0, d4                       
+           00021258  vstr     s0, [sp, #-8]                
+           0002125c  ldr      r1, [sp, #-8]                
+           00021260  vcvt.f32.f64 s0, d3                       
+           00021264  vstr     s0, [sp, #-8]                
+           00021268  ldr      r2, [sp, #-8]                
+           0002126c  vcvt.f32.f64 s0, d2                       
+           00021270  vstr     s0, [sp, #-8]                
+           00021274  ldr      r3, [sp, #-8]                
+           00021278  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           0002127c  ldr      r0, [fp, #0x1c]              
+           00021280  str      r0, [fp, #0x28]              
+           00021284  ldr      r0, [fp, #0x20]              
+           00021288  str      r0, [fp, #0x2c]              
+           0002128c  ldr      r0, [fp, #0x24]              
+           00021290  str      r0, [fp, #0x30]              
+           00021294  ldr      r0, [fp, #8]                 
+           00021298  ldr      r1, [fp, #0x28]              
+           0002129c  str      r1, [r0]                     
+           000212a0  ldr      r1, [fp, #0x2c]              
+           000212a4  str      r1, [r0, #4]                 ; field+0x4 
+           000212a8  ldr      r1, [fp, #0x30]              
+           000212ac  str      r1, [r0, #8]                 ; field+0x8 
+           000212b0  add      sp, fp, #0x48                
+           000212b4  pop      {r8, fp}                     
+           000212b8  ldr      r7, [sp, #8]                 
+           000212bc  ldm      sp, {sp, pc}                 
+
+== Rectx::GetBottomLeft  token 0x06000193 @0x000212c0 (280 bytes) static
+   args: r
+           000212c0  mov      ip, sp                       
+           000212c4  push     {r7, lr}                     
+           000212c8  mov      r7, sp                       
+           000212cc  push     {r8, fp, ip, lr}             
+           000212d0  sub      sp, sp, #0x40                
+           000212d4  mov      fp, sp                       
+           000212d8  str      r0, [fp, #8]                 
+           000212dc  str      r1, [fp, #0x30]              
+           000212e0  str      r2, [fp, #0x34]              
+           000212e4  str      r3, [fp, #0x38]              
+           000212e8  ldr      lr, [sp, #0x58]              
+           000212ec  str      lr, [fp, #0x3c]              
+           000212f0  vldr     s0, [fp, #0x30]              
+           000212f4  vcvt.f64.f32 d2, s0                       
+           000212f8  vcvt.f32.f64 s0, d2                       
+           000212fc  vstr     s0, [fp, #0xc]               
+           00021300  vldr     s0, [fp, #0xc]               
+           00021304  vcvt.f64.f32 d4, s0                       
+           00021308  vldr     s0, [fp, #0x34]              
+           0002130c  vcvt.f64.f32 d2, s0                       
+           00021310  vcvt.f32.f64 s0, d2                       
+           00021314  vstr     s0, [fp, #0x10]              
+           00021318  vldr     s0, [fp, #0x10]              
+           0002131c  vcvt.f64.f32 d2, s0                       
+           00021320  vldr     s0, [fp, #0x3c]              
+           00021324  vcvt.f64.f32 d3, s0                       
+           00021328  vcvt.f32.f64 s0, d3                       
+           0002132c  vstr     s0, [fp, #0x14]              
+           00021330  vldr     s0, [fp, #0x14]              
+           00021334  vcvt.f64.f32 d5, s0                       
+           00021338  vmov.f64 d3, d2                       
+           0002133c  vadd.f64 d3, d3, d5                   
+           00021340  vldr     s4, [pc]                     ; float 0.0
+           00021344  b        #0x2134c                     ; -> L_2134c
+           00021348  .word    0x00000000                   ; literal 0 / 0
+L_2134c:   0002134c  vcvt.f64.f32 d2, s4                       
+           00021350  mov      r0, #0                       
+           00021354  str      r0, [fp, #0x18]              
+           00021358  mov      r0, #0                       
+           0002135c  str      r0, [fp, #0x1c]              
+           00021360  mov      r0, #0                       
+           00021364  str      r0, [fp, #0x20]              
+           00021368  add      r0, fp, #0x18                
+           0002136c  vcvt.f32.f64 s0, d4                       
+           00021370  vstr     s0, [sp, #-8]                
+           00021374  ldr      r1, [sp, #-8]                
+           00021378  vcvt.f32.f64 s0, d3                       
+           0002137c  vstr     s0, [sp, #-8]                
+           00021380  ldr      r2, [sp, #-8]                
+           00021384  vcvt.f32.f64 s0, d2                       
+           00021388  vstr     s0, [sp, #-8]                
+           0002138c  ldr      r3, [sp, #-8]                
+           00021390  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           00021394  ldr      r0, [fp, #0x18]              
+           00021398  str      r0, [fp, #0x24]              
+           0002139c  ldr      r0, [fp, #0x1c]              
+           000213a0  str      r0, [fp, #0x28]              
+           000213a4  ldr      r0, [fp, #0x20]              
+           000213a8  str      r0, [fp, #0x2c]              
+           000213ac  ldr      r0, [fp, #8]                 
+           000213b0  ldr      r1, [fp, #0x24]              
+           000213b4  str      r1, [r0]                     
+           000213b8  ldr      r1, [fp, #0x28]              
+           000213bc  str      r1, [r0, #4]                 ; field+0x4 
+           000213c0  ldr      r1, [fp, #0x2c]              
+           000213c4  str      r1, [r0, #8]                 ; field+0x8 
+           000213c8  add      sp, fp, #0x40                
+           000213cc  pop      {r8, fp}                     
+           000213d0  ldr      r7, [sp, #8]                 
+           000213d4  ldm      sp, {sp, pc}                 
+
+== Rectx::WillFitIn  token 0x06000194 @0x000213d8 (244 bytes) static
+   args: r, toFitIn
+           000213d8  mov      ip, sp                       
+           000213dc  push     {r7, lr}                     
+           000213e0  mov      r7, sp                       
+           000213e4  push     {r8, sl, fp, ip, lr}         
+           000213e8  sub      sp, sp, #0x34                
+           000213ec  mov      fp, sp                       
+           000213f0  str      r0, [fp, #0x10]              
+           000213f4  str      r1, [fp, #0x14]              
+           000213f8  str      r2, [fp, #0x18]              
+           000213fc  str      r3, [fp, #0x1c]              
+           00021400  ldr      lr, [sp, #0x50]              
+           00021404  str      lr, [fp, #0x20]              
+           00021408  ldr      lr, [sp, #0x54]              
+           0002140c  str      lr, [fp, #0x24]              
+           00021410  ldr      lr, [sp, #0x58]              
+           00021414  str      lr, [fp, #0x28]              
+           00021418  ldr      lr, [sp, #0x5c]              
+           0002141c  str      lr, [fp, #0x2c]              
+           00021420  vldr     s0, [fp, #0x18]              
+           00021424  vcvt.f64.f32 d2, s0                       
+           00021428  vcvt.f32.f64 s0, d2                       
+           0002142c  vstr     s0, [fp]                     
+           00021430  vldr     s0, [fp]                     
+           00021434  vcvt.f64.f32 d3, s0                       
+           00021438  vldr     s0, [fp, #0x28]              
+           0002143c  vcvt.f64.f32 d2, s0                       
+           00021440  vcvt.f32.f64 s0, d2                       
+           00021444  vstr     s0, [fp, #4]                 
+           00021448  vldr     s0, [fp, #4]                 
+           0002144c  vcvt.f64.f32 d2, s0                       
+           00021450  vcmp.f64 d2, d3                       
+           00021454  vmrs     apsr_nzcv, fpscr             
+           00021458  bvs      #0x214b4                     ; -> L_214b4
+           0002145c  bmi      #0x214b4                     ; -> L_214b4
+           00021460  vldr     s0, [fp, #0x1c]              
+           00021464  vcvt.f64.f32 d2, s0                       
+           00021468  vcvt.f32.f64 s0, d2                       
+           0002146c  vstr     s0, [fp, #8]                 
+           00021470  vldr     s0, [fp, #8]                 
+           00021474  vcvt.f64.f32 d2, s0                       
+           00021478  vldr     s0, [fp, #0x2c]              
+           0002147c  vcvt.f64.f32 d3, s0                       
+           00021480  vcvt.f32.f64 s0, d3                       
+           00021484  vstr     s0, [fp, #0xc]               
+           00021488  vldr     s0, [fp, #0xc]               
+           0002148c  vcvt.f64.f32 d3, s0                       
+           00021490  vcmp.f64 d3, d2                       
+           00021494  vmrs     apsr_nzcv, fpscr             
+           00021498  mov      r0, #0                       
+           0002149c  movmi    r0, #1                       
+           000214a0  movvs    r0, #1                       
+           000214a4  cmp      r0, #0                       
+           000214a8  movne    sl, #0                       
+           000214ac  moveq    sl, #1                       
+           000214b0  b        #0x214b8                     ; -> L_214b8
+L_214b4:   000214b4  mov      sl, #0                       
+L_214b8:   000214b8  mov      r0, sl                       
+           000214bc  add      sp, fp, #0x34                
+           000214c0  pop      {r8, sl, fp}                 
+           000214c4  ldr      r7, [sp, #8]                 
+           000214c8  ldm      sp, {sp, pc}                 
+
+== Rectx::DoesContain  token 0x06000195 @0x000214cc (436 bytes) static
+   args: r, container
+           000214cc  mov      ip, sp                       
+           000214d0  push     {r7, lr}                     
+           000214d4  mov      r7, sp                       
+           000214d8  push     {r8, sl, fp, ip, lr}         
+           000214dc  sub      sp, sp, #0x44                
+           000214e0  mov      fp, sp                       
+           000214e4  str      r0, [fp, #0x20]              
+           000214e8  str      r1, [fp, #0x24]              
+           000214ec  str      r2, [fp, #0x28]              
+           000214f0  str      r3, [fp, #0x2c]              
+           000214f4  ldr      lr, [sp, #0x60]              
+           000214f8  str      lr, [fp, #0x30]              
+           000214fc  ldr      lr, [sp, #0x64]              
+           00021500  str      lr, [fp, #0x34]              
+           00021504  ldr      lr, [sp, #0x68]              
+           00021508  str      lr, [fp, #0x38]              
+           0002150c  ldr      lr, [sp, #0x6c]              
+           00021510  str      lr, [fp, #0x3c]              
+           00021514  vldr     s0, [fp, #0x20]              
+           00021518  vcvt.f64.f32 d2, s0                       
+           0002151c  vcvt.f32.f64 s0, d2                       
+           00021520  vstr     s0, [fp]                     
+           00021524  vldr     s0, [fp]                     
+           00021528  vcvt.f64.f32 d2, s0                       
+           0002152c  vldr     s0, [fp, #0x30]              
+           00021530  vcvt.f64.f32 d3, s0                       
+           00021534  vcvt.f32.f64 s0, d3                       
+           00021538  vstr     s0, [fp, #4]                 
+           0002153c  vldr     s0, [fp, #4]                 
+           00021540  vcvt.f64.f32 d3, s0                       
+           00021544  vcmp.f64 d2, d3                       
+           00021548  vmrs     apsr_nzcv, fpscr             
+           0002154c  bvs      #0x21668                     ; -> L_21668
+           00021550  bmi      #0x21668                     ; -> L_21668
+           00021554  add      r0, fp, #0x20                
+           00021558  vldr     s0, [r0, #8]                 ; field+0x8 
+           0002155c  vcvt.f64.f32 d2, s0                       
+           00021560  vldr     s0, [fp, #0x20]              
+           00021564  vcvt.f64.f32 d3, s0                       
+           00021568  vadd.f64 d2, d2, d3                   
+           0002156c  vcvt.f32.f64 s0, d2                       
+           00021570  vstr     s0, [fp, #8]                 
+           00021574  vldr     s0, [fp, #8]                 
+           00021578  vcvt.f64.f32 d3, s0                       
+           0002157c  add      r0, fp, #0x30                
+           00021580  vldr     s0, [r0, #8]                 ; field+0x8 
+           00021584  vcvt.f64.f32 d2, s0                       
+           00021588  vldr     s0, [fp, #0x30]              
+           0002158c  vcvt.f64.f32 d4, s0                       
+           00021590  vadd.f64 d2, d2, d4                   
+           00021594  vcvt.f32.f64 s0, d2                       
+           00021598  vstr     s0, [fp, #0xc]               
+           0002159c  vldr     s0, [fp, #0xc]               
+           000215a0  vcvt.f64.f32 d2, s0                       
+           000215a4  vcmp.f64 d2, d3                       
+           000215a8  vmrs     apsr_nzcv, fpscr             
+           000215ac  bvs      #0x21668                     ; -> L_21668
+           000215b0  bmi      #0x21668                     ; -> L_21668
+           000215b4  vldr     s0, [fp, #0x24]              
+           000215b8  vcvt.f64.f32 d2, s0                       
+           000215bc  vcvt.f32.f64 s0, d2                       
+           000215c0  vstr     s0, [fp, #0x10]              
+           000215c4  vldr     s0, [fp, #0x10]              
+           000215c8  vcvt.f64.f32 d2, s0                       
+           000215cc  vldr     s0, [fp, #0x34]              
+           000215d0  vcvt.f64.f32 d3, s0                       
+           000215d4  vcvt.f32.f64 s0, d3                       
+           000215d8  vstr     s0, [fp, #0x14]              
+           000215dc  vldr     s0, [fp, #0x14]              
+           000215e0  vcvt.f64.f32 d3, s0                       
+           000215e4  vcmp.f64 d2, d3                       
+           000215e8  vmrs     apsr_nzcv, fpscr             
+           000215ec  bvs      #0x21668                     ; -> L_21668
+           000215f0  bmi      #0x21668                     ; -> L_21668
+           000215f4  add      r0, fp, #0x20                
+           000215f8  vldr     s0, [r0, #0xc]               ; field+0xc 
+           000215fc  vcvt.f64.f32 d2, s0                       
+           00021600  vldr     s0, [fp, #0x24]              
+           00021604  vcvt.f64.f32 d3, s0                       
+           00021608  vadd.f64 d2, d2, d3                   
+           0002160c  vcvt.f32.f64 s0, d2                       
+           00021610  vstr     s0, [fp, #0x18]              
+           00021614  vldr     s0, [fp, #0x18]              
+           00021618  vcvt.f64.f32 d2, s0                       
+           0002161c  add      r0, fp, #0x30                
+           00021620  vldr     s0, [r0, #0xc]               ; field+0xc 
+           00021624  vcvt.f64.f32 d3, s0                       
+           00021628  vldr     s0, [fp, #0x34]              
+           0002162c  vcvt.f64.f32 d4, s0                       
+           00021630  vadd.f64 d3, d3, d4                   
+           00021634  vcvt.f32.f64 s0, d3                       
+           00021638  vstr     s0, [fp, #0x1c]              
+           0002163c  vldr     s0, [fp, #0x1c]              
+           00021640  vcvt.f64.f32 d3, s0                       
+           00021644  vcmp.f64 d3, d2                       
+           00021648  vmrs     apsr_nzcv, fpscr             
+           0002164c  mov      r0, #0                       
+           00021650  movmi    r0, #1                       
+           00021654  movvs    r0, #1                       
+           00021658  cmp      r0, #0                       
+           0002165c  movne    sl, #0                       
+           00021660  moveq    sl, #1                       
+           00021664  b        #0x2166c                     ; -> L_2166c
+L_21668:   00021668  mov      sl, #0                       
+L_2166c:   0002166c  mov      r0, sl                       
+           00021670  add      sp, fp, #0x44                
+           00021674  pop      {r8, sl, fp}                 
+           00021678  ldr      r7, [sp, #8]                 
+           0002167c  ldm      sp, {sp, pc}                 
+
+== Rectx::AddScreenMargin  token 0x06000196 @0x00021680 (412 bytes) static
+   args: r
+           00021680  mov      ip, sp                       
+           00021684  push     {r7, lr}                     
+           00021688  mov      r7, sp                       
+           0002168c  push     {r8, fp, ip, lr}             
+           00021690  sub      sp, sp, #0x80                
+           00021694  mov      fp, sp                       
+           00021698  str      r0, [fp, #0x10]              
+           0002169c  str      r1, [fp, #0x54]              
+           000216a0  str      r2, [fp, #0x58]              
+           000216a4  str      r3, [fp, #0x5c]              
+           000216a8  ldr      lr, [sp, #0x98]              
+           000216ac  str      lr, [fp, #0x60]              
+           000216b0  mov      r0, #0                       
+           000216b4  str      r0, [fp, #0x14]              
+           000216b8  mov      r0, #0                       
+           000216bc  str      r0, [fp, #0x18]              
+           000216c0  mov      r0, #0                       
+           000216c4  str      r0, [fp, #0x1c]              
+           000216c8  mov      r0, #0                       
+           000216cc  str      r0, [fp, #0x20]              
+           000216d0  vldr     s0, [fp, #0x54]              
+           000216d4  vcvt.f64.f32 d2, s0                       
+           000216d8  vcvt.f32.f64 s0, d2                       
+           000216dc  vstr     s0, [fp, #0x24]              
+           000216e0  vldr     s0, [fp, #0x24]              
+           000216e4  vcvt.f64.f32 d2, s0                       
+           000216e8  vstr     d2, [fp, #0x78]              
+           000216ec  add      r0, fp, #0x14                
+           000216f0  bl       #0xbae20                     ; CALL GUIx::get_screenMargin
+           000216f4  vldr     d2, [fp, #0x78]              
+           000216f8  vldr     s0, [fp, #0x14]              
+           000216fc  vcvt.f64.f32 d3, s0                       
+           00021700  vadd.f64 d2, d2, d3                   
+           00021704  vstr     d2, [fp, #0x70]              
+           00021708  vldr     s0, [fp, #0x58]              
+           0002170c  vcvt.f64.f32 d2, s0                       
+           00021710  vcvt.f32.f64 s0, d2                       
+           00021714  vstr     s0, [fp, #0x28]              
+           00021718  vldr     s0, [fp, #0x28]              
+           0002171c  vcvt.f64.f32 d2, s0                       
+           00021720  vstr     d2, [fp, #0x68]              
+           00021724  add      r0, fp, #0x1c                
+           00021728  bl       #0xbae20                     ; CALL GUIx::get_screenMargin
+           0002172c  vldr     d2, [fp, #0x68]              
+           00021730  vldr     d5, [fp, #0x70]              
+           00021734  vldr     s0, [fp, #0x20]              
+           00021738  vcvt.f64.f32 d3, s0                       
+           0002173c  vmov.f64 d4, d2                       
+           00021740  vadd.f64 d4, d4, d3                   
+           00021744  vldr     s0, [fp, #0x5c]              
+           00021748  vcvt.f64.f32 d2, s0                       
+           0002174c  vcvt.f32.f64 s0, d2                       
+           00021750  vstr     s0, [fp, #0x2c]              
+           00021754  vldr     s0, [fp, #0x2c]              
+           00021758  vcvt.f64.f32 d3, s0                       
+           0002175c  vldr     s0, [fp, #0x60]              
+           00021760  vcvt.f64.f32 d2, s0                       
+           00021764  vcvt.f32.f64 s0, d2                       
+           00021768  vstr     s0, [fp, #0x30]              
+           0002176c  vldr     s0, [fp, #0x30]              
+           00021770  vcvt.f64.f32 d2, s0                       
+           00021774  mov      r0, #0                       
+           00021778  str      r0, [fp, #0x34]              
+           0002177c  mov      r0, #0                       
+           00021780  str      r0, [fp, #0x38]              
+           00021784  mov      r0, #0                       
+           00021788  str      r0, [fp, #0x3c]              
+           0002178c  mov      r0, #0                       
+           00021790  str      r0, [fp, #0x40]              
+           00021794  add      r0, fp, #0x34                
+           00021798  vcvt.f32.f64 s0, d5                       
+           0002179c  vstr     s0, [sp, #-8]                
+           000217a0  ldr      r1, [sp, #-8]                
+           000217a4  vcvt.f32.f64 s0, d4                       
+           000217a8  vstr     s0, [sp, #-8]                
+           000217ac  ldr      r2, [sp, #-8]                
+           000217b0  vcvt.f32.f64 s0, d3                       
+           000217b4  vstr     s0, [sp, #-8]                
+           000217b8  ldr      r3, [sp, #-8]                
+           000217bc  vcvt.f32.f64 s0, d2                       
+           000217c0  vstr     s0, [sp]                     
+           000217c4  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           000217c8  ldr      r0, [fp, #0x34]              
+           000217cc  str      r0, [fp, #0x44]              
+           000217d0  ldr      r0, [fp, #0x38]              
+           000217d4  str      r0, [fp, #0x48]              
+           000217d8  ldr      r0, [fp, #0x3c]              
+           000217dc  str      r0, [fp, #0x4c]              
+           000217e0  ldr      r0, [fp, #0x40]              
+           000217e4  str      r0, [fp, #0x50]              
+           000217e8  ldr      r0, [fp, #0x10]              
+           000217ec  ldr      r1, [fp, #0x44]              
+           000217f0  str      r1, [r0]                     
+           000217f4  ldr      r1, [fp, #0x48]              
+           000217f8  str      r1, [r0, #4]                 ; field+0x4 
+           000217fc  ldr      r1, [fp, #0x4c]              
+           00021800  str      r1, [r0, #8]                 ; field+0x8 
+           00021804  ldr      r1, [fp, #0x50]              
+           00021808  str      r1, [r0, #0xc]               ; field+0xc 
+           0002180c  add      sp, fp, #0x80                
+           00021810  pop      {r8, fp}                     
+           00021814  ldr      r7, [sp, #8]                 
+           00021818  ldm      sp, {sp, pc}                 

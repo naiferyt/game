@@ -1,0 +1,171 @@
+####################################################################################################
+# TYPE LocalOptionsData  (instance size 0x20)
+#   +0x08 selectedCircuitTracks          UnityEngine.GameObject[]
+#   +0x0c circuitName                    string
+#   +0x10 musicVolumeLevel               float
+#   +0x14 sfxVolumeLevel                 float
+#   +0x18 appPurchases                   bool
+#   +0x1c raceDifficulty                 RaceManager/RaceDifficultyLevel
+#   vtable slots: 
+####################################################################################################
+== LocalOptionsData::.ctor  token 0x06000252 @0x000e604c (120 bytes)
+   args: r0=this, musicVolume, sfxVolume, _appPurchases, difficulty
+           000e604c  mov      ip, sp                       
+           000e6050  push     {r7, lr}                     
+           000e6054  mov      r7, sp                       
+           000e6058  push     {r6, r8, fp, ip, lr}         
+           000e605c  sub      sp, sp, #0x14                
+           000e6060  mov      fp, sp                       
+           000e6064  mov      r6, r0                       
+           000e6068  str      r1, [fp]                     
+           000e606c  str      r2, [fp, #4]                 
+           000e6070  strb     r3, [fp, #8]                 
+           000e6074  ldr      lr, [sp, #0x30]              
+           000e6078  str      lr, [fp, #0xc]               
+           000e607c  vldr     s0, [fp]                     
+           000e6080  vcvt.f64.f32 d2, s0                       
+           000e6084  vcvt.f32.f64 s0, d2                       
+           000e6088  vstr     s0, [r6, #0x10]              ; field+0x10 (this-class: musicVolumeLevel)
+           000e608c  vldr     s0, [fp, #4]                 
+           000e6090  vcvt.f64.f32 d2, s0                       
+           000e6094  vcvt.f32.f64 s0, d2                       
+           000e6098  vstr     s0, [r6, #0x14]              ; field+0x14 (this-class: sfxVolumeLevel)
+           000e609c  ldrb     r0, [fp, #8]                 
+           000e60a0  strb     r0, [r6, #0x18]              ; field+0x18 (this-class: appPurchases)
+           000e60a4  ldr      r0, [fp, #0xc]               
+           000e60a8  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: raceDifficulty)
+           000e60ac  mov      r0, #0                       
+           000e60b0  str      r0, [r6, #8]                 ; field+0x8 (this-class: selectedCircuitTracks)
+           000e60b4  add      sp, fp, #0x14                
+           000e60b8  pop      {r6, r8, fp}                 
+           000e60bc  ldr      r7, [sp, #8]                 
+           000e60c0  ldm      sp, {sp, pc}                 
+
+== LocalOptionsData::Save  token 0x06000253 @0x000e60c4 (204 bytes)
+   args: r0=this, 
+           000e60c4  mov      ip, sp                       
+           000e60c8  push     {r7, lr}                     
+           000e60cc  mov      r7, sp                       
+           000e60d0  push     {r5, r8, sl, fp, ip, lr}     
+           000e60d4  sub      sp, sp, #0x10                
+           000e60d8  mov      fp, sp                       
+           000e60dc  mov      sl, r0                       
+           000e60e0  ldr      r0, [pc]                     
+           000e60e4  b        #0xe60ec                     ; -> L_e60ec
+           000e60e8  .word    0x00ebf37c                   ; literal 15463292 / 
+L_e60ec:   000e60ec  ldr      r0, [pc, r0]                 ; GOT[450] LDSTR 'musicVolumeLevel'
+           000e60f0  vldr     s0, [sl, #0x10]              ; field+0x10 (this-class: musicVolumeLevel)
+           000e60f4  vcvt.f64.f32 d2, s0                       
+           000e60f8  vcvt.f32.f64 s0, d2                       
+           000e60fc  vstr     s0, [sp, #-8]                
+           000e6100  ldr      r1, [sp, #-8]                
+           000e6104  bl       #0x22c400                    ; CALL UnityEngine.PlayerPrefs::SetFloat
+           000e6108  ldr      r0, [pc]                     
+           000e610c  b        #0xe6114                     ; -> L_e6114
+           000e6110  .word    0x00ebf358                   ; literal 15463256 / 
+L_e6114:   000e6114  ldr      r0, [pc, r0]                 ; GOT[451] LDSTR 'sfxVolumeLevel'
+           000e6118  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: sfxVolumeLevel)
+           000e611c  vcvt.f64.f32 d2, s0                       
+           000e6120  vcvt.f32.f64 s0, d2                       
+           000e6124  vstr     s0, [sp, #-8]                
+           000e6128  ldr      r1, [sp, #-8]                
+           000e612c  bl       #0x22c400                    ; CALL UnityEngine.PlayerPrefs::SetFloat
+           000e6130  ldr      r1, [pc]                     
+           000e6134  b        #0xe613c                     ; -> L_e613c
+           000e6138  .word    0x00ebf334                   ; literal 15463220 / 
+L_e613c:   000e613c  ldr      r1, [pc, r1]                 ; GOT[452] LDSTR 'appPurchases'
+           000e6140  ldrb     r0, [sl, #0x18]              ; field+0x18 (this-class: appPurchases)
+           000e6144  str      r1, [fp, #8]                 
+           000e6148  cmp      r0, #0                       
+           000e614c  beq      #0xe6158                     ; -> L_e6158
+           000e6150  mov      r5, #1                       
+           000e6154  b        #0xe615c                     ; -> L_e615c
+L_e6158:   000e6158  mov      r5, #0                       
+L_e615c:   000e615c  ldr      r0, [fp, #8]                 
+           000e6160  mov      r1, r5                       
+           000e6164  bl       #0x22c410                    ; CALL UnityEngine.PlayerPrefs::SetInt
+           000e6168  ldr      r0, [pc]                     
+           000e616c  b        #0xe6174                     ; -> L_e6174
+           000e6170  .word    0x00ebf300                   ; literal 15463168 / 
+L_e6174:   000e6174  ldr      r0, [pc, r0]                 ; GOT[453] LDSTR 'raceDifficulty'
+           000e6178  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: raceDifficulty)
+           000e617c  bl       #0x22c410                    ; CALL UnityEngine.PlayerPrefs::SetInt
+           000e6180  add      sp, fp, #0x10                
+           000e6184  pop      {r5, r8, sl, fp}             
+           000e6188  ldr      r7, [sp, #8]                 
+           000e618c  ldm      sp, {sp, pc}                 
+
+== LocalOptionsData::Load  token 0x06000254 @0x000e6190 (288 bytes)
+   args: r0=this, 
+           000e6190  mov      ip, sp                       
+           000e6194  push     {r7, lr}                     
+           000e6198  mov      r7, sp                       
+           000e619c  push     {r8, sl, fp, ip, lr}         
+           000e61a0  sub      sp, sp, #0x14                
+           000e61a4  mov      fp, sp                       
+           000e61a8  mov      sl, r0                       
+           000e61ac  ldr      r0, [pc]                     
+           000e61b0  b        #0xe61b8                     ; -> L_e61b8
+           000e61b4  .word    0x00ebf2b0                   ; literal 15463088 / 
+L_e61b8:   000e61b8  ldr      r0, [pc, r0]                 ; GOT[450] LDSTR 'musicVolumeLevel'
+           000e61bc  bl       #0x22c420                    ; CALL UnityEngine.PlayerPrefs::HasKey
+           000e61c0  cmp      r0, #0                       
+           000e61c4  beq      #0xe61ec                     ; -> L_e61ec
+           000e61c8  ldr      r0, [pc]                     
+           000e61cc  b        #0xe61d4                     ; -> L_e61d4
+           000e61d0  .word    0x00ebf294                   ; literal 15463060 / 
+L_e61d4:   000e61d4  ldr      r0, [pc, r0]                 ; GOT[450] LDSTR 'musicVolumeLevel'
+           000e61d8  bl       #0x22c430                    ; CALL UnityEngine.PlayerPrefs::GetFloat
+           000e61dc  vmov     s4, r0                       
+           000e61e0  vcvt.f64.f32 d2, s4                       
+           000e61e4  vcvt.f32.f64 s0, d2                       
+           000e61e8  vstr     s0, [sl, #0x10]              ; field+0x10 (this-class: musicVolumeLevel)
+L_e61ec:   000e61ec  ldr      r0, [pc]                     
+           000e61f0  b        #0xe61f8                     ; -> L_e61f8
+           000e61f4  .word    0x00ebf274                   ; literal 15463028 / 
+L_e61f8:   000e61f8  ldr      r0, [pc, r0]                 ; GOT[451] LDSTR 'sfxVolumeLevel'
+           000e61fc  bl       #0x22c420                    ; CALL UnityEngine.PlayerPrefs::HasKey
+           000e6200  cmp      r0, #0                       
+           000e6204  beq      #0xe622c                     ; -> L_e622c
+           000e6208  ldr      r0, [pc]                     
+           000e620c  b        #0xe6214                     ; -> L_e6214
+           000e6210  .word    0x00ebf258                   ; literal 15463000 / 
+L_e6214:   000e6214  ldr      r0, [pc, r0]                 ; GOT[451] LDSTR 'sfxVolumeLevel'
+           000e6218  bl       #0x22c430                    ; CALL UnityEngine.PlayerPrefs::GetFloat
+           000e621c  vmov     s4, r0                       
+           000e6220  vcvt.f64.f32 d2, s4                       
+           000e6224  vcvt.f32.f64 s0, d2                       
+           000e6228  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: sfxVolumeLevel)
+L_e622c:   000e622c  ldr      r0, [pc]                     
+           000e6230  b        #0xe6238                     ; -> L_e6238
+           000e6234  .word    0x00ebf238                   ; literal 15462968 / 
+L_e6238:   000e6238  ldr      r0, [pc, r0]                 ; GOT[452] LDSTR 'appPurchases'
+           000e623c  bl       #0x22c420                    ; CALL UnityEngine.PlayerPrefs::HasKey
+           000e6240  cmp      r0, #0                       
+           000e6244  beq      #0xe626c                     ; -> L_e626c
+           000e6248  ldr      r0, [pc]                     
+           000e624c  b        #0xe6254                     ; -> L_e6254
+           000e6250  .word    0x00ebf21c                   ; literal 15462940 / 
+L_e6254:   000e6254  ldr      r0, [pc, r0]                 ; GOT[452] LDSTR 'appPurchases'
+           000e6258  bl       #0x22c440                    ; CALL UnityEngine.PlayerPrefs::GetInt
+           000e625c  cmp      r0, #1                       
+           000e6260  movne    r0, #0                       
+           000e6264  moveq    r0, #1                       
+           000e6268  strb     r0, [sl, #0x18]              ; field+0x18 (this-class: appPurchases)
+L_e626c:   000e626c  ldr      r0, [pc]                     
+           000e6270  b        #0xe6278                     ; -> L_e6278
+           000e6274  .word    0x00ebf1fc                   ; literal 15462908 / 
+L_e6278:   000e6278  ldr      r0, [pc, r0]                 ; GOT[453] LDSTR 'raceDifficulty'
+           000e627c  bl       #0x22c420                    ; CALL UnityEngine.PlayerPrefs::HasKey
+           000e6280  cmp      r0, #0                       
+           000e6284  beq      #0xe62a0                     ; -> L_e62a0
+           000e6288  ldr      r0, [pc]                     
+           000e628c  b        #0xe6294                     ; -> L_e6294
+           000e6290  .word    0x00ebf1e0                   ; literal 15462880 / 
+L_e6294:   000e6294  ldr      r0, [pc, r0]                 ; GOT[453] LDSTR 'raceDifficulty'
+           000e6298  bl       #0x22c440                    ; CALL UnityEngine.PlayerPrefs::GetInt
+           000e629c  str      r0, [sl, #0x1c]              ; field+0x1c (this-class: raceDifficulty)
+L_e62a0:   000e62a0  add      sp, fp, #0x14                
+           000e62a4  pop      {r8, sl, fp}                 
+           000e62a8  ldr      r7, [sp, #8]                 
+           000e62ac  ldm      sp, {sp, pc}                 

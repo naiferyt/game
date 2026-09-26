@@ -1,0 +1,273 @@
+####################################################################################################
+# TYPE GameCenterLeaderboard  (instance size 0x10)
+#   +0x08 leaderboardId                  string
+#   +0x0c title                          string
+#   vtable slots: 0:ToString
+####################################################################################################
+== GameCenterLeaderboard::.ctor  token 0x0600006b @0x0000e218 (72 bytes)
+   args: r0=this, leaderboardId, title
+           0000e218  mov      ip, sp                       
+           0000e21c  push     {r7, lr}                     
+           0000e220  mov      r7, sp                       
+           0000e224  push     {r8, fp, ip, lr}             
+           0000e228  sub      sp, sp, #0x10                
+           0000e22c  mov      fp, sp                       
+           0000e230  str      r0, [fp]                     
+           0000e234  str      r1, [fp, #4]                 
+           0000e238  str      r2, [fp, #8]                 
+           0000e23c  ldr      r1, [fp, #4]                 
+           0000e240  ldr      r0, [fp]                     
+           0000e244  str      r1, [r0, #8]                 ; field+0x8 (this-class: leaderboardId)
+           0000e248  ldr      r1, [fp, #8]                 
+           0000e24c  str      r1, [r0, #0xc]               ; field+0xc (this-class: title)
+           0000e250  add      sp, fp, #0x10                
+           0000e254  pop      {r8, fp}                     
+           0000e258  ldr      r7, [sp, #8]                 
+           0000e25c  ldm      sp, {sp, pc}                 
+
+== GameCenterLeaderboard::fromJSON  token 0x0600006c @0x0000e260 (888 bytes) static
+   args: json
+           0000e260  mov      ip, sp                       
+           0000e264  push     {r7, lr}                     
+           0000e268  mov      r7, sp                       
+           0000e26c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0000e270  sub      sp, sp, #0x50                
+           0000e274  mov      fp, sp                       
+           0000e278  mov      sl, r0                       
+           0000e27c  mov      r0, #0                       
+           0000e280  str      r0, [fp, #4]                 
+           0000e284  mov      r0, #0                       
+           0000e288  str      r0, [fp, #8]                 
+           0000e28c  mov      r0, #0                       
+           0000e290  str      r0, [fp, #0xc]               
+           0000e294  mov      r0, #0                       
+           0000e298  str      r0, [fp, #0x10]              
+           0000e29c  ldr      r0, [pc]                     
+           0000e2a0  b        #0xe2a8                      ; -> L_e2a8
+           0000e2a4  .word    0x00f8e504                   ; literal 16311556 / 
+L_e2a8:    0000e2a8  ldr      r0, [pc, r0]                 ; GOT[99] VTABLE System.Collections.Generic.List`1<GameCenterLeaderboard>
+           0000e2ac  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0000e2b0  ldr      r1, [pc]                     
+           0000e2b4  b        #0xe2bc                      ; -> L_e2bc
+           0000e2b8  .word    0x00f8e4f4                   ; literal 16311540 / 
+L_e2bc:    0000e2bc  ldr      r1, [pc, r1]                 ; GOT[100] SFLDA System.Collections.Generic.List`1<GameCenterLeaderboard>::EmptyArray
+           0000e2c0  ldr      r1, [r1]                     
+           0000e2c4  str      r1, [r0, #8]                 ; field+0x8 (this-class: leaderboardId)
+           0000e2c8  str      r0, [fp]                     
+           0000e2cc  mov      r0, sl                       
+           0000e2d0  bl       #0xb9c90                     ; CALL MiniJsonExtensions::hashtableFromJson
+           0000e2d4  mov      r1, r0                       
+           0000e2d8  ldr      r1, [r1]                     
+           0000e2dc  mov      lr, pc                       
+           0000e2e0  ldr      pc, [r1, #0x9c]              ; VIRTUAL CALL slot +0x9c: System.Enum::System.IConvertible.ToType
+           0000e2e4  str      r0, [fp, #0xc]               
+           0000e2e8  b        #0xe414                      ; -> L_e414
+L_e2ec:    0000e2ec  ldr      r1, [fp, #0xc]               
+           0000e2f0  mov      r0, r1                       
+           0000e2f4  ldr      r1, [r1]                     
+           0000e2f8  ldr      r8, [pc]                     
+           0000e2fc  b        #0xe304                      ; -> L_e304
+           0000e300  .word    0x00f8e348                   ; literal 16311112 / 
+L_e304:    0000e304  ldr      r8, [pc, r8]                 ; GOT[11] METHODCONST System.Collections.IEnumerator::get_Current
+           0000e308  add      lr, pc, #4                   
+           0000e30c  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           0000e310  andeq    r0, r0, r0                   
+           0000e314  ldr      r1, [r0]                     
+           0000e318  ldrb     r2, [r1, #0x1a]              ; field+0x1a 
+           0000e31c  cmp      r2, #0                       
+           0000e320  blne     #0xe5c8                      ; THROW System.InvalidCastException (if ne)
+           0000e324  ldr      r1, [r1]                     
+           0000e328  ldr      r1, [r1]                     
+           0000e32c  ldr      r2, [pc]                     
+           0000e330  b        #0xe338                      ; -> L_e338
+           0000e334  .word    0x00f8e47c                   ; literal 16311420 / 
+L_e338:    0000e338  ldr      r2, [pc, r2]                 ; GOT[101] CLASS System.Collections.DictionaryEntry
+           0000e33c  cmp      r1, r2                       
+           0000e340  blne     #0xe5c8                      ; THROW System.InvalidCastException (if ne)
+           0000e344  add      r0, r0, #8                   
+           0000e348  ldr      r1, [r0]                     
+           0000e34c  str      r1, [fp, #4]                 
+           0000e350  ldr      r0, [r0, #4]                 ; field+0x4 
+           0000e354  str      r0, [fp, #8]                 
+           0000e358  ldr      sl, [fp]                     
+           0000e35c  ldr      r5, [fp, #8]                 
+           0000e360  mov      r4, r5                       
+           0000e364  cmp      r5, #0                       
+           0000e368  beq      #0xe39c                      ; -> L_e39c
+           0000e36c  ldr      r0, [r5]                     
+           0000e370  ldr      r0, [r0]                     
+           0000e374  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: leaderboardId)
+           0000e378  ldr      r0, [r0, #4]                 ; field+0x4 
+           0000e37c  ldr      r1, [pc]                     
+           0000e380  b        #0xe388                      ; -> L_e388
+           0000e384  .word    0x00f8e2a4                   ; literal 16310948 / 
+L_e388:    0000e388  ldr      r1, [pc, r1]                 ; GOT[3] CLASS System.String
+           0000e38c  cmp      r0, r1                       
+           0000e390  beq      #0xe39c                      ; -> L_e39c
+           0000e394  mov      r4, #0                       
+           0000e398  b        #0xe39c                      ; -> L_e39c
+L_e39c:    0000e39c  ldr      r6, [fp, #4]                 
+           0000e3a0  str      r6, [fp, #0x34]              
+           0000e3a4  cmp      r6, #0                       
+           0000e3a8  beq      #0xe3e0                      ; -> L_e3e0
+           0000e3ac  ldr      r0, [r6]                     
+           0000e3b0  ldr      r0, [r0]                     
+           0000e3b4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: leaderboardId)
+           0000e3b8  ldr      r0, [r0, #4]                 ; field+0x4 
+           0000e3bc  ldr      r1, [pc]                     
+           0000e3c0  b        #0xe3c8                      ; -> L_e3c8
+           0000e3c4  .word    0x00f8e264                   ; literal 16310884 / 
+L_e3c8:    0000e3c8  ldr      r1, [pc, r1]                 ; GOT[3] CLASS System.String
+           0000e3cc  cmp      r0, r1                       
+           0000e3d0  beq      #0xe3e0                      ; -> L_e3e0
+           0000e3d4  mov      r0, #0                       
+           0000e3d8  str      r0, [fp, #0x34]              
+           0000e3dc  b        #0xe3e0                      ; -> L_e3e0
+L_e3e0:    0000e3e0  ldr      r0, [pc]                     
+           0000e3e4  b        #0xe3ec                      ; -> L_e3ec
+           0000e3e8  .word    0x00f8e3cc                   ; literal 16311244 / 
+L_e3ec:    0000e3ec  ldr      r0, [pc, r0]                 ; GOT[102] VTABLE GameCenterLeaderboard
+           0000e3f0  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0000e3f4  str      r0, [fp, #0x48]              
+           0000e3f8  mov      r1, r4                       
+           0000e3fc  ldr      r2, [fp, #0x34]              
+           0000e400  bl       #0xe218                      ; CALL GameCenterLeaderboard::.ctor (direct)
+           0000e404  ldr      r1, [fp, #0x48]              
+           0000e408  mov      r0, sl                       
+           0000e40c  ldr      lr, [sl]                     
+           0000e410  bl       #0xb9ca0                     ; CALL System.Collections.Generic.List`1<GameCenterLeaderboard>::Add
+L_e414:    0000e414  ldr      r1, [fp, #0xc]               
+           0000e418  mov      r0, r1                       
+           0000e41c  ldr      r1, [r1]                     
+           0000e420  ldr      r8, [pc]                     
+           0000e424  b        #0xe42c                      ; -> L_e42c
+           0000e428  .word    0x00f8e22c                   ; literal 16310828 / 
+L_e42c:    0000e42c  ldr      r8, [pc, r8]                 ; GOT[14] METHODCONST System.Collections.IEnumerator::MoveNext
+           0000e430  add      lr, pc, #4                   
+           0000e434  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           0000e438  andeq    r0, r0, r0                   
+           0000e43c  cmp      r0, #0                       
+           0000e440  bne      #0xe2ec                      ; -> L_e2ec
+           0000e444  bl       #0xe44c                      ; CALL 0xe44c
+           0000e448  b        #0xe5b4                      ; -> L_e5b4
+           0000e44c  str      lr, [fp, #0x30]              
+           0000e450  ldr      r0, [fp, #0xc]               
+           0000e454  str      r0, [fp, #0x18]              
+           0000e458  ldr      r0, [fp, #0x18]              
+           0000e45c  str      r0, [fp, #0x38]              
+           0000e460  cmp      r0, #0                       
+           0000e464  beq      #0xe4fc                      ; -> L_e4fc
+           0000e468  ldr      r0, [fp, #0x38]              
+           0000e46c  ldr      r0, [r0]                     
+           0000e470  str      r0, [fp, #0x3c]              
+           0000e474  ldrh     r0, [r0, #0x18]              ; field+0x18 
+           0000e478  ldr      r1, [pc]                     
+           0000e47c  b        #0xe484                      ; -> L_e484
+           0000e480  .word    0x00f8e1d8                   ; literal 16310744 / 
+L_e484:    0000e484  ldr      r1, [pc, r1]                 ; GOT[15] IID System.IDisposable
+           0000e488  cmp      r0, r1                       
+           0000e48c  blo      #0xe4cc                      ; -> L_e4cc
+           0000e490  ldr      r0, [fp, #0x3c]              
+           0000e494  ldr      r0, [r0, #0x14]              ; field+0x14 
+           0000e498  ldr      r1, [pc]                     
+           0000e49c  b        #0xe4a4                      ; -> L_e4a4
+           0000e4a0  .word    0x00f8e1b8                   ; literal 16310712 / 
+L_e4a4:    0000e4a4  ldr      r1, [pc, r1]                 ; GOT[15] IID System.IDisposable
+           0000e4a8  asr      r2, r1, #3                   
+           0000e4ac  add      r0, r0, r2                   
+           0000e4b0  ldrb     r0, [r0]                     
+           0000e4b4  and      r2, r1, #7                   
+           0000e4b8  mov      r1, #1                       
+           0000e4bc  lsl      r1, r1, r2                   
+           0000e4c0  and      r0, r0, r1                   
+           0000e4c4  cmp      r0, #0                       
+           0000e4c8  bne      #0xe514                      ; -> L_e514
+L_e4cc:    0000e4cc  ldr      r0, [fp, #0x3c]              
+           0000e4d0  ldr      r0, [r0]                     
+           0000e4d4  ldr      r1, [pc]                     
+           0000e4d8  b        #0xe4e0                      ; -> L_e4e0
+           0000e4dc  .word    0x00f8e180                   ; literal 16310656 / 
+L_e4e0:    0000e4e0  ldr      r1, [pc, r1]                 ; GOT[16] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           0000e4e4  cmp      r0, r1                       
+           0000e4e8  bne      #0xe4fc                      ; -> L_e4fc
+           0000e4ec  ldr      r0, [fp, #0x38]              
+           0000e4f0  ldr      r0, [r0, #0x10]              ; field+0x10 
+           0000e4f4  cmp      r0, #0                       
+           0000e4f8  bne      #0xe508                      ; -> L_e508
+L_e4fc:    0000e4fc  mov      r0, #1                       
+           0000e500  str      r0, [fp, #0x40]              
+           0000e504  b        #0xe51c                      ; -> L_e51c
+L_e508:    0000e508  mov      r0, #2                       
+           0000e50c  str      r0, [fp, #0x40]              
+           0000e510  b        #0xe51c                      ; -> L_e51c
+L_e514:    0000e514  mov      r0, #0                       
+           0000e518  str      r0, [fp, #0x40]              
+L_e51c:    0000e51c  ldr      r0, [fp, #0x40]              
+           0000e520  str      r0, [fp, #0x1c]              
+           0000e524  mov      r1, r0                       
+           0000e528  ldr      r0, [fp, #0x1c]              
+           0000e52c  str      r1, [fp, #0x20]              
+           0000e530  cmp      r0, #0                       
+           0000e534  beq      #0xe560                      ; -> L_e560
+           0000e538  ldr      r0, [fp, #0x20]              
+           0000e53c  cmp      r0, #2                       
+           0000e540  bne      #0xe554                      ; -> L_e554
+           0000e544  ldr      r0, [fp, #0x18]              
+           0000e548  bl       #0xb96e0                     ; CALL wrapper wrapper20(System.IDisposable)
+           0000e54c  str      r0, [fp, #0x24]              
+           0000e550  b        #0xe568                      ; -> L_e568
+L_e554:    0000e554  mov      r0, #0                       
+           0000e558  str      r0, [fp, #0x24]              
+           0000e55c  b        #0xe568                      ; -> L_e568
+L_e560:    0000e560  ldr      r0, [fp, #0x18]              
+           0000e564  str      r0, [fp, #0x24]              
+L_e568:    0000e568  ldr      r0, [fp, #0x24]              
+           0000e56c  str      r0, [fp, #0x14]              
+           0000e570  str      r0, [fp, #0x10]              
+           0000e574  cmp      r0, #0                       
+           0000e578  bne      #0xe584                      ; -> L_e584
+           0000e57c  ldr      ip, [fp, #0x30]              
+           0000e580  mov      pc, ip                       
+L_e584:    0000e584  ldr      r1, [fp, #0x10]              
+           0000e588  mov      r0, r1                       
+           0000e58c  ldr      r1, [r1]                     
+           0000e590  ldr      r8, [pc]                     
+           0000e594  b        #0xe59c                      ; -> L_e59c
+           0000e598  .word    0x00f8e0c8                   ; literal 16310472 / 
+L_e59c:    0000e59c  ldr      r8, [pc, r8]                 ; GOT[17] METHODCONST System.IDisposable::Dispose
+           0000e5a0  add      lr, pc, #4                   
+           0000e5a4  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           0000e5a8  andeq    r0, r0, r0                   
+           0000e5ac  ldr      ip, [fp, #0x30]              
+           0000e5b0  mov      pc, ip                       
+L_e5b4:    0000e5b4  ldr      r0, [fp]                     
+           0000e5b8  add      sp, fp, #0x50                
+           0000e5bc  pop      {r4, r5, r6, r8, sl, fp}     
+           0000e5c0  ldr      r7, [sp, #8]                 
+           0000e5c4  ldm      sp, {sp, pc}                 
+           0000e5c8  mov      r1, lr                       
+           0000e5cc  ldr      r0, [pc]                     
+           0000e5d0  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0000e5d4  andeq    r0, r0, #0xfd                
+
+== GameCenterLeaderboard::ToString  token 0x0600006d @0x0000e5d8 (76 bytes)
+   args: r0=this, 
+           0000e5d8  mov      ip, sp                       
+           0000e5dc  push     {r7, lr}                     
+           0000e5e0  mov      r7, sp                       
+           0000e5e4  push     {r8, fp, ip, lr}             
+           0000e5e8  sub      sp, sp, #8                   
+           0000e5ec  mov      fp, sp                       
+           0000e5f0  str      r0, [fp]                     
+           0000e5f4  ldr      r0, [pc]                     
+           0000e5f8  b        #0xe600                      ; -> L_e600
+           0000e5fc  .word    0x00f8e1bc                   ; literal 16310716 / 
+L_e600:    0000e600  ldr      r0, [pc, r0]                 ; GOT[103] LDSTR '<Leaderboard> leaderboardId: {0}, title: {1}'
+           0000e604  ldr      r2, [fp]                     
+           0000e608  ldr      r1, [r2, #8]                 ; field+0x8 (this-class: leaderboardId)
+           0000e60c  ldr      r2, [r2, #0xc]               ; field+0xc (this-class: title)
+           0000e610  bl       #0xb9cb0                     ; CALL System.String::Format
+           0000e614  add      sp, fp, #8                   
+           0000e618  pop      {r8, fp}                     
+           0000e61c  ldr      r7, [sp, #8]                 
+           0000e620  ldm      sp, {sp, pc}                 

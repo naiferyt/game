@@ -1,0 +1,611 @@
+####################################################################################################
+# TYPE ByteStream  (instance size 0x18)
+#   +0x08 ms                             System.IO.MemoryStream
+#   +0x0c bw                             System.IO.BinaryWriter
+#   +0x10 br                             System.IO.BinaryReader
+#   +0x14 isWriting                      bool
+#   static int kDefaultMemoryStreamSize  = const 00010000
+#   vtable slots: 
+####################################################################################################
+== ByteStream::.ctor  token 0x06000103 @0x00015e4c (136 bytes)
+   args: r0=this, 
+           00015e4c  mov      ip, sp                       
+           00015e50  push     {r7, lr}                     
+           00015e54  mov      r7, sp                       
+           00015e58  push     {r8, sl, fp, ip, lr}         
+           00015e5c  sub      sp, sp, #0x14                
+           00015e60  mov      fp, sp                       
+           00015e64  mov      sl, r0                       
+           00015e68  ldr      r0, [pc]                     
+           00015e6c  b        #0x15e74                     ; -> L_15e74
+           00015e70  .word    0x00f86af4                   ; literal 16280308 / 
+L_15e74:   00015e74  ldr      r0, [pc, r0]                 ; GOT[210] VTABLE System.IO.MemoryStream
+           00015e78  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00015e7c  str      r0, [fp, #8]                 
+           00015e80  mov      r1, #64, #30                 
+           00015e84  bl       #0xba5c0                     ; CALL System.IO.MemoryStream::.ctor
+           00015e88  ldr      r0, [fp, #8]                 
+           00015e8c  str      r0, [sl, #8]                 ; field+0x8 (this-class: ms)
+           00015e90  str      r0, [fp, #4]                 
+           00015e94  ldr      r0, [pc]                     
+           00015e98  b        #0x15ea0                     ; -> L_15ea0
+           00015e9c  .word    0x00f86afc                   ; literal 16280316 / 
+L_15ea0:   00015ea0  ldr      r0, [pc, r0]                 ; GOT[223] VTABLE System.IO.BinaryWriter
+           00015ea4  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00015ea8  ldr      r1, [fp, #4]                 
+           00015eac  str      r0, [fp]                     
+           00015eb0  bl       #0xba5d0                     ; CALL System.IO.BinaryWriter::.ctor
+           00015eb4  ldr      r0, [fp]                     
+           00015eb8  str      r0, [sl, #0xc]               ; field+0xc (this-class: bw)
+           00015ebc  mov      r0, #1                       
+           00015ec0  strb     r0, [sl, #0x14]              ; field+0x14 (this-class: isWriting)
+           00015ec4  add      sp, fp, #0x14                
+           00015ec8  pop      {r8, sl, fp}                 
+           00015ecc  ldr      r7, [sp, #8]                 
+           00015ed0  ldm      sp, {sp, pc}                 
+
+== ByteStream::.ctor  token 0x06000104 @0x00015ed4 (140 bytes)
+   args: r0=this, bytes
+           00015ed4  mov      ip, sp                       
+           00015ed8  push     {r7, lr}                     
+           00015edc  mov      r7, sp                       
+           00015ee0  push     {r6, r8, fp, ip, lr}         
+           00015ee4  sub      sp, sp, #0x1c                
+           00015ee8  mov      fp, sp                       
+           00015eec  mov      r6, r0                       
+           00015ef0  str      r1, [fp]                     
+           00015ef4  ldr      r0, [pc]                     
+           00015ef8  b        #0x15f00                     ; -> L_15f00
+           00015efc  .word    0x00f86a68                   ; literal 16280168 / 
+L_15f00:   00015f00  ldr      r0, [pc, r0]                 ; GOT[210] VTABLE System.IO.MemoryStream
+           00015f04  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00015f08  str      r0, [fp, #0x10]              
+           00015f0c  ldr      r1, [fp]                     
+           00015f10  bl       #0xba400                     ; CALL System.IO.MemoryStream::.ctor
+           00015f14  ldr      r0, [fp, #0x10]              
+           00015f18  str      r0, [r6, #8]                 ; field+0x8 (this-class: ms)
+           00015f1c  str      r0, [fp, #0xc]               
+           00015f20  ldr      r0, [pc]                     
+           00015f24  b        #0x15f2c                     ; -> L_15f2c
+           00015f28  .word    0x00f86a74                   ; literal 16280180 / 
+L_15f2c:   00015f2c  ldr      r0, [pc, r0]                 ; GOT[224] VTABLE System.IO.BinaryReader
+           00015f30  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00015f34  ldr      r1, [fp, #0xc]               
+           00015f38  str      r0, [fp, #8]                 
+           00015f3c  bl       #0xba5e0                     ; CALL System.IO.BinaryReader::.ctor
+           00015f40  ldr      r0, [fp, #8]                 
+           00015f44  str      r0, [r6, #0x10]              ; field+0x10 (this-class: br)
+           00015f48  mov      r0, #0                       
+           00015f4c  strb     r0, [r6, #0x14]              ; field+0x14 (this-class: isWriting)
+           00015f50  add      sp, fp, #0x1c                
+           00015f54  pop      {r6, r8, fp}                 
+           00015f58  ldr      r7, [sp, #8]                 
+           00015f5c  ldm      sp, {sp, pc}                 
+
+== ByteStream::get_Bytes  token 0x06000105 @0x00015f60 (68 bytes)
+   args: r0=this, 
+           00015f60  mov      ip, sp                       
+           00015f64  push     {r7, lr}                     
+           00015f68  mov      r7, sp                       
+           00015f6c  push     {r8, fp, ip, lr}             
+           00015f70  sub      sp, sp, #8                   
+           00015f74  mov      fp, sp                       
+           00015f78  str      r0, [fp]                     
+           00015f7c  ldr      r0, [fp]                     
+           00015f80  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: ms)
+           00015f84  mov      r0, r1                       
+           00015f88  ldr      r1, [r1]                     
+           00015f8c  mov      lr, pc                       
+           00015f90  ldr      pc, [r1, #0x84]              ; VIRTUAL CALL slot +0x84: System.Enum::ToString
+           00015f94  add      sp, fp, #8                   
+           00015f98  pop      {r8, fp}                     
+           00015f9c  ldr      r7, [sp, #8]                 
+           00015fa0  ldm      sp, {sp, pc}                 
+
+== ByteStream::Serialize  token 0x06000106 @0x00015fa4 (148 bytes)
+   args: r0=this, a
+           00015fa4  mov      ip, sp                       
+           00015fa8  push     {r7, lr}                     
+           00015fac  mov      r7, sp                       
+           00015fb0  push     {r6, r8, fp, ip, lr}         
+           00015fb4  sub      sp, sp, #0x14                
+           00015fb8  mov      fp, sp                       
+           00015fbc  mov      r6, r0                       
+           00015fc0  str      r1, [fp, #8]                 
+           00015fc4  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: isWriting)
+           00015fc8  cmp      r0, #0                       
+           00015fcc  beq      #0x16000                     ; -> L_16000
+           00015fd0  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           00015fd4  ldr      r0, [fp, #8]                 
+           00015fd8  vldr     s0, [r0]                     
+           00015fdc  vcvt.f64.f32 d2, s0                       
+           00015fe0  mov      r0, r2                       
+           00015fe4  vcvt.f32.f64 s0, d2                       
+           00015fe8  vstr     s0, [sp, #-8]                
+           00015fec  ldr      r1, [sp, #-8]                
+           00015ff0  ldr      r2, [r2]                     
+           00015ff4  mov      lr, pc                       
+           00015ff8  ldr      pc, [r2, #0x48]              ; VIRTUAL CALL slot +0x48: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Reset | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Reset | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Reset | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Reset | AnimatedTexture/<UpdateTexture>c__Iterator1A::Reset | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Reset | BarrelLauncher/<LaunchPump>c__Iterator33::Reset | BarrelSpawner/<SpawnCheck>c__Iterator34::Reset ...(214)
+           00015ffc  b        #0x16028                     ; -> L_16028
+L_16000:   00016000  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           00016004  mov      r0, r1                       
+           00016008  ldr      r1, [r1]                     
+           0001600c  mov      lr, pc                       
+           00016010  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           00016014  vmov     s4, r0                       
+           00016018  vcvt.f64.f32 d2, s4                       
+           0001601c  ldr      r0, [fp, #8]                 
+           00016020  vcvt.f32.f64 s0, d2                       
+           00016024  vstr     s0, [r0]                     
+L_16028:   00016028  add      sp, fp, #0x14                
+           0001602c  pop      {r6, r8, fp}                 
+           00016030  ldr      r7, [sp, #8]                 
+           00016034  ldm      sp, {sp, pc}                 
+
+== ByteStream::Serialize  token 0x06000107 @0x00016038 (124 bytes)
+   args: r0=this, a
+           00016038  mov      ip, sp                       
+           0001603c  push     {r7, lr}                     
+           00016040  mov      r7, sp                       
+           00016044  push     {r6, r8, fp, ip, lr}         
+           00016048  sub      sp, sp, #0xc                 
+           0001604c  mov      fp, sp                       
+           00016050  mov      r6, r0                       
+           00016054  str      r1, [fp]                     
+           00016058  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: isWriting)
+           0001605c  cmp      r0, #0                       
+           00016060  beq      #0x16084                     ; -> L_16084
+           00016064  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           00016068  ldr      r0, [fp]                     
+           0001606c  ldrsb    r1, [r0]                     
+           00016070  mov      r0, r2                       
+           00016074  ldr      r2, [r2]                     
+           00016078  mov      lr, pc                       
+           0001607c  ldr      pc, [r2, #0x78]              ; VIRTUAL CALL slot +0x78: System.IConvertible::ToUInt64
+           00016080  b        #0x160a4                     ; -> L_160a4
+L_16084:   00016084  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           00016088  mov      r0, r1                       
+           0001608c  ldr      r1, [r1]                     
+           00016090  mov      lr, pc                       
+           00016094  ldr      pc, [r1, #0x70]              ; VIRTUAL CALL slot +0x70: System.IConvertible::ToUInt16
+           00016098  mov      r1, r0                       
+           0001609c  ldr      r0, [fp]                     
+           000160a0  strb     r1, [r0]                     
+L_160a4:   000160a4  add      sp, fp, #0xc                 
+           000160a8  pop      {r6, r8, fp}                 
+           000160ac  ldr      r7, [sp, #8]                 
+           000160b0  ldm      sp, {sp, pc}                 
+
+== ByteStream::Serialize  token 0x06000108 @0x000160b4 (124 bytes)
+   args: r0=this, a
+           000160b4  mov      ip, sp                       
+           000160b8  push     {r7, lr}                     
+           000160bc  mov      r7, sp                       
+           000160c0  push     {r6, r8, fp, ip, lr}         
+           000160c4  sub      sp, sp, #0xc                 
+           000160c8  mov      fp, sp                       
+           000160cc  mov      r6, r0                       
+           000160d0  str      r1, [fp]                     
+           000160d4  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: isWriting)
+           000160d8  cmp      r0, #0                       
+           000160dc  beq      #0x16100                     ; -> L_16100
+           000160e0  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           000160e4  ldr      r0, [fp]                     
+           000160e8  ldr      r1, [r0]                     
+           000160ec  mov      r0, r2                       
+           000160f0  ldr      r2, [r2]                     
+           000160f4  mov      lr, pc                       
+           000160f8  ldr      pc, [r2, #0x3c]              ; VIRTUAL CALL slot +0x3c: AchievementListener::Prerace | BaseCarAIState::Update | BaseEffect::Stack | BaseMission::Shutdown | BoatAnchorEffect::Stack | BoosterEffect::Stack | BrakeMission::Shutdown | BuyPowerupMission::Shutdown ...(74)
+           000160fc  b        #0x16120                     ; -> L_16120
+L_16100:   00016100  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           00016104  mov      r0, r1                       
+           00016108  ldr      r1, [r1]                     
+           0001610c  mov      lr, pc                       
+           00016110  ldr      pc, [r1, #0x3c]              ; VIRTUAL CALL slot +0x3c: AchievementListener::Prerace | BaseCarAIState::Update | BaseEffect::Stack | BaseMission::Shutdown | BoatAnchorEffect::Stack | BoosterEffect::Stack | BrakeMission::Shutdown | BuyPowerupMission::Shutdown ...(74)
+           00016114  mov      r1, r0                       
+           00016118  ldr      r0, [fp]                     
+           0001611c  str      r1, [r0]                     
+L_16120:   00016120  add      sp, fp, #0xc                 
+           00016124  pop      {r6, r8, fp}                 
+           00016128  ldr      r7, [sp, #8]                 
+           0001612c  ldm      sp, {sp, pc}                 
+
+== ByteStream::Serialize  token 0x06000109 @0x00016130 (124 bytes)
+   args: r0=this, a
+           00016130  mov      ip, sp                       
+           00016134  push     {r7, lr}                     
+           00016138  mov      r7, sp                       
+           0001613c  push     {r6, r8, fp, ip, lr}         
+           00016140  sub      sp, sp, #0xc                 
+           00016144  mov      fp, sp                       
+           00016148  mov      r6, r0                       
+           0001614c  str      r1, [fp]                     
+           00016150  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: isWriting)
+           00016154  cmp      r0, #0                       
+           00016158  beq      #0x1617c                     ; -> L_1617c
+           0001615c  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           00016160  ldr      r0, [fp]                     
+           00016164  ldr      r1, [r0]                     
+           00016168  mov      r0, r2                       
+           0001616c  ldr      r2, [r2]                     
+           00016170  mov      lr, pc                       
+           00016174  ldr      pc, [r2, #0x54]              ; VIRTUAL CALL slot +0x54: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::System.Collections.IEnumerator.get_Current | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::System.Collections.IEnumerator.get_Current | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::System.Collections.IEnumerator.get_Current | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::System.Collections.IEnumerator.get_Current | AnimatedTexture/<UpdateTexture>c__Iterator1A::System.Collections.IEnumerator.get_Current | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::System.Collections.IEnumerator.get_Current | BarrelLauncher/<LaunchPump>c__Iterator33::System.Collections.IEnumerator.get_Current | BarrelSpawner/<SpawnCheck>c__Iterator34::System.Collections.IEnumerator.get_Current ...(205)
+           00016178  b        #0x1619c                     ; -> L_1619c
+L_1617c:   0001617c  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           00016180  mov      r0, r1                       
+           00016184  ldr      r1, [r1]                     
+           00016188  mov      lr, pc                       
+           0001618c  ldr      pc, [r1, #0x54]              ; VIRTUAL CALL slot +0x54: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::System.Collections.IEnumerator.get_Current | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::System.Collections.IEnumerator.get_Current | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::System.Collections.IEnumerator.get_Current | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::System.Collections.IEnumerator.get_Current | AnimatedTexture/<UpdateTexture>c__Iterator1A::System.Collections.IEnumerator.get_Current | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::System.Collections.IEnumerator.get_Current | BarrelLauncher/<LaunchPump>c__Iterator33::System.Collections.IEnumerator.get_Current | BarrelSpawner/<SpawnCheck>c__Iterator34::System.Collections.IEnumerator.get_Current ...(205)
+           00016190  mov      r1, r0                       
+           00016194  ldr      r0, [fp]                     
+           00016198  str      r1, [r0]                     
+L_1619c:   0001619c  add      sp, fp, #0xc                 
+           000161a0  pop      {r6, r8, fp}                 
+           000161a4  ldr      r7, [sp, #8]                 
+           000161a8  ldm      sp, {sp, pc}                 
+
+== ByteStream::Serialize  token 0x0600010a @0x000161ac (136 bytes)
+   args: r0=this, a
+           000161ac  mov      ip, sp                       
+           000161b0  push     {r7, lr}                     
+           000161b4  mov      r7, sp                       
+           000161b8  push     {r6, r8, sl, fp, ip, lr}     
+           000161bc  sub      sp, sp, #8                   
+           000161c0  mov      fp, sp                       
+           000161c4  mov      r6, r0                       
+           000161c8  mov      sl, r1                       
+           000161cc  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: isWriting)
+           000161d0  cmp      r0, #0                       
+           000161d4  beq      #0x161f8                     ; -> L_161f8
+           000161d8  ldr      r3, [r6, #0xc]               ; field+0xc (this-class: bw)
+           000161dc  ldr      r2, [sl, #4]                 ; field+0x4 
+           000161e0  ldr      r1, [sl]                     
+           000161e4  mov      r0, r3                       
+           000161e8  ldr      r3, [r3]                     
+           000161ec  mov      lr, pc                       
+           000161f0  ldr      pc, [r3, #0x50]              ; VIRTUAL CALL slot +0x50: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::MoveNext | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::MoveNext | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::MoveNext | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::MoveNext | AnimatedTexture/<UpdateTexture>c__Iterator1A::MoveNext | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::MoveNext | BarrelLauncher/<LaunchPump>c__Iterator33::MoveNext | BarrelSpawner/<SpawnCheck>c__Iterator34::MoveNext ...(203)
+           000161f4  b        #0x16224                     ; -> L_16224
+L_161f8:   000161f8  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           000161fc  mov      r0, r1                       
+           00016200  ldr      r1, [r1]                     
+           00016204  mov      lr, pc                       
+           00016208  ldr      pc, [r1, #0x50]              ; VIRTUAL CALL slot +0x50: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::MoveNext | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::MoveNext | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::MoveNext | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::MoveNext | AnimatedTexture/<UpdateTexture>c__Iterator1A::MoveNext | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::MoveNext | BarrelLauncher/<LaunchPump>c__Iterator33::MoveNext | BarrelSpawner/<SpawnCheck>c__Iterator34::MoveNext ...(203)
+           0001620c  str      r1, [fp, #4]                 
+           00016210  str      r0, [fp]                     
+           00016214  ldr      r0, [fp, #4]                 
+           00016218  str      r0, [sl, #4]                 ; field+0x4 
+           0001621c  ldr      r0, [fp]                     
+           00016220  str      r0, [sl]                     
+L_16224:   00016224  add      sp, fp, #8                   
+           00016228  pop      {r6, r8, sl, fp}             
+           0001622c  ldr      r7, [sp, #8]                 
+           00016230  ldm      sp, {sp, pc}                 
+
+== ByteStream::Serialize  token 0x0600010b @0x00016234 (136 bytes)
+   args: r0=this, a
+           00016234  mov      ip, sp                       
+           00016238  push     {r7, lr}                     
+           0001623c  mov      r7, sp                       
+           00016240  push     {r6, r8, sl, fp, ip, lr}     
+           00016244  sub      sp, sp, #8                   
+           00016248  mov      fp, sp                       
+           0001624c  mov      r6, r0                       
+           00016250  mov      sl, r1                       
+           00016254  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: isWriting)
+           00016258  cmp      r0, #0                       
+           0001625c  beq      #0x16280                     ; -> L_16280
+           00016260  ldr      r3, [r6, #0xc]               ; field+0xc (this-class: bw)
+           00016264  ldr      r2, [sl, #4]                 ; field+0x4 
+           00016268  ldr      r1, [sl]                     
+           0001626c  mov      r0, r3                       
+           00016270  ldr      r3, [r3]                     
+           00016274  mov      lr, pc                       
+           00016278  ldr      pc, [r3, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+           0001627c  b        #0x162ac                     ; -> L_162ac
+L_16280:   00016280  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           00016284  mov      r0, r1                       
+           00016288  ldr      r1, [r1]                     
+           0001628c  mov      lr, pc                       
+           00016290  ldr      pc, [r1, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+           00016294  str      r1, [fp, #4]                 
+           00016298  str      r0, [fp]                     
+           0001629c  ldr      r0, [fp, #4]                 
+           000162a0  str      r0, [sl, #4]                 ; field+0x4 
+           000162a4  ldr      r0, [fp]                     
+           000162a8  str      r0, [sl]                     
+L_162ac:   000162ac  add      sp, fp, #8                   
+           000162b0  pop      {r6, r8, sl, fp}             
+           000162b4  ldr      r7, [sp, #8]                 
+           000162b8  ldm      sp, {sp, pc}                 
+
+== ByteStream::Serialize  token 0x0600010c @0x000162bc (292 bytes)
+   args: r0=this, a
+           000162bc  mov      ip, sp                       
+           000162c0  push     {r7, lr}                     
+           000162c4  mov      r7, sp                       
+           000162c8  push     {r6, r8, sl, fp, ip, lr}     
+           000162cc  sub      sp, sp, #8                   
+           000162d0  mov      fp, sp                       
+           000162d4  mov      r6, r0                       
+           000162d8  mov      sl, r1                       
+           000162dc  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: isWriting)
+           000162e0  cmp      r0, #0                       
+           000162e4  beq      #0x16364                     ; -> L_16364
+           000162e8  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           000162ec  vldr     s0, [sl]                     
+           000162f0  vcvt.f64.f32 d2, s0                       
+           000162f4  mov      r0, r2                       
+           000162f8  vcvt.f32.f64 s0, d2                       
+           000162fc  vstr     s0, [sp, #-8]                
+           00016300  ldr      r1, [sp, #-8]                
+           00016304  ldr      r2, [r2]                     
+           00016308  mov      lr, pc                       
+           0001630c  ldr      pc, [r2, #0x48]              ; VIRTUAL CALL slot +0x48: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Reset | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Reset | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Reset | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Reset | AnimatedTexture/<UpdateTexture>c__Iterator1A::Reset | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Reset | BarrelLauncher/<LaunchPump>c__Iterator33::Reset | BarrelSpawner/<SpawnCheck>c__Iterator34::Reset ...(214)
+           00016310  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           00016314  vldr     s0, [sl, #4]                 ; field+0x4 
+           00016318  vcvt.f64.f32 d2, s0                       
+           0001631c  mov      r0, r2                       
+           00016320  vcvt.f32.f64 s0, d2                       
+           00016324  vstr     s0, [sp, #-8]                
+           00016328  ldr      r1, [sp, #-8]                
+           0001632c  ldr      r2, [r2]                     
+           00016330  mov      lr, pc                       
+           00016334  ldr      pc, [r2, #0x48]              ; VIRTUAL CALL slot +0x48: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Reset | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Reset | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Reset | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Reset | AnimatedTexture/<UpdateTexture>c__Iterator1A::Reset | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Reset | BarrelLauncher/<LaunchPump>c__Iterator33::Reset | BarrelSpawner/<SpawnCheck>c__Iterator34::Reset ...(214)
+           00016338  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           0001633c  vldr     s0, [sl, #8]                 ; field+0x8 (this-class: ms)
+           00016340  vcvt.f64.f32 d2, s0                       
+           00016344  mov      r0, r2                       
+           00016348  vcvt.f32.f64 s0, d2                       
+           0001634c  vstr     s0, [sp, #-8]                
+           00016350  ldr      r1, [sp, #-8]                
+           00016354  ldr      r2, [r2]                     
+           00016358  mov      lr, pc                       
+           0001635c  ldr      pc, [r2, #0x48]              ; VIRTUAL CALL slot +0x48: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Reset | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Reset | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Reset | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Reset | AnimatedTexture/<UpdateTexture>c__Iterator1A::Reset | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Reset | BarrelLauncher/<LaunchPump>c__Iterator33::Reset | BarrelSpawner/<SpawnCheck>c__Iterator34::Reset ...(214)
+           00016360  b        #0x163d0                     ; -> L_163d0
+L_16364:   00016364  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           00016368  mov      r0, r1                       
+           0001636c  ldr      r1, [r1]                     
+           00016370  mov      lr, pc                       
+           00016374  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           00016378  vmov     s4, r0                       
+           0001637c  vcvt.f64.f32 d2, s4                       
+           00016380  vcvt.f32.f64 s0, d2                       
+           00016384  vstr     s0, [sl]                     
+           00016388  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           0001638c  mov      r0, r1                       
+           00016390  ldr      r1, [r1]                     
+           00016394  mov      lr, pc                       
+           00016398  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           0001639c  vmov     s4, r0                       
+           000163a0  vcvt.f64.f32 d2, s4                       
+           000163a4  vcvt.f32.f64 s0, d2                       
+           000163a8  vstr     s0, [sl, #4]                 ; field+0x4 
+           000163ac  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           000163b0  mov      r0, r1                       
+           000163b4  ldr      r1, [r1]                     
+           000163b8  mov      lr, pc                       
+           000163bc  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           000163c0  vmov     s4, r0                       
+           000163c4  vcvt.f64.f32 d2, s4                       
+           000163c8  vcvt.f32.f64 s0, d2                       
+           000163cc  vstr     s0, [sl, #8]                 ; field+0x8 (this-class: ms)
+L_163d0:   000163d0  add      sp, fp, #8                   
+           000163d4  pop      {r6, r8, sl, fp}             
+           000163d8  ldr      r7, [sp, #8]                 
+           000163dc  ldm      sp, {sp, pc}                 
+
+== ByteStream::Serialize  token 0x0600010d @0x000163e0 (368 bytes)
+   args: r0=this, a
+           000163e0  mov      ip, sp                       
+           000163e4  push     {r7, lr}                     
+           000163e8  mov      r7, sp                       
+           000163ec  push     {r6, r8, sl, fp, ip, lr}     
+           000163f0  sub      sp, sp, #8                   
+           000163f4  mov      fp, sp                       
+           000163f8  mov      r6, r0                       
+           000163fc  mov      sl, r1                       
+           00016400  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: isWriting)
+           00016404  cmp      r0, #0                       
+           00016408  beq      #0x164b0                     ; -> L_164b0
+           0001640c  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           00016410  vldr     s0, [sl]                     
+           00016414  vcvt.f64.f32 d2, s0                       
+           00016418  mov      r0, r2                       
+           0001641c  vcvt.f32.f64 s0, d2                       
+           00016420  vstr     s0, [sp, #-8]                
+           00016424  ldr      r1, [sp, #-8]                
+           00016428  ldr      r2, [r2]                     
+           0001642c  mov      lr, pc                       
+           00016430  ldr      pc, [r2, #0x48]              ; VIRTUAL CALL slot +0x48: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Reset | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Reset | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Reset | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Reset | AnimatedTexture/<UpdateTexture>c__Iterator1A::Reset | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Reset | BarrelLauncher/<LaunchPump>c__Iterator33::Reset | BarrelSpawner/<SpawnCheck>c__Iterator34::Reset ...(214)
+           00016434  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           00016438  vldr     s0, [sl, #4]                 ; field+0x4 
+           0001643c  vcvt.f64.f32 d2, s0                       
+           00016440  mov      r0, r2                       
+           00016444  vcvt.f32.f64 s0, d2                       
+           00016448  vstr     s0, [sp, #-8]                
+           0001644c  ldr      r1, [sp, #-8]                
+           00016450  ldr      r2, [r2]                     
+           00016454  mov      lr, pc                       
+           00016458  ldr      pc, [r2, #0x48]              ; VIRTUAL CALL slot +0x48: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Reset | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Reset | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Reset | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Reset | AnimatedTexture/<UpdateTexture>c__Iterator1A::Reset | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Reset | BarrelLauncher/<LaunchPump>c__Iterator33::Reset | BarrelSpawner/<SpawnCheck>c__Iterator34::Reset ...(214)
+           0001645c  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           00016460  vldr     s0, [sl, #8]                 ; field+0x8 (this-class: ms)
+           00016464  vcvt.f64.f32 d2, s0                       
+           00016468  mov      r0, r2                       
+           0001646c  vcvt.f32.f64 s0, d2                       
+           00016470  vstr     s0, [sp, #-8]                
+           00016474  ldr      r1, [sp, #-8]                
+           00016478  ldr      r2, [r2]                     
+           0001647c  mov      lr, pc                       
+           00016480  ldr      pc, [r2, #0x48]              ; VIRTUAL CALL slot +0x48: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Reset | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Reset | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Reset | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Reset | AnimatedTexture/<UpdateTexture>c__Iterator1A::Reset | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Reset | BarrelLauncher/<LaunchPump>c__Iterator33::Reset | BarrelSpawner/<SpawnCheck>c__Iterator34::Reset ...(214)
+           00016484  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           00016488  vldr     s0, [sl, #0xc]               ; field+0xc (this-class: bw)
+           0001648c  vcvt.f64.f32 d2, s0                       
+           00016490  mov      r0, r2                       
+           00016494  vcvt.f32.f64 s0, d2                       
+           00016498  vstr     s0, [sp, #-8]                
+           0001649c  ldr      r1, [sp, #-8]                
+           000164a0  ldr      r2, [r2]                     
+           000164a4  mov      lr, pc                       
+           000164a8  ldr      pc, [r2, #0x48]              ; VIRTUAL CALL slot +0x48: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Reset | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Reset | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Reset | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Reset | AnimatedTexture/<UpdateTexture>c__Iterator1A::Reset | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Reset | BarrelLauncher/<LaunchPump>c__Iterator33::Reset | BarrelSpawner/<SpawnCheck>c__Iterator34::Reset ...(214)
+           000164ac  b        #0x16540                     ; -> L_16540
+L_164b0:   000164b0  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           000164b4  mov      r0, r1                       
+           000164b8  ldr      r1, [r1]                     
+           000164bc  mov      lr, pc                       
+           000164c0  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           000164c4  vmov     s4, r0                       
+           000164c8  vcvt.f64.f32 d2, s4                       
+           000164cc  vcvt.f32.f64 s0, d2                       
+           000164d0  vstr     s0, [sl]                     
+           000164d4  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           000164d8  mov      r0, r1                       
+           000164dc  ldr      r1, [r1]                     
+           000164e0  mov      lr, pc                       
+           000164e4  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           000164e8  vmov     s4, r0                       
+           000164ec  vcvt.f64.f32 d2, s4                       
+           000164f0  vcvt.f32.f64 s0, d2                       
+           000164f4  vstr     s0, [sl, #4]                 ; field+0x4 
+           000164f8  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           000164fc  mov      r0, r1                       
+           00016500  ldr      r1, [r1]                     
+           00016504  mov      lr, pc                       
+           00016508  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           0001650c  vmov     s4, r0                       
+           00016510  vcvt.f64.f32 d2, s4                       
+           00016514  vcvt.f32.f64 s0, d2                       
+           00016518  vstr     s0, [sl, #8]                 ; field+0x8 (this-class: ms)
+           0001651c  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           00016520  mov      r0, r1                       
+           00016524  ldr      r1, [r1]                     
+           00016528  mov      lr, pc                       
+           0001652c  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           00016530  vmov     s4, r0                       
+           00016534  vcvt.f64.f32 d2, s4                       
+           00016538  vcvt.f32.f64 s0, d2                       
+           0001653c  vstr     s0, [sl, #0xc]               ; field+0xc (this-class: bw)
+L_16540:   00016540  add      sp, fp, #8                   
+           00016544  pop      {r6, r8, sl, fp}             
+           00016548  ldr      r7, [sp, #8]                 
+           0001654c  ldm      sp, {sp, pc}                 
+
+== ByteStream::Serialize  token 0x0600010e @0x00016550 (124 bytes)
+   args: r0=this, a
+           00016550  mov      ip, sp                       
+           00016554  push     {r7, lr}                     
+           00016558  mov      r7, sp                       
+           0001655c  push     {r6, r8, fp, ip, lr}         
+           00016560  sub      sp, sp, #0xc                 
+           00016564  mov      fp, sp                       
+           00016568  mov      r6, r0                       
+           0001656c  str      r1, [fp]                     
+           00016570  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: isWriting)
+           00016574  cmp      r0, #0                       
+           00016578  beq      #0x1659c                     ; -> L_1659c
+           0001657c  ldr      r2, [r6, #0xc]               ; field+0xc (this-class: bw)
+           00016580  ldr      r0, [fp]                     
+           00016584  ldr      r1, [r0]                     
+           00016588  mov      r0, r2                       
+           0001658c  ldr      r2, [r2]                     
+           00016590  mov      lr, pc                       
+           00016594  ldr      pc, [r2, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           00016598  b        #0x165bc                     ; -> L_165bc
+L_1659c:   0001659c  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: br)
+           000165a0  mov      r0, r1                       
+           000165a4  ldr      r1, [r1]                     
+           000165a8  mov      lr, pc                       
+           000165ac  ldr      pc, [r1, #0x48]              ; VIRTUAL CALL slot +0x48: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Reset | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Reset | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Reset | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Reset | AnimatedTexture/<UpdateTexture>c__Iterator1A::Reset | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Reset | BarrelLauncher/<LaunchPump>c__Iterator33::Reset | BarrelSpawner/<SpawnCheck>c__Iterator34::Reset ...(214)
+           000165b0  mov      r1, r0                       
+           000165b4  ldr      r0, [fp]                     
+           000165b8  str      r1, [r0]                     
+L_165bc:   000165bc  add      sp, fp, #0xc                 
+           000165c0  pop      {r6, r8, fp}                 
+           000165c4  ldr      r7, [sp, #8]                 
+           000165c8  ldm      sp, {sp, pc}                 
+
+== ByteStream::Serialize  token 0x0600010f @0x000165cc (336 bytes)
+   args: r0=this, a
+           000165cc  mov      ip, sp                       
+           000165d0  push     {r7, lr}                     
+           000165d4  mov      r7, sp                       
+           000165d8  push     {r4, r5, r6, r8, fp, ip, lr} 
+           000165dc  sub      sp, sp, #0x2c                
+           000165e0  mov      fp, sp                       
+           000165e4  str      r8, [fp, #0x10]              
+           000165e8  str      r0, [fp, #0x14]              
+           000165ec  str      r1, [fp, #0x18]              
+           000165f0  ldr      r0, [fp, #0x14]              
+           000165f4  ldrb     r0, [r0, #0x14]              ; field+0x14 (this-class: isWriting)
+           000165f8  cmp      r0, #0                       
+           000165fc  beq      #0x16684                     ; -> L_16684
+           00016600  ldr      r0, [fp, #0x10]              
+           00016604  bl       #0xba5f0                     ; CALL [RGCTX_FETCH] 
+           00016608  bl       #0xba600                     ; CALL System.Runtime.InteropServices.Marshal::SizeOf
+           0001660c  mov      r5, r0                       
+           00016610  mov      r1, r5                       
+           00016614  ldr      r0, [pc]                     
+           00016618  b        #0x16620                     ; -> L_16620
+           0001661c  .word    0x00f86330                   ; literal 16278320 / 
+L_16620:   00016620  ldr      r0, [pc, r0]                 ; GOT[204] VTABLE System.Byte[]
+           00016624  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           00016628  str      r0, [fp]                     
+           0001662c  mov      r0, r5                       
+           00016630  bl       #0xba610                     ; CALL System.Runtime.InteropServices.Marshal::AllocHGlobal
+           00016634  mov      r4, r0                       
+           00016638  ldr      r0, [fp, #0x18]              
+           0001663c  mov      r1, r4                       
+           00016640  mov      r2, #1                       
+           00016644  bl       #0xba620                     ; CALL System.Runtime.InteropServices.Marshal::StructureToPtr
+           00016648  mov      r0, r4                       
+           0001664c  ldr      r1, [fp]                     
+           00016650  mov      r2, #0                       
+           00016654  mov      r3, r5                       
+           00016658  bl       #0xba630                     ; CALL System.Runtime.InteropServices.Marshal::Copy
+           0001665c  mov      r0, r4                       
+           00016660  bl       #0xba640                     ; CALL System.Runtime.InteropServices.Marshal::FreeHGlobal
+           00016664  ldr      r0, [fp, #0x14]              
+           00016668  ldr      r2, [r0, #0xc]               ; field+0xc (this-class: bw)
+           0001666c  mov      r0, r2                       
+           00016670  ldr      r1, [fp]                     
+           00016674  ldr      r2, [r2]                     
+           00016678  mov      lr, pc                       
+           0001667c  ldr      pc, [r2, #0x70]              ; VIRTUAL CALL slot +0x70: System.IConvertible::ToUInt16
+           00016680  b        #0x1670c                     ; -> L_1670c
+L_16684:   00016684  ldr      r0, [fp, #0x10]              
+           00016688  bl       #0xba5f0                     ; CALL [RGCTX_FETCH] 
+           0001668c  bl       #0xba600                     ; CALL System.Runtime.InteropServices.Marshal::SizeOf
+           00016690  mov      r6, r0                       
+           00016694  bl       #0xba610                     ; CALL System.Runtime.InteropServices.Marshal::AllocHGlobal
+           00016698  str      r0, [fp, #4]                 
+           0001669c  ldr      r0, [fp, #0x14]              
+           000166a0  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: br)
+           000166a4  mov      r0, r2                       
+           000166a8  mov      r1, r6                       
+           000166ac  ldr      r2, [r2]                     
+           000166b0  mov      lr, pc                       
+           000166b4  ldr      pc, [r2, #0x68]              ; VIRTUAL CALL slot +0x68: System.IConvertible::ToString
+           000166b8  str      r0, [fp, #8]                 
+           000166bc  mov      r1, #0                       
+           000166c0  ldr      r2, [fp, #4]                 
+           000166c4  mov      r3, r6                       
+           000166c8  bl       #0xba650                     ; CALL System.Runtime.InteropServices.Marshal::Copy
+           000166cc  ldr      r0, [fp, #0x10]              
+           000166d0  bl       #0xba5f0                     ; CALL [RGCTX_FETCH] 
+           000166d4  mov      r1, r0                       
+           000166d8  ldr      r0, [fp, #4]                 
+           000166dc  bl       #0xba660                     ; CALL System.Runtime.InteropServices.Marshal::PtrToStructure
+           000166e0  str      r0, [fp, #0x20]              
+           000166e4  ldr      r0, [fp, #0x10]              
+           000166e8  bl       #0xba670                     ; CALL [RGCTX_FETCH] 
+           000166ec  mov      r1, r0                       
+           000166f0  ldr      r0, [fp, #0x20]              
+           000166f4  bl       #0xba1e0                     ; CALL [INTERNAL_METHOD] mono_object_castclass
+           000166f8  str      r0, [fp, #0xc]               
+           000166fc  ldr      r0, [fp, #4]                 
+           00016700  bl       #0xba640                     ; CALL System.Runtime.InteropServices.Marshal::FreeHGlobal
+           00016704  ldr      r0, [fp, #0xc]               
+           00016708  str      r0, [fp, #0x18]              
+L_1670c:   0001670c  add      sp, fp, #0x2c                
+           00016710  pop      {r4, r5, r6, r8, fp}         
+           00016714  ldr      r7, [sp, #8]                 
+           00016718  ldm      sp, {sp, pc}                 

@@ -1,0 +1,267 @@
+####################################################################################################
+# TYPE TurnMission  (instance size 0x34)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 missionName                    LocalizedString
+#   +0x14 missionInstructions            LocalizedString
+#   +0x18 missionInstructionsWeb         LocalizedString
+#   +0x1c manager                        MissionManager
+#   +0x20 missionCollection              MissionCollection
+#   +0x24 hasArrow                       bool
+#   +0x28 arrowRotation                  float
+#   +0x2c arrowXOffset                   float
+#   +0x30 arrowYOffset                   float
+#   vtable slots: 5:Signal, 6:Shutdown, 7:Update, 8:Init
+####################################################################################################
+== TurnMission::.ctor  token 0x060002df @0x000ec754 (52 bytes)
+   args: r0=this, 
+           000ec754  mov      ip, sp                       
+           000ec758  push     {r7, lr}                     
+           000ec75c  mov      r7, sp                       
+           000ec760  push     {r8, fp, ip, lr}             
+           000ec764  sub      sp, sp, #8                   
+           000ec768  mov      fp, sp                       
+           000ec76c  str      r0, [fp]                     
+           000ec770  ldr      r0, [fp]                     
+           000ec774  bl       #0x22ca40                    ; CALL BaseMission::.ctor
+           000ec778  add      sp, fp, #8                   
+           000ec77c  pop      {r8, fp}                     
+           000ec780  ldr      r7, [sp, #8]                 
+           000ec784  ldm      sp, {sp, pc}                 
+
+== TurnMission::Init  token 0x060002e0 @0x000ec788 (652 bytes)
+   args: r0=this, 
+           000ec788  mov      ip, sp                       
+           000ec78c  push     {r7, lr}                     
+           000ec790  mov      r7, sp                       
+           000ec794  push     {r8, fp, ip, lr}             
+           000ec798  sub      sp, sp, #0xc0                
+           000ec79c  mov      fp, sp                       
+           000ec7a0  str      r0, [fp, #0xa8]              
+           000ec7a4  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000ec7a8  mov      r1, r0                       
+           000ec7ac  ldr      lr, [r1]                     
+           000ec7b0  ldr      r2, [r0, #0x2c]              ; field+0x2c (this-class: arrowXOffset)
+           000ec7b4  ldr      r1, [pc]                     
+           000ec7b8  b        #0xec7c0                     ; -> L_ec7c0
+           000ec7bc  .word    0x00eb8e88                   ; literal 15437448 / 
+L_ec7c0:   000ec7c0  ldr      r1, [pc, r1]                 ; GOT[570] LDSTR 'Power'
+           000ec7c4  mov      r0, r2                       
+           000ec7c8  ldr      lr, [r2]                     
+           000ec7cc  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           000ec7d0  mov      r1, r0                       
+           000ec7d4  ldr      lr, [r1]                     
+           000ec7d8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ec7dc  mov      r1, r0                       
+           000ec7e0  ldr      lr, [r1]                     
+           000ec7e4  bl       #0x22ba40                    ; CALL UnityEngine.Transform::get_parent
+           000ec7e8  mov      r2, r0                       
+           000ec7ec  str      r0, [fp, #0xb8]              
+           000ec7f0  add      r0, fp, #0x54                
+           000ec7f4  mov      r1, r2                       
+           000ec7f8  ldr      lr, [r2]                     
+           000ec7fc  bl       #0x22cb40                    ; CALL UnityEngine.Transform::get_localPosition
+           000ec800  add      r0, fp, #0x60                
+           000ec804  bl       #0x22aa00                    ; CALL UnityEngine.Vector3::get_down
+           000ec808  vldr     s4, [pc]                     ; float 6.039999961853027
+           000ec80c  b        #0xec814                     ; -> L_ec814
+           000ec810  .word    0x40c147ae                   ; literal 1086408622 / 6.04
+L_ec814:   000ec814  vcvt.f64.f32 d2, s4                       
+           000ec818  add      r0, fp, #0x6c                
+           000ec81c  ldr      r1, [fp, #0x60]              
+           000ec820  ldr      r2, [fp, #0x64]              
+           000ec824  ldr      r3, [fp, #0x68]              
+           000ec828  vcvt.f32.f64 s0, d2                       
+           000ec82c  vstr     s0, [sp]                     
+           000ec830  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000ec834  add      r0, fp, #0x78                
+           000ec838  ldr      r1, [fp, #0x54]              
+           000ec83c  ldr      r2, [fp, #0x58]              
+           000ec840  ldr      r3, [fp, #0x5c]              
+           000ec844  ldr      ip, [fp, #0x6c]              
+           000ec848  str      ip, [sp]                     
+           000ec84c  ldr      ip, [fp, #0x70]              
+           000ec850  str      ip, [sp, #4]                 
+           000ec854  ldr      ip, [fp, #0x74]              
+           000ec858  str      ip, [sp, #8]                 
+           000ec85c  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000ec860  ldr      ip, [fp, #0xb8]              
+           000ec864  mov      r0, ip                       
+           000ec868  ldr      r1, [fp, #0x78]              
+           000ec86c  ldr      r2, [fp, #0x7c]              
+           000ec870  ldr      r3, [fp, #0x80]              
+           000ec874  ldr      lr, [ip]                     
+           000ec878  bl       #0x22cb50                    ; CALL UnityEngine.Transform::set_localPosition
+           000ec87c  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000ec880  mov      r1, r0                       
+           000ec884  ldr      lr, [r1]                     
+           000ec888  ldr      r2, [r0, #0x2c]              ; field+0x2c (this-class: arrowXOffset)
+           000ec88c  ldr      r1, [pc]                     
+           000ec890  b        #0xec898                     ; -> L_ec898
+           000ec894  .word    0x00eb8db4                   ; literal 15437236 / 
+L_ec898:   000ec898  ldr      r1, [pc, r1]                 ; GOT[571] LDSTR 'Drift'
+           000ec89c  mov      r0, r2                       
+           000ec8a0  ldr      lr, [r2]                     
+           000ec8a4  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           000ec8a8  mov      r1, r0                       
+           000ec8ac  ldr      lr, [r1]                     
+           000ec8b0  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ec8b4  str      r0, [fp, #0xb4]              
+           000ec8b8  add      r0, fp, #0x84                
+           000ec8bc  bl       #0x22aa00                    ; CALL UnityEngine.Vector3::get_down
+           000ec8c0  vldr     s4, [pc]                     ; float 2.0399999618530273
+           000ec8c4  b        #0xec8cc                     ; -> L_ec8cc
+           000ec8c8  .word    0x40028f5c                   ; literal 1073909596 / 2.04
+L_ec8cc:   000ec8cc  vcvt.f64.f32 d2, s4                       
+           000ec8d0  add      r0, fp, #0x90                
+           000ec8d4  ldr      r1, [fp, #0x84]              
+           000ec8d8  ldr      r2, [fp, #0x88]              
+           000ec8dc  ldr      r3, [fp, #0x8c]              
+           000ec8e0  vcvt.f32.f64 s0, d2                       
+           000ec8e4  vstr     s0, [sp]                     
+           000ec8e8  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000ec8ec  ldr      ip, [fp, #0xb4]              
+           000ec8f0  mov      r0, ip                       
+           000ec8f4  ldr      r1, [fp, #0x90]              
+           000ec8f8  ldr      r2, [fp, #0x94]              
+           000ec8fc  ldr      r3, [fp, #0x98]              
+           000ec900  ldr      lr, [ip]                     
+           000ec904  bl       #0x22cb50                    ; CALL UnityEngine.Transform::set_localPosition
+           000ec908  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000ec90c  mov      r1, r0                       
+           000ec910  ldr      lr, [r1]                     
+           000ec914  ldr      r2, [r0, #0x2c]              ; field+0x2c (this-class: arrowXOffset)
+           000ec918  ldr      r1, [pc]                     
+           000ec91c  b        #0xec924                     ; -> L_ec924
+           000ec920  .word    0x00eb8d2c                   ; literal 15437100 / 
+L_ec924:   000ec924  ldr      r1, [pc, r1]                 ; GOT[572] LDSTR 'Reverse'
+           000ec928  mov      r0, r2                       
+           000ec92c  ldr      lr, [r2]                     
+           000ec930  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           000ec934  mov      r1, r0                       
+           000ec938  ldr      lr, [r1]                     
+           000ec93c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ec940  str      r0, [fp, #0xb0]              
+           000ec944  vldr     s8, [pc]                     ; float -2.799999952316284
+           000ec948  b        #0xec950                     ; -> L_ec950
+           000ec94c  .word    0xc0333333                   ; literal -1070386381 / -2.8
+L_ec950:   000ec950  vcvt.f64.f32 d4, s8                       
+           000ec954  vldr     s6, [pc]                     ; float -2.0399999618530273
+           000ec958  b        #0xec960                     ; -> L_ec960
+           000ec95c  .word    0xc0028f5c                   ; literal -1073574052 / -2.04
+L_ec960:   000ec960  vcvt.f64.f32 d3, s6                       
+           000ec964  vldr     s4, [pc]                     ; float 0.0
+           000ec968  b        #0xec970                     ; -> L_ec970
+           000ec96c  .word    0x00000000                   ; literal 0 / 0
+L_ec970:   000ec970  vcvt.f64.f32 d2, s4                       
+           000ec974  mov      r0, #0                       
+           000ec978  str      r0, [fp, #0x3c]              
+           000ec97c  mov      r0, #0                       
+           000ec980  str      r0, [fp, #0x40]              
+           000ec984  mov      r0, #0                       
+           000ec988  str      r0, [fp, #0x44]              
+           000ec98c  add      r0, fp, #0x3c                
+           000ec990  vcvt.f32.f64 s0, d4                       
+           000ec994  vstr     s0, [sp, #8]                 
+           000ec998  ldr      r1, [sp, #8]                 
+           000ec99c  vcvt.f32.f64 s0, d3                       
+           000ec9a0  vstr     s0, [sp, #8]                 
+           000ec9a4  ldr      r2, [sp, #8]                 
+           000ec9a8  vcvt.f32.f64 s0, d2                       
+           000ec9ac  vstr     s0, [sp, #8]                 
+           000ec9b0  ldr      r3, [sp, #8]                 
+           000ec9b4  bl       #0x22b1f0                    ; CALL UnityEngine.Vector3::.ctor
+           000ec9b8  ldr      ip, [fp, #0xb0]              
+           000ec9bc  ldr      r0, [fp, #0x3c]              
+           000ec9c0  str      r0, [fp, #0x9c]              
+           000ec9c4  ldr      r0, [fp, #0x40]              
+           000ec9c8  str      r0, [fp, #0xa0]              
+           000ec9cc  ldr      r0, [fp, #0x44]              
+           000ec9d0  str      r0, [fp, #0xa4]              
+           000ec9d4  mov      r0, ip                       
+           000ec9d8  ldr      r1, [fp, #0x9c]              
+           000ec9dc  ldr      r2, [fp, #0xa0]              
+           000ec9e0  ldr      r3, [fp, #0xa4]              
+           000ec9e4  ldr      lr, [ip]                     
+           000ec9e8  bl       #0x22cb50                    ; CALL UnityEngine.Transform::set_localPosition
+           000ec9ec  bl       #0x22c920                    ; CALL UnityEngine.Application::get_platform
+           000ec9f0  cmp      r0, #8                       
+           000ec9f4  beq      #0xeca04                     ; -> L_eca04
+           000ec9f8  ldr      r0, [fp, #0xa8]              
+           000ec9fc  mov      r1, #0                       
+           000eca00  strb     r1, [r0, #0x24]              ; field+0x24 (this-class: hasArrow)
+L_eca04:   000eca04  add      sp, fp, #0xc0                
+           000eca08  pop      {r8, fp}                     
+           000eca0c  ldr      r7, [sp, #8]                 
+           000eca10  ldm      sp, {sp, pc}                 
+
+== TurnMission::Update  token 0x060002e1 @0x000eca14 (44 bytes)
+   args: r0=this, 
+           000eca14  mov      ip, sp                       
+           000eca18  push     {r7, lr}                     
+           000eca1c  mov      r7, sp                       
+           000eca20  push     {r8, fp, ip, lr}             
+           000eca24  sub      sp, sp, #8                   
+           000eca28  mov      fp, sp                       
+           000eca2c  str      r0, [fp]                     
+           000eca30  add      sp, fp, #8                   
+           000eca34  pop      {r8, fp}                     
+           000eca38  ldr      r7, [sp, #8]                 
+           000eca3c  ldm      sp, {sp, pc}                 
+
+== TurnMission::Shutdown  token 0x060002e2 @0x000eca40 (44 bytes)
+   args: r0=this, 
+           000eca40  mov      ip, sp                       
+           000eca44  push     {r7, lr}                     
+           000eca48  mov      r7, sp                       
+           000eca4c  push     {r8, fp, ip, lr}             
+           000eca50  sub      sp, sp, #8                   
+           000eca54  mov      fp, sp                       
+           000eca58  str      r0, [fp]                     
+           000eca5c  add      sp, fp, #8                   
+           000eca60  pop      {r8, fp}                     
+           000eca64  ldr      r7, [sp, #8]                 
+           000eca68  ldm      sp, {sp, pc}                 
+
+== TurnMission::Signal  token 0x060002e3 @0x000eca6c (100 bytes)
+   args: r0=this, signal
+           000eca6c  mov      ip, sp                       
+           000eca70  push     {r7, lr}                     
+           000eca74  mov      r7, sp                       
+           000eca78  push     {r8, fp, ip, lr}             
+           000eca7c  sub      sp, sp, #8                   
+           000eca80  mov      fp, sp                       
+           000eca84  str      r0, [fp]                     
+           000eca88  str      r1, [fp, #4]                 
+           000eca8c  ldr      r1, [pc]                     
+           000eca90  b        #0xeca98                     ; -> L_eca98
+           000eca94  .word    0x00eb8794                   ; literal 15435668 / 
+L_eca98:   000eca98  ldr      r1, [pc, r1]                 ; GOT[307] LDSTR 'Turning'
+           000eca9c  ldr      r0, [fp, #4]                 
+           000ecaa0  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000ecaa4  cmp      r0, #0                       
+           000ecaa8  beq      #0xecac0                     ; -> L_ecac0
+           000ecaac  ldr      r1, [fp]                     
+           000ecab0  ldr      r2, [r1, #0x1c]              ; field+0x1c (this-class: manager)
+           000ecab4  mov      r0, r2                       
+           000ecab8  ldr      lr, [r2]                     
+           000ecabc  bl       #0x22ca50                    ; CALL MissionManager::CompleteMission
+L_ecac0:   000ecac0  add      sp, fp, #8                   
+           000ecac4  pop      {r8, fp}                     
+           000ecac8  ldr      r7, [sp, #8]                 
+           000ecacc  ldm      sp, {sp, pc}                 
+
+== TurnMission::Signal  token 0x060002e4 @0x000ecad0 (52 bytes)
+   args: r0=this, signal, value
+           000ecad0  mov      ip, sp                       
+           000ecad4  push     {r7, lr}                     
+           000ecad8  mov      r7, sp                       
+           000ecadc  push     {r8, fp, ip, lr}             
+           000ecae0  sub      sp, sp, #0x10                
+           000ecae4  mov      fp, sp                       
+           000ecae8  str      r0, [fp]                     
+           000ecaec  str      r1, [fp, #4]                 
+           000ecaf0  str      r2, [fp, #8]                 
+           000ecaf4  add      sp, fp, #0x10                
+           000ecaf8  pop      {r8, fp}                     
+           000ecafc  ldr      r7, [sp, #8]                 
+           000ecb00  ldm      sp, {sp, pc}                 

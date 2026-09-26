@@ -1,0 +1,108 @@
+####################################################################################################
+# TYPE SoundLibraryAddendum  (instance size 0x14)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 additionalSounds               SoundLibrary/SoundClipReference[]
+#   vtable slots: 
+####################################################################################################
+== SoundLibraryAddendum::.ctor  token 0x06000326 @0x000eedb8 (52 bytes)
+   args: r0=this, 
+           000eedb8  mov      ip, sp                       
+           000eedbc  push     {r7, lr}                     
+           000eedc0  mov      r7, sp                       
+           000eedc4  push     {r8, fp, ip, lr}             
+           000eedc8  sub      sp, sp, #8                   
+           000eedcc  mov      fp, sp                       
+           000eedd0  str      r0, [fp]                     
+           000eedd4  ldr      r0, [fp]                     
+           000eedd8  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000eeddc  add      sp, fp, #8                   
+           000eede0  pop      {r8, fp}                     
+           000eede4  ldr      r7, [sp, #8]                 
+           000eede8  ldm      sp, {sp, pc}                 
+
+== SoundLibraryAddendum::OnEnable  token 0x06000327 @0x000eedec (132 bytes)
+   args: r0=this, 
+           000eedec  mov      ip, sp                       
+           000eedf0  push     {r7, lr}                     
+           000eedf4  mov      r7, sp                       
+           000eedf8  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000eedfc  sub      sp, sp, #4                   
+           000eee00  mov      fp, sp                       
+           000eee04  mov      sl, r0                       
+           000eee08  ldr      sl, [sl, #0x10]              ; field+0x10 (this-class: additionalSounds)
+           000eee0c  mov      r5, #0                       
+           000eee10  b        #0xeee44                     ; -> L_eee44
+L_eee14:   000eee14  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000eee18  cmp      r0, r5                       
+           000eee1c  blls     #0xeee60                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eee20  lsl      r0, r5, #2                   
+           000eee24  add      r0, sl, r0                   
+           000eee28  add      r0, r0, #0x10                
+           000eee2c  ldr      r6, [r0]                     
+           000eee30  mov      r0, r6                       
+           000eee34  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000eee38  ldr      r1, [r6, #0xc]               ; field+0xc 
+           000eee3c  bl       #0xedd24                     ; CALL SoundLibrary::ManuallyAddClip (direct)
+           000eee40  add      r5, r5, #1                   
+L_eee44:   000eee44  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000eee48  cmp      r5, r0                       
+           000eee4c  blt      #0xeee14                     ; -> L_eee14
+           000eee50  add      sp, fp, #4                   
+           000eee54  pop      {r5, r6, r8, sl, fp}         
+           000eee58  ldr      r7, [sp, #8]                 
+           000eee5c  ldm      sp, {sp, pc}                 
+           000eee60  mov      r1, lr                       
+           000eee64  ldr      r0, [pc]                     
+           000eee68  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000eee6c  andeq    r0, r0, #0xf8                
+
+== SoundLibraryAddendum::OnDisable  token 0x06000328 @0x000eee70 (128 bytes)
+   args: r0=this, 
+           000eee70  mov      ip, sp                       
+           000eee74  push     {r7, lr}                     
+           000eee78  mov      r7, sp                       
+           000eee7c  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000eee80  sub      sp, sp, #4                   
+           000eee84  mov      fp, sp                       
+           000eee88  mov      sl, r0                       
+           000eee8c  ldr      sl, [sl, #0x10]              ; field+0x10 (this-class: additionalSounds)
+           000eee90  mov      r5, #0                       
+           000eee94  b        #0xeeec4                     ; -> L_eeec4
+L_eee98:   000eee98  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000eee9c  cmp      r0, r5                       
+           000eeea0  blls     #0xeeee0                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eeea4  lsl      r0, r5, #2                   
+           000eeea8  add      r0, sl, r0                   
+           000eeeac  add      r0, r0, #0x10                
+           000eeeb0  ldr      r6, [r0]                     
+           000eeeb4  mov      r0, r6                       
+           000eeeb8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000eeebc  bl       #0xedddc                     ; CALL SoundLibrary::ManuallyRemoveClip (direct)
+           000eeec0  add      r5, r5, #1                   
+L_eeec4:   000eeec4  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000eeec8  cmp      r5, r0                       
+           000eeecc  blt      #0xeee98                     ; -> L_eee98
+           000eeed0  add      sp, fp, #4                   
+           000eeed4  pop      {r5, r6, r8, sl, fp}         
+           000eeed8  ldr      r7, [sp, #8]                 
+           000eeedc  ldm      sp, {sp, pc}                 
+           000eeee0  mov      r1, lr                       
+           000eeee4  ldr      r0, [pc]                     
+           000eeee8  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000eeeec  andeq    r0, r0, #0xf8                
+
+== SoundLibraryAddendum::Dispose  token 0x06000329 @0x000eeef0 (52 bytes)
+   args: r0=this, 
+           000eeef0  mov      ip, sp                       
+           000eeef4  push     {r7, lr}                     
+           000eeef8  mov      r7, sp                       
+           000eeefc  push     {r8, fp, ip, lr}             
+           000eef00  sub      sp, sp, #8                   
+           000eef04  mov      fp, sp                       
+           000eef08  str      r0, [fp]                     
+           000eef0c  ldr      r0, [fp]                     
+           000eef10  bl       #0xeee70                     ; CALL SoundLibraryAddendum::OnDisable (direct)
+           000eef14  add      sp, fp, #8                   
+           000eef18  pop      {r8, fp}                     
+           000eef1c  ldr      r7, [sp, #8]                 
+           000eef20  ldm      sp, {sp, pc}                 

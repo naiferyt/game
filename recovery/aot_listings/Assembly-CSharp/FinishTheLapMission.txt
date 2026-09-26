@@ -1,0 +1,126 @@
+####################################################################################################
+# TYPE FinishTheLapMission  (instance size 0x34)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 missionName                    LocalizedString
+#   +0x14 missionInstructions            LocalizedString
+#   +0x18 missionInstructionsWeb         LocalizedString
+#   +0x1c manager                        MissionManager
+#   +0x20 missionCollection              MissionCollection
+#   +0x24 hasArrow                       bool
+#   +0x28 arrowRotation                  float
+#   +0x2c arrowXOffset                   float
+#   +0x30 arrowYOffset                   float
+#   vtable slots: 5:Signal, 6:Shutdown, 7:Update, 8:Init
+####################################################################################################
+== FinishTheLapMission::.ctor  token 0x060002bb @0x000eb2f8 (52 bytes)
+   args: r0=this, 
+           000eb2f8  mov      ip, sp                       
+           000eb2fc  push     {r7, lr}                     
+           000eb300  mov      r7, sp                       
+           000eb304  push     {r8, fp, ip, lr}             
+           000eb308  sub      sp, sp, #8                   
+           000eb30c  mov      fp, sp                       
+           000eb310  str      r0, [fp]                     
+           000eb314  ldr      r0, [fp]                     
+           000eb318  bl       #0x22ca40                    ; CALL BaseMission::.ctor
+           000eb31c  add      sp, fp, #8                   
+           000eb320  pop      {r8, fp}                     
+           000eb324  ldr      r7, [sp, #8]                 
+           000eb328  ldm      sp, {sp, pc}                 
+
+== FinishTheLapMission::Init  token 0x060002bc @0x000eb32c (44 bytes)
+   args: r0=this, 
+           000eb32c  mov      ip, sp                       
+           000eb330  push     {r7, lr}                     
+           000eb334  mov      r7, sp                       
+           000eb338  push     {r8, fp, ip, lr}             
+           000eb33c  sub      sp, sp, #8                   
+           000eb340  mov      fp, sp                       
+           000eb344  str      r0, [fp]                     
+           000eb348  add      sp, fp, #8                   
+           000eb34c  pop      {r8, fp}                     
+           000eb350  ldr      r7, [sp, #8]                 
+           000eb354  ldm      sp, {sp, pc}                 
+
+== FinishTheLapMission::Update  token 0x060002bd @0x000eb358 (44 bytes)
+   args: r0=this, 
+           000eb358  mov      ip, sp                       
+           000eb35c  push     {r7, lr}                     
+           000eb360  mov      r7, sp                       
+           000eb364  push     {r8, fp, ip, lr}             
+           000eb368  sub      sp, sp, #8                   
+           000eb36c  mov      fp, sp                       
+           000eb370  str      r0, [fp]                     
+           000eb374  add      sp, fp, #8                   
+           000eb378  pop      {r8, fp}                     
+           000eb37c  ldr      r7, [sp, #8]                 
+           000eb380  ldm      sp, {sp, pc}                 
+
+== FinishTheLapMission::Shutdown  token 0x060002be @0x000eb384 (44 bytes)
+   args: r0=this, 
+           000eb384  mov      ip, sp                       
+           000eb388  push     {r7, lr}                     
+           000eb38c  mov      r7, sp                       
+           000eb390  push     {r8, fp, ip, lr}             
+           000eb394  sub      sp, sp, #8                   
+           000eb398  mov      fp, sp                       
+           000eb39c  str      r0, [fp]                     
+           000eb3a0  add      sp, fp, #8                   
+           000eb3a4  pop      {r8, fp}                     
+           000eb3a8  ldr      r7, [sp, #8]                 
+           000eb3ac  ldm      sp, {sp, pc}                 
+
+== FinishTheLapMission::Signal  token 0x060002bf @0x000eb3b0 (144 bytes)
+   args: r0=this, signal
+           000eb3b0  mov      ip, sp                       
+           000eb3b4  push     {r7, lr}                     
+           000eb3b8  mov      r7, sp                       
+           000eb3bc  push     {r6, r8, fp, ip, lr}         
+           000eb3c0  sub      sp, sp, #0xc                 
+           000eb3c4  mov      fp, sp                       
+           000eb3c8  mov      r6, r0                       
+           000eb3cc  str      r1, [fp]                     
+           000eb3d0  ldr      r1, [pc]                     
+           000eb3d4  b        #0xeb3dc                     ; -> L_eb3dc
+           000eb3d8  .word    0x00eba240                   ; literal 15442496 / 
+L_eb3dc:   000eb3dc  ldr      r1, [pc, r1]                 ; GOT[559] LDSTR 'Finished Lap'
+           000eb3e0  ldr      r0, [fp]                     
+           000eb3e4  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000eb3e8  cmp      r0, #0                       
+           000eb3ec  beq      #0xeb430                     ; -> L_eb430
+           000eb3f0  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: missionCollection)
+           000eb3f4  mov      r1, #0                       
+           000eb3f8  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000eb3fc  cmp      r0, #0                       
+           000eb400  bne      #0xeb41c                     ; -> L_eb41c
+           000eb404  ldr      r0, [r6, #0x20]              ; field+0x20 (this-class: missionCollection)
+           000eb408  mov      r1, r0                       
+           000eb40c  ldr      lr, [r1]                     
+           000eb410  ldrb     r0, [r0, #0x3c]              ; field+0x3c 
+           000eb414  cmp      r0, #0                       
+           000eb418  beq      #0xeb430                     ; -> L_eb430
+L_eb41c:   000eb41c  ldr      r2, [r6, #0x1c]              ; field+0x1c (this-class: manager)
+           000eb420  mov      r0, r2                       
+           000eb424  mov      r1, r6                       
+           000eb428  ldr      lr, [r2]                     
+           000eb42c  bl       #0x22ca50                    ; CALL MissionManager::CompleteMission
+L_eb430:   000eb430  add      sp, fp, #0xc                 
+           000eb434  pop      {r6, r8, fp}                 
+           000eb438  ldr      r7, [sp, #8]                 
+           000eb43c  ldm      sp, {sp, pc}                 
+
+== FinishTheLapMission::Signal  token 0x060002c0 @0x000eb440 (52 bytes)
+   args: r0=this, signal, value
+           000eb440  mov      ip, sp                       
+           000eb444  push     {r7, lr}                     
+           000eb448  mov      r7, sp                       
+           000eb44c  push     {r8, fp, ip, lr}             
+           000eb450  sub      sp, sp, #0x10                
+           000eb454  mov      fp, sp                       
+           000eb458  str      r0, [fp]                     
+           000eb45c  str      r1, [fp, #4]                 
+           000eb460  str      r2, [fp, #8]                 
+           000eb464  add      sp, fp, #0x10                
+           000eb468  pop      {r8, fp}                     
+           000eb46c  ldr      r7, [sp, #8]                 
+           000eb470  ldm      sp, {sp, pc}                 

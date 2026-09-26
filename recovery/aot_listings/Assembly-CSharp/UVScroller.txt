@@ -1,0 +1,210 @@
+####################################################################################################
+# TYPE UVScroller  (instance size 0x14)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 scrollers                      UVScroller/UVScroll[]
+#   vtable slots: 
+####################################################################################################
+== UVScroller::.ctor  token 0x0600042e @0x000ff5d8 (52 bytes)
+   args: r0=this, 
+           000ff5d8  mov      ip, sp                       
+           000ff5dc  push     {r7, lr}                     
+           000ff5e0  mov      r7, sp                       
+           000ff5e4  push     {r8, fp, ip, lr}             
+           000ff5e8  sub      sp, sp, #8                   
+           000ff5ec  mov      fp, sp                       
+           000ff5f0  str      r0, [fp]                     
+           000ff5f4  ldr      r0, [fp]                     
+           000ff5f8  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000ff5fc  add      sp, fp, #8                   
+           000ff600  pop      {r8, fp}                     
+           000ff604  ldr      r7, [sp, #8]                 
+           000ff608  ldm      sp, {sp, pc}                 
+
+== UVScroller::Start  token 0x0600042f @0x000ff60c (152 bytes)
+   args: r0=this, 
+           000ff60c  mov      ip, sp                       
+           000ff610  push     {r7, lr}                     
+           000ff614  mov      r7, sp                       
+           000ff618  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000ff61c  mov      fp, sp                       
+           000ff620  mov      sl, r0                       
+           000ff624  ldr      r5, [sl, #0x10]              ; field+0x10 (this-class: scrollers)
+           000ff628  mov      r4, #0                       
+           000ff62c  b        #0xff678                     ; -> L_ff678
+L_ff630:   000ff630  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000ff634  cmp      r0, r4                       
+           000ff638  blls     #0xff694                     ; THROW System.IndexOutOfRangeException (if ls)
+           000ff63c  lsl      r0, r4, #2                   
+           000ff640  add      r0, r5, r0                   
+           000ff644  add      r0, r0, #0x10                
+           000ff648  ldr      r6, [r0]                     
+           000ff64c  mov      r0, r6                       
+           000ff650  ldrb     r0, [r0, #0x10]              ; field+0x10 (this-class: scrollers)
+           000ff654  cmp      r0, #0                       
+           000ff658  beq      #0xff674                     ; -> L_ff674
+           000ff65c  mov      r0, sl                       
+           000ff660  bl       #0x22d4d0                    ; CALL UnityEngine.Component::get_renderer
+           000ff664  mov      r1, r0                       
+           000ff668  ldr      lr, [r1]                     
+           000ff66c  bl       #0x22b890                    ; CALL UnityEngine.Renderer::get_material
+           000ff670  str      r0, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+L_ff674:   000ff674  add      r4, r4, #1                   
+L_ff678:   000ff678  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000ff67c  cmp      r4, r0                       
+           000ff680  blt      #0xff630                     ; -> L_ff630
+           000ff684  add      sp, fp, #0                   
+           000ff688  pop      {r4, r5, r6, r8, sl, fp}     
+           000ff68c  ldr      r7, [sp, #8]                 
+           000ff690  ldm      sp, {sp, pc}                 
+           000ff694  mov      r1, lr                       
+           000ff698  ldr      r0, [pc]                     
+           000ff69c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ff6a0  andeq    r0, r0, #0xf8                
+
+== UVScroller::Update  token 0x06000430 @0x000ff6a4 (460 bytes)
+   args: r0=this, 
+           000ff6a4  mov      ip, sp                       
+           000ff6a8  push     {r7, lr}                     
+           000ff6ac  mov      r7, sp                       
+           000ff6b0  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000ff6b4  sub      sp, sp, #0x7c                
+           000ff6b8  mov      fp, sp                       
+           000ff6bc  mov      sl, r0                       
+           000ff6c0  mov      r0, #0                       
+           000ff6c4  str      r0, [fp, #0x14]              
+           000ff6c8  mov      r0, #0                       
+           000ff6cc  str      r0, [fp, #0x18]              
+           000ff6d0  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000ff6d4  vmov     s4, r0                       
+           000ff6d8  vcvt.f64.f32 d2, s4                       
+           000ff6dc  vcvt.f32.f64 s0, d2                       
+           000ff6e0  vstr     s0, [fp, #0x10]              
+           000ff6e4  ldr      sl, [sl, #0x10]              ; field+0x10 (this-class: scrollers)
+           000ff6e8  mov      r5, #0                       
+           000ff6ec  b        #0xff844                     ; -> L_ff844
+L_ff6f0:   000ff6f0  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000ff6f4  cmp      r0, r5                       
+           000ff6f8  blls     #0xff860                     ; THROW System.IndexOutOfRangeException (if ls)
+           000ff6fc  lsl      r0, r5, #2                   
+           000ff700  add      r0, sl, r0                   
+           000ff704  add      r0, r0, #0x10                
+           000ff708  ldr      r6, [r0]                     
+           000ff70c  mov      r0, r6                       
+           000ff710  ldr      r3, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ff714  ldr      r2, [r6, #0xc]               ; field+0xc 
+           000ff718  add      r0, fp, #0x14                
+           000ff71c  mov      r1, r3                       
+           000ff720  ldr      lr, [r3]                     
+           000ff724  bl       #0x22d4e0                    ; CALL UnityEngine.Material::GetTextureOffset
+           000ff728  ldr      r0, [fp, #0x14]              
+           000ff72c  str      r0, [fp, #0x54]              
+           000ff730  ldr      r0, [fp, #0x18]              
+           000ff734  str      r0, [fp, #0x58]              
+           000ff738  add      r0, r6, #0x14                
+           000ff73c  ldr      r1, [r0]                     
+           000ff740  str      r1, [fp, #0x5c]              
+           000ff744  ldr      r0, [r0, #4]                 ; field+0x4 
+           000ff748  str      r0, [fp, #0x60]              
+           000ff74c  vldr     s0, [fp, #0x10]              
+           000ff750  vcvt.f64.f32 d2, s0                       
+           000ff754  add      r0, fp, #0x64                
+           000ff758  ldr      r1, [fp, #0x5c]              
+           000ff75c  ldr      r2, [fp, #0x60]              
+           000ff760  vcvt.f32.f64 s0, d2                       
+           000ff764  vstr     s0, [sp, #-8]                
+           000ff768  ldr      r3, [sp, #-8]                
+           000ff76c  bl       #0x22d4f0                    ; CALL UnityEngine.Vector2::op_Multiply
+           000ff770  add      r0, fp, #0x14                
+           000ff774  ldr      r1, [fp, #0x54]              
+           000ff778  ldr      r2, [fp, #0x58]              
+           000ff77c  ldr      r3, [fp, #0x64]              
+           000ff780  ldr      ip, [fp, #0x68]              
+           000ff784  str      ip, [sp]                     
+           000ff788  bl       #0x22d500                    ; CALL UnityEngine.Vector2::op_Addition
+           000ff78c  vldr     s0, [fp, #0x14]              
+           000ff790  vcvt.f64.f32 d3, s0                       
+           000ff794  vldr     s4, [pc]                     ; float 1.0
+           000ff798  b        #0xff7a0                     ; -> L_ff7a0
+           000ff79c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_ff7a0:   000ff7a0  vcvt.f64.f32 d2, s4                       
+           000ff7a4  vcvt.f32.f64 s0, d3                       
+           000ff7a8  vstr     s0, [sp]                     
+           000ff7ac  ldr      r0, [sp]                     
+           000ff7b0  vcvt.f32.f64 s0, d2                       
+           000ff7b4  vstr     s0, [sp]                     
+           000ff7b8  ldr      r1, [sp]                     
+           000ff7bc  bl       #0x22d510                    ; CALL UnityEngine.Mathf::Repeat
+           000ff7c0  vmov     s4, r0                       
+           000ff7c4  vcvt.f64.f32 d2, s4                       
+           000ff7c8  vcvt.f32.f64 s0, d2                       
+           000ff7cc  vstr     s0, [fp, #0x14]              
+           000ff7d0  vldr     s0, [fp, #0x18]              
+           000ff7d4  vcvt.f64.f32 d3, s0                       
+           000ff7d8  vldr     s4, [pc]                     ; float 1.0
+           000ff7dc  b        #0xff7e4                     ; -> L_ff7e4
+           000ff7e0  .word    0x3f800000                   ; literal 1065353216 / 1
+L_ff7e4:   000ff7e4  vcvt.f64.f32 d2, s4                       
+           000ff7e8  vcvt.f32.f64 s0, d3                       
+           000ff7ec  vstr     s0, [sp]                     
+           000ff7f0  ldr      r0, [sp]                     
+           000ff7f4  vcvt.f32.f64 s0, d2                       
+           000ff7f8  vstr     s0, [sp]                     
+           000ff7fc  ldr      r1, [sp]                     
+           000ff800  bl       #0x22d510                    ; CALL UnityEngine.Mathf::Repeat
+           000ff804  vmov     s4, r0                       
+           000ff808  vcvt.f64.f32 d2, s4                       
+           000ff80c  vcvt.f32.f64 s0, d2                       
+           000ff810  vstr     s0, [fp, #0x18]              
+           000ff814  ldr      ip, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ff818  ldr      r1, [r6, #0xc]               ; field+0xc 
+           000ff81c  ldr      r0, [fp, #0x14]              
+           000ff820  str      r0, [fp, #0x6c]              
+           000ff824  ldr      r0, [fp, #0x18]              
+           000ff828  str      r0, [fp, #0x70]              
+           000ff82c  mov      r0, ip                       
+           000ff830  ldr      r2, [fp, #0x6c]              
+           000ff834  ldr      r3, [fp, #0x70]              
+           000ff838  ldr      lr, [ip]                     
+           000ff83c  bl       #0x22d520                    ; CALL UnityEngine.Material::SetTextureOffset
+           000ff840  add      r5, r5, #1                   
+L_ff844:   000ff844  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000ff848  cmp      r5, r0                       
+           000ff84c  blt      #0xff6f0                     ; -> L_ff6f0
+           000ff850  add      sp, fp, #0x7c                
+           000ff854  pop      {r5, r6, r8, sl, fp}         
+           000ff858  ldr      r7, [sp, #8]                 
+           000ff85c  ldm      sp, {sp, pc}                 
+           000ff860  mov      r1, lr                       
+           000ff864  ldr      r0, [pc]                     
+           000ff868  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ff86c  andeq    r0, r0, #0xf8                
+
+####################################################################################################
+# TYPE UVScroller/UVScroll  (instance size 0x1c)
+#   +0x08 material                       UnityEngine.Material
+#   +0x0c textureName                    string
+#   +0x10 useRendererMaterial            bool
+#   +0x14 speed                          UnityEngine.Vector2
+#   vtable slots: 
+####################################################################################################
+== UVScroller/UVScroll::.ctor  token 0x06000431 @0x000ff870 (76 bytes)
+   args: r0=this, 
+           000ff870  mov      ip, sp                       
+           000ff874  push     {r7, lr}                     
+           000ff878  mov      r7, sp                       
+           000ff87c  push     {r8, fp, ip, lr}             
+           000ff880  sub      sp, sp, #8                   
+           000ff884  mov      fp, sp                       
+           000ff888  str      r0, [fp]                     
+           000ff88c  ldr      r0, [fp]                     
+           000ff890  mov      r1, #1                       
+           000ff894  strb     r1, [r0, #0x10]              ; field+0x10 (this-class: useRendererMaterial)
+           000ff898  ldr      r1, [pc]                     
+           000ff89c  b        #0xff8a4                     ; -> L_ff8a4
+           000ff8a0  .word    0x00ea6054                   ; literal 15360084 / 
+L_ff8a4:   000ff8a4  ldr      r1, [pc, r1]                 ; GOT[742] LDSTR '_MainTex'
+           000ff8a8  str      r1, [r0, #0xc]               ; field+0xc (this-class: textureName)
+           000ff8ac  add      sp, fp, #8                   
+           000ff8b0  pop      {r8, fp}                     
+           000ff8b4  ldr      r7, [sp, #8]                 
+           000ff8b8  ldm      sp, {sp, pc}                 

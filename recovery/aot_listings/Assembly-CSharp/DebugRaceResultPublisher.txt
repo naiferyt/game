@@ -1,0 +1,271 @@
+####################################################################################################
+# TYPE DebugRaceResultPublisher  (instance size 0x48)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 transformReferences            UghPublisher/TransformReference[]
+#   +0x14 transformsDictionary           UghPublisher/TransformsDictionary
+#   +0x18 ughTextReferences              UghPublisher/UghTextReference[]
+#   +0x1c ughTextsDictionary             UghPublisher/UghTextsDictionary
+#   +0x20 ledScrollerReferences          UghPublisher/LEDScrollerReference[]
+#   +0x24 ledScrollersDictionary         UghPublisher/LEDScrollersDictionary
+#   +0x28 ughButtonReferences            UghPublisher/UghButtonReference[]
+#   +0x2c ughButtonsDictionary           UghPublisher/UghButtonsDictionary
+#   +0x30 ughSlideToggleReferences       UghPublisher/UghSlideToggleReference[]
+#   +0x34 ughSlideTogglesDictionary      UghPublisher/UghSlideToggleDictionary
+#   +0x38 ughSliderReferences            UghPublisher/UghSliderReference[]
+#   +0x3c ughSlidersDictionary           UghPublisher/UghSliderDictionary
+#   +0x40 ughSprites                     System.Collections.Generic.List`1<UghSprite>
+#   +0x44 rewindLapDialogTemplate        UnityEngine.GameObject
+#   vtable slots: 
+####################################################################################################
+== DebugRaceResultPublisher::.ctor  token 0x060005b6 @0x0011ca20 (52 bytes)
+   args: r0=this, 
+           0011ca20  mov      ip, sp                       
+           0011ca24  push     {r7, lr}                     
+           0011ca28  mov      r7, sp                       
+           0011ca2c  push     {r8, fp, ip, lr}             
+           0011ca30  sub      sp, sp, #8                   
+           0011ca34  mov      fp, sp                       
+           0011ca38  str      r0, [fp]                     
+           0011ca3c  ldr      r0, [fp]                     
+           0011ca40  bl       #0x22e1d0                    ; CALL UghPublisher::.ctor
+           0011ca44  add      sp, fp, #8                   
+           0011ca48  pop      {r8, fp}                     
+           0011ca4c  ldr      r7, [sp, #8]                 
+           0011ca50  ldm      sp, {sp, pc}                 
+
+== DebugRaceResultPublisher::Start  token 0x060005b7 @0x0011ca54 (760 bytes)
+   args: r0=this, 
+           0011ca54  mov      ip, sp                       
+           0011ca58  push     {r7, lr}                     
+           0011ca5c  mov      r7, sp                       
+           0011ca60  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0011ca64  sub      sp, sp, #0x40                
+           0011ca68  mov      fp, sp                       
+           0011ca6c  mov      sl, r0                       
+           0011ca70  ldr      r0, [pc]                     
+           0011ca74  b        #0x11ca7c                    ; -> L_11ca7c
+           0011ca78  .word    0x00e88600                   ; literal 15238656 / 
+L_11ca7c:  0011ca7c  ldr      r0, [pc, r0]                 ; GOT[199] TYPE_FROM_HANDLE typeof(RaceResults)
+           0011ca80  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           0011ca84  str      r0, [fp, #8]                 
+           0011ca88  str      r0, [fp, #0xc]               
+           0011ca8c  ldr      r0, [fp, #8]                 
+           0011ca90  cmp      r0, #0                       
+           0011ca94  beq      #0x11cacc                    ; -> L_11cacc
+           0011ca98  ldr      r0, [fp, #8]                 
+           0011ca9c  ldr      r0, [r0]                     
+           0011caa0  ldr      r0, [r0]                     
+           0011caa4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0011caa8  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0011caac  ldr      r1, [pc]                     
+           0011cab0  b        #0x11cab8                    ; -> L_11cab8
+           0011cab4  .word    0x00e885c8                   ; literal 15238600 / 
+L_11cab8:  0011cab8  ldr      r1, [pc, r1]                 ; GOT[200] CLASS RaceResults
+           0011cabc  cmp      r0, r1                       
+           0011cac0  beq      #0x11cacc                    ; -> L_11cacc
+           0011cac4  mov      r0, #0                       
+           0011cac8  str      r0, [fp, #0xc]               
+L_11cacc:  0011cacc  ldr      r6, [fp, #0xc]               
+           0011cad0  mov      r0, r6                       
+           0011cad4  mov      r1, #0                       
+           0011cad8  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0011cadc  cmp      r0, #0                       
+           0011cae0  beq      #0x11cafc                    ; -> L_11cafc
+           0011cae4  ldr      r0, [pc]                     
+           0011cae8  b        #0x11caf0                    ; -> L_11caf0
+           0011caec  .word    0x00e89390                   ; literal 15242128 / 
+L_11caf0:  0011caf0  ldr      r0, [pc, r0]                 ; GOT[1096] LDSTR 'Could not find race results!'
+           0011caf4  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           0011caf8  b        #0x11cd2c                    ; -> L_11cd2c
+L_11cafc:  0011cafc  mov      r5, #0                       
+           0011cb00  b        #0x11cd0c                    ; -> L_11cd0c
+L_11cb04:  0011cb04  ldr      r0, [pc]                     
+           0011cb08  b        #0x11cb10                    ; -> L_11cb10
+           0011cb0c  .word    0x00e89374                   ; literal 15242100 / 
+L_11cb10:  0011cb10  ldr      r0, [pc, r0]                 ; GOT[1097] LDSTR 'Place'
+           0011cb14  str      r0, [fp, #0x10]              
+           0011cb18  add      r0, r5, #1                   
+           0011cb1c  str      r0, [fp, #0x14]              
+           0011cb20  ldr      r0, [pc]                     
+           0011cb24  b        #0x11cb2c                    ; -> L_11cb2c
+           0011cb28  .word    0x00e88274                   ; literal 15237748 / 
+L_11cb2c:  0011cb2c  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           0011cb30  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0011cb34  mov      r1, r0                       
+           0011cb38  ldr      r0, [fp, #0x10]              
+           0011cb3c  ldr      r2, [fp, #0x14]              
+           0011cb40  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0011cb44  bl       #0x22a8c0                    ; CALL System.String::Concat
+           0011cb48  mov      r4, r0                       
+           0011cb4c  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0011cb50  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0011cb54  cmp      r5, r0                       
+           0011cb58  blt      #0x11cb90                    ; -> L_11cb90
+           0011cb5c  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0011cb60  mov      r0, r2                       
+           0011cb64  mov      r1, r4                       
+           0011cb68  ldr      lr, [r2]                     
+           0011cb6c  bl       #0x22e1e0                    ; CALL UghPublisher/UghTextsDictionary::get_Item
+           0011cb70  mov      r1, r0                       
+           0011cb74  ldr      lr, [r1]                     
+           0011cb78  bl       #0x22d4d0                    ; CALL UnityEngine.Component::get_renderer
+           0011cb7c  mov      r2, r0                       
+           0011cb80  mov      r1, #0                       
+           0011cb84  ldr      lr, [r2]                     
+           0011cb88  bl       #0x22d7e0                    ; CALL UnityEngine.Renderer::set_enabled
+           0011cb8c  b        #0x11cd08                    ; -> L_11cd08
+L_11cb90:  0011cb90  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0011cb94  ldr      r1, [r0, #0xc]               ; field+0xc 
+           0011cb98  cmp      r1, r5                       
+           0011cb9c  blls     #0x11cd3c                    ; THROW System.IndexOutOfRangeException (if ls)
+           0011cba0  lsl      r1, r5, #2                   
+           0011cba4  add      r0, r0, r1                   
+           0011cba8  add      r0, r0, #0x10                
+           0011cbac  ldr      r0, [r0]                     
+           0011cbb0  str      r0, [fp]                     
+           0011cbb4  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0011cbb8  mov      r0, r2                       
+           0011cbbc  mov      r1, r4                       
+           0011cbc0  ldr      lr, [r2]                     
+           0011cbc4  bl       #0x22e1e0                    ; CALL UghPublisher/UghTextsDictionary::get_Item
+           0011cbc8  str      r0, [fp, #0x10]              
+           0011cbcc  ldr      r0, [pc]                     
+           0011cbd0  b        #0x11cbd8                    ; -> L_11cbd8
+           0011cbd4  .word    0x00e88574                   ; literal 15238516 / 
+L_11cbd8:  0011cbd8  ldr      r0, [pc, r0]                 ; GOT[251] VTABLE System.Object[]
+           0011cbdc  mov      r1, #6                       
+           0011cbe0  bl       #0x22a7c0                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           0011cbe4  str      r0, [fp, #0x34]              
+           0011cbe8  str      r0, [fp, #0x30]              
+           0011cbec  add      r0, r5, #1                   
+           0011cbf0  str      r0, [fp, #0x38]              
+           0011cbf4  ldr      r0, [pc]                     
+           0011cbf8  b        #0x11cc00                    ; -> L_11cc00
+           0011cbfc  .word    0x00e881a0                   ; literal 15237536 / 
+L_11cc00:  0011cc00  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           0011cc04  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0011cc08  mov      r2, r0                       
+           0011cc0c  ldr      r0, [fp, #0x34]              
+           0011cc10  ldr      r1, [fp, #0x38]              
+           0011cc14  str      r1, [r2, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0011cc18  mov      r1, #0                       
+           0011cc1c  bl       #0x22a7f0                    ; CALL wrapper stelemref
+           0011cc20  ldr      r0, [fp, #0x30]              
+           0011cc24  mov      r1, r0                       
+           0011cc28  str      r1, [fp, #0x2c]              
+           0011cc2c  ldr      r2, [pc]                     
+           0011cc30  b        #0x11cc38                    ; -> L_11cc38
+           0011cc34  .word    0x00e89250                   ; literal 15241808 / 
+L_11cc38:  0011cc38  ldr      r2, [pc, r2]                 ; GOT[1098] LDSTR ' Place: '
+           0011cc3c  mov      r1, #1                       
+           0011cc40  bl       #0x22a7f0                    ; CALL wrapper stelemref
+           0011cc44  ldr      r0, [fp, #0x2c]              
+           0011cc48  mov      r1, r0                       
+           0011cc4c  str      r1, [fp, #0x28]              
+           0011cc50  ldr      r1, [fp]                     
+           0011cc54  ldr      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0011cc58  mov      r1, #2                       
+           0011cc5c  bl       #0x22a7f0                    ; CALL wrapper stelemref
+           0011cc60  ldr      r0, [fp, #0x28]              
+           0011cc64  mov      r1, r0                       
+           0011cc68  str      r1, [fp, #0x24]              
+           0011cc6c  ldr      r2, [pc]                     
+           0011cc70  b        #0x11cc78                    ; -> L_11cc78
+           0011cc74  .word    0x00e88dc0                   ; literal 15240640 / 
+L_11cc78:  0011cc78  ldr      r2, [pc, r2]                 ; GOT[822] LDSTR ' ('
+           0011cc7c  mov      r1, #3                       
+           0011cc80  bl       #0x22a7f0                    ; CALL wrapper stelemref
+           0011cc84  ldr      r0, [fp, #0x24]              
+           0011cc88  str      r0, [fp, #0x1c]              
+           0011cc8c  str      r0, [fp, #0x18]              
+           0011cc90  ldr      r0, [fp]                     
+           0011cc94  ldr      r0, [r0, #0x20]              ; field+0x20 (this-class: ledScrollerReferences)
+           0011cc98  str      r0, [fp, #0x20]              
+           0011cc9c  ldr      r0, [pc]                     
+           0011cca0  b        #0x11cca8                    ; -> L_11cca8
+           0011cca4  .word    0x00e880f8                   ; literal 15237368 / 
+L_11cca8:  0011cca8  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           0011ccac  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0011ccb0  mov      r2, r0                       
+           0011ccb4  ldr      r0, [fp, #0x1c]              
+           0011ccb8  ldr      r1, [fp, #0x20]              
+           0011ccbc  str      r1, [r2, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0011ccc0  mov      r1, #4                       
+           0011ccc4  bl       #0x22a7f0                    ; CALL wrapper stelemref
+           0011ccc8  ldr      r0, [fp, #0x18]              
+           0011cccc  mov      r1, r0                       
+           0011ccd0  str      r1, [fp, #0x14]              
+           0011ccd4  ldr      r2, [pc]                     
+           0011ccd8  b        #0x11cce0                    ; -> L_11cce0
+           0011ccdc  .word    0x00e891ac                   ; literal 15241644 / 
+L_11cce0:  0011cce0  ldr      r2, [pc, r2]                 ; GOT[1099] LDSTR ')'
+           0011cce4  mov      r1, #5                       
+           0011cce8  bl       #0x22a7f0                    ; CALL wrapper stelemref
+           0011ccec  ldr      r0, [fp, #0x14]              
+           0011ccf0  bl       #0x22b850                    ; CALL System.String::Concat
+           0011ccf4  mov      r1, r0                       
+           0011ccf8  ldr      r2, [fp, #0x10]              
+           0011ccfc  mov      r0, r2                       
+           0011cd00  ldr      lr, [r2]                     
+           0011cd04  bl       #0x22e290                    ; CALL UghText::set_Text
+L_11cd08:  0011cd08  add      r5, r5, #1                   
+L_11cd0c:  0011cd0c  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           0011cd10  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0011cd14  cmp      r5, r0                       
+           0011cd18  blt      #0x11cb04                    ; -> L_11cb04
+           0011cd1c  mov      r0, r6                       
+           0011cd20  ldr      lr, [r6]                     
+           0011cd24  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0011cd28  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_11cd2c:  0011cd2c  add      sp, fp, #0x40                
+           0011cd30  pop      {r4, r5, r6, r8, sl, fp}     
+           0011cd34  ldr      r7, [sp, #8]                 
+           0011cd38  ldm      sp, {sp, pc}                 
+           0011cd3c  mov      r1, lr                       
+           0011cd40  ldr      r0, [pc]                     
+           0011cd44  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0011cd48  andeq    r0, r0, #0xf8                
+
+== DebugRaceResultPublisher::PressedDoneButton  token 0x060005b8 @0x0011cd4c (80 bytes)
+   args: r0=this, 
+           0011cd4c  mov      ip, sp                       
+           0011cd50  push     {r7, lr}                     
+           0011cd54  mov      r7, sp                       
+           0011cd58  push     {r8, fp, ip, lr}             
+           0011cd5c  sub      sp, sp, #8                   
+           0011cd60  mov      fp, sp                       
+           0011cd64  str      r0, [fp]                     
+           0011cd68  bl       #0x22dbd0                    ; CALL ScreenFader::get_Instance
+           0011cd6c  mov      r2, r0                       
+           0011cd70  ldr      r1, [pc]                     
+           0011cd74  b        #0x11cd7c                    ; -> L_11cd7c
+           0011cd78  .word    0x00e89114                   ; literal 15241492 / 
+L_11cd7c:  0011cd7c  ldr      r1, [pc, r1]                 ; GOT[1100] LDSTR 'FrontEndTest'
+           0011cd80  mov      r0, r2                       
+           0011cd84  ldr      lr, [r2]                     
+           0011cd88  bl       #0x22e2a0                    ; CALL ScreenFader::LoadLevel
+           0011cd8c  add      sp, fp, #8                   
+           0011cd90  pop      {r8, fp}                     
+           0011cd94  ldr      r7, [sp, #8]                 
+           0011cd98  ldm      sp, {sp, pc}                 
+
+== DebugRaceResultPublisher::PressedRewindButton  token 0x060005b9 @0x0011cd9c (72 bytes)
+   args: r0=this, 
+           0011cd9c  mov      ip, sp                       
+           0011cda0  push     {r7, lr}                     
+           0011cda4  mov      r7, sp                       
+           0011cda8  push     {r8, fp, ip, lr}             
+           0011cdac  sub      sp, sp, #8                   
+           0011cdb0  mov      fp, sp                       
+           0011cdb4  str      r0, [fp]                     
+           0011cdb8  ldr      r0, [fp]                     
+           0011cdbc  ldr      r0, [r0, #0x44]              ; field+0x44 (this-class: rewindLapDialogTemplate)
+           0011cdc0  ldr      r8, [pc]                     
+           0011cdc4  b        #0x11cdcc                    ; -> L_11cdcc
+           0011cdc8  .word    0x00e890c8                   ; literal 15241416 / 
+L_11cdcc:  0011cdcc  ldr      r8, [pc, r8]                 ; GOT[1101] METHOD_RGCTX Script::Instantiate<UnityEngine.GameObject>
+           0011cdd0  bl       #0x22e2b0                    ; CALL Script::Instantiate<UnityEngine.GameObject>
+           0011cdd4  add      sp, fp, #8                   
+           0011cdd8  pop      {r8, fp}                     
+           0011cddc  ldr      r7, [sp, #8]                 
+           0011cde0  ldm      sp, {sp, pc}                 

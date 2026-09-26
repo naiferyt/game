@@ -1,0 +1,345 @@
+####################################################################################################
+# TYPE TeleportEffect  (instance size 0x38)
+#   +0x08 time                           float
+#   +0x0c power                          int
+#   +0x10 effectType                     BaseEffect/EffectTypes
+#   +0x14 isMultiLevel                   bool
+#   +0x18 powerLevel                     int
+#   +0x1c parentObject                   UnityEngine.GameObject
+#   +0x20 teleportTime                   float
+#   +0x24 targetPos                      UnityEngine.Vector3
+#   +0x30 teleportTimer                  float
+#   +0x34 timeToTeleport                 bool
+#   +0x35 isSnapshot                     bool
+#   vtable slots: 5:GetEffectSnapShot, 6:Stack, 7:Shutdown, 8:Update, 9:Init
+####################################################################################################
+== TeleportEffect::.ctor  token 0x060003e1 @0x000f8fe4 (200 bytes)
+   args: r0=this, owner, target, isSnap
+           000f8fe4  mov      ip, sp                       
+           000f8fe8  push     {r7, lr}                     
+           000f8fec  mov      r7, sp                       
+           000f8ff0  push     {r6, r8, fp, ip, lr}         
+           000f8ff4  sub      sp, sp, #0x1c                
+           000f8ff8  mov      fp, sp                       
+           000f8ffc  mov      r6, r0                       
+           000f9000  str      r1, [fp]                     
+           000f9004  str      r2, [fp, #4]                 
+           000f9008  str      r3, [fp, #8]                 
+           000f900c  ldr      lr, [sp, #0x38]              
+           000f9010  str      lr, [fp, #0xc]               
+           000f9014  ldr      lr, [sp, #0x3c]              
+           000f9018  strb     lr, [fp, #0x10]              
+           000f901c  vldr     s4, [pc]                     ; float 1.0
+           000f9020  b        #0xf9028                     ; -> L_f9028
+           000f9024  .word    0x3f800000                   ; literal 1065353216 / 1
+L_f9028:   000f9028  vcvt.f64.f32 d2, s4                       
+           000f902c  vcvt.f32.f64 s0, d2                       
+           000f9030  vstr     s0, [r6, #0x20]              ; field+0x20 (this-class: teleportTime)
+           000f9034  mov      r0, #1                       
+           000f9038  str      r0, [r6, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f903c  ldr      r0, [fp]                     
+           000f9040  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f9044  add      r0, r6, #0x24                
+           000f9048  ldr      r1, [fp, #4]                 
+           000f904c  str      r1, [r0]                     
+           000f9050  ldr      r1, [fp, #8]                 
+           000f9054  str      r1, [r0, #4]                 ; field+0x4 
+           000f9058  ldr      r1, [fp, #0xc]               
+           000f905c  str      r1, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f9060  ldrb     r0, [fp, #0x10]              
+           000f9064  strb     r0, [r6, #0x35]              ; field+0x35 (this-class: isSnapshot)
+           000f9068  mov      r0, #9                       
+           000f906c  str      r0, [r6, #0x10]              ; field+0x10 (this-class: effectType)
+           000f9070  vldr     s0, [r6, #0x20]              ; field+0x20 (this-class: teleportTime)
+           000f9074  vcvt.f64.f32 d2, s0                       
+           000f9078  vldr     s6, [pc]                     ; float 0.5
+           000f907c  b        #0xf9084                     ; -> L_f9084
+           000f9080  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_f9084:   000f9084  vcvt.f64.f32 d3, s6                       
+           000f9088  vadd.f64 d2, d2, d3                   
+           000f908c  vcvt.f32.f64 s0, d2                       
+           000f9090  vstr     s0, [r6, #8]                 ; field+0x8 (this-class: time)
+           000f9094  mov      r0, #1                       
+           000f9098  str      r0, [r6, #0xc]               ; field+0xc (this-class: power)
+           000f909c  add      sp, fp, #0x1c                
+           000f90a0  pop      {r6, r8, fp}                 
+           000f90a4  ldr      r7, [sp, #8]                 
+           000f90a8  ldm      sp, {sp, pc}                 
+
+== TeleportEffect::Init  token 0x060003e2 @0x000f90ac (252 bytes)
+   args: r0=this, 
+           000f90ac  mov      ip, sp                       
+           000f90b0  push     {r7, lr}                     
+           000f90b4  mov      r7, sp                       
+           000f90b8  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000f90bc  sub      sp, sp, #4                   
+           000f90c0  mov      fp, sp                       
+           000f90c4  mov      sl, r0                       
+           000f90c8  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f90cc  mov      r1, #0                       
+           000f90d0  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f90d4  cmp      r0, #0                       
+           000f90d8  beq      #0xf9198                     ; -> L_f9198
+           000f90dc  ldrb     r0, [sl, #0x35]              ; field+0x35 (this-class: isSnapshot)
+           000f90e0  cmp      r0, #0                       
+           000f90e4  beq      #0xf90f4                     ; -> L_f90f4
+           000f90e8  mov      r0, #1                       
+           000f90ec  strb     r0, [sl, #0x34]              ; field+0x34 (this-class: timeToTeleport)
+           000f90f0  b        #0xf9198                     ; -> L_f9198
+L_f90f4:   000f90f4  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f90f8  ldr      r1, [pc]                     
+           000f90fc  b        #0xf9104                     ; -> L_f9104
+           000f9100  .word    0x00eabdd4                   ; literal 15384020 / 
+L_f9104:   000f9104  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f9108  ldr      lr, [r0]                     
+           000f910c  mov      r8, r1                       
+           000f9110  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f9114  mov      r6, r0                       
+           000f9118  mov      r1, #0                       
+           000f911c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f9120  cmp      r0, #0                       
+           000f9124  beq      #0xf9180                     ; -> L_f9180
+           000f9128  mov      r0, r6                       
+           000f912c  ldr      lr, [r6]                     
+           000f9130  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000f9134  ldr      r1, [pc]                     
+           000f9138  b        #0xf9140                     ; -> L_f9140
+           000f913c  .word    0x00eabe30                   ; literal 15384112 / 
+L_f9140:   000f9140  ldr      r1, [pc, r1]                 ; GOT[132] METHOD_RGCTX UnityEngine.GameObject::GetComponent<SoundSequencer>
+           000f9144  ldr      lr, [r0]                     
+           000f9148  mov      r8, r1                       
+           000f914c  bl       #0x22b3c0                    ; CALL UnityEngine.GameObject::GetComponent<SoundSequencer>
+           000f9150  mov      r5, r0                       
+           000f9154  mov      r1, #0                       
+           000f9158  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f915c  cmp      r0, #0                       
+           000f9160  beq      #0xf9180                     ; -> L_f9180
+           000f9164  ldr      r1, [pc]                     
+           000f9168  b        #0xf9170                     ; -> L_f9170
+           000f916c  .word    0x00eac6a0                   ; literal 15386272 / 
+L_f9170:   000f9170  ldr      r1, [pc, r1]                 ; GOT[684] LDSTR 'teleport'
+           000f9174  mov      r0, r5                       
+           000f9178  ldr      lr, [r5]                     
+           000f917c  bl       #0xef614                     ; CALL SoundSequencer::RequestPlay (direct)
+L_f9180:   000f9180  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: teleportTime)
+           000f9184  vcvt.f64.f32 d2, s0                       
+           000f9188  vcvt.f32.f64 s0, d2                       
+           000f918c  vstr     s0, [sl, #0x30]              ; field+0x30 (this-class: teleportTimer)
+           000f9190  mov      r0, #0                       
+           000f9194  strb     r0, [sl, #0x34]              ; field+0x34 (this-class: timeToTeleport)
+L_f9198:   000f9198  add      sp, fp, #4                   
+           000f919c  pop      {r5, r6, r8, sl, fp}         
+           000f91a0  ldr      r7, [sp, #8]                 
+           000f91a4  ldm      sp, {sp, pc}                 
+
+== TeleportEffect::Update  token 0x060003e3 @0x000f91a8 (496 bytes)
+   args: r0=this, 
+           000f91a8  mov      ip, sp                       
+           000f91ac  push     {r7, lr}                     
+           000f91b0  mov      r7, sp                       
+           000f91b4  push     {r6, r8, sl, fp, ip, lr}     
+           000f91b8  sub      sp, sp, #0x98                
+           000f91bc  mov      fp, sp                       
+           000f91c0  mov      sl, r0                       
+           000f91c4  mov      r0, #0                       
+           000f91c8  str      r0, [fp, #0x10]              
+           000f91cc  mov      r0, #0                       
+           000f91d0  str      r0, [fp, #0x14]              
+           000f91d4  mov      r0, #0                       
+           000f91d8  str      r0, [fp, #0x18]              
+           000f91dc  vldr     s0, [sl, #0x30]              ; field+0x30 (this-class: teleportTimer)
+           000f91e0  vcvt.f64.f32 d2, s0                       
+           000f91e4  vstr     d2, [fp, #0x88]              
+           000f91e8  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000f91ec  vmov     s6, r0                       
+           000f91f0  vcvt.f64.f32 d3, s6                       
+           000f91f4  vldr     d2, [fp, #0x88]              
+           000f91f8  vsub.f64 d2, d2, d3                   
+           000f91fc  vcvt.f32.f64 s0, d2                       
+           000f9200  vstr     s0, [sl, #0x30]              ; field+0x30 (this-class: teleportTimer)
+           000f9204  vldr     s0, [sl, #0x30]              ; field+0x30 (this-class: teleportTimer)
+           000f9208  vcvt.f64.f32 d3, s0                       
+           000f920c  vldr     s4, [pc]                     ; float 0.0
+           000f9210  b        #0xf9218                     ; -> L_f9218
+           000f9214  .word    0x00000000                   ; literal 0 / 0
+L_f9218:   000f9218  vcvt.f64.f32 d2, s4                       
+           000f921c  vcmp.f64 d2, d3                       
+           000f9220  vmrs     apsr_nzcv, fpscr             
+           000f9224  bvs      #0xf9234                     ; -> L_f9234
+           000f9228  bmi      #0xf9234                     ; -> L_f9234
+           000f922c  mov      r0, #1                       
+           000f9230  strb     r0, [sl, #0x34]              ; field+0x34 (this-class: timeToTeleport)
+L_f9234:   000f9234  ldrb     r0, [sl, #0x34]              ; field+0x34 (this-class: timeToTeleport)
+           000f9238  cmp      r0, #0                       
+           000f923c  beq      #0xf9388                     ; -> L_f9388
+           000f9240  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f9244  mov      r0, r1                       
+           000f9248  ldr      lr, [r1]                     
+           000f924c  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f9250  mov      ip, r0                       
+           000f9254  add      r0, sl, #0x24                
+           000f9258  ldr      r1, [r0]                     
+           000f925c  str      r1, [fp, #0x4c]              
+           000f9260  ldr      r1, [r0, #4]                 ; field+0x4 
+           000f9264  str      r1, [fp, #0x50]              
+           000f9268  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f926c  str      r0, [fp, #0x54]              
+           000f9270  mov      r0, ip                       
+           000f9274  ldr      r1, [fp, #0x4c]              
+           000f9278  ldr      r2, [fp, #0x50]              
+           000f927c  ldr      r3, [fp, #0x54]              
+           000f9280  ldr      lr, [ip]                     
+           000f9284  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000f9288  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f928c  mov      r0, r1                       
+           000f9290  ldr      lr, [r1]                     
+           000f9294  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f9298  mov      r2, r0                       
+           000f929c  add      r0, fp, #0x58                
+           000f92a0  mov      r1, r2                       
+           000f92a4  ldr      lr, [r2]                     
+           000f92a8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f92ac  ldr      r0, [fp, #0x58]              
+           000f92b0  ldr      r1, [fp, #0x5c]              
+           000f92b4  ldr      r2, [fp, #0x60]              
+           000f92b8  bl       #0x1173d0                    ; CALL WaypointLogic::FindNextWaypoint (direct)
+           000f92bc  mov      r6, r0                       
+           000f92c0  mov      r1, r6                       
+           000f92c4  mov      r0, r1                       
+           000f92c8  ldr      lr, [r1]                     
+           000f92cc  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000f92d0  mov      r2, r0                       
+           000f92d4  add      r0, fp, #0x64                
+           000f92d8  mov      r1, r2                       
+           000f92dc  ldr      lr, [r2]                     
+           000f92e0  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f92e4  ldr      r1, [r6, #0x14]              ; field+0x14 (this-class: isMultiLevel)
+           000f92e8  mov      r0, r1                       
+           000f92ec  ldr      lr, [r1]                     
+           000f92f0  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000f92f4  mov      r2, r0                       
+           000f92f8  add      r0, fp, #0x70                
+           000f92fc  mov      r1, r2                       
+           000f9300  ldr      lr, [r2]                     
+           000f9304  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f9308  add      r0, fp, #0x10                
+           000f930c  ldr      r1, [fp, #0x64]              
+           000f9310  ldr      r2, [fp, #0x68]              
+           000f9314  ldr      r3, [fp, #0x6c]              
+           000f9318  ldr      ip, [fp, #0x70]              
+           000f931c  str      ip, [sp]                     
+           000f9320  ldr      ip, [fp, #0x74]              
+           000f9324  str      ip, [sp, #4]                 
+           000f9328  ldr      ip, [fp, #0x78]              
+           000f932c  str      ip, [sp, #8]                 
+           000f9330  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000f9334  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f9338  mov      r0, r1                       
+           000f933c  ldr      lr, [r1]                     
+           000f9340  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f9344  str      r0, [fp, #0x90]              
+           000f9348  add      r1, fp, #0x10                
+           000f934c  add      r0, fp, #0x7c                
+           000f9350  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           000f9354  ldr      ip, [fp, #0x90]              
+           000f9358  mov      r0, ip                       
+           000f935c  ldr      r1, [fp, #0x7c]              
+           000f9360  ldr      r2, [fp, #0x80]              
+           000f9364  ldr      r3, [fp, #0x84]              
+           000f9368  ldr      lr, [ip]                     
+           000f936c  bl       #0x22b1e0                    ; CALL UnityEngine.Transform::set_forward
+           000f9370  mov      r0, #0                       
+           000f9374  strb     r0, [sl, #0x34]              ; field+0x34 (this-class: timeToTeleport)
+           000f9378  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: teleportTime)
+           000f937c  vcvt.f64.f32 d2, s0                       
+           000f9380  vcvt.f32.f64 s0, d2                       
+           000f9384  vstr     s0, [sl, #0x30]              ; field+0x30 (this-class: teleportTimer)
+L_f9388:   000f9388  add      sp, fp, #0x98                
+           000f938c  pop      {r6, r8, sl, fp}             
+           000f9390  ldr      r7, [sp, #8]                 
+           000f9394  ldm      sp, {sp, pc}                 
+
+== TeleportEffect::Shutdown  token 0x060003e4 @0x000f9398 (204 bytes)
+   args: r0=this, 
+           000f9398  mov      ip, sp                       
+           000f939c  push     {r7, lr}                     
+           000f93a0  mov      r7, sp                       
+           000f93a4  push     {r6, r8, sl, fp, ip, lr}     
+           000f93a8  sub      sp, sp, #8                   
+           000f93ac  mov      fp, sp                       
+           000f93b0  mov      sl, r0                       
+           000f93b4  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f93b8  ldr      r1, [pc]                     
+           000f93bc  b        #0xf93c4                     ; -> L_f93c4
+           000f93c0  .word    0x00eabb14                   ; literal 15383316 / 
+L_f93c4:   000f93c4  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f93c8  ldr      lr, [r0]                     
+           000f93cc  mov      r8, r1                       
+           000f93d0  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f93d4  mov      sl, r0                       
+           000f93d8  mov      r2, sl                       
+           000f93dc  ldr      r1, [pc]                     
+           000f93e0  b        #0xf93e8                     ; -> L_f93e8
+           000f93e4  .word    0x00eac42c                   ; literal 15385644 / 
+L_f93e8:   000f93e8  ldr      r1, [pc, r1]                 ; GOT[685] TYPE_FROM_HANDLE typeof(TeleportEffect)
+           000f93ec  mov      r0, r2                       
+           000f93f0  ldr      lr, [r2]                     
+           000f93f4  bl       #0x22b030                    ; CALL EffectManager::HasEffect
+           000f93f8  cmp      r0, #0                       
+           000f93fc  bne      #0xf9454                     ; -> L_f9454
+           000f9400  mov      r0, sl                       
+           000f9404  ldr      lr, [sl]                     
+           000f9408  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000f940c  mov      r2, r0                       
+           000f9410  ldr      r1, [pc]                     
+           000f9414  b        #0xf941c                     ; -> L_f941c
+           000f9418  .word    0x00eac3fc                   ; literal 15385596 / 
+L_f941c:   000f941c  ldr      r1, [pc, r1]                 ; GOT[686] LDSTR 'Teleport Particle Effect'
+           000f9420  mov      r0, r2                       
+           000f9424  ldr      lr, [r2]                     
+           000f9428  bl       #0x22b290                    ; CALL UnityEngine.Transform::FindChild
+           000f942c  mov      r1, r0                       
+           000f9430  ldr      lr, [r1]                     
+           000f9434  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000f9438  mov      r6, r0                       
+           000f943c  mov      r1, #0                       
+           000f9440  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f9444  cmp      r0, #0                       
+           000f9448  beq      #0xf9454                     ; -> L_f9454
+           000f944c  mov      r0, r6                       
+           000f9450  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_f9454:   000f9454  add      sp, fp, #8                   
+           000f9458  pop      {r6, r8, sl, fp}             
+           000f945c  ldr      r7, [sp, #8]                 
+           000f9460  ldm      sp, {sp, pc}                 
+
+== TeleportEffect::Stack  token 0x060003e5 @0x000f9464 (52 bytes)
+   args: r0=this, second
+           000f9464  mov      ip, sp                       
+           000f9468  push     {r7, lr}                     
+           000f946c  mov      r7, sp                       
+           000f9470  push     {r8, fp, ip, lr}             
+           000f9474  sub      sp, sp, #8                   
+           000f9478  mov      fp, sp                       
+           000f947c  str      r0, [fp]                     
+           000f9480  str      r1, [fp, #4]                 
+           000f9484  mov      r0, #0                       
+           000f9488  add      sp, fp, #8                   
+           000f948c  pop      {r8, fp}                     
+           000f9490  ldr      r7, [sp, #8]                 
+           000f9494  ldm      sp, {sp, pc}                 
+
+== TeleportEffect::GetEffectSnapShot  token 0x060003e6 @0x000f9498 (48 bytes)
+   args: r0=this, 
+           000f9498  mov      ip, sp                       
+           000f949c  push     {r7, lr}                     
+           000f94a0  mov      r7, sp                       
+           000f94a4  push     {r8, fp, ip, lr}             
+           000f94a8  sub      sp, sp, #8                   
+           000f94ac  mov      fp, sp                       
+           000f94b0  str      r0, [fp]                     
+           000f94b4  ldr      r0, [fp]                     
+           000f94b8  add      sp, fp, #8                   
+           000f94bc  pop      {r8, fp}                     
+           000f94c0  ldr      r7, [sp, #8]                 
+           000f94c4  ldm      sp, {sp, pc}                 

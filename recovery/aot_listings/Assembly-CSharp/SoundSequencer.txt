@@ -1,0 +1,1117 @@
+####################################################################################################
+# TYPE SoundSequencer  (instance size 0x24)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 loopingHashes                  System.Collections.Generic.List`1<int>
+#   +0x14 soundRequests                  System.Collections.Generic.Dictionary`2<int,int>
+#   +0x18 factory                        SourceFactory
+#   +0x1c recycleTimer                   float
+#   +0x20 wasPaused                      bool
+#   vtable slots: 
+####################################################################################################
+== SoundSequencer::.ctor  token 0x06000330 @0x000ef564 (124 bytes)
+   args: r0=this, 
+           000ef564  mov      ip, sp                       
+           000ef568  push     {r7, lr}                     
+           000ef56c  mov      r7, sp                       
+           000ef570  push     {r8, sl, fp, ip, lr}         
+           000ef574  sub      sp, sp, #4                   
+           000ef578  mov      fp, sp                       
+           000ef57c  mov      sl, r0                       
+           000ef580  ldr      r0, [pc]                     
+           000ef584  b        #0xef58c                     ; -> L_ef58c
+           000ef588  .word    0x00eb6158                   ; literal 15425880 / 
+L_ef58c:   000ef58c  ldr      r0, [pc, r0]                 ; GOT[609] VTABLE System.Collections.Generic.List`1<int>
+           000ef590  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ef594  ldr      r1, [pc]                     
+           000ef598  b        #0xef5a0                     ; -> L_ef5a0
+           000ef59c  .word    0x00eb6148                   ; literal 15425864 / 
+L_ef5a0:   000ef5a0  ldr      r1, [pc, r1]                 ; GOT[610] SFLDA System.Collections.Generic.List`1<int>::EmptyArray
+           000ef5a4  ldr      r1, [r1]                     
+           000ef5a8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ef5ac  str      r0, [sl, #0x10]              ; field+0x10 (this-class: loopingHashes)
+           000ef5b0  vldr     s4, [pc]                     ; float 0.25
+           000ef5b4  b        #0xef5bc                     ; -> L_ef5bc
+           000ef5b8  .word    0x3e800000                   ; literal 1048576000 / 0.25
+L_ef5bc:   000ef5bc  vcvt.f64.f32 d2, s4                       
+           000ef5c0  vcvt.f32.f64 s0, d2                       
+           000ef5c4  vstr     s0, [sl, #0x1c]              ; field+0x1c (this-class: recycleTimer)
+           000ef5c8  mov      r0, sl                       
+           000ef5cc  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000ef5d0  add      sp, fp, #4                   
+           000ef5d4  pop      {r8, sl, fp}                 
+           000ef5d8  ldr      r7, [sp, #8]                 
+           000ef5dc  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::get_isPaused  token 0x06000331 @0x000ef5e0 (52 bytes)
+   args: r0=this, 
+           000ef5e0  mov      ip, sp                       
+           000ef5e4  push     {r7, lr}                     
+           000ef5e8  mov      r7, sp                       
+           000ef5ec  push     {r8, fp, ip, lr}             
+           000ef5f0  sub      sp, sp, #8                   
+           000ef5f4  mov      fp, sp                       
+           000ef5f8  str      r0, [fp]                     
+           000ef5fc  ldr      r0, [fp]                     
+           000ef600  ldrb     r0, [r0, #0x20]              ; field+0x20 (this-class: wasPaused)
+           000ef604  add      sp, fp, #8                   
+           000ef608  pop      {r8, fp}                     
+           000ef60c  ldr      r7, [sp, #8]                 
+           000ef610  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::RequestPlay  token 0x06000332 @0x000ef614 (180 bytes)
+   args: r0=this, clipName
+           000ef614  mov      ip, sp                       
+           000ef618  push     {r7, lr}                     
+           000ef61c  mov      r7, sp                       
+           000ef620  push     {r6, r8, sl, fp, ip, lr}     
+           000ef624  sub      sp, sp, #0x10                
+           000ef628  mov      fp, sp                       
+           000ef62c  mov      r6, r0                       
+           000ef630  mov      sl, r1                       
+           000ef634  mov      r0, sl                       
+           000ef638  bl       #0xedc48                     ; CALL SoundLibrary::GetClipHash (direct)
+           000ef63c  mov      sl, r0                       
+           000ef640  ldr      r2, [r6, #0x14]              ; field+0x14 (this-class: soundRequests)
+           000ef644  mov      r0, r2                       
+           000ef648  mov      r1, sl                       
+           000ef64c  ldr      lr, [r2]                     
+           000ef650  bl       #0x22ce50                    ; CALL System.Collections.Generic.Dictionary`2<int,int>::ContainsKey
+           000ef654  cmp      r0, #0                       
+           000ef658  beq      #0xef69c                     ; -> L_ef69c
+           000ef65c  ldr      r2, [r6, #0x14]              ; field+0x14 (this-class: soundRequests)
+           000ef660  mov      r0, r2                       
+           000ef664  str      r0, [fp, #8]                 
+           000ef668  str      r2, [fp]                     
+           000ef66c  mov      r0, r2                       
+           000ef670  mov      r1, sl                       
+           000ef674  ldr      lr, [r2]                     
+           000ef678  bl       #0x22ce60                    ; CALL System.Collections.Generic.Dictionary`2<int,int>::get_Item
+           000ef67c  ldr      r3, [fp, #8]                 
+           000ef680  str      r0, [fp, #4]                 
+           000ef684  add      r2, r0, #1                   
+           000ef688  mov      r0, r3                       
+           000ef68c  mov      r1, sl                       
+           000ef690  ldr      lr, [r3]                     
+           000ef694  bl       #0x22ce70                    ; CALL System.Collections.Generic.Dictionary`2<int,int>::set_Item
+           000ef698  b        #0xef6b4                     ; -> L_ef6b4
+L_ef69c:   000ef69c  ldr      r3, [r6, #0x14]              ; field+0x14 (this-class: soundRequests)
+           000ef6a0  mov      r0, r3                       
+           000ef6a4  mov      r1, sl                       
+           000ef6a8  mov      r2, #1                       
+           000ef6ac  ldr      lr, [r3]                     
+           000ef6b0  bl       #0x22ce80                    ; CALL System.Collections.Generic.Dictionary`2<int,int>::Add
+L_ef6b4:   000ef6b4  mov      r0, sl                       
+           000ef6b8  add      sp, fp, #0x10                
+           000ef6bc  pop      {r6, r8, sl, fp}             
+           000ef6c0  ldr      r7, [sp, #8]                 
+           000ef6c4  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::RequestPlayLoop  token 0x06000333 @0x000ef6c8 (108 bytes)
+   args: r0=this, clipName
+           000ef6c8  mov      ip, sp                       
+           000ef6cc  push     {r7, lr}                     
+           000ef6d0  mov      r7, sp                       
+           000ef6d4  push     {r6, r8, sl, fp, ip, lr}     
+           000ef6d8  mov      fp, sp                       
+           000ef6dc  mov      r6, r0                       
+           000ef6e0  mov      sl, r1                       
+           000ef6e4  mov      r0, r6                       
+           000ef6e8  mov      r1, sl                       
+           000ef6ec  bl       #0xef614                     ; CALL SoundSequencer::RequestPlay (direct)
+           000ef6f0  mov      sl, r0                       
+           000ef6f4  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: loopingHashes)
+           000ef6f8  mov      r0, r2                       
+           000ef6fc  mov      r1, sl                       
+           000ef700  ldr      lr, [r2]                     
+           000ef704  bl       #0x22ce90                    ; CALL System.Collections.Generic.List`1<int>::Contains
+           000ef708  cmp      r0, #0                       
+           000ef70c  bne      #0xef724                     ; -> L_ef724
+           000ef710  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: loopingHashes)
+           000ef714  mov      r0, r2                       
+           000ef718  mov      r1, sl                       
+           000ef71c  ldr      lr, [r2]                     
+           000ef720  bl       #0x22cea0                    ; CALL System.Collections.Generic.List`1<int>::Add
+L_ef724:   000ef724  add      sp, fp, #0                   
+           000ef728  pop      {r6, r8, sl, fp}             
+           000ef72c  ldr      r7, [sp, #8]                 
+           000ef730  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::StopLoopingSound  token 0x06000334 @0x000ef734 (388 bytes)
+   args: r0=this, clipName
+           000ef734  mov      ip, sp                       
+           000ef738  push     {r7, lr}                     
+           000ef73c  mov      r7, sp                       
+           000ef740  push     {r5, r8, sl, fp, ip, lr}     
+           000ef744  sub      sp, sp, #0x48                
+           000ef748  mov      fp, sp                       
+           000ef74c  str      r0, [fp, #0x3c]              
+           000ef750  mov      sl, r1                       
+           000ef754  mov      r0, #0                       
+           000ef758  str      r0, [fp]                     
+           000ef75c  mov      r0, #0                       
+           000ef760  str      r0, [fp, #4]                 
+           000ef764  mov      r0, #0                       
+           000ef768  str      r0, [fp, #8]                 
+           000ef76c  mov      r0, #0                       
+           000ef770  str      r0, [fp, #0xc]               
+           000ef774  ldr      r0, [fp, #0x3c]              
+           000ef778  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: factory)
+           000ef77c  mov      r1, r0                       
+           000ef780  ldr      lr, [r1]                     
+           000ef784  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000ef788  mov      r1, r2                       
+           000ef78c  mov      r0, fp                       
+           000ef790  ldr      lr, [r2]                     
+           000ef794  bl       #0x22ce30                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::GetEnumerator
+           000ef798  b        #0xef7f4                     ; -> L_ef7f4
+L_ef79c:   000ef79c  ldr      r0, [pc]                     
+           000ef7a0  b        #0xef7a8                     ; -> L_ef7a8
+           000ef7a4  .word    0x00eb5f38                   ; literal 15425336 / 
+L_ef7a8:   000ef7a8  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000ef7ac  ldr      r5, [fp, #0xc]               
+           000ef7b0  mov      r1, r5                       
+           000ef7b4  mov      r0, r1                       
+           000ef7b8  ldr      lr, [r1]                     
+           000ef7bc  bl       #0x22cc50                    ; CALL UnityEngine.AudioSource::get_clip
+           000ef7c0  str      r0, [fp, #0x40]              
+           000ef7c4  mov      r0, sl                       
+           000ef7c8  bl       #0xedbdc                     ; CALL SoundLibrary::GetClip (direct)
+           000ef7cc  mov      r1, r0                       
+           000ef7d0  ldr      r0, [fp, #0x40]              
+           000ef7d4  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000ef7d8  cmp      r0, #0                       
+           000ef7dc  beq      #0xef7f4                     ; -> L_ef7f4
+           000ef7e0  mov      r0, r5                       
+           000ef7e4  ldr      lr, [r5]                     
+           000ef7e8  bl       #0x22bd80                    ; CALL UnityEngine.AudioSource::Stop
+           000ef7ec  bl       #0xef81c                     ; CALL 0xef81c
+           000ef7f0  b        #0xef8a8                     ; -> L_ef8a8
+L_ef7f4:   000ef7f4  ldr      r8, [pc]                     
+           000ef7f8  b        #0xef800                     ; -> L_ef800
+           000ef7fc  .word    0x00eb5ee0                   ; literal 15425248 / 
+L_ef800:   000ef800  ldr      r8, [pc, r8]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000ef804  mov      r0, fp                       
+           000ef808  bl       #0x22ce40                    ; CALL System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>::MoveNext
+           000ef80c  cmp      r0, #0                       
+           000ef810  bne      #0xef79c                     ; -> L_ef79c
+           000ef814  bl       #0xef81c                     ; CALL 0xef81c
+           000ef818  b        #0xef8a8                     ; -> L_ef8a8
+           000ef81c  str      lr, [fp, #0x28]              
+           000ef820  ldr      r0, [fp]                     
+           000ef824  str      r0, [fp, #0x2c]              
+           000ef828  ldr      r0, [fp, #4]                 
+           000ef82c  str      r0, [fp, #0x30]              
+           000ef830  ldr      r0, [fp, #8]                 
+           000ef834  str      r0, [fp, #0x34]              
+           000ef838  ldr      r0, [fp, #0xc]               
+           000ef83c  str      r0, [fp, #0x38]              
+           000ef840  ldr      r0, [pc]                     
+           000ef844  b        #0xef84c                     ; -> L_ef84c
+           000ef848  .word    0x00eb5e94                   ; literal 15425172 / 
+L_ef84c:   000ef84c  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000ef850  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ef854  mov      r1, r0                       
+           000ef858  add      r0, r1, #8                   
+           000ef85c  ldr      r2, [fp, #0x2c]              
+           000ef860  str      r2, [r0]                     
+           000ef864  ldr      r2, [fp, #0x30]              
+           000ef868  str      r2, [r0, #4]                 ; field+0x4 
+           000ef86c  ldr      r2, [fp, #0x34]              
+           000ef870  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ef874  ldr      r2, [fp, #0x38]              
+           000ef878  str      r2, [r0, #0xc]               ; field+0xc 
+           000ef87c  mov      r0, r1                       
+           000ef880  ldr      r1, [r1]                     
+           000ef884  ldr      r8, [pc]                     
+           000ef888  b        #0xef890                     ; -> L_ef890
+           000ef88c  .word    0x00eb5518                   ; literal 15422744 / 
+L_ef890:   000ef890  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000ef894  add      lr, pc, #4                   
+           000ef898  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000ef89c  andeq    r0, r0, r0                   
+           000ef8a0  ldr      ip, [fp, #0x28]              
+           000ef8a4  mov      pc, ip                       
+L_ef8a8:   000ef8a8  add      sp, fp, #0x48                
+           000ef8ac  pop      {r5, r8, sl, fp}             
+           000ef8b0  ldr      r7, [sp, #8]                 
+           000ef8b4  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::DetermineSoundsToPlay  token 0x06000335 @0x000ef8b8 (512 bytes)
+   args: r0=this, 
+           000ef8b8  mov      ip, sp                       
+           000ef8bc  push     {r7, lr}                     
+           000ef8c0  mov      r7, sp                       
+           000ef8c4  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000ef8c8  sub      sp, sp, #0x5c                
+           000ef8cc  mov      fp, sp                       
+           000ef8d0  mov      sl, r0                       
+           000ef8d4  mov      r0, #0                       
+           000ef8d8  str      r0, [fp]                     
+           000ef8dc  mov      r0, #0                       
+           000ef8e0  str      r0, [fp, #4]                 
+           000ef8e4  mov      r0, #0                       
+           000ef8e8  str      r0, [fp, #8]                 
+           000ef8ec  mov      r0, #0                       
+           000ef8f0  str      r0, [fp, #0xc]               
+           000ef8f4  mov      r0, #0                       
+           000ef8f8  str      r0, [fp, #0x10]              
+           000ef8fc  mov      r0, #0                       
+           000ef900  str      r0, [fp, #0x14]              
+           000ef904  mov      r0, #0                       
+           000ef908  str      r0, [fp, #0x18]              
+           000ef90c  ldr      r0, [pc]                     
+           000ef910  b        #0xef918                     ; -> L_ef918
+           000ef914  .word    0x00eb5dcc                   ; literal 15424972 / 
+L_ef918:   000ef918  ldr      r0, [pc, r0]                 ; GOT[609] VTABLE System.Collections.Generic.List`1<int>
+           000ef91c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ef920  ldr      r1, [pc]                     
+           000ef924  b        #0xef92c                     ; -> L_ef92c
+           000ef928  .word    0x00eb5dbc                   ; literal 15424956 / 
+L_ef92c:   000ef92c  ldr      r1, [pc, r1]                 ; GOT[610] SFLDA System.Collections.Generic.List`1<int>::EmptyArray
+           000ef930  ldr      r1, [r1]                     
+           000ef934  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ef938  mov      r5, r0                       
+           000ef93c  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: soundRequests)
+           000ef940  add      r0, fp, #8                   
+           000ef944  mov      r1, r2                       
+           000ef948  ldr      lr, [r2]                     
+           000ef94c  bl       #0x22ceb0                    ; CALL System.Collections.Generic.Dictionary`2<int,int>::GetEnumerator
+           000ef950  b        #0xef9a8                     ; -> L_ef9a8
+L_ef954:   000ef954  add      r0, fp, #8                   
+           000ef958  add      r0, r0, #0xc                 
+           000ef95c  ldr      r1, [r0]                     
+           000ef960  str      r1, [fp]                     
+           000ef964  ldr      r0, [r0, #4]                 ; field+0x4 
+           000ef968  str      r0, [fp, #4]                 
+           000ef96c  cmp      r0, #0                       
+           000ef970  ble      #0xef9a8                     ; -> L_ef9a8
+           000ef974  ldr      r1, [fp]                     
+           000ef978  mov      r0, r5                       
+           000ef97c  ldr      lr, [r5]                     
+           000ef980  bl       #0x22cea0                    ; CALL System.Collections.Generic.List`1<int>::Add
+           000ef984  ldr      r1, [fp]                     
+           000ef988  mov      r0, sl                       
+           000ef98c  bl       #0x22cec0                    ; CALL SoundSequencer::SearchUsedList
+           000ef990  cmp      r0, #0                       
+           000ef994  beq      #0xef99c                     ; -> L_ef99c
+           000ef998  b        #0xef9a8                     ; -> L_ef9a8
+L_ef99c:   000ef99c  ldr      r1, [fp]                     
+           000ef9a0  mov      r0, sl                       
+           000ef9a4  bl       #0xefcac                     ; CALL SoundSequencer::GetNewSourceAndPlay (direct)
+L_ef9a8:   000ef9a8  add      r0, fp, #8                   
+           000ef9ac  bl       #0x22ced0                    ; CALL System.Collections.Generic.Dictionary`2/Enumerator<int,int>::MoveNext
+           000ef9b0  cmp      r0, #0                       
+           000ef9b4  bne      #0xef954                     ; -> L_ef954
+           000ef9b8  bl       #0xef9c0                     ; CALL 0xef9c0
+           000ef9bc  b        #0xefa5c                     ; -> L_efa5c
+           000ef9c0  str      lr, [fp, #0x38]              
+           000ef9c4  ldr      r0, [fp, #8]                 
+           000ef9c8  str      r0, [fp, #0x3c]              
+           000ef9cc  ldr      r0, [fp, #0xc]               
+           000ef9d0  str      r0, [fp, #0x40]              
+           000ef9d4  ldr      r0, [fp, #0x10]              
+           000ef9d8  str      r0, [fp, #0x44]              
+           000ef9dc  ldr      r0, [fp, #0x14]              
+           000ef9e0  str      r0, [fp, #0x48]              
+           000ef9e4  ldr      r0, [fp, #0x18]              
+           000ef9e8  str      r0, [fp, #0x4c]              
+           000ef9ec  ldr      r0, [pc]                     
+           000ef9f0  b        #0xef9f8                     ; -> L_ef9f8
+           000ef9f4  .word    0x00eb5cf4                   ; literal 15424756 / 
+L_ef9f8:   000ef9f8  ldr      r0, [pc, r0]                 ; GOT[611] VTABLE System.Collections.Generic.Dictionary`2/Enumerator<int,int>
+           000ef9fc  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000efa00  mov      r1, r0                       
+           000efa04  add      r0, r1, #8                   
+           000efa08  ldr      r2, [fp, #0x3c]              
+           000efa0c  str      r2, [r0]                     
+           000efa10  ldr      r2, [fp, #0x40]              
+           000efa14  str      r2, [r0, #4]                 ; field+0x4 
+           000efa18  ldr      r2, [fp, #0x44]              
+           000efa1c  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000efa20  ldr      r2, [fp, #0x48]              
+           000efa24  str      r2, [r0, #0xc]               ; field+0xc 
+           000efa28  ldr      r2, [fp, #0x4c]              
+           000efa2c  str      r2, [r0, #0x10]              ; field+0x10 (this-class: loopingHashes)
+           000efa30  mov      r0, r1                       
+           000efa34  ldr      r1, [r1]                     
+           000efa38  ldr      r8, [pc]                     
+           000efa3c  b        #0xefa44                     ; -> L_efa44
+           000efa40  .word    0x00eb5364                   ; literal 15422308 / 
+L_efa44:   000efa44  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000efa48  add      lr, pc, #4                   
+           000efa4c  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000efa50  andeq    r0, r0, r0                   
+           000efa54  ldr      ip, [fp, #0x38]              
+           000efa58  mov      pc, ip                       
+L_efa5c:   000efa5c  mov      r6, #0                       
+           000efa60  b        #0xefa98                     ; -> L_efa98
+L_efa64:   000efa64  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: soundRequests)
+           000efa68  str      r0, [fp, #0x50]              
+           000efa6c  mov      r0, r5                       
+           000efa70  mov      r1, r6                       
+           000efa74  ldr      lr, [r5]                     
+           000efa78  bl       #0x22cee0                    ; CALL System.Collections.Generic.List`1<int>::get_Item
+           000efa7c  mov      r1, r0                       
+           000efa80  ldr      r3, [fp, #0x50]              
+           000efa84  mov      r0, r3                       
+           000efa88  mov      r2, #0                       
+           000efa8c  ldr      lr, [r3]                     
+           000efa90  bl       #0x22ce70                    ; CALL System.Collections.Generic.Dictionary`2<int,int>::set_Item
+           000efa94  add      r6, r6, #1                   
+L_efa98:   000efa98  ldr      lr, [r5]                     
+           000efa9c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000efaa0  cmp      r6, r0                       
+           000efaa4  blt      #0xefa64                     ; -> L_efa64
+           000efaa8  add      sp, fp, #0x5c                
+           000efaac  pop      {r5, r6, r8, sl, fp}         
+           000efab0  ldr      r7, [sp, #8]                 
+           000efab4  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::SearchUsedList  token 0x06000336 @0x000efab8 (500 bytes)
+   args: r0=this, key
+           000efab8  mov      ip, sp                       
+           000efabc  push     {r7, lr}                     
+           000efac0  mov      r7, sp                       
+           000efac4  push     {r5, r8, sl, fp, ip, lr}     
+           000efac8  sub      sp, sp, #0x58                
+           000efacc  mov      fp, sp                       
+           000efad0  str      r0, [fp, #0x48]              
+           000efad4  mov      sl, r1                       
+           000efad8  mov      r0, #0                       
+           000efadc  str      r0, [fp]                     
+           000efae0  mov      r0, #0                       
+           000efae4  str      r0, [fp, #4]                 
+           000efae8  mov      r0, #0                       
+           000efaec  str      r0, [fp, #8]                 
+           000efaf0  mov      r0, #0                       
+           000efaf4  str      r0, [fp, #0xc]               
+           000efaf8  ldr      r0, [fp, #0x48]              
+           000efafc  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: factory)
+           000efb00  mov      r1, r0                       
+           000efb04  ldr      lr, [r1]                     
+           000efb08  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000efb0c  mov      r1, r2                       
+           000efb10  mov      r0, fp                       
+           000efb14  ldr      lr, [r2]                     
+           000efb18  bl       #0x22ce30                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::GetEnumerator
+           000efb1c  b        #0xefbdc                     ; -> L_efbdc
+L_efb20:   000efb20  ldr      r0, [pc]                     
+           000efb24  b        #0xefb2c                     ; -> L_efb2c
+           000efb28  .word    0x00eb5bb4                   ; literal 15424436 / 
+L_efb2c:   000efb2c  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000efb30  ldr      r5, [fp, #0xc]               
+           000efb34  mov      r1, r5                       
+           000efb38  mov      r0, r1                       
+           000efb3c  ldr      lr, [r1]                     
+           000efb40  bl       #0x22cc50                    ; CALL UnityEngine.AudioSource::get_clip
+           000efb44  mov      r1, #0                       
+           000efb48  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000efb4c  cmp      r0, #0                       
+           000efb50  beq      #0xefbdc                     ; -> L_efbdc
+           000efb54  mov      r0, r5                       
+           000efb58  ldr      lr, [r5]                     
+           000efb5c  bl       #0x22cc50                    ; CALL UnityEngine.AudioSource::get_clip
+           000efb60  str      r0, [fp, #0x50]              
+           000efb64  mov      r0, sl                       
+           000efb68  bl       #0xedcb4                     ; CALL SoundLibrary::GetClipName (direct)
+           000efb6c  bl       #0xedbdc                     ; CALL SoundLibrary::GetClip (direct)
+           000efb70  mov      r1, r0                       
+           000efb74  ldr      r0, [fp, #0x50]              
+           000efb78  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000efb7c  cmp      r0, #0                       
+           000efb80  beq      #0xefbdc                     ; -> L_efbdc
+           000efb84  mov      r0, r5                       
+           000efb88  ldr      lr, [r5]                     
+           000efb8c  bl       #0x22cbb0                    ; CALL UnityEngine.AudioSource::get_isPlaying
+           000efb90  cmp      r0, #0                       
+           000efb94  bne      #0xefbcc                     ; -> L_efbcc
+           000efb98  ldr      r0, [fp, #0x48]              
+           000efb9c  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: loopingHashes)
+           000efba0  mov      r0, r2                       
+           000efba4  mov      r1, sl                       
+           000efba8  ldr      lr, [r2]                     
+           000efbac  bl       #0x22ce90                    ; CALL System.Collections.Generic.List`1<int>::Contains
+           000efbb0  mov      r1, r0                       
+           000efbb4  mov      r0, r5                       
+           000efbb8  ldr      lr, [r5]                     
+           000efbbc  bl       #0x22bc30                    ; CALL UnityEngine.AudioSource::set_loop
+           000efbc0  mov      r0, r5                       
+           000efbc4  ldr      lr, [r5]                     
+           000efbc8  bl       #0x22bca0                    ; CALL UnityEngine.AudioSource::Play
+L_efbcc:   000efbcc  mov      r0, #1                       
+           000efbd0  strb     r0, [fp, #0x10]              
+           000efbd4  bl       #0xefc04                     ; CALL 0xefc04
+           000efbd8  b        #0xefc98                     ; -> L_efc98
+L_efbdc:   000efbdc  ldr      r8, [pc]                     
+           000efbe0  b        #0xefbe8                     ; -> L_efbe8
+           000efbe4  .word    0x00eb5af8                   ; literal 15424248 / 
+L_efbe8:   000efbe8  ldr      r8, [pc, r8]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000efbec  mov      r0, fp                       
+           000efbf0  bl       #0x22ce40                    ; CALL System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>::MoveNext
+           000efbf4  cmp      r0, #0                       
+           000efbf8  bne      #0xefb20                     ; -> L_efb20
+           000efbfc  bl       #0xefc04                     ; CALL 0xefc04
+           000efc00  b        #0xefc90                     ; -> L_efc90
+           000efc04  str      lr, [fp, #0x34]              
+           000efc08  ldr      r0, [fp]                     
+           000efc0c  str      r0, [fp, #0x38]              
+           000efc10  ldr      r0, [fp, #4]                 
+           000efc14  str      r0, [fp, #0x3c]              
+           000efc18  ldr      r0, [fp, #8]                 
+           000efc1c  str      r0, [fp, #0x40]              
+           000efc20  ldr      r0, [fp, #0xc]               
+           000efc24  str      r0, [fp, #0x44]              
+           000efc28  ldr      r0, [pc]                     
+           000efc2c  b        #0xefc34                     ; -> L_efc34
+           000efc30  .word    0x00eb5aac                   ; literal 15424172 / 
+L_efc34:   000efc34  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000efc38  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000efc3c  mov      r1, r0                       
+           000efc40  add      r0, r1, #8                   
+           000efc44  ldr      r2, [fp, #0x38]              
+           000efc48  str      r2, [r0]                     
+           000efc4c  ldr      r2, [fp, #0x3c]              
+           000efc50  str      r2, [r0, #4]                 ; field+0x4 
+           000efc54  ldr      r2, [fp, #0x40]              
+           000efc58  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000efc5c  ldr      r2, [fp, #0x44]              
+           000efc60  str      r2, [r0, #0xc]               ; field+0xc 
+           000efc64  mov      r0, r1                       
+           000efc68  ldr      r1, [r1]                     
+           000efc6c  ldr      r8, [pc]                     
+           000efc70  b        #0xefc78                     ; -> L_efc78
+           000efc74  .word    0x00eb5130                   ; literal 15421744 / 
+L_efc78:   000efc78  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000efc7c  add      lr, pc, #4                   
+           000efc80  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000efc84  andeq    r0, r0, r0                   
+           000efc88  ldr      ip, [fp, #0x34]              
+           000efc8c  mov      pc, ip                       
+L_efc90:   000efc90  mov      r0, #0                       
+           000efc94  b        #0xefc9c                     ; -> L_efc9c
+L_efc98:   000efc98  ldrb     r0, [fp, #0x10]              
+L_efc9c:   000efc9c  add      sp, fp, #0x58                
+           000efca0  pop      {r5, r8, sl, fp}             
+           000efca4  ldr      r7, [sp, #8]                 
+           000efca8  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::GetNewSourceAndPlay  token 0x06000337 @0x000efcac (256 bytes)
+   args: r0=this, key
+           000efcac  mov      ip, sp                       
+           000efcb0  push     {r7, lr}                     
+           000efcb4  mov      r7, sp                       
+           000efcb8  push     {r5, r6, r8, fp, ip, lr}     
+           000efcbc  sub      sp, sp, #0x18                
+           000efcc0  mov      fp, sp                       
+           000efcc4  mov      r6, r0                       
+           000efcc8  str      r1, [fp, #8]                 
+           000efccc  ldr      r1, [r6, #0x18]              ; field+0x18 (this-class: factory)
+           000efcd0  mov      r0, r1                       
+           000efcd4  ldr      lr, [r1]                     
+           000efcd8  bl       #0xeef5c                     ; CALL SourceFactory::GetSource (direct)
+           000efcdc  mov      r5, r0                       
+           000efce0  mov      r1, #0                       
+           000efce4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000efce8  cmp      r0, #0                       
+           000efcec  beq      #0xefd9c                     ; -> L_efd9c
+           000efcf0  mov      r0, r5                       
+           000efcf4  ldr      lr, [r5]                     
+           000efcf8  bl       #0x22bd80                    ; CALL UnityEngine.AudioSource::Stop
+           000efcfc  mov      r0, r5                       
+           000efd00  ldr      lr, [r5]                     
+           000efd04  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000efd08  str      r0, [fp, #0x10]              
+           000efd0c  mov      r0, r6                       
+           000efd10  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000efd14  mov      r1, r0                       
+           000efd18  ldr      lr, [r1]                     
+           000efd1c  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000efd20  mov      r1, r0                       
+           000efd24  ldr      r2, [fp, #0x10]              
+           000efd28  mov      r0, r2                       
+           000efd2c  ldr      lr, [r2]                     
+           000efd30  bl       #0x22b2d0                    ; CALL UnityEngine.Transform::set_parent
+           000efd34  ldr      r0, [fp, #8]                 
+           000efd38  bl       #0xedcb4                     ; CALL SoundLibrary::GetClipName (direct)
+           000efd3c  bl       #0xedbdc                     ; CALL SoundLibrary::GetClip (direct)
+           000efd40  mov      r1, r0                       
+           000efd44  mov      r0, r5                       
+           000efd48  ldr      lr, [r5]                     
+           000efd4c  bl       #0x22bd90                    ; CALL UnityEngine.AudioSource::set_clip
+           000efd50  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: loopingHashes)
+           000efd54  mov      r0, r2                       
+           000efd58  ldr      r1, [fp, #8]                 
+           000efd5c  ldr      lr, [r2]                     
+           000efd60  bl       #0x22ce90                    ; CALL System.Collections.Generic.List`1<int>::Contains
+           000efd64  mov      r1, r0                       
+           000efd68  mov      r0, r5                       
+           000efd6c  ldr      lr, [r5]                     
+           000efd70  bl       #0x22bc30                    ; CALL UnityEngine.AudioSource::set_loop
+           000efd74  mov      r0, r5                       
+           000efd78  ldr      lr, [r5]                     
+           000efd7c  bl       #0x22cc50                    ; CALL UnityEngine.AudioSource::get_clip
+           000efd80  mov      r1, #0                       
+           000efd84  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000efd88  cmp      r0, #0                       
+           000efd8c  beq      #0xefd9c                     ; -> L_efd9c
+           000efd90  mov      r0, r5                       
+           000efd94  ldr      lr, [r5]                     
+           000efd98  bl       #0x22bca0                    ; CALL UnityEngine.AudioSource::Play
+L_efd9c:   000efd9c  add      sp, fp, #0x18                
+           000efda0  pop      {r5, r6, r8, fp}             
+           000efda4  ldr      r7, [sp, #8]                 
+           000efda8  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::Awake  token 0x06000338 @0x000efdac (180 bytes)
+   args: r0=this, 
+           000efdac  mov      ip, sp                       
+           000efdb0  push     {r7, lr}                     
+           000efdb4  mov      r7, sp                       
+           000efdb8  push     {r8, sl, fp, ip, lr}         
+           000efdbc  sub      sp, sp, #0xc                 
+           000efdc0  mov      fp, sp                       
+           000efdc4  mov      sl, r0                       
+           000efdc8  ldr      r0, [pc]                     
+           000efdcc  b        #0xefdd4                     ; -> L_efdd4
+           000efdd0  .word    0x00eb591c                   ; literal 15423772 / 
+L_efdd4:   000efdd4  ldr      r0, [pc, r0]                 ; GOT[612] VTABLE System.Collections.Generic.Dictionary`2<int,int>
+           000efdd8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000efddc  str      r0, [fp, #4]                 
+           000efde0  bl       #0x22cef0                    ; CALL System.Collections.Generic.Dictionary`2<int,int>::.ctor
+           000efde4  ldr      r0, [fp, #4]                 
+           000efde8  str      r0, [sl, #0x14]              ; field+0x14 (this-class: soundRequests)
+           000efdec  ldr      r0, [pc]                     
+           000efdf0  b        #0xefdf8                     ; -> L_efdf8
+           000efdf4  .word    0x00eb58fc                   ; literal 15423740 / 
+L_efdf8:   000efdf8  ldr      r0, [pc, r0]                 ; GOT[613] VTABLE SourceFactory
+           000efdfc  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000efe00  mov      r1, #0xa                     
+           000efe04  str      r1, [r0, #0x10]              ; field+0x10 (this-class: loopingHashes)
+           000efe08  str      r0, [sl, #0x18]              ; field+0x18 (this-class: factory)
+           000efe0c  str      r0, [fp]                     
+           000efe10  mov      r0, sl                       
+           000efe14  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000efe18  mov      r1, r0                       
+           000efe1c  ldr      r2, [fp]                     
+           000efe20  mov      r0, r2                       
+           000efe24  ldr      lr, [r2]                     
+           000efe28  bl       #0x22cf00                    ; CALL SourceFactory::Init
+           000efe2c  ldr      r0, [pc]                     
+           000efe30  b        #0xefe38                     ; -> L_efe38
+           000efe34  .word    0x00eb58c0                   ; literal 15423680 / 
+L_efe38:   000efe38  ldr      r0, [pc, r0]                 ; GOT[614] VTABLE SoundSequencer/<Recycle>c__Iterator26
+           000efe3c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000efe40  mov      r1, r0                       
+           000efe44  str      sl, [r1, #0xc]               ; field+0xc 
+           000efe48  mov      r0, sl                       
+           000efe4c  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000efe50  add      sp, fp, #0xc                 
+           000efe54  pop      {r8, sl, fp}                 
+           000efe58  ldr      r7, [sp, #8]                 
+           000efe5c  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::Update  token 0x06000339 @0x000efe60 (124 bytes)
+   args: r0=this, 
+           000efe60  mov      ip, sp                       
+           000efe64  push     {r7, lr}                     
+           000efe68  mov      r7, sp                       
+           000efe6c  push     {r8, sl, fp, ip, lr}         
+           000efe70  sub      sp, sp, #4                   
+           000efe74  mov      fp, sp                       
+           000efe78  mov      sl, r0                       
+           000efe7c  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           000efe80  cmp      r0, #0                       
+           000efe84  beq      #0xefea0                     ; -> L_efea0
+           000efe88  ldrb     r0, [sl, #0x20]              ; field+0x20 (this-class: wasPaused)
+           000efe8c  cmp      r0, #0                       
+           000efe90  bne      #0xefea0                     ; -> L_efea0
+           000efe94  mov      r0, sl                       
+           000efe98  bl       #0x22b440                    ; CALL SoundSequencer::PauseSounds
+           000efe9c  b        #0xefecc                     ; -> L_efecc
+L_efea0:   000efea0  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           000efea4  cmp      r0, #0                       
+           000efea8  bne      #0xefec4                     ; -> L_efec4
+           000efeac  ldrb     r0, [sl, #0x20]              ; field+0x20 (this-class: wasPaused)
+           000efeb0  cmp      r0, #0                       
+           000efeb4  beq      #0xefec4                     ; -> L_efec4
+           000efeb8  mov      r0, sl                       
+           000efebc  bl       #0x22b450                    ; CALL SoundSequencer::UnpauseSounds
+           000efec0  b        #0xefecc                     ; -> L_efecc
+L_efec4:   000efec4  mov      r0, sl                       
+           000efec8  bl       #0x22cf10                    ; CALL SoundSequencer::DetermineSoundsToPlay
+L_efecc:   000efecc  add      sp, fp, #4                   
+           000efed0  pop      {r8, sl, fp}                 
+           000efed4  ldr      r7, [sp, #8]                 
+           000efed8  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::Recycle  token 0x0600033a @0x000efedc (72 bytes)
+   args: r0=this, 
+           000efedc  mov      ip, sp                       
+           000efee0  push     {r7, lr}                     
+           000efee4  mov      r7, sp                       
+           000efee8  push     {r8, fp, ip, lr}             
+           000efeec  sub      sp, sp, #8                   
+           000efef0  mov      fp, sp                       
+           000efef4  str      r0, [fp]                     
+           000efef8  ldr      r0, [pc]                     
+           000efefc  b        #0xeff04                     ; -> L_eff04
+           000eff00  .word    0x00eb57f4                   ; literal 15423476 / 
+L_eff04:   000eff04  ldr      r0, [pc, r0]                 ; GOT[614] VTABLE SoundSequencer/<Recycle>c__Iterator26
+           000eff08  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000eff0c  ldr      r1, [fp]                     
+           000eff10  str      r1, [r0, #0xc]               ; field+0xc 
+           000eff14  add      sp, fp, #8                   
+           000eff18  pop      {r8, fp}                     
+           000eff1c  ldr      r7, [sp, #8]                 
+           000eff20  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::PauseSounds  token 0x0600033b @0x000eff24 (364 bytes)
+   args: r0=this, 
+           000eff24  mov      ip, sp                       
+           000eff28  push     {r7, lr}                     
+           000eff2c  mov      r7, sp                       
+           000eff30  push     {r6, r8, fp, ip, lr}         
+           000eff34  sub      sp, sp, #0x44                
+           000eff38  mov      fp, sp                       
+           000eff3c  str      r0, [fp, #0x3c]              
+           000eff40  mov      r0, #0                       
+           000eff44  str      r0, [fp]                     
+           000eff48  mov      r0, #0                       
+           000eff4c  str      r0, [fp, #4]                 
+           000eff50  mov      r0, #0                       
+           000eff54  str      r0, [fp, #8]                 
+           000eff58  mov      r0, #0                       
+           000eff5c  str      r0, [fp, #0xc]               
+           000eff60  ldr      r0, [fp, #0x3c]              
+           000eff64  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: factory)
+           000eff68  mov      r1, r0                       
+           000eff6c  ldr      lr, [r1]                     
+           000eff70  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000eff74  mov      r1, r2                       
+           000eff78  mov      r0, fp                       
+           000eff7c  ldr      lr, [r2]                     
+           000eff80  bl       #0x22ce30                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::GetEnumerator
+           000eff84  b        #0xeffc0                     ; -> L_effc0
+L_eff88:   000eff88  ldr      r0, [pc]                     
+           000eff8c  b        #0xeff94                     ; -> L_eff94
+           000eff90  .word    0x00eb574c                   ; literal 15423308 / 
+L_eff94:   000eff94  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000eff98  ldr      r6, [fp, #0xc]               
+           000eff9c  mov      r1, r6                       
+           000effa0  mov      r0, r1                       
+           000effa4  ldr      lr, [r1]                     
+           000effa8  bl       #0x22cbb0                    ; CALL UnityEngine.AudioSource::get_isPlaying
+           000effac  cmp      r0, #0                       
+           000effb0  beq      #0xeffc0                     ; -> L_effc0
+           000effb4  mov      r0, r6                       
+           000effb8  ldr      lr, [r6]                     
+           000effbc  bl       #0x22bc90                    ; CALL UnityEngine.AudioSource::Pause
+L_effc0:   000effc0  ldr      r8, [pc]                     
+           000effc4  b        #0xeffcc                     ; -> L_effcc
+           000effc8  .word    0x00eb5714                   ; literal 15423252 / 
+L_effcc:   000effcc  ldr      r8, [pc, r8]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000effd0  mov      r0, fp                       
+           000effd4  bl       #0x22ce40                    ; CALL System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>::MoveNext
+           000effd8  cmp      r0, #0                       
+           000effdc  bne      #0xeff88                     ; -> L_eff88
+           000effe0  bl       #0xeffe8                     ; CALL 0xeffe8
+           000effe4  b        #0xf0074                     ; -> L_f0074
+           000effe8  str      lr, [fp, #0x28]              
+           000effec  ldr      r0, [fp]                     
+           000efff0  str      r0, [fp, #0x2c]              
+           000efff4  ldr      r0, [fp, #4]                 
+           000efff8  str      r0, [fp, #0x30]              
+           000efffc  ldr      r0, [fp, #8]                 
+           000f0000  str      r0, [fp, #0x34]              
+           000f0004  ldr      r0, [fp, #0xc]               
+           000f0008  str      r0, [fp, #0x38]              
+           000f000c  ldr      r0, [pc]                     
+           000f0010  b        #0xf0018                     ; -> L_f0018
+           000f0014  .word    0x00eb56c8                   ; literal 15423176 / 
+L_f0018:   000f0018  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000f001c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f0020  mov      r1, r0                       
+           000f0024  add      r0, r1, #8                   
+           000f0028  ldr      r2, [fp, #0x2c]              
+           000f002c  str      r2, [r0]                     
+           000f0030  ldr      r2, [fp, #0x30]              
+           000f0034  str      r2, [r0, #4]                 ; field+0x4 
+           000f0038  ldr      r2, [fp, #0x34]              
+           000f003c  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f0040  ldr      r2, [fp, #0x38]              
+           000f0044  str      r2, [r0, #0xc]               ; field+0xc 
+           000f0048  mov      r0, r1                       
+           000f004c  ldr      r1, [r1]                     
+           000f0050  ldr      r8, [pc]                     
+           000f0054  b        #0xf005c                     ; -> L_f005c
+           000f0058  .word    0x00eb4d4c                   ; literal 15420748 / 
+L_f005c:   000f005c  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000f0060  add      lr, pc, #4                   
+           000f0064  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000f0068  andeq    r0, r0, r0                   
+           000f006c  ldr      ip, [fp, #0x28]              
+           000f0070  mov      pc, ip                       
+L_f0074:   000f0074  ldr      r0, [fp, #0x3c]              
+           000f0078  mov      r1, #1                       
+           000f007c  strb     r1, [r0, #0x20]              ; field+0x20 (this-class: wasPaused)
+           000f0080  add      sp, fp, #0x44                
+           000f0084  pop      {r6, r8, fp}                 
+           000f0088  ldr      r7, [sp, #8]                 
+           000f008c  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::UnpauseSounds  token 0x0600033c @0x000f0090 (364 bytes)
+   args: r0=this, 
+           000f0090  mov      ip, sp                       
+           000f0094  push     {r7, lr}                     
+           000f0098  mov      r7, sp                       
+           000f009c  push     {r6, r8, fp, ip, lr}         
+           000f00a0  sub      sp, sp, #0x4c                
+           000f00a4  mov      fp, sp                       
+           000f00a8  str      r0, [fp, #0x44]              
+           000f00ac  mov      r0, #0                       
+           000f00b0  str      r0, [fp]                     
+           000f00b4  mov      r0, #0                       
+           000f00b8  str      r0, [fp, #4]                 
+           000f00bc  mov      r0, #0                       
+           000f00c0  str      r0, [fp, #8]                 
+           000f00c4  mov      r0, #0                       
+           000f00c8  str      r0, [fp, #0xc]               
+           000f00cc  ldr      r0, [fp, #0x44]              
+           000f00d0  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: factory)
+           000f00d4  mov      r1, r0                       
+           000f00d8  ldr      lr, [r1]                     
+           000f00dc  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000f00e0  mov      r1, r2                       
+           000f00e4  mov      r0, fp                       
+           000f00e8  ldr      lr, [r2]                     
+           000f00ec  bl       #0x22ce30                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::GetEnumerator
+           000f00f0  b        #0xf012c                     ; -> L_f012c
+L_f00f4:   000f00f4  ldr      r0, [pc]                     
+           000f00f8  b        #0xf0100                     ; -> L_f0100
+           000f00fc  .word    0x00eb55e0                   ; literal 15422944 / 
+L_f0100:   000f0100  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000f0104  ldr      r6, [fp, #0xc]               
+           000f0108  mov      r1, r6                       
+           000f010c  mov      r0, r1                       
+           000f0110  ldr      lr, [r1]                     
+           000f0114  bl       #0x22cbb0                    ; CALL UnityEngine.AudioSource::get_isPlaying
+           000f0118  cmp      r0, #0                       
+           000f011c  bne      #0xf012c                     ; -> L_f012c
+           000f0120  mov      r0, r6                       
+           000f0124  ldr      lr, [r6]                     
+           000f0128  bl       #0x22bca0                    ; CALL UnityEngine.AudioSource::Play
+L_f012c:   000f012c  ldr      r8, [pc]                     
+           000f0130  b        #0xf0138                     ; -> L_f0138
+           000f0134  .word    0x00eb55a8                   ; literal 15422888 / 
+L_f0138:   000f0138  ldr      r8, [pc, r8]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000f013c  mov      r0, fp                       
+           000f0140  bl       #0x22ce40                    ; CALL System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>::MoveNext
+           000f0144  cmp      r0, #0                       
+           000f0148  bne      #0xf00f4                     ; -> L_f00f4
+           000f014c  bl       #0xf0154                     ; CALL 0xf0154
+           000f0150  b        #0xf01e0                     ; -> L_f01e0
+           000f0154  str      lr, [fp, #0x30]              
+           000f0158  ldr      r0, [fp]                     
+           000f015c  str      r0, [fp, #0x34]              
+           000f0160  ldr      r0, [fp, #4]                 
+           000f0164  str      r0, [fp, #0x38]              
+           000f0168  ldr      r0, [fp, #8]                 
+           000f016c  str      r0, [fp, #0x3c]              
+           000f0170  ldr      r0, [fp, #0xc]               
+           000f0174  str      r0, [fp, #0x40]              
+           000f0178  ldr      r0, [pc]                     
+           000f017c  b        #0xf0184                     ; -> L_f0184
+           000f0180  .word    0x00eb555c                   ; literal 15422812 / 
+L_f0184:   000f0184  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000f0188  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f018c  mov      r1, r0                       
+           000f0190  add      r0, r1, #8                   
+           000f0194  ldr      r2, [fp, #0x34]              
+           000f0198  str      r2, [r0]                     
+           000f019c  ldr      r2, [fp, #0x38]              
+           000f01a0  str      r2, [r0, #4]                 ; field+0x4 
+           000f01a4  ldr      r2, [fp, #0x3c]              
+           000f01a8  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f01ac  ldr      r2, [fp, #0x40]              
+           000f01b0  str      r2, [r0, #0xc]               ; field+0xc 
+           000f01b4  mov      r0, r1                       
+           000f01b8  ldr      r1, [r1]                     
+           000f01bc  ldr      r8, [pc]                     
+           000f01c0  b        #0xf01c8                     ; -> L_f01c8
+           000f01c4  .word    0x00eb4be0                   ; literal 15420384 / 
+L_f01c8:   000f01c8  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000f01cc  add      lr, pc, #4                   
+           000f01d0  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000f01d4  andeq    r0, r0, r0                   
+           000f01d8  ldr      ip, [fp, #0x30]              
+           000f01dc  mov      pc, ip                       
+L_f01e0:   000f01e0  ldr      r0, [fp, #0x44]              
+           000f01e4  mov      r1, #0                       
+           000f01e8  strb     r1, [r0, #0x20]              ; field+0x20 (this-class: wasPaused)
+           000f01ec  add      sp, fp, #0x4c                
+           000f01f0  pop      {r6, r8, fp}                 
+           000f01f4  ldr      r7, [sp, #8]                 
+           000f01f8  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::StopSounds  token 0x0600033d @0x000f01fc (352 bytes)
+   args: r0=this, 
+           000f01fc  mov      ip, sp                       
+           000f0200  push     {r7, lr}                     
+           000f0204  mov      r7, sp                       
+           000f0208  push     {r6, r8, fp, ip, lr}         
+           000f020c  sub      sp, sp, #0x44                
+           000f0210  mov      fp, sp                       
+           000f0214  str      r0, [fp, #0x3c]              
+           000f0218  mov      r0, #0                       
+           000f021c  str      r0, [fp]                     
+           000f0220  mov      r0, #0                       
+           000f0224  str      r0, [fp, #4]                 
+           000f0228  mov      r0, #0                       
+           000f022c  str      r0, [fp, #8]                 
+           000f0230  mov      r0, #0                       
+           000f0234  str      r0, [fp, #0xc]               
+           000f0238  ldr      r0, [fp, #0x3c]              
+           000f023c  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: factory)
+           000f0240  mov      r1, r0                       
+           000f0244  ldr      lr, [r1]                     
+           000f0248  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000f024c  mov      r1, r2                       
+           000f0250  mov      r0, fp                       
+           000f0254  ldr      lr, [r2]                     
+           000f0258  bl       #0x22ce30                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::GetEnumerator
+           000f025c  b        #0xf0284                     ; -> L_f0284
+L_f0260:   000f0260  ldr      r0, [pc]                     
+           000f0264  b        #0xf026c                     ; -> L_f026c
+           000f0268  .word    0x00eb5474                   ; literal 15422580 / 
+L_f026c:   000f026c  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000f0270  ldr      r6, [fp, #0xc]               
+           000f0274  mov      r1, r6                       
+           000f0278  mov      r0, r1                       
+           000f027c  ldr      lr, [r1]                     
+           000f0280  bl       #0x22bd80                    ; CALL UnityEngine.AudioSource::Stop
+L_f0284:   000f0284  ldr      r8, [pc]                     
+           000f0288  b        #0xf0290                     ; -> L_f0290
+           000f028c  .word    0x00eb5450                   ; literal 15422544 / 
+L_f0290:   000f0290  ldr      r8, [pc, r8]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000f0294  mov      r0, fp                       
+           000f0298  bl       #0x22ce40                    ; CALL System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>::MoveNext
+           000f029c  cmp      r0, #0                       
+           000f02a0  bne      #0xf0260                     ; -> L_f0260
+           000f02a4  bl       #0xf02ac                     ; CALL 0xf02ac
+           000f02a8  b        #0xf0338                     ; -> L_f0338
+           000f02ac  str      lr, [fp, #0x28]              
+           000f02b0  ldr      r0, [fp]                     
+           000f02b4  str      r0, [fp, #0x2c]              
+           000f02b8  ldr      r0, [fp, #4]                 
+           000f02bc  str      r0, [fp, #0x30]              
+           000f02c0  ldr      r0, [fp, #8]                 
+           000f02c4  str      r0, [fp, #0x34]              
+           000f02c8  ldr      r0, [fp, #0xc]               
+           000f02cc  str      r0, [fp, #0x38]              
+           000f02d0  ldr      r0, [pc]                     
+           000f02d4  b        #0xf02dc                     ; -> L_f02dc
+           000f02d8  .word    0x00eb5404                   ; literal 15422468 / 
+L_f02dc:   000f02dc  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000f02e0  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f02e4  mov      r1, r0                       
+           000f02e8  add      r0, r1, #8                   
+           000f02ec  ldr      r2, [fp, #0x2c]              
+           000f02f0  str      r2, [r0]                     
+           000f02f4  ldr      r2, [fp, #0x30]              
+           000f02f8  str      r2, [r0, #4]                 ; field+0x4 
+           000f02fc  ldr      r2, [fp, #0x34]              
+           000f0300  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f0304  ldr      r2, [fp, #0x38]              
+           000f0308  str      r2, [r0, #0xc]               ; field+0xc 
+           000f030c  mov      r0, r1                       
+           000f0310  ldr      r1, [r1]                     
+           000f0314  ldr      r8, [pc]                     
+           000f0318  b        #0xf0320                     ; -> L_f0320
+           000f031c  .word    0x00eb4a88                   ; literal 15420040 / 
+L_f0320:   000f0320  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000f0324  add      lr, pc, #4                   
+           000f0328  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000f032c  andeq    r0, r0, r0                   
+           000f0330  ldr      ip, [fp, #0x28]              
+           000f0334  mov      pc, ip                       
+L_f0338:   000f0338  ldr      r0, [fp, #0x3c]              
+           000f033c  ldr      r1, [r0, #0x18]              ; field+0x18 (this-class: factory)
+           000f0340  mov      r0, r1                       
+           000f0344  ldr      lr, [r1]                     
+           000f0348  bl       #0xeefe8                     ; CALL SourceFactory::RecycleSources (direct)
+           000f034c  add      sp, fp, #0x44                
+           000f0350  pop      {r6, r8, fp}                 
+           000f0354  ldr      r7, [sp, #8]                 
+           000f0358  ldm      sp, {sp, pc}                 
+
+== SoundSequencer::SetPriority  token 0x0600033e @0x000f035c (88 bytes)
+   args: r0=this, priority
+           000f035c  mov      ip, sp                       
+           000f0360  push     {r7, lr}                     
+           000f0364  mov      r7, sp                       
+           000f0368  push     {r8, fp, ip, lr}             
+           000f036c  sub      sp, sp, #8                   
+           000f0370  mov      fp, sp                       
+           000f0374  str      r0, [fp]                     
+           000f0378  str      r1, [fp, #4]                 
+           000f037c  ldr      r0, [fp]                     
+           000f0380  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: factory)
+           000f0384  cmp      r0, #0                       
+           000f0388  beq      #0xf03a4                     ; -> L_f03a4
+           000f038c  ldr      r0, [fp]                     
+           000f0390  ldr      r2, [r0, #0x18]              ; field+0x18 (this-class: factory)
+           000f0394  mov      r0, r2                       
+           000f0398  ldr      r1, [fp, #4]                 
+           000f039c  ldr      lr, [r2]                     
+           000f03a0  bl       #0x22cf20                    ; CALL SourceFactory::SetPriority
+L_f03a4:   000f03a4  add      sp, fp, #8                   
+           000f03a8  pop      {r8, fp}                     
+           000f03ac  ldr      r7, [sp, #8]                 
+           000f03b0  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE SoundSequencer/<Recycle>c__Iterator26  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      SoundSequencer
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== SoundSequencer/<Recycle>c__Iterator26::.ctor  token 0x060008b1 @0x00148670 (44 bytes)
+   args: r0=this, 
+           00148670  mov      ip, sp                       
+           00148674  push     {r7, lr}                     
+           00148678  mov      r7, sp                       
+           0014867c  push     {r8, fp, ip, lr}             
+           00148680  sub      sp, sp, #8                   
+           00148684  mov      fp, sp                       
+           00148688  str      r0, [fp]                     
+           0014868c  add      sp, fp, #8                   
+           00148690  pop      {r8, fp}                     
+           00148694  ldr      r7, [sp, #8]                 
+           00148698  ldm      sp, {sp, pc}                 
+
+== SoundSequencer/<Recycle>c__Iterator26::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x060008b2 @0x0014869c (52 bytes)
+   args: r0=this, 
+           0014869c  mov      ip, sp                       
+           001486a0  push     {r7, lr}                     
+           001486a4  mov      r7, sp                       
+           001486a8  push     {r8, fp, ip, lr}             
+           001486ac  sub      sp, sp, #8                   
+           001486b0  mov      fp, sp                       
+           001486b4  str      r0, [fp]                     
+           001486b8  ldr      r0, [fp]                     
+           001486bc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           001486c0  add      sp, fp, #8                   
+           001486c4  pop      {r8, fp}                     
+           001486c8  ldr      r7, [sp, #8]                 
+           001486cc  ldm      sp, {sp, pc}                 
+
+== SoundSequencer/<Recycle>c__Iterator26::System.Collections.IEnumerator.get_Current  token 0x060008b3 @0x001486d0 (52 bytes)
+   args: r0=this, 
+           001486d0  mov      ip, sp                       
+           001486d4  push     {r7, lr}                     
+           001486d8  mov      r7, sp                       
+           001486dc  push     {r8, fp, ip, lr}             
+           001486e0  sub      sp, sp, #8                   
+           001486e4  mov      fp, sp                       
+           001486e8  str      r0, [fp]                     
+           001486ec  ldr      r0, [fp]                     
+           001486f0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           001486f4  add      sp, fp, #8                   
+           001486f8  pop      {r8, fp}                     
+           001486fc  ldr      r7, [sp, #8]                 
+           00148700  ldm      sp, {sp, pc}                 
+
+== SoundSequencer/<Recycle>c__Iterator26::MoveNext  token 0x060008b4 @0x00148704 (220 bytes)
+   args: r0=this, 
+           00148704  mov      ip, sp                       
+           00148708  push     {r7, lr}                     
+           0014870c  mov      r7, sp                       
+           00148710  push     {r8, sl, fp, ip, lr}         
+           00148714  sub      sp, sp, #0x14                
+           00148718  mov      fp, sp                       
+           0014871c  mov      sl, r0                       
+           00148720  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00148724  mvn      r1, #0                       
+           00148728  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014872c  str      r0, [fp, #4]                 
+           00148730  cmp      r0, #2                       
+           00148734  bhs      #0x1487c4                    ; -> L_1487c4
+           00148738  ldr      r0, [fp, #4]                 
+           0014873c  lsl      r1, r0, #2                   
+           00148740  ldr      r0, [pc]                     
+           00148744  b        #0x14874c                    ; -> L_14874c
+           00148748  .word    0x00e5e1e8                   ; literal 15065576 / 
+L_14874c:  0014874c  ldr      r0, [pc, r0]                 ; GOT[1781] SWITCH switch table[2]
+           00148750  add      r0, r0, r1                   
+           00148754  ldr      r0, [r0]                     
+           00148758  mov      pc, r0                       
+L_14875c:  0014875c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00148760  vldr     s0, [r0, #0x1c]              ; field+0x1c 
+           00148764  vcvt.f64.f32 d2, s0                       
+           00148768  vstr     d2, [fp, #8]                 
+           0014876c  ldr      r0, [pc]                     
+           00148770  b        #0x148778                    ; -> L_148778
+           00148774  .word    0x00e5e080                   ; literal 15065216 / 
+L_148778:  00148778  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           0014877c  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           00148780  vldr     d2, [fp, #8]                 
+           00148784  vcvt.f32.f64 s0, d2                       
+           00148788  vstr     s0, [fp]                     
+           0014878c  vldr     s0, [fp]                     
+           00148790  vcvt.f64.f32 d2, s0                       
+           00148794  vcvt.f32.f64 s0, d2                       
+           00148798  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014879c  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           001487a0  mov      r0, #1                       
+           001487a4  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           001487a8  b        #0x1487cc                    ; -> L_1487cc
+           001487ac  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           001487b0  ldr      r1, [r0, #0x18]              ; field+0x18 
+           001487b4  mov      r0, r1                       
+           001487b8  ldr      lr, [r1]                     
+           001487bc  bl       #0xeefe8                     ; CALL SourceFactory::RecycleSources (direct)
+           001487c0  b        #0x14875c                    ; -> L_14875c
+L_1487c4:  001487c4  mov      r0, #0                       
+           001487c8  b        #0x1487d0                    ; -> L_1487d0
+L_1487cc:  001487cc  mov      r0, #1                       
+L_1487d0:  001487d0  add      sp, fp, #0x14                
+           001487d4  pop      {r8, sl, fp}                 
+           001487d8  ldr      r7, [sp, #8]                 
+           001487dc  ldm      sp, {sp, pc}                 
+
+== SoundSequencer/<Recycle>c__Iterator26::Dispose  token 0x060008b5 @0x001487e0 (56 bytes)
+   args: r0=this, 
+           001487e0  mov      ip, sp                       
+           001487e4  push     {r7, lr}                     
+           001487e8  mov      r7, sp                       
+           001487ec  push     {r8, fp, ip, lr}             
+           001487f0  sub      sp, sp, #8                   
+           001487f4  mov      fp, sp                       
+           001487f8  str      r0, [fp]                     
+           001487fc  ldr      r0, [fp]                     
+           00148800  mvn      r1, #0                       
+           00148804  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           00148808  add      sp, fp, #8                   
+           0014880c  pop      {r8, fp}                     
+           00148810  ldr      r7, [sp, #8]                 
+           00148814  ldm      sp, {sp, pc}                 
+
+== SoundSequencer/<Recycle>c__Iterator26::Reset  token 0x060008b6 @0x00148818 (64 bytes)
+   args: r0=this, 
+           00148818  mov      ip, sp                       
+           0014881c  push     {r7, lr}                     
+           00148820  mov      r7, sp                       
+           00148824  push     {r8, fp, ip, lr}             
+           00148828  sub      sp, sp, #8                   
+           0014882c  mov      fp, sp                       
+           00148830  str      r0, [fp]                     
+           00148834  mov      r0, #0x49                    
+           00148838  add      r0, r0, #0x100               
+           0014883c  add      r0, r0, #0x2000000           
+           00148840  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00148844  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00148848  add      sp, fp, #8                   
+           0014884c  pop      {r8, fp}                     
+           00148850  ldr      r7, [sp, #8]                 
+           00148854  ldm      sp, {sp, pc}                 

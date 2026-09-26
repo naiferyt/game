@@ -1,0 +1,779 @@
+####################################################################################################
+# TYPE CameraShake  (instance size 0x3c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 shakeIntensity                 float
+#   +0x14 shakeDuration                  float
+#   +0x18 intensity                      float
+#   +0x1c isShaking                      bool
+#   +0x1d isStationary                   bool
+#   +0x20 originPos                      UnityEngine.Vector3
+#   +0x2c originRot                      UnityEngine.Quaternion
+#   vtable slots: 
+####################################################################################################
+== CameraShake::.ctor  token 0x060003f8 @0x000fa808 (124 bytes)
+   args: r0=this, 
+           000fa808  mov      ip, sp                       
+           000fa80c  push     {r7, lr}                     
+           000fa810  mov      r7, sp                       
+           000fa814  push     {r8, sl, fp, ip, lr}         
+           000fa818  sub      sp, sp, #4                   
+           000fa81c  mov      fp, sp                       
+           000fa820  mov      sl, r0                       
+           000fa824  vldr     s4, [pc]                     ; float 0.20000000298023224
+           000fa828  b        #0xfa830                     ; -> L_fa830
+           000fa82c  .word    0x3e4ccccd                   ; literal 1045220557 / 0.2
+L_fa830:   000fa830  vcvt.f64.f32 d2, s4                       
+           000fa834  vcvt.f32.f64 s0, d2                       
+           000fa838  vstr     s0, [sl, #0x10]              ; field+0x10 (this-class: shakeIntensity)
+           000fa83c  vldr     s4, [pc]                     ; float -1.0
+           000fa840  b        #0xfa848                     ; -> L_fa848
+           000fa844  .word    0xbf800000                   ; literal -1082130432 / -1
+L_fa848:   000fa848  vcvt.f64.f32 d2, s4                       
+           000fa84c  vcvt.f32.f64 s0, d2                       
+           000fa850  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: shakeDuration)
+           000fa854  vldr     s4, [pc]                     ; float 1.0
+           000fa858  b        #0xfa860                     ; -> L_fa860
+           000fa85c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_fa860:   000fa860  vcvt.f64.f32 d2, s4                       
+           000fa864  vcvt.f32.f64 s0, d2                       
+           000fa868  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fa86c  mov      r0, sl                       
+           000fa870  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000fa874  add      sp, fp, #4                   
+           000fa878  pop      {r8, sl, fp}                 
+           000fa87c  ldr      r7, [sp, #8]                 
+           000fa880  ldm      sp, {sp, pc}                 
+
+== CameraShake::get_IsShaking  token 0x060003f9 @0x000fa884 (52 bytes)
+   args: r0=this, 
+           000fa884  mov      ip, sp                       
+           000fa888  push     {r7, lr}                     
+           000fa88c  mov      r7, sp                       
+           000fa890  push     {r8, fp, ip, lr}             
+           000fa894  sub      sp, sp, #8                   
+           000fa898  mov      fp, sp                       
+           000fa89c  str      r0, [fp]                     
+           000fa8a0  ldr      r0, [fp]                     
+           000fa8a4  ldrb     r0, [r0, #0x1c]              ; field+0x1c (this-class: isShaking)
+           000fa8a8  add      sp, fp, #8                   
+           000fa8ac  pop      {r8, fp}                     
+           000fa8b0  ldr      r7, [sp, #8]                 
+           000fa8b4  ldm      sp, {sp, pc}                 
+
+== CameraShake::get_IsStationary  token 0x060003fa @0x000fa8b8 (52 bytes)
+   args: r0=this, 
+           000fa8b8  mov      ip, sp                       
+           000fa8bc  push     {r7, lr}                     
+           000fa8c0  mov      r7, sp                       
+           000fa8c4  push     {r8, fp, ip, lr}             
+           000fa8c8  sub      sp, sp, #8                   
+           000fa8cc  mov      fp, sp                       
+           000fa8d0  str      r0, [fp]                     
+           000fa8d4  ldr      r0, [fp]                     
+           000fa8d8  ldrb     r0, [r0, #0x1d]              ; field+0x1d (this-class: isStationary)
+           000fa8dc  add      sp, fp, #8                   
+           000fa8e0  pop      {r8, fp}                     
+           000fa8e4  ldr      r7, [sp, #8]                 
+           000fa8e8  ldm      sp, {sp, pc}                 
+
+== CameraShake::set_IsStationary  token 0x060003fb @0x000fa8ec (60 bytes)
+   args: r0=this, value
+           000fa8ec  mov      ip, sp                       
+           000fa8f0  push     {r7, lr}                     
+           000fa8f4  mov      r7, sp                       
+           000fa8f8  push     {r8, fp, ip, lr}             
+           000fa8fc  sub      sp, sp, #8                   
+           000fa900  mov      fp, sp                       
+           000fa904  str      r0, [fp]                     
+           000fa908  strb     r1, [fp, #4]                 
+           000fa90c  ldrb     r1, [fp, #4]                 
+           000fa910  ldr      r0, [fp]                     
+           000fa914  strb     r1, [r0, #0x1d]              ; field+0x1d (this-class: isStationary)
+           000fa918  add      sp, fp, #8                   
+           000fa91c  pop      {r8, fp}                     
+           000fa920  ldr      r7, [sp, #8]                 
+           000fa924  ldm      sp, {sp, pc}                 
+
+== CameraShake::Start  token 0x060003fc @0x000fa928 (64 bytes)
+   args: r0=this, 
+           000fa928  mov      ip, sp                       
+           000fa92c  push     {r7, lr}                     
+           000fa930  mov      r7, sp                       
+           000fa934  push     {r8, fp, ip, lr}             
+           000fa938  sub      sp, sp, #8                   
+           000fa93c  mov      fp, sp                       
+           000fa940  str      r0, [fp]                     
+           000fa944  ldr      r0, [fp]                     
+           000fa948  vldr     s0, [r0, #0x10]              ; field+0x10 (this-class: shakeIntensity)
+           000fa94c  vcvt.f64.f32 d2, s0                       
+           000fa950  vcvt.f32.f64 s0, d2                       
+           000fa954  vstr     s0, [r0, #0x18]              ; field+0x18 (this-class: intensity)
+           000fa958  add      sp, fp, #8                   
+           000fa95c  pop      {r8, fp}                     
+           000fa960  ldr      r7, [sp, #8]                 
+           000fa964  ldm      sp, {sp, pc}                 
+
+== CameraShake::Update  token 0x060003fd @0x000fa968 (2000 bytes)
+   args: r0=this, 
+           000fa968  mov      ip, sp                       
+           000fa96c  push     {r7, lr}                     
+           000fa970  mov      r7, sp                       
+           000fa974  push     {r8, sl, fp, ip, lr}         
+           000fa978  sub      sp, sp, #0x1d4               
+           000fa97c  mov      fp, sp                       
+           000fa980  mov      sl, r0                       
+           000fa984  mov      r0, #0                       
+           000fa988  str      r0, [fp, #0x18]              
+           000fa98c  mov      r0, #0                       
+           000fa990  str      r0, [fp, #0x1c]              
+           000fa994  mov      r0, #0                       
+           000fa998  str      r0, [fp, #0x20]              
+           000fa99c  mov      r0, #0                       
+           000fa9a0  str      r0, [fp, #0x24]              
+           000fa9a4  mov      r0, #0                       
+           000fa9a8  str      r0, [fp, #0x28]              
+           000fa9ac  mov      r0, #0                       
+           000fa9b0  str      r0, [fp, #0x2c]              
+           000fa9b4  mov      r0, #0                       
+           000fa9b8  str      r0, [fp, #0x30]              
+           000fa9bc  mov      r0, #0                       
+           000fa9c0  str      r0, [fp, #0x34]              
+           000fa9c4  mov      r0, #0                       
+           000fa9c8  str      r0, [fp, #0x38]              
+           000fa9cc  mov      r0, #0                       
+           000fa9d0  str      r0, [fp, #0x3c]              
+           000fa9d4  mov      r0, #0                       
+           000fa9d8  str      r0, [fp, #0x40]              
+           000fa9dc  mov      r0, #0                       
+           000fa9e0  str      r0, [fp, #0x44]              
+           000fa9e4  mov      r0, #0                       
+           000fa9e8  str      r0, [fp, #0x48]              
+           000fa9ec  mov      r0, #0                       
+           000fa9f0  str      r0, [fp, #0x4c]              
+           000fa9f4  mov      r0, #0                       
+           000fa9f8  str      r0, [fp, #0x50]              
+           000fa9fc  mov      r0, #0                       
+           000faa00  str      r0, [fp, #0x54]              
+           000faa04  ldrb     r0, [sl, #0x1c]              ; field+0x1c (this-class: isShaking)
+           000faa08  cmp      r0, #0                       
+           000faa0c  beq      #0xfb128                     ; -> L_fb128
+           000faa10  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: shakeDuration)
+           000faa14  vcvt.f64.f32 d3, s0                       
+           000faa18  vldr     s4, [pc]                     ; float 0.0
+           000faa1c  b        #0xfaa24                     ; -> L_faa24
+           000faa20  .word    0x00000000                   ; literal 0 / 0
+L_faa24:   000faa24  vcvt.f64.f32 d2, s4                       
+           000faa28  vcmp.f64 d2, d3                       
+           000faa2c  vmrs     apsr_nzcv, fpscr             
+           000faa30  bvs      #0xfaac0                     ; -> L_faac0
+           000faa34  bge      #0xfaac0                     ; -> L_faac0
+           000faa38  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: shakeDuration)
+           000faa3c  vcvt.f64.f32 d2, s0                       
+           000faa40  vstr     d2, [fp, #0x180]             
+           000faa44  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000faa48  vmov     s6, r0                       
+           000faa4c  vcvt.f64.f32 d3, s6                       
+           000faa50  vldr     d2, [fp, #0x180]             
+           000faa54  vldr     s8, [pc]                     ; float 0.5
+           000faa58  b        #0xfaa60                     ; -> L_faa60
+           000faa5c  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_faa60:   000faa60  vcvt.f64.f32 d4, s8                       
+           000faa64  vmul.f64 d3, d3, d4                   
+           000faa68  vsub.f64 d2, d2, d3                   
+           000faa6c  vcvt.f32.f64 s0, d2                       
+           000faa70  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: shakeDuration)
+           000faa74  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000faa78  vcvt.f64.f32 d2, s0                       
+           000faa7c  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: shakeDuration)
+           000faa80  vcvt.f64.f32 d3, s0                       
+           000faa84  vmul.f64 d2, d2, d3                   
+           000faa88  vcvt.f32.f64 s0, d2                       
+           000faa8c  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000faa90  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: shakeDuration)
+           000faa94  vcvt.f64.f32 d3, s0                       
+           000faa98  vldr     s4, [pc]                     ; float 0.0
+           000faa9c  b        #0xfaaa4                     ; -> L_faaa4
+           000faaa0  .word    0x00000000                   ; literal 0 / 0
+L_faaa4:   000faaa4  vcvt.f64.f32 d2, s4                       
+           000faaa8  vcmp.f64 d2, d3                       
+           000faaac  vmrs     apsr_nzcv, fpscr             
+           000faab0  bvs      #0xfaac0                     ; -> L_faac0
+           000faab4  bmi      #0xfaac0                     ; -> L_faac0
+           000faab8  mov      r0, sl                       
+           000faabc  bl       #0xfb330                     ; CALL CameraShake::TurnOffShake (direct)
+L_faac0:   000faac0  ldrb     r0, [sl, #0x1d]              ; field+0x1d (this-class: isStationary)
+           000faac4  cmp      r0, #0                       
+           000faac8  beq      #0xfadd0                     ; -> L_fadd0
+           000faacc  mov      r0, sl                       
+           000faad0  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000faad4  str      r0, [fp, #0x1c8]             
+           000faad8  add      r0, sl, #0x20                
+           000faadc  ldr      r1, [r0]                     
+           000faae0  str      r1, [fp, #0xfc]              
+           000faae4  ldr      r1, [r0, #4]                 ; field+0x4 
+           000faae8  str      r1, [fp, #0x100]             
+           000faaec  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000faaf0  str      r0, [fp, #0x104]             
+           000faaf4  add      r0, fp, #0x108               
+           000faaf8  bl       #0x22d210                    ; CALL UnityEngine.Random::get_insideUnitSphere
+           000faafc  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fab00  vcvt.f64.f32 d2, s0                       
+           000fab04  add      r0, fp, #0x114               
+           000fab08  ldr      r1, [fp, #0x108]             
+           000fab0c  ldr      r2, [fp, #0x10c]             
+           000fab10  ldr      r3, [fp, #0x110]             
+           000fab14  vcvt.f32.f64 s0, d2                       
+           000fab18  vstr     s0, [sp]                     
+           000fab1c  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000fab20  add      r0, fp, #72, #30             
+           000fab24  ldr      r1, [fp, #0xfc]              
+           000fab28  ldr      r2, [fp, #0x100]             
+           000fab2c  ldr      r3, [fp, #0x104]             
+           000fab30  ldr      ip, [fp, #0x114]             
+           000fab34  str      ip, [sp]                     
+           000fab38  ldr      ip, [fp, #0x118]             
+           000fab3c  str      ip, [sp, #4]                 
+           000fab40  ldr      ip, [fp, #0x11c]             
+           000fab44  str      ip, [sp, #8]                 
+           000fab48  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000fab4c  ldr      ip, [fp, #0x1c8]             
+           000fab50  mov      r0, ip                       
+           000fab54  ldr      r1, [fp, #0x120]             
+           000fab58  ldr      r2, [fp, #0x124]             
+           000fab5c  ldr      r3, [fp, #0x128]             
+           000fab60  ldr      lr, [ip]                     
+           000fab64  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000fab68  mov      r0, sl                       
+           000fab6c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000fab70  str      r0, [fp, #0x18c]             
+           000fab74  add      r0, sl, #0x2c                
+           000fab78  vldr     s0, [r0]                     
+           000fab7c  vcvt.f64.f32 d2, s0                       
+           000fab80  vstr     d2, [fp, #0x1c0]             
+           000fab84  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fab88  vcvt.f64.f32 d2, s0                       
+           000fab8c  vmov.f64 d3, d2                       
+           000fab90  vneg.f64 d3, d3                       
+           000fab94  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fab98  vcvt.f64.f32 d2, s0                       
+           000fab9c  vcvt.f32.f64 s0, d3                       
+           000faba0  vstr     s0, [sp, #8]                 
+           000faba4  ldr      r0, [sp, #8]                 
+           000faba8  vcvt.f32.f64 s0, d2                       
+           000fabac  vstr     s0, [sp, #8]                 
+           000fabb0  ldr      r1, [sp, #8]                 
+           000fabb4  bl       #0x22d220                    ; CALL UnityEngine.Random::Range
+           000fabb8  vmov     s6, r0                       
+           000fabbc  vcvt.f64.f32 d3, s6                       
+           000fabc0  vldr     d2, [fp, #0x1c0]             
+           000fabc4  vldr     s8, [pc]                     ; float 0.10000000149011612
+           000fabc8  b        #0xfabd0                     ; -> L_fabd0
+           000fabcc  .word    0x3dcccccd                   ; literal 1036831949 / 0.1
+L_fabd0:   000fabd0  vcvt.f64.f32 d4, s8                       
+           000fabd4  vmul.f64 d3, d3, d4                   
+           000fabd8  vadd.f64 d2, d2, d3                   
+           000fabdc  vstr     d2, [fp, #0x1a8]             
+           000fabe0  add      r0, sl, #0x2c                
+           000fabe4  vldr     s0, [r0, #4]                 ; field+0x4 
+           000fabe8  vcvt.f64.f32 d2, s0                       
+           000fabec  vstr     d2, [fp, #0x1b8]             
+           000fabf0  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fabf4  vcvt.f64.f32 d2, s0                       
+           000fabf8  vmov.f64 d3, d2                       
+           000fabfc  vneg.f64 d3, d3                       
+           000fac00  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fac04  vcvt.f64.f32 d2, s0                       
+           000fac08  vcvt.f32.f64 s0, d3                       
+           000fac0c  vstr     s0, [sp, #8]                 
+           000fac10  ldr      r0, [sp, #8]                 
+           000fac14  vcvt.f32.f64 s0, d2                       
+           000fac18  vstr     s0, [sp, #8]                 
+           000fac1c  ldr      r1, [sp, #8]                 
+           000fac20  bl       #0x22d220                    ; CALL UnityEngine.Random::Range
+           000fac24  vmov     s6, r0                       
+           000fac28  vcvt.f64.f32 d3, s6                       
+           000fac2c  vldr     d2, [fp, #0x1b8]             
+           000fac30  vldr     s8, [pc]                     ; float 0.10000000149011612
+           000fac34  b        #0xfac3c                     ; -> L_fac3c
+           000fac38  .word    0x3dcccccd                   ; literal 1036831949 / 0.1
+L_fac3c:   000fac3c  vcvt.f64.f32 d4, s8                       
+           000fac40  vmul.f64 d3, d3, d4                   
+           000fac44  vadd.f64 d2, d2, d3                   
+           000fac48  vstr     d2, [fp, #0x1a0]             
+           000fac4c  add      r0, sl, #0x2c                
+           000fac50  vldr     s0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000fac54  vcvt.f64.f32 d2, s0                       
+           000fac58  vstr     d2, [fp, #0x1b0]             
+           000fac5c  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fac60  vcvt.f64.f32 d2, s0                       
+           000fac64  vmov.f64 d3, d2                       
+           000fac68  vneg.f64 d3, d3                       
+           000fac6c  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fac70  vcvt.f64.f32 d2, s0                       
+           000fac74  vcvt.f32.f64 s0, d3                       
+           000fac78  vstr     s0, [sp, #8]                 
+           000fac7c  ldr      r0, [sp, #8]                 
+           000fac80  vcvt.f32.f64 s0, d2                       
+           000fac84  vstr     s0, [sp, #8]                 
+           000fac88  ldr      r1, [sp, #8]                 
+           000fac8c  bl       #0x22d220                    ; CALL UnityEngine.Random::Range
+           000fac90  vmov     s6, r0                       
+           000fac94  vcvt.f64.f32 d3, s6                       
+           000fac98  vldr     d2, [fp, #0x1b0]             
+           000fac9c  vldr     s8, [pc]                     ; float 0.10000000149011612
+           000faca0  b        #0xfaca8                     ; -> L_faca8
+           000faca4  .word    0x3dcccccd                   ; literal 1036831949 / 0.1
+L_faca8:   000faca8  vcvt.f64.f32 d4, s8                       
+           000facac  vmul.f64 d3, d3, d4                   
+           000facb0  vadd.f64 d2, d2, d3                   
+           000facb4  vstr     d2, [fp, #0x198]             
+           000facb8  add      r0, sl, #0x2c                
+           000facbc  vldr     s0, [r0, #0xc]               ; field+0xc 
+           000facc0  vcvt.f64.f32 d2, s0                       
+           000facc4  vstr     d2, [fp, #0x190]             
+           000facc8  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000faccc  vcvt.f64.f32 d2, s0                       
+           000facd0  vmov.f64 d3, d2                       
+           000facd4  vneg.f64 d3, d3                       
+           000facd8  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000facdc  vcvt.f64.f32 d2, s0                       
+           000face0  vcvt.f32.f64 s0, d3                       
+           000face4  vstr     s0, [sp, #8]                 
+           000face8  ldr      r0, [sp, #8]                 
+           000facec  vcvt.f32.f64 s0, d2                       
+           000facf0  vstr     s0, [sp, #8]                 
+           000facf4  ldr      r1, [sp, #8]                 
+           000facf8  bl       #0x22d220                    ; CALL UnityEngine.Random::Range
+           000facfc  vmov     s12, r0                      
+           000fad00  vcvt.f64.f32 d6, s12                      
+           000fad04  vldr     d2, [fp, #0x190]             
+           000fad08  vldr     d3, [fp, #0x198]             
+           000fad0c  vldr     d4, [fp, #0x1a0]             
+           000fad10  vldr     d5, [fp, #0x1a8]             
+           000fad14  vldr     s14, [pc]                    ; float 0.10000000149011612
+           000fad18  b        #0xfad20                     ; -> L_fad20
+           000fad1c  .word    0x3dcccccd                   ; literal 1036831949 / 0.1
+L_fad20:   000fad20  vcvt.f64.f32 d7, s14                      
+           000fad24  vmul.f64 d6, d6, d7                   
+           000fad28  vadd.f64 d2, d2, d6                   
+           000fad2c  mov      r0, #0                       
+           000fad30  str      r0, [fp, #0x64]              
+           000fad34  mov      r0, #0                       
+           000fad38  str      r0, [fp, #0x68]              
+           000fad3c  mov      r0, #0                       
+           000fad40  str      r0, [fp, #0x6c]              
+           000fad44  mov      r0, #0                       
+           000fad48  str      r0, [fp, #0x70]              
+           000fad4c  add      r0, fp, #0x64                
+           000fad50  vcvt.f32.f64 s0, d5                       
+           000fad54  vstr     s0, [sp, #8]                 
+           000fad58  ldr      r1, [sp, #8]                 
+           000fad5c  vcvt.f32.f64 s0, d4                       
+           000fad60  vstr     s0, [sp, #8]                 
+           000fad64  ldr      r2, [sp, #8]                 
+           000fad68  vcvt.f32.f64 s0, d3                       
+           000fad6c  vstr     s0, [sp, #8]                 
+           000fad70  ldr      r3, [sp, #8]                 
+           000fad74  vcvt.f32.f64 s0, d2                       
+           000fad78  vstr     s0, [sp]                     
+           000fad7c  bl       #0x22d230                    ; CALL UnityEngine.Quaternion::.ctor
+           000fad80  ldr      ip, [fp, #0x18c]             
+           000fad84  ldr      r0, [fp, #0x64]              
+           000fad88  str      r0, [fp, #0x12c]             
+           000fad8c  ldr      r0, [fp, #0x68]              
+           000fad90  str      r0, [fp, #0x130]             
+           000fad94  ldr      r0, [fp, #0x6c]              
+           000fad98  str      r0, [fp, #0x134]             
+           000fad9c  ldr      r0, [fp, #0x70]              
+           000fada0  str      r0, [fp, #0x138]             
+           000fada4  mov      r0, ip                       
+           000fada8  str      r0, [fp, #0x188]             
+           000fadac  ldr      r1, [fp, #0x12c]             
+           000fadb0  ldr      r2, [fp, #0x130]             
+           000fadb4  ldr      r3, [fp, #0x134]             
+           000fadb8  ldr      r0, [fp, #0x138]             
+           000fadbc  str      r0, [sp]                     
+           000fadc0  ldr      r0, [fp, #0x188]             
+           000fadc4  ldr      lr, [ip]                     
+           000fadc8  bl       #0x22b190                    ; CALL UnityEngine.Transform::set_rotation
+           000fadcc  b        #0xfb128                     ; -> L_fb128
+L_fadd0:   000fadd0  mov      r0, sl                       
+           000fadd4  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000fadd8  mov      r2, r0                       
+           000faddc  str      r0, [fp, #0x1c8]             
+           000fade0  add      r0, fp, #0x13c               
+           000fade4  mov      r1, r2                       
+           000fade8  ldr      lr, [r2]                     
+           000fadec  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000fadf0  add      r0, fp, #0x148               
+           000fadf4  bl       #0x22d210                    ; CALL UnityEngine.Random::get_insideUnitSphere
+           000fadf8  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fadfc  vcvt.f64.f32 d2, s0                       
+           000fae00  add      r0, fp, #0x154               
+           000fae04  ldr      r1, [fp, #0x148]             
+           000fae08  ldr      r2, [fp, #0x14c]             
+           000fae0c  ldr      r3, [fp, #0x150]             
+           000fae10  vcvt.f32.f64 s0, d2                       
+           000fae14  vstr     s0, [sp]                     
+           000fae18  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000fae1c  add      r0, fp, #88, #30             
+           000fae20  ldr      r1, [fp, #0x13c]             
+           000fae24  ldr      r2, [fp, #0x140]             
+           000fae28  ldr      r3, [fp, #0x144]             
+           000fae2c  ldr      ip, [fp, #0x154]             
+           000fae30  str      ip, [sp]                     
+           000fae34  ldr      ip, [fp, #0x158]             
+           000fae38  str      ip, [sp, #4]                 
+           000fae3c  ldr      ip, [fp, #0x15c]             
+           000fae40  str      ip, [sp, #8]                 
+           000fae44  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000fae48  ldr      ip, [fp, #0x1c8]             
+           000fae4c  mov      r0, ip                       
+           000fae50  ldr      r1, [fp, #0x160]             
+           000fae54  ldr      r2, [fp, #0x164]             
+           000fae58  ldr      r3, [fp, #0x168]             
+           000fae5c  ldr      lr, [ip]                     
+           000fae60  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000fae64  mov      r0, sl                       
+           000fae68  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000fae6c  str      r0, [fp, #0x18c]             
+           000fae70  mov      r0, sl                       
+           000fae74  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000fae78  mov      r2, r0                       
+           000fae7c  add      r0, fp, #0x18                
+           000fae80  mov      r1, r2                       
+           000fae84  ldr      lr, [r2]                     
+           000fae88  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000fae8c  vldr     s0, [fp, #0x18]              
+           000fae90  vcvt.f64.f32 d2, s0                       
+           000fae94  vstr     d2, [fp, #0x1c0]             
+           000fae98  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fae9c  vcvt.f64.f32 d2, s0                       
+           000faea0  vmov.f64 d3, d2                       
+           000faea4  vneg.f64 d3, d3                       
+           000faea8  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000faeac  vcvt.f64.f32 d2, s0                       
+           000faeb0  vcvt.f32.f64 s0, d3                       
+           000faeb4  vstr     s0, [sp, #8]                 
+           000faeb8  ldr      r0, [sp, #8]                 
+           000faebc  vcvt.f32.f64 s0, d2                       
+           000faec0  vstr     s0, [sp, #8]                 
+           000faec4  ldr      r1, [sp, #8]                 
+           000faec8  bl       #0x22d220                    ; CALL UnityEngine.Random::Range
+           000faecc  vmov     s6, r0                       
+           000faed0  vcvt.f64.f32 d3, s6                       
+           000faed4  vldr     d2, [fp, #0x1c0]             
+           000faed8  vldr     s8, [pc]                     ; float 0.10000000149011612
+           000faedc  b        #0xfaee4                     ; -> L_faee4
+           000faee0  .word    0x3dcccccd                   ; literal 1036831949 / 0.1
+L_faee4:   000faee4  vcvt.f64.f32 d4, s8                       
+           000faee8  vmul.f64 d3, d3, d4                   
+           000faeec  vadd.f64 d2, d2, d3                   
+           000faef0  vstr     d2, [fp, #0x1a8]             
+           000faef4  mov      r0, sl                       
+           000faef8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000faefc  mov      r2, r0                       
+           000faf00  add      r0, fp, #0x28                
+           000faf04  mov      r1, r2                       
+           000faf08  ldr      lr, [r2]                     
+           000faf0c  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000faf10  vldr     s0, [fp, #0x2c]              
+           000faf14  vcvt.f64.f32 d2, s0                       
+           000faf18  vstr     d2, [fp, #0x1b8]             
+           000faf1c  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000faf20  vcvt.f64.f32 d2, s0                       
+           000faf24  vmov.f64 d3, d2                       
+           000faf28  vneg.f64 d3, d3                       
+           000faf2c  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000faf30  vcvt.f64.f32 d2, s0                       
+           000faf34  vcvt.f32.f64 s0, d3                       
+           000faf38  vstr     s0, [sp, #8]                 
+           000faf3c  ldr      r0, [sp, #8]                 
+           000faf40  vcvt.f32.f64 s0, d2                       
+           000faf44  vstr     s0, [sp, #8]                 
+           000faf48  ldr      r1, [sp, #8]                 
+           000faf4c  bl       #0x22d220                    ; CALL UnityEngine.Random::Range
+           000faf50  vmov     s6, r0                       
+           000faf54  vcvt.f64.f32 d3, s6                       
+           000faf58  vldr     d2, [fp, #0x1b8]             
+           000faf5c  vldr     s8, [pc]                     ; float 0.10000000149011612
+           000faf60  b        #0xfaf68                     ; -> L_faf68
+           000faf64  .word    0x3dcccccd                   ; literal 1036831949 / 0.1
+L_faf68:   000faf68  vcvt.f64.f32 d4, s8                       
+           000faf6c  vmul.f64 d3, d3, d4                   
+           000faf70  vadd.f64 d2, d2, d3                   
+           000faf74  vstr     d2, [fp, #0x1a0]             
+           000faf78  mov      r0, sl                       
+           000faf7c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000faf80  mov      r2, r0                       
+           000faf84  add      r0, fp, #0x38                
+           000faf88  mov      r1, r2                       
+           000faf8c  ldr      lr, [r2]                     
+           000faf90  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000faf94  vldr     s0, [fp, #0x40]              
+           000faf98  vcvt.f64.f32 d2, s0                       
+           000faf9c  vstr     d2, [fp, #0x1b0]             
+           000fafa0  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fafa4  vcvt.f64.f32 d2, s0                       
+           000fafa8  vmov.f64 d3, d2                       
+           000fafac  vneg.f64 d3, d3                       
+           000fafb0  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fafb4  vcvt.f64.f32 d2, s0                       
+           000fafb8  vcvt.f32.f64 s0, d3                       
+           000fafbc  vstr     s0, [sp, #8]                 
+           000fafc0  ldr      r0, [sp, #8]                 
+           000fafc4  vcvt.f32.f64 s0, d2                       
+           000fafc8  vstr     s0, [sp, #8]                 
+           000fafcc  ldr      r1, [sp, #8]                 
+           000fafd0  bl       #0x22d220                    ; CALL UnityEngine.Random::Range
+           000fafd4  vmov     s6, r0                       
+           000fafd8  vcvt.f64.f32 d3, s6                       
+           000fafdc  vldr     d2, [fp, #0x1b0]             
+           000fafe0  vldr     s8, [pc]                     ; float 0.10000000149011612
+           000fafe4  b        #0xfafec                     ; -> L_fafec
+           000fafe8  .word    0x3dcccccd                   ; literal 1036831949 / 0.1
+L_fafec:   000fafec  vcvt.f64.f32 d4, s8                       
+           000faff0  vmul.f64 d3, d3, d4                   
+           000faff4  vadd.f64 d2, d2, d3                   
+           000faff8  vstr     d2, [fp, #0x198]             
+           000faffc  mov      r0, sl                       
+           000fb000  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000fb004  mov      r2, r0                       
+           000fb008  add      r0, fp, #0x48                
+           000fb00c  mov      r1, r2                       
+           000fb010  ldr      lr, [r2]                     
+           000fb014  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000fb018  vldr     s0, [fp, #0x54]              
+           000fb01c  vcvt.f64.f32 d2, s0                       
+           000fb020  vstr     d2, [fp, #0x190]             
+           000fb024  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fb028  vcvt.f64.f32 d2, s0                       
+           000fb02c  vmov.f64 d3, d2                       
+           000fb030  vneg.f64 d3, d3                       
+           000fb034  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fb038  vcvt.f64.f32 d2, s0                       
+           000fb03c  vcvt.f32.f64 s0, d3                       
+           000fb040  vstr     s0, [sp, #8]                 
+           000fb044  ldr      r0, [sp, #8]                 
+           000fb048  vcvt.f32.f64 s0, d2                       
+           000fb04c  vstr     s0, [sp, #8]                 
+           000fb050  ldr      r1, [sp, #8]                 
+           000fb054  bl       #0x22d220                    ; CALL UnityEngine.Random::Range
+           000fb058  vmov     s12, r0                      
+           000fb05c  vcvt.f64.f32 d6, s12                      
+           000fb060  vldr     d2, [fp, #0x190]             
+           000fb064  vldr     d3, [fp, #0x198]             
+           000fb068  vldr     d4, [fp, #0x1a0]             
+           000fb06c  vldr     d5, [fp, #0x1a8]             
+           000fb070  vldr     s14, [pc]                    ; float 0.10000000149011612
+           000fb074  b        #0xfb07c                     ; -> L_fb07c
+           000fb078  .word    0x3dcccccd                   ; literal 1036831949 / 0.1
+L_fb07c:   000fb07c  vcvt.f64.f32 d7, s14                      
+           000fb080  vmul.f64 d6, d6, d7                   
+           000fb084  vadd.f64 d2, d2, d6                   
+           000fb088  mov      r0, #0                       
+           000fb08c  str      r0, [fp, #0xdc]              
+           000fb090  mov      r0, #0                       
+           000fb094  str      r0, [fp, #0xe0]              
+           000fb098  mov      r0, #0                       
+           000fb09c  str      r0, [fp, #0xe4]              
+           000fb0a0  mov      r0, #0                       
+           000fb0a4  str      r0, [fp, #0xe8]              
+           000fb0a8  add      r0, fp, #0xdc                
+           000fb0ac  vcvt.f32.f64 s0, d5                       
+           000fb0b0  vstr     s0, [sp, #8]                 
+           000fb0b4  ldr      r1, [sp, #8]                 
+           000fb0b8  vcvt.f32.f64 s0, d4                       
+           000fb0bc  vstr     s0, [sp, #8]                 
+           000fb0c0  ldr      r2, [sp, #8]                 
+           000fb0c4  vcvt.f32.f64 s0, d3                       
+           000fb0c8  vstr     s0, [sp, #8]                 
+           000fb0cc  ldr      r3, [sp, #8]                 
+           000fb0d0  vcvt.f32.f64 s0, d2                       
+           000fb0d4  vstr     s0, [sp]                     
+           000fb0d8  bl       #0x22d230                    ; CALL UnityEngine.Quaternion::.ctor
+           000fb0dc  ldr      ip, [fp, #0x18c]             
+           000fb0e0  ldr      r0, [fp, #0xdc]              
+           000fb0e4  str      r0, [fp, #0x16c]             
+           000fb0e8  ldr      r0, [fp, #0xe0]              
+           000fb0ec  str      r0, [fp, #0x170]             
+           000fb0f0  ldr      r0, [fp, #0xe4]              
+           000fb0f4  str      r0, [fp, #0x174]             
+           000fb0f8  ldr      r0, [fp, #0xe8]              
+           000fb0fc  str      r0, [fp, #0x178]             
+           000fb100  mov      r0, ip                       
+           000fb104  str      r0, [fp, #0x188]             
+           000fb108  ldr      r1, [fp, #0x16c]             
+           000fb10c  ldr      r2, [fp, #0x170]             
+           000fb110  ldr      r3, [fp, #0x174]             
+           000fb114  ldr      r0, [fp, #0x178]             
+           000fb118  str      r0, [sp]                     
+           000fb11c  ldr      r0, [fp, #0x188]             
+           000fb120  ldr      lr, [ip]                     
+           000fb124  bl       #0x22b190                    ; CALL UnityEngine.Transform::set_rotation
+L_fb128:   000fb128  add      sp, fp, #0x1d4               
+           000fb12c  pop      {r8, sl, fp}                 
+           000fb130  ldr      r7, [sp, #8]                 
+           000fb134  ldm      sp, {sp, pc}                 
+
+== CameraShake::TurnOnShake  token 0x060003fe @0x000fb138 (188 bytes)
+   args: r0=this, duration, intensity
+           000fb138  mov      ip, sp                       
+           000fb13c  push     {r7, lr}                     
+           000fb140  mov      r7, sp                       
+           000fb144  push     {r8, sl, fp, ip, lr}         
+           000fb148  sub      sp, sp, #0xc                 
+           000fb14c  mov      fp, sp                       
+           000fb150  mov      sl, r0                       
+           000fb154  str      r1, [fp]                     
+           000fb158  str      r2, [fp, #4]                 
+           000fb15c  vldr     s0, [fp]                     
+           000fb160  vcvt.f64.f32 d3, s0                       
+           000fb164  vldr     s4, [pc]                     ; float 0.0
+           000fb168  b        #0xfb170                     ; -> L_fb170
+           000fb16c  .word    0x00000000                   ; literal 0 / 0
+L_fb170:   000fb170  vcvt.f64.f32 d2, s4                       
+           000fb174  vcmp.f64 d2, d3                       
+           000fb178  vmrs     apsr_nzcv, fpscr             
+           000fb17c  bvs      #0xfb194                     ; -> L_fb194
+           000fb180  bge      #0xfb194                     ; -> L_fb194
+           000fb184  vldr     s0, [fp]                     
+           000fb188  vcvt.f64.f32 d2, s0                       
+           000fb18c  vcvt.f32.f64 s0, d2                       
+           000fb190  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: shakeDuration)
+L_fb194:   000fb194  vldr     s0, [sl, #0x10]              ; field+0x10 (this-class: shakeIntensity)
+           000fb198  vcvt.f64.f32 d2, s0                       
+           000fb19c  vcvt.f32.f64 s0, d2                       
+           000fb1a0  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fb1a4  vldr     s0, [fp, #4]                 
+           000fb1a8  vcvt.f64.f32 d3, s0                       
+           000fb1ac  vldr     s4, [pc]                     ; float 0.0
+           000fb1b0  b        #0xfb1b8                     ; -> L_fb1b8
+           000fb1b4  .word    0x00000000                   ; literal 0 / 0
+L_fb1b8:   000fb1b8  vcvt.f64.f32 d2, s4                       
+           000fb1bc  vcmp.f64 d2, d3                       
+           000fb1c0  vmrs     apsr_nzcv, fpscr             
+           000fb1c4  bvs      #0xfb1dc                     ; -> L_fb1dc
+           000fb1c8  bge      #0xfb1dc                     ; -> L_fb1dc
+           000fb1cc  vldr     s0, [fp, #4]                 
+           000fb1d0  vcvt.f64.f32 d2, s0                       
+           000fb1d4  vcvt.f32.f64 s0, d2                       
+           000fb1d8  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+L_fb1dc:   000fb1dc  mov      r0, #1                       
+           000fb1e0  strb     r0, [sl, #0x1c]              ; field+0x1c (this-class: isShaking)
+           000fb1e4  add      sp, fp, #0xc                 
+           000fb1e8  pop      {r8, sl, fp}                 
+           000fb1ec  ldr      r7, [sp, #8]                 
+           000fb1f0  ldm      sp, {sp, pc}                 
+
+== CameraShake::TurnOnStationaryShake  token 0x060003ff @0x000fb1f4 (316 bytes)
+   args: r0=this, duration, intensity
+           000fb1f4  mov      ip, sp                       
+           000fb1f8  push     {r7, lr}                     
+           000fb1fc  mov      r7, sp                       
+           000fb200  push     {r8, sl, fp, ip, lr}         
+           000fb204  sub      sp, sp, #0x44                
+           000fb208  mov      fp, sp                       
+           000fb20c  mov      sl, r0                       
+           000fb210  str      r1, [fp, #0x38]              
+           000fb214  str      r2, [fp, #0x3c]              
+           000fb218  mov      r0, sl                       
+           000fb21c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000fb220  mov      r2, r0                       
+           000fb224  add      r0, fp, #0x1c                
+           000fb228  mov      r1, r2                       
+           000fb22c  ldr      lr, [r2]                     
+           000fb230  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000fb234  add      r0, sl, #0x20                
+           000fb238  ldr      r1, [fp, #0x1c]              
+           000fb23c  str      r1, [r0]                     
+           000fb240  ldr      r1, [fp, #0x20]              
+           000fb244  str      r1, [r0, #4]                 ; field+0x4 
+           000fb248  ldr      r1, [fp, #0x24]              
+           000fb24c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000fb250  mov      r0, sl                       
+           000fb254  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000fb258  mov      r2, r0                       
+           000fb25c  add      r0, fp, #0x28                
+           000fb260  mov      r1, r2                       
+           000fb264  ldr      lr, [r2]                     
+           000fb268  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000fb26c  add      r0, sl, #0x2c                
+           000fb270  ldr      r1, [fp, #0x28]              
+           000fb274  str      r1, [r0]                     
+           000fb278  ldr      r1, [fp, #0x2c]              
+           000fb27c  str      r1, [r0, #4]                 ; field+0x4 
+           000fb280  ldr      r1, [fp, #0x30]              
+           000fb284  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000fb288  ldr      r1, [fp, #0x34]              
+           000fb28c  str      r1, [r0, #0xc]               ; field+0xc 
+           000fb290  vldr     s0, [fp, #0x38]              
+           000fb294  vcvt.f64.f32 d3, s0                       
+           000fb298  vldr     s4, [pc]                     ; float 0.0
+           000fb29c  b        #0xfb2a4                     ; -> L_fb2a4
+           000fb2a0  .word    0x00000000                   ; literal 0 / 0
+L_fb2a4:   000fb2a4  vcvt.f64.f32 d2, s4                       
+           000fb2a8  vcmp.f64 d2, d3                       
+           000fb2ac  vmrs     apsr_nzcv, fpscr             
+           000fb2b0  bvs      #0xfb2c8                     ; -> L_fb2c8
+           000fb2b4  bge      #0xfb2c8                     ; -> L_fb2c8
+           000fb2b8  vldr     s0, [fp, #0x38]              
+           000fb2bc  vcvt.f64.f32 d2, s0                       
+           000fb2c0  vcvt.f32.f64 s0, d2                       
+           000fb2c4  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: shakeDuration)
+L_fb2c8:   000fb2c8  vldr     s0, [sl, #0x10]              ; field+0x10 (this-class: shakeIntensity)
+           000fb2cc  vcvt.f64.f32 d2, s0                       
+           000fb2d0  vcvt.f32.f64 s0, d2                       
+           000fb2d4  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fb2d8  vldr     s0, [fp, #0x3c]              
+           000fb2dc  vcvt.f64.f32 d3, s0                       
+           000fb2e0  vldr     s4, [pc]                     ; float 0.0
+           000fb2e4  b        #0xfb2ec                     ; -> L_fb2ec
+           000fb2e8  .word    0x00000000                   ; literal 0 / 0
+L_fb2ec:   000fb2ec  vcvt.f64.f32 d2, s4                       
+           000fb2f0  vcmp.f64 d2, d3                       
+           000fb2f4  vmrs     apsr_nzcv, fpscr             
+           000fb2f8  bvs      #0xfb310                     ; -> L_fb310
+           000fb2fc  bge      #0xfb310                     ; -> L_fb310
+           000fb300  vldr     s0, [fp, #0x3c]              
+           000fb304  vcvt.f64.f32 d2, s0                       
+           000fb308  vcvt.f32.f64 s0, d2                       
+           000fb30c  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+L_fb310:   000fb310  mov      r0, #1                       
+           000fb314  strb     r0, [sl, #0x1c]              ; field+0x1c (this-class: isShaking)
+           000fb318  mov      r0, #1                       
+           000fb31c  strb     r0, [sl, #0x1d]              ; field+0x1d (this-class: isStationary)
+           000fb320  add      sp, fp, #0x44                
+           000fb324  pop      {r8, sl, fp}                 
+           000fb328  ldr      r7, [sp, #8]                 
+           000fb32c  ldm      sp, {sp, pc}                 
+
+== CameraShake::TurnOffShake  token 0x06000400 @0x000fb330 (108 bytes)
+   args: r0=this, 
+           000fb330  mov      ip, sp                       
+           000fb334  push     {r7, lr}                     
+           000fb338  mov      r7, sp                       
+           000fb33c  push     {r8, sl, fp, ip, lr}         
+           000fb340  sub      sp, sp, #4                   
+           000fb344  mov      fp, sp                       
+           000fb348  mov      sl, r0                       
+           000fb34c  vldr     s4, [pc]                     ; float 0.0
+           000fb350  b        #0xfb358                     ; -> L_fb358
+           000fb354  .word    0x00000000                   ; literal 0 / 0
+L_fb358:   000fb358  vcvt.f64.f32 d2, s4                       
+           000fb35c  vcvt.f32.f64 s0, d2                       
+           000fb360  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: shakeDuration)
+           000fb364  vldr     s4, [pc]                     ; float 0.0
+           000fb368  b        #0xfb370                     ; -> L_fb370
+           000fb36c  .word    0x00000000                   ; literal 0 / 0
+L_fb370:   000fb370  vcvt.f64.f32 d2, s4                       
+           000fb374  vcvt.f32.f64 s0, d2                       
+           000fb378  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: intensity)
+           000fb37c  mov      r0, #0                       
+           000fb380  strb     r0, [sl, #0x1c]              ; field+0x1c (this-class: isShaking)
+           000fb384  mov      r0, #0                       
+           000fb388  strb     r0, [sl, #0x1d]              ; field+0x1d (this-class: isStationary)
+           000fb38c  add      sp, fp, #4                   
+           000fb390  pop      {r8, sl, fp}                 
+           000fb394  ldr      r7, [sp, #8]                 
+           000fb398  ldm      sp, {sp, pc}                 

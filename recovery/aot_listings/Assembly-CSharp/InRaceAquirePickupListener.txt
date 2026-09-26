@@ -1,0 +1,415 @@
+####################################################################################################
+# TYPE InRaceAquirePickupListener  (instance size 0x40)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 UIName                         LocalizedString
+#   +0x14 description                    LocalizedString
+#   +0x18 rewardDescription              LocalizedString
+#   +0x1c rewardUnlocks                  string[]
+#   +0x20 gcIdentifier                   UnlocalizedString
+#   +0x24 areaType                       AchievementListener/AchievementAreaType
+#   +0x28 rewardCoins                    int
+#   +0x2c categoryFilter                 AchievementListener/AchievementFilterCategory
+#   +0x30 state                          AchievementListener/AchievementState
+#   +0x34 numTimes                       int
+#   +0x38 pickup                         bool
+#   +0x3c typeIfPickup                   BaseEffect/EffectTypes
+#   vtable slots: 4:Reward, 5:Postrace, 6:Prerace, 7:IsAvailable
+####################################################################################################
+== InRaceAquirePickupListener::.ctor  token 0x06000109 @0x000d20d8 (60 bytes)
+   args: r0=this, 
+           000d20d8  mov      ip, sp                       
+           000d20dc  push     {r7, lr}                     
+           000d20e0  mov      r7, sp                       
+           000d20e4  push     {r8, fp, ip, lr}             
+           000d20e8  sub      sp, sp, #8                   
+           000d20ec  mov      fp, sp                       
+           000d20f0  str      r0, [fp]                     
+           000d20f4  ldr      r0, [fp]                     
+           000d20f8  mov      r1, #1                       
+           000d20fc  str      r1, [r0, #0x34]              ; field+0x34 (this-class: numTimes)
+           000d2100  bl       #0xcf738                     ; CALL AchievementListener::.ctor (direct)
+           000d2104  add      sp, fp, #8                   
+           000d2108  pop      {r8, fp}                     
+           000d210c  ldr      r7, [sp, #8]                 
+           000d2110  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener::Start  token 0x0600010a @0x000d2114 (88 bytes)
+   args: r0=this, 
+           000d2114  mov      ip, sp                       
+           000d2118  push     {r7, lr}                     
+           000d211c  mov      r7, sp                       
+           000d2120  push     {r8, sl, fp, ip, lr}         
+           000d2124  sub      sp, sp, #4                   
+           000d2128  mov      fp, sp                       
+           000d212c  mov      sl, r0                       
+           000d2130  mov      r0, #1                       
+           000d2134  str      r0, [sl, #0x30]              ; field+0x30 (this-class: state)
+           000d2138  ldr      r0, [pc]                     
+           000d213c  b        #0xd2144                     ; -> L_d2144
+           000d2140  .word    0x00ed2f60                   ; literal 15544160 / 
+L_d2144:   000d2144  ldr      r0, [pc, r0]                 ; GOT[209] VTABLE InRaceAquirePickupListener/<CheckMetricsPump>c__IteratorC
+           000d2148  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000d214c  mov      r1, r0                       
+           000d2150  str      sl, [r1, #0xc]               ; field+0xc 
+           000d2154  mov      r0, sl                       
+           000d2158  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000d215c  add      sp, fp, #4                   
+           000d2160  pop      {r8, sl, fp}                 
+           000d2164  ldr      r7, [sp, #8]                 
+           000d2168  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener::Update  token 0x0600010b @0x000d216c (44 bytes)
+   args: r0=this, 
+           000d216c  mov      ip, sp                       
+           000d2170  push     {r7, lr}                     
+           000d2174  mov      r7, sp                       
+           000d2178  push     {r8, fp, ip, lr}             
+           000d217c  sub      sp, sp, #8                   
+           000d2180  mov      fp, sp                       
+           000d2184  str      r0, [fp]                     
+           000d2188  add      sp, fp, #8                   
+           000d218c  pop      {r8, fp}                     
+           000d2190  ldr      r7, [sp, #8]                 
+           000d2194  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener::IsAvailable  token 0x0600010c @0x000d2198 (72 bytes)
+   args: r0=this, 
+           000d2198  mov      ip, sp                       
+           000d219c  push     {r7, lr}                     
+           000d21a0  mov      r7, sp                       
+           000d21a4  push     {r8, fp, ip, lr}             
+           000d21a8  sub      sp, sp, #8                   
+           000d21ac  mov      fp, sp                       
+           000d21b0  str      r0, [fp]                     
+           000d21b4  ldr      r0, [fp]                     
+           000d21b8  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           000d21bc  cmp      r0, #0                       
+           000d21c0  beq      #0xd21cc                     ; -> L_d21cc
+           000d21c4  mov      r0, #0                       
+           000d21c8  b        #0xd21d0                     ; -> L_d21d0
+L_d21cc:   000d21cc  mov      r0, #1                       
+L_d21d0:   000d21d0  add      sp, fp, #8                   
+           000d21d4  pop      {r8, fp}                     
+           000d21d8  ldr      r7, [sp, #8]                 
+           000d21dc  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener::CheckMetricsPump  token 0x0600010d @0x000d21e0 (72 bytes)
+   args: r0=this, 
+           000d21e0  mov      ip, sp                       
+           000d21e4  push     {r7, lr}                     
+           000d21e8  mov      r7, sp                       
+           000d21ec  push     {r8, fp, ip, lr}             
+           000d21f0  sub      sp, sp, #8                   
+           000d21f4  mov      fp, sp                       
+           000d21f8  str      r0, [fp]                     
+           000d21fc  ldr      r0, [pc]                     
+           000d2200  b        #0xd2208                     ; -> L_d2208
+           000d2204  .word    0x00ed2e9c                   ; literal 15543964 / 
+L_d2208:   000d2208  ldr      r0, [pc, r0]                 ; GOT[209] VTABLE InRaceAquirePickupListener/<CheckMetricsPump>c__IteratorC
+           000d220c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000d2210  ldr      r1, [fp]                     
+           000d2214  str      r1, [r0, #0xc]               ; field+0xc 
+           000d2218  add      sp, fp, #8                   
+           000d221c  pop      {r8, fp}                     
+           000d2220  ldr      r7, [sp, #8]                 
+           000d2224  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener::CheckMetrics  token 0x0600010e @0x000d2228 (368 bytes)
+   args: r0=this, 
+           000d2228  mov      ip, sp                       
+           000d222c  push     {r7, lr}                     
+           000d2230  mov      r7, sp                       
+           000d2234  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000d2238  sub      sp, sp, #0x10                
+           000d223c  mov      fp, sp                       
+           000d2240  str      r0, [fp]                     
+           000d2244  bl       #0x1129cc                    ; CALL RaceManager::GetPlayerCar (direct)
+           000d2248  mov      sl, r0                       
+           000d224c  mov      r1, #0                       
+           000d2250  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d2254  cmp      r0, #0                       
+           000d2258  beq      #0xd2384                     ; -> L_d2384
+           000d225c  ldr      r0, [pc]                     
+           000d2260  b        #0xd2268                     ; -> L_d2268
+           000d2264  .word    0x00ed2ccc                   ; literal 15543500 / 
+L_d2268:   000d2268  ldr      r0, [pc, r0]                 ; GOT[117] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarMetrics>
+           000d226c  ldr      lr, [sl]                     
+           000d2270  mov      r8, r0                       
+           000d2274  mov      r0, sl                       
+           000d2278  bl       #0x22b280                    ; CALL UnityEngine.GameObject::GetComponent<CarMetrics>
+           000d227c  mov      r6, r0                       
+           000d2280  mov      r1, #0                       
+           000d2284  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d2288  cmp      r0, #0                       
+           000d228c  beq      #0xd2384                     ; -> L_d2384
+           000d2290  ldr      r0, [pc]                     
+           000d2294  b        #0xd229c                     ; -> L_d229c
+           000d2298  .word    0x00ed2d68                   ; literal 15543656 / 
+L_d229c:   000d229c  ldr      r0, [pc, r0]                 ; GOT[169] SFLDA System.String::Empty
+           000d22a0  ldr      r5, [r0]                     
+           000d22a4  ldr      r0, [fp]                     
+           000d22a8  ldrb     r0, [r0, #0x38]              ; field+0x38 (this-class: pickup)
+           000d22ac  cmp      r0, #0                       
+           000d22b0  beq      #0xd2318                     ; -> L_d2318
+           000d22b4  ldr      r0, [pc]                     
+           000d22b8  b        #0xd22c0                     ; -> L_d22c0
+           000d22bc  .word    0x00ed2de8                   ; literal 15543784 / 
+L_d22c0:   000d22c0  ldr      r0, [pc, r0]                 ; GOT[210] LDSTR 'Collected '
+           000d22c4  str      r0, [fp, #8]                 
+           000d22c8  ldr      r0, [fp]                     
+           000d22cc  ldr      r0, [r0, #0x3c]              ; field+0x3c (this-class: typeIfPickup)
+           000d22d0  str      r0, [fp, #0xc]               
+           000d22d4  ldr      r0, [pc]                     
+           000d22d8  b        #0xd22e0                     ; -> L_d22e0
+           000d22dc  .word    0x00ed2d6c                   ; literal 15543660 / 
+L_d22e0:   000d22e0  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           000d22e4  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           000d22e8  mov      r1, r0                       
+           000d22ec  ldr      r0, [fp, #0xc]               
+           000d22f0  str      r0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d22f4  mov      r0, r1                       
+           000d22f8  ldr      r1, [r1]                     
+           000d22fc  mov      lr, pc                       
+           000d2300  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           000d2304  mov      r1, r0                       
+           000d2308  ldr      r0, [fp, #8]                 
+           000d230c  bl       #0x22adc0                    ; CALL System.String::Concat
+           000d2310  mov      r5, r0                       
+           000d2314  b        #0xd2328                     ; -> L_d2328
+L_d2318:   000d2318  ldr      r5, [pc]                     
+           000d231c  b        #0xd2324                     ; -> L_d2324
+           000d2320  .word    0x00ed2d88                   ; literal 15543688 / 
+L_d2324:   000d2324  ldr      r5, [pc, r5]                 ; GOT[211] LDSTR 'Purchased Powerup'
+L_d2328:   000d2328  mvn      r4, #0                       
+           000d232c  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: UIName)
+           000d2330  mov      r0, r2                       
+           000d2334  mov      r1, r5                       
+           000d2338  ldr      lr, [r2]                     
+           000d233c  bl       #0x22b7a0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::ContainsKey
+           000d2340  cmp      r0, #0                       
+           000d2344  beq      #0xd236c                     ; -> L_d236c
+           000d2348  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: UIName)
+           000d234c  mov      r0, r2                       
+           000d2350  mov      r1, r5                       
+           000d2354  ldr      lr, [r2]                     
+           000d2358  bl       #0x22b7b0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::get_Item
+           000d235c  vmov     s4, r0                       
+           000d2360  vcvt.f64.f32 d2, s4                       
+           000d2364  vcvt.s32.f64 s0, d2                       
+           000d2368  vmov     r4, s0                       
+L_d236c:   000d236c  ldr      r0, [fp]                     
+           000d2370  ldr      r0, [r0, #0x34]              ; field+0x34 (this-class: numTimes)
+           000d2374  cmp      r4, r0                       
+           000d2378  blt      #0xd2384                     ; -> L_d2384
+           000d237c  mov      r0, #1                       
+           000d2380  b        #0xd2388                     ; -> L_d2388
+L_d2384:   000d2384  mov      r0, #0                       
+L_d2388:   000d2388  add      sp, fp, #0x10                
+           000d238c  pop      {r4, r5, r6, r8, sl, fp}     
+           000d2390  ldr      r7, [sp, #8]                 
+           000d2394  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener::Prerace  token 0x0600010f @0x000d2398 (44 bytes)
+   args: r0=this, 
+           000d2398  mov      ip, sp                       
+           000d239c  push     {r7, lr}                     
+           000d23a0  mov      r7, sp                       
+           000d23a4  push     {r8, fp, ip, lr}             
+           000d23a8  sub      sp, sp, #8                   
+           000d23ac  mov      fp, sp                       
+           000d23b0  str      r0, [fp]                     
+           000d23b4  add      sp, fp, #8                   
+           000d23b8  pop      {r8, fp}                     
+           000d23bc  ldr      r7, [sp, #8]                 
+           000d23c0  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener::Postrace  token 0x06000110 @0x000d23c4 (84 bytes)
+   args: r0=this, 
+           000d23c4  mov      ip, sp                       
+           000d23c8  push     {r7, lr}                     
+           000d23cc  mov      r7, sp                       
+           000d23d0  push     {r8, sl, fp, ip, lr}         
+           000d23d4  sub      sp, sp, #4                   
+           000d23d8  mov      fp, sp                       
+           000d23dc  mov      sl, r0                       
+           000d23e0  mov      r0, sl                       
+           000d23e4  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           000d23e8  cmp      r0, #0                       
+           000d23ec  bne      #0xd2408                     ; -> L_d2408
+           000d23f0  mov      r0, sl                       
+           000d23f4  bl       #0x22b7d0                    ; CALL InRaceAquirePickupListener::CheckMetrics
+           000d23f8  cmp      r0, #0                       
+           000d23fc  beq      #0xd2408                     ; -> L_d2408
+           000d2400  mov      r0, sl                       
+           000d2404  bl       #0xcf80c                     ; CALL AchievementListener::Achieve (direct)
+L_d2408:   000d2408  add      sp, fp, #4                   
+           000d240c  pop      {r8, sl, fp}                 
+           000d2410  ldr      r7, [sp, #8]                 
+           000d2414  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener::Reward  token 0x06000111 @0x000d2418 (64 bytes)
+   args: r0=this, 
+           000d2418  mov      ip, sp                       
+           000d241c  push     {r7, lr}                     
+           000d2420  mov      r7, sp                       
+           000d2424  push     {r8, fp, ip, lr}             
+           000d2428  sub      sp, sp, #8                   
+           000d242c  mov      fp, sp                       
+           000d2430  str      r0, [fp]                     
+           000d2434  ldr      r0, [pc]                     
+           000d2438  b        #0xd2440                     ; -> L_d2440
+           000d243c  .word    0x00ed2c70                   ; literal 15543408 / 
+L_d2440:   000d2440  ldr      r0, [pc, r0]                 ; GOT[212] LDSTR 'TODO: triggered in race powerup purchase achievement'
+           000d2444  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           000d2448  add      sp, fp, #8                   
+           000d244c  pop      {r8, fp}                     
+           000d2450  ldr      r7, [sp, #8]                 
+           000d2454  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE InRaceAquirePickupListener/<CheckMetricsPump>c__IteratorC  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      InRaceAquirePickupListener
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== InRaceAquirePickupListener/<CheckMetricsPump>c__IteratorC::.ctor  token 0x06000815 @0x00142e58 (44 bytes)
+   args: r0=this, 
+           00142e58  mov      ip, sp                       
+           00142e5c  push     {r7, lr}                     
+           00142e60  mov      r7, sp                       
+           00142e64  push     {r8, fp, ip, lr}             
+           00142e68  sub      sp, sp, #8                   
+           00142e6c  mov      fp, sp                       
+           00142e70  str      r0, [fp]                     
+           00142e74  add      sp, fp, #8                   
+           00142e78  pop      {r8, fp}                     
+           00142e7c  ldr      r7, [sp, #8]                 
+           00142e80  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener/<CheckMetricsPump>c__IteratorC::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x06000816 @0x00142e84 (52 bytes)
+   args: r0=this, 
+           00142e84  mov      ip, sp                       
+           00142e88  push     {r7, lr}                     
+           00142e8c  mov      r7, sp                       
+           00142e90  push     {r8, fp, ip, lr}             
+           00142e94  sub      sp, sp, #8                   
+           00142e98  mov      fp, sp                       
+           00142e9c  str      r0, [fp]                     
+           00142ea0  ldr      r0, [fp]                     
+           00142ea4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00142ea8  add      sp, fp, #8                   
+           00142eac  pop      {r8, fp}                     
+           00142eb0  ldr      r7, [sp, #8]                 
+           00142eb4  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener/<CheckMetricsPump>c__IteratorC::System.Collections.IEnumerator.get_Current  token 0x06000817 @0x00142eb8 (52 bytes)
+   args: r0=this, 
+           00142eb8  mov      ip, sp                       
+           00142ebc  push     {r7, lr}                     
+           00142ec0  mov      r7, sp                       
+           00142ec4  push     {r8, fp, ip, lr}             
+           00142ec8  sub      sp, sp, #8                   
+           00142ecc  mov      fp, sp                       
+           00142ed0  str      r0, [fp]                     
+           00142ed4  ldr      r0, [fp]                     
+           00142ed8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00142edc  add      sp, fp, #8                   
+           00142ee0  pop      {r8, fp}                     
+           00142ee4  ldr      r7, [sp, #8]                 
+           00142ee8  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener/<CheckMetricsPump>c__IteratorC::MoveNext  token 0x06000818 @0x00142eec (224 bytes)
+   args: r0=this, 
+           00142eec  mov      ip, sp                       
+           00142ef0  push     {r7, lr}                     
+           00142ef4  mov      r7, sp                       
+           00142ef8  push     {r8, sl, fp, ip, lr}         
+           00142efc  sub      sp, sp, #0x14                
+           00142f00  mov      fp, sp                       
+           00142f04  mov      sl, r0                       
+           00142f08  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00142f0c  mvn      r1, #0                       
+           00142f10  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00142f14  str      r0, [fp, #4]                 
+           00142f18  cmp      r0, #2                       
+           00142f1c  bhs      #0x142fb0                    ; -> L_142fb0
+           00142f20  ldr      r0, [fp, #4]                 
+           00142f24  lsl      r1, r0, #2                   
+           00142f28  ldr      r0, [pc]                     
+           00142f2c  b        #0x142f34                    ; -> L_142f34
+           00142f30  .word    0x00e638fc                   ; literal 15087868 / 
+L_142f34:  00142f34  ldr      r0, [pc, r0]                 ; GOT[1716] SWITCH switch table[2]
+           00142f38  add      r0, r0, r1                   
+           00142f3c  ldr      r0, [r0]                     
+           00142f40  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00142f44  bl       #0x22b7d0                    ; CALL InRaceAquirePickupListener::CheckMetrics
+           00142f48  cmp      r0, #0                       
+           00142f4c  beq      #0x142f5c                    ; -> L_142f5c
+           00142f50  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00142f54  bl       #0xcf80c                     ; CALL AchievementListener::Achieve (direct)
+           00142f58  b        #0x142fb0                    ; -> L_142fb0
+L_142f5c:  00142f5c  vldr     s4, [pc]                     ; float 1.0
+           00142f60  b        #0x142f68                    ; -> L_142f68
+           00142f64  .word    0x3f800000                   ; literal 1065353216 / 1
+L_142f68:  00142f68  vcvt.f64.f32 d2, s4                       
+           00142f6c  vstr     d2, [fp, #8]                 
+           00142f70  ldr      r0, [pc]                     
+           00142f74  b        #0x142f7c                    ; -> L_142f7c
+           00142f78  .word    0x00e6387c                   ; literal 15087740 / 
+L_142f7c:  00142f7c  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           00142f80  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           00142f84  vldr     d2, [fp, #8]                 
+           00142f88  vcvt.f32.f64 s0, d2                       
+           00142f8c  vstr     s0, [fp]                     
+           00142f90  vldr     s0, [fp]                     
+           00142f94  vcvt.f64.f32 d2, s0                       
+           00142f98  vcvt.f32.f64 s0, d2                       
+           00142f9c  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00142fa0  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           00142fa4  mov      r0, #1                       
+           00142fa8  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00142fac  b        #0x142fb8                    ; -> L_142fb8
+L_142fb0:  00142fb0  mov      r0, #0                       
+           00142fb4  b        #0x142fbc                    ; -> L_142fbc
+L_142fb8:  00142fb8  mov      r0, #1                       
+L_142fbc:  00142fbc  add      sp, fp, #0x14                
+           00142fc0  pop      {r8, sl, fp}                 
+           00142fc4  ldr      r7, [sp, #8]                 
+           00142fc8  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener/<CheckMetricsPump>c__IteratorC::Dispose  token 0x06000819 @0x00142fcc (56 bytes)
+   args: r0=this, 
+           00142fcc  mov      ip, sp                       
+           00142fd0  push     {r7, lr}                     
+           00142fd4  mov      r7, sp                       
+           00142fd8  push     {r8, fp, ip, lr}             
+           00142fdc  sub      sp, sp, #8                   
+           00142fe0  mov      fp, sp                       
+           00142fe4  str      r0, [fp]                     
+           00142fe8  ldr      r0, [fp]                     
+           00142fec  mvn      r1, #0                       
+           00142ff0  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           00142ff4  add      sp, fp, #8                   
+           00142ff8  pop      {r8, fp}                     
+           00142ffc  ldr      r7, [sp, #8]                 
+           00143000  ldm      sp, {sp, pc}                 
+
+== InRaceAquirePickupListener/<CheckMetricsPump>c__IteratorC::Reset  token 0x0600081a @0x00143004 (64 bytes)
+   args: r0=this, 
+           00143004  mov      ip, sp                       
+           00143008  push     {r7, lr}                     
+           0014300c  mov      r7, sp                       
+           00143010  push     {r8, fp, ip, lr}             
+           00143014  sub      sp, sp, #8                   
+           00143018  mov      fp, sp                       
+           0014301c  str      r0, [fp]                     
+           00143020  mov      r0, #0x49                    
+           00143024  add      r0, r0, #0x100               
+           00143028  add      r0, r0, #0x2000000           
+           0014302c  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00143030  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00143034  add      sp, fp, #8                   
+           00143038  pop      {r8, fp}                     
+           0014303c  ldr      r7, [sp, #8]                 
+           00143040  ldm      sp, {sp, pc}                 

@@ -1,0 +1,134 @@
+####################################################################################################
+# TYPE ProgressTriggerLogic  (instance size 0x1c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 nextTrigger                    ProgressTriggerLogic
+#   +0x14 isLapLine                      bool
+#   +0x18 trackDistance                  float
+#   vtable slots: 
+####################################################################################################
+== ProgressTriggerLogic::.ctor  token 0x06000526 @0x0010e2d4 (52 bytes)
+   args: r0=this, 
+           0010e2d4  mov      ip, sp                       
+           0010e2d8  push     {r7, lr}                     
+           0010e2dc  mov      r7, sp                       
+           0010e2e0  push     {r8, fp, ip, lr}             
+           0010e2e4  sub      sp, sp, #8                   
+           0010e2e8  mov      fp, sp                       
+           0010e2ec  str      r0, [fp]                     
+           0010e2f0  ldr      r0, [fp]                     
+           0010e2f4  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0010e2f8  add      sp, fp, #8                   
+           0010e2fc  pop      {r8, fp}                     
+           0010e300  ldr      r7, [sp, #8]                 
+           0010e304  ldm      sp, {sp, pc}                 
+
+== ProgressTriggerLogic::CanTriggerForCar  token 0x06000527 @0x0010e308 (208 bytes)
+   args: r0=this, car
+           0010e308  mov      ip, sp                       
+           0010e30c  push     {r7, lr}                     
+           0010e310  mov      r7, sp                       
+           0010e314  push     {r5, r8, sl, fp, ip, lr}     
+           0010e318  sub      sp, sp, #8                   
+           0010e31c  mov      fp, sp                       
+           0010e320  str      r0, [fp, #4]                 
+           0010e324  mov      sl, r1                       
+           0010e328  mov      r0, sl                       
+           0010e32c  mov      r1, #0                       
+           0010e330  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010e334  cmp      r0, #0                       
+           0010e338  beq      #0x10e344                    ; -> L_10e344
+           0010e33c  mov      r0, #0                       
+           0010e340  b        #0x10e3c8                    ; -> L_10e3c8
+L_10e344:  0010e344  ldr      r0, [pc]                     
+           0010e348  b        #0x10e350                    ; -> L_10e350
+           0010e34c  .word    0x00e96bb4                   ; literal 15297460 / 
+L_10e350:  0010e350  ldr      r0, [pc, r0]                 ; GOT[105] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarCollider>
+           0010e354  ldr      lr, [sl]                     
+           0010e358  mov      r8, r0                       
+           0010e35c  mov      r0, sl                       
+           0010e360  bl       #0x22b100                    ; CALL UnityEngine.GameObject::GetComponent<CarCollider>
+           0010e364  mov      r1, #0                       
+           0010e368  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010e36c  cmp      r0, #0                       
+           0010e370  beq      #0x10e37c                    ; -> L_10e37c
+           0010e374  mov      r0, #0                       
+           0010e378  b        #0x10e3c8                    ; -> L_10e3c8
+L_10e37c:  0010e37c  mov      r0, sl                       
+           0010e380  bl       #0x1120dc                    ; CALL RaceManager::GetCarLastProgressTrigger (direct)
+           0010e384  mov      r5, r0                       
+           0010e388  mov      r1, #0                       
+           0010e38c  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010e390  cmp      r0, #0                       
+           0010e394  beq      #0x10e3a4                    ; -> L_10e3a4
+           0010e398  ldr      r0, [fp, #4]                 
+           0010e39c  ldrb     r0, [r0, #0x14]              ; field+0x14 (this-class: isLapLine)
+           0010e3a0  b        #0x10e3c8                    ; -> L_10e3c8
+L_10e3a4:  0010e3a4  ldr      r0, [r5, #0x10]              ; field+0x10 (this-class: nextTrigger)
+           0010e3a8  str      r0, [fp]                     
+           0010e3ac  ldr      r1, [fp, #4]                 
+           0010e3b0  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010e3b4  cmp      r0, #0                       
+           0010e3b8  beq      #0x10e3c4                    ; -> L_10e3c4
+           0010e3bc  mov      r0, #1                       
+           0010e3c0  b        #0x10e3c8                    ; -> L_10e3c8
+L_10e3c4:  0010e3c4  mov      r0, #0                       
+L_10e3c8:  0010e3c8  add      sp, fp, #8                   
+           0010e3cc  pop      {r5, r8, sl, fp}             
+           0010e3d0  ldr      r7, [sp, #8]                 
+           0010e3d4  ldm      sp, {sp, pc}                 
+
+== ProgressTriggerLogic::OnTriggerEnter  token 0x06000528 @0x0010e3d8 (212 bytes)
+   args: r0=this, other
+           0010e3d8  mov      ip, sp                       
+           0010e3dc  push     {r7, lr}                     
+           0010e3e0  mov      r7, sp                       
+           0010e3e4  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0010e3e8  sub      sp, sp, #4                   
+           0010e3ec  mov      fp, sp                       
+           0010e3f0  mov      r6, r0                       
+           0010e3f4  mov      sl, r1                       
+           0010e3f8  mov      r0, sl                       
+           0010e3fc  ldr      lr, [sl]                     
+           0010e400  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010e404  mov      r1, r0                       
+           0010e408  mov      r0, r6                       
+           0010e40c  bl       #0x22dc30                    ; CALL ProgressTriggerLogic::CanTriggerForCar
+           0010e410  cmp      r0, #0                       
+           0010e414  beq      #0x10e49c                    ; -> L_10e49c
+           0010e418  mov      r0, sl                       
+           0010e41c  ldr      lr, [sl]                     
+           0010e420  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010e424  mov      r1, r6                       
+           0010e428  bl       #0x112080                    ; CALL RaceManager::SetCarProgressTrigger (direct)
+           0010e42c  ldrb     r0, [r6, #0x14]              ; field+0x14 (this-class: isLapLine)
+           0010e430  cmp      r0, #0                       
+           0010e434  beq      #0x10e49c                    ; -> L_10e49c
+           0010e438  mov      r0, sl                       
+           0010e43c  ldr      lr, [sl]                     
+           0010e440  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010e444  bl       #0x22dc40                    ; CALL RaceManager::AdvanceCarLap
+           0010e448  mov      r0, sl                       
+           0010e44c  ldr      lr, [sl]                     
+           0010e450  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010e454  ldr      r1, [pc]                     
+           0010e458  b        #0x10e460                    ; -> L_10e460
+           0010e45c  .word    0x00e97704                   ; literal 15300356 / 
+L_10e460:  0010e460  ldr      r1, [pc, r1]                 ; GOT[897] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarAIPathRecorder>
+           0010e464  ldr      lr, [r0]                     
+           0010e468  mov      r8, r1                       
+           0010e46c  bl       #0x22dc50                    ; CALL UnityEngine.GameObject::GetComponent<CarAIPathRecorder>
+           0010e470  mov      r5, r0                       
+           0010e474  mov      r1, #0                       
+           0010e478  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010e47c  cmp      r0, #0                       
+           0010e480  beq      #0x10e49c                    ; -> L_10e49c
+           0010e484  mov      r0, r5                       
+           0010e488  ldr      lr, [r5]                     
+           0010e48c  bl       #0x22dc60                    ; CALL CarAIPathRecorder::FinishRecording
+           0010e490  mov      r0, r5                       
+           0010e494  ldr      lr, [r5]                     
+           0010e498  bl       #0x22dc70                    ; CALL CarAIPathRecorder::StartRecording
+L_10e49c:  0010e49c  add      sp, fp, #4                   
+           0010e4a0  pop      {r5, r6, r8, sl, fp}         
+           0010e4a4  ldr      r7, [sp, #8]                 
+           0010e4a8  ldm      sp, {sp, pc}                 

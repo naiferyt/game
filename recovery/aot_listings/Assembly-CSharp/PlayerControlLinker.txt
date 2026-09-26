@@ -1,0 +1,58 @@
+####################################################################################################
+# TYPE PlayerControlLinker  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   vtable slots: 
+####################################################################################################
+== PlayerControlLinker::.ctor  token 0x0600045b @0x00101374 (52 bytes)
+   args: r0=this, 
+           00101374  mov      ip, sp                       
+           00101378  push     {r7, lr}                     
+           0010137c  mov      r7, sp                       
+           00101380  push     {r8, fp, ip, lr}             
+           00101384  sub      sp, sp, #8                   
+           00101388  mov      fp, sp                       
+           0010138c  str      r0, [fp]                     
+           00101390  ldr      r0, [fp]                     
+           00101394  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00101398  add      sp, fp, #8                   
+           0010139c  pop      {r8, fp}                     
+           001013a0  ldr      r7, [sp, #8]                 
+           001013a4  ldm      sp, {sp, pc}                 
+
+== PlayerControlLinker::Start  token 0x0600045c @0x001013a8 (140 bytes)
+   args: r0=this, 
+           001013a8  mov      ip, sp                       
+           001013ac  push     {r7, lr}                     
+           001013b0  mov      r7, sp                       
+           001013b4  push     {r8, fp, ip, lr}             
+           001013b8  sub      sp, sp, #8                   
+           001013bc  mov      fp, sp                       
+           001013c0  str      r0, [fp]                     
+           001013c4  bl       #0x22c920                    ; CALL UnityEngine.Application::get_platform
+           001013c8  cmp      r0, #8                       
+           001013cc  bne      #0x1013fc                    ; -> L_1013fc
+           001013d0  ldr      r0, [fp]                     
+           001013d4  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           001013d8  mov      r2, r0                       
+           001013dc  ldr      r1, [pc]                     
+           001013e0  b        #0x1013e8                    ; -> L_1013e8
+           001013e4  .word    0x00ea4568                   ; literal 15353192 / 
+L_1013e8:  001013e8  ldr      r1, [pc, r1]                 ; GOT[764] TYPE_FROM_HANDLE typeof(PlayerAccelControl)
+           001013ec  mov      r0, r2                       
+           001013f0  ldr      lr, [r2]                     
+           001013f4  bl       #0x22a860                    ; CALL UnityEngine.GameObject::AddComponent
+           001013f8  b        #0x101424                    ; -> L_101424
+L_1013fc:  001013fc  ldr      r0, [fp]                     
+           00101400  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00101404  mov      r2, r0                       
+           00101408  ldr      r1, [pc]                     
+           0010140c  b        #0x101414                    ; -> L_101414
+           00101410  .word    0x00ea4540                   ; literal 15353152 / 
+L_101414:  00101414  ldr      r1, [pc, r1]                 ; GOT[765] TYPE_FROM_HANDLE typeof(PlayerKeyboardControl)
+           00101418  mov      r0, r2                       
+           0010141c  ldr      lr, [r2]                     
+           00101420  bl       #0x22a860                    ; CALL UnityEngine.GameObject::AddComponent
+L_101424:  00101424  add      sp, fp, #8                   
+           00101428  pop      {r8, fp}                     
+           0010142c  ldr      r7, [sp, #8]                 
+           00101430  ldm      sp, {sp, pc}                 

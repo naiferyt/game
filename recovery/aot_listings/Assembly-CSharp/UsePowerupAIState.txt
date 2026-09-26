@@ -1,0 +1,627 @@
+####################################################################################################
+# TYPE UsePowerupAIState  (instance size 0x18)
+#   +0x08 parentAI                       CarAI
+#   +0x0c RocketChancePercent            float
+#   +0x10 ShieldChancePercent            float
+#   +0x14 MineChancePercent              float
+#   static int carLayerMask  = const 00020000
+#   vtable slots: 4:Shutdown, 5:FixedUpdate, 6:Update, 7:Init, 8:GetAIStateEnum
+####################################################################################################
+== UsePowerupAIState::.ctor  token 0x06000049 @0x000c66d4 (116 bytes)
+   args: r0=this, 
+           000c66d4  mov      ip, sp                       
+           000c66d8  push     {r7, lr}                     
+           000c66dc  mov      r7, sp                       
+           000c66e0  push     {r8, sl, fp, ip, lr}         
+           000c66e4  sub      sp, sp, #4                   
+           000c66e8  mov      fp, sp                       
+           000c66ec  mov      sl, r0                       
+           000c66f0  vldr     s4, [pc]                     ; float 0.25
+           000c66f4  b        #0xc66fc                     ; -> L_c66fc
+           000c66f8  .word    0x3e800000                   ; literal 1048576000 / 0.25
+L_c66fc:   000c66fc  vcvt.f64.f32 d2, s4                       
+           000c6700  vcvt.f32.f64 s0, d2                       
+           000c6704  vstr     s0, [sl, #0xc]               ; field+0xc (this-class: RocketChancePercent)
+           000c6708  vldr     s4, [pc]                     ; float 0.33000001311302185
+           000c670c  b        #0xc6714                     ; -> L_c6714
+           000c6710  .word    0x3ea8f5c3                   ; literal 1051260355 / 0.33
+L_c6714:   000c6714  vcvt.f64.f32 d2, s4                       
+           000c6718  vcvt.f32.f64 s0, d2                       
+           000c671c  vstr     s0, [sl, #0x10]              ; field+0x10 (this-class: ShieldChancePercent)
+           000c6720  vldr     s4, [pc]                     ; float 0.5
+           000c6724  b        #0xc672c                     ; -> L_c672c
+           000c6728  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_c672c:   000c672c  vcvt.f64.f32 d2, s4                       
+           000c6730  vcvt.f32.f64 s0, d2                       
+           000c6734  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: MineChancePercent)
+           000c6738  add      sp, fp, #4                   
+           000c673c  pop      {r8, sl, fp}                 
+           000c6740  ldr      r7, [sp, #8]                 
+           000c6744  ldm      sp, {sp, pc}                 
+
+== UsePowerupAIState::GetAIStateEnum  token 0x0600004a @0x000c6748 (48 bytes)
+   args: r0=this, 
+           000c6748  mov      ip, sp                       
+           000c674c  push     {r7, lr}                     
+           000c6750  mov      r7, sp                       
+           000c6754  push     {r8, fp, ip, lr}             
+           000c6758  sub      sp, sp, #8                   
+           000c675c  mov      fp, sp                       
+           000c6760  str      r0, [fp]                     
+           000c6764  mov      r0, #3                       
+           000c6768  add      sp, fp, #8                   
+           000c676c  pop      {r8, fp}                     
+           000c6770  ldr      r7, [sp, #8]                 
+           000c6774  ldm      sp, {sp, pc}                 
+
+== UsePowerupAIState::Init  token 0x0600004b @0x000c6778 (44 bytes)
+   args: r0=this, 
+           000c6778  mov      ip, sp                       
+           000c677c  push     {r7, lr}                     
+           000c6780  mov      r7, sp                       
+           000c6784  push     {r8, fp, ip, lr}             
+           000c6788  sub      sp, sp, #8                   
+           000c678c  mov      fp, sp                       
+           000c6790  str      r0, [fp]                     
+           000c6794  add      sp, fp, #8                   
+           000c6798  pop      {r8, fp}                     
+           000c679c  ldr      r7, [sp, #8]                 
+           000c67a0  ldm      sp, {sp, pc}                 
+
+== UsePowerupAIState::Update  token 0x0600004c @0x000c67a4 (356 bytes)
+   args: r0=this, 
+           000c67a4  mov      ip, sp                       
+           000c67a8  push     {r7, lr}                     
+           000c67ac  mov      r7, sp                       
+           000c67b0  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000c67b4  mov      fp, sp                       
+           000c67b8  mov      sl, r0                       
+           000c67bc  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c67c0  ldr      r1, [pc]                     
+           000c67c4  b        #0xc67cc                     ; -> L_c67cc
+           000c67c8  .word    0x00ede650                   ; literal 15590992 / 
+L_c67cc:   000c67cc  ldr      r1, [pc, r1]                 ; GOT[47] METHOD_RGCTX UnityEngine.Component::GetComponent<PowerupHolder>
+           000c67d0  ldr      lr, [r0]                     
+           000c67d4  mov      r8, r1                       
+           000c67d8  bl       #0x22ab20                    ; CALL UnityEngine.Component::GetComponent<PowerupHolder>
+           000c67dc  mov      r4, r0                       
+           000c67e0  mov      r1, #0                       
+           000c67e4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000c67e8  cmp      r0, #0                       
+           000c67ec  beq      #0xc68e4                     ; -> L_c68e4
+           000c67f0  mov      r6, #0                       
+           000c67f4  b        #0xc68c8                     ; -> L_c68c8
+L_c67f8:   000c67f8  mov      r0, r4                       
+           000c67fc  mov      r1, r6                       
+           000c6800  ldr      lr, [r4]                     
+           000c6804  bl       #0x22afd0                    ; CALL PowerupHolder::get_Item
+           000c6808  cmp      r0, #0                       
+           000c680c  beq      #0xc68c4                     ; -> L_c68c4
+           000c6810  mov      r0, r4                       
+           000c6814  mov      r1, r6                       
+           000c6818  ldr      lr, [r4]                     
+           000c681c  bl       #0x22afd0                    ; CALL PowerupHolder::get_Item
+           000c6820  mov      r1, r0                       
+           000c6824  ldr      lr, [r1]                     
+           000c6828  ldr      r5, [r0, #0x10]              ; field+0x10 (this-class: ShieldChancePercent)
+           000c682c  mov      r0, r5                       
+           000c6830  sub      r5, r0, #5                   
+           000c6834  cmp      r5, #3                       
+           000c6838  bhs      #0xc688c                     ; -> L_c688c
+           000c683c  lsl      r1, r5, #2                   
+           000c6840  ldr      r0, [pc]                     
+           000c6844  b        #0xc684c                     ; -> L_c684c
+           000c6848  .word    0x00ede688                   ; literal 15591048 / 
+L_c684c:   000c684c  ldr      r0, [pc, r0]                 ; GOT[93] SWITCH switch table[3]
+           000c6850  add      r0, r0, r1                   
+           000c6854  ldr      r0, [r0]                     
+           000c6858  mov      pc, r0                       
+           000c685c  mov      r0, sl                       
+           000c6860  mov      r1, r4                       
+           000c6864  bl       #0x22afe0                    ; CALL UsePowerupAIState::DoRocketEffectExecute
+           000c6868  b        #0xc68c4                     ; -> L_c68c4
+           000c686c  mov      r0, sl                       
+           000c6870  mov      r1, r4                       
+           000c6874  bl       #0x22aff0                    ; CALL UsePowerupAIState::DoShieldEffectExecute
+           000c6878  b        #0xc68c4                     ; -> L_c68c4
+           000c687c  mov      r0, sl                       
+           000c6880  mov      r1, r4                       
+           000c6884  bl       #0x22b000                    ; CALL UsePowerupAIState::DoMineEffectExecute
+           000c6888  b        #0xc68c4                     ; -> L_c68c4
+L_c688c:   000c688c  bl       #0x22a870                    ; CALL UnityEngine.Random::get_value
+           000c6890  vmov     s6, r0                       
+           000c6894  vcvt.f64.f32 d3, s6                       
+           000c6898  vldr     s4, [pc]                     ; float 0.33000001311302185
+           000c689c  b        #0xc68a4                     ; -> L_c68a4
+           000c68a0  .word    0x3ea8f5c3                   ; literal 1051260355 / 0.33
+L_c68a4:   000c68a4  vcvt.f64.f32 d2, s4                       
+           000c68a8  vcmp.f64 d2, d3                       
+           000c68ac  vmrs     apsr_nzcv, fpscr             
+           000c68b0  bvs      #0xc68c4                     ; -> L_c68c4
+           000c68b4  bge      #0xc68c4                     ; -> L_c68c4
+           000c68b8  mov      r0, r4                       
+           000c68bc  ldr      lr, [r4]                     
+           000c68c0  bl       #0x22b010                    ; CALL PowerupHolder::ExecutePowerups
+L_c68c4:   000c68c4  add      r6, r6, #1                   
+L_c68c8:   000c68c8  ldr      lr, [r4]                     
+           000c68cc  ldr      r0, [r4, #0x18]              ; field+0x18 
+           000c68d0  mov      r1, r0                       
+           000c68d4  ldr      lr, [r1]                     
+           000c68d8  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: RocketChancePercent)
+           000c68dc  cmp      r6, r0                       
+           000c68e0  blt      #0xc67f8                     ; -> L_c67f8
+L_c68e4:   000c68e4  ldr      r2, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c68e8  mov      r0, r2                       
+           000c68ec  mov      r1, sl                       
+           000c68f0  ldr      lr, [r2]                     
+           000c68f4  bl       #0xc350c                     ; CALL CarAI::StateDone (direct)
+           000c68f8  add      sp, fp, #0                   
+           000c68fc  pop      {r4, r5, r6, r8, sl, fp}     
+           000c6900  ldr      r7, [sp, #8]                 
+           000c6904  ldm      sp, {sp, pc}                 
+
+== UsePowerupAIState::DoRocketEffectExecute  token 0x0600004d @0x000c6908 (264 bytes)
+   args: r0=this, holder
+           000c6908  mov      ip, sp                       
+           000c690c  push     {r7, lr}                     
+           000c6910  mov      r7, sp                       
+           000c6914  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000c6918  sub      sp, sp, #0xc                 
+           000c691c  mov      fp, sp                       
+           000c6920  mov      r6, r0                       
+           000c6924  mov      sl, r1                       
+           000c6928  bl       #0x22a870                    ; CALL UnityEngine.Random::get_value
+           000c692c  vmov     s6, r0                       
+           000c6930  vcvt.f64.f32 d3, s6                       
+           000c6934  vldr     s0, [r6, #0xc]               ; field+0xc (this-class: RocketChancePercent)
+           000c6938  vcvt.f64.f32 d2, s0                       
+           000c693c  vcmp.f64 d2, d3                       
+           000c6940  vmrs     apsr_nzcv, fpscr             
+           000c6944  bvs      #0xc6958                     ; -> L_c6958
+           000c6948  bge      #0xc6958                     ; -> L_c6958
+           000c694c  mov      r0, sl                       
+           000c6950  ldr      lr, [sl]                     
+           000c6954  bl       #0x22b010                    ; CALL PowerupHolder::ExecutePowerups
+L_c6958:   000c6958  bl       #0x1113a4                    ; CALL RaceManager::get_leadCar (direct)
+           000c695c  str      r0, [fp]                     
+           000c6960  ldr      r1, [r6, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6964  mov      r0, r1                       
+           000c6968  ldr      lr, [r1]                     
+           000c696c  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6970  mov      r1, r0                       
+           000c6974  ldr      r0, [fp]                     
+           000c6978  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000c697c  cmp      r0, #0                       
+           000c6980  bne      #0xc6a00                     ; -> L_c6a00
+           000c6984  ldr      r1, [r6, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6988  mov      r0, r1                       
+           000c698c  ldr      lr, [r1]                     
+           000c6990  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6994  bl       #0x112160                    ; CALL RaceManager::GetCarPosition (direct)
+           000c6998  sub      r0, r0, #1                   
+           000c699c  bl       #0x1121d8                    ; CALL RaceManager::GetCarInPosition (direct)
+           000c69a0  ldr      r1, [pc]                     
+           000c69a4  b        #0xc69ac                     ; -> L_c69ac
+           000c69a8  .word    0x00ede52c                   ; literal 15590700 / 
+L_c69ac:   000c69ac  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000c69b0  ldr      lr, [r0]                     
+           000c69b4  mov      r8, r1                       
+           000c69b8  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000c69bc  mov      r5, r0                       
+           000c69c0  mov      r1, #0                       
+           000c69c4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000c69c8  cmp      r0, #0                       
+           000c69cc  beq      #0xc69f4                     ; -> L_c69f4
+           000c69d0  ldr      r1, [pc]                     
+           000c69d4  b        #0xc69dc                     ; -> L_c69dc
+           000c69d8  .word    0x00ede500                   ; literal 15590656 / 
+L_c69dc:   000c69dc  ldr      r1, [pc, r1]                 ; GOT[95] TYPE_FROM_HANDLE typeof(ShieldEffect)
+           000c69e0  mov      r0, r5                       
+           000c69e4  ldr      lr, [r5]                     
+           000c69e8  bl       #0x22b030                    ; CALL EffectManager::HasEffect
+           000c69ec  cmp      r0, #0                       
+           000c69f0  bne      #0xc6a00                     ; -> L_c6a00
+L_c69f4:   000c69f4  mov      r0, sl                       
+           000c69f8  ldr      lr, [sl]                     
+           000c69fc  bl       #0x22b010                    ; CALL PowerupHolder::ExecutePowerups
+L_c6a00:   000c6a00  add      sp, fp, #0xc                 
+           000c6a04  pop      {r5, r6, r8, sl, fp}         
+           000c6a08  ldr      r7, [sp, #8]                 
+           000c6a0c  ldm      sp, {sp, pc}                 
+
+== UsePowerupAIState::DoShieldEffectExecute  token 0x0600004e @0x000c6a10 (868 bytes)
+   args: r0=this, holder
+           000c6a10  mov      ip, sp                       
+           000c6a14  push     {r7, lr}                     
+           000c6a18  mov      r7, sp                       
+           000c6a1c  push     {r4, r6, r8, sl, fp, ip, lr} 
+           000c6a20  sub      sp, sp, #0xb4                
+           000c6a24  mov      fp, sp                       
+           000c6a28  str      r0, [fp, #0xa0]              
+           000c6a2c  str      r1, [fp, #0xa4]              
+           000c6a30  bl       #0x22a870                    ; CALL UnityEngine.Random::get_value
+           000c6a34  vmov     s6, r0                       
+           000c6a38  vcvt.f64.f32 d3, s6                       
+           000c6a3c  ldr      r0, [fp, #0xa0]              
+           000c6a40  vldr     s0, [r0, #0x10]              ; field+0x10 (this-class: ShieldChancePercent)
+           000c6a44  vcvt.f64.f32 d2, s0                       
+           000c6a48  vcmp.f64 d2, d3                       
+           000c6a4c  vmrs     apsr_nzcv, fpscr             
+           000c6a50  bvs      #0xc6a68                     ; -> L_c6a68
+           000c6a54  bge      #0xc6a68                     ; -> L_c6a68
+           000c6a58  ldr      r0, [fp, #0xa4]              
+           000c6a5c  mov      r1, r0                       
+           000c6a60  ldr      lr, [r1]                     
+           000c6a64  bl       #0x22b010                    ; CALL PowerupHolder::ExecutePowerups
+L_c6a68:   000c6a68  ldr      r0, [fp, #0xa0]              
+           000c6a6c  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6a70  mov      r0, r1                       
+           000c6a74  ldr      lr, [r1]                     
+           000c6a78  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6a7c  mov      r1, r0                       
+           000c6a80  ldr      lr, [r1]                     
+           000c6a84  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c6a88  mov      r2, r0                       
+           000c6a8c  add      r0, fp, #0x64                
+           000c6a90  mov      r1, r2                       
+           000c6a94  ldr      lr, [r2]                     
+           000c6a98  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c6a9c  ldr      r0, [fp, #0xa0]              
+           000c6aa0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6aa4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: ShieldChancePercent)
+           000c6aa8  vldr     s0, [r0, #0x18]              ; field+0x18 
+           000c6aac  vcvt.f64.f32 d2, s0                       
+           000c6ab0  ldr      r0, [fp, #0x64]              
+           000c6ab4  ldr      r1, [fp, #0x68]              
+           000c6ab8  ldr      r2, [fp, #0x6c]              
+           000c6abc  vcvt.f32.f64 s0, d2                       
+           000c6ac0  vstr     s0, [sp, #-8]                
+           000c6ac4  ldr      r3, [sp, #-8]                
+           000c6ac8  bl       #0x22ac10                    ; CALL UnityEngine.Physics::OverlapSphere
+           000c6acc  str      r0, [fp, #0x18]              
+           000c6ad0  mov      sl, r0                       
+           000c6ad4  mov      r6, #0                       
+           000c6ad8  b        #0xc6d00                     ; -> L_c6d00
+L_c6adc:   000c6adc  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: RocketChancePercent)
+           000c6ae0  cmp      r0, r6                       
+           000c6ae4  blls     #0xc6d64                     ; THROW System.IndexOutOfRangeException (if ls)
+           000c6ae8  lsl      r0, r6, #2                   
+           000c6aec  add      r0, sl, r0                   
+           000c6af0  add      r0, r0, #0x10                
+           000c6af4  ldr      r4, [r0]                     
+           000c6af8  mov      r1, r4                       
+           000c6afc  mov      r0, r1                       
+           000c6b00  ldr      lr, [r1]                     
+           000c6b04  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6b08  ldr      r0, [r0]                     
+           000c6b0c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: ShieldChancePercent)
+           000c6b10  ldr      r1, [pc]                     
+           000c6b14  b        #0xc6b1c                     ; -> L_c6b1c
+           000c6b18  .word    0x00ede3c4                   ; literal 15590340 / 
+L_c6b1c:   000c6b1c  ldr      r1, [pc, r1]                 ; GOT[96] TYPE_FROM_HANDLE typeof(RocketAI)
+           000c6b20  cmp      r0, r1                       
+           000c6b24  bne      #0xc6bac                     ; -> L_c6bac
+           000c6b28  mov      r0, r4                       
+           000c6b2c  ldr      lr, [r4]                     
+           000c6b30  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6b34  ldr      r1, [pc]                     
+           000c6b38  b        #0xc6b40                     ; -> L_c6b40
+           000c6b3c  .word    0x00ede3a4                   ; literal 15590308 / 
+L_c6b40:   000c6b40  ldr      r1, [pc, r1]                 ; GOT[97] METHOD_RGCTX UnityEngine.GameObject::GetComponent<RocketAI>
+           000c6b44  ldr      lr, [r0]                     
+           000c6b48  mov      r8, r1                       
+           000c6b4c  bl       #0x22b040                    ; CALL UnityEngine.GameObject::GetComponent<RocketAI>
+           000c6b50  str      r0, [fp, #0x1c]              
+           000c6b54  mov      r1, #0                       
+           000c6b58  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000c6b5c  cmp      r0, #0                       
+           000c6b60  beq      #0xc6bac                     ; -> L_c6bac
+           000c6b64  ldr      r0, [fp, #0x1c]              
+           000c6b68  ldr      r0, [r0, #0x18]              ; field+0x18 
+           000c6b6c  str      r0, [fp, #0xa8]              
+           000c6b70  ldr      r0, [fp, #0xa0]              
+           000c6b74  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6b78  mov      r0, r1                       
+           000c6b7c  ldr      lr, [r1]                     
+           000c6b80  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6b84  mov      r1, r0                       
+           000c6b88  ldr      r0, [fp, #0xa8]              
+           000c6b8c  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000c6b90  cmp      r0, #0                       
+           000c6b94  beq      #0xc6bac                     ; -> L_c6bac
+           000c6b98  ldr      r0, [fp, #0xa4]              
+           000c6b9c  mov      r1, r0                       
+           000c6ba0  ldr      lr, [r1]                     
+           000c6ba4  bl       #0x22b010                    ; CALL PowerupHolder::ExecutePowerups
+           000c6ba8  b        #0xc6d54                     ; -> L_c6d54
+L_c6bac:   000c6bac  mov      r0, r4                       
+           000c6bb0  ldr      lr, [r4]                     
+           000c6bb4  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6bb8  ldr      r0, [r0]                     
+           000c6bbc  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: ShieldChancePercent)
+           000c6bc0  ldr      r1, [pc]                     
+           000c6bc4  b        #0xc6bcc                     ; -> L_c6bcc
+           000c6bc8  .word    0x00ede31c                   ; literal 15590172 / 
+L_c6bcc:   000c6bcc  ldr      r1, [pc, r1]                 ; GOT[98] TYPE_FROM_HANDLE typeof(MineAI)
+           000c6bd0  cmp      r0, r1                       
+           000c6bd4  bne      #0xc6cfc                     ; -> L_c6cfc
+           000c6bd8  ldr      r0, [fp, #0xa0]              
+           000c6bdc  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6be0  mov      r0, r1                       
+           000c6be4  ldr      lr, [r1]                     
+           000c6be8  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6bec  mov      r1, r0                       
+           000c6bf0  ldr      lr, [r1]                     
+           000c6bf4  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c6bf8  mov      r2, r0                       
+           000c6bfc  add      r0, fp, #0x70                
+           000c6c00  mov      r1, r2                       
+           000c6c04  ldr      lr, [r2]                     
+           000c6c08  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000c6c0c  mov      r0, r4                       
+           000c6c10  ldr      lr, [r4]                     
+           000c6c14  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6c18  mov      r1, r0                       
+           000c6c1c  ldr      lr, [r1]                     
+           000c6c20  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c6c24  mov      r2, r0                       
+           000c6c28  add      r0, fp, #0x7c                
+           000c6c2c  mov      r1, r2                       
+           000c6c30  ldr      lr, [r2]                     
+           000c6c34  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c6c38  ldr      r0, [fp, #0xa0]              
+           000c6c3c  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6c40  mov      r0, r1                       
+           000c6c44  ldr      lr, [r1]                     
+           000c6c48  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6c4c  mov      r1, r0                       
+           000c6c50  ldr      lr, [r1]                     
+           000c6c54  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c6c58  mov      r2, r0                       
+           000c6c5c  add      r0, fp, #0x88                
+           000c6c60  mov      r1, r2                       
+           000c6c64  ldr      lr, [r2]                     
+           000c6c68  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c6c6c  add      r0, fp, #0x94                
+           000c6c70  ldr      r1, [fp, #0x7c]              
+           000c6c74  ldr      r2, [fp, #0x80]              
+           000c6c78  ldr      r3, [fp, #0x84]              
+           000c6c7c  ldr      ip, [fp, #0x88]              
+           000c6c80  str      ip, [sp]                     
+           000c6c84  ldr      ip, [fp, #0x8c]              
+           000c6c88  str      ip, [sp, #4]                 
+           000c6c8c  ldr      ip, [fp, #0x90]              
+           000c6c90  str      ip, [sp, #8]                 
+           000c6c94  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000c6c98  ldr      r0, [fp, #0x70]              
+           000c6c9c  ldr      r1, [fp, #0x74]              
+           000c6ca0  ldr      r2, [fp, #0x78]              
+           000c6ca4  ldr      r3, [fp, #0x94]              
+           000c6ca8  ldr      ip, [fp, #0x98]              
+           000c6cac  str      ip, [sp]                     
+           000c6cb0  ldr      ip, [fp, #0x9c]              
+           000c6cb4  str      ip, [sp, #4]                 
+           000c6cb8  bl       #0x22aed0                    ; CALL UnityEngine.Vector3::Dot
+           000c6cbc  vmov     s4, r0                       
+           000c6cc0  vcvt.f64.f32 d2, s4                       
+           000c6cc4  vldr     s6, [pc]                     ; float 0.0
+           000c6cc8  b        #0xc6cd0                     ; -> L_c6cd0
+           000c6ccc  .word    0x00000000                   ; literal 0 / 0
+L_c6cd0:   000c6cd0  vcvt.f64.f32 d3, s6                       
+           000c6cd4  vcmp.f64 d2, d3                       
+           000c6cd8  vmrs     apsr_nzcv, fpscr             
+           000c6cdc  bvs      #0xc6ce8                     ; -> L_c6ce8
+           000c6ce0  bge      #0xc6ce8                     ; -> L_c6ce8
+           000c6ce4  b        #0xc6cfc                     ; -> L_c6cfc
+L_c6ce8:   000c6ce8  ldr      r0, [fp, #0xa4]              
+           000c6cec  mov      r1, r0                       
+           000c6cf0  ldr      lr, [r1]                     
+           000c6cf4  bl       #0x22b010                    ; CALL PowerupHolder::ExecutePowerups
+           000c6cf8  b        #0xc6d54                     ; -> L_c6d54
+L_c6cfc:   000c6cfc  add      r6, r6, #1                   
+L_c6d00:   000c6d00  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: RocketChancePercent)
+           000c6d04  cmp      r6, r0                       
+           000c6d08  blt      #0xc6adc                     ; -> L_c6adc
+           000c6d0c  ldr      r0, [fp, #0xa0]              
+           000c6d10  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6d14  mov      r0, r1                       
+           000c6d18  ldr      lr, [r1]                     
+           000c6d1c  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6d20  bl       #0x112160                    ; CALL RaceManager::GetCarPosition (direct)
+           000c6d24  str      r0, [fp, #0xa8]              
+           000c6d28  bl       #0x111350                    ; CALL RaceManager::get_allCars (direct)
+           000c6d2c  mov      r1, r0                       
+           000c6d30  ldr      r0, [fp, #0xa8]              
+           000c6d34  ldr      r1, [r1, #0xc]               ; field+0xc (this-class: RocketChancePercent)
+           000c6d38  sub      r1, r1, #1                   
+           000c6d3c  cmp      r0, r1                       
+           000c6d40  beq      #0xc6d54                     ; -> L_c6d54
+           000c6d44  ldr      r0, [fp, #0xa4]              
+           000c6d48  mov      r1, r0                       
+           000c6d4c  ldr      lr, [r1]                     
+           000c6d50  bl       #0x22b010                    ; CALL PowerupHolder::ExecutePowerups
+L_c6d54:   000c6d54  add      sp, fp, #0xb4                
+           000c6d58  pop      {r4, r6, r8, sl, fp}         
+           000c6d5c  ldr      r7, [sp, #8]                 
+           000c6d60  ldm      sp, {sp, pc}                 
+           000c6d64  mov      r1, lr                       
+           000c6d68  ldr      r0, [pc]                     
+           000c6d6c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000c6d70  andeq    r0, r0, #0xf8                
+
+== UsePowerupAIState::DoMineEffectExecute  token 0x0600004f @0x000c6d74 (584 bytes)
+   args: r0=this, holder
+           000c6d74  mov      ip, sp                       
+           000c6d78  push     {r7, lr}                     
+           000c6d7c  mov      r7, sp                       
+           000c6d80  push     {r4, r6, r8, sl, fp, ip, lr} 
+           000c6d84  sub      sp, sp, #0xac                
+           000c6d88  mov      fp, sp                       
+           000c6d8c  str      r0, [fp, #0x9c]              
+           000c6d90  str      r1, [fp, #0xa0]              
+           000c6d94  bl       #0x22a870                    ; CALL UnityEngine.Random::get_value
+           000c6d98  vmov     s6, r0                       
+           000c6d9c  vcvt.f64.f32 d3, s6                       
+           000c6da0  ldr      r0, [fp, #0x9c]              
+           000c6da4  vldr     s0, [r0, #0x14]              ; field+0x14 (this-class: MineChancePercent)
+           000c6da8  vcvt.f64.f32 d2, s0                       
+           000c6dac  vcmp.f64 d2, d3                       
+           000c6db0  vmrs     apsr_nzcv, fpscr             
+           000c6db4  bvs      #0xc6dcc                     ; -> L_c6dcc
+           000c6db8  bge      #0xc6dcc                     ; -> L_c6dcc
+           000c6dbc  ldr      r0, [fp, #0xa0]              
+           000c6dc0  mov      r1, r0                       
+           000c6dc4  ldr      lr, [r1]                     
+           000c6dc8  bl       #0x22b010                    ; CALL PowerupHolder::ExecutePowerups
+L_c6dcc:   000c6dcc  ldr      r0, [fp, #0x9c]              
+           000c6dd0  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6dd4  mov      r0, r1                       
+           000c6dd8  ldr      lr, [r1]                     
+           000c6ddc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6de0  mov      r1, r0                       
+           000c6de4  ldr      lr, [r1]                     
+           000c6de8  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c6dec  mov      r2, r0                       
+           000c6df0  add      r0, fp, #0x60                
+           000c6df4  mov      r1, r2                       
+           000c6df8  ldr      lr, [r2]                     
+           000c6dfc  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c6e00  ldr      r0, [fp, #0x9c]              
+           000c6e04  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6e08  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: ShieldChancePercent)
+           000c6e0c  vldr     s0, [r0, #0x18]              ; field+0x18 
+           000c6e10  vcvt.f64.f32 d2, s0                       
+           000c6e14  ldr      r0, [fp, #0x60]              
+           000c6e18  ldr      r1, [fp, #0x64]              
+           000c6e1c  ldr      r2, [fp, #0x68]              
+           000c6e20  vcvt.f32.f64 s0, d2                       
+           000c6e24  vstr     s0, [sp, #-8]                
+           000c6e28  ldr      r3, [sp, #-8]                
+           000c6e2c  bl       #0x22ac10                    ; CALL UnityEngine.Physics::OverlapSphere
+           000c6e30  str      r0, [fp, #0x18]              
+           000c6e34  mov      sl, r0                       
+           000c6e38  mov      r6, #0                       
+           000c6e3c  b        #0xc6f80                     ; -> L_c6f80
+L_c6e40:   000c6e40  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: RocketChancePercent)
+           000c6e44  cmp      r0, r6                       
+           000c6e48  blls     #0xc6fac                     ; THROW System.IndexOutOfRangeException (if ls)
+           000c6e4c  lsl      r0, r6, #2                   
+           000c6e50  add      r0, sl, r0                   
+           000c6e54  add      r0, r0, #0x10                
+           000c6e58  ldr      r4, [r0]                     
+           000c6e5c  mov      r0, r4                       
+           000c6e60  ldr      r0, [r0]                     
+           000c6e64  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: ShieldChancePercent)
+           000c6e68  ldr      r1, [pc]                     
+           000c6e6c  b        #0xc6e74                     ; -> L_c6e74
+           000c6e70  .word    0x00ede078                   ; literal 15589496 / 
+L_c6e74:   000c6e74  ldr      r1, [pc, r1]                 ; GOT[99] TYPE_FROM_HANDLE typeof(CarCollider)
+           000c6e78  cmp      r0, r1                       
+           000c6e7c  bne      #0xc6f7c                     ; -> L_c6f7c
+           000c6e80  ldr      r0, [fp, #0x9c]              
+           000c6e84  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6e88  mov      r0, r1                       
+           000c6e8c  ldr      lr, [r1]                     
+           000c6e90  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6e94  mov      r1, r0                       
+           000c6e98  ldr      lr, [r1]                     
+           000c6e9c  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c6ea0  mov      r2, r0                       
+           000c6ea4  add      r0, fp, #0x6c                
+           000c6ea8  mov      r1, r2                       
+           000c6eac  ldr      lr, [r2]                     
+           000c6eb0  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000c6eb4  mov      r0, r4                       
+           000c6eb8  ldr      lr, [r4]                     
+           000c6ebc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6ec0  mov      r1, r0                       
+           000c6ec4  ldr      lr, [r1]                     
+           000c6ec8  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c6ecc  mov      r2, r0                       
+           000c6ed0  add      r0, fp, #0x78                
+           000c6ed4  mov      r1, r2                       
+           000c6ed8  ldr      lr, [r2]                     
+           000c6edc  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c6ee0  ldr      r0, [fp, #0x9c]              
+           000c6ee4  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c6ee8  mov      r0, r1                       
+           000c6eec  ldr      lr, [r1]                     
+           000c6ef0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c6ef4  mov      r1, r0                       
+           000c6ef8  ldr      lr, [r1]                     
+           000c6efc  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c6f00  mov      r2, r0                       
+           000c6f04  add      r0, fp, #0x84                
+           000c6f08  mov      r1, r2                       
+           000c6f0c  ldr      lr, [r2]                     
+           000c6f10  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c6f14  add      r0, fp, #0x90                
+           000c6f18  ldr      r1, [fp, #0x78]              
+           000c6f1c  ldr      r2, [fp, #0x7c]              
+           000c6f20  ldr      r3, [fp, #0x80]              
+           000c6f24  ldr      ip, [fp, #0x84]              
+           000c6f28  str      ip, [sp]                     
+           000c6f2c  ldr      ip, [fp, #0x88]              
+           000c6f30  str      ip, [sp, #4]                 
+           000c6f34  ldr      ip, [fp, #0x8c]              
+           000c6f38  str      ip, [sp, #8]                 
+           000c6f3c  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000c6f40  ldr      r0, [fp, #0x6c]              
+           000c6f44  ldr      r1, [fp, #0x70]              
+           000c6f48  ldr      r2, [fp, #0x74]              
+           000c6f4c  ldr      r3, [fp, #0x90]              
+           000c6f50  ldr      ip, [fp, #0x94]              
+           000c6f54  str      ip, [sp]                     
+           000c6f58  ldr      ip, [fp, #0x98]              
+           000c6f5c  str      ip, [sp, #4]                 
+           000c6f60  bl       #0x22aed0                    ; CALL UnityEngine.Vector3::Dot
+           000c6f64  vmov     s4, r0                       
+           000c6f68  vcvt.f64.f32 d2, s4                       
+           000c6f6c  vldr     s4, [pc]                     ; float 0.0
+           000c6f70  b        #0xc6f78                     ; -> L_c6f78
+           000c6f74  .word    0x00000000                   ; literal 0 / 0
+L_c6f78:   000c6f78  vcvt.f64.f32 d2, s4                       
+L_c6f7c:   000c6f7c  add      r6, r6, #1                   
+L_c6f80:   000c6f80  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: RocketChancePercent)
+           000c6f84  cmp      r6, r0                       
+           000c6f88  blt      #0xc6e40                     ; -> L_c6e40
+           000c6f8c  ldr      r0, [fp, #0xa0]              
+           000c6f90  mov      r1, r0                       
+           000c6f94  ldr      lr, [r1]                     
+           000c6f98  bl       #0x22b010                    ; CALL PowerupHolder::ExecutePowerups
+           000c6f9c  add      sp, fp, #0xac                
+           000c6fa0  pop      {r4, r6, r8, sl, fp}         
+           000c6fa4  ldr      r7, [sp, #8]                 
+           000c6fa8  ldm      sp, {sp, pc}                 
+           000c6fac  mov      r1, lr                       
+           000c6fb0  ldr      r0, [pc]                     
+           000c6fb4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000c6fb8  andeq    r0, r0, #0xf8                
+
+== UsePowerupAIState::FixedUpdate  token 0x06000050 @0x000c6fbc (44 bytes)
+   args: r0=this, 
+           000c6fbc  mov      ip, sp                       
+           000c6fc0  push     {r7, lr}                     
+           000c6fc4  mov      r7, sp                       
+           000c6fc8  push     {r8, fp, ip, lr}             
+           000c6fcc  sub      sp, sp, #8                   
+           000c6fd0  mov      fp, sp                       
+           000c6fd4  str      r0, [fp]                     
+           000c6fd8  add      sp, fp, #8                   
+           000c6fdc  pop      {r8, fp}                     
+           000c6fe0  ldr      r7, [sp, #8]                 
+           000c6fe4  ldm      sp, {sp, pc}                 
+
+== UsePowerupAIState::Shutdown  token 0x06000051 @0x000c6fe8 (44 bytes)
+   args: r0=this, 
+           000c6fe8  mov      ip, sp                       
+           000c6fec  push     {r7, lr}                     
+           000c6ff0  mov      r7, sp                       
+           000c6ff4  push     {r8, fp, ip, lr}             
+           000c6ff8  sub      sp, sp, #8                   
+           000c6ffc  mov      fp, sp                       
+           000c7000  str      r0, [fp]                     
+           000c7004  add      sp, fp, #8                   
+           000c7008  pop      {r8, fp}                     
+           000c700c  ldr      r7, [sp, #8]                 
+           000c7010  ldm      sp, {sp, pc}                 

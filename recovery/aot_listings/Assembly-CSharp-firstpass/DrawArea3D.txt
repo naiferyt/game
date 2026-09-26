@@ -1,0 +1,203 @@
+####################################################################################################
+# TYPE DrawArea3D  (instance size 0x78)
+#   +0x08 min                            UnityEngine.Vector3
+#   +0x14 max                            UnityEngine.Vector3
+#   +0x20 canvasMin                      UnityEngine.Vector3
+#   +0x2c canvasMax                      UnityEngine.Vector3
+#   +0x38 matrix                         UnityEngine.Matrix4x4
+#   vtable slots: 4:Point
+####################################################################################################
+== DrawArea3D::.ctor  token 0x060001e1 @0x00027d24 (180 bytes)
+   args: r0=this, min, max, matrix
+           00027d24  mov      ip, sp                       
+           00027d28  push     {r7, lr}                     
+           00027d2c  mov      r7, sp                       
+           00027d30  push     {r8, fp, ip, lr}             
+           00027d34  sub      sp, sp, #0x70                
+           00027d38  mov      fp, sp                       
+           00027d3c  str      r0, [fp, #0x10]              
+           00027d40  str      r1, [fp, #0x14]              
+           00027d44  str      r2, [fp, #0x18]              
+           00027d48  str      r3, [fp, #0x1c]              
+           00027d4c  ldr      lr, [sp, #0x88]              
+           00027d50  str      lr, [fp, #0x20]              
+           00027d54  ldr      lr, [sp, #0x8c]              
+           00027d58  str      lr, [fp, #0x24]              
+           00027d5c  ldr      lr, [sp, #0x90]              
+           00027d60  str      lr, [fp, #0x28]              
+           00027d64  add      r0, sp, #0x94                
+           00027d68  add      r1, fp, #0x2c                
+           00027d6c  mov      r2, #0x40                    
+L_27d70:   00027d70  ldr      r3, [r0]                     
+           00027d74  str      r3, [r1]                     
+           00027d78  add      r0, r0, #4                   
+           00027d7c  add      r1, r1, #4                   
+           00027d80  subs     r2, r2, #4                   
+           00027d84  bne      #0x27d70                     ; -> L_27d70
+           00027d88  ldr      r0, [fp, #0x10]              
+           00027d8c  ldr      r1, [fp, #0x14]              
+           00027d90  ldr      r2, [fp, #0x18]              
+           00027d94  ldr      r3, [fp, #0x1c]              
+           00027d98  ldr      ip, [fp, #0x20]              
+           00027d9c  str      ip, [sp]                     
+           00027da0  ldr      ip, [fp, #0x24]              
+           00027da4  str      ip, [sp, #4]                 
+           00027da8  ldr      ip, [fp, #0x28]              
+           00027dac  str      ip, [sp, #8]                 
+           00027db0  bl       #0x27064                     ; CALL DrawArea::.ctor (direct)
+           00027db4  add      r1, fp, #0x2c                
+           00027db8  ldr      r0, [fp, #0x10]              
+           00027dbc  add      r0, r0, #0x38                
+           00027dc0  mov      r2, #0x40                    
+           00027dc4  bl       #0xba2d0                     ; CALL System.String::memcpy
+           00027dc8  add      sp, fp, #0x70                
+           00027dcc  pop      {r8, fp}                     
+           00027dd0  ldr      r7, [sp, #8]                 
+           00027dd4  ldm      sp, {sp, pc}                 
+
+== DrawArea3D::Point  token 0x060001e2 @0x00027dd8 (576 bytes)
+   args: r0=this, p
+           00027dd8  mov      ip, sp                       
+           00027ddc  push     {r7, lr}                     
+           00027de0  mov      r7, sp                       
+           00027de4  push     {r6, r8, fp, ip, lr}         
+           00027de8  sub      sp, sp, #0xa4                
+           00027dec  mov      fp, sp                       
+           00027df0  str      r0, [fp, #0x18]              
+           00027df4  mov      r6, r1                       
+           00027df8  str      r2, [fp, #0x88]              
+           00027dfc  str      r3, [fp, #0x8c]              
+           00027e00  ldr      lr, [sp, #0xc0]              
+           00027e04  str      lr, [fp, #0x90]              
+           00027e08  add      r0, r6, #0x38                
+           00027e0c  str      r0, [fp, #0x98]              
+           00027e10  vldr     s0, [fp, #0x88]              
+           00027e14  vcvt.f64.f32 d2, s0                       
+           00027e18  add      r0, r6, #0x20                
+           00027e1c  vldr     s0, [r0]                     
+           00027e20  vcvt.f64.f32 d3, s0                       
+           00027e24  vsub.f64 d2, d2, d3                   
+           00027e28  add      r0, r6, #0x2c                
+           00027e2c  vldr     s0, [r0]                     
+           00027e30  vcvt.f64.f32 d3, s0                       
+           00027e34  add      r0, r6, #0x20                
+           00027e38  vldr     s0, [r0]                     
+           00027e3c  vcvt.f64.f32 d4, s0                       
+           00027e40  vsub.f64 d3, d3, d4                   
+           00027e44  vmov.f64 d4, d2                       
+           00027e48  vdiv.f64 d4, d4, d3                   
+           00027e4c  vldr     s0, [fp, #0x8c]              
+           00027e50  vcvt.f64.f32 d2, s0                       
+           00027e54  add      r0, r6, #0x20                
+           00027e58  vldr     s0, [r0, #4]                 ; field+0x4 
+           00027e5c  vcvt.f64.f32 d3, s0                       
+           00027e60  vsub.f64 d2, d2, d3                   
+           00027e64  add      r0, r6, #0x2c                
+           00027e68  vldr     s0, [r0, #4]                 ; field+0x4 
+           00027e6c  vcvt.f64.f32 d3, s0                       
+           00027e70  add      r0, r6, #0x20                
+           00027e74  vldr     s0, [r0, #4]                 ; field+0x4 
+           00027e78  vcvt.f64.f32 d6, s0                       
+           00027e7c  vmov.f64 d5, d3                       
+           00027e80  vsub.f64 d5, d5, d6                   
+           00027e84  vmov.f64 d3, d2                       
+           00027e88  vdiv.f64 d3, d3, d5                   
+           00027e8c  vldr     s4, [pc]                     ; float 0.0
+           00027e90  b        #0x27e98                     ; -> L_27e98
+           00027e94  .word    0x00000000                   ; literal 0 / 0
+L_27e98:   00027e98  vcvt.f64.f32 d2, s4                       
+           00027e9c  mov      r0, #0                       
+           00027ea0  str      r0, [fp, #0x1c]              
+           00027ea4  mov      r0, #0                       
+           00027ea8  str      r0, [fp, #0x20]              
+           00027eac  mov      r0, #0                       
+           00027eb0  str      r0, [fp, #0x24]              
+           00027eb4  add      r0, fp, #0x1c                
+           00027eb8  vcvt.f32.f64 s0, d4                       
+           00027ebc  vstr     s0, [sp, #-8]                
+           00027ec0  ldr      r1, [sp, #-8]                
+           00027ec4  vcvt.f32.f64 s0, d3                       
+           00027ec8  vstr     s0, [sp, #-8]                
+           00027ecc  ldr      r2, [sp, #-8]                
+           00027ed0  vcvt.f32.f64 s0, d2                       
+           00027ed4  vstr     s0, [sp, #-8]                
+           00027ed8  ldr      r3, [sp, #-8]                
+           00027edc  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           00027ee0  ldr      r0, [fp, #0x1c]              
+           00027ee4  str      r0, [fp, #0x28]              
+           00027ee8  ldr      r0, [fp, #0x20]              
+           00027eec  str      r0, [fp, #0x2c]              
+           00027ef0  ldr      r0, [fp, #0x24]              
+           00027ef4  str      r0, [fp, #0x30]              
+           00027ef8  add      r0, r6, #0x14                
+           00027efc  ldr      r1, [r0]                     
+           00027f00  str      r1, [fp, #0x34]              
+           00027f04  ldr      r1, [r0, #4]                 ; field+0x4 
+           00027f08  str      r1, [fp, #0x38]              
+           00027f0c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: min)
+           00027f10  str      r0, [fp, #0x3c]              
+           00027f14  add      r0, r6, #8                   
+           00027f18  ldr      r1, [r0]                     
+           00027f1c  str      r1, [fp, #0x40]              
+           00027f20  ldr      r1, [r0, #4]                 ; field+0x4 
+           00027f24  str      r1, [fp, #0x44]              
+           00027f28  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: min)
+           00027f2c  str      r0, [fp, #0x48]              
+           00027f30  add      r0, fp, #0x4c                
+           00027f34  ldr      r1, [fp, #0x34]              
+           00027f38  ldr      r2, [fp, #0x38]              
+           00027f3c  ldr      r3, [fp, #0x3c]              
+           00027f40  ldr      ip, [fp, #0x40]              
+           00027f44  str      ip, [sp]                     
+           00027f48  ldr      ip, [fp, #0x44]              
+           00027f4c  str      ip, [sp, #4]                 
+           00027f50  ldr      ip, [fp, #0x48]              
+           00027f54  str      ip, [sp, #8]                 
+           00027f58  bl       #0xbafa0                     ; CALL UnityEngine.Vector3::op_Subtraction
+           00027f5c  add      r0, fp, #0x58                
+           00027f60  ldr      r1, [fp, #0x28]              
+           00027f64  ldr      r2, [fp, #0x2c]              
+           00027f68  ldr      r3, [fp, #0x30]              
+           00027f6c  ldr      ip, [fp, #0x4c]              
+           00027f70  str      ip, [sp]                     
+           00027f74  ldr      ip, [fp, #0x50]              
+           00027f78  str      ip, [sp, #4]                 
+           00027f7c  ldr      ip, [fp, #0x54]              
+           00027f80  str      ip, [sp, #8]                 
+           00027f84  bl       #0xbb1f0                     ; CALL UnityEngine.Vector3::Scale
+           00027f88  add      r0, r6, #8                   
+           00027f8c  ldr      r1, [r0]                     
+           00027f90  str      r1, [fp, #0x64]              
+           00027f94  ldr      r1, [r0, #4]                 ; field+0x4 
+           00027f98  str      r1, [fp, #0x68]              
+           00027f9c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: min)
+           00027fa0  str      r0, [fp, #0x6c]              
+           00027fa4  add      r0, fp, #0x70                
+           00027fa8  ldr      r1, [fp, #0x58]              
+           00027fac  ldr      r2, [fp, #0x5c]              
+           00027fb0  ldr      r3, [fp, #0x60]              
+           00027fb4  ldr      ip, [fp, #0x64]              
+           00027fb8  str      ip, [sp]                     
+           00027fbc  ldr      ip, [fp, #0x68]              
+           00027fc0  str      ip, [sp, #4]                 
+           00027fc4  ldr      ip, [fp, #0x6c]              
+           00027fc8  str      ip, [sp, #8]                 
+           00027fcc  bl       #0xbaf20                     ; CALL UnityEngine.Vector3::op_Addition
+           00027fd0  ldr      r1, [fp, #0x98]              
+           00027fd4  add      r0, fp, #0x7c                
+           00027fd8  ldr      r2, [fp, #0x70]              
+           00027fdc  ldr      r3, [fp, #0x74]              
+           00027fe0  ldr      ip, [fp, #0x78]              
+           00027fe4  str      ip, [sp]                     
+           00027fe8  bl       #0xbb240                     ; CALL UnityEngine.Matrix4x4::MultiplyPoint3x4
+           00027fec  ldr      r0, [fp, #0x18]              
+           00027ff0  ldr      r1, [fp, #0x7c]              
+           00027ff4  str      r1, [r0]                     
+           00027ff8  ldr      r1, [fp, #0x80]              
+           00027ffc  str      r1, [r0, #4]                 ; field+0x4 
+           00028000  ldr      r1, [fp, #0x84]              
+           00028004  str      r1, [r0, #8]                 ; field+0x8 (this-class: min)
+           00028008  add      sp, fp, #0xa4                
+           0002800c  pop      {r6, r8, fp}                 
+           00028010  ldr      r7, [sp, #8]                 
+           00028014  ldm      sp, {sp, pc}                 

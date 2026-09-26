@@ -1,0 +1,139 @@
+####################################################################################################
+# TYPE CameraWobble  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   vtable slots: 
+####################################################################################################
+== CameraWobble::.ctor  token 0x06000401 @0x000fb39c (52 bytes)
+   args: r0=this, 
+           000fb39c  mov      ip, sp                       
+           000fb3a0  push     {r7, lr}                     
+           000fb3a4  mov      r7, sp                       
+           000fb3a8  push     {r8, fp, ip, lr}             
+           000fb3ac  sub      sp, sp, #8                   
+           000fb3b0  mov      fp, sp                       
+           000fb3b4  str      r0, [fp]                     
+           000fb3b8  ldr      r0, [fp]                     
+           000fb3bc  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000fb3c0  add      sp, fp, #8                   
+           000fb3c4  pop      {r8, fp}                     
+           000fb3c8  ldr      r7, [sp, #8]                 
+           000fb3cc  ldm      sp, {sp, pc}                 
+
+== CameraWobble::Update  token 0x06000402 @0x000fb3d0 (464 bytes)
+   args: r0=this, 
+           000fb3d0  mov      ip, sp                       
+           000fb3d4  push     {r7, lr}                     
+           000fb3d8  mov      r7, sp                       
+           000fb3dc  push     {r8, fp, ip, lr}             
+           000fb3e0  sub      sp, sp, #92, #30             
+           000fb3e4  mov      fp, sp                       
+           000fb3e8  str      r0, [fp, #0x150]             
+           000fb3ec  add      r0, fp, #0x40                
+           000fb3f0  mov      r1, #0                       
+           000fb3f4  mov      r2, #0x40                    
+           000fb3f8  bl       #0x22a990                    ; CALL System.String::memset
+           000fb3fc  ldr      r0, [fp, #0x150]             
+           000fb400  bl       #0x22bac0                    ; CALL UnityEngine.Component::get_camera
+           000fb404  mov      r2, r0                       
+           000fb408  add      r0, fp, #0x40                
+           000fb40c  mov      r1, r2                       
+           000fb410  ldr      lr, [r2]                     
+           000fb414  bl       #0x22bad0                    ; CALL UnityEngine.Camera::get_projectionMatrix
+           000fb418  vldr     s0, [fp, #0x50]              
+           000fb41c  vcvt.f64.f32 d2, s0                       
+           000fb420  vstr     d2, [fp, #0x168]             
+           000fb424  bl       #0x22d240                    ; CALL UnityEngine.Time::get_time
+           000fb428  vmov     s4, r0                       
+           000fb42c  vcvt.f64.f32 d2, s4                       
+           000fb430  vldr     s6, [pc]                     ; float 2.200000047683716
+           000fb434  b        #0xfb43c                     ; -> L_fb43c
+           000fb438  .word    0x400ccccd                   ; literal 1074580685 / 2.2
+L_fb43c:   000fb43c  vcvt.f64.f32 d3, s6                       
+           000fb440  vmul.f64 d2, d2, d3                   
+           000fb444  vcvt.f32.f64 s0, d2                       
+           000fb448  vstr     s0, [sp, #-8]                
+           000fb44c  ldr      r0, [sp, #-8]                
+           000fb450  bl       #0x22d250                    ; CALL UnityEngine.Mathf::Sin
+           000fb454  vmov     s6, r0                       
+           000fb458  vcvt.f64.f32 d3, s6                       
+           000fb45c  vldr     d2, [fp, #0x168]             
+           000fb460  vldr     s8, [pc]                     ; float 0.0020000000949949026
+           000fb464  b        #0xfb46c                     ; -> L_fb46c
+           000fb468  .word    0x3b03126f                   ; literal 990057071 / 0.002
+L_fb46c:   000fb46c  vcvt.f64.f32 d4, s8                       
+           000fb470  vmul.f64 d3, d3, d4                   
+           000fb474  vadd.f64 d2, d2, d3                   
+           000fb478  vcvt.f32.f64 s0, d2                       
+           000fb47c  vstr     s0, [fp, #0x50]              
+           000fb480  vldr     s0, [fp, #0x44]              
+           000fb484  vcvt.f64.f32 d2, s0                       
+           000fb488  vstr     d2, [fp, #0x160]             
+           000fb48c  bl       #0x22d240                    ; CALL UnityEngine.Time::get_time
+           000fb490  vmov     s4, r0                       
+           000fb494  vcvt.f64.f32 d2, s4                       
+           000fb498  vldr     s6, [pc]                     ; float 3.5
+           000fb49c  b        #0xfb4a4                     ; -> L_fb4a4
+           000fb4a0  .word    0x40600000                   ; literal 1080033280 / 3.5
+L_fb4a4:   000fb4a4  vcvt.f64.f32 d3, s6                       
+           000fb4a8  vmul.f64 d2, d2, d3                   
+           000fb4ac  vcvt.f32.f64 s0, d2                       
+           000fb4b0  vstr     s0, [sp, #-8]                
+           000fb4b4  ldr      r0, [sp, #-8]                
+           000fb4b8  bl       #0x22d260                    ; CALL UnityEngine.Mathf::Cos
+           000fb4bc  vmov     s6, r0                       
+           000fb4c0  vcvt.f64.f32 d3, s6                       
+           000fb4c4  vldr     d2, [fp, #0x160]             
+           000fb4c8  vldr     s8, [pc]                     ; float 0.0020000000949949026
+           000fb4cc  b        #0xfb4d4                     ; -> L_fb4d4
+           000fb4d0  .word    0x3b03126f                   ; literal 990057071 / 0.002
+L_fb4d4:   000fb4d4  vcvt.f64.f32 d4, s8                       
+           000fb4d8  vmul.f64 d3, d3, d4                   
+           000fb4dc  vadd.f64 d2, d2, d3                   
+           000fb4e0  vcvt.f32.f64 s0, d2                       
+           000fb4e4  vstr     s0, [fp, #0x44]              
+           000fb4e8  ldr      r0, [fp, #0x150]             
+           000fb4ec  bl       #0x22bac0                    ; CALL UnityEngine.Component::get_camera
+           000fb4f0  str      r0, [fp, #0x15c]             
+           000fb4f4  add      r1, fp, #0x40                
+           000fb4f8  add      r0, fp, #68, #30             
+           000fb4fc  mov      r2, #0x40                    
+           000fb500  bl       #0x22aa20                    ; CALL System.String::memcpy
+           000fb504  ldr      ip, [fp, #0x15c]             
+           000fb508  mov      r0, ip                       
+           000fb50c  str      r0, [fp, #0x158]             
+           000fb510  ldr      r1, [fp, #0x110]             
+           000fb514  ldr      r2, [fp, #0x114]             
+           000fb518  ldr      r3, [fp, #0x118]             
+           000fb51c  ldr      r0, [fp, #0x11c]             
+           000fb520  str      r0, [sp]                     
+           000fb524  ldr      r0, [fp, #0x120]             
+           000fb528  str      r0, [sp, #4]                 
+           000fb52c  ldr      r0, [fp, #0x124]             
+           000fb530  str      r0, [sp, #8]                 
+           000fb534  ldr      r0, [fp, #0x128]             
+           000fb538  str      r0, [sp, #0xc]               
+           000fb53c  ldr      r0, [fp, #0x12c]             
+           000fb540  str      r0, [sp, #0x10]              
+           000fb544  ldr      r0, [fp, #0x130]             
+           000fb548  str      r0, [sp, #0x14]              
+           000fb54c  ldr      r0, [fp, #0x134]             
+           000fb550  str      r0, [sp, #0x18]              
+           000fb554  ldr      r0, [fp, #0x138]             
+           000fb558  str      r0, [sp, #0x1c]              
+           000fb55c  ldr      r0, [fp, #0x13c]             
+           000fb560  str      r0, [sp, #0x20]              
+           000fb564  ldr      r0, [fp, #0x140]             
+           000fb568  str      r0, [sp, #0x24]              
+           000fb56c  ldr      r0, [fp, #0x144]             
+           000fb570  str      r0, [sp, #0x28]              
+           000fb574  ldr      r0, [fp, #0x148]             
+           000fb578  str      r0, [sp, #0x2c]              
+           000fb57c  ldr      r0, [fp, #0x14c]             
+           000fb580  str      r0, [sp, #0x30]              
+           000fb584  ldr      r0, [fp, #0x158]             
+           000fb588  ldr      lr, [ip]                     
+           000fb58c  bl       #0x22baf0                    ; CALL UnityEngine.Camera::set_projectionMatrix
+           000fb590  add      sp, fp, #92, #30             
+           000fb594  pop      {r8, fp}                     
+           000fb598  ldr      r7, [sp, #8]                 
+           000fb59c  ldm      sp, {sp, pc}                 

@@ -1,0 +1,96 @@
+####################################################################################################
+# TYPE AudioCrumb  (instance size 0x14)
+#   +0x08 clip                           UnityEngine.AudioClip
+#   +0x0c playbackSpeed                  float
+#   +0x10 volume                         float
+#   vtable slots: 
+####################################################################################################
+== AudioCrumb::.ctor  token 0x060000fc @0x000157c0 (96 bytes)
+   args: r0=this, 
+           000157c0  mov      ip, sp                       
+           000157c4  push     {r7, lr}                     
+           000157c8  mov      r7, sp                       
+           000157cc  push     {r8, fp, ip, lr}             
+           000157d0  sub      sp, sp, #8                   
+           000157d4  mov      fp, sp                       
+           000157d8  str      r0, [fp]                     
+           000157dc  vldr     s4, [pc]                     ; float 1.0
+           000157e0  b        #0x157e8                     ; -> L_157e8
+           000157e4  .word    0x3f800000                   ; literal 1065353216 / 1
+L_157e8:   000157e8  vcvt.f64.f32 d2, s4                       
+           000157ec  ldr      r0, [fp]                     
+           000157f0  vcvt.f32.f64 s0, d2                       
+           000157f4  vstr     s0, [r0, #0xc]               ; field+0xc (this-class: playbackSpeed)
+           000157f8  vldr     s4, [pc]                     ; float 1.0
+           000157fc  b        #0x15804                     ; -> L_15804
+           00015800  .word    0x3f800000                   ; literal 1065353216 / 1
+L_15804:   00015804  vcvt.f64.f32 d2, s4                       
+           00015808  vcvt.f32.f64 s0, d2                       
+           0001580c  vstr     s0, [r0, #0x10]              ; field+0x10 (this-class: volume)
+           00015810  add      sp, fp, #8                   
+           00015814  pop      {r8, fp}                     
+           00015818  ldr      r7, [sp, #8]                 
+           0001581c  ldm      sp, {sp, pc}                 
+
+== AudioCrumb::Play  token 0x060000fd @0x00015820 (240 bytes)
+   args: r0=this, 
+           00015820  mov      ip, sp                       
+           00015824  push     {r7, lr}                     
+           00015828  mov      r7, sp                       
+           0001582c  push     {r8, sl, fp, ip, lr}         
+           00015830  sub      sp, sp, #0x34                
+           00015834  mov      fp, sp                       
+           00015838  mov      sl, r0                       
+           0001583c  vldr     s0, [sl, #0x10]              ; field+0x10 (this-class: volume)
+           00015840  vcvt.f64.f32 d3, s0                       
+           00015844  vldr     s4, [pc]                     ; float 0.0
+           00015848  b        #0x15850                     ; -> L_15850
+           0001584c  .word    0x00000000                   ; literal 0 / 0
+L_15850:   00015850  vcvt.f64.f32 d2, s4                       
+           00015854  vcmp.f64 d2, d3                       
+           00015858  vmrs     apsr_nzcv, fpscr             
+           0001585c  bvs      #0x15900                     ; -> L_15900
+           00015860  bge      #0x15900                     ; -> L_15900
+           00015864  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: clip)
+           00015868  mov      r1, #0                       
+           0001586c  bl       #0xba460                     ; CALL UnityEngine.Object::op_Inequality
+           00015870  cmp      r0, #0                       
+           00015874  beq      #0x15900                     ; -> L_15900
+           00015878  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: clip)
+           0001587c  str      r0, [fp, #0x20]              
+           00015880  bl       #0xba470                     ; CALL UnityEngine.Camera::get_main
+           00015884  mov      r1, r0                       
+           00015888  ldr      lr, [r1]                     
+           0001588c  bl       #0xba480                     ; CALL UnityEngine.Component::get_transform
+           00015890  mov      r2, r0                       
+           00015894  add      r0, fp, #0x14                
+           00015898  mov      r1, r2                       
+           0001589c  ldr      lr, [r2]                     
+           000158a0  bl       #0xba490                     ; CALL UnityEngine.Transform::get_position
+           000158a4  vldr     s0, [sl, #0x10]              ; field+0x10 (this-class: volume)
+           000158a8  vcvt.f64.f32 d2, s0                       
+           000158ac  vstr     d2, [fp, #0x28]              
+           000158b0  bl       #0xba4a0                     ; CALL AudioManager::get_instance
+           000158b4  mov      r1, r0                       
+           000158b8  ldr      lr, [r1]                     
+           000158bc  bl       #0xba4b0                     ; CALL AudioManager::get_SoundEffectsVolume
+           000158c0  vmov     s8, r0                       
+           000158c4  vcvt.f64.f32 d4, s8                       
+           000158c8  ldr      r0, [fp, #0x20]              
+           000158cc  vldr     d2, [fp, #0x28]              
+           000158d0  vmov.f64 d3, d2                       
+           000158d4  vmul.f64 d3, d3, d4                   
+           000158d8  vldr     s0, [sl, #0xc]               ; field+0xc (this-class: playbackSpeed)
+           000158dc  vcvt.f64.f32 d2, s0                       
+           000158e0  ldr      r1, [fp, #0x14]              
+           000158e4  ldr      r2, [fp, #0x18]              
+           000158e8  ldr      r3, [fp, #0x1c]              
+           000158ec  vcvt.f32.f64 s0, d3                       
+           000158f0  vstr     s0, [sp]                     
+           000158f4  vcvt.f32.f64 s0, d2                       
+           000158f8  vstr     s0, [sp, #4]                 
+           000158fc  bl       #0xba4c0                     ; CALL AudioSourcex::PlayClipAtPosition
+L_15900:   00015900  add      sp, fp, #0x34                
+           00015904  pop      {r8, sl, fp}                 
+           00015908  ldr      r7, [sp, #8]                 
+           0001590c  ldm      sp, {sp, pc}                 

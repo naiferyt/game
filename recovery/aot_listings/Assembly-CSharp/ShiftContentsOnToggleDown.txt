@@ -1,0 +1,513 @@
+####################################################################################################
+# TYPE ShiftContentsOnToggleDown  (instance size 0x20)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 transformsToShift              UnityEngine.Transform[]
+#   +0x14 offset                         UnityEngine.Vector3
+#   vtable slots: 
+####################################################################################################
+== ShiftContentsOnToggleDown::.ctor  token 0x0600042a @0x000fee1c (220 bytes)
+   args: r0=this, 
+           000fee1c  mov      ip, sp                       
+           000fee20  push     {r7, lr}                     
+           000fee24  mov      r7, sp                       
+           000fee28  push     {r8, fp, ip, lr}             
+           000fee2c  sub      sp, sp, #0x28                
+           000fee30  mov      fp, sp                       
+           000fee34  str      r0, [fp, #0x20]              
+           000fee38  vldr     s8, [pc]                     ; float 0.0
+           000fee3c  b        #0xfee44                     ; -> L_fee44
+           000fee40  .word    0x00000000                   ; literal 0 / 0
+L_fee44:   000fee44  vcvt.f64.f32 d4, s8                       
+           000fee48  vldr     s6, [pc]                     ; float -0.05000000074505806
+           000fee4c  b        #0xfee54                     ; -> L_fee54
+           000fee50  .word    0xbd4ccccd                   ; literal -1119040307 / -0.05
+L_fee54:   000fee54  vcvt.f64.f32 d3, s6                       
+           000fee58  vldr     s4, [pc]                     ; float 0.0
+           000fee5c  b        #0xfee64                     ; -> L_fee64
+           000fee60  .word    0x00000000                   ; literal 0 / 0
+L_fee64:   000fee64  vcvt.f64.f32 d2, s4                       
+           000fee68  mov      r0, #0                       
+           000fee6c  str      r0, [fp, #8]                 
+           000fee70  mov      r0, #0                       
+           000fee74  str      r0, [fp, #0xc]               
+           000fee78  mov      r0, #0                       
+           000fee7c  str      r0, [fp, #0x10]              
+           000fee80  add      r0, fp, #8                   
+           000fee84  vcvt.f32.f64 s0, d4                       
+           000fee88  vstr     s0, [sp, #-8]                
+           000fee8c  ldr      r1, [sp, #-8]                
+           000fee90  vcvt.f32.f64 s0, d3                       
+           000fee94  vstr     s0, [sp, #-8]                
+           000fee98  ldr      r2, [sp, #-8]                
+           000fee9c  vcvt.f32.f64 s0, d2                       
+           000feea0  vstr     s0, [sp, #-8]                
+           000feea4  ldr      r3, [sp, #-8]                
+           000feea8  bl       #0x22b1f0                    ; CALL UnityEngine.Vector3::.ctor
+           000feeac  ldr      r0, [fp, #8]                 
+           000feeb0  str      r0, [fp, #0x14]              
+           000feeb4  ldr      r0, [fp, #0xc]               
+           000feeb8  str      r0, [fp, #0x18]              
+           000feebc  ldr      r0, [fp, #0x10]              
+           000feec0  str      r0, [fp, #0x1c]              
+           000feec4  ldr      r0, [fp, #0x20]              
+           000feec8  add      r1, r0, #0x14                
+           000feecc  ldr      r2, [fp, #0x14]              
+           000feed0  str      r2, [r1]                     
+           000feed4  ldr      r2, [fp, #0x18]              
+           000feed8  str      r2, [r1, #4]                 ; field+0x4 
+           000feedc  ldr      r2, [fp, #0x1c]              
+           000feee0  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000feee4  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000feee8  add      sp, fp, #0x28                
+           000feeec  pop      {r8, fp}                     
+           000feef0  ldr      r7, [sp, #8]                 
+           000feef4  ldm      sp, {sp, pc}                 
+
+== ShiftContentsOnToggleDown::OnEnable  token 0x0600042b @0x000feef8 (272 bytes)
+   args: r0=this, 
+           000feef8  mov      ip, sp                       
+           000feefc  push     {r7, lr}                     
+           000fef00  mov      r7, sp                       
+           000fef04  push     {r6, r8, sl, fp, ip, lr}     
+           000fef08  sub      sp, sp, #0x10                
+           000fef0c  mov      fp, sp                       
+           000fef10  mov      sl, r0                       
+           000fef14  ldr      r8, [pc]                     
+           000fef18  b        #0xfef20                     ; -> L_fef20
+           000fef1c  .word    0x00ea69c4                   ; literal 15362500 / 
+L_fef20:   000fef20  ldr      r8, [pc, r8]                 ; GOT[737] METHOD_RGCTX UnityEngine.Component::GetComponent<UghToggle>
+           000fef24  mov      r0, sl                       
+           000fef28  bl       #0x22d4c0                    ; CALL UnityEngine.Component::GetComponent<UghToggle>
+           000fef2c  mov      r6, r0                       
+           000fef30  bl       #0x22b210                    ; CALL UnityEngine.Object::op_Implicit
+           000fef34  cmp      r0, #0                       
+           000fef38  beq      #0xfefd8                     ; -> L_fefd8
+           000fef3c  str      r6, [fp]                     
+           000fef40  ldr      r0, [r6, #0x48]              ; field+0x48 
+           000fef44  str      r0, [fp, #8]                 
+           000fef48  cmp      sl, #0                       
+           000fef4c  bleq     #0xfeff8                     ; THROW System.ArgumentException (if eq)
+           000fef50  ldr      r0, [pc]                     
+           000fef54  b        #0xfef5c                     ; -> L_fef5c
+           000fef58  .word    0x00ea698c                   ; literal 15362444 / 
+L_fef5c:   000fef5c  ldr      r0, [pc, r0]                 ; GOT[738] VTABLE System.Action`2<UghToggle,bool>
+           000fef60  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000fef64  mov      r1, r0                       
+           000fef68  ldr      r0, [fp, #8]                 
+           000fef6c  str      sl, [r1, #0x10]              ; field+0x10 (this-class: transformsToShift)
+           000fef70  ldr      r2, [pc]                     
+           000fef74  b        #0xfef7c                     ; -> L_fef7c
+           000fef78  .word    0x00ea6970                   ; literal 15362416 / 
+L_fef7c:   000fef7c  ldr      r2, [pc, r2]                 ; GOT[739] METHODCONST ShiftContentsOnToggleDown::OnDownHandler
+           000fef80  str      r2, [r1, #0x14]              ; field+0x14 (this-class: offset)
+           000fef84  ldr      r2, [pc]                     
+           000fef88  b        #0xfef90                     ; -> L_fef90
+           000fef8c  .word    0x00ea6960                   ; literal 15362400 / 
+L_fef90:   000fef90  ldr      r2, [pc, r2]                 ; GOT[740] DELEGATE_TRAMPOLINE System.Action`2<UghToggle,bool>
+           000fef94  str      r2, [r1, #0xc]               ; field+0xc 
+           000fef98  bl       #0x22b670                    ; CALL System.Delegate::Combine
+           000fef9c  mov      sl, r0                       
+           000fefa0  cmp      sl, #0                       
+           000fefa4  beq      #0xfefd0                     ; -> L_fefd0
+           000fefa8  ldr      r0, [sl]                     
+           000fefac  ldr      r0, [r0]                     
+           000fefb0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000fefb4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000fefb8  ldr      r1, [pc]                     
+           000fefbc  b        #0xfefc4                     ; -> L_fefc4
+           000fefc0  .word    0x00ea6930                   ; literal 15362352 / 
+L_fefc4:   000fefc4  ldr      r1, [pc, r1]                 ; GOT[741] CLASS System.Action`2<UghToggle,bool>
+           000fefc8  cmp      r0, r1                       
+           000fefcc  blne     #0xfefe8                     ; THROW System.InvalidCastException (if ne)
+L_fefd0:   000fefd0  ldr      r0, [fp]                     
+           000fefd4  str      sl, [r0, #0x48]              ; field+0x48 
+L_fefd8:   000fefd8  add      sp, fp, #0x10                
+           000fefdc  pop      {r6, r8, sl, fp}             
+           000fefe0  ldr      r7, [sp, #8]                 
+           000fefe4  ldm      sp, {sp, pc}                 
+           000fefe8  mov      r1, lr                       
+           000fefec  ldr      r0, [pc]                     
+           000feff0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000feff4  andeq    r0, r0, #0xfd                
+           000feff8  mov      r1, lr                       
+           000feffc  ldr      r0, [pc]                     
+           000ff000  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ff004  andeq    r0, r0, #0x4d                
+
+== ShiftContentsOnToggleDown::OnDisable  token 0x0600042c @0x000ff008 (272 bytes)
+   args: r0=this, 
+           000ff008  mov      ip, sp                       
+           000ff00c  push     {r7, lr}                     
+           000ff010  mov      r7, sp                       
+           000ff014  push     {r6, r8, sl, fp, ip, lr}     
+           000ff018  sub      sp, sp, #0x10                
+           000ff01c  mov      fp, sp                       
+           000ff020  mov      sl, r0                       
+           000ff024  ldr      r8, [pc]                     
+           000ff028  b        #0xff030                     ; -> L_ff030
+           000ff02c  .word    0x00ea68b4                   ; literal 15362228 / 
+L_ff030:   000ff030  ldr      r8, [pc, r8]                 ; GOT[737] METHOD_RGCTX UnityEngine.Component::GetComponent<UghToggle>
+           000ff034  mov      r0, sl                       
+           000ff038  bl       #0x22d4c0                    ; CALL UnityEngine.Component::GetComponent<UghToggle>
+           000ff03c  mov      r6, r0                       
+           000ff040  bl       #0x22b210                    ; CALL UnityEngine.Object::op_Implicit
+           000ff044  cmp      r0, #0                       
+           000ff048  beq      #0xff0e8                     ; -> L_ff0e8
+           000ff04c  str      r6, [fp]                     
+           000ff050  ldr      r0, [r6, #0x48]              ; field+0x48 
+           000ff054  str      r0, [fp, #8]                 
+           000ff058  cmp      sl, #0                       
+           000ff05c  bleq     #0xff108                     ; THROW System.ArgumentException (if eq)
+           000ff060  ldr      r0, [pc]                     
+           000ff064  b        #0xff06c                     ; -> L_ff06c
+           000ff068  .word    0x00ea687c                   ; literal 15362172 / 
+L_ff06c:   000ff06c  ldr      r0, [pc, r0]                 ; GOT[738] VTABLE System.Action`2<UghToggle,bool>
+           000ff070  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ff074  mov      r1, r0                       
+           000ff078  ldr      r0, [fp, #8]                 
+           000ff07c  str      sl, [r1, #0x10]              ; field+0x10 (this-class: transformsToShift)
+           000ff080  ldr      r2, [pc]                     
+           000ff084  b        #0xff08c                     ; -> L_ff08c
+           000ff088  .word    0x00ea6860                   ; literal 15362144 / 
+L_ff08c:   000ff08c  ldr      r2, [pc, r2]                 ; GOT[739] METHODCONST ShiftContentsOnToggleDown::OnDownHandler
+           000ff090  str      r2, [r1, #0x14]              ; field+0x14 (this-class: offset)
+           000ff094  ldr      r2, [pc]                     
+           000ff098  b        #0xff0a0                     ; -> L_ff0a0
+           000ff09c  .word    0x00ea6850                   ; literal 15362128 / 
+L_ff0a0:   000ff0a0  ldr      r2, [pc, r2]                 ; GOT[740] DELEGATE_TRAMPOLINE System.Action`2<UghToggle,bool>
+           000ff0a4  str      r2, [r1, #0xc]               ; field+0xc 
+           000ff0a8  bl       #0x22b690                    ; CALL System.Delegate::Remove
+           000ff0ac  mov      sl, r0                       
+           000ff0b0  cmp      sl, #0                       
+           000ff0b4  beq      #0xff0e0                     ; -> L_ff0e0
+           000ff0b8  ldr      r0, [sl]                     
+           000ff0bc  ldr      r0, [r0]                     
+           000ff0c0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ff0c4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000ff0c8  ldr      r1, [pc]                     
+           000ff0cc  b        #0xff0d4                     ; -> L_ff0d4
+           000ff0d0  .word    0x00ea6820                   ; literal 15362080 / 
+L_ff0d4:   000ff0d4  ldr      r1, [pc, r1]                 ; GOT[741] CLASS System.Action`2<UghToggle,bool>
+           000ff0d8  cmp      r0, r1                       
+           000ff0dc  blne     #0xff0f8                     ; THROW System.InvalidCastException (if ne)
+L_ff0e0:   000ff0e0  ldr      r0, [fp]                     
+           000ff0e4  str      sl, [r0, #0x48]              ; field+0x48 
+L_ff0e8:   000ff0e8  add      sp, fp, #0x10                
+           000ff0ec  pop      {r6, r8, sl, fp}             
+           000ff0f0  ldr      r7, [sp, #8]                 
+           000ff0f4  ldm      sp, {sp, pc}                 
+           000ff0f8  mov      r1, lr                       
+           000ff0fc  ldr      r0, [pc]                     
+           000ff100  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ff104  andeq    r0, r0, #0xfd                
+           000ff108  mov      r1, lr                       
+           000ff10c  ldr      r0, [pc]                     
+           000ff110  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ff114  andeq    r0, r0, #0x4d                
+
+== ShiftContentsOnToggleDown::OnDownHandler  token 0x0600042d @0x000ff118 (1216 bytes)
+   args: r0=this, button, isDown
+           000ff118  mov      ip, sp                       
+           000ff11c  push     {r7, lr}                     
+           000ff120  mov      r7, sp                       
+           000ff124  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000ff128  sub      sp, sp, #80, #30             
+           000ff12c  mov      fp, sp                       
+           000ff130  str      r0, [fp, #0x134]             
+           000ff134  str      r1, [fp, #0x138]             
+           000ff138  strb     r2, [fp, #0x13c]             
+           000ff13c  mov      r0, #0                       
+           000ff140  str      r0, [fp, #0x10]              
+           000ff144  mov      r0, #0                       
+           000ff148  str      r0, [fp, #0x14]              
+           000ff14c  ldr      r0, [fp, #0x134]             
+           000ff150  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: transformsToShift)
+           000ff154  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000ff158  cmp      r0, #0                       
+           000ff15c  bne      #0xff474                     ; -> L_ff474
+           000ff160  ldr      r0, [fp, #0x134]             
+           000ff164  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000ff168  mov      r1, r0                       
+           000ff16c  ldr      lr, [r1]                     
+           000ff170  bl       #0x22d320                    ; CALL UnityEngine.Transform::GetEnumerator
+           000ff174  str      r0, [fp, #0x10]              
+           000ff178  b        #0xff2d4                     ; -> L_ff2d4
+L_ff17c:   000ff17c  ldr      r1, [fp, #0x10]              
+           000ff180  mov      r0, r1                       
+           000ff184  ldr      r1, [r1]                     
+           000ff188  ldr      r8, [pc]                     
+           000ff18c  b        #0xff194                     ; -> L_ff194
+           000ff190  .word    0x00ea5d24                   ; literal 15359268 / 
+L_ff194:   000ff194  ldr      r8, [pc, r8]                 ; GOT[86] METHODCONST System.Collections.IEnumerator::get_Current
+           000ff198  add      lr, pc, #4                   
+           000ff19c  ldr      pc, [r1, #-0x48]             ; INTERFACE CALL System.Collections.IEnumerator::get_Current
+           000ff1a0  andeq    r0, r0, r0                   
+           000ff1a4  mov      r4, r0                       
+           000ff1a8  cmp      r4, #0                       
+           000ff1ac  beq      #0xff1d8                     ; -> L_ff1d8
+           000ff1b0  ldr      r0, [r4]                     
+           000ff1b4  ldr      r0, [r0]                     
+           000ff1b8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ff1bc  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000ff1c0  ldr      r1, [pc]                     
+           000ff1c4  b        #0xff1cc                     ; -> L_ff1cc
+           000ff1c8  .word    0x00ea6694                   ; literal 15361684 / 
+L_ff1cc:   000ff1cc  ldr      r1, [pc, r1]                 ; GOT[704] CLASS UnityEngine.Transform
+           000ff1d0  cmp      r0, r1                       
+           000ff1d4  blne     #0xff5c8                     ; THROW System.InvalidCastException (if ne)
+L_ff1d8:   000ff1d8  mov      r6, r4                       
+           000ff1dc  ldrb     r0, [fp, #0x13c]             
+           000ff1e0  cmp      r0, #0                       
+           000ff1e4  beq      #0xff260                     ; -> L_ff260
+           000ff1e8  add      r0, fp, #0xa4                
+           000ff1ec  mov      r1, r6                       
+           000ff1f0  ldr      lr, [r6]                     
+           000ff1f4  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000ff1f8  ldr      r0, [fp, #0x134]             
+           000ff1fc  add      r0, r0, #0x14                
+           000ff200  ldr      r1, [r0]                     
+           000ff204  str      r1, [fp, #0xb0]              
+           000ff208  ldr      r1, [r0, #4]                 ; field+0x4 
+           000ff20c  str      r1, [fp, #0xb4]              
+           000ff210  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ff214  str      r0, [fp, #0xb8]              
+           000ff218  add      r0, fp, #0xbc                
+           000ff21c  ldr      r1, [fp, #0xa4]              
+           000ff220  ldr      r2, [fp, #0xa8]              
+           000ff224  ldr      r3, [fp, #0xac]              
+           000ff228  ldr      ip, [fp, #0xb0]              
+           000ff22c  str      ip, [sp]                     
+           000ff230  ldr      ip, [fp, #0xb4]              
+           000ff234  str      ip, [sp, #4]                 
+           000ff238  ldr      ip, [fp, #0xb8]              
+           000ff23c  str      ip, [sp, #8]                 
+           000ff240  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000ff244  mov      r0, r6                       
+           000ff248  ldr      r1, [fp, #0xbc]              
+           000ff24c  ldr      r2, [fp, #0xc0]              
+           000ff250  ldr      r3, [fp, #0xc4]              
+           000ff254  ldr      lr, [r6]                     
+           000ff258  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000ff25c  b        #0xff2d4                     ; -> L_ff2d4
+L_ff260:   000ff260  add      r0, fp, #0xc8                
+           000ff264  mov      r1, r6                       
+           000ff268  ldr      lr, [r6]                     
+           000ff26c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000ff270  ldr      r0, [fp, #0x134]             
+           000ff274  add      r0, r0, #0x14                
+           000ff278  ldr      r1, [r0]                     
+           000ff27c  str      r1, [fp, #0xd4]              
+           000ff280  ldr      r1, [r0, #4]                 ; field+0x4 
+           000ff284  str      r1, [fp, #0xd8]              
+           000ff288  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ff28c  str      r0, [fp, #0xdc]              
+           000ff290  add      r0, fp, #0xe0                
+           000ff294  ldr      r1, [fp, #0xc8]              
+           000ff298  ldr      r2, [fp, #0xcc]              
+           000ff29c  ldr      r3, [fp, #0xd0]              
+           000ff2a0  ldr      ip, [fp, #0xd4]              
+           000ff2a4  str      ip, [sp]                     
+           000ff2a8  ldr      ip, [fp, #0xd8]              
+           000ff2ac  str      ip, [sp, #4]                 
+           000ff2b0  ldr      ip, [fp, #0xdc]              
+           000ff2b4  str      ip, [sp, #8]                 
+           000ff2b8  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000ff2bc  mov      r0, r6                       
+           000ff2c0  ldr      r1, [fp, #0xe0]              
+           000ff2c4  ldr      r2, [fp, #0xe4]              
+           000ff2c8  ldr      r3, [fp, #0xe8]              
+           000ff2cc  ldr      lr, [r6]                     
+           000ff2d0  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+L_ff2d4:   000ff2d4  ldr      r1, [fp, #0x10]              
+           000ff2d8  mov      r0, r1                       
+           000ff2dc  ldr      r1, [r1]                     
+           000ff2e0  ldr      r8, [pc]                     
+           000ff2e4  b        #0xff2ec                     ; -> L_ff2ec
+           000ff2e8  .word    0x00ea5bd4                   ; literal 15358932 / 
+L_ff2ec:   000ff2ec  ldr      r8, [pc, r8]                 ; GOT[88] METHODCONST System.Collections.IEnumerator::MoveNext
+           000ff2f0  add      lr, pc, #4                   
+           000ff2f4  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           000ff2f8  andeq    r0, r0, r0                   
+           000ff2fc  cmp      r0, #0                       
+           000ff300  bne      #0xff17c                     ; -> L_ff17c
+           000ff304  bl       #0xff30c                     ; CALL 0xff30c
+           000ff308  b        #0xff5a8                     ; -> L_ff5a8
+           000ff30c  str      lr, [fp, #0x94]              
+           000ff310  ldr      r0, [fp, #0x10]              
+           000ff314  str      r0, [fp, #0x4c]              
+           000ff318  ldr      r0, [fp, #0x4c]              
+           000ff31c  str      r0, [fp, #0x98]              
+           000ff320  cmp      r0, #0                       
+           000ff324  beq      #0xff3bc                     ; -> L_ff3bc
+           000ff328  ldr      r0, [fp, #0x98]              
+           000ff32c  ldr      r0, [r0]                     
+           000ff330  str      r0, [fp, #0x9c]              
+           000ff334  ldrh     r0, [r0, #0x18]              ; field+0x18 
+           000ff338  ldr      r1, [pc]                     
+           000ff33c  b        #0xff344                     ; -> L_ff344
+           000ff340  .word    0x00ea5b80                   ; literal 15358848 / 
+L_ff344:   000ff344  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           000ff348  cmp      r0, r1                       
+           000ff34c  blo      #0xff38c                     ; -> L_ff38c
+           000ff350  ldr      r0, [fp, #0x9c]              
+           000ff354  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: offset)
+           000ff358  ldr      r1, [pc]                     
+           000ff35c  b        #0xff364                     ; -> L_ff364
+           000ff360  .word    0x00ea5b60                   ; literal 15358816 / 
+L_ff364:   000ff364  ldr      r1, [pc, r1]                 ; GOT[89] IID System.IDisposable
+           000ff368  asr      r2, r1, #3                   
+           000ff36c  add      r0, r0, r2                   
+           000ff370  ldrb     r0, [r0]                     
+           000ff374  and      r2, r1, #7                   
+           000ff378  mov      r1, #1                       
+           000ff37c  lsl      r1, r1, r2                   
+           000ff380  and      r0, r0, r1                   
+           000ff384  cmp      r0, #0                       
+           000ff388  bne      #0xff3d4                     ; -> L_ff3d4
+L_ff38c:   000ff38c  ldr      r0, [fp, #0x9c]              
+           000ff390  ldr      r0, [r0]                     
+           000ff394  ldr      r1, [pc]                     
+           000ff398  b        #0xff3a0                     ; -> L_ff3a0
+           000ff39c  .word    0x00ea5b28                   ; literal 15358760 / 
+L_ff3a0:   000ff3a0  ldr      r1, [pc, r1]                 ; GOT[90] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           000ff3a4  cmp      r0, r1                       
+           000ff3a8  bne      #0xff3bc                     ; -> L_ff3bc
+           000ff3ac  ldr      r0, [fp, #0x98]              
+           000ff3b0  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: transformsToShift)
+           000ff3b4  cmp      r0, #0                       
+           000ff3b8  bne      #0xff3c8                     ; -> L_ff3c8
+L_ff3bc:   000ff3bc  mov      r0, #1                       
+           000ff3c0  str      r0, [fp, #0xa0]              
+           000ff3c4  b        #0xff3dc                     ; -> L_ff3dc
+L_ff3c8:   000ff3c8  mov      r0, #2                       
+           000ff3cc  str      r0, [fp, #0xa0]              
+           000ff3d0  b        #0xff3dc                     ; -> L_ff3dc
+L_ff3d4:   000ff3d4  mov      r0, #0                       
+           000ff3d8  str      r0, [fp, #0xa0]              
+L_ff3dc:   000ff3dc  ldr      r0, [fp, #0xa0]              
+           000ff3e0  str      r0, [fp, #0x50]              
+           000ff3e4  mov      r1, r0                       
+           000ff3e8  ldr      r0, [fp, #0x50]              
+           000ff3ec  str      r1, [fp, #0x54]              
+           000ff3f0  cmp      r0, #0                       
+           000ff3f4  beq      #0xff420                     ; -> L_ff420
+           000ff3f8  ldr      r0, [fp, #0x54]              
+           000ff3fc  cmp      r0, #2                       
+           000ff400  bne      #0xff414                     ; -> L_ff414
+           000ff404  ldr      r0, [fp, #0x4c]              
+           000ff408  bl       #0x22af60                    ; CALL wrapper wrapper20(System.IDisposable)
+           000ff40c  str      r0, [fp, #0x58]              
+           000ff410  b        #0xff428                     ; -> L_ff428
+L_ff414:   000ff414  mov      r0, #0                       
+           000ff418  str      r0, [fp, #0x58]              
+           000ff41c  b        #0xff428                     ; -> L_ff428
+L_ff420:   000ff420  ldr      r0, [fp, #0x4c]              
+           000ff424  str      r0, [fp, #0x58]              
+L_ff428:   000ff428  ldr      r0, [fp, #0x58]              
+           000ff42c  str      r0, [fp, #0x48]              
+           000ff430  str      r0, [fp, #0x14]              
+           000ff434  cmp      r0, #0                       
+           000ff438  bne      #0xff444                     ; -> L_ff444
+           000ff43c  ldr      ip, [fp, #0x94]              
+           000ff440  mov      pc, ip                       
+L_ff444:   000ff444  ldr      r1, [fp, #0x14]              
+           000ff448  mov      r0, r1                       
+           000ff44c  ldr      r1, [r1]                     
+           000ff450  ldr      r8, [pc]                     
+           000ff454  b        #0xff45c                     ; -> L_ff45c
+           000ff458  .word    0x00ea594c                   ; literal 15358284 / 
+L_ff45c:   000ff45c  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000ff460  add      lr, pc, #4                   
+           000ff464  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000ff468  andeq    r0, r0, r0                   
+           000ff46c  ldr      ip, [fp, #0x94]              
+           000ff470  mov      pc, ip                       
+L_ff474:   000ff474  ldr      r0, [fp, #0x134]             
+           000ff478  ldr      r4, [r0, #0x10]              ; field+0x10 (this-class: transformsToShift)
+           000ff47c  mov      sl, #0                       
+           000ff480  b        #0xff59c                     ; -> L_ff59c
+L_ff484:   000ff484  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000ff488  cmp      r0, sl                       
+           000ff48c  blls     #0xff5b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           000ff490  lsl      r0, sl, #2                   
+           000ff494  add      r0, r4, r0                   
+           000ff498  add      r0, r0, #0x10                
+           000ff49c  ldr      r5, [r0]                     
+           000ff4a0  ldrb     r0, [fp, #0x13c]             
+           000ff4a4  cmp      r0, #0                       
+           000ff4a8  beq      #0xff524                     ; -> L_ff524
+           000ff4ac  add      r0, fp, #0xec                
+           000ff4b0  mov      r1, r5                       
+           000ff4b4  ldr      lr, [r5]                     
+           000ff4b8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000ff4bc  ldr      r0, [fp, #0x134]             
+           000ff4c0  add      r0, r0, #0x14                
+           000ff4c4  ldr      r1, [r0]                     
+           000ff4c8  str      r1, [fp, #0xf8]              
+           000ff4cc  ldr      r1, [r0, #4]                 ; field+0x4 
+           000ff4d0  str      r1, [fp, #0xfc]              
+           000ff4d4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ff4d8  str      r0, [fp, #0x100]             
+           000ff4dc  add      r0, fp, #0x104               
+           000ff4e0  ldr      r1, [fp, #0xec]              
+           000ff4e4  ldr      r2, [fp, #0xf0]              
+           000ff4e8  ldr      r3, [fp, #0xf4]              
+           000ff4ec  ldr      ip, [fp, #0xf8]              
+           000ff4f0  str      ip, [sp]                     
+           000ff4f4  ldr      ip, [fp, #0xfc]              
+           000ff4f8  str      ip, [sp, #4]                 
+           000ff4fc  ldr      ip, [fp, #0x100]             
+           000ff500  str      ip, [sp, #8]                 
+           000ff504  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000ff508  mov      r0, r5                       
+           000ff50c  ldr      r1, [fp, #0x104]             
+           000ff510  ldr      r2, [fp, #0x108]             
+           000ff514  ldr      r3, [fp, #0x10c]             
+           000ff518  ldr      lr, [r5]                     
+           000ff51c  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000ff520  b        #0xff598                     ; -> L_ff598
+L_ff524:   000ff524  add      r0, fp, #68, #30             
+           000ff528  mov      r1, r5                       
+           000ff52c  ldr      lr, [r5]                     
+           000ff530  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000ff534  ldr      r0, [fp, #0x134]             
+           000ff538  add      r0, r0, #0x14                
+           000ff53c  ldr      r1, [r0]                     
+           000ff540  str      r1, [fp, #0x11c]             
+           000ff544  ldr      r1, [r0, #4]                 ; field+0x4 
+           000ff548  str      r1, [fp, #0x120]             
+           000ff54c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ff550  str      r0, [fp, #0x124]             
+           000ff554  add      r0, fp, #0x128               
+           000ff558  ldr      r1, [fp, #0x110]             
+           000ff55c  ldr      r2, [fp, #0x114]             
+           000ff560  ldr      r3, [fp, #0x118]             
+           000ff564  ldr      ip, [fp, #0x11c]             
+           000ff568  str      ip, [sp]                     
+           000ff56c  ldr      ip, [fp, #0x120]             
+           000ff570  str      ip, [sp, #4]                 
+           000ff574  ldr      ip, [fp, #0x124]             
+           000ff578  str      ip, [sp, #8]                 
+           000ff57c  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000ff580  mov      r0, r5                       
+           000ff584  ldr      r1, [fp, #0x128]             
+           000ff588  ldr      r2, [fp, #0x12c]             
+           000ff58c  ldr      r3, [fp, #0x130]             
+           000ff590  ldr      lr, [r5]                     
+           000ff594  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+L_ff598:   000ff598  add      sl, sl, #1                   
+L_ff59c:   000ff59c  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000ff5a0  cmp      sl, r0                       
+           000ff5a4  blt      #0xff484                     ; -> L_ff484
+L_ff5a8:   000ff5a8  add      sp, fp, #80, #30             
+           000ff5ac  pop      {r4, r5, r6, r8, sl, fp}     
+           000ff5b0  ldr      r7, [sp, #8]                 
+           000ff5b4  ldm      sp, {sp, pc}                 
+           000ff5b8  mov      r1, lr                       
+           000ff5bc  ldr      r0, [pc]                     
+           000ff5c0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ff5c4  andeq    r0, r0, #0xf8                
+           000ff5c8  mov      r1, lr                       
+           000ff5cc  ldr      r0, [pc]                     
+           000ff5d0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ff5d4  andeq    r0, r0, #0xfd                

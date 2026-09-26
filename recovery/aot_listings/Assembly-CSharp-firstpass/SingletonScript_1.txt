@@ -1,0 +1,222 @@
+####################################################################################################
+# TYPE SingletonScript`1  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   static !0 instance
+#   vtable slots: 4:OnLevelWasLoaded, 5:SingletonCreated
+####################################################################################################
+== SingletonScript`1::.ctor  token 0x0600025f @0x0002da04 (52 bytes)
+   args: r0=this, 
+           0002da04  mov      ip, sp                       
+           0002da08  push     {r7, lr}                     
+           0002da0c  mov      r7, sp                       
+           0002da10  push     {r8, fp, ip, lr}             
+           0002da14  sub      sp, sp, #8                   
+           0002da18  mov      fp, sp                       
+           0002da1c  str      r0, [fp]                     
+           0002da20  ldr      r0, [fp]                     
+           0002da24  bl       #0x2c7dc                     ; CALL Script::.ctor (direct)
+           0002da28  add      sp, fp, #8                   
+           0002da2c  pop      {r8, fp}                     
+           0002da30  ldr      r7, [sp, #8]                 
+           0002da34  ldm      sp, {sp, pc}                 
+
+== SingletonScript`1::get_i  token 0x06000260 @0x0002da38 (356 bytes) static
+   args: 
+           0002da38  mov      ip, sp                       
+           0002da3c  push     {r7, lr}                     
+           0002da40  mov      r7, sp                       
+           0002da44  push     {r8, sl, fp, ip, lr}         
+           0002da48  sub      sp, sp, #0x14                
+           0002da4c  mov      fp, sp                       
+           0002da50  str      r8, [fp]                     
+           0002da54  ldr      r0, [fp]                     
+           0002da58  bl       #0xbb9f0                     ; CALL [RGCTX_FETCH] 
+           0002da5c  ldr      r0, [r0]                     
+           0002da60  mov      r1, #0                       
+           0002da64  bl       #0xba460                     ; CALL UnityEngine.Object::op_Inequality
+           0002da68  cmp      r0, #0                       
+           0002da6c  beq      #0x2da80                     ; -> L_2da80
+           0002da70  ldr      r0, [fp]                     
+           0002da74  bl       #0xbb9f0                     ; CALL [RGCTX_FETCH] 
+           0002da78  ldr      r0, [r0]                     
+           0002da7c  b        #0x2db7c                     ; -> L_2db7c
+L_2da80:   0002da80  ldr      r0, [fp]                     
+           0002da84  bl       #0xbba00                     ; CALL [RGCTX_FETCH] 
+           0002da88  mov      r8, r0                       
+           0002da8c  bl       #0xbba10                     ; CALL UnityEngine.Object::FindObjectsOfType<!0>
+           0002da90  mov      sl, r0                       
+           0002da94  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0002da98  cmp      r0, #1                       
+           0002da9c  ble      #0x2daf4                     ; -> L_2daf4
+           0002daa0  ldr      r0, [pc]                     
+           0002daa4  b        #0x2daac                     ; -> L_2daac
+           0002daa8  .word    0x00f6f0a4                   ; literal 16183460 / 
+L_2daac:   0002daac  ldr      r0, [pc, r0]                 ; GOT[332] LDSTR 'More than one '
+           0002dab0  str      r0, [fp, #8]                 
+           0002dab4  ldr      r0, [fp]                     
+           0002dab8  bl       #0xbba20                     ; CALL [RGCTX_FETCH] 
+           0002dabc  mov      r1, r0                       
+           0002dac0  ldr      r0, [fp, #8]                 
+           0002dac4  ldr      r2, [pc]                     
+           0002dac8  b        #0x2dad0                     ; -> L_2dad0
+           0002dacc  .word    0x00f6f084                   ; literal 16183428 / 
+L_2dad0:   0002dad0  ldr      r2, [pc, r2]                 ; GOT[333] LDSTR ' is in the scene!'
+           0002dad4  bl       #0xbba30                     ; CALL System.String::Concat
+           0002dad8  bl       #0xbae90                     ; CALL UnityEngine.Debug::LogError
+           0002dadc  ldr      r0, [fp]                     
+           0002dae0  bl       #0xbba40                     ; CALL [RGCTX_FETCH] 
+           0002dae4  mov      r1, r0                       
+           0002dae8  mov      r0, #0                       
+           0002daec  bl       #0xba1e0                     ; CALL [INTERNAL_METHOD] mono_object_castclass
+           0002daf0  b        #0x2db7c                     ; -> L_2db7c
+L_2daf4:   0002daf4  ldr      r0, [sl, #0xc]               ; field+0xc 
+           0002daf8  cmp      r0, #0                       
+           0002dafc  bne      #0x2db18                     ; -> L_2db18
+           0002db00  ldr      r0, [fp]                     
+           0002db04  bl       #0xbba40                     ; CALL [RGCTX_FETCH] 
+           0002db08  mov      r1, r0                       
+           0002db0c  mov      r0, #0                       
+           0002db10  bl       #0xba1e0                     ; CALL [INTERNAL_METHOD] mono_object_castclass
+           0002db14  b        #0x2db7c                     ; -> L_2db7c
+L_2db18:   0002db18  ldr      r0, [sl, #0xc]               ; field+0xc 
+           0002db1c  cmp      r0, #0                       
+           0002db20  blls     #0x2db8c                     ; THROW System.IndexOutOfRangeException (if ls)
+           0002db24  ldr      r0, [sl, #0x10]              ; field+0x10 
+           0002db28  str      r0, [fp, #0xc]               
+           0002db2c  ldr      r0, [fp]                     
+           0002db30  bl       #0xbb9f0                     ; CALL [RGCTX_FETCH] 
+           0002db34  ldr      r1, [fp, #0xc]               
+           0002db38  str      r1, [r0]                     
+           0002db3c  ldr      r0, [fp]                     
+           0002db40  bl       #0xbb9f0                     ; CALL [RGCTX_FETCH] 
+           0002db44  ldr      r0, [r0]                     
+           0002db48  str      r0, [fp, #8]                 
+           0002db4c  ldr      r0, [fp]                     
+           0002db50  bl       #0xbba50                     ; CALL [RGCTX_FETCH] 
+           0002db54  mov      r1, r0                       
+           0002db58  ldr      r0, [fp, #8]                 
+           0002db5c  bl       #0xba1d0                     ; CALL [INTERNAL_METHOD] mono_object_isinst
+           0002db60  mov      r1, r0                       
+           0002db64  ldr      r1, [r1]                     
+           0002db68  mov      lr, pc                       
+           0002db6c  ldr      pc, [r1, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+           0002db70  ldr      r0, [fp]                     
+           0002db74  bl       #0xbb9f0                     ; CALL [RGCTX_FETCH] 
+           0002db78  ldr      r0, [r0]                     
+L_2db7c:   0002db7c  add      sp, fp, #0x14                
+           0002db80  pop      {r8, sl, fp}                 
+           0002db84  ldr      r7, [sp, #8]                 
+           0002db88  ldm      sp, {sp, pc}                 
+           0002db8c  mov      r1, lr                       
+           0002db90  ldr      r0, [pc]                     
+           0002db94  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0002db98  andeq    r0, r0, #0xf8                
+
+== SingletonScript`1::SingletonCreated  token 0x06000261 @0x0002db9c (44 bytes)
+   args: r0=this, 
+           0002db9c  mov      ip, sp                       
+           0002dba0  push     {r7, lr}                     
+           0002dba4  mov      r7, sp                       
+           0002dba8  push     {r8, fp, ip, lr}             
+           0002dbac  sub      sp, sp, #8                   
+           0002dbb0  mov      fp, sp                       
+           0002dbb4  str      r0, [fp]                     
+           0002dbb8  add      sp, fp, #8                   
+           0002dbbc  pop      {r8, fp}                     
+           0002dbc0  ldr      r7, [sp, #8]                 
+           0002dbc4  ldm      sp, {sp, pc}                 
+
+== SingletonScript`1::Exists_VERY_EXPENSIVE  token 0x06000262 @0x0002dbc8 (88 bytes) static
+   args: 
+           0002dbc8  mov      ip, sp                       
+           0002dbcc  push     {r7, lr}                     
+           0002dbd0  mov      r7, sp                       
+           0002dbd4  push     {r8, fp, ip, lr}             
+           0002dbd8  sub      sp, sp, #8                   
+           0002dbdc  mov      fp, sp                       
+           0002dbe0  str      r8, [fp]                     
+           0002dbe4  ldr      r0, [fp]                     
+           0002dbe8  bl       #0xbba60                     ; CALL [RGCTX_FETCH] 
+           0002dbec  mov      r8, r0                       
+           0002dbf0  bl       #0xbba10                     ; CALL UnityEngine.Object::FindObjectsOfType<!0>
+           0002dbf4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0002dbf8  cmp      r0, #1                       
+           0002dbfc  mov      r0, #0                       
+           0002dc00  movlt    r0, #1                       
+           0002dc04  cmp      r0, #0                       
+           0002dc08  movne    r0, #0                       
+           0002dc0c  moveq    r0, #1                       
+           0002dc10  add      sp, fp, #8                   
+           0002dc14  pop      {r8, fp}                     
+           0002dc18  ldr      r7, [sp, #8]                 
+           0002dc1c  ldm      sp, {sp, pc}                 
+
+== SingletonScript`1::Existed  token 0x06000263 @0x0002dc20 (68 bytes) static
+   args: 
+           0002dc20  mov      ip, sp                       
+           0002dc24  push     {r7, lr}                     
+           0002dc28  mov      r7, sp                       
+           0002dc2c  push     {r8, fp, ip, lr}             
+           0002dc30  sub      sp, sp, #8                   
+           0002dc34  mov      fp, sp                       
+           0002dc38  str      r8, [fp]                     
+           0002dc3c  ldr      r0, [fp]                     
+           0002dc40  bl       #0xbba70                     ; CALL [RGCTX_FETCH] 
+           0002dc44  mov      r8, r0                       
+           0002dc48  bl       #0xbba80                     ; CALL SingletonScript`1::get_i
+           0002dc4c  mov      r1, #0                       
+           0002dc50  bl       #0xba460                     ; CALL UnityEngine.Object::op_Inequality
+           0002dc54  add      sp, fp, #8                   
+           0002dc58  pop      {r8, fp}                     
+           0002dc5c  ldr      r7, [sp, #8]                 
+           0002dc60  ldm      sp, {sp, pc}                 
+
+== SingletonScript`1::OnLevelWasLoaded  token 0x06000264 @0x0002dc64 (92 bytes)
+   args: r0=this, 
+           0002dc64  mov      ip, sp                       
+           0002dc68  push     {r7, lr}                     
+           0002dc6c  mov      r7, sp                       
+           0002dc70  push     {r8, fp, ip, lr}             
+           0002dc74  sub      sp, sp, #0x10                
+           0002dc78  mov      fp, sp                       
+           0002dc7c  str      r0, [fp]                     
+           0002dc80  ldr      r0, [fp]                     
+           0002dc84  ldr      r0, [r0]                     
+           0002dc88  bl       #0xbba90                     ; CALL [RGCTX_FETCH] 
+           0002dc8c  mov      r1, r0                       
+           0002dc90  mov      r0, #0                       
+           0002dc94  bl       #0xba1e0                     ; CALL [INTERNAL_METHOD] mono_object_castclass
+           0002dc98  str      r0, [fp, #8]                 
+           0002dc9c  ldr      r0, [fp]                     
+           0002dca0  ldr      r0, [r0]                     
+           0002dca4  bl       #0xbbaa0                     ; CALL [RGCTX_FETCH] 
+           0002dca8  ldr      r1, [fp, #8]                 
+           0002dcac  str      r1, [r0]                     
+           0002dcb0  add      sp, fp, #0x10                
+           0002dcb4  pop      {r8, fp}                     
+           0002dcb8  ldr      r7, [sp, #8]                 
+           0002dcbc  ldm      sp, {sp, pc}                 
+
+== SingletonScript`1::ForceReload  token 0x06000265 @0x0002dcc0 (84 bytes) static
+   args: 
+           0002dcc0  mov      ip, sp                       
+           0002dcc4  push     {r7, lr}                     
+           0002dcc8  mov      r7, sp                       
+           0002dccc  push     {r8, fp, ip, lr}             
+           0002dcd0  sub      sp, sp, #0x10                
+           0002dcd4  mov      fp, sp                       
+           0002dcd8  str      r8, [fp]                     
+           0002dcdc  ldr      r0, [fp]                     
+           0002dce0  bl       #0xbbab0                     ; CALL [RGCTX_FETCH] 
+           0002dce4  mov      r1, r0                       
+           0002dce8  mov      r0, #0                       
+           0002dcec  bl       #0xba1e0                     ; CALL [INTERNAL_METHOD] mono_object_castclass
+           0002dcf0  str      r0, [fp, #8]                 
+           0002dcf4  ldr      r0, [fp]                     
+           0002dcf8  bl       #0xbbac0                     ; CALL [RGCTX_FETCH] 
+           0002dcfc  ldr      r1, [fp, #8]                 
+           0002dd00  str      r1, [r0]                     
+           0002dd04  add      sp, fp, #0x10                
+           0002dd08  pop      {r8, fp}                     
+           0002dd0c  ldr      r7, [sp, #8]                 
+           0002dd10  ldm      sp, {sp, pc}                 

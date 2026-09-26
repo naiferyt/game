@@ -1,0 +1,583 @@
+####################################################################################################
+# TYPE MusicPlayer  (instance size 0x14)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 paused                         bool
+#   static MusicPlayer s_Instance
+#   vtable slots: 
+####################################################################################################
+== MusicPlayer::.ctor  token 0x060002f6 @0x000ed1e0 (52 bytes)
+   args: r0=this, 
+           000ed1e0  mov      ip, sp                       
+           000ed1e4  push     {r7, lr}                     
+           000ed1e8  mov      r7, sp                       
+           000ed1ec  push     {r8, fp, ip, lr}             
+           000ed1f0  sub      sp, sp, #8                   
+           000ed1f4  mov      fp, sp                       
+           000ed1f8  str      r0, [fp]                     
+           000ed1fc  ldr      r0, [fp]                     
+           000ed200  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000ed204  add      sp, fp, #8                   
+           000ed208  pop      {r8, fp}                     
+           000ed20c  ldr      r7, [sp, #8]                 
+           000ed210  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::.cctor  token 0x060002f7 @0x000ed214 (36 bytes) static
+   args: 
+           000ed214  mov      ip, sp                       
+           000ed218  push     {r7, lr}                     
+           000ed21c  mov      r7, sp                       
+           000ed220  push     {r8, fp, ip, lr}             
+           000ed224  mov      fp, sp                       
+           000ed228  add      sp, fp, #0                   
+           000ed22c  pop      {r8, fp}                     
+           000ed230  ldr      r7, [sp, #8]                 
+           000ed234  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::get_Instance  token 0x060002f8 @0x000ed238 (248 bytes) static
+   args: 
+           000ed238  mov      ip, sp                       
+           000ed23c  push     {r7, lr}                     
+           000ed240  mov      r7, sp                       
+           000ed244  push     {r6, r8, sl, fp, ip, lr}     
+           000ed248  mov      fp, sp                       
+           000ed24c  ldr      r0, [pc]                     
+           000ed250  b        #0xed258                     ; -> L_ed258
+           000ed254  .word    0x00eb8414                   ; literal 15434772 / 
+L_ed258:   000ed258  ldr      r0, [pc, r0]                 ; GOT[579] SFLDA MusicPlayer::s_Instance
+           000ed25c  ldr      r0, [r0]                     
+           000ed260  mov      r1, #0                       
+           000ed264  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000ed268  cmp      r0, #0                       
+           000ed26c  beq      #0xed30c                     ; -> L_ed30c
+           000ed270  ldr      r0, [pc]                     
+           000ed274  b        #0xed27c                     ; -> L_ed27c
+           000ed278  .word    0x00eb83f4                   ; literal 15434740 / 
+L_ed27c:   000ed27c  ldr      r0, [pc, r0]                 ; GOT[580] TYPE_FROM_HANDLE typeof(MusicPlayer)
+           000ed280  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           000ed284  mov      sl, r0                       
+           000ed288  mov      r6, sl                       
+           000ed28c  cmp      sl, #0                       
+           000ed290  beq      #0xed2c0                     ; -> L_ed2c0
+           000ed294  ldr      r0, [sl]                     
+           000ed298  ldr      r0, [r0]                     
+           000ed29c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ed2a0  ldr      r0, [r0, #0x14]              ; field+0x14 
+           000ed2a4  ldr      r1, [pc]                     
+           000ed2a8  b        #0xed2b0                     ; -> L_ed2b0
+           000ed2ac  .word    0x00eb83c4                   ; literal 15434692 / 
+L_ed2b0:   000ed2b0  ldr      r1, [pc, r1]                 ; GOT[581] CLASS MusicPlayer
+           000ed2b4  cmp      r0, r1                       
+           000ed2b8  beq      #0xed2c0                     ; -> L_ed2c0
+           000ed2bc  mov      r6, #0                       
+L_ed2c0:   000ed2c0  ldr      r0, [pc]                     
+           000ed2c4  b        #0xed2cc                     ; -> L_ed2cc
+           000ed2c8  .word    0x00eb83a0                   ; literal 15434656 / 
+L_ed2cc:   000ed2cc  ldr      r0, [pc, r0]                 ; GOT[579] SFLDA MusicPlayer::s_Instance
+           000ed2d0  str      r6, [r0]                     
+           000ed2d4  ldr      r0, [pc]                     
+           000ed2d8  b        #0xed2e0                     ; -> L_ed2e0
+           000ed2dc  .word    0x00eb838c                   ; literal 15434636 / 
+L_ed2e0:   000ed2e0  ldr      r0, [pc, r0]                 ; GOT[579] SFLDA MusicPlayer::s_Instance
+           000ed2e4  ldr      r0, [r0]                     
+           000ed2e8  mov      r1, #0                       
+           000ed2ec  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000ed2f0  cmp      r0, #0                       
+           000ed2f4  beq      #0xed30c                     ; -> L_ed30c
+           000ed2f8  ldr      r0, [pc]                     
+           000ed2fc  b        #0xed304                     ; -> L_ed304
+           000ed300  .word    0x00eb8374                   ; literal 15434612 / 
+L_ed304:   000ed304  ldr      r0, [pc, r0]                 ; GOT[582] LDSTR 'There needs to be a MusicPlayer in the scene!'
+           000ed308  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+L_ed30c:   000ed30c  ldr      r0, [pc]                     
+           000ed310  b        #0xed318                     ; -> L_ed318
+           000ed314  .word    0x00eb8354                   ; literal 15434580 / 
+L_ed318:   000ed318  ldr      r0, [pc, r0]                 ; GOT[579] SFLDA MusicPlayer::s_Instance
+           000ed31c  ldr      r0, [r0]                     
+           000ed320  add      sp, fp, #0                   
+           000ed324  pop      {r6, r8, sl, fp}             
+           000ed328  ldr      r7, [sp, #8]                 
+           000ed32c  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::get_Exists  token 0x060002f9 @0x000ed330 (64 bytes) static
+   args: 
+           000ed330  mov      ip, sp                       
+           000ed334  push     {r7, lr}                     
+           000ed338  mov      r7, sp                       
+           000ed33c  push     {r8, fp, ip, lr}             
+           000ed340  mov      fp, sp                       
+           000ed344  ldr      r0, [pc]                     
+           000ed348  b        #0xed350                     ; -> L_ed350
+           000ed34c  .word    0x00eb8320                   ; literal 15434528 / 
+L_ed350:   000ed350  ldr      r0, [pc, r0]                 ; GOT[580] TYPE_FROM_HANDLE typeof(MusicPlayer)
+           000ed354  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           000ed358  mov      r1, #0                       
+           000ed35c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000ed360  add      sp, fp, #0                   
+           000ed364  pop      {r8, fp}                     
+           000ed368  ldr      r7, [sp, #8]                 
+           000ed36c  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::Start  token 0x060002fa @0x000ed370 (104 bytes)
+   args: r0=this, 
+           000ed370  mov      ip, sp                       
+           000ed374  push     {r7, lr}                     
+           000ed378  mov      r7, sp                       
+           000ed37c  push     {r8, fp, ip, lr}             
+           000ed380  sub      sp, sp, #0x10                
+           000ed384  mov      fp, sp                       
+           000ed388  str      r0, [fp, #8]                 
+           000ed38c  ldr      r0, [fp, #8]                 
+           000ed390  bl       #0xed66c                     ; CALL MusicPlayer::UpdateVolume (direct)
+           000ed394  ldr      r0, [fp, #8]                 
+           000ed398  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed39c  mov      r2, r0                       
+           000ed3a0  vldr     s4, [pc]                     ; float 3.4028234663852886e+38
+           000ed3a4  b        #0xed3ac                     ; -> L_ed3ac
+           000ed3a8  .word    0x7f7fffff                   ; literal 2139095039 / 
+L_ed3ac:   000ed3ac  vcvt.f64.f32 d2, s4                       
+           000ed3b0  mov      r0, r2                       
+           000ed3b4  vcvt.f32.f64 s0, d2                       
+           000ed3b8  vstr     s0, [sp, #-8]                
+           000ed3bc  ldr      r1, [sp, #-8]                
+           000ed3c0  ldr      lr, [r2]                     
+           000ed3c4  bl       #0x22bc10                    ; CALL UnityEngine.AudioSource::set_maxDistance
+           000ed3c8  add      sp, fp, #0x10                
+           000ed3cc  pop      {r8, fp}                     
+           000ed3d0  ldr      r7, [sp, #8]                 
+           000ed3d4  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::Awake  token 0x060002fb @0x000ed3d8 (56 bytes)
+   args: r0=this, 
+           000ed3d8  mov      ip, sp                       
+           000ed3dc  push     {r7, lr}                     
+           000ed3e0  mov      r7, sp                       
+           000ed3e4  push     {r8, fp, ip, lr}             
+           000ed3e8  sub      sp, sp, #8                   
+           000ed3ec  mov      fp, sp                       
+           000ed3f0  str      r0, [fp]                     
+           000ed3f4  ldr      r0, [fp]                     
+           000ed3f8  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000ed3fc  bl       #0x22b640                    ; CALL UnityEngine.Object::DontDestroyOnLoad
+           000ed400  add      sp, fp, #8                   
+           000ed404  pop      {r8, fp}                     
+           000ed408  ldr      r7, [sp, #8]                 
+           000ed40c  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::Update  token 0x060002fc @0x000ed410 (152 bytes)
+   args: r0=this, 
+           000ed410  mov      ip, sp                       
+           000ed414  push     {r7, lr}                     
+           000ed418  mov      r7, sp                       
+           000ed41c  push     {r8, sl, fp, ip, lr}         
+           000ed420  sub      sp, sp, #0xc                 
+           000ed424  mov      fp, sp                       
+           000ed428  mov      sl, r0                       
+           000ed42c  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           000ed430  cmp      r0, #0                       
+           000ed434  beq      #0xed464                     ; -> L_ed464
+           000ed438  ldrb     r0, [sl, #0x10]              ; field+0x10 (this-class: paused)
+           000ed43c  cmp      r0, #0                       
+           000ed440  bne      #0xed464                     ; -> L_ed464
+           000ed444  mov      r0, #1                       
+           000ed448  strb     r0, [sl, #0x10]              ; field+0x10 (this-class: paused)
+           000ed44c  mov      r0, sl                       
+           000ed450  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed454  mov      r1, r0                       
+           000ed458  ldr      lr, [r1]                     
+           000ed45c  bl       #0x22bc90                    ; CALL UnityEngine.AudioSource::Pause
+           000ed460  b        #0xed498                     ; -> L_ed498
+L_ed464:   000ed464  ldrb     r0, [sl, #0x10]              ; field+0x10 (this-class: paused)
+           000ed468  cmp      r0, #0                       
+           000ed46c  beq      #0xed498                     ; -> L_ed498
+           000ed470  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           000ed474  cmp      r0, #0                       
+           000ed478  bne      #0xed498                     ; -> L_ed498
+           000ed47c  mov      r0, #0                       
+           000ed480  strb     r0, [sl, #0x10]              ; field+0x10 (this-class: paused)
+           000ed484  mov      r0, sl                       
+           000ed488  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed48c  mov      r1, r0                       
+           000ed490  ldr      lr, [r1]                     
+           000ed494  bl       #0x22bca0                    ; CALL UnityEngine.AudioSource::Play
+L_ed498:   000ed498  add      sp, fp, #0xc                 
+           000ed49c  pop      {r8, sl, fp}                 
+           000ed4a0  ldr      r7, [sp, #8]                 
+           000ed4a4  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::PlayMusic  token 0x060002fd @0x000ed4a8 (72 bytes)
+   args: r0=this, 
+           000ed4a8  mov      ip, sp                       
+           000ed4ac  push     {r7, lr}                     
+           000ed4b0  mov      r7, sp                       
+           000ed4b4  push     {r8, fp, ip, lr}             
+           000ed4b8  sub      sp, sp, #8                   
+           000ed4bc  mov      fp, sp                       
+           000ed4c0  str      r0, [fp]                     
+           000ed4c4  ldr      r0, [pc]                     
+           000ed4c8  b        #0xed4d0                     ; -> L_ed4d0
+           000ed4cc  .word    0x00eb7b34                   ; literal 15432500 / 
+L_ed4d0:   000ed4d0  ldr      r0, [pc, r0]                 ; GOT[169] SFLDA System.String::Empty
+           000ed4d4  ldr      r1, [r0]                     
+           000ed4d8  ldr      r0, [fp]                     
+           000ed4dc  bl       #0x22cbd0                    ; CALL MusicPlayer::PlayMusic
+           000ed4e0  add      sp, fp, #8                   
+           000ed4e4  pop      {r8, fp}                     
+           000ed4e8  ldr      r7, [sp, #8]                 
+           000ed4ec  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::PlayMusic  token 0x060002fe @0x000ed4f0 (288 bytes)
+   args: r0=this, levelName
+           000ed4f0  mov      ip, sp                       
+           000ed4f4  push     {r7, lr}                     
+           000ed4f8  mov      r7, sp                       
+           000ed4fc  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000ed500  sub      sp, sp, #0xc                 
+           000ed504  mov      fp, sp                       
+           000ed508  mov      r6, r0                       
+           000ed50c  mov      sl, r1                       
+           000ed510  mov      r0, r6                       
+           000ed514  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed518  mov      r1, r0                       
+           000ed51c  ldr      lr, [r1]                     
+           000ed520  bl       #0x22cbb0                    ; CALL UnityEngine.AudioSource::get_isPlaying
+           000ed524  cmp      r0, #0                       
+           000ed528  beq      #0xed540                     ; -> L_ed540
+           000ed52c  mov      r0, r6                       
+           000ed530  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed534  mov      r1, r0                       
+           000ed538  ldr      lr, [r1]                     
+           000ed53c  bl       #0x22bd80                    ; CALL UnityEngine.AudioSource::Stop
+L_ed540:   000ed540  ldr      r0, [pc]                     
+           000ed544  b        #0xed54c                     ; -> L_ed54c
+           000ed548  .word    0x00eb8130                   ; literal 15434032 / 
+L_ed54c:   000ed54c  ldr      r0, [pc, r0]                 ; GOT[583] LDSTR 'bgMusicDefault'
+           000ed550  bl       #0xedbdc                     ; CALL SoundLibrary::GetClip (direct)
+           000ed554  mov      r5, r0                       
+           000ed558  ldr      r0, [pc]                     
+           000ed55c  b        #0xed564                     ; -> L_ed564
+           000ed560  .word    0x00eb7aa0                   ; literal 15432352 / 
+L_ed564:   000ed564  ldr      r0, [pc, r0]                 ; GOT[169] SFLDA System.String::Empty
+           000ed568  ldr      r1, [r0]                     
+           000ed56c  mov      r0, sl                       
+           000ed570  bl       #0x22ab40                    ; CALL System.String::op_Inequality
+           000ed574  cmp      r0, #0                       
+           000ed578  beq      #0xed588                     ; -> L_ed588
+           000ed57c  mov      r0, sl                       
+           000ed580  bl       #0xedbdc                     ; CALL SoundLibrary::GetClip (direct)
+           000ed584  mov      r5, r0                       
+L_ed588:   000ed588  mov      r0, r5                       
+           000ed58c  mov      r1, #0                       
+           000ed590  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000ed594  cmp      r0, #0                       
+           000ed598  beq      #0xed5bc                     ; -> L_ed5bc
+           000ed59c  ldr      r0, [pc]                     
+           000ed5a0  b        #0xed5a8                     ; -> L_ed5a8
+           000ed5a4  .word    0x00eb80d8                   ; literal 15433944 / 
+L_ed5a8:   000ed5a8  ldr      r0, [pc, r0]                 ; GOT[584] LDSTR 'Wrong Clip name for music, passed in levelName was: '
+           000ed5ac  mov      r1, sl                       
+           000ed5b0  bl       #0x22adc0                    ; CALL System.String::Concat
+           000ed5b4  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           000ed5b8  b        #0xed600                     ; -> L_ed600
+L_ed5bc:   000ed5bc  mov      r0, r6                       
+           000ed5c0  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed5c4  mov      r2, r0                       
+           000ed5c8  mov      r1, r5                       
+           000ed5cc  ldr      lr, [r2]                     
+           000ed5d0  bl       #0x22bd90                    ; CALL UnityEngine.AudioSource::set_clip
+           000ed5d4  mov      r0, r6                       
+           000ed5d8  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed5dc  mov      r2, r0                       
+           000ed5e0  mov      r1, #1                       
+           000ed5e4  ldr      lr, [r2]                     
+           000ed5e8  bl       #0x22bc30                    ; CALL UnityEngine.AudioSource::set_loop
+           000ed5ec  mov      r0, r6                       
+           000ed5f0  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed5f4  mov      r1, r0                       
+           000ed5f8  ldr      lr, [r1]                     
+           000ed5fc  bl       #0x22bca0                    ; CALL UnityEngine.AudioSource::Play
+L_ed600:   000ed600  add      sp, fp, #0xc                 
+           000ed604  pop      {r5, r6, r8, sl, fp}         
+           000ed608  ldr      r7, [sp, #8]                 
+           000ed60c  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::StopMusic  token 0x060002ff @0x000ed610 (92 bytes)
+   args: r0=this, 
+           000ed610  mov      ip, sp                       
+           000ed614  push     {r7, lr}                     
+           000ed618  mov      r7, sp                       
+           000ed61c  push     {r8, fp, ip, lr}             
+           000ed620  sub      sp, sp, #8                   
+           000ed624  mov      fp, sp                       
+           000ed628  str      r0, [fp]                     
+           000ed62c  ldr      r0, [fp]                     
+           000ed630  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed634  mov      r1, r0                       
+           000ed638  ldr      lr, [r1]                     
+           000ed63c  bl       #0x22cbb0                    ; CALL UnityEngine.AudioSource::get_isPlaying
+           000ed640  cmp      r0, #0                       
+           000ed644  beq      #0xed65c                     ; -> L_ed65c
+           000ed648  ldr      r0, [fp]                     
+           000ed64c  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed650  mov      r1, r0                       
+           000ed654  ldr      lr, [r1]                     
+           000ed658  bl       #0x22bd80                    ; CALL UnityEngine.AudioSource::Stop
+L_ed65c:   000ed65c  add      sp, fp, #8                   
+           000ed660  pop      {r8, fp}                     
+           000ed664  ldr      r7, [sp, #8]                 
+           000ed668  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::UpdateVolume  token 0x06000300 @0x000ed66c (100 bytes)
+   args: r0=this, 
+           000ed66c  mov      ip, sp                       
+           000ed670  push     {r7, lr}                     
+           000ed674  mov      r7, sp                       
+           000ed678  push     {r8, fp, ip, lr}             
+           000ed67c  sub      sp, sp, #0x18                
+           000ed680  mov      fp, sp                       
+           000ed684  str      r0, [fp, #8]                 
+           000ed688  ldr      r0, [fp, #8]                 
+           000ed68c  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed690  str      r0, [fp, #0x10]              
+           000ed694  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000ed698  ldr      r2, [fp, #0x10]              
+           000ed69c  ldr      r0, [r0, #0x18]              ; field+0x18 
+           000ed6a0  vldr     s0, [r0, #0x10]              ; field+0x10 (this-class: paused)
+           000ed6a4  vcvt.f64.f32 d2, s0                       
+           000ed6a8  mov      r0, r2                       
+           000ed6ac  vcvt.f32.f64 s0, d2                       
+           000ed6b0  vstr     s0, [sp, #-8]                
+           000ed6b4  ldr      r1, [sp, #-8]                
+           000ed6b8  ldr      lr, [r2]                     
+           000ed6bc  bl       #0x22bc20                    ; CALL UnityEngine.AudioSource::set_volume
+           000ed6c0  add      sp, fp, #0x18                
+           000ed6c4  pop      {r8, fp}                     
+           000ed6c8  ldr      r7, [sp, #8]                 
+           000ed6cc  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::HijackMusicPlayerForSoundStings  token 0x06000301 @0x000ed6d0 (276 bytes)
+   args: r0=this, stingName, loop
+           000ed6d0  mov      ip, sp                       
+           000ed6d4  push     {r7, lr}                     
+           000ed6d8  mov      r7, sp                       
+           000ed6dc  push     {r6, r8, fp, ip, lr}         
+           000ed6e0  sub      sp, sp, #0x24                
+           000ed6e4  mov      fp, sp                       
+           000ed6e8  mov      r6, r0                       
+           000ed6ec  str      r1, [fp, #0x10]              
+           000ed6f0  strb     r2, [fp, #0x14]              
+           000ed6f4  mov      r0, r6                       
+           000ed6f8  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed6fc  mov      r1, r0                       
+           000ed700  ldr      lr, [r1]                     
+           000ed704  bl       #0x22cbb0                    ; CALL UnityEngine.AudioSource::get_isPlaying
+           000ed708  cmp      r0, #0                       
+           000ed70c  beq      #0xed724                     ; -> L_ed724
+           000ed710  mov      r0, r6                       
+           000ed714  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed718  mov      r1, r0                       
+           000ed71c  ldr      lr, [r1]                     
+           000ed720  bl       #0x22bd80                    ; CALL UnityEngine.AudioSource::Stop
+L_ed724:   000ed724  mov      r0, r6                       
+           000ed728  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed72c  str      r0, [fp, #0x1c]              
+           000ed730  ldr      r0, [fp, #0x10]              
+           000ed734  bl       #0xedbdc                     ; CALL SoundLibrary::GetClip (direct)
+           000ed738  mov      r1, r0                       
+           000ed73c  ldr      r2, [fp, #0x1c]              
+           000ed740  mov      r0, r2                       
+           000ed744  ldr      lr, [r2]                     
+           000ed748  bl       #0x22bd90                    ; CALL UnityEngine.AudioSource::set_clip
+           000ed74c  mov      r0, r6                       
+           000ed750  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed754  mov      r2, r0                       
+           000ed758  ldrb     r1, [fp, #0x14]              
+           000ed75c  ldr      lr, [r2]                     
+           000ed760  bl       #0x22bc30                    ; CALL UnityEngine.AudioSource::set_loop
+           000ed764  mov      r0, r6                       
+           000ed768  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed76c  str      r0, [fp, #0x18]              
+           000ed770  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000ed774  ldr      r2, [fp, #0x18]              
+           000ed778  ldr      r0, [r0, #0x18]              ; field+0x18 
+           000ed77c  vldr     s0, [r0, #0x14]              ; field+0x14 
+           000ed780  vcvt.f64.f32 d2, s0                       
+           000ed784  mov      r0, r2                       
+           000ed788  vcvt.f32.f64 s0, d2                       
+           000ed78c  vstr     s0, [sp, #-8]                
+           000ed790  ldr      r1, [sp, #-8]                
+           000ed794  ldr      lr, [r2]                     
+           000ed798  bl       #0x22bc20                    ; CALL UnityEngine.AudioSource::set_volume
+           000ed79c  mov      r0, r6                       
+           000ed7a0  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           000ed7a4  mov      r1, r0                       
+           000ed7a8  ldr      lr, [r1]                     
+           000ed7ac  bl       #0x22bca0                    ; CALL UnityEngine.AudioSource::Play
+           000ed7b0  ldr      r0, [pc]                     
+           000ed7b4  b        #0xed7bc                     ; -> L_ed7bc
+           000ed7b8  .word    0x00eb7ec8                   ; literal 15433416 / 
+L_ed7bc:   000ed7bc  ldr      r0, [pc, r0]                 ; GOT[585] VTABLE MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25
+           000ed7c0  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ed7c4  mov      r1, r0                       
+           000ed7c8  str      r6, [r1, #0xc]               ; field+0xc 
+           000ed7cc  mov      r0, r6                       
+           000ed7d0  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000ed7d4  add      sp, fp, #0x24                
+           000ed7d8  pop      {r6, r8, fp}                 
+           000ed7dc  ldr      r7, [sp, #8]                 
+           000ed7e0  ldm      sp, {sp, pc}                 
+
+== MusicPlayer::RestoreVolumeAfterSound  token 0x06000302 @0x000ed7e4 (72 bytes)
+   args: r0=this, 
+           000ed7e4  mov      ip, sp                       
+           000ed7e8  push     {r7, lr}                     
+           000ed7ec  mov      r7, sp                       
+           000ed7f0  push     {r8, fp, ip, lr}             
+           000ed7f4  sub      sp, sp, #8                   
+           000ed7f8  mov      fp, sp                       
+           000ed7fc  str      r0, [fp]                     
+           000ed800  ldr      r0, [pc]                     
+           000ed804  b        #0xed80c                     ; -> L_ed80c
+           000ed808  .word    0x00eb7e78                   ; literal 15433336 / 
+L_ed80c:   000ed80c  ldr      r0, [pc, r0]                 ; GOT[585] VTABLE MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25
+           000ed810  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ed814  ldr      r1, [fp]                     
+           000ed818  str      r1, [r0, #0xc]               ; field+0xc 
+           000ed81c  add      sp, fp, #8                   
+           000ed820  pop      {r8, fp}                     
+           000ed824  ldr      r7, [sp, #8]                 
+           000ed828  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      MusicPlayer
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25::.ctor  token 0x060008ab @0x001484b8 (44 bytes)
+   args: r0=this, 
+           001484b8  mov      ip, sp                       
+           001484bc  push     {r7, lr}                     
+           001484c0  mov      r7, sp                       
+           001484c4  push     {r8, fp, ip, lr}             
+           001484c8  sub      sp, sp, #8                   
+           001484cc  mov      fp, sp                       
+           001484d0  str      r0, [fp]                     
+           001484d4  add      sp, fp, #8                   
+           001484d8  pop      {r8, fp}                     
+           001484dc  ldr      r7, [sp, #8]                 
+           001484e0  ldm      sp, {sp, pc}                 
+
+== MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x060008ac @0x001484e4 (52 bytes)
+   args: r0=this, 
+           001484e4  mov      ip, sp                       
+           001484e8  push     {r7, lr}                     
+           001484ec  mov      r7, sp                       
+           001484f0  push     {r8, fp, ip, lr}             
+           001484f4  sub      sp, sp, #8                   
+           001484f8  mov      fp, sp                       
+           001484fc  str      r0, [fp]                     
+           00148500  ldr      r0, [fp]                     
+           00148504  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00148508  add      sp, fp, #8                   
+           0014850c  pop      {r8, fp}                     
+           00148510  ldr      r7, [sp, #8]                 
+           00148514  ldm      sp, {sp, pc}                 
+
+== MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25::System.Collections.IEnumerator.get_Current  token 0x060008ad @0x00148518 (52 bytes)
+   args: r0=this, 
+           00148518  mov      ip, sp                       
+           0014851c  push     {r7, lr}                     
+           00148520  mov      r7, sp                       
+           00148524  push     {r8, fp, ip, lr}             
+           00148528  sub      sp, sp, #8                   
+           0014852c  mov      fp, sp                       
+           00148530  str      r0, [fp]                     
+           00148534  ldr      r0, [fp]                     
+           00148538  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014853c  add      sp, fp, #8                   
+           00148540  pop      {r8, fp}                     
+           00148544  ldr      r7, [sp, #8]                 
+           00148548  ldm      sp, {sp, pc}                 
+
+== MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25::MoveNext  token 0x060008ae @0x0014854c (172 bytes)
+   args: r0=this, 
+           0014854c  mov      ip, sp                       
+           00148550  push     {r7, lr}                     
+           00148554  mov      r7, sp                       
+           00148558  push     {r8, sl, fp, ip, lr}         
+           0014855c  sub      sp, sp, #0xc                 
+           00148560  mov      fp, sp                       
+           00148564  mov      sl, r0                       
+           00148568  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014856c  mvn      r1, #0                       
+           00148570  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00148574  str      r0, [fp]                     
+           00148578  cmp      r0, #2                       
+           0014857c  bhs      #0x1485dc                    ; -> L_1485dc
+           00148580  ldr      r0, [fp]                     
+           00148584  lsl      r1, r0, #2                   
+           00148588  ldr      r0, [pc]                     
+           0014858c  b        #0x148594                    ; -> L_148594
+           00148590  .word    0x00e5e39c                   ; literal 15066012 / 
+L_148594:  00148594  ldr      r0, [pc, r0]                 ; GOT[1780] SWITCH switch table[2]
+           00148598  add      r0, r0, r1                   
+           0014859c  ldr      r0, [r0]                     
+           001485a0  mov      pc, r0                       
+L_1485a4:  001485a4  mov      r0, #0                       
+           001485a8  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           001485ac  mov      r0, #1                       
+           001485b0  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           001485b4  b        #0x1485e4                    ; -> L_1485e4
+           001485b8  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           001485bc  bl       #0x22bbe0                    ; CALL UnityEngine.Component::get_audio
+           001485c0  mov      r1, r0                       
+           001485c4  ldr      lr, [r1]                     
+           001485c8  bl       #0x22cbb0                    ; CALL UnityEngine.AudioSource::get_isPlaying
+           001485cc  cmp      r0, #0                       
+           001485d0  bne      #0x1485a4                    ; -> L_1485a4
+           001485d4  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           001485d8  bl       #0xed66c                     ; CALL MusicPlayer::UpdateVolume (direct)
+L_1485dc:  001485dc  mov      r0, #0                       
+           001485e0  b        #0x1485e8                    ; -> L_1485e8
+L_1485e4:  001485e4  mov      r0, #1                       
+L_1485e8:  001485e8  add      sp, fp, #0xc                 
+           001485ec  pop      {r8, sl, fp}                 
+           001485f0  ldr      r7, [sp, #8]                 
+           001485f4  ldm      sp, {sp, pc}                 
+
+== MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25::Dispose  token 0x060008af @0x001485f8 (56 bytes)
+   args: r0=this, 
+           001485f8  mov      ip, sp                       
+           001485fc  push     {r7, lr}                     
+           00148600  mov      r7, sp                       
+           00148604  push     {r8, fp, ip, lr}             
+           00148608  sub      sp, sp, #8                   
+           0014860c  mov      fp, sp                       
+           00148610  str      r0, [fp]                     
+           00148614  ldr      r0, [fp]                     
+           00148618  mvn      r1, #0                       
+           0014861c  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           00148620  add      sp, fp, #8                   
+           00148624  pop      {r8, fp}                     
+           00148628  ldr      r7, [sp, #8]                 
+           0014862c  ldm      sp, {sp, pc}                 
+
+== MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25::Reset  token 0x060008b0 @0x00148630 (64 bytes)
+   args: r0=this, 
+           00148630  mov      ip, sp                       
+           00148634  push     {r7, lr}                     
+           00148638  mov      r7, sp                       
+           0014863c  push     {r8, fp, ip, lr}             
+           00148640  sub      sp, sp, #8                   
+           00148644  mov      fp, sp                       
+           00148648  str      r0, [fp]                     
+           0014864c  mov      r0, #0x49                    
+           00148650  add      r0, r0, #0x100               
+           00148654  add      r0, r0, #0x2000000           
+           00148658  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           0014865c  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00148660  add      sp, fp, #8                   
+           00148664  pop      {r8, fp}                     
+           00148668  ldr      r7, [sp, #8]                 
+           0014866c  ldm      sp, {sp, pc}                 

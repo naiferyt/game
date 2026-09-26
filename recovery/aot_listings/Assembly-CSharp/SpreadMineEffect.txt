@@ -1,0 +1,277 @@
+####################################################################################################
+# TYPE SpreadMineEffect  (instance size 0x20)
+#   +0x08 time                           float
+#   +0x0c power                          int
+#   +0x10 effectType                     BaseEffect/EffectTypes
+#   +0x14 isMultiLevel                   bool
+#   +0x18 powerLevel                     int
+#   +0x1c parentObject                   UnityEngine.GameObject
+#   vtable slots: 5:GetEffectSnapShot, 6:Stack, 7:Shutdown, 8:Update, 9:Init
+####################################################################################################
+== SpreadMineEffect::.ctor  token 0x060003d9 @0x000f8c14 (96 bytes)
+   args: r0=this, owner
+           000f8c14  mov      ip, sp                       
+           000f8c18  push     {r7, lr}                     
+           000f8c1c  mov      r7, sp                       
+           000f8c20  push     {r6, r8, fp, ip, lr}         
+           000f8c24  sub      sp, sp, #0xc                 
+           000f8c28  mov      fp, sp                       
+           000f8c2c  mov      r6, r0                       
+           000f8c30  str      r1, [fp]                     
+           000f8c34  mov      r0, #1                       
+           000f8c38  str      r0, [r6, #0x18]              ; field+0x18 (this-class: powerLevel)
+           000f8c3c  mov      r0, #0xf                     
+           000f8c40  str      r0, [r6, #0x10]              ; field+0x10 (this-class: effectType)
+           000f8c44  ldr      r0, [fp]                     
+           000f8c48  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8c4c  vldr     s4, [pc]                     ; float 0.25
+           000f8c50  b        #0xf8c58                     ; -> L_f8c58
+           000f8c54  .word    0x3e800000                   ; literal 1048576000 / 0.25
+L_f8c58:   000f8c58  vcvt.f64.f32 d2, s4                       
+           000f8c5c  vcvt.f32.f64 s0, d2                       
+           000f8c60  vstr     s0, [r6, #8]                 ; field+0x8 (this-class: time)
+           000f8c64  add      sp, fp, #0xc                 
+           000f8c68  pop      {r6, r8, fp}                 
+           000f8c6c  ldr      r7, [sp, #8]                 
+           000f8c70  ldm      sp, {sp, pc}                 
+
+== SpreadMineEffect::Start  token 0x060003da @0x000f8c74 (44 bytes)
+   args: r0=this, 
+           000f8c74  mov      ip, sp                       
+           000f8c78  push     {r7, lr}                     
+           000f8c7c  mov      r7, sp                       
+           000f8c80  push     {r8, fp, ip, lr}             
+           000f8c84  sub      sp, sp, #8                   
+           000f8c88  mov      fp, sp                       
+           000f8c8c  str      r0, [fp]                     
+           000f8c90  add      sp, fp, #8                   
+           000f8c94  pop      {r8, fp}                     
+           000f8c98  ldr      r7, [sp, #8]                 
+           000f8c9c  ldm      sp, {sp, pc}                 
+
+== SpreadMineEffect::Init  token 0x060003db @0x000f8ca0 (52 bytes)
+   args: r0=this, 
+           000f8ca0  mov      ip, sp                       
+           000f8ca4  push     {r7, lr}                     
+           000f8ca8  mov      r7, sp                       
+           000f8cac  push     {r8, fp, ip, lr}             
+           000f8cb0  sub      sp, sp, #8                   
+           000f8cb4  mov      fp, sp                       
+           000f8cb8  str      r0, [fp]                     
+           000f8cbc  ldr      r0, [fp]                     
+           000f8cc0  bl       #0x22d1f0                    ; CALL SpreadMineEffect::LaunchSpreader
+           000f8cc4  add      sp, fp, #8                   
+           000f8cc8  pop      {r8, fp}                     
+           000f8ccc  ldr      r7, [sp, #8]                 
+           000f8cd0  ldm      sp, {sp, pc}                 
+
+== SpreadMineEffect::Update  token 0x060003dc @0x000f8cd4 (44 bytes)
+   args: r0=this, 
+           000f8cd4  mov      ip, sp                       
+           000f8cd8  push     {r7, lr}                     
+           000f8cdc  mov      r7, sp                       
+           000f8ce0  push     {r8, fp, ip, lr}             
+           000f8ce4  sub      sp, sp, #8                   
+           000f8ce8  mov      fp, sp                       
+           000f8cec  str      r0, [fp]                     
+           000f8cf0  add      sp, fp, #8                   
+           000f8cf4  pop      {r8, fp}                     
+           000f8cf8  ldr      r7, [sp, #8]                 
+           000f8cfc  ldm      sp, {sp, pc}                 
+
+== SpreadMineEffect::Shutdown  token 0x060003dd @0x000f8d00 (44 bytes)
+   args: r0=this, 
+           000f8d00  mov      ip, sp                       
+           000f8d04  push     {r7, lr}                     
+           000f8d08  mov      r7, sp                       
+           000f8d0c  push     {r8, fp, ip, lr}             
+           000f8d10  sub      sp, sp, #8                   
+           000f8d14  mov      fp, sp                       
+           000f8d18  str      r0, [fp]                     
+           000f8d1c  add      sp, fp, #8                   
+           000f8d20  pop      {r8, fp}                     
+           000f8d24  ldr      r7, [sp, #8]                 
+           000f8d28  ldm      sp, {sp, pc}                 
+
+== SpreadMineEffect::Stack  token 0x060003de @0x000f8d2c (52 bytes)
+   args: r0=this, second
+           000f8d2c  mov      ip, sp                       
+           000f8d30  push     {r7, lr}                     
+           000f8d34  mov      r7, sp                       
+           000f8d38  push     {r8, fp, ip, lr}             
+           000f8d3c  sub      sp, sp, #8                   
+           000f8d40  mov      fp, sp                       
+           000f8d44  str      r0, [fp]                     
+           000f8d48  str      r1, [fp, #4]                 
+           000f8d4c  mov      r0, #0                       
+           000f8d50  add      sp, fp, #8                   
+           000f8d54  pop      {r8, fp}                     
+           000f8d58  ldr      r7, [sp, #8]                 
+           000f8d5c  ldm      sp, {sp, pc}                 
+
+== SpreadMineEffect::GetEffectSnapShot  token 0x060003df @0x000f8d60 (48 bytes)
+   args: r0=this, 
+           000f8d60  mov      ip, sp                       
+           000f8d64  push     {r7, lr}                     
+           000f8d68  mov      r7, sp                       
+           000f8d6c  push     {r8, fp, ip, lr}             
+           000f8d70  sub      sp, sp, #8                   
+           000f8d74  mov      fp, sp                       
+           000f8d78  str      r0, [fp]                     
+           000f8d7c  ldr      r0, [fp]                     
+           000f8d80  add      sp, fp, #8                   
+           000f8d84  pop      {r8, fp}                     
+           000f8d88  ldr      r7, [sp, #8]                 
+           000f8d8c  ldm      sp, {sp, pc}                 
+
+== SpreadMineEffect::LaunchSpreader  token 0x060003e0 @0x000f8d90 (596 bytes)
+   args: r0=this, 
+           000f8d90  mov      ip, sp                       
+           000f8d94  push     {r7, lr}                     
+           000f8d98  mov      r7, sp                       
+           000f8d9c  push     {r4, r5, r8, sl, fp, ip, lr} 
+           000f8da0  sub      sp, sp, #0xb4                
+           000f8da4  mov      fp, sp                       
+           000f8da8  mov      sl, r0                       
+           000f8dac  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8db0  ldr      r1, [pc]                     
+           000f8db4  b        #0xf8dbc                     ; -> L_f8dbc
+           000f8db8  .word    0x00eac11c                   ; literal 15384860 / 
+L_f8dbc:   000f8dbc  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f8dc0  ldr      lr, [r0]                     
+           000f8dc4  mov      r8, r1                       
+           000f8dc8  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f8dcc  str      r0, [fp, #0xac]              
+           000f8dd0  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8dd4  mov      r0, r1                       
+           000f8dd8  ldr      lr, [r1]                     
+           000f8ddc  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f8de0  mov      r2, r0                       
+           000f8de4  add      r0, fp, #0x40                
+           000f8de8  mov      r1, r2                       
+           000f8dec  ldr      lr, [r2]                     
+           000f8df0  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000f8df4  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8df8  mov      r0, r1                       
+           000f8dfc  ldr      lr, [r1]                     
+           000f8e00  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f8e04  mov      r2, r0                       
+           000f8e08  add      r0, fp, #0x4c                
+           000f8e0c  mov      r1, r2                       
+           000f8e10  ldr      lr, [r2]                     
+           000f8e14  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000f8e18  vldr     s4, [pc]                     ; float 5.0
+           000f8e1c  b        #0xf8e24                     ; -> L_f8e24
+           000f8e20  .word    0x40a00000                   ; literal 1084227584 / 5
+L_f8e24:   000f8e24  vcvt.f64.f32 d2, s4                       
+           000f8e28  add      r0, fp, #0x58                
+           000f8e2c  ldr      r1, [fp, #0x4c]              
+           000f8e30  ldr      r2, [fp, #0x50]              
+           000f8e34  ldr      r3, [fp, #0x54]              
+           000f8e38  vcvt.f32.f64 s0, d2                       
+           000f8e3c  vstr     s0, [sp]                     
+           000f8e40  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000f8e44  add      r0, fp, #0x64                
+           000f8e48  ldr      r1, [fp, #0x40]              
+           000f8e4c  ldr      r2, [fp, #0x44]              
+           000f8e50  ldr      r3, [fp, #0x48]              
+           000f8e54  ldr      ip, [fp, #0x58]              
+           000f8e58  str      ip, [sp]                     
+           000f8e5c  ldr      ip, [fp, #0x5c]              
+           000f8e60  str      ip, [sp, #4]                 
+           000f8e64  ldr      ip, [fp, #0x60]              
+           000f8e68  str      ip, [sp, #8]                 
+           000f8e6c  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000f8e70  add      r0, fp, #0x70                
+           000f8e74  bl       #0x22b3e0                    ; CALL UnityEngine.Vector3::get_up
+           000f8e78  vldr     s4, [pc]                     ; float 2.0
+           000f8e7c  b        #0xf8e84                     ; -> L_f8e84
+           000f8e80  .word    0x40000000                   ; literal 1073741824 / 2
+L_f8e84:   000f8e84  vcvt.f64.f32 d2, s4                       
+           000f8e88  add      r0, fp, #0x7c                
+           000f8e8c  ldr      r1, [fp, #0x70]              
+           000f8e90  ldr      r2, [fp, #0x74]              
+           000f8e94  ldr      r3, [fp, #0x78]              
+           000f8e98  vcvt.f32.f64 s0, d2                       
+           000f8e9c  vstr     s0, [sp]                     
+           000f8ea0  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000f8ea4  add      r0, fp, #0x88                
+           000f8ea8  ldr      r1, [fp, #0x64]              
+           000f8eac  ldr      r2, [fp, #0x68]              
+           000f8eb0  ldr      r3, [fp, #0x6c]              
+           000f8eb4  ldr      ip, [fp, #0x7c]              
+           000f8eb8  str      ip, [sp]                     
+           000f8ebc  ldr      ip, [fp, #0x80]              
+           000f8ec0  str      ip, [sp, #4]                 
+           000f8ec4  ldr      ip, [fp, #0x84]              
+           000f8ec8  str      ip, [sp, #8]                 
+           000f8ecc  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000f8ed0  ldr      r0, [fp, #0xac]              
+           000f8ed4  ldr      r0, [r0, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8ed8  str      r0, [fp, #0xa8]              
+           000f8edc  ldr      r1, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8ee0  mov      r0, r1                       
+           000f8ee4  ldr      lr, [r1]                     
+           000f8ee8  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000f8eec  mov      r2, r0                       
+           000f8ef0  add      r0, fp, #0x94                
+           000f8ef4  mov      r1, r2                       
+           000f8ef8  ldr      lr, [r2]                     
+           000f8efc  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           000f8f00  ldr      r0, [fp, #0xa8]              
+           000f8f04  ldr      r1, [fp, #0x88]              
+           000f8f08  ldr      r2, [fp, #0x8c]              
+           000f8f0c  ldr      r3, [fp, #0x90]              
+           000f8f10  ldr      ip, [fp, #0x94]              
+           000f8f14  str      ip, [sp]                     
+           000f8f18  ldr      ip, [fp, #0x98]              
+           000f8f1c  str      ip, [sp, #4]                 
+           000f8f20  ldr      ip, [fp, #0x9c]              
+           000f8f24  str      ip, [sp, #8]                 
+           000f8f28  ldr      ip, [fp, #0xa0]              
+           000f8f2c  str      ip, [sp, #0xc]               
+           000f8f30  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           000f8f34  mov      r4, r0                       
+           000f8f38  cmp      r4, #0                       
+           000f8f3c  beq      #0xf8f68                     ; -> L_f8f68
+           000f8f40  ldr      r0, [r4]                     
+           000f8f44  ldr      r0, [r0]                     
+           000f8f48  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f8f4c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: time)
+           000f8f50  ldr      r1, [pc]                     
+           000f8f54  b        #0xf8f5c                     ; -> L_f8f5c
+           000f8f58  .word    0x00eabff0                   ; literal 15384560 / 
+L_f8f5c:   000f8f5c  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           000f8f60  cmp      r0, r1                       
+           000f8f64  blne     #0xf8fd4                     ; THROW System.InvalidCastException (if ne)
+L_f8f68:   000f8f68  str      r4, [fp, #0x10]              
+           000f8f6c  ldr      r0, [pc]                     
+           000f8f70  b        #0xf8f78                     ; -> L_f8f78
+           000f8f74  .word    0x00eac890                   ; literal 15386768 / 
+L_f8f78:   000f8f78  ldr      r0, [pc, r0]                 ; GOT[682] METHOD_RGCTX UnityEngine.GameObject::GetComponent<MineSpreaderAI>
+           000f8f7c  ldr      lr, [r4]                     
+           000f8f80  mov      r8, r0                       
+           000f8f84  mov      r0, r4                       
+           000f8f88  bl       #0x22d200                    ; CALL UnityEngine.GameObject::GetComponent<MineSpreaderAI>
+           000f8f8c  mov      r5, r0                       
+           000f8f90  mov      r1, #0                       
+           000f8f94  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f8f98  cmp      r0, #0                       
+           000f8f9c  beq      #0xf8fb0                     ; -> L_f8fb0
+           000f8fa0  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: parentObject)
+           000f8fa4  ldr      lr, [r5]                     
+           000f8fa8  str      r0, [r5, #0x14]              ; field+0x14 (this-class: isMultiLevel)
+           000f8fac  b        #0xf8fc4                     ; -> L_f8fc4
+L_f8fb0:   000f8fb0  ldr      r0, [pc]                     
+           000f8fb4  b        #0xf8fbc                     ; -> L_f8fbc
+           000f8fb8  .word    0x00eac850                   ; literal 15386704 / 
+L_f8fbc:   000f8fbc  ldr      r0, [pc, r0]                 ; GOT[683] LDSTR 'no AI on spreader!!'
+           000f8fc0  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+L_f8fc4:   000f8fc4  add      sp, fp, #0xb4                
+           000f8fc8  pop      {r4, r5, r8, sl, fp}         
+           000f8fcc  ldr      r7, [sp, #8]                 
+           000f8fd0  ldm      sp, {sp, pc}                 
+           000f8fd4  mov      r1, lr                       
+           000f8fd8  ldr      r0, [pc]                     
+           000f8fdc  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000f8fe0  andeq    r0, r0, #0xfd                

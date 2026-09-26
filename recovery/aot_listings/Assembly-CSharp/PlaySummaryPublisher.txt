@@ -1,0 +1,1116 @@
+####################################################################################################
+# TYPE PlaySummaryPublisher  (instance size 0x54)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 transformReferences            UghPublisher/TransformReference[]
+#   +0x14 transformsDictionary           UghPublisher/TransformsDictionary
+#   +0x18 ughTextReferences              UghPublisher/UghTextReference[]
+#   +0x1c ughTextsDictionary             UghPublisher/UghTextsDictionary
+#   +0x20 ledScrollerReferences          UghPublisher/LEDScrollerReference[]
+#   +0x24 ledScrollersDictionary         UghPublisher/LEDScrollersDictionary
+#   +0x28 ughButtonReferences            UghPublisher/UghButtonReference[]
+#   +0x2c ughButtonsDictionary           UghPublisher/UghButtonsDictionary
+#   +0x30 ughSlideToggleReferences       UghPublisher/UghSlideToggleReference[]
+#   +0x34 ughSlideTogglesDictionary      UghPublisher/UghSlideToggleDictionary
+#   +0x38 ughSliderReferences            UghPublisher/UghSliderReference[]
+#   +0x3c ughSlidersDictionary           UghPublisher/UghSliderDictionary
+#   +0x40 ughSprites                     System.Collections.Generic.List`1<UghSprite>
+#   +0x44 popoverPrefab                  UnityEngine.GameObject
+#   +0x48 trackIcons                     System.Collections.Generic.List`1<TrackSelectPublisher/TrackIcon>
+#   +0x4c transitionTimer                float
+#   +0x50 transitionSpeed                float
+#   vtable slots: 
+####################################################################################################
+== PlaySummaryPublisher::.ctor  token 0x060006b7 @0x0012f414 (100 bytes)
+   args: r0=this, 
+           0012f414  mov      ip, sp                       
+           0012f418  push     {r7, lr}                     
+           0012f41c  mov      r7, sp                       
+           0012f420  push     {r8, sl, fp, ip, lr}         
+           0012f424  sub      sp, sp, #4                   
+           0012f428  mov      fp, sp                       
+           0012f42c  mov      sl, r0                       
+           0012f430  vldr     s4, [pc]                     ; float 1.0
+           0012f434  b        #0x12f43c                    ; -> L_12f43c
+           0012f438  .word    0x3f800000                   ; literal 1065353216 / 1
+L_12f43c:  0012f43c  vcvt.f64.f32 d2, s4                       
+           0012f440  vcvt.f32.f64 s0, d2                       
+           0012f444  vstr     s0, [sl, #0x4c]              ; field+0x4c (this-class: transitionTimer)
+           0012f448  vldr     s4, [pc]                     ; float 4.0
+           0012f44c  b        #0x12f454                    ; -> L_12f454
+           0012f450  .word    0x40800000                   ; literal 1082130432 / 4
+L_12f454:  0012f454  vcvt.f64.f32 d2, s4                       
+           0012f458  vcvt.f32.f64 s0, d2                       
+           0012f45c  vstr     s0, [sl, #0x50]              ; field+0x50 (this-class: transitionSpeed)
+           0012f460  mov      r0, sl                       
+           0012f464  bl       #0x22e1d0                    ; CALL UghPublisher::.ctor
+           0012f468  add      sp, fp, #4                   
+           0012f46c  pop      {r8, sl, fp}                 
+           0012f470  ldr      r7, [sp, #8]                 
+           0012f474  ldm      sp, {sp, pc}                 
+
+== PlaySummaryPublisher::Refresh  token 0x060006b8 @0x0012f478 (800 bytes)
+   args: r0=this, 
+           0012f478  mov      ip, sp                       
+           0012f47c  push     {r7, lr}                     
+           0012f480  mov      r7, sp                       
+           0012f484  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0012f488  sub      sp, sp, #0x10                
+           0012f48c  mov      fp, sp                       
+           0012f490  mov      sl, r0                       
+           0012f494  ldr      r0, [pc]                     
+           0012f498  b        #0x12f4a0                    ; -> L_12f4a0
+           0012f49c  .word    0x00e75a10                   ; literal 15161872 / 
+L_12f4a0:  0012f4a0  ldr      r0, [pc, r0]                 ; GOT[84] LDSTR 'ERROR'
+           0012f4a4  str      r0, [fp]                     
+           0012f4a8  ldr      r0, [pc]                     
+           0012f4ac  b        #0x12f4b4                    ; -> L_12f4b4
+           0012f4b0  .word    0x00e759fc                   ; literal 15161852 / 
+L_12f4b4:  0012f4b4  ldr      r0, [pc, r0]                 ; GOT[84] LDSTR 'ERROR'
+           0012f4b8  str      r0, [fp, #4]                 
+           0012f4bc  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012f4c0  mov      r1, r0                       
+           0012f4c4  ldr      lr, [r1]                     
+           0012f4c8  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0012f4cc  mov      r1, r0                       
+           0012f4d0  ldr      lr, [r1]                     
+           0012f4d4  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0012f4d8  str      r0, [fp, #8]                 
+           0012f4dc  cmp      r0, #3                       
+           0012f4e0  bhs      #0x12f5a0                    ; -> L_12f5a0
+           0012f4e4  ldr      r0, [fp, #8]                 
+           0012f4e8  lsl      r1, r0, #2                   
+           0012f4ec  ldr      r0, [pc]                     
+           0012f4f0  b        #0x12f4f8                    ; -> L_12f4f8
+           0012f4f4  .word    0x00e76e4c                   ; literal 15167052 / 
+L_12f4f8:  0012f4f8  ldr      r0, [pc, r0]                 ; GOT[1401] SWITCH switch table[3]
+           0012f4fc  add      r0, r0, r1                   
+           0012f500  ldr      r0, [r0]                     
+           0012f504  mov      pc, r0                       
+           0012f508  ldr      r0, [pc]                     
+           0012f50c  b        #0x12f514                    ; -> L_12f514
+           0012f510  .word    0x00e76e34                   ; literal 15167028 / 
+L_12f514:  0012f514  ldr      r0, [pc, r0]                 ; GOT[1402] LDSTR 'Race'
+           0012f518  bl       #0x22e530                    ; CALL Localize::Get
+           0012f51c  str      r0, [fp]                     
+           0012f520  ldr      r0, [pc]                     
+           0012f524  b        #0x12f52c                    ; -> L_12f52c
+           0012f528  .word    0x00e76e20                   ; literal 15167008 / 
+L_12f52c:  0012f52c  ldr      r0, [pc, r0]                 ; GOT[1403] LDSTR 'Be the first to cross the finish line.'
+           0012f530  bl       #0x22e530                    ; CALL Localize::Get
+           0012f534  str      r0, [fp, #4]                 
+           0012f538  b        #0x12f5a0                    ; -> L_12f5a0
+           0012f53c  ldr      r0, [pc]                     
+           0012f540  b        #0x12f548                    ; -> L_12f548
+           0012f544  .word    0x00e76e08                   ; literal 15166984 / 
+L_12f548:  0012f548  ldr      r0, [pc, r0]                 ; GOT[1404] LDSTR 'Elimination'
+           0012f54c  bl       #0x22e530                    ; CALL Localize::Get
+           0012f550  str      r0, [fp]                     
+           0012f554  ldr      r0, [pc]                     
+           0012f558  b        #0x12f560                    ; -> L_12f560
+           0012f55c  .word    0x00e76df4                   ; literal 15166964 / 
+L_12f560:  0012f560  ldr      r0, [pc, r0]                 ; GOT[1405] LDSTR 'Each lap the last-place cart gets knocked out.'
+           0012f564  bl       #0x22e530                    ; CALL Localize::Get
+           0012f568  str      r0, [fp, #4]                 
+           0012f56c  b        #0x12f5a0                    ; -> L_12f5a0
+           0012f570  ldr      r0, [pc]                     
+           0012f574  b        #0x12f57c                    ; -> L_12f57c
+           0012f578  .word    0x00e766cc                   ; literal 15165132 / 
+L_12f57c:  0012f57c  ldr      r0, [pc, r0]                 ; GOT[954] LDSTR 'Tutorial'
+           0012f580  bl       #0x22e530                    ; CALL Localize::Get
+           0012f584  str      r0, [fp]                     
+           0012f588  ldr      r0, [pc]                     
+           0012f58c  b        #0x12f594                    ; -> L_12f594
+           0012f590  .word    0x00e76dc4                   ; literal 15166916 / 
+L_12f594:  0012f594  ldr      r0, [pc, r0]                 ; GOT[1406] LDSTR 'Follow your mission to complete the race.'
+           0012f598  bl       #0x22e530                    ; CALL Localize::Get
+           0012f59c  str      r0, [fp, #4]                 
+L_12f5a0:  0012f5a0  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0012f5a4  ldr      r1, [pc]                     
+           0012f5a8  b        #0x12f5b0                    ; -> L_12f5b0
+           0012f5ac  .word    0x00e76dac                   ; literal 15166892 / 
+L_12f5b0:  0012f5b0  ldr      r1, [pc, r1]                 ; GOT[1407] LDSTR 'Mode Text'
+           0012f5b4  mov      r0, r2                       
+           0012f5b8  ldr      lr, [r2]                     
+           0012f5bc  bl       #0x22e1e0                    ; CALL UghPublisher/UghTextsDictionary::get_Item
+           0012f5c0  mov      r2, r0                       
+           0012f5c4  ldr      r1, [fp]                     
+           0012f5c8  ldr      lr, [r2]                     
+           0012f5cc  bl       #0x22e290                    ; CALL UghText::set_Text
+           0012f5d0  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0012f5d4  ldr      r1, [pc]                     
+           0012f5d8  b        #0x12f5e0                    ; -> L_12f5e0
+           0012f5dc  .word    0x00e76d80                   ; literal 15166848 / 
+L_12f5e0:  0012f5e0  ldr      r1, [pc, r1]                 ; GOT[1408] LDSTR 'Mode Description'
+           0012f5e4  mov      r0, r2                       
+           0012f5e8  ldr      lr, [r2]                     
+           0012f5ec  bl       #0x22e1e0                    ; CALL UghPublisher/UghTextsDictionary::get_Item
+           0012f5f0  mov      r2, r0                       
+           0012f5f4  ldr      r1, [fp, #4]                 
+           0012f5f8  ldr      lr, [r2]                     
+           0012f5fc  bl       #0x22e290                    ; CALL UghText::set_Text
+           0012f600  ldr      r6, [pc]                     
+           0012f604  b        #0x12f60c                    ; -> L_12f60c
+           0012f608  .word    0x00e758a4                   ; literal 15161508 / 
+L_12f60c:  0012f60c  ldr      r6, [pc, r6]                 ; GOT[84] LDSTR 'ERROR'
+           0012f610  ldr      r5, [pc]                     
+           0012f614  b        #0x12f61c                    ; -> L_12f61c
+           0012f618  .word    0x00e75894                   ; literal 15161492 / 
+L_12f61c:  0012f61c  ldr      r5, [pc, r5]                 ; GOT[84] LDSTR 'ERROR'
+           0012f620  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012f624  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           0012f628  ldr      r4, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0012f62c  cmp      r4, #4                       
+           0012f630  bhs      #0x12f720                    ; -> L_12f720
+           0012f634  lsl      r1, r4, #2                   
+           0012f638  ldr      r0, [pc]                     
+           0012f63c  b        #0x12f644                    ; -> L_12f644
+           0012f640  .word    0x00e76d20                   ; literal 15166752 / 
+L_12f644:  0012f644  ldr      r0, [pc, r0]                 ; GOT[1409] SWITCH switch table[4]
+           0012f648  add      r0, r0, r1                   
+           0012f64c  ldr      r0, [r0]                     
+           0012f650  mov      pc, r0                       
+           0012f654  ldr      r0, [pc]                     
+           0012f658  b        #0x12f660                    ; -> L_12f660
+           0012f65c  .word    0x00e76d08                   ; literal 15166728 / 
+L_12f660:  0012f660  ldr      r0, [pc, r0]                 ; GOT[1410] LDSTR 'Easy'
+           0012f664  bl       #0x22e530                    ; CALL Localize::Get
+           0012f668  mov      r6, r0                       
+           0012f66c  ldr      r0, [pc]                     
+           0012f670  b        #0x12f678                    ; -> L_12f678
+           0012f674  .word    0x00e76cf4                   ; literal 15166708 / 
+L_12f678:  0012f678  ldr      r0, [pc, r0]                 ; GOT[1411] LDSTR 'Score x1 tokens.'
+           0012f67c  bl       #0x22e530                    ; CALL Localize::Get
+           0012f680  mov      r5, r0                       
+           0012f684  b        #0x12f720                    ; -> L_12f720
+           0012f688  ldr      r0, [pc]                     
+           0012f68c  b        #0x12f694                    ; -> L_12f694
+           0012f690  .word    0x00e76cdc                   ; literal 15166684 / 
+L_12f694:  0012f694  ldr      r0, [pc, r0]                 ; GOT[1412] LDSTR 'Medium'
+           0012f698  bl       #0x22e530                    ; CALL Localize::Get
+           0012f69c  mov      r6, r0                       
+           0012f6a0  ldr      r0, [pc]                     
+           0012f6a4  b        #0x12f6ac                    ; -> L_12f6ac
+           0012f6a8  .word    0x00e76cc8                   ; literal 15166664 / 
+L_12f6ac:  0012f6ac  ldr      r0, [pc, r0]                 ; GOT[1413] LDSTR 'Score x2 tokens.'
+           0012f6b0  bl       #0x22e530                    ; CALL Localize::Get
+           0012f6b4  mov      r5, r0                       
+           0012f6b8  b        #0x12f720                    ; -> L_12f720
+           0012f6bc  ldr      r0, [pc]                     
+           0012f6c0  b        #0x12f6c8                    ; -> L_12f6c8
+           0012f6c4  .word    0x00e76cb0                   ; literal 15166640 / 
+L_12f6c8:  0012f6c8  ldr      r0, [pc, r0]                 ; GOT[1414] LDSTR 'Hard'
+           0012f6cc  bl       #0x22e530                    ; CALL Localize::Get
+           0012f6d0  mov      r6, r0                       
+           0012f6d4  ldr      r0, [pc]                     
+           0012f6d8  b        #0x12f6e0                    ; -> L_12f6e0
+           0012f6dc  .word    0x00e76c9c                   ; literal 15166620 / 
+L_12f6e0:  0012f6e0  ldr      r0, [pc, r0]                 ; GOT[1415] LDSTR 'Score x4 tokens.'
+           0012f6e4  bl       #0x22e530                    ; CALL Localize::Get
+           0012f6e8  mov      r5, r0                       
+           0012f6ec  b        #0x12f720                    ; -> L_12f720
+           0012f6f0  ldr      r0, [pc]                     
+           0012f6f4  b        #0x12f6fc                    ; -> L_12f6fc
+           0012f6f8  .word    0x00e76c84                   ; literal 15166596 / 
+L_12f6fc:  0012f6fc  ldr      r0, [pc, r0]                 ; GOT[1416] LDSTR 'Ultra Hard'
+           0012f700  bl       #0x22e530                    ; CALL Localize::Get
+           0012f704  mov      r6, r0                       
+           0012f708  ldr      r0, [pc]                     
+           0012f70c  b        #0x12f714                    ; -> L_12f714
+           0012f710  .word    0x00e76c70                   ; literal 15166576 / 
+L_12f714:  0012f714  ldr      r0, [pc, r0]                 ; GOT[1417] LDSTR 'Score x6 tokens.'
+           0012f718  bl       #0x22e530                    ; CALL Localize::Get
+           0012f71c  mov      r5, r0                       
+L_12f720:  0012f720  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0012f724  ldr      r1, [pc]                     
+           0012f728  b        #0x12f730                    ; -> L_12f730
+           0012f72c  .word    0x00e76c58                   ; literal 15166552 / 
+L_12f730:  0012f730  ldr      r1, [pc, r1]                 ; GOT[1418] LDSTR 'Difficulty'
+           0012f734  mov      r0, r2                       
+           0012f738  ldr      lr, [r2]                     
+           0012f73c  bl       #0x22e1e0                    ; CALL UghPublisher/UghTextsDictionary::get_Item
+           0012f740  mov      r2, r0                       
+           0012f744  mov      r1, r6                       
+           0012f748  ldr      lr, [r2]                     
+           0012f74c  bl       #0x22e290                    ; CALL UghText::set_Text
+           0012f750  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0012f754  ldr      r1, [pc]                     
+           0012f758  b        #0x12f760                    ; -> L_12f760
+           0012f75c  .word    0x00e76c2c                   ; literal 15166508 / 
+L_12f760:  0012f760  ldr      r1, [pc, r1]                 ; GOT[1419] LDSTR 'Difficulty Description'
+           0012f764  mov      r0, r2                       
+           0012f768  ldr      lr, [r2]                     
+           0012f76c  bl       #0x22e1e0                    ; CALL UghPublisher/UghTextsDictionary::get_Item
+           0012f770  mov      r2, r0                       
+           0012f774  mov      r1, r5                       
+           0012f778  ldr      lr, [r2]                     
+           0012f77c  bl       #0x22e290                    ; CALL UghText::set_Text
+           0012f780  mov      r0, sl                       
+           0012f784  bl       #0x22ed70                    ; CALL PlaySummaryPublisher::UpdateTrackIcon
+           0012f788  add      sp, fp, #0x10                
+           0012f78c  pop      {r4, r5, r6, r8, sl, fp}     
+           0012f790  ldr      r7, [sp, #8]                 
+           0012f794  ldm      sp, {sp, pc}                 
+
+== PlaySummaryPublisher::Start  token 0x060006b9 @0x0012f798 (728 bytes)
+   args: r0=this, 
+           0012f798  mov      ip, sp                       
+           0012f79c  push     {r7, lr}                     
+           0012f7a0  mov      r7, sp                       
+           0012f7a4  push     {r8, sl, fp, ip, lr}         
+           0012f7a8  sub      sp, sp, #0xb4                
+           0012f7ac  mov      fp, sp                       
+           0012f7b0  mov      sl, r0                       
+           0012f7b4  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0012f7b8  ldr      r1, [pc]                     
+           0012f7bc  b        #0x12f7c4                    ; -> L_12f7c4
+           0012f7c0  .word    0x00e76bcc                   ; literal 15166412 / 
+L_12f7c4:  0012f7c4  ldr      r1, [pc, r1]                 ; GOT[1420] LDSTR 'Track Name'
+           0012f7c8  mov      r0, r2                       
+           0012f7cc  ldr      lr, [r2]                     
+           0012f7d0  bl       #0x22e1e0                    ; CALL UghPublisher/UghTextsDictionary::get_Item
+           0012f7d4  str      r0, [fp, #0xa8]              
+           0012f7d8  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012f7dc  mov      r1, r0                       
+           0012f7e0  ldr      lr, [r1]                     
+           0012f7e4  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0012f7e8  ldr      r1, [r0, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012f7ec  mov      r0, r1                       
+           0012f7f0  ldr      r1, [r1]                     
+           0012f7f4  mov      lr, pc                       
+           0012f7f8  ldr      pc, [r1, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           0012f7fc  mov      r1, r0                       
+           0012f800  ldr      r2, [fp, #0xa8]              
+           0012f804  mov      r0, r2                       
+           0012f808  ldr      lr, [r2]                     
+           0012f80c  bl       #0x22e290                    ; CALL UghText::set_Text
+           0012f810  mov      r0, sl                       
+           0012f814  bl       #0x22ed80                    ; CALL PlaySummaryPublisher::Refresh
+           0012f818  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012f81c  ldr      r1, [pc]                     
+           0012f820  b        #0x12f828                    ; -> L_12f828
+           0012f824  .word    0x00e76b6c                   ; literal 15166316 / 
+L_12f828:  0012f828  ldr      r1, [pc, r1]                 ; GOT[1421] LDSTR 'Top Left'
+           0012f82c  mov      r0, r2                       
+           0012f830  ldr      lr, [r2]                     
+           0012f834  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012f838  mov      r2, r0                       
+           0012f83c  add      r0, fp, #0x60                
+           0012f840  mov      r1, r2                       
+           0012f844  ldr      lr, [r2]                     
+           0012f848  bl       #0x22cb40                    ; CALL UnityEngine.Transform::get_localPosition
+           0012f84c  vldr     s8, [pc]                     ; float -7.400000095367432
+           0012f850  b        #0x12f858                    ; -> L_12f858
+           0012f854  .word    0xc0eccccd                   ; literal -1058222899 / -7.4
+L_12f858:  0012f858  vcvt.f64.f32 d4, s8                       
+           0012f85c  vldr     s6, [pc]                     ; float 0.0
+           0012f860  b        #0x12f868                    ; -> L_12f868
+           0012f864  .word    0x00000000                   ; literal 0 / 0
+L_12f868:  0012f868  vcvt.f64.f32 d3, s6                       
+           0012f86c  vldr     s4, [pc]                     ; float 0.0
+           0012f870  b        #0x12f878                    ; -> L_12f878
+           0012f874  .word    0x00000000                   ; literal 0 / 0
+L_12f878:  0012f878  vcvt.f64.f32 d2, s4                       
+           0012f87c  mov      r0, #0                       
+           0012f880  str      r0, [fp, #0x24]              
+           0012f884  mov      r0, #0                       
+           0012f888  str      r0, [fp, #0x28]              
+           0012f88c  mov      r0, #0                       
+           0012f890  str      r0, [fp, #0x2c]              
+           0012f894  add      r0, fp, #0x24                
+           0012f898  vcvt.f32.f64 s0, d4                       
+           0012f89c  vstr     s0, [sp, #-8]                
+           0012f8a0  ldr      r1, [sp, #-8]                
+           0012f8a4  vcvt.f32.f64 s0, d3                       
+           0012f8a8  vstr     s0, [sp, #-8]                
+           0012f8ac  ldr      r2, [sp, #-8]                
+           0012f8b0  vcvt.f32.f64 s0, d2                       
+           0012f8b4  vstr     s0, [sp, #-8]                
+           0012f8b8  ldr      r3, [sp, #-8]                
+           0012f8bc  bl       #0x22b1f0                    ; CALL UnityEngine.Vector3::.ctor
+           0012f8c0  ldr      r0, [fp, #0x24]              
+           0012f8c4  str      r0, [fp, #0x6c]              
+           0012f8c8  ldr      r0, [fp, #0x28]              
+           0012f8cc  str      r0, [fp, #0x70]              
+           0012f8d0  ldr      r0, [fp, #0x2c]              
+           0012f8d4  str      r0, [fp, #0x74]              
+           0012f8d8  add      r0, fp, #0x78                
+           0012f8dc  ldr      r1, [fp, #0x60]              
+           0012f8e0  ldr      r2, [fp, #0x64]              
+           0012f8e4  ldr      r3, [fp, #0x68]              
+           0012f8e8  ldr      ip, [fp, #0x6c]              
+           0012f8ec  str      ip, [sp]                     
+           0012f8f0  ldr      ip, [fp, #0x70]              
+           0012f8f4  str      ip, [sp, #4]                 
+           0012f8f8  ldr      ip, [fp, #0x74]              
+           0012f8fc  str      ip, [sp, #8]                 
+           0012f900  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           0012f904  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012f908  ldr      r1, [pc]                     
+           0012f90c  b        #0x12f914                    ; -> L_12f914
+           0012f910  .word    0x00e76a84                   ; literal 15166084 / 
+L_12f914:  0012f914  ldr      r1, [pc, r1]                 ; GOT[1422] LDSTR 'Left Side Collection'
+           0012f918  mov      r0, r2                       
+           0012f91c  ldr      lr, [r2]                     
+           0012f920  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012f924  mov      ip, r0                       
+           0012f928  ldr      r1, [fp, #0x78]              
+           0012f92c  ldr      r2, [fp, #0x7c]              
+           0012f930  ldr      r3, [fp, #0x80]              
+           0012f934  ldr      lr, [ip]                     
+           0012f938  bl       #0x22cb50                    ; CALL UnityEngine.Transform::set_localPosition
+           0012f93c  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012f940  ldr      r1, [pc]                     
+           0012f944  b        #0x12f94c                    ; -> L_12f94c
+           0012f948  .word    0x00e76a50                   ; literal 15166032 / 
+L_12f94c:  0012f94c  ldr      r1, [pc, r1]                 ; GOT[1423] LDSTR 'Top Right'
+           0012f950  mov      r0, r2                       
+           0012f954  ldr      lr, [r2]                     
+           0012f958  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012f95c  mov      r2, r0                       
+           0012f960  add      r0, fp, #0x84                
+           0012f964  mov      r1, r2                       
+           0012f968  ldr      lr, [r2]                     
+           0012f96c  bl       #0x22cb40                    ; CALL UnityEngine.Transform::get_localPosition
+           0012f970  vldr     s8, [pc]                     ; float 7.400000095367432
+           0012f974  b        #0x12f97c                    ; -> L_12f97c
+           0012f978  .word    0x40eccccd                   ; literal 1089260749 / 7.4
+L_12f97c:  0012f97c  vcvt.f64.f32 d4, s8                       
+           0012f980  vldr     s6, [pc]                     ; float 0.0
+           0012f984  b        #0x12f98c                    ; -> L_12f98c
+           0012f988  .word    0x00000000                   ; literal 0 / 0
+L_12f98c:  0012f98c  vcvt.f64.f32 d3, s6                       
+           0012f990  vldr     s4, [pc]                     ; float 0.0
+           0012f994  b        #0x12f99c                    ; -> L_12f99c
+           0012f998  .word    0x00000000                   ; literal 0 / 0
+L_12f99c:  0012f99c  vcvt.f64.f32 d2, s4                       
+           0012f9a0  mov      r0, #0                       
+           0012f9a4  str      r0, [fp, #0x48]              
+           0012f9a8  mov      r0, #0                       
+           0012f9ac  str      r0, [fp, #0x4c]              
+           0012f9b0  mov      r0, #0                       
+           0012f9b4  str      r0, [fp, #0x50]              
+           0012f9b8  add      r0, fp, #0x48                
+           0012f9bc  vcvt.f32.f64 s0, d4                       
+           0012f9c0  vstr     s0, [sp, #8]                 
+           0012f9c4  ldr      r1, [sp, #8]                 
+           0012f9c8  vcvt.f32.f64 s0, d3                       
+           0012f9cc  vstr     s0, [sp, #8]                 
+           0012f9d0  ldr      r2, [sp, #8]                 
+           0012f9d4  vcvt.f32.f64 s0, d2                       
+           0012f9d8  vstr     s0, [sp, #8]                 
+           0012f9dc  ldr      r3, [sp, #8]                 
+           0012f9e0  bl       #0x22b1f0                    ; CALL UnityEngine.Vector3::.ctor
+           0012f9e4  ldr      r0, [fp, #0x48]              
+           0012f9e8  str      r0, [fp, #0x90]              
+           0012f9ec  ldr      r0, [fp, #0x4c]              
+           0012f9f0  str      r0, [fp, #0x94]              
+           0012f9f4  ldr      r0, [fp, #0x50]              
+           0012f9f8  str      r0, [fp, #0x98]              
+           0012f9fc  add      r0, fp, #0x9c                
+           0012fa00  ldr      r1, [fp, #0x84]              
+           0012fa04  ldr      r2, [fp, #0x88]              
+           0012fa08  ldr      r3, [fp, #0x8c]              
+           0012fa0c  ldr      ip, [fp, #0x90]              
+           0012fa10  str      ip, [sp]                     
+           0012fa14  ldr      ip, [fp, #0x94]              
+           0012fa18  str      ip, [sp, #4]                 
+           0012fa1c  ldr      ip, [fp, #0x98]              
+           0012fa20  str      ip, [sp, #8]                 
+           0012fa24  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           0012fa28  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012fa2c  ldr      r1, [pc]                     
+           0012fa30  b        #0x12fa38                    ; -> L_12fa38
+           0012fa34  .word    0x00e76968                   ; literal 15165800 / 
+L_12fa38:  0012fa38  ldr      r1, [pc, r1]                 ; GOT[1424] LDSTR 'Right Side Collection'
+           0012fa3c  mov      r0, r2                       
+           0012fa40  ldr      lr, [r2]                     
+           0012fa44  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012fa48  mov      ip, r0                       
+           0012fa4c  ldr      r1, [fp, #0x9c]              
+           0012fa50  ldr      r2, [fp, #0xa0]              
+           0012fa54  ldr      r3, [fp, #0xa4]              
+           0012fa58  ldr      lr, [ip]                     
+           0012fa5c  bl       #0x22cb50                    ; CALL UnityEngine.Transform::set_localPosition
+           0012fa60  add      sp, fp, #0xb4                
+           0012fa64  pop      {r8, sl, fp}                 
+           0012fa68  ldr      r7, [sp, #8]                 
+           0012fa6c  ldm      sp, {sp, pc}                 
+
+== PlaySummaryPublisher::FixedUpdate  token 0x060006ba @0x0012fa70 (1064 bytes)
+   args: r0=this, 
+           0012fa70  mov      ip, sp                       
+           0012fa74  push     {r7, lr}                     
+           0012fa78  mov      r7, sp                       
+           0012fa7c  push     {r6, r8, sl, fp, ip, lr}     
+           0012fa80  sub      sp, sp, #0xe0                
+           0012fa84  mov      fp, sp                       
+           0012fa88  mov      sl, r0                       
+           0012fa8c  mov      r0, #0                       
+           0012fa90  str      r0, [fp, #0x18]              
+           0012fa94  mov      r0, #0                       
+           0012fa98  str      r0, [fp, #0x1c]              
+           0012fa9c  mov      r0, #0                       
+           0012faa0  str      r0, [fp, #0x20]              
+           0012faa4  mov      r0, #0                       
+           0012faa8  str      r0, [fp, #0x24]              
+           0012faac  mov      r0, #0                       
+           0012fab0  str      r0, [fp, #0x28]              
+           0012fab4  mov      r0, #0                       
+           0012fab8  str      r0, [fp, #0x2c]              
+           0012fabc  vldr     s0, [sl, #0x4c]              ; field+0x4c (this-class: transitionTimer)
+           0012fac0  vcvt.f64.f32 d3, s0                       
+           0012fac4  vldr     s4, [pc]                     ; float 0.0
+           0012fac8  b        #0x12fad0                    ; -> L_12fad0
+           0012facc  .word    0x00000000                   ; literal 0 / 0
+L_12fad0:  0012fad0  vcvt.f64.f32 d2, s4                       
+           0012fad4  vcmp.f64 d2, d3                       
+           0012fad8  vmrs     apsr_nzcv, fpscr             
+           0012fadc  bvs      #0x12fe88                    ; -> L_12fe88
+           0012fae0  bge      #0x12fe88                    ; -> L_12fe88
+           0012fae4  vldr     s0, [sl, #0x4c]              ; field+0x4c (this-class: transitionTimer)
+           0012fae8  vcvt.f64.f32 d2, s0                       
+           0012faec  vstr     d2, [fp, #0xd8]              
+           0012faf0  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           0012faf4  vmov     s6, r0                       
+           0012faf8  vcvt.f64.f32 d3, s6                       
+           0012fafc  vldr     d2, [fp, #0xd8]              
+           0012fb00  vldr     s0, [sl, #0x50]              ; field+0x50 (this-class: transitionSpeed)
+           0012fb04  vcvt.f64.f32 d4, s0                       
+           0012fb08  vmul.f64 d3, d3, d4                   
+           0012fb0c  vsub.f64 d2, d2, d3                   
+           0012fb10  vcvt.f32.f64 s0, d2                       
+           0012fb14  vstr     s0, [sl, #0x4c]              ; field+0x4c (this-class: transitionTimer)
+           0012fb18  vldr     s0, [sl, #0x4c]              ; field+0x4c (this-class: transitionTimer)
+           0012fb1c  vcvt.f64.f32 d2, s0                       
+           0012fb20  vldr     s6, [pc]                     ; float 0.0
+           0012fb24  b        #0x12fb2c                    ; -> L_12fb2c
+           0012fb28  .word    0x00000000                   ; literal 0 / 0
+L_12fb2c:  0012fb2c  vcvt.f64.f32 d3, s6                       
+           0012fb30  vcmp.f64 d2, d3                       
+           0012fb34  vmrs     apsr_nzcv, fpscr             
+           0012fb38  bvs      #0x12fb90                    ; -> L_12fb90
+           0012fb3c  bge      #0x12fb90                    ; -> L_12fb90
+           0012fb40  vldr     s4, [pc]                     ; float 0.0
+           0012fb44  b        #0x12fb4c                    ; -> L_12fb4c
+           0012fb48  .word    0x00000000                   ; literal 0 / 0
+L_12fb4c:  0012fb4c  vcvt.f64.f32 d2, s4                       
+           0012fb50  vcvt.f32.f64 s0, d2                       
+           0012fb54  vstr     s0, [sl, #0x4c]              ; field+0x4c (this-class: transitionTimer)
+           0012fb58  ldr      r8, [pc]                     
+           0012fb5c  b        #0x12fb64                    ; -> L_12fb64
+           0012fb60  .word    0x00e76840                   ; literal 15165504 / 
+L_12fb64:  0012fb64  ldr      r8, [pc, r8]                 ; GOT[1425] METHOD_RGCTX UnityEngine.Component::GetComponent<FrontEndTutorialHandler>
+           0012fb68  mov      r0, sl                       
+           0012fb6c  bl       #0x22ed90                    ; CALL UnityEngine.Component::GetComponent<FrontEndTutorialHandler>
+           0012fb70  mov      r6, r0                       
+           0012fb74  mov      r1, #0                       
+           0012fb78  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012fb7c  cmp      r0, #0                       
+           0012fb80  beq      #0x12fb90                    ; -> L_12fb90
+           0012fb84  ldr      lr, [r6]                     
+           0012fb88  mov      r0, #1                       
+           0012fb8c  strb     r0, [r6, #0x1d]              ; field+0x1d 
+L_12fb90:  0012fb90  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012fb94  ldr      r1, [pc]                     
+           0012fb98  b        #0x12fba0                    ; -> L_12fba0
+           0012fb9c  .word    0x00e767f4                   ; literal 15165428 / 
+L_12fba0:  0012fba0  ldr      r1, [pc, r1]                 ; GOT[1421] LDSTR 'Top Left'
+           0012fba4  mov      r0, r2                       
+           0012fba8  ldr      lr, [r2]                     
+           0012fbac  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012fbb0  mov      r2, r0                       
+           0012fbb4  add      r0, fp, #0x78                
+           0012fbb8  mov      r1, r2                       
+           0012fbbc  ldr      lr, [r2]                     
+           0012fbc0  bl       #0x22cb40                    ; CALL UnityEngine.Transform::get_localPosition
+           0012fbc4  vldr     s8, [pc]                     ; float -7.400000095367432
+           0012fbc8  b        #0x12fbd0                    ; -> L_12fbd0
+           0012fbcc  .word    0xc0eccccd                   ; literal -1058222899 / -7.4
+L_12fbd0:  0012fbd0  vcvt.f64.f32 d4, s8                       
+           0012fbd4  vldr     s6, [pc]                     ; float 0.0
+           0012fbd8  b        #0x12fbe0                    ; -> L_12fbe0
+           0012fbdc  .word    0x00000000                   ; literal 0 / 0
+L_12fbe0:  0012fbe0  vcvt.f64.f32 d3, s6                       
+           0012fbe4  vldr     s4, [pc]                     ; float 0.0
+           0012fbe8  b        #0x12fbf0                    ; -> L_12fbf0
+           0012fbec  .word    0x00000000                   ; literal 0 / 0
+L_12fbf0:  0012fbf0  vcvt.f64.f32 d2, s4                       
+           0012fbf4  mov      r0, #0                       
+           0012fbf8  str      r0, [fp, #0x3c]              
+           0012fbfc  mov      r0, #0                       
+           0012fc00  str      r0, [fp, #0x40]              
+           0012fc04  mov      r0, #0                       
+           0012fc08  str      r0, [fp, #0x44]              
+           0012fc0c  add      r0, fp, #0x3c                
+           0012fc10  vcvt.f32.f64 s0, d4                       
+           0012fc14  vstr     s0, [sp, #-8]                
+           0012fc18  ldr      r1, [sp, #-8]                
+           0012fc1c  vcvt.f32.f64 s0, d3                       
+           0012fc20  vstr     s0, [sp, #-8]                
+           0012fc24  ldr      r2, [sp, #-8]                
+           0012fc28  vcvt.f32.f64 s0, d2                       
+           0012fc2c  vstr     s0, [sp, #-8]                
+           0012fc30  ldr      r3, [sp, #-8]                
+           0012fc34  bl       #0x22b1f0                    ; CALL UnityEngine.Vector3::.ctor
+           0012fc38  ldr      r0, [fp, #0x3c]              
+           0012fc3c  str      r0, [fp, #0x84]              
+           0012fc40  ldr      r0, [fp, #0x40]              
+           0012fc44  str      r0, [fp, #0x88]              
+           0012fc48  ldr      r0, [fp, #0x44]              
+           0012fc4c  str      r0, [fp, #0x8c]              
+           0012fc50  add      r0, fp, #0x90                
+           0012fc54  ldr      r1, [fp, #0x78]              
+           0012fc58  ldr      r2, [fp, #0x7c]              
+           0012fc5c  ldr      r3, [fp, #0x80]              
+           0012fc60  ldr      ip, [fp, #0x84]              
+           0012fc64  str      ip, [sp]                     
+           0012fc68  ldr      ip, [fp, #0x88]              
+           0012fc6c  str      ip, [sp, #4]                 
+           0012fc70  ldr      ip, [fp, #0x8c]              
+           0012fc74  str      ip, [sp, #8]                 
+           0012fc78  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           0012fc7c  add      r0, fp, #0x9c                
+           0012fc80  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           0012fc84  vldr     s4, [pc]                     ; float 1.0
+           0012fc88  b        #0x12fc90                    ; -> L_12fc90
+           0012fc8c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_12fc90:  0012fc90  vcvt.f64.f32 d2, s4                       
+           0012fc94  vldr     s0, [sl, #0x4c]              ; field+0x4c (this-class: transitionTimer)
+           0012fc98  vcvt.f64.f32 d3, s0                       
+           0012fc9c  vsub.f64 d2, d2, d3                   
+           0012fca0  add      r0, fp, #0x18                
+           0012fca4  ldr      r1, [fp, #0x90]              
+           0012fca8  ldr      r2, [fp, #0x94]              
+           0012fcac  ldr      r3, [fp, #0x98]              
+           0012fcb0  ldr      ip, [fp, #0x9c]              
+           0012fcb4  str      ip, [sp]                     
+           0012fcb8  ldr      ip, [fp, #0xa0]              
+           0012fcbc  str      ip, [sp, #4]                 
+           0012fcc0  ldr      ip, [fp, #0xa4]              
+           0012fcc4  str      ip, [sp, #8]                 
+           0012fcc8  vcvt.f32.f64 s0, d2                       
+           0012fccc  vstr     s0, [sp, #0xc]               
+           0012fcd0  bl       #0x22afa0                    ; CALL UnityEngine.Vector3::Lerp
+           0012fcd4  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012fcd8  ldr      r1, [pc]                     
+           0012fcdc  b        #0x12fce4                    ; -> L_12fce4
+           0012fce0  .word    0x00e766b4                   ; literal 15165108 / 
+L_12fce4:  0012fce4  ldr      r1, [pc, r1]                 ; GOT[1422] LDSTR 'Left Side Collection'
+           0012fce8  mov      r0, r2                       
+           0012fcec  ldr      lr, [r2]                     
+           0012fcf0  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012fcf4  mov      ip, r0                       
+           0012fcf8  ldr      r1, [fp, #0x18]              
+           0012fcfc  ldr      r2, [fp, #0x1c]              
+           0012fd00  ldr      r3, [fp, #0x20]              
+           0012fd04  ldr      lr, [ip]                     
+           0012fd08  bl       #0x22cb50                    ; CALL UnityEngine.Transform::set_localPosition
+           0012fd0c  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012fd10  ldr      r1, [pc]                     
+           0012fd14  b        #0x12fd1c                    ; -> L_12fd1c
+           0012fd18  .word    0x00e76680                   ; literal 15165056 / 
+L_12fd1c:  0012fd1c  ldr      r1, [pc, r1]                 ; GOT[1423] LDSTR 'Top Right'
+           0012fd20  mov      r0, r2                       
+           0012fd24  ldr      lr, [r2]                     
+           0012fd28  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012fd2c  mov      r2, r0                       
+           0012fd30  add      r0, fp, #0xa8                
+           0012fd34  mov      r1, r2                       
+           0012fd38  ldr      lr, [r2]                     
+           0012fd3c  bl       #0x22cb40                    ; CALL UnityEngine.Transform::get_localPosition
+           0012fd40  vldr     s8, [pc]                     ; float 7.400000095367432
+           0012fd44  b        #0x12fd4c                    ; -> L_12fd4c
+           0012fd48  .word    0x40eccccd                   ; literal 1089260749 / 7.4
+L_12fd4c:  0012fd4c  vcvt.f64.f32 d4, s8                       
+           0012fd50  vldr     s6, [pc]                     ; float 0.0
+           0012fd54  b        #0x12fd5c                    ; -> L_12fd5c
+           0012fd58  .word    0x00000000                   ; literal 0 / 0
+L_12fd5c:  0012fd5c  vcvt.f64.f32 d3, s6                       
+           0012fd60  vldr     s4, [pc]                     ; float 0.0
+           0012fd64  b        #0x12fd6c                    ; -> L_12fd6c
+           0012fd68  .word    0x00000000                   ; literal 0 / 0
+L_12fd6c:  0012fd6c  vcvt.f64.f32 d2, s4                       
+           0012fd70  mov      r0, #0                       
+           0012fd74  str      r0, [fp, #0x60]              
+           0012fd78  mov      r0, #0                       
+           0012fd7c  str      r0, [fp, #0x64]              
+           0012fd80  mov      r0, #0                       
+           0012fd84  str      r0, [fp, #0x68]              
+           0012fd88  add      r0, fp, #0x60                
+           0012fd8c  vcvt.f32.f64 s0, d4                       
+           0012fd90  vstr     s0, [sp, #8]                 
+           0012fd94  ldr      r1, [sp, #8]                 
+           0012fd98  vcvt.f32.f64 s0, d3                       
+           0012fd9c  vstr     s0, [sp, #8]                 
+           0012fda0  ldr      r2, [sp, #8]                 
+           0012fda4  vcvt.f32.f64 s0, d2                       
+           0012fda8  vstr     s0, [sp, #8]                 
+           0012fdac  ldr      r3, [sp, #8]                 
+           0012fdb0  bl       #0x22b1f0                    ; CALL UnityEngine.Vector3::.ctor
+           0012fdb4  ldr      r0, [fp, #0x60]              
+           0012fdb8  str      r0, [fp, #0xb4]              
+           0012fdbc  ldr      r0, [fp, #0x64]              
+           0012fdc0  str      r0, [fp, #0xb8]              
+           0012fdc4  ldr      r0, [fp, #0x68]              
+           0012fdc8  str      r0, [fp, #0xbc]              
+           0012fdcc  add      r0, fp, #0xc0                
+           0012fdd0  ldr      r1, [fp, #0xa8]              
+           0012fdd4  ldr      r2, [fp, #0xac]              
+           0012fdd8  ldr      r3, [fp, #0xb0]              
+           0012fddc  ldr      ip, [fp, #0xb4]              
+           0012fde0  str      ip, [sp]                     
+           0012fde4  ldr      ip, [fp, #0xb8]              
+           0012fde8  str      ip, [sp, #4]                 
+           0012fdec  ldr      ip, [fp, #0xbc]              
+           0012fdf0  str      ip, [sp, #8]                 
+           0012fdf4  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           0012fdf8  add      r0, fp, #0xcc                
+           0012fdfc  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           0012fe00  vldr     s4, [pc]                     ; float 1.0
+           0012fe04  b        #0x12fe0c                    ; -> L_12fe0c
+           0012fe08  .word    0x3f800000                   ; literal 1065353216 / 1
+L_12fe0c:  0012fe0c  vcvt.f64.f32 d2, s4                       
+           0012fe10  vldr     s0, [sl, #0x4c]              ; field+0x4c (this-class: transitionTimer)
+           0012fe14  vcvt.f64.f32 d3, s0                       
+           0012fe18  vsub.f64 d2, d2, d3                   
+           0012fe1c  add      r0, fp, #0x24                
+           0012fe20  ldr      r1, [fp, #0xc0]              
+           0012fe24  ldr      r2, [fp, #0xc4]              
+           0012fe28  ldr      r3, [fp, #0xc8]              
+           0012fe2c  ldr      ip, [fp, #0xcc]              
+           0012fe30  str      ip, [sp]                     
+           0012fe34  ldr      ip, [fp, #0xd0]              
+           0012fe38  str      ip, [sp, #4]                 
+           0012fe3c  ldr      ip, [fp, #0xd4]              
+           0012fe40  str      ip, [sp, #8]                 
+           0012fe44  vcvt.f32.f64 s0, d2                       
+           0012fe48  vstr     s0, [sp, #0xc]               
+           0012fe4c  bl       #0x22afa0                    ; CALL UnityEngine.Vector3::Lerp
+           0012fe50  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0012fe54  ldr      r1, [pc]                     
+           0012fe58  b        #0x12fe60                    ; -> L_12fe60
+           0012fe5c  .word    0x00e76540                   ; literal 15164736 / 
+L_12fe60:  0012fe60  ldr      r1, [pc, r1]                 ; GOT[1424] LDSTR 'Right Side Collection'
+           0012fe64  mov      r0, r2                       
+           0012fe68  ldr      lr, [r2]                     
+           0012fe6c  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           0012fe70  mov      ip, r0                       
+           0012fe74  ldr      r1, [fp, #0x24]              
+           0012fe78  ldr      r2, [fp, #0x28]              
+           0012fe7c  ldr      r3, [fp, #0x2c]              
+           0012fe80  ldr      lr, [ip]                     
+           0012fe84  bl       #0x22cb50                    ; CALL UnityEngine.Transform::set_localPosition
+L_12fe88:  0012fe88  add      sp, fp, #0xe0                
+           0012fe8c  pop      {r6, r8, sl, fp}             
+           0012fe90  ldr      r7, [sp, #8]                 
+           0012fe94  ldm      sp, {sp, pc}                 
+
+== PlaySummaryPublisher::PressedPlayButton  token 0x060006bb @0x0012fe98 (96 bytes)
+   args: r0=this, 
+           0012fe98  mov      ip, sp                       
+           0012fe9c  push     {r7, lr}                     
+           0012fea0  mov      r7, sp                       
+           0012fea4  push     {r8, fp, ip, lr}             
+           0012fea8  sub      sp, sp, #8                   
+           0012feac  mov      fp, sp                       
+           0012feb0  str      r0, [fp]                     
+           0012feb4  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012feb8  mov      r1, r0                       
+           0012febc  ldr      lr, [r1]                     
+           0012fec0  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0012fec4  mvn      r1, #0                       
+           0012fec8  str      r1, [r0, #0x34]              ; field+0x34 (this-class: ughSlideTogglesDictionary)
+           0012fecc  bl       #0x22eda0                    ; CALL PreviewCart::StartDriveout
+           0012fed0  ldr      r0, [fp]                     
+           0012fed4  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012fed8  mov      r2, r0                       
+           0012fedc  mov      r1, #0                       
+           0012fee0  ldr      lr, [r2]                     
+           0012fee4  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           0012fee8  add      sp, fp, #8                   
+           0012feec  pop      {r8, fp}                     
+           0012fef0  ldr      r7, [sp, #8]                 
+           0012fef4  ldm      sp, {sp, pc}                 
+
+== PlaySummaryPublisher::PressedModeArrowLeft  token 0x060006bc @0x0012fef8 (184 bytes)
+   args: r0=this, 
+           0012fef8  mov      ip, sp                       
+           0012fefc  push     {r7, lr}                     
+           0012ff00  mov      r7, sp                       
+           0012ff04  push     {r6, r8, fp, ip, lr}         
+           0012ff08  sub      sp, sp, #0xc                 
+           0012ff0c  mov      fp, sp                       
+           0012ff10  str      r0, [fp]                     
+           0012ff14  ldr      r0, [pc]                     
+           0012ff18  b        #0x12ff20                    ; -> L_12ff20
+           0012ff1c  .word    0x00e75f98                   ; literal 15163288 / 
+L_12ff20:  0012ff20  ldr      r0, [pc, r0]                 ; GOT[1110] LDSTR 'menuButton1'
+           0012ff24  bl       #0x22cca0                    ; CALL SoundLibrary::ButtonClickPlay
+           0012ff28  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012ff2c  mov      r1, r0                       
+           0012ff30  ldr      lr, [r1]                     
+           0012ff34  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0012ff38  mov      r1, r0                       
+           0012ff3c  ldr      lr, [r1]                     
+           0012ff40  ldr      r6, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0012ff44  mov      r0, r6                       
+           0012ff48  sub      r6, r0, #1                   
+           0012ff4c  mov      r0, r6                       
+           0012ff50  cmp      r0, #1                       
+           0012ff54  bne      #0x12ff5c                    ; -> L_12ff5c
+           0012ff58  sub      r6, r6, #1                   
+L_12ff5c:  0012ff5c  cmp      r6, #0                       
+           0012ff60  bge      #0x12ff80                    ; -> L_12ff80
+           0012ff64  ldr      r0, [pc]                     
+           0012ff68  b        #0x12ff70                    ; -> L_12ff70
+           0012ff6c  .word    0x00e76438                   ; literal 15164472 / 
+L_12ff70:  0012ff70  ldr      r0, [pc, r0]                 ; GOT[1426] TYPE_FROM_HANDLE typeof(RaceSettings/RaceModes)
+           0012ff74  bl       #0x22af20                    ; CALL System.Enum::GetValues
+           0012ff78  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0012ff7c  sub      r6, r0, #1                   
+L_12ff80:  0012ff80  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012ff84  mov      r1, r0                       
+           0012ff88  ldr      lr, [r1]                     
+           0012ff8c  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0012ff90  ldr      lr, [r0]                     
+           0012ff94  str      r6, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0012ff98  ldr      r0, [fp]                     
+           0012ff9c  bl       #0x22ed80                    ; CALL PlaySummaryPublisher::Refresh
+           0012ffa0  add      sp, fp, #0xc                 
+           0012ffa4  pop      {r6, r8, fp}                 
+           0012ffa8  ldr      r7, [sp, #8]                 
+           0012ffac  ldm      sp, {sp, pc}                 
+
+== PlaySummaryPublisher::PressedModeArrowRight  token 0x060006bd @0x0012ffb0 (184 bytes)
+   args: r0=this, 
+           0012ffb0  mov      ip, sp                       
+           0012ffb4  push     {r7, lr}                     
+           0012ffb8  mov      r7, sp                       
+           0012ffbc  push     {r6, r8, fp, ip, lr}         
+           0012ffc0  sub      sp, sp, #0xc                 
+           0012ffc4  mov      fp, sp                       
+           0012ffc8  str      r0, [fp]                     
+           0012ffcc  ldr      r0, [pc]                     
+           0012ffd0  b        #0x12ffd8                    ; -> L_12ffd8
+           0012ffd4  .word    0x00e75ee0                   ; literal 15163104 / 
+L_12ffd8:  0012ffd8  ldr      r0, [pc, r0]                 ; GOT[1110] LDSTR 'menuButton1'
+           0012ffdc  bl       #0x22cca0                    ; CALL SoundLibrary::ButtonClickPlay
+           0012ffe0  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0012ffe4  mov      r1, r0                       
+           0012ffe8  ldr      lr, [r1]                     
+           0012ffec  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0012fff0  mov      r1, r0                       
+           0012fff4  ldr      lr, [r1]                     
+           0012fff8  ldr      r6, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0012fffc  mov      r0, r6                       
+           00130000  add      r6, r0, #1                   
+           00130004  mov      r0, r6                       
+           00130008  cmp      r0, #1                       
+           0013000c  bne      #0x130014                    ; -> L_130014
+           00130010  add      r6, r6, #1                   
+L_130014:  00130014  ldr      r0, [pc]                     
+           00130018  b        #0x130020                    ; -> L_130020
+           0013001c  .word    0x00e76388                   ; literal 15164296 / 
+L_130020:  00130020  ldr      r0, [pc, r0]                 ; GOT[1426] TYPE_FROM_HANDLE typeof(RaceSettings/RaceModes)
+           00130024  bl       #0x22af20                    ; CALL System.Enum::GetValues
+           00130028  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0013002c  cmp      r6, r0                       
+           00130030  blt      #0x130038                    ; -> L_130038
+           00130034  mov      r6, #0                       
+L_130038:  00130038  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0013003c  mov      r1, r0                       
+           00130040  ldr      lr, [r1]                     
+           00130044  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           00130048  ldr      lr, [r0]                     
+           0013004c  str      r6, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           00130050  ldr      r0, [fp]                     
+           00130054  bl       #0x22ed80                    ; CALL PlaySummaryPublisher::Refresh
+           00130058  add      sp, fp, #0xc                 
+           0013005c  pop      {r6, r8, fp}                 
+           00130060  ldr      r7, [sp, #8]                 
+           00130064  ldm      sp, {sp, pc}                 
+
+== PlaySummaryPublisher::PressedDifficultyArrowLeft  token 0x060006be @0x00130068 (180 bytes)
+   args: r0=this, 
+           00130068  mov      ip, sp                       
+           0013006c  push     {r7, lr}                     
+           00130070  mov      r7, sp                       
+           00130074  push     {r5, r6, r8, sl, fp, ip, lr} 
+           00130078  sub      sp, sp, #4                   
+           0013007c  mov      fp, sp                       
+           00130080  mov      sl, r0                       
+           00130084  ldr      r0, [pc]                     
+           00130088  b        #0x130090                    ; -> L_130090
+           0013008c  .word    0x00e75e28                   ; literal 15162920 / 
+L_130090:  00130090  ldr      r0, [pc, r0]                 ; GOT[1110] LDSTR 'menuButton1'
+           00130094  bl       #0x22cca0                    ; CALL SoundLibrary::ButtonClickPlay
+           00130098  ldr      r0, [pc]                     
+           0013009c  b        #0x1300a4                    ; -> L_1300a4
+           001300a0  .word    0x00e76308                   ; literal 15164168 / 
+L_1300a4:  001300a4  ldr      r0, [pc, r0]                 ; GOT[1427] TYPE_FROM_HANDLE typeof(RaceManager/RaceDifficultyLevel)
+           001300a8  bl       #0x22af20                    ; CALL System.Enum::GetValues
+           001300ac  mov      r6, r0                       
+           001300b0  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           001300b4  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           001300b8  ldr      r5, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+L_1300bc:  001300bc  sub      r5, r5, #1                   
+           001300c0  mov      r0, r5                       
+           001300c4  cmp      r0, #0                       
+           001300c8  bge      #0x1300d4                    ; -> L_1300d4
+           001300cc  ldr      r0, [r6, #0xc]               ; field+0xc 
+           001300d0  sub      r5, r0, #1                   
+L_1300d4:  001300d4  cmp      r5, #3                       
+           001300d8  bne      #0x1300f0                    ; -> L_1300f0
+           001300dc  mov      r0, sl                       
+           001300e0  bl       #0x22edb0                    ; CALL PlaySummaryPublisher::TestForUltraHard
+           001300e4  cmp      r0, #0                       
+           001300e8  bne      #0x1300f8                    ; -> L_1300f8
+           001300ec  b        #0x1300bc                    ; -> L_1300bc
+L_1300f0:  001300f0  cmp      r5, #0                       
+           001300f4  blt      #0x1300bc                    ; -> L_1300bc
+L_1300f8:  001300f8  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           001300fc  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           00130100  str      r5, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           00130104  mov      r0, sl                       
+           00130108  bl       #0x22ed80                    ; CALL PlaySummaryPublisher::Refresh
+           0013010c  add      sp, fp, #4                   
+           00130110  pop      {r5, r6, r8, sl, fp}         
+           00130114  ldr      r7, [sp, #8]                 
+           00130118  ldm      sp, {sp, pc}                 
+
+== PlaySummaryPublisher::PressedDifficultyArrowRight  token 0x060006bf @0x0013011c (180 bytes)
+   args: r0=this, 
+           0013011c  mov      ip, sp                       
+           00130120  push     {r7, lr}                     
+           00130124  mov      r7, sp                       
+           00130128  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0013012c  sub      sp, sp, #4                   
+           00130130  mov      fp, sp                       
+           00130134  mov      sl, r0                       
+           00130138  ldr      r0, [pc]                     
+           0013013c  b        #0x130144                    ; -> L_130144
+           00130140  .word    0x00e75d74                   ; literal 15162740 / 
+L_130144:  00130144  ldr      r0, [pc, r0]                 ; GOT[1110] LDSTR 'menuButton1'
+           00130148  bl       #0x22cca0                    ; CALL SoundLibrary::ButtonClickPlay
+           0013014c  ldr      r0, [pc]                     
+           00130150  b        #0x130158                    ; -> L_130158
+           00130154  .word    0x00e76254                   ; literal 15163988 / 
+L_130158:  00130158  ldr      r0, [pc, r0]                 ; GOT[1427] TYPE_FROM_HANDLE typeof(RaceManager/RaceDifficultyLevel)
+           0013015c  bl       #0x22af20                    ; CALL System.Enum::GetValues
+           00130160  mov      r6, r0                       
+           00130164  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00130168  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           0013016c  ldr      r5, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+L_130170:  00130170  add      r5, r5, #1                   
+           00130174  mov      r0, r5                       
+           00130178  ldr      r1, [r6, #0xc]               ; field+0xc 
+           0013017c  cmp      r0, r1                       
+           00130180  bne      #0x130188                    ; -> L_130188
+           00130184  mov      r5, #0                       
+L_130188:  00130188  cmp      r5, #3                       
+           0013018c  bne      #0x1301a4                    ; -> L_1301a4
+           00130190  mov      r0, sl                       
+           00130194  bl       #0x22edb0                    ; CALL PlaySummaryPublisher::TestForUltraHard
+           00130198  cmp      r0, #0                       
+           0013019c  bne      #0x1301ac                    ; -> L_1301ac
+           001301a0  b        #0x130170                    ; -> L_130170
+L_1301a4:  001301a4  cmp      r5, #0                       
+           001301a8  blt      #0x130170                    ; -> L_130170
+L_1301ac:  001301ac  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           001301b0  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           001301b4  str      r5, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           001301b8  mov      r0, sl                       
+           001301bc  bl       #0x22ed80                    ; CALL PlaySummaryPublisher::Refresh
+           001301c0  add      sp, fp, #4                   
+           001301c4  pop      {r5, r6, r8, sl, fp}         
+           001301c8  ldr      r7, [sp, #8]                 
+           001301cc  ldm      sp, {sp, pc}                 
+
+== PlaySummaryPublisher::TestForUltraHard  token 0x060006c0 @0x001301d0 (188 bytes)
+   args: r0=this, 
+           001301d0  mov      ip, sp                       
+           001301d4  push     {r7, lr}                     
+           001301d8  mov      r7, sp                       
+           001301dc  push     {r6, r8, sl, fp, ip, lr}     
+           001301e0  sub      sp, sp, #8                   
+           001301e4  mov      fp, sp                       
+           001301e8  str      r0, [fp]                     
+           001301ec  ldr      r0, [pc]                     
+           001301f0  b        #0x1301f8                    ; -> L_1301f8
+           001301f4  .word    0x00e75ff4                   ; literal 15163380 / 
+L_1301f8:  001301f8  ldr      r0, [pc, r0]                 ; GOT[1315] TYPE_FROM_HANDLE typeof(TrackUnlockHelper)
+           001301fc  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           00130200  mov      r6, r0                       
+           00130204  cmp      r6, #0                       
+           00130208  beq      #0x130234                    ; -> L_130234
+           0013020c  ldr      r0, [r6]                     
+           00130210  ldr      r0, [r0]                     
+           00130214  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00130218  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           0013021c  ldr      r1, [pc]                     
+           00130220  b        #0x130228                    ; -> L_130228
+           00130224  .word    0x00e75fc8                   ; literal 15163336 / 
+L_130228:  00130228  ldr      r1, [pc, r1]                 ; GOT[1316] CLASS TrackUnlockHelper
+           0013022c  cmp      r0, r1                       
+           00130230  blne     #0x13027c                    ; THROW System.InvalidCastException (if ne)
+L_130234:  00130234  mov      sl, r6                       
+           00130238  mov      r0, r6                       
+           0013023c  mov      r1, #0                       
+           00130240  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00130244  cmp      r0, #0                       
+           00130248  beq      #0x130268                    ; -> L_130268
+           0013024c  mov      r0, sl                       
+           00130250  ldr      lr, [sl]                     
+           00130254  bl       #0x119518                    ; CALL TrackUnlockHelper::TestForUltraHard (direct)
+           00130258  cmp      r0, #0                       
+           0013025c  beq      #0x130268                    ; -> L_130268
+           00130260  mov      r0, #1                       
+           00130264  b        #0x13026c                    ; -> L_13026c
+L_130268:  00130268  mov      r0, #0                       
+L_13026c:  0013026c  add      sp, fp, #8                   
+           00130270  pop      {r6, r8, sl, fp}             
+           00130274  ldr      r7, [sp, #8]                 
+           00130278  ldm      sp, {sp, pc}                 
+           0013027c  mov      r1, lr                       
+           00130280  ldr      r0, [pc]                     
+           00130284  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00130288  andeq    r0, r0, #0xfd                
+
+== PlaySummaryPublisher::PressedBackButton  token 0x060006c1 @0x0013028c (84 bytes)
+   args: r0=this, 
+           0013028c  mov      ip, sp                       
+           00130290  push     {r7, lr}                     
+           00130294  mov      r7, sp                       
+           00130298  push     {r8, fp, ip, lr}             
+           0013029c  sub      sp, sp, #8                   
+           001302a0  mov      fp, sp                       
+           001302a4  str      r0, [fp]                     
+           001302a8  ldr      r0, [pc]                     
+           001302ac  b        #0x1302b4                    ; -> L_1302b4
+           001302b0  .word    0x00e75c04                   ; literal 15162372 / 
+L_1302b4:  001302b4  ldr      r0, [pc, r0]                 ; GOT[1110] LDSTR 'menuButton1'
+           001302b8  bl       #0x22cca0                    ; CALL SoundLibrary::ButtonClickPlay
+           001302bc  ldr      r0, [pc]                     
+           001302c0  b        #0x1302c8                    ; -> L_1302c8
+           001302c4  .word    0x00e760e8                   ; literal 15163624 / 
+L_1302c8:  001302c8  ldr      r0, [pc, r0]                 ; GOT[1428] LDSTR 'Track Select'
+           001302cc  bl       #0x22e2f0                    ; CALL FrontEndLogic::RequestMenuChange
+           001302d0  add      sp, fp, #8                   
+           001302d4  pop      {r8, fp}                     
+           001302d8  ldr      r7, [sp, #8]                 
+           001302dc  ldm      sp, {sp, pc}                 
+
+== PlaySummaryPublisher::UpdateTrackIcon  token 0x060006c2 @0x001302e0 (448 bytes)
+   args: r0=this, 
+           001302e0  mov      ip, sp                       
+           001302e4  push     {r7, lr}                     
+           001302e8  mov      r7, sp                       
+           001302ec  push     {r5, r6, r8, sl, fp, ip, lr} 
+           001302f0  sub      sp, sp, #0x4c                
+           001302f4  mov      fp, sp                       
+           001302f8  mov      sl, r0                       
+           001302fc  mov      r0, #0                       
+           00130300  str      r0, [fp]                     
+           00130304  mov      r0, #0                       
+           00130308  str      r0, [fp, #4]                 
+           0013030c  mov      r0, #0                       
+           00130310  str      r0, [fp, #8]                 
+           00130314  mov      r0, #0                       
+           00130318  str      r0, [fp, #0xc]               
+           0013031c  ldr      r1, [pc]                     
+           00130320  b        #0x130328                    ; -> L_130328
+           00130324  .word    0x00e7608c                   ; literal 15163532 / 
+L_130328:  00130328  ldr      r1, [pc, r1]                 ; GOT[1429] LDSTR 'Snapshot'
+           0013032c  mov      r0, sl                       
+           00130330  bl       #0x22edc0                    ; CALL UghPublisher::GetSprite
+           00130334  mov      r5, r0                       
+           00130338  mov      r1, #0                       
+           0013033c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00130340  cmp      r0, #0                       
+           00130344  beq      #0x130490                    ; -> L_130490
+           00130348  ldr      r2, [sl, #0x48]              ; field+0x48 (this-class: trackIcons)
+           0013034c  mov      r1, r2                       
+           00130350  mov      r0, fp                       
+           00130354  ldr      lr, [r2]                     
+           00130358  bl       #0x22edd0                    ; CALL System.Collections.Generic.List`1<TrackSelectPublisher/TrackIcon>::GetEnumerator
+           0013035c  b        #0x1303dc                    ; -> L_1303dc
+L_130360:  00130360  ldr      r0, [pc]                     
+           00130364  b        #0x13036c                    ; -> L_13036c
+           00130368  .word    0x00e7604c                   ; literal 15163468 / 
+L_13036c:  0013036c  ldr      r0, [pc, r0]                 ; GOT[1430] VTABLE System.Collections.Generic.List`1/Enumerator<TrackSelectPublisher/TrackIcon>
+           00130370  ldr      r6, [fp, #0xc]               
+           00130374  mov      r0, r6                       
+           00130378  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0013037c  str      r0, [fp, #0x40]              
+           00130380  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           00130384  ldr      r1, [pc]                     
+           00130388  b        #0x130390                    ; -> L_130390
+           0013038c  .word    0x00e76000                   ; literal 15163392 / 
+L_130390:  00130390  ldr      r1, [pc, r1]                 ; GOT[1420] LDSTR 'Track Name'
+           00130394  mov      r0, r2                       
+           00130398  ldr      lr, [r2]                     
+           0013039c  bl       #0x22e1e0                    ; CALL UghPublisher/UghTextsDictionary::get_Item
+           001303a0  mov      r1, r0                       
+           001303a4  ldr      lr, [r1]                     
+           001303a8  bl       #0x22e1f0                    ; CALL UghText::get_Text
+           001303ac  mov      r1, r0                       
+           001303b0  ldr      r0, [fp, #0x40]              
+           001303b4  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           001303b8  cmp      r0, #0                       
+           001303bc  beq      #0x1303dc                    ; -> L_1303dc
+           001303c0  ldr      r0, [r6, #0xc]               ; field+0xc 
+           001303c4  str      r0, [r5, #0x10]              ; field+0x10 (this-class: transformReferences)
+           001303c8  mov      r0, r5                       
+           001303cc  ldr      lr, [r5]                     
+           001303d0  bl       #0x22e4f0                    ; CALL UghSprite::UpdateMesh
+           001303d4  bl       #0x130404                    ; CALL 0x130404
+           001303d8  b        #0x130490                    ; -> L_130490
+L_1303dc:  001303dc  ldr      r8, [pc]                     
+           001303e0  b        #0x1303e8                    ; -> L_1303e8
+           001303e4  .word    0x00e75fd0                   ; literal 15163344 / 
+L_1303e8:  001303e8  ldr      r8, [pc, r8]                 ; GOT[1430] VTABLE System.Collections.Generic.List`1/Enumerator<TrackSelectPublisher/TrackIcon>
+           001303ec  mov      r0, fp                       
+           001303f0  bl       #0x22ede0                    ; CALL System.Collections.Generic.List`1/Enumerator<TrackSelectPublisher/TrackIcon>::MoveNext
+           001303f4  cmp      r0, #0                       
+           001303f8  bne      #0x130360                    ; -> L_130360
+           001303fc  bl       #0x130404                    ; CALL 0x130404
+           00130400  b        #0x130490                    ; -> L_130490
+           00130404  str      lr, [fp, #0x28]              
+           00130408  ldr      r0, [fp]                     
+           0013040c  str      r0, [fp, #0x2c]              
+           00130410  ldr      r0, [fp, #4]                 
+           00130414  str      r0, [fp, #0x30]              
+           00130418  ldr      r0, [fp, #8]                 
+           0013041c  str      r0, [fp, #0x34]              
+           00130420  ldr      r0, [fp, #0xc]               
+           00130424  str      r0, [fp, #0x38]              
+           00130428  ldr      r0, [pc]                     
+           0013042c  b        #0x130434                    ; -> L_130434
+           00130430  .word    0x00e75f84                   ; literal 15163268 / 
+L_130434:  00130434  ldr      r0, [pc, r0]                 ; GOT[1430] VTABLE System.Collections.Generic.List`1/Enumerator<TrackSelectPublisher/TrackIcon>
+           00130438  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0013043c  mov      r1, r0                       
+           00130440  add      r0, r1, #8                   
+           00130444  ldr      r2, [fp, #0x2c]              
+           00130448  str      r2, [r0]                     
+           0013044c  ldr      r2, [fp, #0x30]              
+           00130450  str      r2, [r0, #4]                 ; field+0x4 
+           00130454  ldr      r2, [fp, #0x34]              
+           00130458  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0013045c  ldr      r2, [fp, #0x38]              
+           00130460  str      r2, [r0, #0xc]               ; field+0xc 
+           00130464  mov      r0, r1                       
+           00130468  ldr      r1, [r1]                     
+           0013046c  ldr      r8, [pc]                     
+           00130470  b        #0x130478                    ; -> L_130478
+           00130474  .word    0x00e74930                   ; literal 15157552 / 
+L_130478:  00130478  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           0013047c  add      lr, pc, #4                   
+           00130480  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           00130484  andeq    r0, r0, r0                   
+           00130488  ldr      ip, [fp, #0x28]              
+           0013048c  mov      pc, ip                       
+L_130490:  00130490  add      sp, fp, #0x4c                
+           00130494  pop      {r5, r6, r8, sl, fp}         
+           00130498  ldr      r7, [sp, #8]                 
+           0013049c  ldm      sp, {sp, pc}                 

@@ -1,0 +1,403 @@
+####################################################################################################
+# TYPE GetHitByTrackHazardAchievementListener  (instance size 0x40)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 UIName                         LocalizedString
+#   +0x14 description                    LocalizedString
+#   +0x18 rewardDescription              LocalizedString
+#   +0x1c rewardUnlocks                  string[]
+#   +0x20 gcIdentifier                   UnlocalizedString
+#   +0x24 areaType                       AchievementListener/AchievementAreaType
+#   +0x28 rewardCoins                    int
+#   +0x2c categoryFilter                 AchievementListener/AchievementFilterCategory
+#   +0x30 state                          AchievementListener/AchievementState
+#   +0x34 hazardType                     UnlocalizedString
+#   +0x38 trackName                      UnlocalizedString
+#   +0x3c numTimes                       int
+#   vtable slots: 4:Reward, 5:Postrace, 6:Prerace, 7:IsAvailable
+####################################################################################################
+== GetHitByTrackHazardAchievementListener::.ctor  token 0x060000f9 @0x000d1bdc (60 bytes)
+   args: r0=this, 
+           000d1bdc  mov      ip, sp                       
+           000d1be0  push     {r7, lr}                     
+           000d1be4  mov      r7, sp                       
+           000d1be8  push     {r8, fp, ip, lr}             
+           000d1bec  sub      sp, sp, #8                   
+           000d1bf0  mov      fp, sp                       
+           000d1bf4  str      r0, [fp]                     
+           000d1bf8  ldr      r0, [fp]                     
+           000d1bfc  mov      r1, #1                       
+           000d1c00  str      r1, [r0, #0x3c]              ; field+0x3c (this-class: numTimes)
+           000d1c04  bl       #0xcf738                     ; CALL AchievementListener::.ctor (direct)
+           000d1c08  add      sp, fp, #8                   
+           000d1c0c  pop      {r8, fp}                     
+           000d1c10  ldr      r7, [sp, #8]                 
+           000d1c14  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener::Start  token 0x060000fa @0x000d1c18 (88 bytes)
+   args: r0=this, 
+           000d1c18  mov      ip, sp                       
+           000d1c1c  push     {r7, lr}                     
+           000d1c20  mov      r7, sp                       
+           000d1c24  push     {r8, sl, fp, ip, lr}         
+           000d1c28  sub      sp, sp, #4                   
+           000d1c2c  mov      fp, sp                       
+           000d1c30  mov      sl, r0                       
+           000d1c34  mov      r0, #1                       
+           000d1c38  str      r0, [sl, #0x30]              ; field+0x30 (this-class: state)
+           000d1c3c  ldr      r0, [pc]                     
+           000d1c40  b        #0xd1c48                     ; -> L_d1c48
+           000d1c44  .word    0x00ed3448                   ; literal 15545416 / 
+L_d1c48:   000d1c48  ldr      r0, [pc, r0]                 ; GOT[204] VTABLE GetHitByTrackHazardAchievementListener/<CheckMetricsPump>c__IteratorA
+           000d1c4c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000d1c50  mov      r1, r0                       
+           000d1c54  str      sl, [r1, #0xc]               ; field+0xc 
+           000d1c58  mov      r0, sl                       
+           000d1c5c  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000d1c60  add      sp, fp, #4                   
+           000d1c64  pop      {r8, sl, fp}                 
+           000d1c68  ldr      r7, [sp, #8]                 
+           000d1c6c  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener::Update  token 0x060000fb @0x000d1c70 (44 bytes)
+   args: r0=this, 
+           000d1c70  mov      ip, sp                       
+           000d1c74  push     {r7, lr}                     
+           000d1c78  mov      r7, sp                       
+           000d1c7c  push     {r8, fp, ip, lr}             
+           000d1c80  sub      sp, sp, #8                   
+           000d1c84  mov      fp, sp                       
+           000d1c88  str      r0, [fp]                     
+           000d1c8c  add      sp, fp, #8                   
+           000d1c90  pop      {r8, fp}                     
+           000d1c94  ldr      r7, [sp, #8]                 
+           000d1c98  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener::IsAvailable  token 0x060000fc @0x000d1c9c (148 bytes)
+   args: r0=this, 
+           000d1c9c  mov      ip, sp                       
+           000d1ca0  push     {r7, lr}                     
+           000d1ca4  mov      r7, sp                       
+           000d1ca8  push     {r8, fp, ip, lr}             
+           000d1cac  sub      sp, sp, #8                   
+           000d1cb0  mov      fp, sp                       
+           000d1cb4  str      r0, [fp, #4]                 
+           000d1cb8  ldr      r0, [fp, #4]                 
+           000d1cbc  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           000d1cc0  cmp      r0, #0                       
+           000d1cc4  beq      #0xd1cd0                     ; -> L_d1cd0
+           000d1cc8  mov      r0, #0                       
+           000d1ccc  b        #0xd1d20                     ; -> L_d1d20
+L_d1cd0:   000d1cd0  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000d1cd4  mov      r1, r0                       
+           000d1cd8  ldr      lr, [r1]                     
+           000d1cdc  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: areaType)
+           000d1ce0  str      r0, [fp]                     
+           000d1ce4  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: rewardDescription)
+           000d1ce8  mov      r1, r0                       
+           000d1cec  ldr      lr, [r1]                     
+           000d1cf0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d1cf4  ldr      r1, [fp, #4]                 
+           000d1cf8  ldr      r1, [r1, #0x38]              ; field+0x38 (this-class: trackName)
+           000d1cfc  mov      r2, r1                       
+           000d1d00  ldr      lr, [r2]                     
+           000d1d04  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d1d08  bl       #0x22ab40                    ; CALL System.String::op_Inequality
+           000d1d0c  cmp      r0, #0                       
+           000d1d10  beq      #0xd1d1c                     ; -> L_d1d1c
+           000d1d14  mov      r0, #0                       
+           000d1d18  b        #0xd1d20                     ; -> L_d1d20
+L_d1d1c:   000d1d1c  mov      r0, #1                       
+L_d1d20:   000d1d20  add      sp, fp, #8                   
+           000d1d24  pop      {r8, fp}                     
+           000d1d28  ldr      r7, [sp, #8]                 
+           000d1d2c  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener::CheckMetricsPump  token 0x060000fd @0x000d1d30 (72 bytes)
+   args: r0=this, 
+           000d1d30  mov      ip, sp                       
+           000d1d34  push     {r7, lr}                     
+           000d1d38  mov      r7, sp                       
+           000d1d3c  push     {r8, fp, ip, lr}             
+           000d1d40  sub      sp, sp, #8                   
+           000d1d44  mov      fp, sp                       
+           000d1d48  str      r0, [fp]                     
+           000d1d4c  ldr      r0, [pc]                     
+           000d1d50  b        #0xd1d58                     ; -> L_d1d58
+           000d1d54  .word    0x00ed3338                   ; literal 15545144 / 
+L_d1d58:   000d1d58  ldr      r0, [pc, r0]                 ; GOT[204] VTABLE GetHitByTrackHazardAchievementListener/<CheckMetricsPump>c__IteratorA
+           000d1d5c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000d1d60  ldr      r1, [fp]                     
+           000d1d64  str      r1, [r0, #0xc]               ; field+0xc 
+           000d1d68  add      sp, fp, #8                   
+           000d1d6c  pop      {r8, fp}                     
+           000d1d70  ldr      r7, [sp, #8]                 
+           000d1d74  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener::CheckMetrics  token 0x060000fe @0x000d1d78 (244 bytes)
+   args: r0=this, 
+           000d1d78  mov      ip, sp                       
+           000d1d7c  push     {r7, lr}                     
+           000d1d80  mov      r7, sp                       
+           000d1d84  push     {r4, r6, r8, sl, fp, ip, lr} 
+           000d1d88  sub      sp, sp, #0xc                 
+           000d1d8c  mov      fp, sp                       
+           000d1d90  str      r0, [fp, #4]                 
+           000d1d94  bl       #0x1129cc                    ; CALL RaceManager::GetPlayerCar (direct)
+           000d1d98  mov      sl, r0                       
+           000d1d9c  mov      r1, #0                       
+           000d1da0  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d1da4  cmp      r0, #0                       
+           000d1da8  beq      #0xd1e58                     ; -> L_d1e58
+           000d1dac  ldr      r0, [pc]                     
+           000d1db0  b        #0xd1db8                     ; -> L_d1db8
+           000d1db4  .word    0x00ed317c                   ; literal 15544700 / 
+L_d1db8:   000d1db8  ldr      r0, [pc, r0]                 ; GOT[117] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarMetrics>
+           000d1dbc  ldr      lr, [sl]                     
+           000d1dc0  mov      r8, r0                       
+           000d1dc4  mov      r0, sl                       
+           000d1dc8  bl       #0x22b280                    ; CALL UnityEngine.GameObject::GetComponent<CarMetrics>
+           000d1dcc  mov      r6, r0                       
+           000d1dd0  mov      r1, #0                       
+           000d1dd4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000d1dd8  cmp      r0, #0                       
+           000d1ddc  beq      #0xd1e58                     ; -> L_d1e58
+           000d1de0  ldr      r0, [fp, #4]                 
+           000d1de4  ldr      r0, [r0, #0x34]              ; field+0x34 (this-class: hazardType)
+           000d1de8  ldr      r1, [pc]                     
+           000d1dec  b        #0xd1df4                     ; -> L_d1df4
+           000d1df0  .word    0x00ed32a0                   ; literal 15544992 / 
+L_d1df4:   000d1df4  ldr      r1, [pc, r1]                 ; GOT[205] LDSTR ' collision'
+           000d1df8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000d1dfc  str      r1, [fp]                     
+           000d1e00  mvn      r4, #0                       
+           000d1e04  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: UIName)
+           000d1e08  mov      r0, r2                       
+           000d1e0c  ldr      lr, [r2]                     
+           000d1e10  bl       #0x22b7a0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::ContainsKey
+           000d1e14  cmp      r0, #0                       
+           000d1e18  beq      #0xd1e40                     ; -> L_d1e40
+           000d1e1c  ldr      r2, [r6, #0x10]              ; field+0x10 (this-class: UIName)
+           000d1e20  mov      r0, r2                       
+           000d1e24  ldr      r1, [fp]                     
+           000d1e28  ldr      lr, [r2]                     
+           000d1e2c  bl       #0x22b7b0                    ; CALL System.Collections.Generic.Dictionary`2<string,float>::get_Item
+           000d1e30  vmov     s4, r0                       
+           000d1e34  vcvt.f64.f32 d2, s4                       
+           000d1e38  vcvt.s32.f64 s0, d2                       
+           000d1e3c  vmov     r4, s0                       
+L_d1e40:   000d1e40  ldr      r0, [fp, #4]                 
+           000d1e44  ldr      r0, [r0, #0x3c]              ; field+0x3c (this-class: numTimes)
+           000d1e48  cmp      r4, r0                       
+           000d1e4c  blt      #0xd1e58                     ; -> L_d1e58
+           000d1e50  mov      r0, #1                       
+           000d1e54  b        #0xd1e5c                     ; -> L_d1e5c
+L_d1e58:   000d1e58  mov      r0, #0                       
+L_d1e5c:   000d1e5c  add      sp, fp, #0xc                 
+           000d1e60  pop      {r4, r6, r8, sl, fp}         
+           000d1e64  ldr      r7, [sp, #8]                 
+           000d1e68  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener::Prerace  token 0x060000ff @0x000d1e6c (44 bytes)
+   args: r0=this, 
+           000d1e6c  mov      ip, sp                       
+           000d1e70  push     {r7, lr}                     
+           000d1e74  mov      r7, sp                       
+           000d1e78  push     {r8, fp, ip, lr}             
+           000d1e7c  sub      sp, sp, #8                   
+           000d1e80  mov      fp, sp                       
+           000d1e84  str      r0, [fp]                     
+           000d1e88  add      sp, fp, #8                   
+           000d1e8c  pop      {r8, fp}                     
+           000d1e90  ldr      r7, [sp, #8]                 
+           000d1e94  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener::Postrace  token 0x06000100 @0x000d1e98 (84 bytes)
+   args: r0=this, 
+           000d1e98  mov      ip, sp                       
+           000d1e9c  push     {r7, lr}                     
+           000d1ea0  mov      r7, sp                       
+           000d1ea4  push     {r8, sl, fp, ip, lr}         
+           000d1ea8  sub      sp, sp, #4                   
+           000d1eac  mov      fp, sp                       
+           000d1eb0  mov      sl, r0                       
+           000d1eb4  mov      r0, sl                       
+           000d1eb8  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           000d1ebc  cmp      r0, #0                       
+           000d1ec0  bne      #0xd1edc                     ; -> L_d1edc
+           000d1ec4  mov      r0, sl                       
+           000d1ec8  bl       #0x22b7c0                    ; CALL GetHitByTrackHazardAchievementListener::CheckMetrics
+           000d1ecc  cmp      r0, #0                       
+           000d1ed0  beq      #0xd1edc                     ; -> L_d1edc
+           000d1ed4  mov      r0, sl                       
+           000d1ed8  bl       #0xcf80c                     ; CALL AchievementListener::Achieve (direct)
+L_d1edc:   000d1edc  add      sp, fp, #4                   
+           000d1ee0  pop      {r8, sl, fp}                 
+           000d1ee4  ldr      r7, [sp, #8]                 
+           000d1ee8  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener::Reward  token 0x06000101 @0x000d1eec (64 bytes)
+   args: r0=this, 
+           000d1eec  mov      ip, sp                       
+           000d1ef0  push     {r7, lr}                     
+           000d1ef4  mov      r7, sp                       
+           000d1ef8  push     {r8, fp, ip, lr}             
+           000d1efc  sub      sp, sp, #8                   
+           000d1f00  mov      fp, sp                       
+           000d1f04  str      r0, [fp]                     
+           000d1f08  ldr      r0, [pc]                     
+           000d1f0c  b        #0xd1f14                     ; -> L_d1f14
+           000d1f10  .word    0x00ed3184                   ; literal 15544708 / 
+L_d1f14:   000d1f14  ldr      r0, [pc, r0]                 ; GOT[206] LDSTR 'TODO: triggered hit by track hazard achievement'
+           000d1f18  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           000d1f1c  add      sp, fp, #8                   
+           000d1f20  pop      {r8, fp}                     
+           000d1f24  ldr      r7, [sp, #8]                 
+           000d1f28  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE GetHitByTrackHazardAchievementListener/<CheckMetricsPump>c__IteratorA  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      GetHitByTrackHazardAchievementListener
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== GetHitByTrackHazardAchievementListener/<CheckMetricsPump>c__IteratorA::.ctor  token 0x06000809 @0x00142a1c (44 bytes)
+   args: r0=this, 
+           00142a1c  mov      ip, sp                       
+           00142a20  push     {r7, lr}                     
+           00142a24  mov      r7, sp                       
+           00142a28  push     {r8, fp, ip, lr}             
+           00142a2c  sub      sp, sp, #8                   
+           00142a30  mov      fp, sp                       
+           00142a34  str      r0, [fp]                     
+           00142a38  add      sp, fp, #8                   
+           00142a3c  pop      {r8, fp}                     
+           00142a40  ldr      r7, [sp, #8]                 
+           00142a44  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener/<CheckMetricsPump>c__IteratorA::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x0600080a @0x00142a48 (52 bytes)
+   args: r0=this, 
+           00142a48  mov      ip, sp                       
+           00142a4c  push     {r7, lr}                     
+           00142a50  mov      r7, sp                       
+           00142a54  push     {r8, fp, ip, lr}             
+           00142a58  sub      sp, sp, #8                   
+           00142a5c  mov      fp, sp                       
+           00142a60  str      r0, [fp]                     
+           00142a64  ldr      r0, [fp]                     
+           00142a68  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00142a6c  add      sp, fp, #8                   
+           00142a70  pop      {r8, fp}                     
+           00142a74  ldr      r7, [sp, #8]                 
+           00142a78  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener/<CheckMetricsPump>c__IteratorA::System.Collections.IEnumerator.get_Current  token 0x0600080b @0x00142a7c (52 bytes)
+   args: r0=this, 
+           00142a7c  mov      ip, sp                       
+           00142a80  push     {r7, lr}                     
+           00142a84  mov      r7, sp                       
+           00142a88  push     {r8, fp, ip, lr}             
+           00142a8c  sub      sp, sp, #8                   
+           00142a90  mov      fp, sp                       
+           00142a94  str      r0, [fp]                     
+           00142a98  ldr      r0, [fp]                     
+           00142a9c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00142aa0  add      sp, fp, #8                   
+           00142aa4  pop      {r8, fp}                     
+           00142aa8  ldr      r7, [sp, #8]                 
+           00142aac  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener/<CheckMetricsPump>c__IteratorA::MoveNext  token 0x0600080c @0x00142ab0 (224 bytes)
+   args: r0=this, 
+           00142ab0  mov      ip, sp                       
+           00142ab4  push     {r7, lr}                     
+           00142ab8  mov      r7, sp                       
+           00142abc  push     {r8, sl, fp, ip, lr}         
+           00142ac0  sub      sp, sp, #0x14                
+           00142ac4  mov      fp, sp                       
+           00142ac8  mov      sl, r0                       
+           00142acc  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00142ad0  mvn      r1, #0                       
+           00142ad4  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00142ad8  str      r0, [fp, #4]                 
+           00142adc  cmp      r0, #2                       
+           00142ae0  bhs      #0x142b74                    ; -> L_142b74
+           00142ae4  ldr      r0, [fp, #4]                 
+           00142ae8  lsl      r1, r0, #2                   
+           00142aec  ldr      r0, [pc]                     
+           00142af0  b        #0x142af8                    ; -> L_142af8
+           00142af4  .word    0x00e63d30                   ; literal 15088944 / 
+L_142af8:  00142af8  ldr      r0, [pc, r0]                 ; GOT[1714] SWITCH switch table[2]
+           00142afc  add      r0, r0, r1                   
+           00142b00  ldr      r0, [r0]                     
+           00142b04  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00142b08  bl       #0x22b7c0                    ; CALL GetHitByTrackHazardAchievementListener::CheckMetrics
+           00142b0c  cmp      r0, #0                       
+           00142b10  beq      #0x142b20                    ; -> L_142b20
+           00142b14  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00142b18  bl       #0xcf80c                     ; CALL AchievementListener::Achieve (direct)
+           00142b1c  b        #0x142b74                    ; -> L_142b74
+L_142b20:  00142b20  vldr     s4, [pc]                     ; float 2.0
+           00142b24  b        #0x142b2c                    ; -> L_142b2c
+           00142b28  .word    0x40000000                   ; literal 1073741824 / 2
+L_142b2c:  00142b2c  vcvt.f64.f32 d2, s4                       
+           00142b30  vstr     d2, [fp, #8]                 
+           00142b34  ldr      r0, [pc]                     
+           00142b38  b        #0x142b40                    ; -> L_142b40
+           00142b3c  .word    0x00e63cb8                   ; literal 15088824 / 
+L_142b40:  00142b40  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           00142b44  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           00142b48  vldr     d2, [fp, #8]                 
+           00142b4c  vcvt.f32.f64 s0, d2                       
+           00142b50  vstr     s0, [fp]                     
+           00142b54  vldr     s0, [fp]                     
+           00142b58  vcvt.f64.f32 d2, s0                       
+           00142b5c  vcvt.f32.f64 s0, d2                       
+           00142b60  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00142b64  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           00142b68  mov      r0, #1                       
+           00142b6c  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00142b70  b        #0x142b7c                    ; -> L_142b7c
+L_142b74:  00142b74  mov      r0, #0                       
+           00142b78  b        #0x142b80                    ; -> L_142b80
+L_142b7c:  00142b7c  mov      r0, #1                       
+L_142b80:  00142b80  add      sp, fp, #0x14                
+           00142b84  pop      {r8, sl, fp}                 
+           00142b88  ldr      r7, [sp, #8]                 
+           00142b8c  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener/<CheckMetricsPump>c__IteratorA::Dispose  token 0x0600080d @0x00142b90 (56 bytes)
+   args: r0=this, 
+           00142b90  mov      ip, sp                       
+           00142b94  push     {r7, lr}                     
+           00142b98  mov      r7, sp                       
+           00142b9c  push     {r8, fp, ip, lr}             
+           00142ba0  sub      sp, sp, #8                   
+           00142ba4  mov      fp, sp                       
+           00142ba8  str      r0, [fp]                     
+           00142bac  ldr      r0, [fp]                     
+           00142bb0  mvn      r1, #0                       
+           00142bb4  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           00142bb8  add      sp, fp, #8                   
+           00142bbc  pop      {r8, fp}                     
+           00142bc0  ldr      r7, [sp, #8]                 
+           00142bc4  ldm      sp, {sp, pc}                 
+
+== GetHitByTrackHazardAchievementListener/<CheckMetricsPump>c__IteratorA::Reset  token 0x0600080e @0x00142bc8 (64 bytes)
+   args: r0=this, 
+           00142bc8  mov      ip, sp                       
+           00142bcc  push     {r7, lr}                     
+           00142bd0  mov      r7, sp                       
+           00142bd4  push     {r8, fp, ip, lr}             
+           00142bd8  sub      sp, sp, #8                   
+           00142bdc  mov      fp, sp                       
+           00142be0  str      r0, [fp]                     
+           00142be4  mov      r0, #0x49                    
+           00142be8  add      r0, r0, #0x100               
+           00142bec  add      r0, r0, #0x2000000           
+           00142bf0  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00142bf4  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00142bf8  add      sp, fp, #8                   
+           00142bfc  pop      {r8, fp}                     
+           00142c00  ldr      r7, [sp, #8]                 
+           00142c04  ldm      sp, {sp, pc}                 

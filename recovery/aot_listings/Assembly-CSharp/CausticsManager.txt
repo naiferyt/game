@@ -1,0 +1,429 @@
+####################################################################################################
+# TYPE CausticsManager  (instance size 0x20)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 causticsVector                 UnityEngine.Vector4
+#   vtable slots: 
+####################################################################################################
+== CausticsManager::.ctor  token 0x06000403 @0x000fb5a0 (268 bytes)
+   args: r0=this, 
+           000fb5a0  mov      ip, sp                       
+           000fb5a4  push     {r7, lr}                     
+           000fb5a8  mov      r7, sp                       
+           000fb5ac  push     {r8, fp, ip, lr}             
+           000fb5b0  sub      sp, sp, #0x38                
+           000fb5b4  mov      fp, sp                       
+           000fb5b8  str      r0, [fp, #0x30]              
+           000fb5bc  vldr     s10, [pc]                    ; float 3.0
+           000fb5c0  b        #0xfb5c8                     ; -> L_fb5c8
+           000fb5c4  .word    0x40400000                   ; literal 1077936128 / 3
+L_fb5c8:   000fb5c8  vcvt.f64.f32 d5, s10                      
+           000fb5cc  vldr     s8, [pc]                     ; float -0.30000001192092896
+           000fb5d0  b        #0xfb5d8                     ; -> L_fb5d8
+           000fb5d4  .word    0xbe99999a                   ; literal -1097229926 / -0.3
+L_fb5d8:   000fb5d8  vcvt.f64.f32 d4, s8                       
+           000fb5dc  vldr     s6, [pc]                     ; float -0.8999999761581421
+           000fb5e0  b        #0xfb5e8                     ; -> L_fb5e8
+           000fb5e4  .word    0xbf666666                   ; literal -1083808154 / -0.9
+L_fb5e8:   000fb5e8  vcvt.f64.f32 d3, s6                       
+           000fb5ec  vldr     s4, [pc]                     ; float 1.5
+           000fb5f0  b        #0xfb5f8                     ; -> L_fb5f8
+           000fb5f4  .word    0x3fc00000                   ; literal 1069547520 / 1.5
+L_fb5f8:   000fb5f8  vcvt.f64.f32 d2, s4                       
+           000fb5fc  mov      r0, #0                       
+           000fb600  str      r0, [fp, #0x10]              
+           000fb604  mov      r0, #0                       
+           000fb608  str      r0, [fp, #0x14]              
+           000fb60c  mov      r0, #0                       
+           000fb610  str      r0, [fp, #0x18]              
+           000fb614  mov      r0, #0                       
+           000fb618  str      r0, [fp, #0x1c]              
+           000fb61c  add      r0, fp, #0x10                
+           000fb620  vcvt.f32.f64 s0, d5                       
+           000fb624  vstr     s0, [sp, #-8]                
+           000fb628  ldr      r1, [sp, #-8]                
+           000fb62c  vcvt.f32.f64 s0, d4                       
+           000fb630  vstr     s0, [sp, #-8]                
+           000fb634  ldr      r2, [sp, #-8]                
+           000fb638  vcvt.f32.f64 s0, d3                       
+           000fb63c  vstr     s0, [sp, #-8]                
+           000fb640  ldr      r3, [sp, #-8]                
+           000fb644  vcvt.f32.f64 s0, d2                       
+           000fb648  vstr     s0, [sp]                     
+           000fb64c  bl       #0x22d270                    ; CALL UnityEngine.Vector4::.ctor
+           000fb650  ldr      r0, [fp, #0x10]              
+           000fb654  str      r0, [fp, #0x20]              
+           000fb658  ldr      r0, [fp, #0x14]              
+           000fb65c  str      r0, [fp, #0x24]              
+           000fb660  ldr      r0, [fp, #0x18]              
+           000fb664  str      r0, [fp, #0x28]              
+           000fb668  ldr      r0, [fp, #0x1c]              
+           000fb66c  str      r0, [fp, #0x2c]              
+           000fb670  ldr      r0, [fp, #0x30]              
+           000fb674  add      r1, r0, #0x10                
+           000fb678  ldr      r2, [fp, #0x20]              
+           000fb67c  str      r2, [r1]                     
+           000fb680  ldr      r2, [fp, #0x24]              
+           000fb684  str      r2, [r1, #4]                 ; field+0x4 
+           000fb688  ldr      r2, [fp, #0x28]              
+           000fb68c  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000fb690  ldr      r2, [fp, #0x2c]              
+           000fb694  str      r2, [r1, #0xc]               ; field+0xc 
+           000fb698  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000fb69c  add      sp, fp, #0x38                
+           000fb6a0  pop      {r8, fp}                     
+           000fb6a4  ldr      r7, [sp, #8]                 
+           000fb6a8  ldm      sp, {sp, pc}                 
+
+== CausticsManager::Start  token 0x06000404 @0x000fb6ac (560 bytes)
+   args: r0=this, 
+           000fb6ac  mov      ip, sp                       
+           000fb6b0  push     {r7, lr}                     
+           000fb6b4  mov      r7, sp                       
+           000fb6b8  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000fb6bc  sub      sp, sp, #0x18                
+           000fb6c0  mov      fp, sp                       
+           000fb6c4  str      r0, [fp, #0x14]              
+           000fb6c8  bl       #0x22c920                    ; CALL UnityEngine.Application::get_platform
+           000fb6cc  cmp      r0, #8                       
+           000fb6d0  bne      #0xfb870                     ; -> L_fb870
+           000fb6d4  bl       #0x22d280                    ; CALL UnityEngine.iPhone::get_generation
+           000fb6d8  cmp      r0, #3                       
+           000fb6dc  beq      #0xfb6f8                     ; -> L_fb6f8
+           000fb6e0  bl       #0x22d280                    ; CALL UnityEngine.iPhone::get_generation
+           000fb6e4  cmp      r0, #7                       
+           000fb6e8  beq      #0xfb6f8                     ; -> L_fb6f8
+           000fb6ec  bl       #0x22d280                    ; CALL UnityEngine.iPhone::get_generation
+           000fb6f0  cmp      r0, #6                       
+           000fb6f4  bne      #0xfb870                     ; -> L_fb870
+L_fb6f8:   000fb6f8  ldr      r0, [pc]                     
+           000fb6fc  b        #0xfb704                     ; -> L_fb704
+           000fb700  .word    0x00eaa11c                   ; literal 15376668 / 
+L_fb704:   000fb704  ldr      r0, [pc, r0]                 ; GOT[688] LDSTR 'Mobile/Unlit (Supports Lightmap)'
+           000fb708  bl       #0x22d290                    ; CALL UnityEngine.Shader::Find
+           000fb70c  str      r0, [fp]                     
+           000fb710  ldr      r0, [pc]                     
+           000fb714  b        #0xfb71c                     ; -> L_fb71c
+           000fb718  .word    0x00eaa108                   ; literal 15376648 / 
+L_fb71c:   000fb71c  ldr      r0, [pc, r0]                 ; GOT[689] TYPE_FROM_HANDLE typeof(UnityEngine.Renderer)
+           000fb720  bl       #0x22b650                    ; CALL UnityEngine.Object::FindObjectsOfType
+           000fb724  str      r0, [fp, #4]                 
+           000fb728  mov      r0, #0                       
+           000fb72c  str      r0, [fp, #8]                 
+           000fb730  b        #0xfb858                     ; -> L_fb858
+L_fb734:   000fb734  ldr      r0, [fp, #4]                 
+           000fb738  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000fb73c  ldr      r1, [fp, #8]                 
+           000fb740  cmp      r2, r1                       
+           000fb744  blls     #0xfb8bc                     ; THROW System.IndexOutOfRangeException (if ls)
+           000fb748  lsl      r1, r1, #2                   
+           000fb74c  add      r0, r0, r1                   
+           000fb750  add      r0, r0, #0x10                
+           000fb754  ldr      r0, [r0]                     
+           000fb758  str      r0, [fp, #0x10]              
+           000fb75c  cmp      r0, #0                       
+           000fb760  beq      #0xfb790                     ; -> L_fb790
+           000fb764  ldr      r0, [fp, #0x10]              
+           000fb768  ldr      r0, [r0]                     
+           000fb76c  ldr      r0, [r0]                     
+           000fb770  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000fb774  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000fb778  ldr      r1, [pc]                     
+           000fb77c  b        #0xfb784                     ; -> L_fb784
+           000fb780  .word    0x00eaa0a4                   ; literal 15376548 / 
+L_fb784:   000fb784  ldr      r1, [pc, r1]                 ; GOT[690] CLASS UnityEngine.Renderer
+           000fb788  cmp      r0, r1                       
+           000fb78c  blne     #0xfb8cc                     ; THROW System.InvalidCastException (if ne)
+L_fb790:   000fb790  ldr      r5, [fp, #0x10]              
+           000fb794  mov      r0, r5                       
+           000fb798  ldr      r1, [fp, #0x10]              
+           000fb79c  ldr      lr, [r1]                     
+           000fb7a0  bl       #0x22d2a0                    ; CALL UnityEngine.Renderer::get_materials
+           000fb7a4  mov      r4, r0                       
+           000fb7a8  mov      sl, #0                       
+           000fb7ac  b        #0xfb840                     ; -> L_fb840
+L_fb7b0:   000fb7b0  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000fb7b4  cmp      r0, sl                       
+           000fb7b8  blls     #0xfb8bc                     ; THROW System.IndexOutOfRangeException (if ls)
+           000fb7bc  lsl      r0, sl, #2                   
+           000fb7c0  add      r0, r4, r0                   
+           000fb7c4  add      r0, r0, #0x10                
+           000fb7c8  ldr      r6, [r0]                     
+           000fb7cc  mov      r1, r6                       
+           000fb7d0  mov      r0, r1                       
+           000fb7d4  ldr      lr, [r1]                     
+           000fb7d8  bl       #0x22d2b0                    ; CALL UnityEngine.Material::get_shader
+           000fb7dc  mov      r1, r0                       
+           000fb7e0  ldr      lr, [r1]                     
+           000fb7e4  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           000fb7e8  mov      r2, r0                       
+           000fb7ec  ldr      r1, [pc]                     
+           000fb7f0  b        #0xfb7f8                     ; -> L_fb7f8
+           000fb7f4  .word    0x00eaa034                   ; literal 15376436 / 
+L_fb7f8:   000fb7f8  ldr      r1, [pc, r1]                 ; GOT[691] LDSTR 'Mobile/Unlit Under The Sea'
+           000fb7fc  mov      r0, r2                       
+           000fb800  ldr      lr, [r2]                     
+           000fb804  bl       #0x22d2c0                    ; CALL System.String::Contains
+           000fb808  cmp      r0, #0                       
+           000fb80c  beq      #0xfb83c                     ; -> L_fb83c
+           000fb810  mov      r0, r6                       
+           000fb814  ldr      r1, [fp]                     
+           000fb818  ldr      lr, [r6]                     
+           000fb81c  bl       #0x22d2d0                    ; CALL UnityEngine.Material::set_shader
+           000fb820  mov      r0, r5                       
+           000fb824  ldr      lr, [r5]                     
+           000fb828  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000fb82c  mov      r1, r0                       
+           000fb830  ldr      lr, [r1]                     
+           000fb834  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           000fb838  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+L_fb83c:   000fb83c  add      sl, sl, #1                   
+L_fb840:   000fb840  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000fb844  cmp      sl, r0                       
+           000fb848  blt      #0xfb7b0                     ; -> L_fb7b0
+           000fb84c  ldr      r0, [fp, #8]                 
+           000fb850  add      r0, r0, #1                   
+           000fb854  str      r0, [fp, #8]                 
+L_fb858:   000fb858  ldr      r0, [fp, #4]                 
+           000fb85c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000fb860  ldr      r0, [fp, #8]                 
+           000fb864  cmp      r0, r1                       
+           000fb868  blt      #0xfb734                     ; -> L_fb734
+           000fb86c  b        #0xfb8ac                     ; -> L_fb8ac
+L_fb870:   000fb870  vldr     d2, [pc]                     
+           000fb874  b        #0xfb880                     ; -> L_fb880
+           000fb878  andeq    r0, r0, r0                   
+           000fb87c  andeq    r0, r0, r0                   
+L_fb880:   000fb880  vcvt.f32.f64 s0, d2                       
+           000fb884  vstr     s0, [fp, #0xc]               
+           000fb888  ldr      r0, [pc]                     
+           000fb88c  b        #0xfb894                     ; -> L_fb894
+           000fb890  .word    0x00ea9f9c                   ; literal 15376284 / 
+L_fb894:   000fb894  ldr      r0, [pc, r0]                 ; GOT[692] VTABLE CausticsManager/<UpdateCausticsCoroutine>c__Iterator28
+           000fb898  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000fb89c  mov      r1, r0                       
+           000fb8a0  ldr      r0, [fp, #0x14]              
+           000fb8a4  str      r0, [r1, #0xc]               ; field+0xc 
+           000fb8a8  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+L_fb8ac:   000fb8ac  add      sp, fp, #0x18                
+           000fb8b0  pop      {r4, r5, r6, r8, sl, fp}     
+           000fb8b4  ldr      r7, [sp, #8]                 
+           000fb8b8  ldm      sp, {sp, pc}                 
+           000fb8bc  mov      r1, lr                       
+           000fb8c0  ldr      r0, [pc]                     
+           000fb8c4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000fb8c8  andeq    r0, r0, #0xf8                
+           000fb8cc  mov      r1, lr                       
+           000fb8d0  ldr      r0, [pc]                     
+           000fb8d4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000fb8d8  andeq    r0, r0, #0xfd                
+
+== CausticsManager::UpdateCausticsCoroutine  token 0x06000405 @0x000fb8dc (72 bytes)
+   args: r0=this, 
+           000fb8dc  mov      ip, sp                       
+           000fb8e0  push     {r7, lr}                     
+           000fb8e4  mov      r7, sp                       
+           000fb8e8  push     {r8, fp, ip, lr}             
+           000fb8ec  sub      sp, sp, #8                   
+           000fb8f0  mov      fp, sp                       
+           000fb8f4  str      r0, [fp, #4]                 
+           000fb8f8  ldr      r0, [pc]                     
+           000fb8fc  b        #0xfb904                     ; -> L_fb904
+           000fb900  .word    0x00ea9f2c                   ; literal 15376172 / 
+L_fb904:   000fb904  ldr      r0, [pc, r0]                 ; GOT[692] VTABLE CausticsManager/<UpdateCausticsCoroutine>c__Iterator28
+           000fb908  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000fb90c  ldr      r1, [fp, #4]                 
+           000fb910  str      r1, [r0, #0xc]               ; field+0xc 
+           000fb914  add      sp, fp, #8                   
+           000fb918  pop      {r8, fp}                     
+           000fb91c  ldr      r7, [sp, #8]                 
+           000fb920  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE CausticsManager/<UpdateCausticsCoroutine>c__Iterator28  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      CausticsManager
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== CausticsManager/<UpdateCausticsCoroutine>c__Iterator28::.ctor  token 0x060008bd @0x00148b50 (44 bytes)
+   args: r0=this, 
+           00148b50  mov      ip, sp                       
+           00148b54  push     {r7, lr}                     
+           00148b58  mov      r7, sp                       
+           00148b5c  push     {r8, fp, ip, lr}             
+           00148b60  sub      sp, sp, #8                   
+           00148b64  mov      fp, sp                       
+           00148b68  str      r0, [fp]                     
+           00148b6c  add      sp, fp, #8                   
+           00148b70  pop      {r8, fp}                     
+           00148b74  ldr      r7, [sp, #8]                 
+           00148b78  ldm      sp, {sp, pc}                 
+
+== CausticsManager/<UpdateCausticsCoroutine>c__Iterator28::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x060008be @0x00148b7c (52 bytes)
+   args: r0=this, 
+           00148b7c  mov      ip, sp                       
+           00148b80  push     {r7, lr}                     
+           00148b84  mov      r7, sp                       
+           00148b88  push     {r8, fp, ip, lr}             
+           00148b8c  sub      sp, sp, #8                   
+           00148b90  mov      fp, sp                       
+           00148b94  str      r0, [fp]                     
+           00148b98  ldr      r0, [fp]                     
+           00148b9c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00148ba0  add      sp, fp, #8                   
+           00148ba4  pop      {r8, fp}                     
+           00148ba8  ldr      r7, [sp, #8]                 
+           00148bac  ldm      sp, {sp, pc}                 
+
+== CausticsManager/<UpdateCausticsCoroutine>c__Iterator28::System.Collections.IEnumerator.get_Current  token 0x060008bf @0x00148bb0 (52 bytes)
+   args: r0=this, 
+           00148bb0  mov      ip, sp                       
+           00148bb4  push     {r7, lr}                     
+           00148bb8  mov      r7, sp                       
+           00148bbc  push     {r8, fp, ip, lr}             
+           00148bc0  sub      sp, sp, #8                   
+           00148bc4  mov      fp, sp                       
+           00148bc8  str      r0, [fp]                     
+           00148bcc  ldr      r0, [fp]                     
+           00148bd0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00148bd4  add      sp, fp, #8                   
+           00148bd8  pop      {r8, fp}                     
+           00148bdc  ldr      r7, [sp, #8]                 
+           00148be0  ldm      sp, {sp, pc}                 
+
+== CausticsManager/<UpdateCausticsCoroutine>c__Iterator28::MoveNext  token 0x060008c0 @0x00148be4 (392 bytes)
+   args: r0=this, 
+           00148be4  mov      ip, sp                       
+           00148be8  push     {r7, lr}                     
+           00148bec  mov      r7, sp                       
+           00148bf0  push     {r8, sl, fp, ip, lr}         
+           00148bf4  sub      sp, sp, #0x5c                
+           00148bf8  mov      fp, sp                       
+           00148bfc  mov      sl, r0                       
+           00148c00  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00148c04  mvn      r1, #0                       
+           00148c08  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00148c0c  str      r0, [fp, #0xc]               
+           00148c10  cmp      r0, #2                       
+           00148c14  bhs      #0x148d50                    ; -> L_148d50
+           00148c18  ldr      r0, [fp, #0xc]               
+           00148c1c  lsl      r1, r0, #2                   
+           00148c20  ldr      r0, [pc]                     
+           00148c24  b        #0x148c2c                    ; -> L_148c2c
+           00148c28  .word    0x00e5dd14                   ; literal 15064340 / 
+L_148c2c:  00148c2c  ldr      r0, [pc, r0]                 ; GOT[1784] SWITCH switch table[2]
+           00148c30  add      r0, r0, r1                   
+           00148c34  ldr      r0, [r0]                     
+           00148c38  mov      pc, r0                       
+           00148c3c  ldr      r0, [pc]                     
+           00148c40  b        #0x148c48                    ; -> L_148c48
+           00148c44  .word    0x00e5dcfc                   ; literal 15064316 / 
+L_148c48:  00148c48  ldr      r0, [pc, r0]                 ; GOT[1785] LDSTR '_CausticVector'
+           00148c4c  str      r0, [fp, #0x40]              
+           00148c50  add      r0, fp, #0x10                
+           00148c54  bl       #0x22f5c0                    ; CALL UnityEngine.Vector4::get_zero
+           00148c58  ldr      r0, [fp, #0x40]              
+           00148c5c  ldr      r1, [fp, #0x10]              
+           00148c60  ldr      r2, [fp, #0x14]              
+           00148c64  ldr      r3, [fp, #0x18]              
+           00148c68  ldr      ip, [fp, #0x1c]              
+           00148c6c  str      ip, [sp]                     
+           00148c70  bl       #0x22f5d0                    ; CALL UnityEngine.Shader::SetGlobalVector
+           00148c74  ldr      r0, [pc]                     
+           00148c78  b        #0x148c80                    ; -> L_148c80
+           00148c7c  .word    0x00e5dcc4                   ; literal 15064260 / 
+L_148c80:  00148c80  ldr      r0, [pc, r0]                 ; GOT[1785] LDSTR '_CausticVector'
+           00148c84  str      r0, [fp, #0x50]              
+           00148c88  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00148c8c  add      r0, r0, #0x10                
+           00148c90  ldr      r1, [r0]                     
+           00148c94  str      r1, [fp, #0x20]              
+           00148c98  ldr      r1, [r0, #4]                 ; field+0x4 
+           00148c9c  str      r1, [fp, #0x24]              
+           00148ca0  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00148ca4  str      r1, [fp, #0x28]              
+           00148ca8  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: <>f__this)
+           00148cac  str      r0, [fp, #0x2c]              
+           00148cb0  bl       #0x22f5e0                    ; CALL UnityEngine.Time::get_realtimeSinceStartup
+           00148cb4  vmov     s4, r0                       
+           00148cb8  vcvt.f64.f32 d2, s4                       
+           00148cbc  add      r0, fp, #0x30                
+           00148cc0  ldr      r1, [fp, #0x20]              
+           00148cc4  ldr      r2, [fp, #0x24]              
+           00148cc8  ldr      r3, [fp, #0x28]              
+           00148ccc  ldr      ip, [fp, #0x2c]              
+           00148cd0  str      ip, [sp]                     
+           00148cd4  vcvt.f32.f64 s0, d2                       
+           00148cd8  vstr     s0, [sp, #4]                 
+           00148cdc  bl       #0x22f5f0                    ; CALL UnityEngine.Vector4::op_Multiply
+           00148ce0  ldr      r0, [fp, #0x50]              
+           00148ce4  ldr      r1, [fp, #0x30]              
+           00148ce8  ldr      r2, [fp, #0x34]              
+           00148cec  ldr      r3, [fp, #0x38]              
+           00148cf0  ldr      ip, [fp, #0x3c]              
+           00148cf4  str      ip, [sp]                     
+           00148cf8  bl       #0x22f5d0                    ; CALL UnityEngine.Shader::SetGlobalVector
+           00148cfc  vldr     s4, [pc]                     ; float 0.03333333507180214
+           00148d00  b        #0x148d08                    ; -> L_148d08
+           00148d04  .word    0x3d088889                   ; literal 1023969417 / 0.0333333
+L_148d08:  00148d08  vcvt.f64.f32 d2, s4                       
+           00148d0c  vstr     d2, [fp, #0x48]              
+           00148d10  ldr      r0, [pc]                     
+           00148d14  b        #0x148d1c                    ; -> L_148d1c
+           00148d18  .word    0x00e5dadc                   ; literal 15063772 / 
+L_148d1c:  00148d1c  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           00148d20  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           00148d24  vldr     d2, [fp, #0x48]              
+           00148d28  vcvt.f32.f64 s0, d2                       
+           00148d2c  vstr     s0, [fp, #8]                 
+           00148d30  vldr     s0, [fp, #8]                 
+           00148d34  vcvt.f64.f32 d2, s0                       
+           00148d38  vcvt.f32.f64 s0, d2                       
+           00148d3c  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00148d40  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           00148d44  mov      r0, #1                       
+           00148d48  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00148d4c  b        #0x148d58                    ; -> L_148d58
+L_148d50:  00148d50  mov      r0, #0                       
+           00148d54  b        #0x148d5c                    ; -> L_148d5c
+L_148d58:  00148d58  mov      r0, #1                       
+L_148d5c:  00148d5c  add      sp, fp, #0x5c                
+           00148d60  pop      {r8, sl, fp}                 
+           00148d64  ldr      r7, [sp, #8]                 
+           00148d68  ldm      sp, {sp, pc}                 
+
+== CausticsManager/<UpdateCausticsCoroutine>c__Iterator28::Dispose  token 0x060008c1 @0x00148d6c (56 bytes)
+   args: r0=this, 
+           00148d6c  mov      ip, sp                       
+           00148d70  push     {r7, lr}                     
+           00148d74  mov      r7, sp                       
+           00148d78  push     {r8, fp, ip, lr}             
+           00148d7c  sub      sp, sp, #8                   
+           00148d80  mov      fp, sp                       
+           00148d84  str      r0, [fp]                     
+           00148d88  ldr      r0, [fp]                     
+           00148d8c  mvn      r1, #0                       
+           00148d90  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           00148d94  add      sp, fp, #8                   
+           00148d98  pop      {r8, fp}                     
+           00148d9c  ldr      r7, [sp, #8]                 
+           00148da0  ldm      sp, {sp, pc}                 
+
+== CausticsManager/<UpdateCausticsCoroutine>c__Iterator28::Reset  token 0x060008c2 @0x00148da4 (64 bytes)
+   args: r0=this, 
+           00148da4  mov      ip, sp                       
+           00148da8  push     {r7, lr}                     
+           00148dac  mov      r7, sp                       
+           00148db0  push     {r8, fp, ip, lr}             
+           00148db4  sub      sp, sp, #8                   
+           00148db8  mov      fp, sp                       
+           00148dbc  str      r0, [fp]                     
+           00148dc0  mov      r0, #0x49                    
+           00148dc4  add      r0, r0, #0x100               
+           00148dc8  add      r0, r0, #0x2000000           
+           00148dcc  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00148dd0  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00148dd4  add      sp, fp, #8                   
+           00148dd8  pop      {r8, fp}                     
+           00148ddc  ldr      r7, [sp, #8]                 
+           00148de0  ldm      sp, {sp, pc}                 

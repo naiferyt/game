@@ -1,0 +1,438 @@
+####################################################################################################
+# TYPE StreamedMultilayerTexture  (instance size 0x1c)
+#   +0x08 name                           string
+#   +0x0c bundlePath                     string
+#   +0x10 resourcePath                   string
+#   +0x14 layers                         StreamedMultilayerTexture/Layer[]
+#   +0x18 asset                          StreamManager/Asset
+#   vtable slots: 
+####################################################################################################
+== StreamedMultilayerTexture::.ctor  token 0x06000202 @0x000e07ac (44 bytes)
+   args: r0=this, 
+           000e07ac  mov      ip, sp                       
+           000e07b0  push     {r7, lr}                     
+           000e07b4  mov      r7, sp                       
+           000e07b8  push     {r8, fp, ip, lr}             
+           000e07bc  sub      sp, sp, #8                   
+           000e07c0  mov      fp, sp                       
+           000e07c4  str      r0, [fp]                     
+           000e07c8  add      sp, fp, #8                   
+           000e07cc  pop      {r8, fp}                     
+           000e07d0  ldr      r7, [sp, #8]                 
+           000e07d4  ldm      sp, {sp, pc}                 
+
+== StreamedMultilayerTexture::PrepareMultilayerTexture  token 0x06000203 @0x000e07d8 (1164 bytes)
+   args: r0=this, 
+           000e07d8  mov      ip, sp                       
+           000e07dc  push     {r7, lr}                     
+           000e07e0  mov      r7, sp                       
+           000e07e4  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e07e8  sub      sp, sp, #0x40                
+           000e07ec  mov      fp, sp                       
+           000e07f0  str      r0, [fp, #0x34]              
+           000e07f4  bl       #0x22c0e0                    ; CALL UnityEngine.Application::get_isWebPlayer
+           000e07f8  cmp      r0, #0                       
+           000e07fc  beq      #0xe082c                     ; -> L_e082c
+           000e0800  ldr      r0, [fp, #0x34]              
+           000e0804  bl       #0xe0d7c                     ; CALL StreamedMultilayerTexture::IsLoaded (direct)
+           000e0808  cmp      r0, #0                       
+           000e080c  bne      #0xe082c                     ; -> L_e082c
+           000e0810  ldr      r0, [pc]                     
+           000e0814  b        #0xe081c                     ; -> L_e081c
+           000e0818  .word    0x00ec4b04                   ; literal 15485700 / 
+L_e081c:   000e081c  ldr      r0, [pc, r0]                 ; GOT[368] LDSTR 'Trying to prepare a MultilayerTexture from a StreamedMultilayerTexture, but asset is not loaded.'
+           000e0820  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           000e0824  mov      r0, #0                       
+           000e0828  b        #0xe0c34                     ; -> L_e0c34
+L_e082c:   000e082c  ldr      r0, [pc]                     
+           000e0830  b        #0xe0838                     ; -> L_e0838
+           000e0834  .word    0x00ec4aec                   ; literal 15485676 / 
+L_e0838:   000e0838  ldr      r0, [pc, r0]                 ; GOT[369] VTABLE MultilayerTexture
+           000e083c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e0840  str      r0, [fp]                     
+           000e0844  bl       #0x22c0e0                    ; CALL UnityEngine.Application::get_isWebPlayer
+           000e0848  cmp      r0, #0                       
+           000e084c  bne      #0xe0860                     ; -> L_e0860
+           000e0850  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000e0854  ldrb     r0, [r0, #0x30]              ; field+0x30 
+           000e0858  cmp      r0, #0                       
+           000e085c  beq      #0xe0a6c                     ; -> L_e0a6c
+L_e0860:   000e0860  ldr      r0, [fp, #0x34]              
+           000e0864  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: layers)
+           000e0868  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e086c  str      r0, [fp, #0x3c]              
+           000e0870  ldr      r0, [pc]                     
+           000e0874  b        #0xe087c                     ; -> L_e087c
+           000e0878  .word    0x00ec4aac                   ; literal 15485612 / 
+L_e087c:   000e087c  ldr      r0, [pc, r0]                 ; GOT[370] VTABLE System.Collections.Generic.List`1<MultilayerTexture/Layer>
+           000e0880  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e0884  ldr      r1, [fp, #0x3c]              
+           000e0888  str      r0, [fp, #0x38]              
+           000e088c  bl       #0x22c0f0                    ; CALL System.Collections.Generic.List`1<MultilayerTexture/Layer>::.ctor
+           000e0890  ldr      r0, [fp, #0x38]              
+           000e0894  str      r0, [fp, #4]                 
+           000e0898  ldr      r0, [fp, #0x34]              
+           000e089c  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: asset)
+           000e08a0  cmp      r0, #0                       
+           000e08a4  beq      #0xe08c4                     ; -> L_e08c4
+           000e08a8  ldr      r0, [fp, #0x34]              
+           000e08ac  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: asset)
+           000e08b0  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: layers)
+           000e08b4  mov      r1, #0                       
+           000e08b8  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000e08bc  cmp      r0, #0                       
+           000e08c0  beq      #0xe08e0                     ; -> L_e08e0
+L_e08c4:   000e08c4  ldr      r0, [pc]                     
+           000e08c8  b        #0xe08d0                     ; -> L_e08d0
+           000e08cc  .word    0x00ec4a5c                   ; literal 15485532 / 
+L_e08d0:   000e08d0  ldr      r0, [pc, r0]                 ; GOT[371] LDSTR 'Asset bundle appears to be null!'
+           000e08d4  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           000e08d8  mov      r0, #0                       
+           000e08dc  b        #0xe0c34                     ; -> L_e0c34
+L_e08e0:   000e08e0  ldr      r0, [fp, #0x34]              
+           000e08e4  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: asset)
+           000e08e8  ldr      r1, [r0, #0x14]              ; field+0x14 (this-class: layers)
+           000e08ec  mov      r0, r1                       
+           000e08f0  ldr      lr, [r1]                     
+           000e08f4  bl       #0x22c100                    ; CALL UnityEngine.AssetBundle::LoadAll
+           000e08f8  str      r0, [fp, #8]                 
+           000e08fc  ldr      r0, [fp, #0x34]              
+           000e0900  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: layers)
+           000e0904  str      r0, [fp, #0xc]               
+           000e0908  mov      r0, #0                       
+           000e090c  str      r0, [fp, #0x10]              
+           000e0910  b        #0xe0a38                     ; -> L_e0a38
+L_e0914:   000e0914  ldr      r0, [fp, #0xc]               
+           000e0918  ldr      r2, [r0, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e091c  ldr      r1, [fp, #0x10]              
+           000e0920  cmp      r2, r1                       
+           000e0924  blls     #0xe0c54                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e0928  lsl      r1, r1, #2                   
+           000e092c  add      r0, r0, r1                   
+           000e0930  add      r0, r0, #0x10                
+           000e0934  ldr      sl, [r0]                     
+           000e0938  ldr      r6, [fp, #8]                 
+           000e093c  mov      r5, #0                       
+           000e0940  b        #0xe0a20                     ; -> L_e0a20
+L_e0944:   000e0944  ldr      r0, [r6, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0948  cmp      r0, r5                       
+           000e094c  blls     #0xe0c54                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e0950  lsl      r0, r5, #2                   
+           000e0954  add      r0, r6, r0                   
+           000e0958  add      r0, r0, #0x10                
+           000e095c  ldr      r4, [r0]                     
+           000e0960  mov      r1, r4                       
+           000e0964  mov      r0, r1                       
+           000e0968  ldr      lr, [r1]                     
+           000e096c  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           000e0970  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0974  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000e0978  cmp      r0, #0                       
+           000e097c  beq      #0xe0a1c                     ; -> L_e0a1c
+           000e0980  ldr      r0, [pc]                     
+           000e0984  b        #0xe098c                     ; -> L_e098c
+           000e0988  .word    0x00ec49a4                   ; literal 15485348 / 
+L_e098c:   000e098c  ldr      r0, [pc, r0]                 ; GOT[372] VTABLE MultilayerTexture/Layer
+           000e0990  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e0994  str      r0, [fp, #0x38]              
+           000e0998  bl       #0xe0744                     ; CALL MultilayerTexture/Layer::.ctor (direct)
+           000e099c  ldr      r0, [fp, #0x38]              
+           000e09a0  str      r0, [fp, #0x14]              
+           000e09a4  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: name)
+           000e09a8  ldr      r0, [fp, #0x14]              
+           000e09ac  str      r1, [r0, #8]                 ; field+0x8 (this-class: name)
+           000e09b0  mov      r6, r0                       
+           000e09b4  mov      r5, r4                       
+           000e09b8  cmp      r4, #0                       
+           000e09bc  beq      #0xe09e8                     ; -> L_e09e8
+           000e09c0  ldr      r0, [r5]                     
+           000e09c4  ldr      r0, [r0]                     
+           000e09c8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: name)
+           000e09cc  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e09d0  ldr      r1, [pc]                     
+           000e09d4  b        #0xe09dc                     ; -> L_e09dc
+           000e09d8  .word    0x00ec4958                   ; literal 15485272 / 
+L_e09dc:   000e09dc  ldr      r1, [pc, r1]                 ; GOT[373] CLASS UnityEngine.Texture2D
+           000e09e0  cmp      r0, r1                       
+           000e09e4  blne     #0xe0c44                     ; THROW System.InvalidCastException (if ne)
+L_e09e8:   000e09e8  str      r5, [r6, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e09ec  add      r0, sl, #0x10                
+           000e09f0  ldr      r0, [r0]                     
+           000e09f4  str      r0, [fp, #0x2c]              
+           000e09f8  ldr      r1, [fp, #0x14]              
+           000e09fc  add      r0, r1, #0x10                
+           000e0a00  ldr      r2, [fp, #0x2c]              
+           000e0a04  str      r2, [r0]                     
+           000e0a08  ldr      r0, [fp, #4]                 
+           000e0a0c  mov      r2, r0                       
+           000e0a10  ldr      lr, [r2]                     
+           000e0a14  bl       #0x22c110                    ; CALL System.Collections.Generic.List`1<MultilayerTexture/Layer>::Add
+           000e0a18  b        #0xe0a2c                     ; -> L_e0a2c
+L_e0a1c:   000e0a1c  add      r5, r5, #1                   
+L_e0a20:   000e0a20  ldr      r0, [r6, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0a24  cmp      r5, r0                       
+           000e0a28  blt      #0xe0944                     ; -> L_e0944
+L_e0a2c:   000e0a2c  ldr      r0, [fp, #0x10]              
+           000e0a30  add      r0, r0, #1                   
+           000e0a34  str      r0, [fp, #0x10]              
+L_e0a38:   000e0a38  ldr      r0, [fp, #0xc]               
+           000e0a3c  ldr      r1, [r0, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0a40  ldr      r0, [fp, #0x10]              
+           000e0a44  cmp      r0, r1                       
+           000e0a48  blt      #0xe0914                     ; -> L_e0914
+           000e0a4c  ldr      r0, [fp, #4]                 
+           000e0a50  mov      r1, r0                       
+           000e0a54  ldr      lr, [r1]                     
+           000e0a58  bl       #0x22c120                    ; CALL System.Collections.Generic.List`1<MultilayerTexture/Layer>::ToArray
+           000e0a5c  mov      r1, r0                       
+           000e0a60  ldr      r0, [fp]                     
+           000e0a64  str      r1, [r0, #8]                 ; field+0x8 (this-class: name)
+           000e0a68  b        #0xe0c30                     ; -> L_e0c30
+L_e0a6c:   000e0a6c  ldr      r0, [fp, #0x34]              
+           000e0a70  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: layers)
+           000e0a74  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0a78  str      r0, [fp, #0x3c]              
+           000e0a7c  ldr      r0, [pc]                     
+           000e0a80  b        #0xe0a88                     ; -> L_e0a88
+           000e0a84  .word    0x00ec48a0                   ; literal 15485088 / 
+L_e0a88:   000e0a88  ldr      r0, [pc, r0]                 ; GOT[370] VTABLE System.Collections.Generic.List`1<MultilayerTexture/Layer>
+           000e0a8c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e0a90  ldr      r1, [fp, #0x3c]              
+           000e0a94  str      r0, [fp, #0x38]              
+           000e0a98  bl       #0x22c0f0                    ; CALL System.Collections.Generic.List`1<MultilayerTexture/Layer>::.ctor
+           000e0a9c  ldr      r0, [fp, #0x38]              
+           000e0aa0  str      r0, [fp, #0x18]              
+           000e0aa4  ldr      r0, [fp, #0x34]              
+           000e0aa8  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: layers)
+           000e0aac  str      r0, [fp, #0x20]              
+           000e0ab0  mov      r0, #0                       
+           000e0ab4  str      r0, [fp, #0x24]              
+           000e0ab8  b        #0xe0c00                     ; -> L_e0c00
+L_e0abc:   000e0abc  ldr      r0, [fp, #0x20]              
+           000e0ac0  ldr      r2, [r0, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0ac4  ldr      r1, [fp, #0x24]              
+           000e0ac8  cmp      r2, r1                       
+           000e0acc  blls     #0xe0c54                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e0ad0  lsl      r1, r1, #2                   
+           000e0ad4  add      r0, r0, r1                   
+           000e0ad8  add      r0, r0, #0x10                
+           000e0adc  ldr      r1, [r0]                     
+           000e0ae0  str      r1, [fp, #0x1c]              
+           000e0ae4  ldr      r0, [r1, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0ae8  str      r0, [fp, #0x38]              
+           000e0aec  ldr      r0, [fp, #0x34]              
+           000e0af0  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: resourcePath)
+           000e0af4  ldr      r1, [r1, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0af8  bl       #0x22adc0                    ; CALL System.String::Concat
+           000e0afc  mov      r1, r0                       
+           000e0b00  ldr      r0, [fp, #0x38]              
+           000e0b04  mov      r2, #2                       
+           000e0b08  bl       #0x22c130                    ; CALL StreamManager::RequestAsset
+           000e0b0c  mov      r1, r0                       
+           000e0b10  ldr      r0, [fp, #0x34]              
+           000e0b14  str      r1, [r0, #0x18]              ; field+0x18 (this-class: asset)
+           000e0b18  mov      r0, r1                       
+           000e0b1c  ldr      lr, [r1]                     
+           000e0b20  bl       #0x1060ec                    ; CALL StreamManager/Asset::get_isDone (direct)
+           000e0b24  cmp      r0, #0                       
+           000e0b28  bne      #0xe0b40                     ; -> L_e0b40
+           000e0b2c  ldr      r0, [pc]                     
+           000e0b30  b        #0xe0b38                     ; -> L_e0b38
+           000e0b34  .word    0x00ec4800                   ; literal 15484928 / 
+L_e0b38:   000e0b38  ldr      r0, [pc, r0]                 ; GOT[374] LDSTR "Requested resource doesn't appear to be loaded."
+           000e0b3c  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+L_e0b40:   000e0b40  ldr      r0, [pc]                     
+           000e0b44  b        #0xe0b4c                     ; -> L_e0b4c
+           000e0b48  .word    0x00ec47e4                   ; literal 15484900 / 
+L_e0b4c:   000e0b4c  ldr      r0, [pc, r0]                 ; GOT[372] VTABLE MultilayerTexture/Layer
+           000e0b50  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e0b54  str      r0, [fp, #0x38]              
+           000e0b58  bl       #0xe0744                     ; CALL MultilayerTexture/Layer::.ctor (direct)
+           000e0b5c  ldr      r0, [fp, #0x38]              
+           000e0b60  str      r0, [fp, #0x28]              
+           000e0b64  ldr      r0, [fp, #0x1c]              
+           000e0b68  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: name)
+           000e0b6c  ldr      r0, [fp, #0x28]              
+           000e0b70  str      r1, [r0, #8]                 ; field+0x8 (this-class: name)
+           000e0b74  mov      sl, r0                       
+           000e0b78  ldr      r0, [fp, #0x34]              
+           000e0b7c  ldr      r1, [r0, #0x18]              ; field+0x18 (this-class: asset)
+           000e0b80  mov      r0, r1                       
+           000e0b84  ldr      lr, [r1]                     
+           000e0b88  bl       #0x10625c                    ; CALL StreamManager/Asset::get_mainAsset (direct)
+           000e0b8c  mov      r6, r0                       
+           000e0b90  cmp      r6, #0                       
+           000e0b94  beq      #0xe0bc0                     ; -> L_e0bc0
+           000e0b98  ldr      r0, [r6]                     
+           000e0b9c  ldr      r0, [r0]                     
+           000e0ba0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: name)
+           000e0ba4  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0ba8  ldr      r1, [pc]                     
+           000e0bac  b        #0xe0bb4                     ; -> L_e0bb4
+           000e0bb0  .word    0x00ec4780                   ; literal 15484800 / 
+L_e0bb4:   000e0bb4  ldr      r1, [pc, r1]                 ; GOT[373] CLASS UnityEngine.Texture2D
+           000e0bb8  cmp      r0, r1                       
+           000e0bbc  blne     #0xe0c44                     ; THROW System.InvalidCastException (if ne)
+L_e0bc0:   000e0bc0  str      r6, [sl, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0bc4  ldr      r0, [fp, #0x1c]              
+           000e0bc8  add      r0, r0, #0x10                
+           000e0bcc  ldr      r0, [r0]                     
+           000e0bd0  str      r0, [fp, #0x30]              
+           000e0bd4  ldr      r1, [fp, #0x28]              
+           000e0bd8  add      r0, r1, #0x10                
+           000e0bdc  ldr      r2, [fp, #0x30]              
+           000e0be0  str      r2, [r0]                     
+           000e0be4  ldr      r0, [fp, #0x18]              
+           000e0be8  mov      r2, r0                       
+           000e0bec  ldr      lr, [r2]                     
+           000e0bf0  bl       #0x22c110                    ; CALL System.Collections.Generic.List`1<MultilayerTexture/Layer>::Add
+           000e0bf4  ldr      r0, [fp, #0x24]              
+           000e0bf8  add      r0, r0, #1                   
+           000e0bfc  str      r0, [fp, #0x24]              
+L_e0c00:   000e0c00  ldr      r0, [fp, #0x20]              
+           000e0c04  ldr      r1, [r0, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0c08  ldr      r0, [fp, #0x24]              
+           000e0c0c  cmp      r0, r1                       
+           000e0c10  blt      #0xe0abc                     ; -> L_e0abc
+           000e0c14  ldr      r0, [fp, #0x18]              
+           000e0c18  mov      r1, r0                       
+           000e0c1c  ldr      lr, [r1]                     
+           000e0c20  bl       #0x22c120                    ; CALL System.Collections.Generic.List`1<MultilayerTexture/Layer>::ToArray
+           000e0c24  mov      r1, r0                       
+           000e0c28  ldr      r0, [fp]                     
+           000e0c2c  str      r1, [r0, #8]                 ; field+0x8 (this-class: name)
+L_e0c30:   000e0c30  ldr      r0, [fp]                     
+L_e0c34:   000e0c34  add      sp, fp, #0x40                
+           000e0c38  pop      {r4, r5, r6, r8, sl, fp}     
+           000e0c3c  ldr      r7, [sp, #8]                 
+           000e0c40  ldm      sp, {sp, pc}                 
+           000e0c44  mov      r1, lr                       
+           000e0c48  ldr      r0, [pc]                     
+           000e0c4c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e0c50  andeq    r0, r0, #0xfd                
+           000e0c54  mov      r1, lr                       
+           000e0c58  ldr      r0, [pc]                     
+           000e0c5c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e0c60  andeq    r0, r0, #0xf8                
+
+== StreamedMultilayerTexture::RequestAssets  token 0x06000204 @0x000e0c64 (108 bytes)
+   args: r0=this, 
+           000e0c64  mov      ip, sp                       
+           000e0c68  push     {r7, lr}                     
+           000e0c6c  mov      r7, sp                       
+           000e0c70  push     {r8, sl, fp, ip, lr}         
+           000e0c74  sub      sp, sp, #0xc                 
+           000e0c78  mov      fp, sp                       
+           000e0c7c  mov      sl, r0                       
+           000e0c80  bl       #0x22c0e0                    ; CALL UnityEngine.Application::get_isWebPlayer
+           000e0c84  cmp      r0, #0                       
+           000e0c88  bne      #0xe0c9c                     ; -> L_e0c9c
+           000e0c8c  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000e0c90  ldrb     r0, [r0, #0x30]              ; field+0x30 
+           000e0c94  cmp      r0, #0                       
+           000e0c98  beq      #0xe0cc0                     ; -> L_e0cc0
+L_e0c9c:   000e0c9c  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: name)
+           000e0ca0  str      r0, [fp]                     
+           000e0ca4  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0ca8  bl       #0x22c140                    ; CALL DataUtility::PrependBundlePath
+           000e0cac  mov      r1, r0                       
+           000e0cb0  ldr      r0, [fp]                     
+           000e0cb4  mov      r2, #1                       
+           000e0cb8  bl       #0x22c130                    ; CALL StreamManager::RequestAsset
+           000e0cbc  str      r0, [sl, #0x18]              ; field+0x18 (this-class: asset)
+L_e0cc0:   000e0cc0  add      sp, fp, #0xc                 
+           000e0cc4  pop      {r8, sl, fp}                 
+           000e0cc8  ldr      r7, [sp, #8]                 
+           000e0ccc  ldm      sp, {sp, pc}                 
+
+== StreamedMultilayerTexture::ReleaseAssets  token 0x06000205 @0x000e0cd0 (172 bytes)
+   args: r0=this, 
+           000e0cd0  mov      ip, sp                       
+           000e0cd4  push     {r7, lr}                     
+           000e0cd8  mov      r7, sp                       
+           000e0cdc  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e0ce0  mov      fp, sp                       
+           000e0ce4  mov      sl, r0                       
+           000e0ce8  mov      r0, #0                       
+           000e0cec  str      r0, [sl, #0x18]              ; field+0x18 (this-class: asset)
+           000e0cf0  bl       #0x22c0e0                    ; CALL UnityEngine.Application::get_isWebPlayer
+           000e0cf4  cmp      r0, #0                       
+           000e0cf8  bne      #0xe0d0c                     ; -> L_e0d0c
+           000e0cfc  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000e0d00  ldrb     r0, [r0, #0x30]              ; field+0x30 
+           000e0d04  cmp      r0, #0                       
+           000e0d08  beq      #0xe0d18                     ; -> L_e0d18
+L_e0d0c:   000e0d0c  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: name)
+           000e0d10  bl       #0x22c150                    ; CALL StreamManager::ReleaseAsset
+           000e0d14  b        #0xe0d5c                     ; -> L_e0d5c
+L_e0d18:   000e0d18  ldr      r5, [sl, #0x14]              ; field+0x14 (this-class: layers)
+           000e0d1c  mov      r4, #0                       
+           000e0d20  b        #0xe0d50                     ; -> L_e0d50
+L_e0d24:   000e0d24  ldr      r0, [r5, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0d28  cmp      r0, r4                       
+           000e0d2c  blls     #0xe0d6c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e0d30  lsl      r0, r4, #2                   
+           000e0d34  add      r0, r5, r0                   
+           000e0d38  add      r0, r0, #0x10                
+           000e0d3c  ldr      r6, [r0]                     
+           000e0d40  mov      r0, r6                       
+           000e0d44  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0d48  bl       #0x22c150                    ; CALL StreamManager::ReleaseAsset
+           000e0d4c  add      r4, r4, #1                   
+L_e0d50:   000e0d50  ldr      r0, [r5, #0xc]               ; field+0xc (this-class: bundlePath)
+           000e0d54  cmp      r4, r0                       
+           000e0d58  blt      #0xe0d24                     ; -> L_e0d24
+L_e0d5c:   000e0d5c  add      sp, fp, #0                   
+           000e0d60  pop      {r4, r5, r6, r8, sl, fp}     
+           000e0d64  ldr      r7, [sp, #8]                 
+           000e0d68  ldm      sp, {sp, pc}                 
+           000e0d6c  mov      r1, lr                       
+           000e0d70  ldr      r0, [pc]                     
+           000e0d74  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e0d78  andeq    r0, r0, #0xf8                
+
+== StreamedMultilayerTexture::IsLoaded  token 0x06000206 @0x000e0d7c (88 bytes)
+   args: r0=this, 
+           000e0d7c  mov      ip, sp                       
+           000e0d80  push     {r7, lr}                     
+           000e0d84  mov      r7, sp                       
+           000e0d88  push     {r8, fp, ip, lr}             
+           000e0d8c  sub      sp, sp, #8                   
+           000e0d90  mov      fp, sp                       
+           000e0d94  str      r0, [fp]                     
+           000e0d98  ldr      r0, [fp]                     
+           000e0d9c  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: asset)
+           000e0da0  cmp      r0, #0                       
+           000e0da4  bne      #0xe0db0                     ; -> L_e0db0
+           000e0da8  mov      r0, #0                       
+           000e0dac  b        #0xe0dc4                     ; -> L_e0dc4
+L_e0db0:   000e0db0  ldr      r0, [fp]                     
+           000e0db4  ldr      r1, [r0, #0x18]              ; field+0x18 (this-class: asset)
+           000e0db8  mov      r0, r1                       
+           000e0dbc  ldr      lr, [r1]                     
+           000e0dc0  bl       #0x1060ec                    ; CALL StreamManager/Asset::get_isDone (direct)
+L_e0dc4:   000e0dc4  add      sp, fp, #8                   
+           000e0dc8  pop      {r8, fp}                     
+           000e0dcc  ldr      r7, [sp, #8]                 
+           000e0dd0  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE StreamedMultilayerTexture/Layer  (instance size 0x14)
+#   +0x08 name                           string
+#   +0x0c textureName                    string
+#   +0x10 color                          UnityEngine.Color32
+#   vtable slots: 
+####################################################################################################
+== StreamedMultilayerTexture/Layer::.ctor  token 0x06000207 @0x000e0dd4 (44 bytes)
+   args: r0=this, 
+           000e0dd4  mov      ip, sp                       
+           000e0dd8  push     {r7, lr}                     
+           000e0ddc  mov      r7, sp                       
+           000e0de0  push     {r8, fp, ip, lr}             
+           000e0de4  sub      sp, sp, #8                   
+           000e0de8  mov      fp, sp                       
+           000e0dec  str      r0, [fp]                     
+           000e0df0  add      sp, fp, #8                   
+           000e0df4  pop      {r8, fp}                     
+           000e0df8  ldr      r7, [sp, #8]                 
+           000e0dfc  ldm      sp, {sp, pc}                 

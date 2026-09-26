@@ -1,0 +1,312 @@
+####################################################################################################
+# TYPE LaserLogic  (instance size 0x28)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 parentObject                   UnityEngine.GameObject
+#   +0x14 targetObject                   UnityEngine.GameObject
+#   +0x18 lifetime                       float
+#   +0x1c error                          UnityEngine.Vector3
+#   static float maxLife  = const 0000803f
+#   vtable slots: 
+####################################################################################################
+== LaserLogic::.ctor  token 0x06000065 @0x000c970c (112 bytes)
+   args: r0=this, 
+           000c970c  mov      ip, sp                       
+           000c9710  push     {r7, lr}                     
+           000c9714  mov      r7, sp                       
+           000c9718  push     {r8, sl, fp, ip, lr}         
+           000c971c  sub      sp, sp, #0x14                
+           000c9720  mov      fp, sp                       
+           000c9724  mov      sl, r0                       
+           000c9728  vldr     s4, [pc]                     ; float 1.0
+           000c972c  b        #0xc9734                     ; -> L_c9734
+           000c9730  .word    0x3f800000                   ; literal 1065353216 / 1
+L_c9734:   000c9734  vcvt.f64.f32 d2, s4                       
+           000c9738  vcvt.f32.f64 s0, d2                       
+           000c973c  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: lifetime)
+           000c9740  mov      r0, fp                       
+           000c9744  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           000c9748  add      r0, sl, #0x1c                
+           000c974c  ldr      r1, [fp]                     
+           000c9750  str      r1, [r0]                     
+           000c9754  ldr      r1, [fp, #4]                 
+           000c9758  str      r1, [r0, #4]                 ; field+0x4 
+           000c975c  ldr      r1, [fp, #8]                 
+           000c9760  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000c9764  mov      r0, sl                       
+           000c9768  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000c976c  add      sp, fp, #0x14                
+           000c9770  pop      {r8, sl, fp}                 
+           000c9774  ldr      r7, [sp, #8]                 
+           000c9778  ldm      sp, {sp, pc}                 
+
+== LaserLogic::Update  token 0x06000066 @0x000c977c (704 bytes)
+   args: r0=this, 
+           000c977c  mov      ip, sp                       
+           000c9780  push     {r7, lr}                     
+           000c9784  mov      r7, sp                       
+           000c9788  push     {r8, sl, fp, ip, lr}         
+           000c978c  sub      sp, sp, #0xf4                
+           000c9790  mov      fp, sp                       
+           000c9794  mov      sl, r0                       
+           000c9798  mov      r0, #0                       
+           000c979c  str      r0, [fp, #0x18]              
+           000c97a0  mov      r0, #0                       
+           000c97a4  str      r0, [fp, #0x1c]              
+           000c97a8  mov      r0, #0                       
+           000c97ac  str      r0, [fp, #0x20]              
+           000c97b0  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: parentObject)
+           000c97b4  mov      r1, #0                       
+           000c97b8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000c97bc  cmp      r0, #0                       
+           000c97c0  beq      #0xc99d0                     ; -> L_c99d0
+           000c97c4  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: targetObject)
+           000c97c8  mov      r1, #0                       
+           000c97cc  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000c97d0  cmp      r0, #0                       
+           000c97d4  beq      #0xc99d0                     ; -> L_c99d0
+           000c97d8  mov      r0, sl                       
+           000c97dc  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c97e0  str      r0, [fp, #0xe4]              
+           000c97e4  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: parentObject)
+           000c97e8  mov      r0, r1                       
+           000c97ec  ldr      lr, [r1]                     
+           000c97f0  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c97f4  mov      r2, r0                       
+           000c97f8  add      r0, fp, #0x70                
+           000c97fc  mov      r1, r2                       
+           000c9800  ldr      lr, [r2]                     
+           000c9804  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c9808  ldr      ip, [fp, #0xe4]              
+           000c980c  mov      r0, ip                       
+           000c9810  ldr      r1, [fp, #0x70]              
+           000c9814  ldr      r2, [fp, #0x74]              
+           000c9818  ldr      r3, [fp, #0x78]              
+           000c981c  ldr      lr, [ip]                     
+           000c9820  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           000c9824  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: targetObject)
+           000c9828  mov      r0, r1                       
+           000c982c  ldr      lr, [r1]                     
+           000c9830  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c9834  mov      r2, r0                       
+           000c9838  add      r0, fp, #0x7c                
+           000c983c  mov      r1, r2                       
+           000c9840  ldr      lr, [r2]                     
+           000c9844  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c9848  add      r0, sl, #0x1c                
+           000c984c  ldr      r1, [r0]                     
+           000c9850  str      r1, [fp, #0x88]              
+           000c9854  ldr      r1, [r0, #4]                 ; field+0x4 
+           000c9858  str      r1, [fp, #0x8c]              
+           000c985c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000c9860  str      r0, [fp, #0x90]              
+           000c9864  add      r0, fp, #0x94                
+           000c9868  ldr      r1, [fp, #0x7c]              
+           000c986c  ldr      r2, [fp, #0x80]              
+           000c9870  ldr      r3, [fp, #0x84]              
+           000c9874  ldr      ip, [fp, #0x88]              
+           000c9878  str      ip, [sp]                     
+           000c987c  ldr      ip, [fp, #0x8c]              
+           000c9880  str      ip, [sp, #4]                 
+           000c9884  ldr      ip, [fp, #0x90]              
+           000c9888  str      ip, [sp, #8]                 
+           000c988c  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           000c9890  mov      r0, sl                       
+           000c9894  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c9898  mov      r2, r0                       
+           000c989c  add      r0, fp, #0xa0                
+           000c98a0  mov      r1, r2                       
+           000c98a4  ldr      lr, [r2]                     
+           000c98a8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c98ac  add      r0, fp, #0x18                
+           000c98b0  ldr      r1, [fp, #0x94]              
+           000c98b4  ldr      r2, [fp, #0x98]              
+           000c98b8  ldr      r3, [fp, #0x9c]              
+           000c98bc  ldr      ip, [fp, #0xa0]              
+           000c98c0  str      ip, [sp]                     
+           000c98c4  ldr      ip, [fp, #0xa4]              
+           000c98c8  str      ip, [sp, #4]                 
+           000c98cc  ldr      ip, [fp, #0xa8]              
+           000c98d0  str      ip, [sp, #8]                 
+           000c98d4  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000c98d8  mov      r0, sl                       
+           000c98dc  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c98e0  str      r0, [fp, #0xe0]              
+           000c98e4  add      r1, fp, #0x18                
+           000c98e8  add      r0, fp, #0xac                
+           000c98ec  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           000c98f0  ldr      ip, [fp, #0xe0]              
+           000c98f4  mov      r0, ip                       
+           000c98f8  ldr      r1, [fp, #0xac]              
+           000c98fc  ldr      r2, [fp, #0xb0]              
+           000c9900  ldr      r3, [fp, #0xb4]              
+           000c9904  ldr      lr, [ip]                     
+           000c9908  bl       #0x22b1e0                    ; CALL UnityEngine.Transform::set_forward
+           000c990c  mov      r0, sl                       
+           000c9910  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c9914  str      r0, [fp, #0xc8]              
+           000c9918  vldr     s4, [pc]                     ; float 1.0
+           000c991c  b        #0xc9924                     ; -> L_c9924
+           000c9920  .word    0x3f800000                   ; literal 1065353216 / 1
+L_c9924:   000c9924  vcvt.f64.f32 d2, s4                       
+           000c9928  vstr     d2, [fp, #0xd8]              
+           000c992c  vldr     s4, [pc]                     ; float 1.0
+           000c9930  b        #0xc9938                     ; -> L_c9938
+           000c9934  .word    0x3f800000                   ; literal 1065353216 / 1
+L_c9938:   000c9938  vcvt.f64.f32 d2, s4                       
+           000c993c  vstr     d2, [fp, #0xd0]              
+           000c9940  add      r0, fp, #0x18                
+           000c9944  bl       #0x22a970                    ; CALL UnityEngine.Vector3::get_magnitude
+           000c9948  vmov     s4, r0                       
+           000c994c  vcvt.f64.f32 d2, s4                       
+           000c9950  vldr     d3, [fp, #0xd0]              
+           000c9954  vldr     d4, [fp, #0xd8]              
+           000c9958  mov      r0, #0                       
+           000c995c  str      r0, [fp, #0x54]              
+           000c9960  mov      r0, #0                       
+           000c9964  str      r0, [fp, #0x58]              
+           000c9968  mov      r0, #0                       
+           000c996c  str      r0, [fp, #0x5c]              
+           000c9970  add      r0, fp, #0x54                
+           000c9974  vcvt.f32.f64 s0, d4                       
+           000c9978  vstr     s0, [sp, #8]                 
+           000c997c  ldr      r1, [sp, #8]                 
+           000c9980  vcvt.f32.f64 s0, d3                       
+           000c9984  vstr     s0, [sp, #8]                 
+           000c9988  ldr      r2, [sp, #8]                 
+           000c998c  vcvt.f32.f64 s0, d2                       
+           000c9990  vstr     s0, [sp, #8]                 
+           000c9994  ldr      r3, [sp, #8]                 
+           000c9998  bl       #0x22b1f0                    ; CALL UnityEngine.Vector3::.ctor
+           000c999c  ldr      ip, [fp, #0xc8]              
+           000c99a0  ldr      r0, [fp, #0x54]              
+           000c99a4  str      r0, [fp, #0xb8]              
+           000c99a8  ldr      r0, [fp, #0x58]              
+           000c99ac  str      r0, [fp, #0xbc]              
+           000c99b0  ldr      r0, [fp, #0x5c]              
+           000c99b4  str      r0, [fp, #0xc0]              
+           000c99b8  mov      r0, ip                       
+           000c99bc  ldr      r1, [fp, #0xb8]              
+           000c99c0  ldr      r2, [fp, #0xbc]              
+           000c99c4  ldr      r3, [fp, #0xc0]              
+           000c99c8  ldr      lr, [ip]                     
+           000c99cc  bl       #0x22b200                    ; CALL UnityEngine.Transform::set_localScale
+L_c99d0:   000c99d0  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: lifetime)
+           000c99d4  vcvt.f64.f32 d2, s0                       
+           000c99d8  vstr     d2, [fp, #0xe8]              
+           000c99dc  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000c99e0  vmov     s6, r0                       
+           000c99e4  vcvt.f64.f32 d3, s6                       
+           000c99e8  vldr     d2, [fp, #0xe8]              
+           000c99ec  vsub.f64 d2, d2, d3                   
+           000c99f0  vcvt.f32.f64 s0, d2                       
+           000c99f4  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: lifetime)
+           000c99f8  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: lifetime)
+           000c99fc  vcvt.f64.f32 d3, s0                       
+           000c9a00  vldr     s4, [pc]                     ; float 0.0
+           000c9a04  b        #0xc9a0c                     ; -> L_c9a0c
+           000c9a08  .word    0x00000000                   ; literal 0 / 0
+L_c9a0c:   000c9a0c  vcvt.f64.f32 d2, s4                       
+           000c9a10  vcmp.f64 d2, d3                       
+           000c9a14  vmrs     apsr_nzcv, fpscr             
+           000c9a18  bvs      #0xc9a2c                     ; -> L_c9a2c
+           000c9a1c  bmi      #0xc9a2c                     ; -> L_c9a2c
+           000c9a20  mov      r0, sl                       
+           000c9a24  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c9a28  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_c9a2c:   000c9a2c  add      sp, fp, #0xf4                
+           000c9a30  pop      {r8, sl, fp}                 
+           000c9a34  ldr      r7, [sp, #8]                 
+           000c9a38  ldm      sp, {sp, pc}                 
+
+== LaserLogic::SetParent  token 0x06000067 @0x000c9a3c (60 bytes)
+   args: r0=this, parent
+           000c9a3c  mov      ip, sp                       
+           000c9a40  push     {r7, lr}                     
+           000c9a44  mov      r7, sp                       
+           000c9a48  push     {r8, fp, ip, lr}             
+           000c9a4c  sub      sp, sp, #8                   
+           000c9a50  mov      fp, sp                       
+           000c9a54  str      r0, [fp]                     
+           000c9a58  str      r1, [fp, #4]                 
+           000c9a5c  ldr      r1, [fp, #4]                 
+           000c9a60  ldr      r0, [fp]                     
+           000c9a64  str      r1, [r0, #0x10]              ; field+0x10 (this-class: parentObject)
+           000c9a68  add      sp, fp, #8                   
+           000c9a6c  pop      {r8, fp}                     
+           000c9a70  ldr      r7, [sp, #8]                 
+           000c9a74  ldm      sp, {sp, pc}                 
+
+== LaserLogic::SetTarget  token 0x06000068 @0x000c9a78 (60 bytes)
+   args: r0=this, target
+           000c9a78  mov      ip, sp                       
+           000c9a7c  push     {r7, lr}                     
+           000c9a80  mov      r7, sp                       
+           000c9a84  push     {r8, fp, ip, lr}             
+           000c9a88  sub      sp, sp, #8                   
+           000c9a8c  mov      fp, sp                       
+           000c9a90  str      r0, [fp]                     
+           000c9a94  str      r1, [fp, #4]                 
+           000c9a98  ldr      r1, [fp, #4]                 
+           000c9a9c  ldr      r0, [fp]                     
+           000c9aa0  str      r1, [r0, #0x14]              ; field+0x14 (this-class: targetObject)
+           000c9aa4  add      sp, fp, #8                   
+           000c9aa8  pop      {r8, fp}                     
+           000c9aac  ldr      r7, [sp, #8]                 
+           000c9ab0  ldm      sp, {sp, pc}                 
+
+== LaserLogic::ApplyError  token 0x06000069 @0x000c9ab4 (216 bytes)
+   args: r0=this, 
+           000c9ab4  mov      ip, sp                       
+           000c9ab8  push     {r7, lr}                     
+           000c9abc  mov      r7, sp                       
+           000c9ac0  push     {r8, sl, fp, ip, lr}         
+           000c9ac4  sub      sp, sp, #0x3c                
+           000c9ac8  mov      fp, sp                       
+           000c9acc  mov      sl, r0                       
+           000c9ad0  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: targetObject)
+           000c9ad4  mov      r1, #0                       
+           000c9ad8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000c9adc  cmp      r0, #0                       
+           000c9ae0  beq      #0xc9b7c                     ; -> L_c9b7c
+           000c9ae4  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: targetObject)
+           000c9ae8  mov      r0, r1                       
+           000c9aec  ldr      lr, [r1]                     
+           000c9af0  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c9af4  mov      r2, r0                       
+           000c9af8  add      r0, fp, #0x18                
+           000c9afc  mov      r1, r2                       
+           000c9b00  ldr      lr, [r2]                     
+           000c9b04  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000c9b08  vldr     s4, [pc]                     ; float 5.0
+           000c9b0c  b        #0xc9b14                     ; -> L_c9b14
+           000c9b10  .word    0x40a00000                   ; literal 1084227584 / 5
+L_c9b14:   000c9b14  vcvt.f64.f32 d2, s4                       
+           000c9b18  vstr     d2, [fp, #0x30]              
+           000c9b1c  bl       #0x22a870                    ; CALL UnityEngine.Random::get_value
+           000c9b20  vmov     s6, r0                       
+           000c9b24  vcvt.f64.f32 d3, s6                       
+           000c9b28  vldr     d2, [fp, #0x30]              
+           000c9b2c  vldr     s8, [pc]                     ; float 1.0
+           000c9b30  b        #0xc9b38                     ; -> L_c9b38
+           000c9b34  .word    0x3f800000                   ; literal 1065353216 / 1
+L_c9b38:   000c9b38  vcvt.f64.f32 d4, s8                       
+           000c9b3c  vmul.f64 d3, d3, d4                   
+           000c9b40  vadd.f64 d2, d2, d3                   
+           000c9b44  add      r0, fp, #0x24                
+           000c9b48  ldr      r1, [fp, #0x18]              
+           000c9b4c  ldr      r2, [fp, #0x1c]              
+           000c9b50  ldr      r3, [fp, #0x20]              
+           000c9b54  vcvt.f32.f64 s0, d2                       
+           000c9b58  vstr     s0, [sp]                     
+           000c9b5c  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000c9b60  add      r0, sl, #0x1c                
+           000c9b64  ldr      r1, [fp, #0x24]              
+           000c9b68  str      r1, [r0]                     
+           000c9b6c  ldr      r1, [fp, #0x28]              
+           000c9b70  str      r1, [r0, #4]                 ; field+0x4 
+           000c9b74  ldr      r1, [fp, #0x2c]              
+           000c9b78  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+L_c9b7c:   000c9b7c  add      sp, fp, #0x3c                
+           000c9b80  pop      {r8, sl, fp}                 
+           000c9b84  ldr      r7, [sp, #8]                 
+           000c9b88  ldm      sp, {sp, pc}                 

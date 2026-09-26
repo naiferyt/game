@@ -1,0 +1,237 @@
+####################################################################################################
+# TYPE Inputx  (instance size 0x8)
+#   vtable slots: 
+####################################################################################################
+== Inputx::.ctor  token 0x0600013c @0x0001a644 (44 bytes)
+   args: r0=this, 
+           0001a644  mov      ip, sp                       
+           0001a648  push     {r7, lr}                     
+           0001a64c  mov      r7, sp                       
+           0001a650  push     {r8, fp, ip, lr}             
+           0001a654  sub      sp, sp, #8                   
+           0001a658  mov      fp, sp                       
+           0001a65c  str      r0, [fp]                     
+           0001a660  add      sp, fp, #8                   
+           0001a664  pop      {r8, fp}                     
+           0001a668  ldr      r7, [sp, #8]                 
+           0001a66c  ldm      sp, {sp, pc}                 
+
+== Inputx::InputDownStart  token 0x0600013d @0x0001a670 (180 bytes) static
+   args: 
+           0001a670  mov      ip, sp                       
+           0001a674  push     {r7, lr}                     
+           0001a678  mov      r7, sp                       
+           0001a67c  push     {r8, sl, fp, ip, lr}         
+           0001a680  sub      sp, sp, #4                   
+           0001a684  mov      fp, sp                       
+           0001a688  bl       #0xba910                     ; CALL UnityEngine.Application::get_isEditor
+           0001a68c  cmp      r0, #0                       
+           0001a690  bne      #0x1a6a0                     ; -> L_1a6a0
+           0001a694  bl       #0xb9760                     ; CALL UnityEngine.Application::get_platform
+           0001a698  cmp      r0, #8                       
+           0001a69c  beq      #0x1a6b8                     ; -> L_1a6b8
+L_1a6a0:   0001a6a0  ldr      r0, [pc]                     
+           0001a6a4  b        #0x1a6ac                     ; -> L_1a6ac
+           0001a6a8  .word    0x00f8231c                   ; literal 16261916 / 
+L_1a6ac:   0001a6ac  ldr      r0, [pc, r0]                 ; GOT[234] LDSTR 'Fire1'
+           0001a6b0  bl       #0xba920                     ; CALL UnityEngine.Input::GetButtonDown
+           0001a6b4  b        #0x1a704                     ; -> L_1a704
+L_1a6b8:   0001a6b8  bl       #0xba930                     ; CALL UnityEngine.Input::get_touchCount
+           0001a6bc  cmp      r0, #0                       
+           0001a6c0  ble      #0x1a6fc                     ; -> L_1a6fc
+           0001a6c4  bl       #0xba940                     ; CALL UnityEngine.Input::get_touches
+           0001a6c8  mov      r1, #0                       
+           0001a6cc  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001a6d0  cmp      r2, #0                       
+           0001a6d4  blls     #0x1a714                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001a6d8  mov      r2, #0x28                    
+           0001a6dc  mul      r1, r2, r1                   
+           0001a6e0  add      r0, r0, r1                   
+           0001a6e4  add      r0, r0, #0x10                
+           0001a6e8  ldr      r0, [r0, #0x24]              ; field+0x24 
+           0001a6ec  cmp      r0, #0                       
+           0001a6f0  movne    sl, #0                       
+           0001a6f4  moveq    sl, #1                       
+           0001a6f8  b        #0x1a700                     ; -> L_1a700
+L_1a6fc:   0001a6fc  mov      sl, #0                       
+L_1a700:   0001a700  mov      r0, sl                       
+L_1a704:   0001a704  add      sp, fp, #4                   
+           0001a708  pop      {r8, sl, fp}                 
+           0001a70c  ldr      r7, [sp, #8]                 
+           0001a710  ldm      sp, {sp, pc}                 
+           0001a714  mov      r1, lr                       
+           0001a718  ldr      r0, [pc]                     
+           0001a71c  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0001a720  andeq    r0, r0, #0xf8                
+
+== Inputx::InputDown  token 0x0600013e @0x0001a724 (192 bytes) static
+   args: 
+           0001a724  mov      ip, sp                       
+           0001a728  push     {r7, lr}                     
+           0001a72c  mov      r7, sp                       
+           0001a730  push     {r8, sl, fp, ip, lr}         
+           0001a734  sub      sp, sp, #4                   
+           0001a738  mov      fp, sp                       
+           0001a73c  bl       #0xba910                     ; CALL UnityEngine.Application::get_isEditor
+           0001a740  cmp      r0, #0                       
+           0001a744  bne      #0x1a754                     ; -> L_1a754
+           0001a748  bl       #0xb9760                     ; CALL UnityEngine.Application::get_platform
+           0001a74c  cmp      r0, #8                       
+           0001a750  beq      #0x1a76c                     ; -> L_1a76c
+L_1a754:   0001a754  ldr      r0, [pc]                     
+           0001a758  b        #0x1a760                     ; -> L_1a760
+           0001a75c  .word    0x00f82268                   ; literal 16261736 / 
+L_1a760:   0001a760  ldr      r0, [pc, r0]                 ; GOT[234] LDSTR 'Fire1'
+           0001a764  bl       #0xba950                     ; CALL UnityEngine.Input::GetButton
+           0001a768  b        #0x1a7c4                     ; -> L_1a7c4
+L_1a76c:   0001a76c  bl       #0xba930                     ; CALL UnityEngine.Input::get_touchCount
+           0001a770  cmp      r0, #0                       
+           0001a774  ble      #0x1a7bc                     ; -> L_1a7bc
+           0001a778  bl       #0xba940                     ; CALL UnityEngine.Input::get_touches
+           0001a77c  mov      r1, #0                       
+           0001a780  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001a784  cmp      r2, #0                       
+           0001a788  blls     #0x1a7d4                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001a78c  mov      r2, #0x28                    
+           0001a790  mul      r1, r2, r1                   
+           0001a794  add      r0, r0, r1                   
+           0001a798  add      r0, r0, #0x10                
+           0001a79c  ldr      r0, [r0, #0x24]              ; field+0x24 
+           0001a7a0  cmp      r0, #3                       
+           0001a7a4  movne    r0, #0                       
+           0001a7a8  moveq    r0, #1                       
+           0001a7ac  cmp      r0, #0                       
+           0001a7b0  movne    sl, #0                       
+           0001a7b4  moveq    sl, #1                       
+           0001a7b8  b        #0x1a7c0                     ; -> L_1a7c0
+L_1a7bc:   0001a7bc  mov      sl, #0                       
+L_1a7c0:   0001a7c0  mov      r0, sl                       
+L_1a7c4:   0001a7c4  add      sp, fp, #4                   
+           0001a7c8  pop      {r8, sl, fp}                 
+           0001a7cc  ldr      r7, [sp, #8]                 
+           0001a7d0  ldm      sp, {sp, pc}                 
+           0001a7d4  mov      r1, lr                       
+           0001a7d8  ldr      r0, [pc]                     
+           0001a7dc  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0001a7e0  andeq    r0, r0, #0xf8                
+
+== Inputx::InputUp  token 0x0600013f @0x0001a7e4 (204 bytes) static
+   args: 
+           0001a7e4  mov      ip, sp                       
+           0001a7e8  push     {r7, lr}                     
+           0001a7ec  mov      r7, sp                       
+           0001a7f0  push     {r8, sl, fp, ip, lr}         
+           0001a7f4  sub      sp, sp, #0x54                
+           0001a7f8  mov      fp, sp                       
+           0001a7fc  mov      r0, fp                       
+           0001a800  mov      r1, #0                       
+           0001a804  mov      r2, #0x28                    
+           0001a808  bl       #0xba6f0                     ; CALL System.String::memset
+           0001a80c  add      r0, fp, #0x28                
+           0001a810  mov      r1, #0                       
+           0001a814  mov      r2, #0x28                    
+           0001a818  bl       #0xba6f0                     ; CALL System.String::memset
+           0001a81c  bl       #0xba910                     ; CALL UnityEngine.Application::get_isEditor
+           0001a820  cmp      r0, #0                       
+           0001a824  bne      #0x1a834                     ; -> L_1a834
+           0001a828  bl       #0xb9760                     ; CALL UnityEngine.Application::get_platform
+           0001a82c  cmp      r0, #8                       
+           0001a830  beq      #0x1a84c                     ; -> L_1a84c
+L_1a834:   0001a834  ldr      r0, [pc]                     
+           0001a838  b        #0x1a840                     ; -> L_1a840
+           0001a83c  .word    0x00f82188                   ; literal 16261512 / 
+L_1a840:   0001a840  ldr      r0, [pc, r0]                 ; GOT[234] LDSTR 'Fire1'
+           0001a844  bl       #0xba960                     ; CALL UnityEngine.Input::GetButtonUp
+           0001a848  b        #0x1a8a0                     ; -> L_1a8a0
+L_1a84c:   0001a84c  bl       #0xba930                     ; CALL UnityEngine.Input::get_touchCount
+           0001a850  cmp      r0, #0                       
+           0001a854  ble      #0x1a898                     ; -> L_1a898
+           0001a858  mov      r1, #0                       
+           0001a85c  mov      r0, fp                       
+           0001a860  bl       #0xba970                     ; CALL UnityEngine.Input::GetTouch
+           0001a864  ldr      r0, [fp, #0x24]              
+           0001a868  cmp      r0, #3                       
+           0001a86c  beq      #0x1a890                     ; -> L_1a890
+           0001a870  add      r0, fp, #0x28                
+           0001a874  mov      r1, #0                       
+           0001a878  bl       #0xba970                     ; CALL UnityEngine.Input::GetTouch
+           0001a87c  ldr      r0, [fp, #0x4c]              
+           0001a880  cmp      r0, #4                       
+           0001a884  movne    sl, #0                       
+           0001a888  moveq    sl, #1                       
+           0001a88c  b        #0x1a894                     ; -> L_1a894
+L_1a890:   0001a890  mov      sl, #1                       
+L_1a894:   0001a894  b        #0x1a89c                     ; -> L_1a89c
+L_1a898:   0001a898  mov      sl, #0                       
+L_1a89c:   0001a89c  mov      r0, sl                       
+L_1a8a0:   0001a8a0  add      sp, fp, #0x54                
+           0001a8a4  pop      {r8, sl, fp}                 
+           0001a8a8  ldr      r7, [sp, #8]                 
+           0001a8ac  ldm      sp, {sp, pc}                 
+
+== Inputx::InputPosition  token 0x06000140 @0x0001a8b0 (256 bytes) static
+   args: 
+           0001a8b0  mov      ip, sp                       
+           0001a8b4  push     {r7, lr}                     
+           0001a8b8  mov      r7, sp                       
+           0001a8bc  push     {r8, sl, fp, ip, lr}         
+           0001a8c0  sub      sp, sp, #0x5c                
+           0001a8c4  mov      fp, sp                       
+           0001a8c8  str      r0, [fp]                     
+           0001a8cc  add      r0, fp, #4                   
+           0001a8d0  mov      r1, #0                       
+           0001a8d4  mov      r2, #0x28                    
+           0001a8d8  bl       #0xba6f0                     ; CALL System.String::memset
+           0001a8dc  bl       #0xba910                     ; CALL UnityEngine.Application::get_isEditor
+           0001a8e0  cmp      r0, #0                       
+           0001a8e4  bne      #0x1a8f4                     ; -> L_1a8f4
+           0001a8e8  bl       #0xb9760                     ; CALL UnityEngine.Application::get_platform
+           0001a8ec  cmp      r0, #8                       
+           0001a8f0  beq      #0x1a91c                     ; -> L_1a91c
+L_1a8f4:   0001a8f4  add      r0, fp, #0x2c                
+           0001a8f8  bl       #0xba980                     ; CALL UnityEngine.Input::get_mousePosition
+           0001a8fc  ldr      r0, [fp]                     
+           0001a900  ldr      r1, [fp, #0x2c]              
+           0001a904  str      r1, [r0]                     
+           0001a908  ldr      r1, [fp, #0x30]              
+           0001a90c  str      r1, [r0, #4]                 ; field+0x4 
+           0001a910  ldr      r1, [fp, #0x34]              
+           0001a914  str      r1, [r0, #8]                 ; field+0x8 
+           0001a918  b        #0x1a9a0                     ; -> L_1a9a0
+L_1a91c:   0001a91c  bl       #0xba930                     ; CALL UnityEngine.Input::get_touchCount
+           0001a920  cmp      r0, #0                       
+           0001a924  ble      #0x1a97c                     ; -> L_1a97c
+           0001a928  add      r0, fp, #4                   
+           0001a92c  mov      r1, #0                       
+           0001a930  bl       #0xba970                     ; CALL UnityEngine.Input::GetTouch
+           0001a934  add      r0, fp, #4                   
+           0001a938  add      r0, r0, #4                   
+           0001a93c  ldr      r1, [r0]                     
+           0001a940  str      r1, [fp, #0x38]              
+           0001a944  ldr      r0, [r0, #4]                 ; field+0x4 
+           0001a948  str      r0, [fp, #0x3c]              
+           0001a94c  add      r0, fp, #0x40                
+           0001a950  ldr      r1, [fp, #0x38]              
+           0001a954  ldr      r2, [fp, #0x3c]              
+           0001a958  bl       #0xba990                     ; CALL UnityEngine.Vector2::op_Implicit
+           0001a95c  ldr      r0, [fp]                     
+           0001a960  ldr      r1, [fp, #0x40]              
+           0001a964  str      r1, [r0]                     
+           0001a968  ldr      r1, [fp, #0x44]              
+           0001a96c  str      r1, [r0, #4]                 ; field+0x4 
+           0001a970  ldr      r1, [fp, #0x48]              
+           0001a974  str      r1, [r0, #8]                 ; field+0x8 
+           0001a978  b        #0x1a9a0                     ; -> L_1a9a0
+L_1a97c:   0001a97c  add      r0, fp, #0x4c                
+           0001a980  bl       #0xb9f70                     ; CALL UnityEngine.Vector3::get_zero
+           0001a984  ldr      r0, [fp]                     
+           0001a988  ldr      r1, [fp, #0x4c]              
+           0001a98c  str      r1, [r0]                     
+           0001a990  ldr      r1, [fp, #0x50]              
+           0001a994  str      r1, [r0, #4]                 ; field+0x4 
+           0001a998  ldr      r1, [fp, #0x54]              
+           0001a99c  str      r1, [r0, #8]                 ; field+0x8 
+L_1a9a0:   0001a9a0  add      sp, fp, #0x5c                
+           0001a9a4  pop      {r8, sl, fp}                 
+           0001a9a8  ldr      r7, [sp, #8]                 
+           0001a9ac  ldm      sp, {sp, pc}                 

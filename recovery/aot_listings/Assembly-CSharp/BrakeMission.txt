@@ -1,0 +1,204 @@
+####################################################################################################
+# TYPE BrakeMission  (instance size 0x38)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 missionName                    LocalizedString
+#   +0x14 missionInstructions            LocalizedString
+#   +0x18 missionInstructionsWeb         LocalizedString
+#   +0x1c manager                        MissionManager
+#   +0x20 missionCollection              MissionCollection
+#   +0x24 hasArrow                       bool
+#   +0x28 arrowRotation                  float
+#   +0x2c arrowXOffset                   float
+#   +0x30 arrowYOffset                   float
+#   +0x34 hasStartedMission              bool
+#   vtable slots: 5:Signal, 6:Shutdown, 7:Update, 8:Init
+####################################################################################################
+== BrakeMission::.ctor  token 0x0600029b @0x000ea7fc (52 bytes)
+   args: r0=this, 
+           000ea7fc  mov      ip, sp                       
+           000ea800  push     {r7, lr}                     
+           000ea804  mov      r7, sp                       
+           000ea808  push     {r8, fp, ip, lr}             
+           000ea80c  sub      sp, sp, #8                   
+           000ea810  mov      fp, sp                       
+           000ea814  str      r0, [fp]                     
+           000ea818  ldr      r0, [fp]                     
+           000ea81c  bl       #0x22ca40                    ; CALL BaseMission::.ctor
+           000ea820  add      sp, fp, #8                   
+           000ea824  pop      {r8, fp}                     
+           000ea828  ldr      r7, [sp, #8]                 
+           000ea82c  ldm      sp, {sp, pc}                 
+
+== BrakeMission::Init  token 0x0600029c @0x000ea830 (80 bytes)
+   args: r0=this, 
+           000ea830  mov      ip, sp                       
+           000ea834  push     {r7, lr}                     
+           000ea838  mov      r7, sp                       
+           000ea83c  push     {r8, fp, ip, lr}             
+           000ea840  sub      sp, sp, #8                   
+           000ea844  mov      fp, sp                       
+           000ea848  str      r0, [fp]                     
+           000ea84c  ldr      r0, [fp]                     
+           000ea850  mov      r1, #0                       
+           000ea854  strb     r1, [r0, #0x34]              ; field+0x34 (this-class: hasStartedMission)
+           000ea858  bl       #0x22c920                    ; CALL UnityEngine.Application::get_platform
+           000ea85c  cmp      r0, #8                       
+           000ea860  beq      #0xea870                     ; -> L_ea870
+           000ea864  ldr      r0, [fp]                     
+           000ea868  mov      r1, #0                       
+           000ea86c  strb     r1, [r0, #0x24]              ; field+0x24 (this-class: hasArrow)
+L_ea870:   000ea870  add      sp, fp, #8                   
+           000ea874  pop      {r8, fp}                     
+           000ea878  ldr      r7, [sp, #8]                 
+           000ea87c  ldm      sp, {sp, pc}                 
+
+== BrakeMission::Update  token 0x0600029d @0x000ea880 (412 bytes)
+   args: r0=this, 
+           000ea880  mov      ip, sp                       
+           000ea884  push     {r7, lr}                     
+           000ea888  mov      r7, sp                       
+           000ea88c  push     {r6, r8, sl, fp, ip, lr}     
+           000ea890  sub      sp, sp, #0x50                
+           000ea894  mov      fp, sp                       
+           000ea898  mov      sl, r0                       
+           000ea89c  mov      r0, #0                       
+           000ea8a0  str      r0, [fp, #0xc]               
+           000ea8a4  mov      r0, #0                       
+           000ea8a8  str      r0, [fp, #0x10]              
+           000ea8ac  mov      r0, #0                       
+           000ea8b0  str      r0, [fp, #0x14]              
+           000ea8b4  mov      r0, #0                       
+           000ea8b8  str      r0, [fp, #0x18]              
+           000ea8bc  mov      r0, #0                       
+           000ea8c0  str      r0, [fp, #0x1c]              
+           000ea8c4  mov      r0, #0                       
+           000ea8c8  str      r0, [fp, #0x20]              
+           000ea8cc  ldrb     r0, [sl, #0x34]              ; field+0x34 (this-class: hasStartedMission)
+           000ea8d0  cmp      r0, #0                       
+           000ea8d4  bne      #0xea918                     ; -> L_ea918
+           000ea8d8  mov      r0, #1                       
+           000ea8dc  strb     r0, [sl, #0x34]              ; field+0x34 (this-class: hasStartedMission)
+           000ea8e0  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000ea8e4  str      r0, [fp, #0x48]              
+           000ea8e8  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000ea8ec  ldr      lr, [r0]                     
+           000ea8f0  ldr      r0, [pc]                     
+           000ea8f4  b        #0xea8fc                     ; -> L_ea8fc
+           000ea8f8  .word    0x00ebad00                   ; literal 15445248 / 
+L_ea8fc:   000ea8fc  ldr      r0, [pc, r0]                 ; GOT[551] VTABLE HUDLogic/<AnimateBrakeButtonIn>c__Iterator7F
+           000ea900  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ea904  mov      r1, r0                       
+           000ea908  ldr      r2, [fp, #0x48]              
+           000ea90c  mov      r0, r2                       
+           000ea910  ldr      lr, [r2]                     
+           000ea914  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+L_ea918:   000ea918  bl       #0x1129cc                    ; CALL RaceManager::GetPlayerCar (direct)
+           000ea91c  mov      r6, r0                       
+           000ea920  ldr      r1, [pc]                     
+           000ea924  b        #0xea92c                     ; -> L_ea92c
+           000ea928  .word    0x00eba5d8                   ; literal 15443416 / 
+L_ea92c:   000ea92c  ldr      r1, [pc, r1]                 ; GOT[105] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarCollider>
+           000ea930  ldr      lr, [r0]                     
+           000ea934  mov      r8, r1                       
+           000ea938  bl       #0x22b100                    ; CALL UnityEngine.GameObject::GetComponent<CarCollider>
+           000ea93c  str      r0, [fp, #8]                 
+           000ea940  mov      r1, r0                       
+           000ea944  ldr      lr, [r1]                     
+           000ea948  add      r0, r0, #0x54                
+           000ea94c  ldr      r1, [r0]                     
+           000ea950  str      r1, [fp, #0xc]               
+           000ea954  ldr      r1, [r0, #4]                 ; field+0x4 
+           000ea958  str      r1, [fp, #0x10]              
+           000ea95c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ea960  str      r0, [fp, #0x14]              
+           000ea964  mov      r0, r6                       
+           000ea968  ldr      lr, [r6]                     
+           000ea96c  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000ea970  mov      r2, r0                       
+           000ea974  add      r0, fp, #0x18                
+           000ea978  mov      r1, r2                       
+           000ea97c  ldr      lr, [r2]                     
+           000ea980  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000ea984  ldr      r0, [fp, #0x18]              
+           000ea988  str      r0, [fp, #0x38]              
+           000ea98c  ldr      r0, [fp, #0x1c]              
+           000ea990  str      r0, [fp, #0x3c]              
+           000ea994  ldr      r0, [fp, #0x20]              
+           000ea998  str      r0, [fp, #0x40]              
+           000ea99c  ldr      r0, [fp, #0x38]              
+           000ea9a0  ldr      r1, [fp, #0x3c]              
+           000ea9a4  ldr      r2, [fp, #0x40]              
+           000ea9a8  ldr      r3, [fp, #0xc]               
+           000ea9ac  ldr      ip, [fp, #0x10]              
+           000ea9b0  str      ip, [sp]                     
+           000ea9b4  ldr      ip, [fp, #0x14]              
+           000ea9b8  str      ip, [sp, #4]                 
+           000ea9bc  bl       #0x22aeb0                    ; CALL UnityEngine.Vector3::Angle
+           000ea9c0  vmov     s4, r0                       
+           000ea9c4  vcvt.f64.f32 d2, s4                       
+           000ea9c8  vcvt.f32.f64 s0, d2                       
+           000ea9cc  vstr     s0, [fp, #0x24]              
+           000ea9d0  vldr     s0, [fp, #0x24]              
+           000ea9d4  vcvt.f64.f32 d2, s0                       
+           000ea9d8  vldr     s6, [pc]                     ; float 165.0
+           000ea9dc  b        #0xea9e4                     ; -> L_ea9e4
+           000ea9e0  .word    0x43250000                   ; literal 1126498304 / 165
+L_ea9e4:   000ea9e4  vcvt.f64.f32 d3, s6                       
+           000ea9e8  vcmp.f64 d2, d3                       
+           000ea9ec  vmrs     apsr_nzcv, fpscr             
+           000ea9f0  bvs      #0xeaa0c                     ; -> L_eaa0c
+           000ea9f4  bmi      #0xeaa0c                     ; -> L_eaa0c
+           000ea9f8  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: manager)
+           000ea9fc  mov      r0, r2                       
+           000eaa00  mov      r1, sl                       
+           000eaa04  ldr      lr, [r2]                     
+           000eaa08  bl       #0x22ca50                    ; CALL MissionManager::CompleteMission
+L_eaa0c:   000eaa0c  add      sp, fp, #0x50                
+           000eaa10  pop      {r6, r8, sl, fp}             
+           000eaa14  ldr      r7, [sp, #8]                 
+           000eaa18  ldm      sp, {sp, pc}                 
+
+== BrakeMission::Shutdown  token 0x0600029e @0x000eaa1c (44 bytes)
+   args: r0=this, 
+           000eaa1c  mov      ip, sp                       
+           000eaa20  push     {r7, lr}                     
+           000eaa24  mov      r7, sp                       
+           000eaa28  push     {r8, fp, ip, lr}             
+           000eaa2c  sub      sp, sp, #8                   
+           000eaa30  mov      fp, sp                       
+           000eaa34  str      r0, [fp]                     
+           000eaa38  add      sp, fp, #8                   
+           000eaa3c  pop      {r8, fp}                     
+           000eaa40  ldr      r7, [sp, #8]                 
+           000eaa44  ldm      sp, {sp, pc}                 
+
+== BrakeMission::Signal  token 0x0600029f @0x000eaa48 (48 bytes)
+   args: r0=this, signal
+           000eaa48  mov      ip, sp                       
+           000eaa4c  push     {r7, lr}                     
+           000eaa50  mov      r7, sp                       
+           000eaa54  push     {r8, fp, ip, lr}             
+           000eaa58  sub      sp, sp, #8                   
+           000eaa5c  mov      fp, sp                       
+           000eaa60  str      r0, [fp]                     
+           000eaa64  str      r1, [fp, #4]                 
+           000eaa68  add      sp, fp, #8                   
+           000eaa6c  pop      {r8, fp}                     
+           000eaa70  ldr      r7, [sp, #8]                 
+           000eaa74  ldm      sp, {sp, pc}                 
+
+== BrakeMission::Signal  token 0x060002a0 @0x000eaa78 (52 bytes)
+   args: r0=this, signal, value
+           000eaa78  mov      ip, sp                       
+           000eaa7c  push     {r7, lr}                     
+           000eaa80  mov      r7, sp                       
+           000eaa84  push     {r8, fp, ip, lr}             
+           000eaa88  sub      sp, sp, #0x10                
+           000eaa8c  mov      fp, sp                       
+           000eaa90  str      r0, [fp]                     
+           000eaa94  str      r1, [fp, #4]                 
+           000eaa98  str      r2, [fp, #8]                 
+           000eaa9c  add      sp, fp, #0x10                
+           000eaaa0  pop      {r8, fp}                     
+           000eaaa4  ldr      r7, [sp, #8]                 
+           000eaaa8  ldm      sp, {sp, pc}                 

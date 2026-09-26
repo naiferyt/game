@@ -1,0 +1,1274 @@
+####################################################################################################
+# TYPE PowerupHolder  (instance size 0x20)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 em                             EffectManager
+#   +0x14 metrics                        CarMetrics
+#   +0x18 effectsInReserve               System.Collections.Generic.List`1<BaseEffect>
+#   +0x1c allowPowerups                  bool
+#   +0x1d buttonDisabled                 bool
+#   +0x1e isCombo                        bool
+#   static int maxPowerups  = const 02000000
+#   vtable slots: 
+####################################################################################################
+== PowerupHolder::.ctor  token 0x06000467 @0x00101fd8 (100 bytes)
+   args: r0=this, 
+           00101fd8  mov      ip, sp                       
+           00101fdc  push     {r7, lr}                     
+           00101fe0  mov      r7, sp                       
+           00101fe4  push     {r8, sl, fp, ip, lr}         
+           00101fe8  sub      sp, sp, #0xc                 
+           00101fec  mov      fp, sp                       
+           00101ff0  mov      sl, r0                       
+           00101ff4  mov      r0, #1                       
+           00101ff8  strb     r0, [sl, #0x1c]              ; field+0x1c (this-class: allowPowerups)
+           00101ffc  ldr      r0, [pc]                     
+           00102000  b        #0x102008                    ; -> L_102008
+           00102004  .word    0x00ea343c                   ; literal 15348796 / 
+L_102008:  00102008  ldr      r0, [pc, r0]                 ; GOT[441] VTABLE System.Collections.Generic.List`1<BaseEffect>
+           0010200c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00102010  str      r0, [fp]                     
+           00102014  mov      r1, #2                       
+           00102018  bl       #0x22d770                    ; CALL System.Collections.Generic.List`1<BaseEffect>::.ctor
+           0010201c  ldr      r0, [fp]                     
+           00102020  str      r0, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102024  mov      r0, sl                       
+           00102028  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0010202c  add      sp, fp, #0xc                 
+           00102030  pop      {r8, sl, fp}                 
+           00102034  ldr      r7, [sp, #8]                 
+           00102038  ldm      sp, {sp, pc}                 
+
+== PowerupHolder::Awake  token 0x06000468 @0x0010203c (112 bytes)
+   args: r0=this, 
+           0010203c  mov      ip, sp                       
+           00102040  push     {r7, lr}                     
+           00102044  mov      r7, sp                       
+           00102048  push     {r8, sl, fp, ip, lr}         
+           0010204c  sub      sp, sp, #4                   
+           00102050  mov      fp, sp                       
+           00102054  mov      sl, r0                       
+           00102058  mov      r0, sl                       
+           0010205c  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00102060  ldr      r1, [pc]                     
+           00102064  b        #0x10206c                    ; -> L_10206c
+           00102068  .word    0x00ea2e6c                   ; literal 15347308 / 
+L_10206c:  0010206c  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           00102070  ldr      lr, [r0]                     
+           00102074  mov      r8, r1                       
+           00102078  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           0010207c  str      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00102080  ldr      r8, [pc]                     
+           00102084  b        #0x10208c                    ; -> L_10208c
+           00102088  .word    0x00ea3190                   ; literal 15348112 / 
+L_10208c:  0010208c  ldr      r8, [pc, r8]                 ; GOT[303] METHOD_RGCTX UnityEngine.Component::GetComponent<CarMetrics>
+           00102090  mov      r0, sl                       
+           00102094  bl       #0x22bcc0                    ; CALL UnityEngine.Component::GetComponent<CarMetrics>
+           00102098  str      r0, [sl, #0x14]              ; field+0x14 (this-class: metrics)
+           0010209c  add      sp, fp, #4                   
+           001020a0  pop      {r8, sl, fp}                 
+           001020a4  ldr      r7, [sp, #8]                 
+           001020a8  ldm      sp, {sp, pc}                 
+
+== PowerupHolder::get_Item  token 0x06000469 @0x001020ac (128 bytes)
+   args: r0=this, index
+           001020ac  mov      ip, sp                       
+           001020b0  push     {r7, lr}                     
+           001020b4  mov      r7, sp                       
+           001020b8  push     {r8, sl, fp, ip, lr}         
+           001020bc  sub      sp, sp, #0xc                 
+           001020c0  mov      fp, sp                       
+           001020c4  str      r0, [fp]                     
+           001020c8  mov      sl, r1                       
+           001020cc  cmp      sl, #0                       
+           001020d0  blt      #0x1020f0                    ; -> L_1020f0
+           001020d4  ldr      r0, [fp]                     
+           001020d8  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001020dc  mov      r1, r0                       
+           001020e0  ldr      lr, [r1]                     
+           001020e4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           001020e8  cmp      sl, r0                       
+           001020ec  blt      #0x102104                    ; -> L_102104
+L_1020f0:  001020f0  ldr      r0, [pc]                     
+           001020f4  b        #0x1020fc                    ; -> L_1020fc
+           001020f8  .word    0x00ea3890                   ; literal 15349904 / 
+L_1020fc:  001020fc  ldr      r0, [pc, r0]                 ; GOT[779] LDSTR 'Tried to get a powerup at an illegal index!'
+           00102100  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+L_102104:  00102104  ldr      r0, [fp]                     
+           00102108  ldr      r2, [r0, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           0010210c  mov      r0, r2                       
+           00102110  mov      r1, sl                       
+           00102114  ldr      lr, [r2]                     
+           00102118  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           0010211c  add      sp, fp, #0xc                 
+           00102120  pop      {r8, sl, fp}                 
+           00102124  ldr      r7, [sp, #8]                 
+           00102128  ldm      sp, {sp, pc}                 
+
+== PowerupHolder::get_numEffects  token 0x0600046a @0x0010212c (64 bytes)
+   args: r0=this, 
+           0010212c  mov      ip, sp                       
+           00102130  push     {r7, lr}                     
+           00102134  mov      r7, sp                       
+           00102138  push     {r8, fp, ip, lr}             
+           0010213c  sub      sp, sp, #8                   
+           00102140  mov      fp, sp                       
+           00102144  str      r0, [fp]                     
+           00102148  ldr      r0, [fp]                     
+           0010214c  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102150  mov      r1, r0                       
+           00102154  ldr      lr, [r1]                     
+           00102158  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0010215c  add      sp, fp, #8                   
+           00102160  pop      {r8, fp}                     
+           00102164  ldr      r7, [sp, #8]                 
+           00102168  ldm      sp, {sp, pc}                 
+
+== PowerupHolder::get_CanTakePowerup  token 0x0600046b @0x0010216c (92 bytes)
+   args: r0=this, 
+           0010216c  mov      ip, sp                       
+           00102170  push     {r7, lr}                     
+           00102174  mov      r7, sp                       
+           00102178  push     {r6, r8, fp, ip, lr}         
+           0010217c  sub      sp, sp, #0xc                 
+           00102180  mov      fp, sp                       
+           00102184  str      r0, [fp]                     
+           00102188  ldr      r0, [fp]                     
+           0010218c  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102190  mov      r1, r0                       
+           00102194  ldr      lr, [r1]                     
+           00102198  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0010219c  cmp      r0, #2                       
+           001021a0  bge      #0x1021b0                    ; -> L_1021b0
+           001021a4  ldr      r0, [fp]                     
+           001021a8  ldrb     r6, [r0, #0x1c]              ; field+0x1c (this-class: allowPowerups)
+           001021ac  b        #0x1021b4                    ; -> L_1021b4
+L_1021b0:  001021b0  mov      r6, #0                       
+L_1021b4:  001021b4  mov      r0, r6                       
+           001021b8  add      sp, fp, #0xc                 
+           001021bc  pop      {r6, r8, fp}                 
+           001021c0  ldr      r7, [sp, #8]                 
+           001021c4  ldm      sp, {sp, pc}                 
+
+== PowerupHolder::Update  token 0x0600046c @0x001021c8 (244 bytes)
+   args: r0=this, 
+           001021c8  mov      ip, sp                       
+           001021cc  push     {r7, lr}                     
+           001021d0  mov      r7, sp                       
+           001021d4  push     {r8, sl, fp, ip, lr}         
+           001021d8  sub      sp, sp, #4                   
+           001021dc  mov      fp, sp                       
+           001021e0  mov      sl, r0                       
+           001021e4  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           001021e8  mov      r1, #0                       
+           001021ec  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           001021f0  cmp      r0, #0                       
+           001021f4  beq      #0x102220                    ; -> L_102220
+           001021f8  mov      r0, sl                       
+           001021fc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00102200  ldr      r1, [pc]                     
+           00102204  b        #0x10220c                    ; -> L_10220c
+           00102208  .word    0x00ea2ccc                   ; literal 15346892 / 
+L_10220c:  0010220c  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           00102210  ldr      lr, [r0]                     
+           00102214  mov      r8, r1                       
+           00102218  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           0010221c  str      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+L_102220:  00102220  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: metrics)
+           00102224  mov      r1, #0                       
+           00102228  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010222c  cmp      r0, #0                       
+           00102230  beq      #0x10225c                    ; -> L_10225c
+           00102234  mov      r0, sl                       
+           00102238  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010223c  ldr      r1, [pc]                     
+           00102240  b        #0x102248                    ; -> L_102248
+           00102244  .word    0x00ea2cec                   ; literal 15346924 / 
+L_102248:  00102248  ldr      r1, [pc, r1]                 ; GOT[117] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarMetrics>
+           0010224c  ldr      lr, [r0]                     
+           00102250  mov      r8, r1                       
+           00102254  bl       #0x22b280                    ; CALL UnityEngine.GameObject::GetComponent<CarMetrics>
+           00102258  str      r0, [sl, #0x14]              ; field+0x14 (this-class: metrics)
+L_10225c:  0010225c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00102260  mov      r1, #0                       
+           00102264  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00102268  cmp      r0, #0                       
+           0010226c  beq      #0x1022ac                    ; -> L_1022ac
+           00102270  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00102274  ldr      r1, [pc]                     
+           00102278  b        #0x102280                    ; -> L_102280
+           0010227c  .word    0x00ea2c98                   ; literal 15346840 / 
+L_102280:  00102280  ldr      r1, [pc, r1]                 ; GOT[110] TYPE_FROM_HANDLE typeof(GuidedJumpEffect)
+           00102284  mov      r0, r2                       
+           00102288  ldr      lr, [r2]                     
+           0010228c  bl       #0x22b030                    ; CALL EffectManager::HasEffect
+           00102290  cmp      r0, #0                       
+           00102294  beq      #0x1022a4                    ; -> L_1022a4
+           00102298  mov      r0, #1                       
+           0010229c  strb     r0, [sl, #0x1d]              ; field+0x1d (this-class: buttonDisabled)
+           001022a0  b        #0x1022ac                    ; -> L_1022ac
+L_1022a4:  001022a4  mov      r0, #0                       
+           001022a8  strb     r0, [sl, #0x1d]              ; field+0x1d (this-class: buttonDisabled)
+L_1022ac:  001022ac  add      sp, fp, #4                   
+           001022b0  pop      {r8, sl, fp}                 
+           001022b4  ldr      r7, [sp, #8]                 
+           001022b8  ldm      sp, {sp, pc}                 
+
+== PowerupHolder::AddEffect  token 0x0600046d @0x001022bc (384 bytes)
+   args: r0=this, newEffect
+           001022bc  mov      ip, sp                       
+           001022c0  push     {r7, lr}                     
+           001022c4  mov      r7, sp                       
+           001022c8  push     {r5, r6, r8, sl, fp, ip, lr} 
+           001022cc  sub      sp, sp, #0x14                
+           001022d0  mov      fp, sp                       
+           001022d4  mov      r6, r0                       
+           001022d8  mov      sl, r1                       
+           001022dc  mov      r0, r6                       
+           001022e0  bl       #0x10216c                    ; CALL PowerupHolder::get_CanTakePowerup (direct)
+           001022e4  cmp      r0, #0                       
+           001022e8  bne      #0x102304                    ; -> L_102304
+           001022ec  ldr      r0, [pc]                     
+           001022f0  b        #0x1022f8                    ; -> L_1022f8
+           001022f4  .word    0x00ea3698                   ; literal 15349400 / 
+L_1022f8:  001022f8  ldr      r0, [pc, r0]                 ; GOT[780] LDSTR 'Trying to add an effect when CanTakePowerup is false!'
+           001022fc  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           00102300  b        #0x10242c                    ; -> L_10242c
+L_102304:  00102304  ldr      r2, [r6, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102308  mov      r0, r2                       
+           0010230c  mov      r1, sl                       
+           00102310  ldr      lr, [r2]                     
+           00102314  bl       #0x22c3a0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::Add
+           00102318  mov      r0, r6                       
+           0010231c  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00102320  bl       #0x1129f8                    ; CALL RaceManager::IsPlayerCar (direct)
+           00102324  cmp      r0, #0                       
+           00102328  beq      #0x10242c                    ; -> L_10242c
+           0010232c  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           00102330  mov      r5, r0                       
+           00102334  mov      r1, #0                       
+           00102338  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010233c  cmp      r0, #0                       
+           00102340  beq      #0x102368                    ; -> L_102368
+           00102344  mov      r0, #1                       
+           00102348  strb     r0, [r5, #0xa4]              ; field+0xa4 
+           0010234c  ldr      r1, [pc]                     
+           00102350  b        #0x102358                    ; -> L_102358
+           00102354  .word    0x00ea363c                   ; literal 15349308 / 
+L_102358:  00102358  ldr      r1, [pc, r1]                 ; GOT[781] LDSTR 'UpdateHUD'
+           0010235c  mov      r0, r5                       
+           00102360  ldr      lr, [r5]                     
+           00102364  bl       #0x22d710                    ; CALL UnityEngine.Component::SendMessage
+L_102368:  00102368  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0010236c  mov      r1, r0                       
+           00102370  ldr      lr, [r1]                     
+           00102374  ldr      r0, [r0, #0x24]              ; field+0x24 
+           00102378  mov      r1, r0                       
+           0010237c  ldr      lr, [r1]                     
+           00102380  ldr      r0, [r0, #0x24]              ; field+0x24 
+           00102384  cmp      r0, #1                       
+           00102388  beq      #0x1023a0                    ; -> L_1023a0
+           0010238c  ldr      r0, [pc]                     
+           00102390  b        #0x102398                    ; -> L_102398
+           00102394  .word    0x00ea3600                   ; literal 15349248 / 
+L_102398:  00102398  ldr      r0, [pc, r0]                 ; GOT[782] LDSTR 'Lifetime Powerup Collection'
+           0010239c  bl       #0xe9f8c                     ; CALL LifetimeMetrics::Signal (direct)
+L_1023a0:  001023a0  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: metrics)
+           001023a4  mov      r1, #0                       
+           001023a8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           001023ac  cmp      r0, #0                       
+           001023b0  beq      #0x10242c                    ; -> L_10242c
+           001023b4  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: metrics)
+           001023b8  str      r0, [fp]                     
+           001023bc  ldr      r0, [pc]                     
+           001023c0  b        #0x1023c8                    ; -> L_1023c8
+           001023c4  .word    0x00ea2ce0                   ; literal 15346912 / 
+L_1023c8:  001023c8  ldr      r0, [pc, r0]                 ; GOT[210] LDSTR 'Collected '
+           001023cc  str      r0, [fp, #4]                 
+           001023d0  ldr      lr, [sl]                     
+           001023d4  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           001023d8  str      r0, [fp, #8]                 
+           001023dc  ldr      r0, [pc]                     
+           001023e0  b        #0x1023e8                    ; -> L_1023e8
+           001023e4  .word    0x00ea2c64                   ; literal 15346788 / 
+L_1023e8:  001023e8  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           001023ec  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           001023f0  mov      r1, r0                       
+           001023f4  ldr      r0, [fp, #8]                 
+           001023f8  str      r0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001023fc  mov      r0, r1                       
+           00102400  ldr      r1, [r1]                     
+           00102404  mov      lr, pc                       
+           00102408  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           0010240c  mov      r1, r0                       
+           00102410  ldr      r0, [fp, #4]                 
+           00102414  bl       #0x22adc0                    ; CALL System.String::Concat
+           00102418  mov      r1, r0                       
+           0010241c  ldr      r2, [fp]                     
+           00102420  mov      r0, r2                       
+           00102424  ldr      lr, [r2]                     
+           00102428  bl       #0x10d384                    ; CALL CarMetrics::Signal (direct)
+L_10242c:  0010242c  add      sp, fp, #0x14                
+           00102430  pop      {r5, r6, r8, sl, fp}         
+           00102434  ldr      r7, [sp, #8]                 
+           00102438  ldm      sp, {sp, pc}                 
+
+== PowerupHolder::HasEffect  token 0x0600046e @0x0010243c (360 bytes)
+   args: r0=this, type
+           0010243c  mov      ip, sp                       
+           00102440  push     {r7, lr}                     
+           00102444  mov      r7, sp                       
+           00102448  push     {r5, r8, sl, fp, ip, lr}     
+           0010244c  sub      sp, sp, #0x48                
+           00102450  mov      fp, sp                       
+           00102454  str      r0, [fp, #0x40]              
+           00102458  mov      sl, r1                       
+           0010245c  mov      r0, #0                       
+           00102460  str      r0, [fp]                     
+           00102464  mov      r0, #0                       
+           00102468  str      r0, [fp, #4]                 
+           0010246c  mov      r0, #0                       
+           00102470  str      r0, [fp, #8]                 
+           00102474  mov      r0, #0                       
+           00102478  str      r0, [fp, #0xc]               
+           0010247c  ldr      r0, [fp, #0x40]              
+           00102480  ldr      r2, [r0, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102484  mov      r1, r2                       
+           00102488  mov      r0, fp                       
+           0010248c  ldr      lr, [r2]                     
+           00102490  bl       #0x22d0e0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::GetEnumerator
+           00102494  b        #0x1024d4                    ; -> L_1024d4
+L_102498:  00102498  ldr      r0, [pc]                     
+           0010249c  b        #0x1024a4                    ; -> L_1024a4
+           001024a0  .word    0x00ea32e0                   ; literal 15348448 / 
+L_1024a4:  001024a4  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           001024a8  ldr      r5, [fp, #0xc]               
+           001024ac  mov      r0, r5                       
+           001024b0  mov      r1, r0                       
+           001024b4  ldr      lr, [r1]                     
+           001024b8  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: em)
+           001024bc  cmp      r0, sl                       
+           001024c0  bne      #0x1024d4                    ; -> L_1024d4
+           001024c4  mov      r0, #1                       
+           001024c8  strb     r0, [fp, #0x10]              
+           001024cc  bl       #0x1024fc                    ; CALL 0x1024fc
+           001024d0  b        #0x102590                    ; -> L_102590
+L_1024d4:  001024d4  ldr      r8, [pc]                     
+           001024d8  b        #0x1024e0                    ; -> L_1024e0
+           001024dc  .word    0x00ea32a4                   ; literal 15348388 / 
+L_1024e0:  001024e0  ldr      r8, [pc, r8]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           001024e4  mov      r0, fp                       
+           001024e8  bl       #0x22d100                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseEffect>::MoveNext
+           001024ec  cmp      r0, #0                       
+           001024f0  bne      #0x102498                    ; -> L_102498
+           001024f4  bl       #0x1024fc                    ; CALL 0x1024fc
+           001024f8  b        #0x102588                    ; -> L_102588
+           001024fc  str      lr, [fp, #0x2c]              
+           00102500  ldr      r0, [fp]                     
+           00102504  str      r0, [fp, #0x30]              
+           00102508  ldr      r0, [fp, #4]                 
+           0010250c  str      r0, [fp, #0x34]              
+           00102510  ldr      r0, [fp, #8]                 
+           00102514  str      r0, [fp, #0x38]              
+           00102518  ldr      r0, [fp, #0xc]               
+           0010251c  str      r0, [fp, #0x3c]              
+           00102520  ldr      r0, [pc]                     
+           00102524  b        #0x10252c                    ; -> L_10252c
+           00102528  .word    0x00ea3258                   ; literal 15348312 / 
+L_10252c:  0010252c  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           00102530  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00102534  mov      r1, r0                       
+           00102538  add      r0, r1, #8                   
+           0010253c  ldr      r2, [fp, #0x30]              
+           00102540  str      r2, [r0]                     
+           00102544  ldr      r2, [fp, #0x34]              
+           00102548  str      r2, [r0, #4]                 ; field+0x4 
+           0010254c  ldr      r2, [fp, #0x38]              
+           00102550  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00102554  ldr      r2, [fp, #0x3c]              
+           00102558  str      r2, [r0, #0xc]               ; field+0xc 
+           0010255c  mov      r0, r1                       
+           00102560  ldr      r1, [r1]                     
+           00102564  ldr      r8, [pc]                     
+           00102568  b        #0x102570                    ; -> L_102570
+           0010256c  .word    0x00ea2838                   ; literal 15345720 / 
+L_102570:  00102570  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           00102574  add      lr, pc, #4                   
+           00102578  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           0010257c  andeq    r0, r0, r0                   
+           00102580  ldr      ip, [fp, #0x2c]              
+           00102584  mov      pc, ip                       
+L_102588:  00102588  mov      r0, #0                       
+           0010258c  b        #0x102594                    ; -> L_102594
+L_102590:  00102590  ldrb     r0, [fp, #0x10]              
+L_102594:  00102594  add      sp, fp, #0x48                
+           00102598  pop      {r5, r8, sl, fp}             
+           0010259c  ldr      r7, [sp, #8]                 
+           001025a0  ldm      sp, {sp, pc}                 
+
+== PowerupHolder::ClearEffectsInReserve  token 0x0600046f @0x001025a4 (96 bytes)
+   args: r0=this, 
+           001025a4  mov      ip, sp                       
+           001025a8  push     {r7, lr}                     
+           001025ac  mov      r7, sp                       
+           001025b0  push     {r8, fp, ip, lr}             
+           001025b4  sub      sp, sp, #8                   
+           001025b8  mov      fp, sp                       
+           001025bc  str      r0, [fp]                     
+           001025c0  ldr      r0, [fp]                     
+           001025c4  ldr      r1, [r0, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001025c8  mov      r0, r1                       
+           001025cc  ldr      lr, [r1]                     
+           001025d0  bl       #0x22d780                    ; CALL System.Collections.Generic.List`1<BaseEffect>::Clear
+           001025d4  ldr      r0, [fp]                     
+           001025d8  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001025dc  mov      r1, r0                       
+           001025e0  ldr      lr, [r1]                     
+           001025e4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           001025e8  cmp      r0, #0                       
+           001025ec  movne    r0, #0                       
+           001025f0  moveq    r0, #1                       
+           001025f4  add      sp, fp, #8                   
+           001025f8  pop      {r8, fp}                     
+           001025fc  ldr      r7, [sp, #8]                 
+           00102600  ldm      sp, {sp, pc}                 
+
+== PowerupHolder::ExecutePowerups  token 0x06000470 @0x00102604 (1904 bytes)
+   args: r0=this, 
+           00102604  mov      ip, sp                       
+           00102608  push     {r7, lr}                     
+           0010260c  mov      r7, sp                       
+           00102610  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00102614  sub      sp, sp, #0x40                
+           00102618  mov      fp, sp                       
+           0010261c  mov      sl, r0                       
+           00102620  mov      r0, sl                       
+           00102624  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00102628  bl       #0x1129f8                    ; CALL RaceManager::IsPlayerCar (direct)
+           0010262c  cmp      r0, #0                       
+           00102630  beq      #0x1026a0                    ; -> L_1026a0
+           00102634  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102638  mov      r1, r0                       
+           0010263c  ldr      lr, [r1]                     
+           00102640  ldr      r0, [r0, #0xc]               ; field+0xc 
+           00102644  cmp      r0, #0                       
+           00102648  ble      #0x1026a0                    ; -> L_1026a0
+           0010264c  mov      r0, sl                       
+           00102650  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00102654  ldr      r1, [pc]                     
+           00102658  b        #0x102660                    ; -> L_102660
+           0010265c  .word    0x00ea2bc8                   ; literal 15346632 / 
+L_102660:  00102660  ldr      r1, [pc, r1]                 ; GOT[306] METHOD_RGCTX UnityEngine.GameObject::GetComponent<MissionManager>
+           00102664  ldr      lr, [r0]                     
+           00102668  mov      r8, r1                       
+           0010266c  bl       #0x22bd60                    ; CALL UnityEngine.GameObject::GetComponent<MissionManager>
+           00102670  mov      r6, r0                       
+           00102674  mov      r1, #0                       
+           00102678  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010267c  cmp      r0, #0                       
+           00102680  beq      #0x1026a0                    ; -> L_1026a0
+           00102684  ldr      r1, [pc]                     
+           00102688  b        #0x102690                    ; -> L_102690
+           0010268c  .word    0x00ea2fc4                   ; literal 15347652 / 
+L_102690:  00102690  ldr      r1, [pc, r1]                 ; GOT[573] LDSTR 'Used Powerup'
+           00102694  mov      r0, r6                       
+           00102698  ldr      lr, [r6]                     
+           0010269c  bl       #0x22bd70                    ; CALL MissionManager::Signal
+L_1026a0:  001026a0  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           001026a4  mov      r1, #0                       
+           001026a8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           001026ac  cmp      r0, #0                       
+           001026b0  beq      #0x102d64                    ; -> L_102d64
+           001026b4  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: em)
+           001026b8  ldr      r1, [pc]                     
+           001026bc  b        #0x1026c4                    ; -> L_1026c4
+           001026c0  .word    0x00ea2854                   ; literal 15345748 / 
+L_1026c4:  001026c4  ldr      r1, [pc, r1]                 ; GOT[110] TYPE_FROM_HANDLE typeof(GuidedJumpEffect)
+           001026c8  mov      r0, r2                       
+           001026cc  ldr      lr, [r2]                     
+           001026d0  bl       #0x22b030                    ; CALL EffectManager::HasEffect
+           001026d4  cmp      r0, #0                       
+           001026d8  bne      #0x102d64                    ; -> L_102d64
+           001026dc  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001026e0  mov      r1, r0                       
+           001026e4  ldr      lr, [r1]                     
+           001026e8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           001026ec  cmp      r0, #0                       
+           001026f0  beq      #0x102d64                    ; -> L_102d64
+           001026f4  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001026f8  mov      r1, r0                       
+           001026fc  ldr      lr, [r1]                     
+           00102700  ldr      r0, [r0, #0xc]               ; field+0xc 
+           00102704  cmp      r0, #1                       
+           00102708  bne      #0x102740                    ; -> L_102740
+           0010270c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00102710  str      r0, [fp, #0x18]              
+           00102714  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102718  mov      r0, r2                       
+           0010271c  mov      r1, #0                       
+           00102720  ldr      lr, [r2]                     
+           00102724  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           00102728  mov      r1, r0                       
+           0010272c  ldr      r2, [fp, #0x18]              
+           00102730  mov      r0, r2                       
+           00102734  ldr      lr, [r2]                     
+           00102738  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           0010273c  b        #0x102968                    ; -> L_102968
+L_102740:  00102740  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102744  mov      r1, r0                       
+           00102748  ldr      lr, [r1]                     
+           0010274c  ldr      r0, [r0, #0xc]               ; field+0xc 
+           00102750  cmp      r0, #2                       
+           00102754  bne      #0x102950                    ; -> L_102950
+           00102758  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           0010275c  mov      r0, r2                       
+           00102760  mov      r1, #0                       
+           00102764  ldr      lr, [r2]                     
+           00102768  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           0010276c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: em)
+           00102770  str      r0, [fp, #0x18]              
+           00102774  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102778  mov      r0, r2                       
+           0010277c  mov      r1, #1                       
+           00102780  ldr      lr, [r2]                     
+           00102784  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           00102788  mov      r1, r0                       
+           0010278c  ldr      r0, [fp, #0x18]              
+           00102790  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: em)
+           00102794  cmp      r0, r1                       
+           00102798  bne      #0x102888                    ; -> L_102888
+           0010279c  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001027a0  mov      r0, r2                       
+           001027a4  mov      r1, #0                       
+           001027a8  ldr      lr, [r2]                     
+           001027ac  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           001027b0  mov      r1, r0                       
+           001027b4  ldr      lr, [r1]                     
+           001027b8  ldrb     r0, [r0, #0x14]              ; field+0x14 (this-class: metrics)
+           001027bc  cmp      r0, #0                       
+           001027c0  beq      #0x102888                    ; -> L_102888
+           001027c4  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001027c8  mov      r0, r2                       
+           001027cc  mov      r1, #0                       
+           001027d0  ldr      lr, [r2]                     
+           001027d4  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           001027d8  mov      r5, r0                       
+           001027dc  ldr      r0, [r5, #0xc]               ; field+0xc 
+           001027e0  str      r0, [fp, #0x28]              
+           001027e4  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001027e8  mov      r0, r2                       
+           001027ec  mov      r1, #1                       
+           001027f0  ldr      lr, [r2]                     
+           001027f4  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           001027f8  mov      r1, r0                       
+           001027fc  ldr      r0, [fp, #0x28]              
+           00102800  ldr      r1, [r1, #0xc]               ; field+0xc 
+           00102804  bl       #0x22d790                    ; CALL UnityEngine.Mathf::Max
+           00102808  str      r0, [r5, #0xc]               ; field+0xc 
+           0010280c  vldr     s0, [r5, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00102810  vcvt.f64.f32 d2, s0                       
+           00102814  vstr     d2, [fp, #0x20]              
+           00102818  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           0010281c  mov      r0, r2                       
+           00102820  mov      r1, #1                       
+           00102824  ldr      lr, [r2]                     
+           00102828  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           0010282c  vldr     d3, [fp, #0x20]              
+           00102830  vldr     s0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00102834  vcvt.f64.f32 d2, s0                       
+           00102838  vcvt.f32.f64 s0, d3                       
+           0010283c  vstr     s0, [sp, #-8]                
+           00102840  ldr      r0, [sp, #-8]                
+           00102844  vcvt.f32.f64 s0, d2                       
+           00102848  vstr     s0, [sp, #-8]                
+           0010284c  ldr      r1, [sp, #-8]                
+           00102850  bl       #0x22b170                    ; CALL UnityEngine.Mathf::Max
+           00102854  vmov     s4, r0                       
+           00102858  vcvt.f64.f32 d2, s4                       
+           0010285c  vcvt.f32.f64 s0, d2                       
+           00102860  vstr     s0, [r5, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00102864  ldr      lr, [r5]                     
+           00102868  mov      r0, #2                       
+           0010286c  str      r0, [r5, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102870  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00102874  mov      r0, r2                       
+           00102878  mov      r1, r5                       
+           0010287c  ldr      lr, [r2]                     
+           00102880  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           00102884  b        #0x1028f8                    ; -> L_1028f8
+L_102888:  00102888  mov      r0, sl                       
+           0010288c  bl       #0x22d7a0                    ; CALL PowerupHolder::PowerupComboCheck
+           00102890  cmp      r0, #0                       
+           00102894  bne      #0x1028f8                    ; -> L_1028f8
+           00102898  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           0010289c  str      r0, [fp, #0x28]              
+           001028a0  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001028a4  mov      r0, r2                       
+           001028a8  mov      r1, #0                       
+           001028ac  ldr      lr, [r2]                     
+           001028b0  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           001028b4  mov      r1, r0                       
+           001028b8  ldr      r2, [fp, #0x28]              
+           001028bc  mov      r0, r2                       
+           001028c0  ldr      lr, [r2]                     
+           001028c4  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           001028c8  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           001028cc  str      r0, [fp, #0x18]              
+           001028d0  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001028d4  mov      r0, r2                       
+           001028d8  mov      r1, #1                       
+           001028dc  ldr      lr, [r2]                     
+           001028e0  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           001028e4  mov      r1, r0                       
+           001028e8  ldr      r2, [fp, #0x18]              
+           001028ec  mov      r0, r2                       
+           001028f0  ldr      lr, [r2]                     
+           001028f4  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+L_1028f8:  001028f8  mov      r0, sl                       
+           001028fc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00102900  ldr      r1, [pc]                     
+           00102904  b        #0x10290c                    ; -> L_10290c
+           00102908  .word    0x00ea291c                   ; literal 15345948 / 
+L_10290c:  0010290c  ldr      r1, [pc, r1]                 ; GOT[306] METHOD_RGCTX UnityEngine.GameObject::GetComponent<MissionManager>
+           00102910  ldr      lr, [r0]                     
+           00102914  mov      r8, r1                       
+           00102918  bl       #0x22bd60                    ; CALL UnityEngine.GameObject::GetComponent<MissionManager>
+           0010291c  mov      r4, r0                       
+           00102920  mov      r1, #0                       
+           00102924  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00102928  cmp      r0, #0                       
+           0010292c  beq      #0x102968                    ; -> L_102968
+           00102930  ldr      r1, [pc]                     
+           00102934  b        #0x10293c                    ; -> L_10293c
+           00102938  .word    0x00ea2cd8                   ; literal 15346904 / 
+L_10293c:  0010293c  ldr      r1, [pc, r1]                 ; GOT[557] LDSTR 'Combined Powerup'
+           00102940  mov      r0, r4                       
+           00102944  ldr      lr, [r4]                     
+           00102948  bl       #0x22bd70                    ; CALL MissionManager::Signal
+           0010294c  b        #0x102968                    ; -> L_102968
+L_102950:  00102950  ldr      r0, [pc]                     
+           00102954  b        #0x10295c                    ; -> L_10295c
+           00102958  .word    0x00ea3040                   ; literal 15347776 / 
+L_10295c:  0010295c  ldr      r0, [pc, r0]                 ; GOT[783] LDSTR 'Unsupported number of effects in reserve!'
+           00102960  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           00102964  b        #0x102d64                    ; -> L_102d64
+L_102968:  00102968  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: metrics)
+           0010296c  mov      r1, #0                       
+           00102970  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00102974  cmp      r0, #0                       
+           00102978  beq      #0x102d00                    ; -> L_102d00
+           0010297c  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: metrics)
+           00102980  ldr      r1, [pc]                     
+           00102984  b        #0x10298c                    ; -> L_10298c
+           00102988  .word    0x00ea277c                   ; literal 15345532 / 
+L_10298c:  0010298c  ldr      r1, [pc, r1]                 ; GOT[234] LDSTR 'Powerup Used'
+           00102990  mov      r0, r2                       
+           00102994  ldr      lr, [r2]                     
+           00102998  bl       #0x10d384                    ; CALL CarMetrics::Signal (direct)
+           0010299c  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001029a0  mov      r1, r0                       
+           001029a4  ldr      lr, [r1]                     
+           001029a8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           001029ac  cmp      r0, #2                       
+           001029b0  bne      #0x102c60                    ; -> L_102c60
+           001029b4  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001029b8  mov      r0, r2                       
+           001029bc  mov      r1, #0                       
+           001029c0  ldr      lr, [r2]                     
+           001029c4  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           001029c8  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: em)
+           001029cc  str      r0, [fp, #0x18]              
+           001029d0  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001029d4  mov      r0, r2                       
+           001029d8  mov      r1, #1                       
+           001029dc  ldr      lr, [r2]                     
+           001029e0  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           001029e4  mov      r1, r0                       
+           001029e8  ldr      r0, [fp, #0x18]              
+           001029ec  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: em)
+           001029f0  cmp      r0, r1                       
+           001029f4  bne      #0x102b40                    ; -> L_102b40
+           001029f8  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           001029fc  mov      r0, r2                       
+           00102a00  mov      r1, #0                       
+           00102a04  ldr      lr, [r2]                     
+           00102a08  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           00102a0c  mov      r1, r0                       
+           00102a10  ldr      lr, [r1]                     
+           00102a14  ldrb     r0, [r0, #0x14]              ; field+0x14 (this-class: metrics)
+           00102a18  cmp      r0, #0                       
+           00102a1c  beq      #0x102b40                    ; -> L_102b40
+           00102a20  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: metrics)
+           00102a24  str      r0, [fp, #0x18]              
+           00102a28  ldr      r0, [pc]                     
+           00102a2c  b        #0x102a34                    ; -> L_102a34
+           00102a30  .word    0x00ea2f6c                   ; literal 15347564 / 
+L_102a34:  00102a34  ldr      r0, [pc, r0]                 ; GOT[784] LDSTR 'Used Double '
+           00102a38  str      r0, [fp, #0x28]              
+           00102a3c  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102a40  mov      r0, r2                       
+           00102a44  mov      r1, #0                       
+           00102a48  ldr      lr, [r2]                     
+           00102a4c  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           00102a50  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: em)
+           00102a54  str      r0, [fp, #0x2c]              
+           00102a58  ldr      r0, [pc]                     
+           00102a5c  b        #0x102a64                    ; -> L_102a64
+           00102a60  .word    0x00ea25e8                   ; literal 15345128 / 
+L_102a64:  00102a64  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           00102a68  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00102a6c  mov      r1, r0                       
+           00102a70  ldr      r0, [fp, #0x2c]              
+           00102a74  str      r0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00102a78  mov      r0, r1                       
+           00102a7c  ldr      r1, [r1]                     
+           00102a80  mov      lr, pc                       
+           00102a84  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           00102a88  mov      r1, r0                       
+           00102a8c  ldr      r0, [fp, #0x28]              
+           00102a90  bl       #0x22adc0                    ; CALL System.String::Concat
+           00102a94  mov      r1, r0                       
+           00102a98  ldr      r2, [fp, #0x18]              
+           00102a9c  mov      r0, r2                       
+           00102aa0  ldr      lr, [r2]                     
+           00102aa4  bl       #0x10d384                    ; CALL CarMetrics::Signal (direct)
+           00102aa8  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00102aac  mov      r1, r0                       
+           00102ab0  ldr      lr, [r1]                     
+           00102ab4  ldr      r0, [r0, #0x24]              ; field+0x24 
+           00102ab8  mov      r1, r0                       
+           00102abc  ldr      lr, [r1]                     
+           00102ac0  ldr      r0, [r0, #0x24]              ; field+0x24 
+           00102ac4  cmp      r0, #1                       
+           00102ac8  beq      #0x102d00                    ; -> L_102d00
+           00102acc  ldr      r0, [pc]                     
+           00102ad0  b        #0x102ad8                    ; -> L_102ad8
+           00102ad4  .word    0x00ea2ec8                   ; literal 15347400 / 
+L_102ad8:  00102ad8  ldr      r0, [pc, r0]                 ; GOT[784] LDSTR 'Used Double '
+           00102adc  str      r0, [fp, #0x18]              
+           00102ae0  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102ae4  mov      r0, r2                       
+           00102ae8  mov      r1, #0                       
+           00102aec  ldr      lr, [r2]                     
+           00102af0  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           00102af4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: em)
+           00102af8  str      r0, [fp, #0x28]              
+           00102afc  ldr      r0, [pc]                     
+           00102b00  b        #0x102b08                    ; -> L_102b08
+           00102b04  .word    0x00ea2544                   ; literal 15344964 / 
+L_102b08:  00102b08  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           00102b0c  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00102b10  mov      r1, r0                       
+           00102b14  ldr      r0, [fp, #0x28]              
+           00102b18  str      r0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00102b1c  mov      r0, r1                       
+           00102b20  ldr      r1, [r1]                     
+           00102b24  mov      lr, pc                       
+           00102b28  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           00102b2c  mov      r1, r0                       
+           00102b30  ldr      r0, [fp, #0x18]              
+           00102b34  bl       #0x22adc0                    ; CALL System.String::Concat
+           00102b38  bl       #0xe9f8c                     ; CALL LifetimeMetrics::Signal (direct)
+           00102b3c  b        #0x102d00                    ; -> L_102d00
+L_102b40:  00102b40  ldrb     r0, [sl, #0x1e]              ; field+0x1e (this-class: isCombo)
+           00102b44  cmp      r0, #0                       
+           00102b48  bne      #0x102d00                    ; -> L_102d00
+           00102b4c  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: metrics)
+           00102b50  str      r0, [fp, #0x30]              
+           00102b54  ldr      r0, [pc]                     
+           00102b58  b        #0x102b60                    ; -> L_102b60
+           00102b5c  .word    0x00ea24e4                   ; literal 15344868 / 
+L_102b60:  00102b60  ldr      r0, [pc, r0]                 ; GOT[185] LDSTR 'Used '
+           00102b64  str      r0, [fp, #0x34]              
+           00102b68  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102b6c  mov      r0, r2                       
+           00102b70  mov      r1, #0                       
+           00102b74  ldr      lr, [r2]                     
+           00102b78  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           00102b7c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: em)
+           00102b80  str      r0, [fp, #0x38]              
+           00102b84  ldr      r0, [pc]                     
+           00102b88  b        #0x102b90                    ; -> L_102b90
+           00102b8c  .word    0x00ea24bc                   ; literal 15344828 / 
+L_102b90:  00102b90  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           00102b94  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00102b98  mov      r1, r0                       
+           00102b9c  ldr      r0, [fp, #0x38]              
+           00102ba0  str      r0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00102ba4  mov      r0, r1                       
+           00102ba8  ldr      r1, [r1]                     
+           00102bac  mov      lr, pc                       
+           00102bb0  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           00102bb4  mov      r1, r0                       
+           00102bb8  ldr      r0, [fp, #0x34]              
+           00102bbc  bl       #0x22adc0                    ; CALL System.String::Concat
+           00102bc0  mov      r1, r0                       
+           00102bc4  ldr      r2, [fp, #0x30]              
+           00102bc8  mov      r0, r2                       
+           00102bcc  ldr      lr, [r2]                     
+           00102bd0  bl       #0x10d384                    ; CALL CarMetrics::Signal (direct)
+           00102bd4  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: metrics)
+           00102bd8  str      r0, [fp, #0x18]              
+           00102bdc  ldr      r0, [pc]                     
+           00102be0  b        #0x102be8                    ; -> L_102be8
+           00102be4  .word    0x00ea245c                   ; literal 15344732 / 
+L_102be8:  00102be8  ldr      r0, [pc, r0]                 ; GOT[185] LDSTR 'Used '
+           00102bec  str      r0, [fp, #0x28]              
+           00102bf0  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102bf4  mov      r0, r2                       
+           00102bf8  mov      r1, #1                       
+           00102bfc  ldr      lr, [r2]                     
+           00102c00  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           00102c04  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: em)
+           00102c08  str      r0, [fp, #0x2c]              
+           00102c0c  ldr      r0, [pc]                     
+           00102c10  b        #0x102c18                    ; -> L_102c18
+           00102c14  .word    0x00ea2434                   ; literal 15344692 / 
+L_102c18:  00102c18  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           00102c1c  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00102c20  mov      r1, r0                       
+           00102c24  ldr      r0, [fp, #0x2c]              
+           00102c28  str      r0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00102c2c  mov      r0, r1                       
+           00102c30  ldr      r1, [r1]                     
+           00102c34  mov      lr, pc                       
+           00102c38  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           00102c3c  mov      r1, r0                       
+           00102c40  ldr      r0, [fp, #0x28]              
+           00102c44  bl       #0x22adc0                    ; CALL System.String::Concat
+           00102c48  mov      r1, r0                       
+           00102c4c  ldr      r2, [fp, #0x18]              
+           00102c50  mov      r0, r2                       
+           00102c54  ldr      lr, [r2]                     
+           00102c58  bl       #0x10d384                    ; CALL CarMetrics::Signal (direct)
+           00102c5c  b        #0x102d00                    ; -> L_102d00
+L_102c60:  00102c60  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102c64  mov      r1, r0                       
+           00102c68  ldr      lr, [r1]                     
+           00102c6c  ldr      r0, [r0, #0xc]               ; field+0xc 
+           00102c70  cmp      r0, #1                       
+           00102c74  bne      #0x102d00                    ; -> L_102d00
+           00102c78  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: metrics)
+           00102c7c  str      r0, [fp, #0x18]              
+           00102c80  ldr      r0, [pc]                     
+           00102c84  b        #0x102c8c                    ; -> L_102c8c
+           00102c88  .word    0x00ea23b8                   ; literal 15344568 / 
+L_102c8c:  00102c8c  ldr      r0, [pc, r0]                 ; GOT[185] LDSTR 'Used '
+           00102c90  str      r0, [fp, #0x28]              
+           00102c94  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102c98  mov      r0, r2                       
+           00102c9c  mov      r1, #0                       
+           00102ca0  ldr      lr, [r2]                     
+           00102ca4  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           00102ca8  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: em)
+           00102cac  str      r0, [fp, #0x2c]              
+           00102cb0  ldr      r0, [pc]                     
+           00102cb4  b        #0x102cbc                    ; -> L_102cbc
+           00102cb8  .word    0x00ea2390                   ; literal 15344528 / 
+L_102cbc:  00102cbc  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           00102cc0  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00102cc4  mov      r1, r0                       
+           00102cc8  ldr      r0, [fp, #0x2c]              
+           00102ccc  str      r0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00102cd0  mov      r0, r1                       
+           00102cd4  ldr      r1, [r1]                     
+           00102cd8  mov      lr, pc                       
+           00102cdc  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           00102ce0  mov      r1, r0                       
+           00102ce4  ldr      r0, [fp, #0x28]              
+           00102ce8  bl       #0x22adc0                    ; CALL System.String::Concat
+           00102cec  mov      r1, r0                       
+           00102cf0  ldr      r2, [fp, #0x18]              
+           00102cf4  mov      r0, r2                       
+           00102cf8  ldr      lr, [r2]                     
+           00102cfc  bl       #0x10d384                    ; CALL CarMetrics::Signal (direct)
+L_102d00:  00102d00  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102d04  mov      r0, r1                       
+           00102d08  ldr      lr, [r1]                     
+           00102d0c  bl       #0x22d780                    ; CALL System.Collections.Generic.List`1<BaseEffect>::Clear
+           00102d10  mov      r0, sl                       
+           00102d14  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00102d18  bl       #0x1129f8                    ; CALL RaceManager::IsPlayerCar (direct)
+           00102d1c  cmp      r0, #0                       
+           00102d20  beq      #0x102d64                    ; -> L_102d64
+           00102d24  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           00102d28  str      r0, [fp, #8]                 
+           00102d2c  mov      r1, #0                       
+           00102d30  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00102d34  cmp      r0, #0                       
+           00102d38  beq      #0x102d64                    ; -> L_102d64
+           00102d3c  ldr      r2, [fp, #8]                 
+           00102d40  mov      r0, #1                       
+           00102d44  strb     r0, [r2, #0xa4]              ; field+0xa4 
+           00102d48  ldr      r1, [pc]                     
+           00102d4c  b        #0x102d54                    ; -> L_102d54
+           00102d50  .word    0x00ea2c40                   ; literal 15346752 / 
+L_102d54:  00102d54  ldr      r1, [pc, r1]                 ; GOT[781] LDSTR 'UpdateHUD'
+           00102d58  mov      r0, r2                       
+           00102d5c  ldr      lr, [r2]                     
+           00102d60  bl       #0x22d710                    ; CALL UnityEngine.Component::SendMessage
+L_102d64:  00102d64  add      sp, fp, #0x40                
+           00102d68  pop      {r4, r5, r6, r8, sl, fp}     
+           00102d6c  ldr      r7, [sp, #8]                 
+           00102d70  ldm      sp, {sp, pc}                 
+
+== PowerupHolder::PowerupComboCheck  token 0x06000471 @0x00102d74 (1436 bytes)
+   args: r0=this, 
+           00102d74  mov      ip, sp                       
+           00102d78  push     {r7, lr}                     
+           00102d7c  mov      r7, sp                       
+           00102d80  push     {r6, r8, sl, fp, ip, lr}     
+           00102d84  sub      sp, sp, #0x18                
+           00102d88  mov      fp, sp                       
+           00102d8c  mov      sl, r0                       
+           00102d90  mov      r0, #0                       
+           00102d94  str      r0, [fp]                     
+           00102d98  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102d9c  mov      r0, r2                       
+           00102da0  mov      r1, #0                       
+           00102da4  ldr      lr, [r2]                     
+           00102da8  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           00102dac  mov      r1, r0                       
+           00102db0  ldr      lr, [r1]                     
+           00102db4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: em)
+           00102db8  str      r0, [fp, #8]                 
+           00102dbc  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: effectsInReserve)
+           00102dc0  mov      r0, r2                       
+           00102dc4  mov      r1, #1                       
+           00102dc8  ldr      lr, [r2]                     
+           00102dcc  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           00102dd0  mov      r1, r0                       
+           00102dd4  ldr      r0, [fp, #8]                 
+           00102dd8  mov      r2, r1                       
+           00102ddc  ldr      lr, [r2]                     
+           00102de0  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: em)
+           00102de4  mov      r2, fp                       
+           00102de8  bl       #0x22d7b0                    ; CALL BaseEffect::GetComboEffectType
+           00102dec  strb     r0, [fp, #4]                 
+           00102df0  and      r0, r0, #0xff                
+           00102df4  cmp      r0, #0                       
+           00102df8  bne      #0x102e04                    ; -> L_102e04
+           00102dfc  ldrb     r0, [fp, #4]                 
+           00102e00  b        #0x103300                    ; -> L_103300
+L_102e04:  00102e04  ldr      r6, [fp]                     
+           00102e08  mov      r0, r6                       
+           00102e0c  sub      r6, r0, #0xb                 
+           00102e10  cmp      r6, #6                       
+           00102e14  bhs      #0x1032fc                    ; -> L_1032fc
+           00102e18  lsl      r1, r6, #2                   
+           00102e1c  ldr      r0, [pc]                     
+           00102e20  b        #0x102e28                    ; -> L_102e28
+           00102e24  .word    0x00ea2b7c                   ; literal 15346556 / 
+L_102e28:  00102e28  ldr      r0, [pc, r0]                 ; GOT[785] SWITCH switch table[6]
+           00102e2c  add      r0, r0, r1                   
+           00102e30  ldr      r0, [r0]                     
+           00102e34  mov      pc, r0                       
+           00102e38  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00102e3c  mov      r1, #0                       
+           00102e40  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00102e44  cmp      r0, #0                       
+           00102e48  beq      #0x102ef8                    ; -> L_102ef8
+           00102e4c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00102e50  str      r0, [fp, #0xc]               
+           00102e54  mov      r0, sl                       
+           00102e58  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00102e5c  str      r0, [fp, #0x10]              
+           00102e60  ldr      r0, [pc]                     
+           00102e64  b        #0x102e6c                    ; -> L_102e6c
+           00102e68  .word    0x00ea28b4                   ; literal 15345844 / 
+L_102e6c:  00102e6c  ldr      r0, [pc, r0]                 ; GOT[624] VTABLE BoatAnchorEffect
+           00102e70  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00102e74  ldr      r1, [fp, #0x10]              
+           00102e78  str      r0, [fp, #8]                 
+           00102e7c  bl       #0xf12f4                     ; CALL BoatAnchorEffect::.ctor (direct)
+           00102e80  ldr      r1, [fp, #8]                 
+           00102e84  ldr      r2, [fp, #0xc]               
+           00102e88  mov      r0, r2                       
+           00102e8c  ldr      lr, [r2]                     
+           00102e90  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           00102e94  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00102e98  mov      r1, r0                       
+           00102e9c  ldr      lr, [r1]                     
+           00102ea0  ldr      r0, [r0, #0x24]              ; field+0x24 
+           00102ea4  mov      r1, r0                       
+           00102ea8  ldr      lr, [r1]                     
+           00102eac  ldr      r0, [r0, #0x24]              ; field+0x24 
+           00102eb0  cmp      r0, #1                       
+           00102eb4  beq      #0x102ef8                    ; -> L_102ef8
+           00102eb8  ldr      r0, [pc]                     
+           00102ebc  b        #0x102ec4                    ; -> L_102ec4
+           00102ec0  .word    0x00ea2adc                   ; literal 15346396 / 
+L_102ec4:  00102ec4  ldr      r0, [pc, r0]                 ; GOT[784] LDSTR 'Used Double '
+           00102ec8  str      r0, [fp, #8]                 
+           00102ecc  ldr      r0, [pc]                     
+           00102ed0  b        #0x102ed8                    ; -> L_102ed8
+           00102ed4  .word    0x00ea2174                   ; literal 15343988 / 
+L_102ed8:  00102ed8  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           00102edc  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00102ee0  mov      r1, r0                       
+           00102ee4  ldr      r0, [fp, #8]                 
+           00102ee8  mov      r2, #0xb                     
+           00102eec  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00102ef0  bl       #0x22a8c0                    ; CALL System.String::Concat
+           00102ef4  bl       #0xe9f8c                     ; CALL LifetimeMetrics::Signal (direct)
+L_102ef8:  00102ef8  mov      r0, #1                       
+           00102efc  strb     r0, [sl, #0x1e]              ; field+0x1e (this-class: isCombo)
+           00102f00  b        #0x1032fc                    ; -> L_1032fc
+           00102f04  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00102f08  mov      r1, #0                       
+           00102f0c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00102f10  cmp      r0, #0                       
+           00102f14  beq      #0x102fc4                    ; -> L_102fc4
+           00102f18  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00102f1c  str      r0, [fp, #0xc]               
+           00102f20  mov      r0, sl                       
+           00102f24  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00102f28  str      r0, [fp, #0x10]              
+           00102f2c  ldr      r0, [pc]                     
+           00102f30  b        #0x102f38                    ; -> L_102f38
+           00102f34  .word    0x00ea27ec                   ; literal 15345644 / 
+L_102f38:  00102f38  ldr      r0, [pc, r0]                 ; GOT[625] VTABLE RocketRideEffect
+           00102f3c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00102f40  ldr      r1, [fp, #0x10]              
+           00102f44  str      r0, [fp, #8]                 
+           00102f48  bl       #0x22cf50                    ; CALL RocketRideEffect::.ctor
+           00102f4c  ldr      r1, [fp, #8]                 
+           00102f50  ldr      r2, [fp, #0xc]               
+           00102f54  mov      r0, r2                       
+           00102f58  ldr      lr, [r2]                     
+           00102f5c  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           00102f60  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00102f64  mov      r1, r0                       
+           00102f68  ldr      lr, [r1]                     
+           00102f6c  ldr      r0, [r0, #0x24]              ; field+0x24 
+           00102f70  mov      r1, r0                       
+           00102f74  ldr      lr, [r1]                     
+           00102f78  ldr      r0, [r0, #0x24]              ; field+0x24 
+           00102f7c  cmp      r0, #1                       
+           00102f80  beq      #0x102fc4                    ; -> L_102fc4
+           00102f84  ldr      r0, [pc]                     
+           00102f88  b        #0x102f90                    ; -> L_102f90
+           00102f8c  .word    0x00ea2a10                   ; literal 15346192 / 
+L_102f90:  00102f90  ldr      r0, [pc, r0]                 ; GOT[784] LDSTR 'Used Double '
+           00102f94  str      r0, [fp, #8]                 
+           00102f98  ldr      r0, [pc]                     
+           00102f9c  b        #0x102fa4                    ; -> L_102fa4
+           00102fa0  .word    0x00ea20a8                   ; literal 15343784 / 
+L_102fa4:  00102fa4  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           00102fa8  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00102fac  mov      r1, r0                       
+           00102fb0  ldr      r0, [fp, #8]                 
+           00102fb4  mov      r2, #0xc                     
+           00102fb8  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00102fbc  bl       #0x22a8c0                    ; CALL System.String::Concat
+           00102fc0  bl       #0xe9f8c                     ; CALL LifetimeMetrics::Signal (direct)
+L_102fc4:  00102fc4  mov      r0, #1                       
+           00102fc8  strb     r0, [sl, #0x1e]              ; field+0x1e (this-class: isCombo)
+           00102fcc  b        #0x1032fc                    ; -> L_1032fc
+           00102fd0  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00102fd4  mov      r1, #0                       
+           00102fd8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00102fdc  cmp      r0, #0                       
+           00102fe0  beq      #0x103090                    ; -> L_103090
+           00102fe4  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00102fe8  str      r0, [fp, #0xc]               
+           00102fec  mov      r0, sl                       
+           00102ff0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00102ff4  str      r0, [fp, #0x10]              
+           00102ff8  ldr      r0, [pc]                     
+           00102ffc  b        #0x103004                    ; -> L_103004
+           00103000  .word    0x00ea2724                   ; literal 15345444 / 
+L_103004:  00103004  ldr      r0, [pc, r0]                 ; GOT[626] VTABLE TripLineEffect
+           00103008  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010300c  ldr      r1, [fp, #0x10]              
+           00103010  str      r0, [fp, #8]                 
+           00103014  bl       #0xf9644                     ; CALL TripLineEffect::.ctor (direct)
+           00103018  ldr      r1, [fp, #8]                 
+           0010301c  ldr      r2, [fp, #0xc]               
+           00103020  mov      r0, r2                       
+           00103024  ldr      lr, [r2]                     
+           00103028  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           0010302c  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00103030  mov      r1, r0                       
+           00103034  ldr      lr, [r1]                     
+           00103038  ldr      r0, [r0, #0x24]              ; field+0x24 
+           0010303c  mov      r1, r0                       
+           00103040  ldr      lr, [r1]                     
+           00103044  ldr      r0, [r0, #0x24]              ; field+0x24 
+           00103048  cmp      r0, #1                       
+           0010304c  beq      #0x103090                    ; -> L_103090
+           00103050  ldr      r0, [pc]                     
+           00103054  b        #0x10305c                    ; -> L_10305c
+           00103058  .word    0x00ea2944                   ; literal 15345988 / 
+L_10305c:  0010305c  ldr      r0, [pc, r0]                 ; GOT[784] LDSTR 'Used Double '
+           00103060  str      r0, [fp, #8]                 
+           00103064  ldr      r0, [pc]                     
+           00103068  b        #0x103070                    ; -> L_103070
+           0010306c  .word    0x00ea1fdc                   ; literal 15343580 / 
+L_103070:  00103070  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           00103074  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00103078  mov      r1, r0                       
+           0010307c  ldr      r0, [fp, #8]                 
+           00103080  mov      r2, #0xd                     
+           00103084  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00103088  bl       #0x22a8c0                    ; CALL System.String::Concat
+           0010308c  bl       #0xe9f8c                     ; CALL LifetimeMetrics::Signal (direct)
+L_103090:  00103090  mov      r0, #1                       
+           00103094  strb     r0, [sl, #0x1e]              ; field+0x1e (this-class: isCombo)
+           00103098  b        #0x1032fc                    ; -> L_1032fc
+           0010309c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           001030a0  mov      r1, #0                       
+           001030a4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           001030a8  cmp      r0, #0                       
+           001030ac  beq      #0x10315c                    ; -> L_10315c
+           001030b0  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           001030b4  str      r0, [fp, #0xc]               
+           001030b8  mov      r0, sl                       
+           001030bc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           001030c0  str      r0, [fp, #0x10]              
+           001030c4  ldr      r0, [pc]                     
+           001030c8  b        #0x1030d0                    ; -> L_1030d0
+           001030cc  .word    0x00ea2664                   ; literal 15345252 / 
+L_1030d0:  001030d0  ldr      r0, [pc, r0]                 ; GOT[629] VTABLE PowerupMagnet
+           001030d4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           001030d8  ldr      r1, [fp, #0x10]              
+           001030dc  str      r0, [fp, #8]                 
+           001030e0  bl       #0x22cf60                    ; CALL PowerupMagnet::.ctor
+           001030e4  ldr      r1, [fp, #8]                 
+           001030e8  ldr      r2, [fp, #0xc]               
+           001030ec  mov      r0, r2                       
+           001030f0  ldr      lr, [r2]                     
+           001030f4  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           001030f8  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           001030fc  mov      r1, r0                       
+           00103100  ldr      lr, [r1]                     
+           00103104  ldr      r0, [r0, #0x24]              ; field+0x24 
+           00103108  mov      r1, r0                       
+           0010310c  ldr      lr, [r1]                     
+           00103110  ldr      r0, [r0, #0x24]              ; field+0x24 
+           00103114  cmp      r0, #1                       
+           00103118  beq      #0x10315c                    ; -> L_10315c
+           0010311c  ldr      r0, [pc]                     
+           00103120  b        #0x103128                    ; -> L_103128
+           00103124  .word    0x00ea2878                   ; literal 15345784 / 
+L_103128:  00103128  ldr      r0, [pc, r0]                 ; GOT[784] LDSTR 'Used Double '
+           0010312c  str      r0, [fp, #8]                 
+           00103130  ldr      r0, [pc]                     
+           00103134  b        #0x10313c                    ; -> L_10313c
+           00103138  .word    0x00ea1f10                   ; literal 15343376 / 
+L_10313c:  0010313c  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           00103140  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00103144  mov      r1, r0                       
+           00103148  ldr      r0, [fp, #8]                 
+           0010314c  mov      r2, #0xe                     
+           00103150  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00103154  bl       #0x22a8c0                    ; CALL System.String::Concat
+           00103158  bl       #0xe9f8c                     ; CALL LifetimeMetrics::Signal (direct)
+L_10315c:  0010315c  mov      r0, #1                       
+           00103160  strb     r0, [sl, #0x1e]              ; field+0x1e (this-class: isCombo)
+           00103164  b        #0x1032fc                    ; -> L_1032fc
+           00103168  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           0010316c  mov      r1, #0                       
+           00103170  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00103174  cmp      r0, #0                       
+           00103178  beq      #0x103228                    ; -> L_103228
+           0010317c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00103180  str      r0, [fp, #0xc]               
+           00103184  mov      r0, sl                       
+           00103188  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010318c  str      r0, [fp, #0x10]              
+           00103190  ldr      r0, [pc]                     
+           00103194  b        #0x10319c                    ; -> L_10319c
+           00103198  .word    0x00ea2594                   ; literal 15345044 / 
+L_10319c:  0010319c  ldr      r0, [pc, r0]                 ; GOT[628] VTABLE SpreadMineEffect
+           001031a0  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           001031a4  ldr      r1, [fp, #0x10]              
+           001031a8  str      r0, [fp, #8]                 
+           001031ac  bl       #0xf8c14                     ; CALL SpreadMineEffect::.ctor (direct)
+           001031b0  ldr      r1, [fp, #8]                 
+           001031b4  ldr      r2, [fp, #0xc]               
+           001031b8  mov      r0, r2                       
+           001031bc  ldr      lr, [r2]                     
+           001031c0  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           001031c4  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           001031c8  mov      r1, r0                       
+           001031cc  ldr      lr, [r1]                     
+           001031d0  ldr      r0, [r0, #0x24]              ; field+0x24 
+           001031d4  mov      r1, r0                       
+           001031d8  ldr      lr, [r1]                     
+           001031dc  ldr      r0, [r0, #0x24]              ; field+0x24 
+           001031e0  cmp      r0, #1                       
+           001031e4  beq      #0x103228                    ; -> L_103228
+           001031e8  ldr      r0, [pc]                     
+           001031ec  b        #0x1031f4                    ; -> L_1031f4
+           001031f0  .word    0x00ea27ac                   ; literal 15345580 / 
+L_1031f4:  001031f4  ldr      r0, [pc, r0]                 ; GOT[784] LDSTR 'Used Double '
+           001031f8  str      r0, [fp, #8]                 
+           001031fc  ldr      r0, [pc]                     
+           00103200  b        #0x103208                    ; -> L_103208
+           00103204  .word    0x00ea1e44                   ; literal 15343172 / 
+L_103208:  00103208  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           0010320c  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00103210  mov      r1, r0                       
+           00103214  ldr      r0, [fp, #8]                 
+           00103218  mov      r2, #0xf                     
+           0010321c  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00103220  bl       #0x22a8c0                    ; CALL System.String::Concat
+           00103224  bl       #0xe9f8c                     ; CALL LifetimeMetrics::Signal (direct)
+L_103228:  00103228  mov      r0, #1                       
+           0010322c  strb     r0, [sl, #0x1e]              ; field+0x1e (this-class: isCombo)
+           00103230  b        #0x1032fc                    ; -> L_1032fc
+           00103234  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           00103238  mov      r1, #0                       
+           0010323c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00103240  cmp      r0, #0                       
+           00103244  beq      #0x1032f4                    ; -> L_1032f4
+           00103248  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: em)
+           0010324c  str      r0, [fp, #0xc]               
+           00103250  mov      r0, sl                       
+           00103254  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00103258  str      r0, [fp, #0x10]              
+           0010325c  ldr      r0, [pc]                     
+           00103260  b        #0x103268                    ; -> L_103268
+           00103264  .word    0x00ea24c4                   ; literal 15344836 / 
+L_103268:  00103268  ldr      r0, [pc, r0]                 ; GOT[627] VTABLE RandomShotEffect
+           0010326c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00103270  ldr      r1, [fp, #0x10]              
+           00103274  str      r0, [fp, #8]                 
+           00103278  bl       #0xf60dc                     ; CALL RandomShotEffect::.ctor (direct)
+           0010327c  ldr      r1, [fp, #8]                 
+           00103280  ldr      r2, [fp, #0xc]               
+           00103284  mov      r0, r2                       
+           00103288  ldr      lr, [r2]                     
+           0010328c  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           00103290  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00103294  mov      r1, r0                       
+           00103298  ldr      lr, [r1]                     
+           0010329c  ldr      r0, [r0, #0x24]              ; field+0x24 
+           001032a0  mov      r1, r0                       
+           001032a4  ldr      lr, [r1]                     
+           001032a8  ldr      r0, [r0, #0x24]              ; field+0x24 
+           001032ac  cmp      r0, #1                       
+           001032b0  beq      #0x1032f4                    ; -> L_1032f4
+           001032b4  ldr      r0, [pc]                     
+           001032b8  b        #0x1032c0                    ; -> L_1032c0
+           001032bc  .word    0x00ea26e0                   ; literal 15345376 / 
+L_1032c0:  001032c0  ldr      r0, [pc, r0]                 ; GOT[784] LDSTR 'Used Double '
+           001032c4  str      r0, [fp, #8]                 
+           001032c8  ldr      r0, [pc]                     
+           001032cc  b        #0x1032d4                    ; -> L_1032d4
+           001032d0  .word    0x00ea1d78                   ; literal 15342968 / 
+L_1032d4:  001032d4  ldr      r0, [pc, r0]                 ; GOT[187] VTABLE BaseEffect/EffectTypes
+           001032d8  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           001032dc  mov      r1, r0                       
+           001032e0  ldr      r0, [fp, #8]                 
+           001032e4  mov      r2, #0x10                    
+           001032e8  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001032ec  bl       #0x22a8c0                    ; CALL System.String::Concat
+           001032f0  bl       #0xe9f8c                     ; CALL LifetimeMetrics::Signal (direct)
+L_1032f4:  001032f4  mov      r0, #1                       
+           001032f8  strb     r0, [sl, #0x1e]              ; field+0x1e (this-class: isCombo)
+L_1032fc:  001032fc  ldrb     r0, [fp, #4]                 
+L_103300:  00103300  add      sp, fp, #0x18                
+           00103304  pop      {r6, r8, sl, fp}             
+           00103308  ldr      r7, [sp, #8]                 
+           0010330c  ldm      sp, {sp, pc}                 

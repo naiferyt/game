@@ -1,0 +1,323 @@
+####################################################################################################
+# TYPE PlayerAccelControl  (instance size 0x18)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 carCollider                    CarCollider
+#   +0x14 touchTurnTrack                 bool
+#   +0x15 isReversingState               bool
+#   static float turnSensitivity  = const 0000a040
+#   static float deadZone  = const cdcc4c3d
+#   vtable slots: 
+####################################################################################################
+== PlayerAccelControl::.ctor  token 0x06000454 @0x00100ee0 (52 bytes)
+   args: r0=this, 
+           00100ee0  mov      ip, sp                       
+           00100ee4  push     {r7, lr}                     
+           00100ee8  mov      r7, sp                       
+           00100eec  push     {r8, fp, ip, lr}             
+           00100ef0  sub      sp, sp, #8                   
+           00100ef4  mov      fp, sp                       
+           00100ef8  str      r0, [fp]                     
+           00100efc  ldr      r0, [fp]                     
+           00100f00  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00100f04  add      sp, fp, #8                   
+           00100f08  pop      {r8, fp}                     
+           00100f0c  ldr      r7, [sp, #8]                 
+           00100f10  ldm      sp, {sp, pc}                 
+
+== PlayerAccelControl::get_isReversing  token 0x06000455 @0x00100f14 (52 bytes)
+   args: r0=this, 
+           00100f14  mov      ip, sp                       
+           00100f18  push     {r7, lr}                     
+           00100f1c  mov      r7, sp                       
+           00100f20  push     {r8, fp, ip, lr}             
+           00100f24  sub      sp, sp, #8                   
+           00100f28  mov      fp, sp                       
+           00100f2c  str      r0, [fp]                     
+           00100f30  ldr      r0, [fp]                     
+           00100f34  ldrb     r0, [r0, #0x15]              ; field+0x15 (this-class: isReversingState)
+           00100f38  add      sp, fp, #8                   
+           00100f3c  pop      {r8, fp}                     
+           00100f40  ldr      r7, [sp, #8]                 
+           00100f44  ldm      sp, {sp, pc}                 
+
+== PlayerAccelControl::set_isReversing  token 0x06000456 @0x00100f48 (60 bytes)
+   args: r0=this, value
+           00100f48  mov      ip, sp                       
+           00100f4c  push     {r7, lr}                     
+           00100f50  mov      r7, sp                       
+           00100f54  push     {r8, fp, ip, lr}             
+           00100f58  sub      sp, sp, #8                   
+           00100f5c  mov      fp, sp                       
+           00100f60  str      r0, [fp]                     
+           00100f64  strb     r1, [fp, #4]                 
+           00100f68  ldrb     r1, [fp, #4]                 
+           00100f6c  ldr      r0, [fp]                     
+           00100f70  strb     r1, [r0, #0x15]              ; field+0x15 (this-class: isReversingState)
+           00100f74  add      sp, fp, #8                   
+           00100f78  pop      {r8, fp}                     
+           00100f7c  ldr      r7, [sp, #8]                 
+           00100f80  ldm      sp, {sp, pc}                 
+
+== PlayerAccelControl::ApplyReverse  token 0x06000457 @0x00100f84 (60 bytes)
+   args: r0=this, state
+           00100f84  mov      ip, sp                       
+           00100f88  push     {r7, lr}                     
+           00100f8c  mov      r7, sp                       
+           00100f90  push     {r8, fp, ip, lr}             
+           00100f94  sub      sp, sp, #8                   
+           00100f98  mov      fp, sp                       
+           00100f9c  str      r0, [fp]                     
+           00100fa0  strb     r1, [fp, #4]                 
+           00100fa4  ldrb     r1, [fp, #4]                 
+           00100fa8  ldr      r0, [fp]                     
+           00100fac  strb     r1, [r0, #0x15]              ; field+0x15 (this-class: isReversingState)
+           00100fb0  add      sp, fp, #8                   
+           00100fb4  pop      {r8, fp}                     
+           00100fb8  ldr      r7, [sp, #8]                 
+           00100fbc  ldm      sp, {sp, pc}                 
+
+== PlayerAccelControl::Start  token 0x06000458 @0x00100fc0 (44 bytes)
+   args: r0=this, 
+           00100fc0  mov      ip, sp                       
+           00100fc4  push     {r7, lr}                     
+           00100fc8  mov      r7, sp                       
+           00100fcc  push     {r8, fp, ip, lr}             
+           00100fd0  sub      sp, sp, #8                   
+           00100fd4  mov      fp, sp                       
+           00100fd8  str      r0, [fp]                     
+           00100fdc  add      sp, fp, #8                   
+           00100fe0  pop      {r8, fp}                     
+           00100fe4  ldr      r7, [sp, #8]                 
+           00100fe8  ldm      sp, {sp, pc}                 
+
+== PlayerAccelControl::Update  token 0x06000459 @0x00100fec (92 bytes)
+   args: r0=this, 
+           00100fec  mov      ip, sp                       
+           00100ff0  push     {r7, lr}                     
+           00100ff4  mov      r7, sp                       
+           00100ff8  push     {r8, sl, fp, ip, lr}         
+           00100ffc  sub      sp, sp, #4                   
+           00101000  mov      fp, sp                       
+           00101004  mov      sl, r0                       
+           00101008  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: carCollider)
+           0010100c  mov      r1, #0                       
+           00101010  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           00101014  cmp      r0, #0                       
+           00101018  beq      #0x101038                    ; -> L_101038
+           0010101c  ldr      r8, [pc]                     
+           00101020  b        #0x101028                    ; -> L_101028
+           00101024  .word    0x00ea3d9c                   ; literal 15351196 / 
+L_101028:  00101028  ldr      r8, [pc, r8]                 ; GOT[25] METHOD_RGCTX UnityEngine.Component::GetComponent<CarCollider>
+           0010102c  mov      r0, sl                       
+           00101030  bl       #0x22aa80                    ; CALL UnityEngine.Component::GetComponent<CarCollider>
+           00101034  str      r0, [sl, #0x10]              ; field+0x10 (this-class: carCollider)
+L_101038:  00101038  add      sp, fp, #4                   
+           0010103c  pop      {r8, sl, fp}                 
+           00101040  ldr      r7, [sp, #8]                 
+           00101044  ldm      sp, {sp, pc}                 
+
+== PlayerAccelControl::FixedUpdate  token 0x0600045a @0x00101048 (812 bytes)
+   args: r0=this, 
+           00101048  mov      ip, sp                       
+           0010104c  push     {r7, lr}                     
+           00101050  mov      r7, sp                       
+           00101054  push     {r8, sl, fp, ip, lr}         
+           00101058  sub      sp, sp, #0x54                
+           0010105c  mov      fp, sp                       
+           00101060  mov      sl, r0                       
+           00101064  mov      r0, #0                       
+           00101068  str      r0, [fp, #0xc]               
+           0010106c  mov      r0, #0                       
+           00101070  str      r0, [fp, #0x10]              
+           00101074  mov      r0, #0                       
+           00101078  str      r0, [fp, #0x14]              
+           0010107c  mov      r0, #0                       
+           00101080  str      r0, [fp, #0x18]              
+           00101084  mov      r0, #0                       
+           00101088  str      r0, [fp, #0x1c]              
+           0010108c  mov      r0, #0                       
+           00101090  str      r0, [fp, #0x20]              
+           00101094  mov      r0, #0                       
+           00101098  str      r0, [fp, #0x24]              
+           0010109c  mov      r0, #0                       
+           001010a0  str      r0, [fp, #0x28]              
+           001010a4  mov      r0, #0                       
+           001010a8  str      r0, [fp, #0x2c]              
+           001010ac  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: carCollider)
+           001010b0  bl       #0x22b210                    ; CALL UnityEngine.Object::op_Implicit
+           001010b4  cmp      r0, #0                       
+           001010b8  beq      #0x101364                    ; -> L_101364
+           001010bc  ldrb     r0, [sl, #0x14]              ; field+0x14 (this-class: touchTurnTrack)
+           001010c0  cmp      r0, #0                       
+           001010c4  bne      #0x1012fc                    ; -> L_1012fc
+           001010c8  vldr     s4, [pc]                     ; float 0.0
+           001010cc  b        #0x1010d4                    ; -> L_1010d4
+           001010d0  .word    0x00000000                   ; literal 0 / 0
+L_1010d4:  001010d4  vcvt.f64.f32 d2, s4                       
+           001010d8  vcvt.f32.f64 s0, d2                       
+           001010dc  vstr     s0, [fp, #8]                 
+           001010e0  add      r0, fp, #0xc                 
+           001010e4  bl       #0x22d650                    ; CALL UnityEngine.Input::get_acceleration
+           001010e8  vldr     s0, [fp, #0x10]              
+           001010ec  vcvt.f64.f32 d2, s0                       
+           001010f0  vcvt.f32.f64 s0, d2                       
+           001010f4  vstr     s0, [sp, #-8]                
+           001010f8  ldr      r0, [sp, #-8]                
+           001010fc  bl       #0x22aef0                    ; CALL UnityEngine.Mathf::Abs
+           00101100  vmov     s6, r0                       
+           00101104  vcvt.f64.f32 d3, s6                       
+           00101108  vldr     s4, [pc]                     ; float 0.05000000074505806
+           0010110c  b        #0x101114                    ; -> L_101114
+           00101110  .word    0x3d4ccccd                   ; literal 1028443341 / 0.05
+L_101114:  00101114  vcvt.f64.f32 d2, s4                       
+           00101118  vcmp.f64 d2, d3                       
+           0010111c  vmrs     apsr_nzcv, fpscr             
+           00101120  bvs      #0x101224                    ; -> L_101224
+           00101124  bge      #0x101224                    ; -> L_101224
+           00101128  add      r0, fp, #0x18                
+           0010112c  bl       #0x22d650                    ; CALL UnityEngine.Input::get_acceleration
+           00101130  vldr     s0, [fp, #0x18]              
+           00101134  vcvt.f64.f32 d2, s0                       
+           00101138  vldr     s6, [pc]                     ; float 5.0
+           0010113c  b        #0x101144                    ; -> L_101144
+           00101140  .word    0x40a00000                   ; literal 1084227584 / 5
+L_101144:  00101144  vcvt.f64.f32 d3, s6                       
+           00101148  vmul.f64 d2, d2, d3                   
+           0010114c  vcvt.f32.f64 s0, d2                       
+           00101150  vstr     s0, [fp, #8]                 
+           00101154  bl       #0x22d660                    ; CALL UnityEngine.Screen::get_orientation
+           00101158  cmp      r0, #3                       
+           0010115c  beq      #0x10116c                    ; -> L_10116c
+           00101160  bl       #0x22d660                    ; CALL UnityEngine.Screen::get_orientation
+           00101164  cmp      r0, #3                       
+           00101168  bne      #0x101190                    ; -> L_101190
+L_10116c:  0010116c  vldr     s0, [fp, #8]                 
+           00101170  vcvt.f64.f32 d2, s0                       
+           00101174  vldr     s6, [pc]                     ; float -1.0
+           00101178  b        #0x101180                    ; -> L_101180
+           0010117c  .word    0xbf800000                   ; literal -1082130432 / -1
+L_101180:  00101180  vcvt.f64.f32 d3, s6                       
+           00101184  vmul.f64 d2, d2, d3                   
+           00101188  vcvt.f32.f64 s0, d2                       
+           0010118c  vstr     s0, [fp, #8]                 
+L_101190:  00101190  vldr     s0, [fp, #8]                 
+           00101194  vcvt.f64.f32 d2, s0                       
+           00101198  vstr     d2, [fp, #0x48]              
+           0010119c  add      r0, fp, #0x24                
+           001011a0  bl       #0x22d650                    ; CALL UnityEngine.Input::get_acceleration
+           001011a4  vldr     d4, [fp, #0x48]              
+           001011a8  vldr     s0, [fp, #0x24]              
+           001011ac  vcvt.f64.f32 d2, s0                       
+           001011b0  vldr     s6, [pc]                     ; float 0.0
+           001011b4  b        #0x1011bc                    ; -> L_1011bc
+           001011b8  .word    0x00000000                   ; literal 0 / 0
+L_1011bc:  001011bc  vcvt.f64.f32 d3, s6                       
+           001011c0  vstr     d4, [fp, #0x38]              
+           001011c4  vcmp.f64 d2, d3                       
+           001011c8  vmrs     apsr_nzcv, fpscr             
+           001011cc  bvs      #0x1011f4                    ; -> L_1011f4
+           001011d0  bge      #0x1011f4                    ; -> L_1011f4
+           001011d4  vldr     d3, [fp, #0x38]              
+           001011d8  vldr     s4, [pc]                     ; float 0.05000000074505806
+           001011dc  b        #0x1011e4                    ; -> L_1011e4
+           001011e0  .word    0x3d4ccccd                   ; literal 1028443341 / 0.05
+L_1011e4:  001011e4  vcvt.f64.f32 d2, s4                       
+           001011e8  vstr     d3, [fp, #0x38]              
+           001011ec  vstr     d2, [fp, #0x40]              
+           001011f0  b        #0x101210                    ; -> L_101210
+L_1011f4:  001011f4  vldr     d3, [fp, #0x38]              
+           001011f8  vldr     s4, [pc]                     ; float -0.05000000074505806
+           001011fc  b        #0x101204                    ; -> L_101204
+           00101200  .word    0xbd4ccccd                   ; literal -1119040307 / -0.05
+L_101204:  00101204  vcvt.f64.f32 d2, s4                       
+           00101208  vstr     d3, [fp, #0x38]              
+           0010120c  vstr     d2, [fp, #0x40]              
+L_101210:  00101210  vldr     d2, [fp, #0x38]              
+           00101214  vldr     d3, [fp, #0x40]              
+           00101218  vsub.f64 d2, d2, d3                   
+           0010121c  vcvt.f32.f64 s0, d2                       
+           00101220  vstr     s0, [fp, #8]                 
+L_101224:  00101224  vldr     s0, [fp, #8]                 
+           00101228  vcvt.f64.f32 d3, s0                       
+           0010122c  vldr     s4, [pc]                     ; float 1.0
+           00101230  b        #0x101238                    ; -> L_101238
+           00101234  .word    0x3f800000                   ; literal 1065353216 / 1
+L_101238:  00101238  vcvt.f64.f32 d2, s4                       
+           0010123c  vcmp.f64 d2, d3                       
+           00101240  vmrs     apsr_nzcv, fpscr             
+           00101244  bvs      #0x101268                    ; -> L_101268
+           00101248  bge      #0x101268                    ; -> L_101268
+           0010124c  vldr     s4, [pc]                     ; float 1.0
+           00101250  b        #0x101258                    ; -> L_101258
+           00101254  .word    0x3f800000                   ; literal 1065353216 / 1
+L_101258:  00101258  vcvt.f64.f32 d2, s4                       
+           0010125c  vcvt.f32.f64 s0, d2                       
+           00101260  vstr     s0, [fp, #8]                 
+           00101264  b        #0x1012a8                    ; -> L_1012a8
+L_101268:  00101268  vldr     s0, [fp, #8]                 
+           0010126c  vcvt.f64.f32 d2, s0                       
+           00101270  vldr     s6, [pc]                     ; float -1.0
+           00101274  b        #0x10127c                    ; -> L_10127c
+           00101278  .word    0xbf800000                   ; literal -1082130432 / -1
+L_10127c:  0010127c  vcvt.f64.f32 d3, s6                       
+           00101280  vcmp.f64 d2, d3                       
+           00101284  vmrs     apsr_nzcv, fpscr             
+           00101288  bvs      #0x1012a8                    ; -> L_1012a8
+           0010128c  bge      #0x1012a8                    ; -> L_1012a8
+           00101290  vldr     s4, [pc]                     ; float -1.0
+           00101294  b        #0x10129c                    ; -> L_10129c
+           00101298  .word    0xbf800000                   ; literal -1082130432 / -1
+L_10129c:  0010129c  vcvt.f64.f32 d2, s4                       
+           001012a0  vcvt.f32.f64 s0, d2                       
+           001012a4  vstr     s0, [fp, #8]                 
+L_1012a8:  001012a8  bl       #0x22d660                    ; CALL UnityEngine.Screen::get_orientation
+           001012ac  cmp      r0, #3                       
+           001012b0  bne      #0x1012d8                    ; -> L_1012d8
+           001012b4  vldr     s0, [fp, #8]                 
+           001012b8  vcvt.f64.f32 d2, s0                       
+           001012bc  vldr     s6, [pc]                     ; float -1.0
+           001012c0  b        #0x1012c8                    ; -> L_1012c8
+           001012c4  .word    0xbf800000                   ; literal -1082130432 / -1
+L_1012c8:  001012c8  vcvt.f64.f32 d3, s6                       
+           001012cc  vmul.f64 d2, d2, d3                   
+           001012d0  vcvt.f32.f64 s0, d2                       
+           001012d4  vstr     s0, [fp, #8]                 
+L_1012d8:  001012d8  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: carCollider)
+           001012dc  vldr     s0, [fp, #8]                 
+           001012e0  vcvt.f64.f32 d2, s0                       
+           001012e4  mov      r0, r2                       
+           001012e8  vcvt.f32.f64 s0, d2                       
+           001012ec  vstr     s0, [sp, #-8]                
+           001012f0  ldr      r1, [sp, #-8]                
+           001012f4  ldr      lr, [r2]                     
+           001012f8  bl       #0x22af00                    ; CALL CarCollider::ApplyTurning
+L_1012fc:  001012fc  ldrb     r0, [sl, #0x15]              ; field+0x15 (this-class: isReversingState)
+           00101300  cmp      r0, #0                       
+           00101304  beq      #0x101338                    ; -> L_101338
+           00101308  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: carCollider)
+           0010130c  vldr     s4, [pc]                     ; float -1.0
+           00101310  b        #0x101318                    ; -> L_101318
+           00101314  .word    0xbf800000                   ; literal -1082130432 / -1
+L_101318:  00101318  vcvt.f64.f32 d2, s4                       
+           0010131c  mov      r0, r2                       
+           00101320  vcvt.f32.f64 s0, d2                       
+           00101324  vstr     s0, [sp, #-8]                
+           00101328  ldr      r1, [sp, #-8]                
+           0010132c  ldr      lr, [r2]                     
+           00101330  bl       #0xd9884                     ; CALL CarCollider::ApplyAcceleration (direct)
+           00101334  b        #0x101364                    ; -> L_101364
+L_101338:  00101338  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: carCollider)
+           0010133c  vldr     s4, [pc]                     ; float 1.0
+           00101340  b        #0x101348                    ; -> L_101348
+           00101344  .word    0x3f800000                   ; literal 1065353216 / 1
+L_101348:  00101348  vcvt.f64.f32 d2, s4                       
+           0010134c  mov      r0, r2                       
+           00101350  vcvt.f32.f64 s0, d2                       
+           00101354  vstr     s0, [sp, #-8]                
+           00101358  ldr      r1, [sp, #-8]                
+           0010135c  ldr      lr, [r2]                     
+           00101360  bl       #0xd9884                     ; CALL CarCollider::ApplyAcceleration (direct)
+L_101364:  00101364  add      sp, fp, #0x54                
+           00101368  pop      {r8, sl, fp}                 
+           0010136c  ldr      r7, [sp, #8]                 
+           00101370  ldm      sp, {sp, pc}                 

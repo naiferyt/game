@@ -1,0 +1,602 @@
+####################################################################################################
+# TYPE DriveAvoidTerrainAIState  (instance size 0x1c)
+#   +0x08 parentAI                       CarAI
+#   +0x0c terrainTrigger                 UnityEngine.GameObject
+#   +0x10 awayfromPoint                  UnityEngine.Vector3
+#   static float MAX_DIST  = const 00002042
+#   vtable slots: 4:Shutdown, 5:FixedUpdate, 6:Update, 7:Init, 8:GetAIStateEnum
+####################################################################################################
+== DriveAvoidTerrainAIState::.ctor  token 0x06000031 @0x000c4b04 (84 bytes)
+   args: r0=this, 
+           000c4b04  mov      ip, sp                       
+           000c4b08  push     {r7, lr}                     
+           000c4b0c  mov      r7, sp                       
+           000c4b10  push     {r8, fp, ip, lr}             
+           000c4b14  sub      sp, sp, #0x10                
+           000c4b18  mov      fp, sp                       
+           000c4b1c  str      r0, [fp, #0xc]               
+           000c4b20  mov      r0, fp                       
+           000c4b24  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           000c4b28  ldr      r0, [fp, #0xc]               
+           000c4b2c  add      r0, r0, #0x10                
+           000c4b30  ldr      r1, [fp]                     
+           000c4b34  str      r1, [r0]                     
+           000c4b38  ldr      r1, [fp, #4]                 
+           000c4b3c  str      r1, [r0, #4]                 ; field+0x4 
+           000c4b40  ldr      r1, [fp, #8]                 
+           000c4b44  str      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c4b48  add      sp, fp, #0x10                
+           000c4b4c  pop      {r8, fp}                     
+           000c4b50  ldr      r7, [sp, #8]                 
+           000c4b54  ldm      sp, {sp, pc}                 
+
+== DriveAvoidTerrainAIState::GetAIStateEnum  token 0x06000032 @0x000c4b58 (48 bytes)
+   args: r0=this, 
+           000c4b58  mov      ip, sp                       
+           000c4b5c  push     {r7, lr}                     
+           000c4b60  mov      r7, sp                       
+           000c4b64  push     {r8, fp, ip, lr}             
+           000c4b68  sub      sp, sp, #8                   
+           000c4b6c  mov      fp, sp                       
+           000c4b70  str      r0, [fp]                     
+           000c4b74  mov      r0, #4                       
+           000c4b78  add      sp, fp, #8                   
+           000c4b7c  pop      {r8, fp}                     
+           000c4b80  ldr      r7, [sp, #8]                 
+           000c4b84  ldm      sp, {sp, pc}                 
+
+== DriveAvoidTerrainAIState::Init  token 0x06000033 @0x000c4b88 (580 bytes)
+   args: r0=this, 
+           000c4b88  mov      ip, sp                       
+           000c4b8c  push     {r7, lr}                     
+           000c4b90  mov      r7, sp                       
+           000c4b94  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000c4b98  sub      sp, sp, #0xa0                
+           000c4b9c  mov      fp, sp                       
+           000c4ba0  str      r0, [fp, #0x98]              
+           000c4ba4  mov      r0, #0                       
+           000c4ba8  str      r0, [fp, #0x18]              
+           000c4bac  mov      r0, #0                       
+           000c4bb0  str      r0, [fp, #0x1c]              
+           000c4bb4  mov      r0, #0                       
+           000c4bb8  str      r0, [fp, #0x20]              
+           000c4bbc  ldr      r0, [fp, #0x98]              
+           000c4bc0  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c4bc4  mov      r0, r1                       
+           000c4bc8  ldr      lr, [r1]                     
+           000c4bcc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c4bd0  mov      r1, r0                       
+           000c4bd4  ldr      lr, [r1]                     
+           000c4bd8  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c4bdc  mov      r2, r0                       
+           000c4be0  add      r0, fp, #0x68                
+           000c4be4  mov      r1, r2                       
+           000c4be8  ldr      lr, [r2]                     
+           000c4bec  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c4bf0  ldr      r0, [fp, #0x98]              
+           000c4bf4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c4bf8  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: awayfromPoint)
+           000c4bfc  vldr     s0, [r0, #0x18]              ; field+0x18 
+           000c4c00  vcvt.f64.f32 d2, s0                       
+           000c4c04  ldr      r0, [fp, #0x68]              
+           000c4c08  ldr      r1, [fp, #0x6c]              
+           000c4c0c  ldr      r2, [fp, #0x70]              
+           000c4c10  vcvt.f32.f64 s0, d2                       
+           000c4c14  vstr     s0, [sp, #-8]                
+           000c4c18  ldr      r3, [sp, #-8]                
+           000c4c1c  bl       #0x22ac10                    ; CALL UnityEngine.Physics::OverlapSphere
+           000c4c20  mov      r4, r0                       
+           000c4c24  mov      sl, #0                       
+           000c4c28  b        #0xc4da0                     ; -> L_c4da0
+L_c4c2c:   000c4c2c  ldr      r0, [r4, #0xc]               ; field+0xc (this-class: terrainTrigger)
+           000c4c30  cmp      r0, sl                       
+           000c4c34  blls     #0xc4dbc                     ; THROW System.IndexOutOfRangeException (if ls)
+           000c4c38  lsl      r0, sl, #2                   
+           000c4c3c  add      r0, r4, r0                   
+           000c4c40  add      r0, r0, #0x10                
+           000c4c44  ldr      r6, [r0]                     
+           000c4c48  mov      r1, r6                       
+           000c4c4c  mov      r0, r1                       
+           000c4c50  ldr      lr, [r1]                     
+           000c4c54  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c4c58  ldr      r1, [pc]                     
+           000c4c5c  b        #0xc4c64                     ; -> L_c4c64
+           000c4c60  .word    0x00ee01d4                   ; literal 15598036 / 
+L_c4c64:   000c4c64  ldr      r1, [pc, r1]                 ; GOT[54] METHOD_RGCTX UnityEngine.GameObject::GetComponent<TerrainEffectTrigger>
+           000c4c68  ldr      lr, [r0]                     
+           000c4c6c  mov      r8, r1                       
+           000c4c70  bl       #0x22abc0                    ; CALL UnityEngine.GameObject::GetComponent<TerrainEffectTrigger>
+           000c4c74  mov      r5, r0                       
+           000c4c78  mov      r1, #0                       
+           000c4c7c  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000c4c80  cmp      r0, #0                       
+           000c4c84  bne      #0xc4d9c                     ; -> L_c4d9c
+           000c4c88  ldr      r0, [r5, #0x14]              ; field+0x14 
+           000c4c8c  bl       #0x22abd0                    ; CALL BaseEffect::isBeneficial
+           000c4c90  cmp      r0, #0                       
+           000c4c94  bne      #0xc4d9c                     ; -> L_c4d9c
+           000c4c98  mov      r0, r6                       
+           000c4c9c  ldr      lr, [r6]                     
+           000c4ca0  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c4ca4  mov      r2, r0                       
+           000c4ca8  add      r0, fp, #0x74                
+           000c4cac  mov      r1, r2                       
+           000c4cb0  ldr      lr, [r2]                     
+           000c4cb4  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c4cb8  ldr      r0, [fp, #0x98]              
+           000c4cbc  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c4cc0  mov      r0, r1                       
+           000c4cc4  ldr      lr, [r1]                     
+           000c4cc8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c4ccc  mov      r2, r0                       
+           000c4cd0  add      r0, fp, #0x80                
+           000c4cd4  mov      r1, r2                       
+           000c4cd8  ldr      lr, [r2]                     
+           000c4cdc  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c4ce0  add      r0, fp, #0x18                
+           000c4ce4  ldr      r1, [fp, #0x74]              
+           000c4ce8  ldr      r2, [fp, #0x78]              
+           000c4cec  ldr      r3, [fp, #0x7c]              
+           000c4cf0  ldr      ip, [fp, #0x80]              
+           000c4cf4  str      ip, [sp]                     
+           000c4cf8  ldr      ip, [fp, #0x84]              
+           000c4cfc  str      ip, [sp, #4]                 
+           000c4d00  ldr      ip, [fp, #0x88]              
+           000c4d04  str      ip, [sp, #8]                 
+           000c4d08  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000c4d0c  ldr      r0, [fp, #0x98]              
+           000c4d10  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c4d14  mov      r0, r1                       
+           000c4d18  ldr      lr, [r1]                     
+           000c4d1c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c4d20  mov      r2, r0                       
+           000c4d24  add      r0, fp, #0x8c                
+           000c4d28  mov      r1, r2                       
+           000c4d2c  ldr      lr, [r2]                     
+           000c4d30  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000c4d34  ldr      r0, [fp, #0x8c]              
+           000c4d38  ldr      r1, [fp, #0x90]              
+           000c4d3c  ldr      r2, [fp, #0x94]              
+           000c4d40  ldr      r3, [fp, #0x18]              
+           000c4d44  ldr      ip, [fp, #0x1c]              
+           000c4d48  str      ip, [sp]                     
+           000c4d4c  ldr      ip, [fp, #0x20]              
+           000c4d50  str      ip, [sp, #4]                 
+           000c4d54  bl       #0x22aed0                    ; CALL UnityEngine.Vector3::Dot
+           000c4d58  vmov     s6, r0                       
+           000c4d5c  vcvt.f64.f32 d3, s6                       
+           000c4d60  vldr     s4, [pc]                     ; float 0.0
+           000c4d64  b        #0xc4d6c                     ; -> L_c4d6c
+           000c4d68  .word    0x00000000                   ; literal 0 / 0
+L_c4d6c:   000c4d6c  vcvt.f64.f32 d2, s4                       
+           000c4d70  vcmp.f64 d2, d3                       
+           000c4d74  vmrs     apsr_nzcv, fpscr             
+           000c4d78  bvs      #0xc4d9c                     ; -> L_c4d9c
+           000c4d7c  bge      #0xc4d9c                     ; -> L_c4d9c
+           000c4d80  mov      r0, r6                       
+           000c4d84  ldr      lr, [r6]                     
+           000c4d88  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000c4d8c  mov      r1, r0                       
+           000c4d90  ldr      r0, [fp, #0x98]              
+           000c4d94  str      r1, [r0, #0xc]               ; field+0xc (this-class: terrainTrigger)
+           000c4d98  b        #0xc4dac                     ; -> L_c4dac
+L_c4d9c:   000c4d9c  add      sl, sl, #1                   
+L_c4da0:   000c4da0  ldr      r0, [r4, #0xc]               ; field+0xc (this-class: terrainTrigger)
+           000c4da4  cmp      sl, r0                       
+           000c4da8  blt      #0xc4c2c                     ; -> L_c4c2c
+L_c4dac:   000c4dac  add      sp, fp, #0xa0                
+           000c4db0  pop      {r4, r5, r6, r8, sl, fp}     
+           000c4db4  ldr      r7, [sp, #8]                 
+           000c4db8  ldm      sp, {sp, pc}                 
+           000c4dbc  mov      r1, lr                       
+           000c4dc0  ldr      r0, [pc]                     
+           000c4dc4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000c4dc8  andeq    r0, r0, #0xf8                
+
+== DriveAvoidTerrainAIState::Update  token 0x06000034 @0x000c4dcc (548 bytes)
+   args: r0=this, 
+           000c4dcc  mov      ip, sp                       
+           000c4dd0  push     {r7, lr}                     
+           000c4dd4  mov      r7, sp                       
+           000c4dd8  push     {r6, r8, sl, fp, ip, lr}     
+           000c4ddc  sub      sp, sp, #0x90                
+           000c4de0  mov      fp, sp                       
+           000c4de4  mov      sl, r0                       
+           000c4de8  mov      r0, #0                       
+           000c4dec  str      r0, [fp, #0x10]              
+           000c4df0  mov      r0, #0                       
+           000c4df4  str      r0, [fp, #0x14]              
+           000c4df8  mov      r0, #0                       
+           000c4dfc  str      r0, [fp, #0x18]              
+           000c4e00  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: terrainTrigger)
+           000c4e04  mov      r1, #0                       
+           000c4e08  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000c4e0c  cmp      r0, #0                       
+           000c4e10  beq      #0xc4e2c                     ; -> L_c4e2c
+           000c4e14  ldr      r2, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c4e18  mov      r0, r2                       
+           000c4e1c  mov      r1, sl                       
+           000c4e20  ldr      lr, [r2]                     
+           000c4e24  bl       #0xc350c                     ; CALL CarAI::StateDone (direct)
+           000c4e28  b        #0xc4fe0                     ; -> L_c4fe0
+L_c4e2c:   000c4e2c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: terrainTrigger)
+           000c4e30  ldr      r1, [pc]                     
+           000c4e34  b        #0xc4e3c                     ; -> L_c4e3c
+           000c4e38  .word    0x00edffec                   ; literal 15597548 / 
+L_c4e3c:   000c4e3c  ldr      r1, [pc, r1]                 ; GOT[50] METHOD_RGCTX UnityEngine.GameObject::GetComponent<ObjectTrackDistanceLogic>
+           000c4e40  ldr      lr, [r0]                     
+           000c4e44  mov      r8, r1                       
+           000c4e48  bl       #0x22ab70                    ; CALL UnityEngine.GameObject::GetComponent<ObjectTrackDistanceLogic>
+           000c4e4c  mov      r6, r0                       
+           000c4e50  mov      r1, #0                       
+           000c4e54  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000c4e58  cmp      r0, #0                       
+           000c4e5c  beq      #0xc4ecc                     ; -> L_c4ecc
+           000c4e60  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c4e64  mov      r0, r1                       
+           000c4e68  ldr      lr, [r1]                     
+           000c4e6c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c4e70  mov      r2, r0                       
+           000c4e74  add      r0, fp, #0x54                
+           000c4e78  mov      r1, r2                       
+           000c4e7c  ldr      lr, [r2]                     
+           000c4e80  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c4e84  ldr      r0, [fp, #0x54]              
+           000c4e88  ldr      r1, [fp, #0x58]              
+           000c4e8c  ldr      r2, [fp, #0x5c]              
+           000c4e90  bl       #0x22ab80                    ; CALL WaypointLogic::GetTrackDistanceForPoint
+           000c4e94  vmov     s6, r0                       
+           000c4e98  vcvt.f64.f32 d3, s6                       
+           000c4e9c  vldr     s0, [r6, #0x10]              ; field+0x10 (this-class: awayfromPoint)
+           000c4ea0  vcvt.f64.f32 d2, s0                       
+           000c4ea4  vcmp.f64 d2, d3                       
+           000c4ea8  vmrs     apsr_nzcv, fpscr             
+           000c4eac  bvs      #0xc4ecc                     ; -> L_c4ecc
+           000c4eb0  bge      #0xc4ecc                     ; -> L_c4ecc
+           000c4eb4  ldr      r2, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c4eb8  mov      r0, r2                       
+           000c4ebc  mov      r1, sl                       
+           000c4ec0  ldr      lr, [r2]                     
+           000c4ec4  bl       #0xc350c                     ; CALL CarAI::StateDone (direct)
+           000c4ec8  b        #0xc4fe0                     ; -> L_c4fe0
+L_c4ecc:   000c4ecc  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: terrainTrigger)
+           000c4ed0  mov      r0, r1                       
+           000c4ed4  ldr      lr, [r1]                     
+           000c4ed8  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c4edc  mov      r2, r0                       
+           000c4ee0  add      r0, fp, #0x60                
+           000c4ee4  mov      r1, r2                       
+           000c4ee8  ldr      lr, [r2]                     
+           000c4eec  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c4ef0  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c4ef4  mov      r0, r1                       
+           000c4ef8  ldr      lr, [r1]                     
+           000c4efc  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c4f00  mov      r2, r0                       
+           000c4f04  add      r0, fp, #0x6c                
+           000c4f08  mov      r1, r2                       
+           000c4f0c  ldr      lr, [r2]                     
+           000c4f10  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c4f14  add      r0, fp, #0x10                
+           000c4f18  ldr      r1, [fp, #0x60]              
+           000c4f1c  ldr      r2, [fp, #0x64]              
+           000c4f20  ldr      r3, [fp, #0x68]              
+           000c4f24  ldr      ip, [fp, #0x6c]              
+           000c4f28  str      ip, [sp]                     
+           000c4f2c  ldr      ip, [fp, #0x70]              
+           000c4f30  str      ip, [sp, #4]                 
+           000c4f34  ldr      ip, [fp, #0x74]              
+           000c4f38  str      ip, [sp, #8]                 
+           000c4f3c  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000c4f40  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c4f44  mov      r0, r1                       
+           000c4f48  ldr      lr, [r1]                     
+           000c4f4c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c4f50  mov      r2, r0                       
+           000c4f54  add      r0, fp, #0x78                
+           000c4f58  mov      r1, r2                       
+           000c4f5c  ldr      lr, [r2]                     
+           000c4f60  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           000c4f64  add      r1, fp, #0x10                
+           000c4f68  add      r0, fp, #0x84                
+           000c4f6c  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           000c4f70  ldr      r0, [fp, #0x78]              
+           000c4f74  ldr      r1, [fp, #0x7c]              
+           000c4f78  ldr      r2, [fp, #0x80]              
+           000c4f7c  ldr      r3, [fp, #0x84]              
+           000c4f80  ldr      ip, [fp, #0x88]              
+           000c4f84  str      ip, [sp]                     
+           000c4f88  ldr      ip, [fp, #0x8c]              
+           000c4f8c  str      ip, [sp, #4]                 
+           000c4f90  bl       #0x22aeb0                    ; CALL UnityEngine.Vector3::Angle
+           000c4f94  vmov     s4, r0                       
+           000c4f98  vcvt.f64.f32 d2, s4                       
+           000c4f9c  vcvt.f32.f64 s0, d2                       
+           000c4fa0  vstr     s0, [fp, #0x1c]              
+           000c4fa4  vldr     s0, [fp, #0x1c]              
+           000c4fa8  vcvt.f64.f32 d3, s0                       
+           000c4fac  vldr     s4, [pc]                     ; float 45.0
+           000c4fb0  b        #0xc4fb8                     ; -> L_c4fb8
+           000c4fb4  .word    0x42340000                   ; literal 1110704128 / 45
+L_c4fb8:   000c4fb8  vcvt.f64.f32 d2, s4                       
+           000c4fbc  vcmp.f64 d2, d3                       
+           000c4fc0  vmrs     apsr_nzcv, fpscr             
+           000c4fc4  bvs      #0xc4fe0                     ; -> L_c4fe0
+           000c4fc8  bge      #0xc4fe0                     ; -> L_c4fe0
+           000c4fcc  ldr      r2, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c4fd0  mov      r0, r2                       
+           000c4fd4  mov      r1, sl                       
+           000c4fd8  ldr      lr, [r2]                     
+           000c4fdc  bl       #0xc350c                     ; CALL CarAI::StateDone (direct)
+L_c4fe0:   000c4fe0  add      sp, fp, #0x90                
+           000c4fe4  pop      {r6, r8, sl, fp}             
+           000c4fe8  ldr      r7, [sp, #8]                 
+           000c4fec  ldm      sp, {sp, pc}                 
+
+== DriveAvoidTerrainAIState::FixedUpdate  token 0x06000035 @0x000c4ff0 (1004 bytes)
+   args: r0=this, 
+           000c4ff0  mov      ip, sp                       
+           000c4ff4  push     {r7, lr}                     
+           000c4ff8  mov      r7, sp                       
+           000c4ffc  push     {r6, r8, sl, fp, ip, lr}     
+           000c5000  sub      sp, sp, #0x148               
+           000c5004  mov      fp, sp                       
+           000c5008  mov      sl, r0                       
+           000c500c  mov      r0, #0                       
+           000c5010  str      r0, [fp, #0x10]              
+           000c5014  mov      r0, #0                       
+           000c5018  str      r0, [fp, #0x14]              
+           000c501c  mov      r0, #0                       
+           000c5020  str      r0, [fp, #0x18]              
+           000c5024  mov      r0, #0                       
+           000c5028  str      r0, [fp, #0x1c]              
+           000c502c  mov      r0, #0                       
+           000c5030  str      r0, [fp, #0x20]              
+           000c5034  mov      r0, #0                       
+           000c5038  str      r0, [fp, #0x24]              
+           000c503c  mov      r0, #0                       
+           000c5040  str      r0, [fp, #0x28]              
+           000c5044  mov      r0, #0                       
+           000c5048  str      r0, [fp, #0x2c]              
+           000c504c  mov      r0, #0                       
+           000c5050  str      r0, [fp, #0x30]              
+           000c5054  mov      r0, #0                       
+           000c5058  str      r0, [fp, #0x38]              
+           000c505c  mov      r0, #0                       
+           000c5060  str      r0, [fp, #0x3c]              
+           000c5064  mov      r0, #0                       
+           000c5068  str      r0, [fp, #0x40]              
+           000c506c  mov      r0, #0                       
+           000c5070  str      r0, [fp, #0x44]              
+           000c5074  mov      r0, #0                       
+           000c5078  str      r0, [fp, #0x48]              
+           000c507c  mov      r0, #0                       
+           000c5080  str      r0, [fp, #0x4c]              
+           000c5084  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: terrainTrigger)
+           000c5088  mov      r1, #0                       
+           000c508c  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000c5090  cmp      r0, #0                       
+           000c5094  bne      #0xc53cc                     ; -> L_c53cc
+           000c5098  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: terrainTrigger)
+           000c509c  mov      r0, r1                       
+           000c50a0  ldr      lr, [r1]                     
+           000c50a4  bl       #0x22af70                    ; CALL UnityEngine.GameObject::get_collider
+           000c50a8  str      r0, [fp, #0x140]             
+           000c50ac  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c50b0  mov      r0, r1                       
+           000c50b4  ldr      lr, [r1]                     
+           000c50b8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c50bc  mov      r2, r0                       
+           000c50c0  add      r0, fp, #0xa4                
+           000c50c4  mov      r1, r2                       
+           000c50c8  ldr      lr, [r2]                     
+           000c50cc  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c50d0  ldr      ip, [fp, #0x140]             
+           000c50d4  add      r0, fp, #0xb0                
+           000c50d8  str      r0, [fp, #0x13c]             
+           000c50dc  mov      r1, ip                       
+           000c50e0  ldr      r2, [fp, #0xa4]              
+           000c50e4  ldr      r3, [fp, #0xa8]              
+           000c50e8  ldr      r0, [fp, #0xac]              
+           000c50ec  str      r0, [sp]                     
+           000c50f0  ldr      r0, [fp, #0x13c]             
+           000c50f4  ldr      lr, [ip]                     
+           000c50f8  bl       #0x22af80                    ; CALL UnityEngine.Collider::ClosestPointOnBounds
+           000c50fc  add      r0, sl, #0x10                
+           000c5100  ldr      r1, [fp, #0xb0]              
+           000c5104  str      r1, [r0]                     
+           000c5108  ldr      r1, [fp, #0xb4]              
+           000c510c  str      r1, [r0, #4]                 ; field+0x4 
+           000c5110  ldr      r1, [fp, #0xb8]              
+           000c5114  str      r1, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c5118  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: terrainTrigger)
+           000c511c  mov      r0, r1                       
+           000c5120  ldr      lr, [r1]                     
+           000c5124  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000c5128  mov      r2, r0                       
+           000c512c  add      r0, fp, #0xbc                
+           000c5130  mov      r1, r2                       
+           000c5134  ldr      lr, [r2]                     
+           000c5138  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c513c  ldr      r0, [fp, #0xbc]              
+           000c5140  ldr      r1, [fp, #0xc0]              
+           000c5144  ldr      r2, [fp, #0xc4]              
+           000c5148  mov      r3, #0                       
+           000c514c  bl       #0x22af90                    ; CALL WaypointLogic::FindClosestWaypoint
+           000c5150  mov      ip, r0                       
+           000c5154  add      r0, sl, #0x10                
+           000c5158  ldr      r1, [r0]                     
+           000c515c  str      r1, [fp, #0xc8]              
+           000c5160  ldr      r1, [r0, #4]                 ; field+0x4 
+           000c5164  str      r1, [fp, #0xcc]              
+           000c5168  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c516c  str      r0, [fp, #0xd0]              
+           000c5170  add      r0, fp, #0x10                
+           000c5174  str      r0, [fp, #0x138]             
+           000c5178  mov      r1, ip                       
+           000c517c  ldr      r2, [fp, #0xc8]              
+           000c5180  ldr      r3, [fp, #0xcc]              
+           000c5184  ldr      r0, [fp, #0xd0]              
+           000c5188  str      r0, [sp]                     
+           000c518c  ldr      r0, [fp, #0x138]             
+           000c5190  ldr      lr, [ip]                     
+           000c5194  bl       #0x115fc4                    ; CALL WaypointLogic::GetTrackPoint (direct)
+           000c5198  ldr      r0, [fp, #0x10]              
+           000c519c  str      r0, [fp, #0xd4]              
+           000c51a0  ldr      r0, [fp, #0x14]              
+           000c51a4  str      r0, [fp, #0xd8]              
+           000c51a8  ldr      r0, [fp, #0x18]              
+           000c51ac  str      r0, [fp, #0xdc]              
+           000c51b0  add      r0, sl, #0x10                
+           000c51b4  ldr      r1, [r0]                     
+           000c51b8  str      r1, [fp, #0xe0]              
+           000c51bc  ldr      r1, [r0, #4]                 ; field+0x4 
+           000c51c0  str      r1, [fp, #0xe4]              
+           000c51c4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c51c8  str      r0, [fp, #0xe8]              
+           000c51cc  add      r0, fp, #0x1c                
+           000c51d0  ldr      r1, [fp, #0xd4]              
+           000c51d4  ldr      r2, [fp, #0xd8]              
+           000c51d8  ldr      r3, [fp, #0xdc]              
+           000c51dc  ldr      ip, [fp, #0xe0]              
+           000c51e0  str      ip, [sp]                     
+           000c51e4  ldr      ip, [fp, #0xe4]              
+           000c51e8  str      ip, [sp, #4]                 
+           000c51ec  ldr      ip, [fp, #0xe8]              
+           000c51f0  str      ip, [sp, #8]                 
+           000c51f4  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000c51f8  vldr     s4, [pc]                     ; float 0.0
+           000c51fc  b        #0xc5204                     ; -> L_c5204
+           000c5200  .word    0x00000000                   ; literal 0 / 0
+L_c5204:   000c5204  vcvt.f64.f32 d2, s4                       
+           000c5208  vcvt.f32.f64 s0, d2                       
+           000c520c  vstr     s0, [fp, #0x20]              
+           000c5210  add      r0, sl, #0x10                
+           000c5214  ldr      r1, [r0]                     
+           000c5218  str      r1, [fp, #0xec]              
+           000c521c  ldr      r1, [r0, #4]                 ; field+0x4 
+           000c5220  str      r1, [fp, #0xf0]              
+           000c5224  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: parentAI)
+           000c5228  str      r0, [fp, #0xf4]              
+           000c522c  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c5230  mov      r0, r1                       
+           000c5234  ldr      lr, [r1]                     
+           000c5238  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c523c  mov      r2, r0                       
+           000c5240  add      r0, fp, #0xf8                
+           000c5244  mov      r1, r2                       
+           000c5248  ldr      lr, [r2]                     
+           000c524c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c5250  add      r0, fp, #0x28                
+           000c5254  ldr      r1, [fp, #0xec]              
+           000c5258  ldr      r2, [fp, #0xf0]              
+           000c525c  ldr      r3, [fp, #0xf4]              
+           000c5260  ldr      ip, [fp, #0xf8]              
+           000c5264  str      ip, [sp]                     
+           000c5268  ldr      ip, [fp, #0xfc]              
+           000c526c  str      ip, [sp, #4]                 
+           000c5270  ldr      ip, [fp, #0x100]             
+           000c5274  str      ip, [sp, #8]                 
+           000c5278  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000c527c  add      r0, fp, #0x28                
+           000c5280  bl       #0x22a970                    ; CALL UnityEngine.Vector3::get_magnitude
+           000c5284  vmov     s4, r0                       
+           000c5288  vcvt.f64.f32 d2, s4                       
+           000c528c  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c5290  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: awayfromPoint)
+           000c5294  vldr     s0, [r0, #0x18]              ; field+0x18 
+           000c5298  vcvt.f64.f32 d3, s0                       
+           000c529c  vdiv.f64 d2, d2, d3                   
+           000c52a0  vcvt.f32.f64 s0, d2                       
+           000c52a4  vstr     s0, [fp, #0x34]              
+           000c52a8  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c52ac  mov      r0, r1                       
+           000c52b0  ldr      lr, [r1]                     
+           000c52b4  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c52b8  mov      r2, r0                       
+           000c52bc  add      r0, fp, #0x104               
+           000c52c0  mov      r1, r2                       
+           000c52c4  ldr      lr, [r2]                     
+           000c52c8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c52cc  ldr      r0, [fp, #0x104]             
+           000c52d0  ldr      r1, [fp, #0x108]             
+           000c52d4  ldr      r2, [fp, #0x10c]             
+           000c52d8  bl       #0x1173d0                    ; CALL WaypointLogic::FindNextWaypoint (direct)
+           000c52dc  mov      r6, r0                       
+           000c52e0  mov      r1, r6                       
+           000c52e4  mov      r0, r1                       
+           000c52e8  ldr      lr, [r1]                     
+           000c52ec  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c52f0  mov      r2, r0                       
+           000c52f4  add      r0, fp, #68, #30             
+           000c52f8  mov      r1, r2                       
+           000c52fc  ldr      lr, [r2]                     
+           000c5300  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c5304  ldr      r1, [r6, #0x14]              ; field+0x14 
+           000c5308  mov      r0, r1                       
+           000c530c  ldr      lr, [r1]                     
+           000c5310  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000c5314  mov      r2, r0                       
+           000c5318  add      r0, fp, #0x11c               
+           000c531c  mov      r1, r2                       
+           000c5320  ldr      lr, [r2]                     
+           000c5324  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           000c5328  add      r0, fp, #0x38                
+           000c532c  ldr      r1, [fp, #0x110]             
+           000c5330  ldr      r2, [fp, #0x114]             
+           000c5334  ldr      r3, [fp, #0x118]             
+           000c5338  ldr      ip, [fp, #0x11c]             
+           000c533c  str      ip, [sp]                     
+           000c5340  ldr      ip, [fp, #0x120]             
+           000c5344  str      ip, [sp, #4]                 
+           000c5348  ldr      ip, [fp, #0x124]             
+           000c534c  str      ip, [sp, #8]                 
+           000c5350  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           000c5354  add      r1, fp, #0x1c                
+           000c5358  add      r0, fp, #0x128               
+           000c535c  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           000c5360  vldr     s0, [fp, #0x34]              
+           000c5364  vcvt.f64.f32 d2, s0                       
+           000c5368  vldr     s6, [pc]                     ; float 4.0
+           000c536c  b        #0xc5374                     ; -> L_c5374
+           000c5370  .word    0x40800000                   ; literal 1082130432 / 4
+L_c5374:   000c5374  vcvt.f64.f32 d3, s6                       
+           000c5378  vdiv.f64 d2, d2, d3                   
+           000c537c  add      r0, fp, #0x44                
+           000c5380  ldr      r1, [fp, #0x128]             
+           000c5384  ldr      r2, [fp, #0x12c]             
+           000c5388  ldr      r3, [fp, #0x130]             
+           000c538c  ldr      ip, [fp, #0x38]              
+           000c5390  str      ip, [sp]                     
+           000c5394  ldr      ip, [fp, #0x3c]              
+           000c5398  str      ip, [sp, #4]                 
+           000c539c  ldr      ip, [fp, #0x40]              
+           000c53a0  str      ip, [sp, #8]                 
+           000c53a4  vcvt.f32.f64 s0, d2                       
+           000c53a8  vstr     s0, [sp, #0xc]               
+           000c53ac  bl       #0x22afa0                    ; CALL UnityEngine.Vector3::Lerp
+           000c53b0  ldr      ip, [sl, #8]                 ; field+0x8 (this-class: parentAI)
+           000c53b4  mov      r0, ip                       
+           000c53b8  ldr      r1, [fp, #0x44]              
+           000c53bc  ldr      r2, [fp, #0x48]              
+           000c53c0  ldr      r3, [fp, #0x4c]              
+           000c53c4  ldr      lr, [ip]                     
+           000c53c8  bl       #0xc41ac                     ; CALL CarAI::DriveWithFacing (direct)
+L_c53cc:   000c53cc  add      sp, fp, #0x148               
+           000c53d0  pop      {r6, r8, sl, fp}             
+           000c53d4  ldr      r7, [sp, #8]                 
+           000c53d8  ldm      sp, {sp, pc}                 
+
+== DriveAvoidTerrainAIState::Shutdown  token 0x06000036 @0x000c53dc (44 bytes)
+   args: r0=this, 
+           000c53dc  mov      ip, sp                       
+           000c53e0  push     {r7, lr}                     
+           000c53e4  mov      r7, sp                       
+           000c53e8  push     {r8, fp, ip, lr}             
+           000c53ec  sub      sp, sp, #8                   
+           000c53f0  mov      fp, sp                       
+           000c53f4  str      r0, [fp]                     
+           000c53f8  add      sp, fp, #8                   
+           000c53fc  pop      {r8, fp}                     
+           000c5400  ldr      r7, [sp, #8]                 
+           000c5404  ldm      sp, {sp, pc}                 

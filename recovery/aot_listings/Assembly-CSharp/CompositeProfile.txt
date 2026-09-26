@@ -1,0 +1,156 @@
+####################################################################################################
+# TYPE CompositeProfile  (instance size 0x18)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 defaultTexture                 UnityEngine.Texture2D
+#   +0x14 compositeSlots                 CompositeProfile/CompositeSlot[]
+#   vtable slots: 
+####################################################################################################
+== CompositeProfile::.ctor  token 0x060001ef @0x000df394 (52 bytes)
+   args: r0=this, 
+           000df394  mov      ip, sp                       
+           000df398  push     {r7, lr}                     
+           000df39c  mov      r7, sp                       
+           000df3a0  push     {r8, fp, ip, lr}             
+           000df3a4  sub      sp, sp, #8                   
+           000df3a8  mov      fp, sp                       
+           000df3ac  str      r0, [fp]                     
+           000df3b0  ldr      r0, [fp]                     
+           000df3b4  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000df3b8  add      sp, fp, #8                   
+           000df3bc  pop      {r8, fp}                     
+           000df3c0  ldr      r7, [sp, #8]                 
+           000df3c4  ldm      sp, {sp, pc}                 
+
+== CompositeProfile::FindSlotByName  token 0x060001f0 @0x000df3c8 (172 bytes)
+   args: r0=this, slotName
+           000df3c8  mov      ip, sp                       
+           000df3cc  push     {r7, lr}                     
+           000df3d0  mov      r7, sp                       
+           000df3d4  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000df3d8  mov      fp, sp                       
+           000df3dc  mov      r6, r0                       
+           000df3e0  mov      sl, r1                       
+           000df3e4  ldr      r6, [r6, #0x14]              ; field+0x14 (this-class: compositeSlots)
+           000df3e8  mov      r4, #0                       
+           000df3ec  b        #0xdf430                     ; -> L_df430
+L_df3f0:   000df3f0  ldr      r0, [r6, #0xc]               ; field+0xc 
+           000df3f4  cmp      r0, r4                       
+           000df3f8  blls     #0xdf464                     ; THROW System.IndexOutOfRangeException (if ls)
+           000df3fc  lsl      r0, r4, #2                   
+           000df400  add      r0, r6, r0                   
+           000df404  add      r0, r0, #0x10                
+           000df408  ldr      r5, [r0]                     
+           000df40c  mov      r0, r5                       
+           000df410  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000df414  mov      r1, sl                       
+           000df418  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000df41c  cmp      r0, #0                       
+           000df420  beq      #0xdf42c                     ; -> L_df42c
+           000df424  mov      r0, r5                       
+           000df428  b        #0xdf454                     ; -> L_df454
+L_df42c:   000df42c  add      r4, r4, #1                   
+L_df430:   000df430  ldr      r0, [r6, #0xc]               ; field+0xc 
+           000df434  cmp      r4, r0                       
+           000df438  blt      #0xdf3f0                     ; -> L_df3f0
+           000df43c  ldr      r0, [pc]                     
+           000df440  b        #0xdf448                     ; -> L_df448
+           000df444  .word    0x00ec5e9c                   ; literal 15490716 / 
+L_df448:   000df448  ldr      r0, [pc, r0]                 ; GOT[353] LDSTR "Couldn't find the slot name in this composite profile"
+           000df44c  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           000df450  mov      r0, #0                       
+L_df454:   000df454  add      sp, fp, #0                   
+           000df458  pop      {r4, r5, r6, r8, sl, fp}     
+           000df45c  ldr      r7, [sp, #8]                 
+           000df460  ldm      sp, {sp, pc}                 
+           000df464  mov      r1, lr                       
+           000df468  ldr      r0, [pc]                     
+           000df46c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000df470  andeq    r0, r0, #0xf8                
+
+== CompositeProfile::SetSlotSource  token 0x060001f1 @0x000df474 (176 bytes)
+   args: r0=this, slotName, sourceTexture, sourceRect
+           000df474  mov      ip, sp                       
+           000df478  push     {r7, lr}                     
+           000df47c  mov      r7, sp                       
+           000df480  push     {r6, r8, fp, ip, lr}         
+           000df484  sub      sp, sp, #0x1c                
+           000df488  mov      fp, sp                       
+           000df48c  str      r0, [fp]                     
+           000df490  mov      r6, r1                       
+           000df494  str      r2, [fp, #4]                 
+           000df498  str      r3, [fp, #8]                 
+           000df49c  ldr      lr, [sp, #0x38]              
+           000df4a0  str      lr, [fp, #0xc]               
+           000df4a4  ldr      lr, [sp, #0x3c]              
+           000df4a8  str      lr, [fp, #0x10]              
+           000df4ac  ldr      lr, [sp, #0x40]              
+           000df4b0  str      lr, [fp, #0x14]              
+           000df4b4  ldr      r0, [fp]                     
+           000df4b8  mov      r1, r6                       
+           000df4bc  bl       #0x22c040                    ; CALL CompositeProfile::FindSlotByName
+           000df4c0  mov      r6, r0                       
+           000df4c4  cmp      r0, #0                       
+           000df4c8  beq      #0xdf514                     ; -> L_df514
+           000df4cc  ldr      r0, [pc]                     
+           000df4d0  b        #0xdf4d8                     ; -> L_df4d8
+           000df4d4  .word    0x00ec5e10                   ; literal 15490576 / 
+L_df4d8:   000df4d8  ldr      r0, [pc, r0]                 ; GOT[354] VTABLE CompositeProfile/CompositeSource
+           000df4dc  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000df4e0  str      r0, [r6, #0xc]               ; field+0xc 
+           000df4e4  add      r0, r0, #0xc                 
+           000df4e8  ldr      r1, [fp, #8]                 
+           000df4ec  str      r1, [r0]                     
+           000df4f0  ldr      r1, [fp, #0xc]               
+           000df4f4  str      r1, [r0, #4]                 ; field+0x4 
+           000df4f8  ldr      r1, [fp, #0x10]              
+           000df4fc  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000df500  ldr      r1, [fp, #0x14]              
+           000df504  str      r1, [r0, #0xc]               ; field+0xc 
+           000df508  ldr      r0, [r6, #0xc]               ; field+0xc 
+           000df50c  ldr      r1, [fp, #4]                 
+           000df510  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+L_df514:   000df514  add      sp, fp, #0x1c                
+           000df518  pop      {r6, r8, fp}                 
+           000df51c  ldr      r7, [sp, #8]                 
+           000df520  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE CompositeProfile/CompositeSource  (instance size 0x1c)
+#   +0x08 sourceTexture                  UnityEngine.Texture2D
+#   +0x0c sourceRect                     UnityEngine.Rect
+#   vtable slots: 
+####################################################################################################
+== CompositeProfile/CompositeSource::.ctor  token 0x060001f2 @0x000df524 (44 bytes)
+   args: r0=this, 
+           000df524  mov      ip, sp                       
+           000df528  push     {r7, lr}                     
+           000df52c  mov      r7, sp                       
+           000df530  push     {r8, fp, ip, lr}             
+           000df534  sub      sp, sp, #8                   
+           000df538  mov      fp, sp                       
+           000df53c  str      r0, [fp]                     
+           000df540  add      sp, fp, #8                   
+           000df544  pop      {r8, fp}                     
+           000df548  ldr      r7, [sp, #8]                 
+           000df54c  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE CompositeProfile/CompositeSlot  (instance size 0x18)
+#   +0x08 name                           string
+#   +0x0c sourceInSlot                   CompositeProfile/CompositeSource
+#   +0x10 topLeftPoint                   UnityEngine.Vector2
+#   vtable slots: 
+####################################################################################################
+== CompositeProfile/CompositeSlot::.ctor  token 0x060001f3 @0x000df550 (44 bytes)
+   args: r0=this, 
+           000df550  mov      ip, sp                       
+           000df554  push     {r7, lr}                     
+           000df558  mov      r7, sp                       
+           000df55c  push     {r8, fp, ip, lr}             
+           000df560  sub      sp, sp, #8                   
+           000df564  mov      fp, sp                       
+           000df568  str      r0, [fp]                     
+           000df56c  add      sp, fp, #8                   
+           000df570  pop      {r8, fp}                     
+           000df574  ldr      r7, [sp, #8]                 
+           000df578  ldm      sp, {sp, pc}                 

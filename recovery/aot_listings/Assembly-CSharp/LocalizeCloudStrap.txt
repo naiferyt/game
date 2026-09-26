@@ -1,0 +1,153 @@
+####################################################################################################
+# TYPE LocalizeCloudStrap  (instance size 0x14)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 languageImages                 LanguageAsset[]
+#   vtable slots: 
+####################################################################################################
+== LocalizeCloudStrap::.ctor  token 0x060006a2 @0x0012e4f0 (52 bytes)
+   args: r0=this, 
+           0012e4f0  mov      ip, sp                       
+           0012e4f4  push     {r7, lr}                     
+           0012e4f8  mov      r7, sp                       
+           0012e4fc  push     {r8, fp, ip, lr}             
+           0012e500  sub      sp, sp, #8                   
+           0012e504  mov      fp, sp                       
+           0012e508  str      r0, [fp]                     
+           0012e50c  ldr      r0, [fp]                     
+           0012e510  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0012e514  add      sp, fp, #8                   
+           0012e518  pop      {r8, fp}                     
+           0012e51c  ldr      r7, [sp, #8]                 
+           0012e520  ldm      sp, {sp, pc}                 
+
+== LocalizeCloudStrap::Awake  token 0x060006a3 @0x0012e524 (404 bytes)
+   args: r0=this, 
+           0012e524  mov      ip, sp                       
+           0012e528  push     {r7, lr}                     
+           0012e52c  mov      r7, sp                       
+           0012e530  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0012e534  sub      sp, sp, #0x18                
+           0012e538  mov      fp, sp                       
+           0012e53c  str      r0, [fp, #8]                 
+           0012e540  ldr      r0, [fp, #8]                 
+           0012e544  ldr      r5, [r0, #0x10]              ; field+0x10 (this-class: languageImages)
+           0012e548  mov      r4, #0                       
+           0012e54c  b        #0x12e68c                    ; -> L_12e68c
+L_12e550:  0012e550  ldr      r0, [r5, #0xc]               ; field+0xc 
+           0012e554  cmp      r0, r4                       
+           0012e558  blls     #0x12e6a8                    ; THROW System.IndexOutOfRangeException (if ls)
+           0012e55c  lsl      r0, r4, #2                   
+           0012e560  add      r0, r5, r0                   
+           0012e564  add      r0, r0, #0x10                
+           0012e568  ldr      r6, [r0]                     
+           0012e56c  mov      r0, r6                       
+           0012e570  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: languageImages)
+           0012e574  str      r0, [fp, #0x10]              
+           0012e578  bl       #0x22eca0                    ; CALL UnityEngine.Application::get_systemLanguage
+           0012e57c  mov      r1, r0                       
+           0012e580  ldr      r0, [fp, #0x10]              
+           0012e584  cmp      r0, r1                       
+           0012e588  bne      #0x12e688                    ; -> L_12e688
+           0012e58c  ldr      r0, [r6, #0xc]               ; field+0xc 
+           0012e590  ldr      r1, [pc]                     
+           0012e594  b        #0x12e59c                    ; -> L_12e59c
+           0012e598  .word    0x00e77d50                   ; literal 15170896 / 
+L_12e59c:  0012e59c  ldr      r1, [pc, r1]                 ; GOT[1379] TYPE_FROM_HANDLE typeof(UnityEngine.Texture2D)
+           0012e5a0  bl       #0x22ecb0                    ; CALL UnityEngine.Resources::Load
+           0012e5a4  mov      r6, r0                       
+           0012e5a8  mov      r5, r6                       
+           0012e5ac  cmp      r6, #0                       
+           0012e5b0  beq      #0x12e5e0                    ; -> L_12e5e0
+           0012e5b4  ldr      r0, [r6]                     
+           0012e5b8  ldr      r0, [r0]                     
+           0012e5bc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012e5c0  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0012e5c4  ldr      r1, [pc]                     
+           0012e5c8  b        #0x12e5d0                    ; -> L_12e5d0
+           0012e5cc  .word    0x00e76d64                   ; literal 15166820 / 
+L_12e5d0:  0012e5d0  ldr      r1, [pc, r1]                 ; GOT[373] CLASS UnityEngine.Texture2D
+           0012e5d4  cmp      r0, r1                       
+           0012e5d8  beq      #0x12e5e0                    ; -> L_12e5e0
+           0012e5dc  mov      r5, #0                       
+L_12e5e0:  0012e5e0  str      r5, [fp]                     
+           0012e5e4  ldr      r0, [fp, #8]                 
+           0012e5e8  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0012e5ec  ldr      r1, [pc]                     
+           0012e5f0  b        #0x12e5f8                    ; -> L_12e5f8
+           0012e5f4  .word    0x00e76b68                   ; literal 15166312 / 
+L_12e5f8:  0012e5f8  ldr      r1, [pc, r1]                 ; GOT[256] METHOD_RGCTX UnityEngine.GameObject::GetComponent<UnityEngine.Renderer>
+           0012e5fc  ldr      lr, [r0]                     
+           0012e600  mov      r8, r1                       
+           0012e604  bl       #0x22b870                    ; CALL UnityEngine.GameObject::GetComponent<UnityEngine.Renderer>
+           0012e608  str      r0, [fp, #4]                 
+           0012e60c  mov      r1, #0                       
+           0012e610  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012e614  cmp      r0, #0                       
+           0012e618  beq      #0x12e650                    ; -> L_12e650
+           0012e61c  ldr      r0, [fp]                     
+           0012e620  mov      r1, #0                       
+           0012e624  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0012e628  cmp      r0, #0                       
+           0012e62c  beq      #0x12e650                    ; -> L_12e650
+           0012e630  ldr      r0, [fp, #4]                 
+           0012e634  mov      r1, r0                       
+           0012e638  ldr      lr, [r1]                     
+           0012e63c  bl       #0x22b890                    ; CALL UnityEngine.Renderer::get_material
+           0012e640  mov      r2, r0                       
+           0012e644  ldr      r1, [fp]                     
+           0012e648  ldr      lr, [r2]                     
+           0012e64c  bl       #0x22e860                    ; CALL UnityEngine.Material::set_mainTexture
+L_12e650:  0012e650  ldr      r8, [pc]                     
+           0012e654  b        #0x12e65c                    ; -> L_12e65c
+           0012e658  .word    0x00e77948                   ; literal 15169864 / 
+L_12e65c:  0012e65c  ldr      r8, [pc, r8]                 ; GOT[1169] METHOD_RGCTX UnityEngine.Component::GetComponent<UghSprite>
+           0012e660  ldr      r0, [fp, #8]                 
+           0012e664  bl       #0x22e4e0                    ; CALL UnityEngine.Component::GetComponent<UghSprite>
+           0012e668  mov      sl, r0                       
+           0012e66c  bl       #0x22b210                    ; CALL UnityEngine.Object::op_Implicit
+           0012e670  cmp      r0, #0                       
+           0012e674  beq      #0x12e698                    ; -> L_12e698
+           0012e678  mov      r0, sl                       
+           0012e67c  ldr      lr, [sl]                     
+           0012e680  bl       #0x22e4f0                    ; CALL UghSprite::UpdateMesh
+           0012e684  b        #0x12e698                    ; -> L_12e698
+L_12e688:  0012e688  add      r4, r4, #1                   
+L_12e68c:  0012e68c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           0012e690  cmp      r4, r0                       
+           0012e694  blt      #0x12e550                    ; -> L_12e550
+L_12e698:  0012e698  add      sp, fp, #0x18                
+           0012e69c  pop      {r4, r5, r6, r8, sl, fp}     
+           0012e6a0  ldr      r7, [sp, #8]                 
+           0012e6a4  ldm      sp, {sp, pc}                 
+           0012e6a8  mov      r1, lr                       
+           0012e6ac  ldr      r0, [pc]                     
+           0012e6b0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0012e6b4  andeq    r0, r0, #0xf8                
+
+== LocalizeCloudStrap::Start  token 0x060006a4 @0x0012e6b8 (44 bytes)
+   args: r0=this, 
+           0012e6b8  mov      ip, sp                       
+           0012e6bc  push     {r7, lr}                     
+           0012e6c0  mov      r7, sp                       
+           0012e6c4  push     {r8, fp, ip, lr}             
+           0012e6c8  sub      sp, sp, #8                   
+           0012e6cc  mov      fp, sp                       
+           0012e6d0  str      r0, [fp]                     
+           0012e6d4  add      sp, fp, #8                   
+           0012e6d8  pop      {r8, fp}                     
+           0012e6dc  ldr      r7, [sp, #8]                 
+           0012e6e0  ldm      sp, {sp, pc}                 
+
+== LocalizeCloudStrap::Update  token 0x060006a5 @0x0012e6e4 (44 bytes)
+   args: r0=this, 
+           0012e6e4  mov      ip, sp                       
+           0012e6e8  push     {r7, lr}                     
+           0012e6ec  mov      r7, sp                       
+           0012e6f0  push     {r8, fp, ip, lr}             
+           0012e6f4  sub      sp, sp, #8                   
+           0012e6f8  mov      fp, sp                       
+           0012e6fc  str      r0, [fp]                     
+           0012e700  add      sp, fp, #8                   
+           0012e704  pop      {r8, fp}                     
+           0012e708  ldr      r7, [sp, #8]                 
+           0012e70c  ldm      sp, {sp, pc}                 

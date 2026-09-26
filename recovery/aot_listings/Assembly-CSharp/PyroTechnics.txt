@@ -1,0 +1,166 @@
+####################################################################################################
+# TYPE PyroTechnics  (instance size 0x14)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 pyroPrefab                     UnityEngine.GameObject
+#   vtable slots: 
+####################################################################################################
+== PyroTechnics::.ctor  token 0x060004f4 @0x0010bf3c (52 bytes)
+   args: r0=this, 
+           0010bf3c  mov      ip, sp                       
+           0010bf40  push     {r7, lr}                     
+           0010bf44  mov      r7, sp                       
+           0010bf48  push     {r8, fp, ip, lr}             
+           0010bf4c  sub      sp, sp, #8                   
+           0010bf50  mov      fp, sp                       
+           0010bf54  str      r0, [fp]                     
+           0010bf58  ldr      r0, [fp]                     
+           0010bf5c  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0010bf60  add      sp, fp, #8                   
+           0010bf64  pop      {r8, fp}                     
+           0010bf68  ldr      r7, [sp, #8]                 
+           0010bf6c  ldm      sp, {sp, pc}                 
+
+== PyroTechnics::Start  token 0x060004f5 @0x0010bf70 (44 bytes)
+   args: r0=this, 
+           0010bf70  mov      ip, sp                       
+           0010bf74  push     {r7, lr}                     
+           0010bf78  mov      r7, sp                       
+           0010bf7c  push     {r8, fp, ip, lr}             
+           0010bf80  sub      sp, sp, #8                   
+           0010bf84  mov      fp, sp                       
+           0010bf88  str      r0, [fp]                     
+           0010bf8c  add      sp, fp, #8                   
+           0010bf90  pop      {r8, fp}                     
+           0010bf94  ldr      r7, [sp, #8]                 
+           0010bf98  ldm      sp, {sp, pc}                 
+
+== PyroTechnics::Update  token 0x060004f6 @0x0010bf9c (44 bytes)
+   args: r0=this, 
+           0010bf9c  mov      ip, sp                       
+           0010bfa0  push     {r7, lr}                     
+           0010bfa4  mov      r7, sp                       
+           0010bfa8  push     {r8, fp, ip, lr}             
+           0010bfac  sub      sp, sp, #8                   
+           0010bfb0  mov      fp, sp                       
+           0010bfb4  str      r0, [fp]                     
+           0010bfb8  add      sp, fp, #8                   
+           0010bfbc  pop      {r8, fp}                     
+           0010bfc0  ldr      r7, [sp, #8]                 
+           0010bfc4  ldm      sp, {sp, pc}                 
+
+== PyroTechnics::OnTriggerEnter  token 0x060004f7 @0x0010bfc8 (456 bytes)
+   args: r0=this, other
+           0010bfc8  mov      ip, sp                       
+           0010bfcc  push     {r7, lr}                     
+           0010bfd0  mov      r7, sp                       
+           0010bfd4  push     {r4, r6, r8, sl, fp, ip, lr} 
+           0010bfd8  sub      sp, sp, #0x6c                
+           0010bfdc  mov      fp, sp                       
+           0010bfe0  str      r0, [fp, #0x5c]              
+           0010bfe4  mov      sl, r1                       
+           0010bfe8  mov      r0, sl                       
+           0010bfec  ldr      lr, [sl]                     
+           0010bff0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010bff4  bl       #0x1129f8                    ; CALL RaceManager::IsPlayerCar (direct)
+           0010bff8  cmp      r0, #0                       
+           0010bffc  beq      #0x10c170                    ; -> L_10c170
+           0010c000  ldr      r0, [fp, #0x5c]              
+           0010c004  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0010c008  ldr      r1, [pc]                     
+           0010c00c  b        #0x10c014                    ; -> L_10c014
+           0010c010  .word    0x00e99754                   ; literal 15308628 / 
+L_10c014:  0010c014  ldr      r1, [pc, r1]                 ; GOT[642] METHOD_RGCTX UnityEngine.Component::GetComponentsInChildren<UnityEngine.Transform>
+           0010c018  ldr      lr, [r0]                     
+           0010c01c  mov      r8, r1                       
+           0010c020  bl       #0x22d020                    ; CALL UnityEngine.Component::GetComponentsInChildren<UnityEngine.Transform>
+           0010c024  str      r0, [fp, #0x10]              
+           0010c028  mov      r6, r0                       
+           0010c02c  mov      r0, #0                       
+           0010c030  str      r0, [fp, #0x14]              
+           0010c034  b        #0x10c160                    ; -> L_10c160
+L_10c038:  0010c038  ldr      r1, [r6, #0xc]               ; field+0xc 
+           0010c03c  ldr      r0, [fp, #0x14]              
+           0010c040  cmp      r1, r0                       
+           0010c044  blls     #0x10c180                    ; THROW System.IndexOutOfRangeException (if ls)
+           0010c048  lsl      r0, r0, #2                   
+           0010c04c  add      r0, r6, r0                   
+           0010c050  add      r0, r0, #0x10                
+           0010c054  ldr      r4, [r0]                     
+           0010c058  mov      r1, r4                       
+           0010c05c  mov      r0, r1                       
+           0010c060  ldr      lr, [r1]                     
+           0010c064  bl       #0x22adb0                    ; CALL UnityEngine.Object::get_name
+           0010c068  ldr      r1, [pc]                     
+           0010c06c  b        #0x10c074                    ; -> L_10c074
+           0010c070  .word    0x00e99a78                   ; literal 15309432 / 
+L_10c074:  0010c074  ldr      r1, [pc, r1]                 ; GOT[867] LDSTR 'PyroSlot'
+           0010c078  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           0010c07c  cmp      r0, #0                       
+           0010c080  beq      #0x10c154                    ; -> L_10c154
+           0010c084  ldr      r0, [fp, #0x5c]              
+           0010c088  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: pyroPrefab)
+           0010c08c  str      r0, [fp, #0x60]              
+           0010c090  add      r0, fp, #0x40                
+           0010c094  mov      r1, r4                       
+           0010c098  ldr      lr, [r4]                     
+           0010c09c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0010c0a0  add      r0, fp, #0x4c                
+           0010c0a4  mov      r1, r4                       
+           0010c0a8  ldr      lr, [r4]                     
+           0010c0ac  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           0010c0b0  ldr      r0, [fp, #0x60]              
+           0010c0b4  ldr      r1, [fp, #0x40]              
+           0010c0b8  ldr      r2, [fp, #0x44]              
+           0010c0bc  ldr      r3, [fp, #0x48]              
+           0010c0c0  ldr      ip, [fp, #0x4c]              
+           0010c0c4  str      ip, [sp]                     
+           0010c0c8  ldr      ip, [fp, #0x50]              
+           0010c0cc  str      ip, [sp, #4]                 
+           0010c0d0  ldr      ip, [fp, #0x54]              
+           0010c0d4  str      ip, [sp, #8]                 
+           0010c0d8  ldr      ip, [fp, #0x58]              
+           0010c0dc  str      ip, [sp, #0xc]               
+           0010c0e0  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           0010c0e4  str      r0, [fp, #0x38]              
+           0010c0e8  str      r0, [fp, #0x3c]              
+           0010c0ec  ldr      r0, [fp, #0x38]              
+           0010c0f0  cmp      r0, #0                       
+           0010c0f4  beq      #0x10c12c                    ; -> L_10c12c
+           0010c0f8  ldr      r0, [fp, #0x38]              
+           0010c0fc  ldr      r0, [r0]                     
+           0010c100  ldr      r0, [r0]                     
+           0010c104  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010c108  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010c10c  ldr      r1, [pc]                     
+           0010c110  b        #0x10c118                    ; -> L_10c118
+           0010c114  .word    0x00e98e34                   ; literal 15306292 / 
+L_10c118:  0010c118  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           0010c11c  cmp      r0, r1                       
+           0010c120  beq      #0x10c12c                    ; -> L_10c12c
+           0010c124  mov      r0, #0                       
+           0010c128  str      r0, [fp, #0x3c]              
+L_10c12c:  0010c12c  ldr      r0, [fp, #0x3c]              
+           0010c130  str      r0, [fp, #0x18]              
+           0010c134  ldr      r0, [fp, #0x3c]              
+           0010c138  mov      r1, r0                       
+           0010c13c  ldr      lr, [r1]                     
+           0010c140  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           0010c144  mov      r2, r0                       
+           0010c148  mov      r1, r4                       
+           0010c14c  ldr      lr, [r2]                     
+           0010c150  bl       #0x22b2d0                    ; CALL UnityEngine.Transform::set_parent
+L_10c154:  0010c154  ldr      r0, [fp, #0x14]              
+           0010c158  add      r0, r0, #1                   
+           0010c15c  str      r0, [fp, #0x14]              
+L_10c160:  0010c160  ldr      r1, [r6, #0xc]               ; field+0xc 
+           0010c164  ldr      r0, [fp, #0x14]              
+           0010c168  cmp      r0, r1                       
+           0010c16c  blt      #0x10c038                    ; -> L_10c038
+L_10c170:  0010c170  add      sp, fp, #0x6c                
+           0010c174  pop      {r4, r6, r8, sl, fp}         
+           0010c178  ldr      r7, [sp, #8]                 
+           0010c17c  ldm      sp, {sp, pc}                 
+           0010c180  mov      r1, lr                       
+           0010c184  ldr      r0, [pc]                     
+           0010c188  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0010c18c  andeq    r0, r0, #0xf8                

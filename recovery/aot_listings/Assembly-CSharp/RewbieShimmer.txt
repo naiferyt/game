@@ -1,0 +1,369 @@
+####################################################################################################
+# TYPE RewbieShimmer  (instance size 0x18)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 shimmerFrame                   int
+#   +0x14 shimmerTimer                   float
+#   vtable slots: 
+####################################################################################################
+== RewbieShimmer::.ctor  token 0x06000423 @0x000fe330 (52 bytes)
+   args: r0=this, 
+           000fe330  mov      ip, sp                       
+           000fe334  push     {r7, lr}                     
+           000fe338  mov      r7, sp                       
+           000fe33c  push     {r8, fp, ip, lr}             
+           000fe340  sub      sp, sp, #8                   
+           000fe344  mov      fp, sp                       
+           000fe348  str      r0, [fp]                     
+           000fe34c  ldr      r0, [fp]                     
+           000fe350  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000fe354  add      sp, fp, #8                   
+           000fe358  pop      {r8, fp}                     
+           000fe35c  ldr      r7, [sp, #8]                 
+           000fe360  ldm      sp, {sp, pc}                 
+
+== RewbieShimmer::Update  token 0x06000424 @0x000fe364 (672 bytes)
+   args: r0=this, 
+           000fe364  mov      ip, sp                       
+           000fe368  push     {r7, lr}                     
+           000fe36c  mov      r7, sp                       
+           000fe370  push     {r8, sl, fp, ip, lr}         
+           000fe374  sub      sp, sp, #0x44                
+           000fe378  mov      fp, sp                       
+           000fe37c  mov      sl, r0                       
+           000fe380  vldr     s4, [pc]                     ; float 2.0
+           000fe384  b        #0xfe38c                     ; -> L_fe38c
+           000fe388  .word    0x40000000                   ; literal 1073741824 / 2
+L_fe38c:   000fe38c  vcvt.f64.f32 d2, s4                       
+           000fe390  vcvt.f32.f64 s0, d2                       
+           000fe394  vstr     s0, [fp, #8]                 
+           000fe398  vldr     s4, [pc]                     ; float 6.0
+           000fe39c  b        #0xfe3a4                     ; -> L_fe3a4
+           000fe3a0  .word    0x40c00000                   ; literal 1086324736 / 6
+L_fe3a4:   000fe3a4  vcvt.f64.f32 d2, s4                       
+           000fe3a8  vcvt.f32.f64 s0, d2                       
+           000fe3ac  vstr     s0, [fp, #0xc]               
+           000fe3b0  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: shimmerTimer)
+           000fe3b4  vcvt.f64.f32 d2, s0                       
+           000fe3b8  vstr     d2, [fp, #0x38]              
+           000fe3bc  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000fe3c0  vmov     s6, r0                       
+           000fe3c4  vcvt.f64.f32 d3, s6                       
+           000fe3c8  vldr     d2, [fp, #0x38]              
+           000fe3cc  vadd.f64 d2, d2, d3                   
+           000fe3d0  vcvt.f32.f64 s0, d2                       
+           000fe3d4  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: shimmerTimer)
+           000fe3d8  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: shimmerTimer)
+           000fe3dc  vcvt.f64.f32 d3, s0                       
+           000fe3e0  vldr     s0, [fp, #0xc]               
+           000fe3e4  vcvt.f64.f32 d2, s0                       
+           000fe3e8  vcmp.f64 d2, d3                       
+           000fe3ec  vmrs     apsr_nzcv, fpscr             
+           000fe3f0  bvs      #0xfe434                     ; -> L_fe434
+           000fe3f4  bge      #0xfe434                     ; -> L_fe434
+           000fe3f8  ldr      r0, [pc]                     
+           000fe3fc  b        #0xfe404                     ; -> L_fe404
+           000fe400  .word    0x00ea74c8                   ; literal 15365320 / 
+L_fe404:   000fe404  ldr      r0, [pc, r0]                 ; GOT[731] VTABLE RewbieShimmer/<Shimmer>c__Iterator2F
+           000fe408  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000fe40c  mov      r1, r0                       
+           000fe410  str      sl, [r1, #0xc]               ; field+0xc 
+           000fe414  mov      r0, sl                       
+           000fe418  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000fe41c  vldr     s4, [pc]                     ; float 0.0
+           000fe420  b        #0xfe428                     ; -> L_fe428
+           000fe424  .word    0x00000000                   ; literal 0 / 0
+L_fe428:   000fe428  vcvt.f64.f32 d2, s4                       
+           000fe42c  vcvt.f32.f64 s0, d2                       
+           000fe430  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: shimmerTimer)
+L_fe434:   000fe434  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: shimmerFrame)
+           000fe438  cmp      r0, #0                       
+           000fe43c  blt      #0xfe468                     ; -> L_fe468
+           000fe440  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: shimmerFrame)
+           000fe444  cmp      r0, #3                       
+           000fe448  bge      #0xfe468                     ; -> L_fe468
+           000fe44c  vldr     s4, [pc]                     ; float 2.0
+           000fe450  b        #0xfe458                     ; -> L_fe458
+           000fe454  .word    0x40000000                   ; literal 1073741824 / 2
+L_fe458:   000fe458  vcvt.f64.f32 d2, s4                       
+           000fe45c  vcvt.f32.f64 s0, d2                       
+           000fe460  vstr     s0, [fp, #8]                 
+           000fe464  b        #0xfe4cc                     ; -> L_fe4cc
+L_fe468:   000fe468  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: shimmerFrame)
+           000fe46c  cmp      r0, #3                       
+           000fe470  blt      #0xfe49c                     ; -> L_fe49c
+           000fe474  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: shimmerFrame)
+           000fe478  cmp      r0, #6                       
+           000fe47c  bge      #0xfe49c                     ; -> L_fe49c
+           000fe480  vldr     s4, [pc]                     ; float 1.0
+           000fe484  b        #0xfe48c                     ; -> L_fe48c
+           000fe488  .word    0x3f800000                   ; literal 1065353216 / 1
+L_fe48c:   000fe48c  vcvt.f64.f32 d2, s4                       
+           000fe490  vcvt.f32.f64 s0, d2                       
+           000fe494  vstr     s0, [fp, #8]                 
+           000fe498  b        #0xfe4cc                     ; -> L_fe4cc
+L_fe49c:   000fe49c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: shimmerFrame)
+           000fe4a0  cmp      r0, #6                       
+           000fe4a4  blt      #0xfe4cc                     ; -> L_fe4cc
+           000fe4a8  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: shimmerFrame)
+           000fe4ac  cmp      r0, #9                       
+           000fe4b0  bge      #0xfe4cc                     ; -> L_fe4cc
+           000fe4b4  vldr     s4, [pc]                     ; float 0.0
+           000fe4b8  b        #0xfe4c0                     ; -> L_fe4c0
+           000fe4bc  .word    0x00000000                   ; literal 0 / 0
+L_fe4c0:   000fe4c0  vcvt.f64.f32 d2, s4                       
+           000fe4c4  vcvt.f32.f64 s0, d2                       
+           000fe4c8  vstr     s0, [fp, #8]                 
+L_fe4cc:   000fe4cc  vldr     s4, [pc]                     ; float 2.0
+           000fe4d0  b        #0xfe4d8                     ; -> L_fe4d8
+           000fe4d4  .word    0x40000000                   ; literal 1073741824 / 2
+L_fe4d8:   000fe4d8  vcvt.f64.f32 d2, s4                       
+           000fe4dc  vstr     d2, [fp, #0x38]              
+           000fe4e0  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: shimmerFrame)
+           000fe4e4  vmov     s0, r0                       
+           000fe4e8  vcvt.f32.s32 s0, s0                       
+           000fe4ec  vcvt.f64.f32 d3, s0                       
+           000fe4f0  vldr     s4, [pc]                     ; float 3.0
+           000fe4f4  b        #0xfe4fc                     ; -> L_fe4fc
+           000fe4f8  .word    0x40400000                   ; literal 1077936128 / 3
+L_fe4fc:   000fe4fc  vcvt.f64.f32 d2, s4                       
+           000fe500  vstr     d3, [sp, #-8]                
+           000fe504  ldr      r0, [sp, #-8]                
+           000fe508  ldr      r1, [sp, #-4]                
+           000fe50c  vstr     d2, [sp, #-8]                
+           000fe510  ldr      r2, [sp, #-8]                
+           000fe514  ldr      r3, [sp, #-4]                
+           000fe518  bl       #0x22d480                    ; CALL [INTERNAL_METHOD] __emul_frem
+           000fe51c  vmov     d3, r0, r1                   
+           000fe520  vldr     d2, [fp, #0x38]              
+           000fe524  vsub.f64 d2, d2, d3                   
+           000fe528  vcvt.f32.f64 s0, d2                       
+           000fe52c  vstr     s0, [fp, #0x10]              
+           000fe530  mov      r0, sl                       
+           000fe534  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000fe538  mov      r1, r0                       
+           000fe53c  ldr      lr, [r1]                     
+           000fe540  bl       #0x22d490                    ; CALL UnityEngine.GameObject::get_renderer
+           000fe544  mov      r1, r0                       
+           000fe548  ldr      lr, [r1]                     
+           000fe54c  bl       #0x22b890                    ; CALL UnityEngine.Renderer::get_material
+           000fe550  mov      r3, r0                       
+           000fe554  vldr     s0, [fp, #8]                 
+           000fe558  vcvt.f64.f32 d2, s0                       
+           000fe55c  vldr     s8, [pc]                     ; float 0.3333333134651184
+           000fe560  b        #0xfe568                     ; -> L_fe568
+           000fe564  .word    0x3eaaaaaa                   ; literal 1051372202 / 0.333333
+L_fe568:   000fe568  vcvt.f64.f32 d4, s8                       
+           000fe56c  vmov.f64 d3, d2                       
+           000fe570  vmul.f64 d3, d3, d4                   
+           000fe574  vldr     s0, [fp, #0x10]              
+           000fe578  vcvt.f64.f32 d2, s0                       
+           000fe57c  vldr     s8, [pc]                     ; float 0.3333333134651184
+           000fe580  b        #0xfe588                     ; -> L_fe588
+           000fe584  .word    0x3eaaaaaa                   ; literal 1051372202 / 0.333333
+L_fe588:   000fe588  vcvt.f64.f32 d4, s8                       
+           000fe58c  vmul.f64 d2, d2, d4                   
+           000fe590  mov      r0, #0                       
+           000fe594  str      r0, [fp, #0x14]              
+           000fe598  mov      r0, #0                       
+           000fe59c  str      r0, [fp, #0x18]              
+           000fe5a0  vcvt.f32.f64 s0, d3                       
+           000fe5a4  vstr     s0, [fp, #0x1c]              
+           000fe5a8  vcvt.f32.f64 s0, d2                       
+           000fe5ac  vstr     s0, [fp, #0x20]              
+           000fe5b0  vldr     s0, [fp, #0x1c]              
+           000fe5b4  vcvt.f64.f32 d2, s0                       
+           000fe5b8  vcvt.f32.f64 s0, d2                       
+           000fe5bc  vstr     s0, [fp, #0x14]              
+           000fe5c0  vldr     s0, [fp, #0x20]              
+           000fe5c4  vcvt.f64.f32 d2, s0                       
+           000fe5c8  vcvt.f32.f64 s0, d2                       
+           000fe5cc  vstr     s0, [fp, #0x18]              
+           000fe5d0  ldr      r0, [fp, #0x14]              
+           000fe5d4  str      r0, [fp, #0x2c]              
+           000fe5d8  ldr      r0, [fp, #0x18]              
+           000fe5dc  str      r0, [fp, #0x30]              
+           000fe5e0  mov      r0, r3                       
+           000fe5e4  ldr      r1, [fp, #0x2c]              
+           000fe5e8  ldr      r2, [fp, #0x30]              
+           000fe5ec  ldr      lr, [r3]                     
+           000fe5f0  bl       #0x22d4a0                    ; CALL UnityEngine.Material::set_mainTextureOffset
+           000fe5f4  add      sp, fp, #0x44                
+           000fe5f8  pop      {r8, sl, fp}                 
+           000fe5fc  ldr      r7, [sp, #8]                 
+           000fe600  ldm      sp, {sp, pc}                 
+
+== RewbieShimmer::Shimmer  token 0x06000425 @0x000fe604 (72 bytes)
+   args: r0=this, 
+           000fe604  mov      ip, sp                       
+           000fe608  push     {r7, lr}                     
+           000fe60c  mov      r7, sp                       
+           000fe610  push     {r8, fp, ip, lr}             
+           000fe614  sub      sp, sp, #8                   
+           000fe618  mov      fp, sp                       
+           000fe61c  str      r0, [fp]                     
+           000fe620  ldr      r0, [pc]                     
+           000fe624  b        #0xfe62c                     ; -> L_fe62c
+           000fe628  .word    0x00ea72a0                   ; literal 15364768 / 
+L_fe62c:   000fe62c  ldr      r0, [pc, r0]                 ; GOT[731] VTABLE RewbieShimmer/<Shimmer>c__Iterator2F
+           000fe630  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000fe634  ldr      r1, [fp]                     
+           000fe638  str      r1, [r0, #0xc]               ; field+0xc 
+           000fe63c  add      sp, fp, #8                   
+           000fe640  pop      {r8, fp}                     
+           000fe644  ldr      r7, [sp, #8]                 
+           000fe648  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE RewbieShimmer/<Shimmer>c__Iterator2F  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      RewbieShimmer
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== RewbieShimmer/<Shimmer>c__Iterator2F::.ctor  token 0x060008eb @0x0014b8f0 (44 bytes)
+   args: r0=this, 
+           0014b8f0  mov      ip, sp                       
+           0014b8f4  push     {r7, lr}                     
+           0014b8f8  mov      r7, sp                       
+           0014b8fc  push     {r8, fp, ip, lr}             
+           0014b900  sub      sp, sp, #8                   
+           0014b904  mov      fp, sp                       
+           0014b908  str      r0, [fp]                     
+           0014b90c  add      sp, fp, #8                   
+           0014b910  pop      {r8, fp}                     
+           0014b914  ldr      r7, [sp, #8]                 
+           0014b918  ldm      sp, {sp, pc}                 
+
+== RewbieShimmer/<Shimmer>c__Iterator2F::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x060008ec @0x0014b91c (52 bytes)
+   args: r0=this, 
+           0014b91c  mov      ip, sp                       
+           0014b920  push     {r7, lr}                     
+           0014b924  mov      r7, sp                       
+           0014b928  push     {r8, fp, ip, lr}             
+           0014b92c  sub      sp, sp, #8                   
+           0014b930  mov      fp, sp                       
+           0014b934  str      r0, [fp]                     
+           0014b938  ldr      r0, [fp]                     
+           0014b93c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014b940  add      sp, fp, #8                   
+           0014b944  pop      {r8, fp}                     
+           0014b948  ldr      r7, [sp, #8]                 
+           0014b94c  ldm      sp, {sp, pc}                 
+
+== RewbieShimmer/<Shimmer>c__Iterator2F::System.Collections.IEnumerator.get_Current  token 0x060008ed @0x0014b950 (52 bytes)
+   args: r0=this, 
+           0014b950  mov      ip, sp                       
+           0014b954  push     {r7, lr}                     
+           0014b958  mov      r7, sp                       
+           0014b95c  push     {r8, fp, ip, lr}             
+           0014b960  sub      sp, sp, #8                   
+           0014b964  mov      fp, sp                       
+           0014b968  str      r0, [fp]                     
+           0014b96c  ldr      r0, [fp]                     
+           0014b970  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014b974  add      sp, fp, #8                   
+           0014b978  pop      {r8, fp}                     
+           0014b97c  ldr      r7, [sp, #8]                 
+           0014b980  ldm      sp, {sp, pc}                 
+
+== RewbieShimmer/<Shimmer>c__Iterator2F::MoveNext  token 0x060008ee @0x0014b984 (252 bytes)
+   args: r0=this, 
+           0014b984  mov      ip, sp                       
+           0014b988  push     {r7, lr}                     
+           0014b98c  mov      r7, sp                       
+           0014b990  push     {r8, sl, fp, ip, lr}         
+           0014b994  sub      sp, sp, #0x14                
+           0014b998  mov      fp, sp                       
+           0014b99c  mov      sl, r0                       
+           0014b9a0  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014b9a4  mvn      r1, #0                       
+           0014b9a8  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014b9ac  str      r0, [fp, #4]                 
+           0014b9b0  cmp      r0, #2                       
+           0014b9b4  bhs      #0x14ba64                    ; -> L_14ba64
+           0014b9b8  ldr      r0, [fp, #4]                 
+           0014b9bc  lsl      r1, r0, #2                   
+           0014b9c0  ldr      r0, [pc]                     
+           0014b9c4  b        #0x14b9cc                    ; -> L_14b9cc
+           0014b9c8  .word    0x00e5afa8                   ; literal 15052712 / 
+L_14b9cc:  0014b9cc  ldr      r0, [pc, r0]                 ; GOT[1797] SWITCH switch table[2]
+           0014b9d0  add      r0, r0, r1                   
+           0014b9d4  ldr      r0, [r0]                     
+           0014b9d8  mov      pc, r0                       
+L_14b9dc:  0014b9dc  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014b9e0  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0014b9e4  add      r1, r1, #1                   
+           0014b9e8  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0014b9ec  vldr     s4, [pc]                     ; float 0.029999999329447746
+           0014b9f0  b        #0x14b9f8                    ; -> L_14b9f8
+           0014b9f4  .word    0x3cf5c28f                   ; literal 1022739087 / 0.03
+L_14b9f8:  0014b9f8  vcvt.f64.f32 d2, s4                       
+           0014b9fc  vstr     d2, [fp, #8]                 
+           0014ba00  ldr      r0, [pc]                     
+           0014ba04  b        #0x14ba0c                    ; -> L_14ba0c
+           0014ba08  .word    0x00e5adec                   ; literal 15052268 / 
+L_14ba0c:  0014ba0c  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           0014ba10  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           0014ba14  vldr     d2, [fp, #8]                 
+           0014ba18  vcvt.f32.f64 s0, d2                       
+           0014ba1c  vstr     s0, [fp]                     
+           0014ba20  vldr     s0, [fp]                     
+           0014ba24  vcvt.f64.f32 d2, s0                       
+           0014ba28  vcvt.f32.f64 s0, d2                       
+           0014ba2c  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014ba30  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           0014ba34  mov      r0, #1                       
+           0014ba38  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014ba3c  b        #0x14ba6c                    ; -> L_14ba6c
+           0014ba40  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014ba44  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0014ba48  cmp      r0, #8                       
+           0014ba4c  ble      #0x14b9dc                    ; -> L_14b9dc
+           0014ba50  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014ba54  mov      r1, #0                       
+           0014ba58  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0014ba5c  mvn      r0, #0                       
+           0014ba60  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+L_14ba64:  0014ba64  mov      r0, #0                       
+           0014ba68  b        #0x14ba70                    ; -> L_14ba70
+L_14ba6c:  0014ba6c  mov      r0, #1                       
+L_14ba70:  0014ba70  add      sp, fp, #0x14                
+           0014ba74  pop      {r8, sl, fp}                 
+           0014ba78  ldr      r7, [sp, #8]                 
+           0014ba7c  ldm      sp, {sp, pc}                 
+
+== RewbieShimmer/<Shimmer>c__Iterator2F::Dispose  token 0x060008ef @0x0014ba80 (56 bytes)
+   args: r0=this, 
+           0014ba80  mov      ip, sp                       
+           0014ba84  push     {r7, lr}                     
+           0014ba88  mov      r7, sp                       
+           0014ba8c  push     {r8, fp, ip, lr}             
+           0014ba90  sub      sp, sp, #8                   
+           0014ba94  mov      fp, sp                       
+           0014ba98  str      r0, [fp]                     
+           0014ba9c  ldr      r0, [fp]                     
+           0014baa0  mvn      r1, #0                       
+           0014baa4  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0014baa8  add      sp, fp, #8                   
+           0014baac  pop      {r8, fp}                     
+           0014bab0  ldr      r7, [sp, #8]                 
+           0014bab4  ldm      sp, {sp, pc}                 
+
+== RewbieShimmer/<Shimmer>c__Iterator2F::Reset  token 0x060008f0 @0x0014bab8 (64 bytes)
+   args: r0=this, 
+           0014bab8  mov      ip, sp                       
+           0014babc  push     {r7, lr}                     
+           0014bac0  mov      r7, sp                       
+           0014bac4  push     {r8, fp, ip, lr}             
+           0014bac8  sub      sp, sp, #8                   
+           0014bacc  mov      fp, sp                       
+           0014bad0  str      r0, [fp]                     
+           0014bad4  mov      r0, #0x49                    
+           0014bad8  add      r0, r0, #0x100               
+           0014badc  add      r0, r0, #0x2000000           
+           0014bae0  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           0014bae4  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0014bae8  add      sp, fp, #8                   
+           0014baec  pop      {r8, fp}                     
+           0014baf0  ldr      r7, [sp, #8]                 
+           0014baf4  ldm      sp, {sp, pc}                 

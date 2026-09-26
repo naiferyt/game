@@ -1,0 +1,592 @@
+####################################################################################################
+# TYPE PieLauncher  (instance size 0x24)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 piePrefab                      PieAttack
+#   +0x14 shotStart                      UnityEngine.Transform
+#   +0x18 shotEnd                        UnityEngine.Transform
+#   +0x1c rateOfFire                     float
+#   +0x20 durationOfFlight               float
+#   vtable slots: 
+####################################################################################################
+== PieLauncher::.ctor  token 0x060004f0 @0x0010bdac (100 bytes)
+   args: r0=this, 
+           0010bdac  mov      ip, sp                       
+           0010bdb0  push     {r7, lr}                     
+           0010bdb4  mov      r7, sp                       
+           0010bdb8  push     {r8, sl, fp, ip, lr}         
+           0010bdbc  sub      sp, sp, #4                   
+           0010bdc0  mov      fp, sp                       
+           0010bdc4  mov      sl, r0                       
+           0010bdc8  vldr     s4, [pc]                     ; float 1.0
+           0010bdcc  b        #0x10bdd4                    ; -> L_10bdd4
+           0010bdd0  .word    0x3f800000                   ; literal 1065353216 / 1
+L_10bdd4:  0010bdd4  vcvt.f64.f32 d2, s4                       
+           0010bdd8  vcvt.f32.f64 s0, d2                       
+           0010bddc  vstr     s0, [sl, #0x1c]              ; field+0x1c (this-class: rateOfFire)
+           0010bde0  vldr     s4, [pc]                     ; float 1.0
+           0010bde4  b        #0x10bdec                    ; -> L_10bdec
+           0010bde8  .word    0x3f800000                   ; literal 1065353216 / 1
+L_10bdec:  0010bdec  vcvt.f64.f32 d2, s4                       
+           0010bdf0  vcvt.f32.f64 s0, d2                       
+           0010bdf4  vstr     s0, [sl, #0x20]              ; field+0x20 (this-class: durationOfFlight)
+           0010bdf8  mov      r0, sl                       
+           0010bdfc  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0010be00  add      sp, fp, #4                   
+           0010be04  pop      {r8, sl, fp}                 
+           0010be08  ldr      r7, [sp, #8]                 
+           0010be0c  ldm      sp, {sp, pc}                 
+
+== PieLauncher::Start  token 0x060004f1 @0x0010be10 (72 bytes)
+   args: r0=this, 
+           0010be10  mov      ip, sp                       
+           0010be14  push     {r7, lr}                     
+           0010be18  mov      r7, sp                       
+           0010be1c  push     {r8, fp, ip, lr}             
+           0010be20  sub      sp, sp, #8                   
+           0010be24  mov      fp, sp                       
+           0010be28  str      r0, [fp]                     
+           0010be2c  ldr      r0, [pc]                     
+           0010be30  b        #0x10be38                    ; -> L_10be38
+           0010be34  .word    0x00e99cac                   ; literal 15309996 / 
+L_10be38:  0010be38  ldr      r0, [pc, r0]                 ; GOT[865] VTABLE PieLauncher/<Start>c__Iterator3B
+           0010be3c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010be40  ldr      r1, [fp]                     
+           0010be44  str      r1, [r0, #0xc]               ; field+0xc 
+           0010be48  add      sp, fp, #8                   
+           0010be4c  pop      {r8, fp}                     
+           0010be50  ldr      r7, [sp, #8]                 
+           0010be54  ldm      sp, {sp, pc}                 
+
+== PieLauncher::ShootPieCoroutine  token 0x060004f2 @0x0010be58 (72 bytes)
+   args: r0=this, 
+           0010be58  mov      ip, sp                       
+           0010be5c  push     {r7, lr}                     
+           0010be60  mov      r7, sp                       
+           0010be64  push     {r8, fp, ip, lr}             
+           0010be68  sub      sp, sp, #8                   
+           0010be6c  mov      fp, sp                       
+           0010be70  str      r0, [fp]                     
+           0010be74  ldr      r0, [pc]                     
+           0010be78  b        #0x10be80                    ; -> L_10be80
+           0010be7c  .word    0x00e99c68                   ; literal 15309928 / 
+L_10be80:  0010be80  ldr      r0, [pc, r0]                 ; GOT[866] VTABLE PieLauncher/<ShootPieCoroutine>c__Iterator3C
+           0010be84  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010be88  ldr      r1, [fp]                     
+           0010be8c  str      r1, [r0, #0x14]              ; field+0x14 (this-class: shotStart)
+           0010be90  add      sp, fp, #8                   
+           0010be94  pop      {r8, fp}                     
+           0010be98  ldr      r7, [sp, #8]                 
+           0010be9c  ldm      sp, {sp, pc}                 
+
+== PieLauncher::OnDrawGizmos  token 0x060004f3 @0x0010bea0 (156 bytes)
+   args: r0=this, 
+           0010bea0  mov      ip, sp                       
+           0010bea4  push     {r7, lr}                     
+           0010bea8  mov      r7, sp                       
+           0010beac  push     {r8, fp, ip, lr}             
+           0010beb0  sub      sp, sp, #0x78                
+           0010beb4  mov      fp, sp                       
+           0010beb8  str      r0, [fp, #0x70]              
+           0010bebc  add      r0, fp, #0x48                
+           0010bec0  bl       #0x22ae20                    ; CALL UnityEngine.Color::get_yellow
+           0010bec4  ldr      r0, [fp, #0x48]              
+           0010bec8  ldr      r1, [fp, #0x4c]              
+           0010becc  ldr      r2, [fp, #0x50]              
+           0010bed0  ldr      r3, [fp, #0x54]              
+           0010bed4  bl       #0x22a890                    ; CALL UnityEngine.Gizmos::set_color
+           0010bed8  ldr      r0, [fp, #0x70]              
+           0010bedc  ldr      r2, [r0, #0x14]              ; field+0x14 (this-class: shotStart)
+           0010bee0  add      r0, fp, #0x58                
+           0010bee4  mov      r1, r2                       
+           0010bee8  ldr      lr, [r2]                     
+           0010beec  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0010bef0  ldr      r0, [fp, #0x70]              
+           0010bef4  ldr      r2, [r0, #0x18]              ; field+0x18 (this-class: shotEnd)
+           0010bef8  add      r0, fp, #0x64                
+           0010befc  mov      r1, r2                       
+           0010bf00  ldr      lr, [r2]                     
+           0010bf04  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0010bf08  ldr      r0, [fp, #0x58]              
+           0010bf0c  ldr      r1, [fp, #0x5c]              
+           0010bf10  ldr      r2, [fp, #0x60]              
+           0010bf14  ldr      r3, [fp, #0x64]              
+           0010bf18  ldr      ip, [fp, #0x68]              
+           0010bf1c  str      ip, [sp]                     
+           0010bf20  ldr      ip, [fp, #0x6c]              
+           0010bf24  str      ip, [sp, #4]                 
+           0010bf28  bl       #0x22a8a0                    ; CALL UnityEngine.Gizmos::DrawLine
+           0010bf2c  add      sp, fp, #0x78                
+           0010bf30  pop      {r8, fp}                     
+           0010bf34  ldr      r7, [sp, #8]                 
+           0010bf38  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE PieLauncher/<Start>c__Iterator3B  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      PieLauncher
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== PieLauncher/<Start>c__Iterator3B::.ctor  token 0x06000933 @0x0014d6f0 (44 bytes)
+   args: r0=this, 
+           0014d6f0  mov      ip, sp                       
+           0014d6f4  push     {r7, lr}                     
+           0014d6f8  mov      r7, sp                       
+           0014d6fc  push     {r8, fp, ip, lr}             
+           0014d700  sub      sp, sp, #8                   
+           0014d704  mov      fp, sp                       
+           0014d708  str      r0, [fp]                     
+           0014d70c  add      sp, fp, #8                   
+           0014d710  pop      {r8, fp}                     
+           0014d714  ldr      r7, [sp, #8]                 
+           0014d718  ldm      sp, {sp, pc}                 
+
+== PieLauncher/<Start>c__Iterator3B::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x06000934 @0x0014d71c (52 bytes)
+   args: r0=this, 
+           0014d71c  mov      ip, sp                       
+           0014d720  push     {r7, lr}                     
+           0014d724  mov      r7, sp                       
+           0014d728  push     {r8, fp, ip, lr}             
+           0014d72c  sub      sp, sp, #8                   
+           0014d730  mov      fp, sp                       
+           0014d734  str      r0, [fp]                     
+           0014d738  ldr      r0, [fp]                     
+           0014d73c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014d740  add      sp, fp, #8                   
+           0014d744  pop      {r8, fp}                     
+           0014d748  ldr      r7, [sp, #8]                 
+           0014d74c  ldm      sp, {sp, pc}                 
+
+== PieLauncher/<Start>c__Iterator3B::System.Collections.IEnumerator.get_Current  token 0x06000935 @0x0014d750 (52 bytes)
+   args: r0=this, 
+           0014d750  mov      ip, sp                       
+           0014d754  push     {r7, lr}                     
+           0014d758  mov      r7, sp                       
+           0014d75c  push     {r8, fp, ip, lr}             
+           0014d760  sub      sp, sp, #8                   
+           0014d764  mov      fp, sp                       
+           0014d768  str      r0, [fp]                     
+           0014d76c  ldr      r0, [fp]                     
+           0014d770  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014d774  add      sp, fp, #8                   
+           0014d778  pop      {r8, fp}                     
+           0014d77c  ldr      r7, [sp, #8]                 
+           0014d780  ldm      sp, {sp, pc}                 
+
+== PieLauncher/<Start>c__Iterator3B::MoveNext  token 0x06000936 @0x0014d784 (256 bytes)
+   args: r0=this, 
+           0014d784  mov      ip, sp                       
+           0014d788  push     {r7, lr}                     
+           0014d78c  mov      r7, sp                       
+           0014d790  push     {r8, sl, fp, ip, lr}         
+           0014d794  sub      sp, sp, #0x1c                
+           0014d798  mov      fp, sp                       
+           0014d79c  mov      sl, r0                       
+           0014d7a0  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014d7a4  mvn      r1, #0                       
+           0014d7a8  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014d7ac  str      r0, [fp, #4]                 
+           0014d7b0  cmp      r0, #2                       
+           0014d7b4  bhs      #0x14d868                    ; -> L_14d868
+           0014d7b8  ldr      r0, [fp, #4]                 
+           0014d7bc  lsl      r1, r0, #2                   
+           0014d7c0  ldr      r0, [pc]                     
+           0014d7c4  b        #0x14d7cc                    ; -> L_14d7cc
+           0014d7c8  .word    0x00e5920c                   ; literal 15045132 / 
+L_14d7cc:  0014d7cc  ldr      r0, [pc, r0]                 ; GOT[1822] SWITCH switch table[2]
+           0014d7d0  add      r0, r0, r1                   
+           0014d7d4  ldr      r0, [r0]                     
+           0014d7d8  mov      pc, r0                       
+L_14d7dc:  0014d7dc  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014d7e0  vldr     s0, [r0, #0x1c]              ; field+0x1c 
+           0014d7e4  vcvt.f64.f32 d2, s0                       
+           0014d7e8  vstr     d2, [fp, #8]                 
+           0014d7ec  ldr      r0, [pc]                     
+           0014d7f0  b        #0x14d7f8                    ; -> L_14d7f8
+           0014d7f4  .word    0x00e59000                   ; literal 15044608 / 
+L_14d7f8:  0014d7f8  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           0014d7fc  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           0014d800  vldr     d2, [fp, #8]                 
+           0014d804  vcvt.f32.f64 s0, d2                       
+           0014d808  vstr     s0, [fp]                     
+           0014d80c  vldr     s0, [fp]                     
+           0014d810  vcvt.f64.f32 d2, s0                       
+           0014d814  vcvt.f32.f64 s0, d2                       
+           0014d818  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014d81c  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           0014d820  mov      r0, #1                       
+           0014d824  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014d828  b        #0x14d870                    ; -> L_14d870
+           0014d82c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014d830  str      r0, [fp, #0x10]              
+           0014d834  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014d838  str      r0, [fp, #0x14]              
+           0014d83c  ldr      r0, [pc]                     
+           0014d840  b        #0x14d848                    ; -> L_14d848
+           0014d844  .word    0x00e582a0                   ; literal 15041184 / 
+L_14d848:  0014d848  ldr      r0, [pc, r0]                 ; GOT[866] VTABLE PieLauncher/<ShootPieCoroutine>c__Iterator3C
+           0014d84c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0014d850  mov      r1, r0                       
+           0014d854  ldr      r0, [fp, #0x10]              
+           0014d858  ldr      r2, [fp, #0x14]              
+           0014d85c  str      r2, [r1, #0x14]              ; field+0x14 
+           0014d860  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           0014d864  b        #0x14d7dc                    ; -> L_14d7dc
+L_14d868:  0014d868  mov      r0, #0                       
+           0014d86c  b        #0x14d874                    ; -> L_14d874
+L_14d870:  0014d870  mov      r0, #1                       
+L_14d874:  0014d874  add      sp, fp, #0x1c                
+           0014d878  pop      {r8, sl, fp}                 
+           0014d87c  ldr      r7, [sp, #8]                 
+           0014d880  ldm      sp, {sp, pc}                 
+
+== PieLauncher/<Start>c__Iterator3B::Dispose  token 0x06000937 @0x0014d884 (56 bytes)
+   args: r0=this, 
+           0014d884  mov      ip, sp                       
+           0014d888  push     {r7, lr}                     
+           0014d88c  mov      r7, sp                       
+           0014d890  push     {r8, fp, ip, lr}             
+           0014d894  sub      sp, sp, #8                   
+           0014d898  mov      fp, sp                       
+           0014d89c  str      r0, [fp]                     
+           0014d8a0  ldr      r0, [fp]                     
+           0014d8a4  mvn      r1, #0                       
+           0014d8a8  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0014d8ac  add      sp, fp, #8                   
+           0014d8b0  pop      {r8, fp}                     
+           0014d8b4  ldr      r7, [sp, #8]                 
+           0014d8b8  ldm      sp, {sp, pc}                 
+
+== PieLauncher/<Start>c__Iterator3B::Reset  token 0x06000938 @0x0014d8bc (64 bytes)
+   args: r0=this, 
+           0014d8bc  mov      ip, sp                       
+           0014d8c0  push     {r7, lr}                     
+           0014d8c4  mov      r7, sp                       
+           0014d8c8  push     {r8, fp, ip, lr}             
+           0014d8cc  sub      sp, sp, #8                   
+           0014d8d0  mov      fp, sp                       
+           0014d8d4  str      r0, [fp]                     
+           0014d8d8  mov      r0, #0x49                    
+           0014d8dc  add      r0, r0, #0x100               
+           0014d8e0  add      r0, r0, #0x2000000           
+           0014d8e4  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           0014d8e8  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0014d8ec  add      sp, fp, #8                   
+           0014d8f0  pop      {r8, fp}                     
+           0014d8f4  ldr      r7, [sp, #8]                 
+           0014d8f8  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE PieLauncher/<ShootPieCoroutine>c__Iterator3C  (instance size 0x28)
+#   +0x08 <pieLogic>__0                  PieAttack
+#   +0x0c <pie>__1                       UnityEngine.Transform
+#   +0x10 $current                       object
+#   +0x14 <>f__this                      PieLauncher
+#   +0x18 <frequency>__2                 float
+#   +0x1c <t>__3                         float
+#   +0x20 <delta>__4                     float
+#   +0x24 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== PieLauncher/<ShootPieCoroutine>c__Iterator3C::.ctor  token 0x06000939 @0x0014d8fc (44 bytes)
+   args: r0=this, 
+           0014d8fc  mov      ip, sp                       
+           0014d900  push     {r7, lr}                     
+           0014d904  mov      r7, sp                       
+           0014d908  push     {r8, fp, ip, lr}             
+           0014d90c  sub      sp, sp, #8                   
+           0014d910  mov      fp, sp                       
+           0014d914  str      r0, [fp]                     
+           0014d918  add      sp, fp, #8                   
+           0014d91c  pop      {r8, fp}                     
+           0014d920  ldr      r7, [sp, #8]                 
+           0014d924  ldm      sp, {sp, pc}                 
+
+== PieLauncher/<ShootPieCoroutine>c__Iterator3C::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x0600093a @0x0014d928 (52 bytes)
+   args: r0=this, 
+           0014d928  mov      ip, sp                       
+           0014d92c  push     {r7, lr}                     
+           0014d930  mov      r7, sp                       
+           0014d934  push     {r8, fp, ip, lr}             
+           0014d938  sub      sp, sp, #8                   
+           0014d93c  mov      fp, sp                       
+           0014d940  str      r0, [fp]                     
+           0014d944  ldr      r0, [fp]                     
+           0014d948  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: $current)
+           0014d94c  add      sp, fp, #8                   
+           0014d950  pop      {r8, fp}                     
+           0014d954  ldr      r7, [sp, #8]                 
+           0014d958  ldm      sp, {sp, pc}                 
+
+== PieLauncher/<ShootPieCoroutine>c__Iterator3C::System.Collections.IEnumerator.get_Current  token 0x0600093b @0x0014d95c (52 bytes)
+   args: r0=this, 
+           0014d95c  mov      ip, sp                       
+           0014d960  push     {r7, lr}                     
+           0014d964  mov      r7, sp                       
+           0014d968  push     {r8, fp, ip, lr}             
+           0014d96c  sub      sp, sp, #8                   
+           0014d970  mov      fp, sp                       
+           0014d974  str      r0, [fp]                     
+           0014d978  ldr      r0, [fp]                     
+           0014d97c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: $current)
+           0014d980  add      sp, fp, #8                   
+           0014d984  pop      {r8, fp}                     
+           0014d988  ldr      r7, [sp, #8]                 
+           0014d98c  ldm      sp, {sp, pc}                 
+
+== PieLauncher/<ShootPieCoroutine>c__Iterator3C::MoveNext  token 0x0600093c @0x0014d990 (872 bytes)
+   args: r0=this, 
+           0014d990  mov      ip, sp                       
+           0014d994  push     {r7, lr}                     
+           0014d998  mov      r7, sp                       
+           0014d99c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0014d9a0  sub      sp, sp, #0xf8                
+           0014d9a4  mov      fp, sp                       
+           0014d9a8  mov      sl, r0                       
+           0014d9ac  mov      r0, #0                       
+           0014d9b0  str      r0, [fp, #0x10]              
+           0014d9b4  mov      r0, #0                       
+           0014d9b8  str      r0, [fp, #0x14]              
+           0014d9bc  mov      r0, #0                       
+           0014d9c0  str      r0, [fp, #0x18]              
+           0014d9c4  ldr      r0, [sl, #0x24]              ; field+0x24 (this-class: $PC)
+           0014d9c8  mvn      r1, #0                       
+           0014d9cc  str      r1, [sl, #0x24]              ; field+0x24 (this-class: $PC)
+           0014d9d0  mov      r6, r0                       
+           0014d9d4  cmp      r0, #2                       
+           0014d9d8  bhs      #0x14dcdc                    ; -> L_14dcdc
+           0014d9dc  lsl      r1, r6, #2                   
+           0014d9e0  ldr      r0, [pc]                     
+           0014d9e4  b        #0x14d9ec                    ; -> L_14d9ec
+           0014d9e8  .word    0x00e58ff0                   ; literal 15044592 / 
+L_14d9ec:  0014d9ec  ldr      r0, [pc, r0]                 ; GOT[1823] SWITCH switch table[2]
+           0014d9f0  add      r0, r0, r1                   
+           0014d9f4  ldr      r0, [r0]                     
+           0014d9f8  mov      pc, r0                       
+           0014d9fc  mov      r6, sl                       
+           0014da00  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014da04  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: $current)
+           0014da08  bl       #0x22ad70                    ; CALL UnityEngine.Object::Instantiate
+           0014da0c  mov      r5, r0                       
+           0014da10  mov      r4, r5                       
+           0014da14  cmp      r5, #0                       
+           0014da18  beq      #0x14da48                    ; -> L_14da48
+           0014da1c  ldr      r0, [r5]                     
+           0014da20  ldr      r0, [r0]                     
+           0014da24  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: <pieLogic>__0)
+           0014da28  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014da2c  ldr      r1, [pc]                     
+           0014da30  b        #0x14da38                    ; -> L_14da38
+           0014da34  .word    0x00e58fa8                   ; literal 15044520 / 
+L_14da38:  0014da38  ldr      r1, [pc, r1]                 ; GOT[1824] CLASS PieAttack
+           0014da3c  cmp      r0, r1                       
+           0014da40  beq      #0x14da48                    ; -> L_14da48
+           0014da44  mov      r4, #0                       
+L_14da48:  0014da48  str      r4, [r6, #8]                 ; field+0x8 (this-class: <pieLogic>__0)
+           0014da4c  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: <pieLogic>__0)
+           0014da50  mov      r1, #1                       
+           0014da54  strb     r1, [r0, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014da58  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: <pieLogic>__0)
+           0014da5c  mov      r0, r1                       
+           0014da60  ldr      lr, [r1]                     
+           0014da64  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0014da68  str      r0, [sl, #0xc]               ; field+0xc (this-class: <pie>__1)
+           0014da6c  str      r0, [fp, #0xec]              
+           0014da70  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014da74  ldr      r2, [r0, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014da78  add      r0, fp, #0x90                
+           0014da7c  mov      r1, r2                       
+           0014da80  ldr      lr, [r2]                     
+           0014da84  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0014da88  ldr      ip, [fp, #0xec]              
+           0014da8c  mov      r0, ip                       
+           0014da90  ldr      r1, [fp, #0x90]              
+           0014da94  ldr      r2, [fp, #0x94]              
+           0014da98  ldr      r3, [fp, #0x98]              
+           0014da9c  ldr      lr, [ip]                     
+           0014daa0  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           0014daa4  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <pie>__1)
+           0014daa8  str      r0, [fp, #0xe8]              
+           0014daac  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014dab0  ldr      r2, [r0, #0x18]              ; field+0x18 (this-class: <frequency>__2)
+           0014dab4  add      r0, fp, #0x9c                
+           0014dab8  mov      r1, r2                       
+           0014dabc  ldr      lr, [r2]                     
+           0014dac0  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0014dac4  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014dac8  ldr      r2, [r0, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014dacc  add      r0, fp, #0xa8                
+           0014dad0  mov      r1, r2                       
+           0014dad4  ldr      lr, [r2]                     
+           0014dad8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0014dadc  add      r0, fp, #0x10                
+           0014dae0  ldr      r1, [fp, #0x9c]              
+           0014dae4  ldr      r2, [fp, #0xa0]              
+           0014dae8  ldr      r3, [fp, #0xa4]              
+           0014daec  ldr      ip, [fp, #0xa8]              
+           0014daf0  str      ip, [sp]                     
+           0014daf4  ldr      ip, [fp, #0xac]              
+           0014daf8  str      ip, [sp, #4]                 
+           0014dafc  ldr      ip, [fp, #0xb0]              
+           0014db00  str      ip, [sp, #8]                 
+           0014db04  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           0014db08  add      r1, fp, #0x10                
+           0014db0c  add      r0, fp, #0xb4                
+           0014db10  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           0014db14  ldr      ip, [fp, #0xe8]              
+           0014db18  mov      r0, ip                       
+           0014db1c  ldr      r1, [fp, #0xb4]              
+           0014db20  ldr      r2, [fp, #0xb8]              
+           0014db24  ldr      r3, [fp, #0xbc]              
+           0014db28  ldr      lr, [ip]                     
+           0014db2c  bl       #0x22d7f0                    ; CALL UnityEngine.Transform::set_up
+           0014db30  vldr     s4, [pc]                     ; float 0.01666666753590107
+           0014db34  b        #0x14db3c                    ; -> L_14db3c
+           0014db38  .word    0x3c888889                   ; literal 1015580809 / 0.0166667
+L_14db3c:  0014db3c  vcvt.f64.f32 d2, s4                       
+           0014db40  vcvt.f32.f64 s0, d2                       
+           0014db44  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: <frequency>__2)
+           0014db48  vldr     s4, [pc]                     ; float 0.0
+           0014db4c  b        #0x14db54                    ; -> L_14db54
+           0014db50  .word    0x00000000                   ; literal 0 / 0
+L_14db54:  0014db54  vcvt.f64.f32 d2, s4                       
+           0014db58  vcvt.f32.f64 s0, d2                       
+           0014db5c  vstr     s0, [sl, #0x1c]              ; field+0x1c (this-class: <t>__3)
+           0014db60  b        #0x14dc90                    ; -> L_14dc90
+L_14db64:  0014db64  vldr     s0, [sl, #0x1c]              ; field+0x1c (this-class: <t>__3)
+           0014db68  vcvt.f64.f32 d2, s0                       
+           0014db6c  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014db70  vldr     s0, [r0, #0x20]              ; field+0x20 (this-class: <delta>__4)
+           0014db74  vcvt.f64.f32 d3, s0                       
+           0014db78  vdiv.f64 d2, d2, d3                   
+           0014db7c  vcvt.f32.f64 s0, d2                       
+           0014db80  vstr     s0, [sl, #0x20]              ; field+0x20 (this-class: <delta>__4)
+           0014db84  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <pie>__1)
+           0014db88  mov      r1, #0                       
+           0014db8c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0014db90  cmp      r0, #0                       
+           0014db94  beq      #0x14dcb0                    ; -> L_14dcb0
+           0014db98  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <pie>__1)
+           0014db9c  str      r0, [fp, #0xec]              
+           0014dba0  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014dba4  ldr      r2, [r0, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014dba8  add      r0, fp, #0xc0                
+           0014dbac  mov      r1, r2                       
+           0014dbb0  ldr      lr, [r2]                     
+           0014dbb4  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0014dbb8  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014dbbc  ldr      r2, [r0, #0x18]              ; field+0x18 (this-class: <frequency>__2)
+           0014dbc0  add      r0, fp, #0xcc                
+           0014dbc4  mov      r1, r2                       
+           0014dbc8  ldr      lr, [r2]                     
+           0014dbcc  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0014dbd0  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: <delta>__4)
+           0014dbd4  vcvt.f64.f32 d2, s0                       
+           0014dbd8  add      r0, fp, #0xd8                
+           0014dbdc  ldr      r1, [fp, #0xc0]              
+           0014dbe0  ldr      r2, [fp, #0xc4]              
+           0014dbe4  ldr      r3, [fp, #0xc8]              
+           0014dbe8  ldr      ip, [fp, #0xcc]              
+           0014dbec  str      ip, [sp]                     
+           0014dbf0  ldr      ip, [fp, #0xd0]              
+           0014dbf4  str      ip, [sp, #4]                 
+           0014dbf8  ldr      ip, [fp, #0xd4]              
+           0014dbfc  str      ip, [sp, #8]                 
+           0014dc00  vcvt.f32.f64 s0, d2                       
+           0014dc04  vstr     s0, [sp, #0xc]               
+           0014dc08  bl       #0x22ba70                    ; CALL UnityEngine.Vector3::Slerp
+           0014dc0c  ldr      ip, [fp, #0xec]              
+           0014dc10  mov      r0, ip                       
+           0014dc14  ldr      r1, [fp, #0xd8]              
+           0014dc18  ldr      r2, [fp, #0xdc]              
+           0014dc1c  ldr      r3, [fp, #0xe0]              
+           0014dc20  ldr      lr, [ip]                     
+           0014dc24  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           0014dc28  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: <frequency>__2)
+           0014dc2c  vcvt.f64.f32 d2, s0                       
+           0014dc30  vstr     d2, [fp, #0xf0]              
+           0014dc34  ldr      r0, [pc]                     
+           0014dc38  b        #0x14dc40                    ; -> L_14dc40
+           0014dc3c  .word    0x00e58bb8                   ; literal 15043512 / 
+L_14dc40:  0014dc40  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           0014dc44  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           0014dc48  vldr     d2, [fp, #0xf0]              
+           0014dc4c  vcvt.f32.f64 s0, d2                       
+           0014dc50  vstr     s0, [fp, #0x8c]              
+           0014dc54  vldr     s0, [fp, #0x8c]              
+           0014dc58  vcvt.f64.f32 d2, s0                       
+           0014dc5c  vcvt.f32.f64 s0, d2                       
+           0014dc60  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: <pieLogic>__0)
+           0014dc64  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $current)
+           0014dc68  mov      r0, #1                       
+           0014dc6c  str      r0, [sl, #0x24]              ; field+0x24 (this-class: $PC)
+           0014dc70  b        #0x14dce4                    ; -> L_14dce4
+           0014dc74  vldr     s0, [sl, #0x1c]              ; field+0x1c (this-class: <t>__3)
+           0014dc78  vcvt.f64.f32 d2, s0                       
+           0014dc7c  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: <frequency>__2)
+           0014dc80  vcvt.f64.f32 d3, s0                       
+           0014dc84  vadd.f64 d2, d2, d3                   
+           0014dc88  vcvt.f32.f64 s0, d2                       
+           0014dc8c  vstr     s0, [sl, #0x1c]              ; field+0x1c (this-class: <t>__3)
+L_14dc90:  0014dc90  vldr     s0, [sl, #0x1c]              ; field+0x1c (this-class: <t>__3)
+           0014dc94  vcvt.f64.f32 d3, s0                       
+           0014dc98  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: <>f__this)
+           0014dc9c  vldr     s0, [r0, #0x20]              ; field+0x20 (this-class: <delta>__4)
+           0014dca0  vcvt.f64.f32 d2, s0                       
+           0014dca4  vcmp.f64 d2, d3                       
+           0014dca8  vmrs     apsr_nzcv, fpscr             
+           0014dcac  bge      #0x14db64                    ; -> L_14db64
+L_14dcb0:  0014dcb0  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: <pieLogic>__0)
+           0014dcb4  mov      r1, #0                       
+           0014dcb8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0014dcbc  cmp      r0, #0                       
+           0014dcc0  beq      #0x14dcd4                    ; -> L_14dcd4
+           0014dcc4  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: <pieLogic>__0)
+           0014dcc8  mov      r0, r1                       
+           0014dccc  ldr      lr, [r1]                     
+           0014dcd0  bl       #0x22db50                    ; CALL PieAttack::Explode
+L_14dcd4:  0014dcd4  mvn      r0, #0                       
+           0014dcd8  str      r0, [sl, #0x24]              ; field+0x24 (this-class: $PC)
+L_14dcdc:  0014dcdc  mov      r0, #0                       
+           0014dce0  b        #0x14dce8                    ; -> L_14dce8
+L_14dce4:  0014dce4  mov      r0, #1                       
+L_14dce8:  0014dce8  add      sp, fp, #0xf8                
+           0014dcec  pop      {r4, r5, r6, r8, sl, fp}     
+           0014dcf0  ldr      r7, [sp, #8]                 
+           0014dcf4  ldm      sp, {sp, pc}                 
+
+== PieLauncher/<ShootPieCoroutine>c__Iterator3C::Dispose  token 0x0600093d @0x0014dcf8 (56 bytes)
+   args: r0=this, 
+           0014dcf8  mov      ip, sp                       
+           0014dcfc  push     {r7, lr}                     
+           0014dd00  mov      r7, sp                       
+           0014dd04  push     {r8, fp, ip, lr}             
+           0014dd08  sub      sp, sp, #8                   
+           0014dd0c  mov      fp, sp                       
+           0014dd10  str      r0, [fp]                     
+           0014dd14  ldr      r0, [fp]                     
+           0014dd18  mvn      r1, #0                       
+           0014dd1c  str      r1, [r0, #0x24]              ; field+0x24 (this-class: $PC)
+           0014dd20  add      sp, fp, #8                   
+           0014dd24  pop      {r8, fp}                     
+           0014dd28  ldr      r7, [sp, #8]                 
+           0014dd2c  ldm      sp, {sp, pc}                 
+
+== PieLauncher/<ShootPieCoroutine>c__Iterator3C::Reset  token 0x0600093e @0x0014dd30 (64 bytes)
+   args: r0=this, 
+           0014dd30  mov      ip, sp                       
+           0014dd34  push     {r7, lr}                     
+           0014dd38  mov      r7, sp                       
+           0014dd3c  push     {r8, fp, ip, lr}             
+           0014dd40  sub      sp, sp, #8                   
+           0014dd44  mov      fp, sp                       
+           0014dd48  str      r0, [fp]                     
+           0014dd4c  mov      r0, #0x49                    
+           0014dd50  add      r0, r0, #0x100               
+           0014dd54  add      r0, r0, #0x2000000           
+           0014dd58  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           0014dd5c  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0014dd60  add      sp, fp, #8                   
+           0014dd64  pop      {r8, fp}                     
+           0014dd68  ldr      r7, [sp, #8]                 
+           0014dd6c  ldm      sp, {sp, pc}                 

@@ -1,0 +1,586 @@
+####################################################################################################
+# TYPE RewindDialogPublisher  (instance size 0x48)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 transformReferences            UghPublisher/TransformReference[]
+#   +0x14 transformsDictionary           UghPublisher/TransformsDictionary
+#   +0x18 ughTextReferences              UghPublisher/UghTextReference[]
+#   +0x1c ughTextsDictionary             UghPublisher/UghTextsDictionary
+#   +0x20 ledScrollerReferences          UghPublisher/LEDScrollerReference[]
+#   +0x24 ledScrollersDictionary         UghPublisher/LEDScrollersDictionary
+#   +0x28 ughButtonReferences            UghPublisher/UghButtonReference[]
+#   +0x2c ughButtonsDictionary           UghPublisher/UghButtonsDictionary
+#   +0x30 ughSlideToggleReferences       UghPublisher/UghSlideToggleReference[]
+#   +0x34 ughSlideTogglesDictionary      UghPublisher/UghSlideToggleDictionary
+#   +0x38 ughSliderReferences            UghPublisher/UghSliderReference[]
+#   +0x3c ughSlidersDictionary           UghPublisher/UghSliderDictionary
+#   +0x40 ughSprites                     System.Collections.Generic.List`1<UghSprite>
+#   +0x44 amountToDeduct                 int
+#   static int REWIND_COST  = const f4010000
+#   vtable slots: 
+####################################################################################################
+== RewindDialogPublisher::.ctor  token 0x060007a7 @0x0013fe08 (52 bytes)
+   args: r0=this, 
+           0013fe08  mov      ip, sp                       
+           0013fe0c  push     {r7, lr}                     
+           0013fe10  mov      r7, sp                       
+           0013fe14  push     {r8, fp, ip, lr}             
+           0013fe18  sub      sp, sp, #8                   
+           0013fe1c  mov      fp, sp                       
+           0013fe20  str      r0, [fp]                     
+           0013fe24  ldr      r0, [fp]                     
+           0013fe28  bl       #0x22e1d0                    ; CALL UghPublisher::.ctor
+           0013fe2c  add      sp, fp, #8                   
+           0013fe30  pop      {r8, fp}                     
+           0013fe34  ldr      r7, [sp, #8]                 
+           0013fe38  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher::get_RewindCost  token 0x060007a8 @0x0013fe3c (40 bytes) static
+   args: 
+           0013fe3c  mov      ip, sp                       
+           0013fe40  push     {r7, lr}                     
+           0013fe44  mov      r7, sp                       
+           0013fe48  push     {r8, fp, ip, lr}             
+           0013fe4c  mov      fp, sp                       
+           0013fe50  mov      r0, #0x1f4                   
+           0013fe54  add      sp, fp, #0                   
+           0013fe58  pop      {r8, fp}                     
+           0013fe5c  ldr      r7, [sp, #8]                 
+           0013fe60  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher::Start  token 0x060007a9 @0x0013fe64 (396 bytes)
+   args: r0=this, 
+           0013fe64  mov      ip, sp                       
+           0013fe68  push     {r7, lr}                     
+           0013fe6c  mov      r7, sp                       
+           0013fe70  push     {r8, fp, ip, lr}             
+           0013fe74  sub      sp, sp, #0x20                
+           0013fe78  mov      fp, sp                       
+           0013fe7c  str      r0, [fp, #0x14]              
+           0013fe80  vldr     d2, [pc]                     
+           0013fe84  b        #0x13fe90                    ; -> L_13fe90
+           0013fe88  andeq    r0, r0, r0                   
+           0013fe8c  andeq    r0, r0, r0                   
+L_13fe90:  0013fe90  vcvt.f32.f64 s0, d2                       
+           0013fe94  vstr     s0, [fp]                     
+           0013fe98  vldr     d2, [pc]                     
+           0013fe9c  b        #0x13fea8                    ; -> L_13fea8
+           0013fea0  andeq    r0, r0, r0                   
+           0013fea4  andeq    r0, r0, r0                   
+L_13fea8:  0013fea8  vcvt.f32.f64 s0, d2                       
+           0013feac  vstr     s0, [fp, #4]                 
+           0013feb0  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0013feb4  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0013feb8  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           0013febc  vmov     s0, r0                       
+           0013fec0  vcvt.f32.s32 s0, s0                       
+           0013fec4  vcvt.f64.f32 d2, s0                       
+           0013fec8  vcvt.f32.f64 s0, d2                       
+           0013fecc  vstr     s0, [fp]                     
+           0013fed0  vldr     s0, [fp]                     
+           0013fed4  vcvt.f64.f32 d3, s0                       
+           0013fed8  vldr     s4, [pc]                     ; float 999999.0
+           0013fedc  b        #0x13fee4                    ; -> L_13fee4
+           0013fee0  .word    0x497423f0                   ; literal 1232348144 / 999999
+L_13fee4:  0013fee4  vcvt.f64.f32 d2, s4                       
+           0013fee8  vcmp.f64 d2, d3                       
+           0013feec  vmrs     apsr_nzcv, fpscr             
+           0013fef0  bvs      #0x13ff98                    ; -> L_13ff98
+           0013fef4  bge      #0x13ff98                    ; -> L_13ff98
+           0013fef8  ldr      r0, [fp, #0x14]              
+           0013fefc  ldr      r2, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0013ff00  ldr      r1, [pc]                     
+           0013ff04  b        #0x13ff0c                    ; -> L_13ff0c
+           0013ff08  .word    0x00e65fe8                   ; literal 15097832 / 
+L_13ff0c:  0013ff0c  ldr      r1, [pc, r1]                 ; GOT[1125] LDSTR 'Coins'
+           0013ff10  mov      r0, r2                       
+           0013ff14  ldr      lr, [r2]                     
+           0013ff18  bl       #0x22e1e0                    ; CALL UghPublisher/UghTextsDictionary::get_Item
+           0013ff1c  str      r0, [fp, #0x18]              
+           0013ff20  vldr     s0, [fp]                     
+           0013ff24  vcvt.f64.f32 d2, s0                       
+           0013ff28  vldr     s6, [pc]                     ; float 1000000.0
+           0013ff2c  b        #0x13ff34                    ; -> L_13ff34
+           0013ff30  .word    0x49742400                   ; literal 1232348160 / 1e+06
+L_13ff34:  0013ff34  vcvt.f64.f32 d3, s6                       
+           0013ff38  vdiv.f64 d2, d2, d3                   
+           0013ff3c  vcvt.f32.f64 s0, d2                       
+           0013ff40  vstr     s0, [fp, #4]                 
+           0013ff44  add      r0, fp, #4                   
+           0013ff48  ldr      r1, [pc]                     
+           0013ff4c  b        #0x13ff54                    ; -> L_13ff54
+           0013ff50  .word    0x00e66144                   ; literal 15098180 / 
+L_13ff54:  0013ff54  ldr      r1, [pc, r1]                 ; GOT[1230] LDSTR 'F1'
+           0013ff58  bl       #0x22e5b0                    ; CALL System.Single::ToString
+           0013ff5c  str      r0, [fp, #0x1c]              
+           0013ff60  ldr      r0, [pc]                     
+           0013ff64  b        #0x13ff6c                    ; -> L_13ff6c
+           0013ff68  .word    0x00e66130                   ; literal 15098160 / 
+L_13ff6c:  0013ff6c  ldr      r0, [pc, r0]                 ; GOT[1231] LDSTR ' M'
+           0013ff70  bl       #0x22e530                    ; CALL Localize::Get
+           0013ff74  mov      r1, r0                       
+           0013ff78  ldr      r0, [fp, #0x1c]              
+           0013ff7c  bl       #0x22adc0                    ; CALL System.String::Concat
+           0013ff80  mov      r1, r0                       
+           0013ff84  ldr      r2, [fp, #0x18]              
+           0013ff88  mov      r0, r2                       
+           0013ff8c  ldr      lr, [r2]                     
+           0013ff90  bl       #0x22e290                    ; CALL UghText::set_Text
+           0013ff94  b        #0x13ffdc                    ; -> L_13ffdc
+L_13ff98:  0013ff98  ldr      r0, [fp, #0x14]              
+           0013ff9c  ldr      r2, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           0013ffa0  ldr      r1, [pc]                     
+           0013ffa4  b        #0x13ffac                    ; -> L_13ffac
+           0013ffa8  .word    0x00e65f48                   ; literal 15097672 / 
+L_13ffac:  0013ffac  ldr      r1, [pc, r1]                 ; GOT[1125] LDSTR 'Coins'
+           0013ffb0  mov      r0, r2                       
+           0013ffb4  ldr      lr, [r2]                     
+           0013ffb8  bl       #0x22e1e0                    ; CALL UghPublisher/UghTextsDictionary::get_Item
+           0013ffbc  str      r0, [fp, #0x18]              
+           0013ffc0  mov      r0, fp                       
+           0013ffc4  bl       #0x22c3f0                    ; CALL System.Single::ToString
+           0013ffc8  mov      r1, r0                       
+           0013ffcc  ldr      r2, [fp, #0x18]              
+           0013ffd0  mov      r0, r2                       
+           0013ffd4  ldr      lr, [r2]                     
+           0013ffd8  bl       #0x22e290                    ; CALL UghText::set_Text
+L_13ffdc:  0013ffdc  bl       #0x22e230                    ; CALL SoundLibrary::PlayRandomWhoosh
+           0013ffe0  add      sp, fp, #0x20                
+           0013ffe4  pop      {r8, fp}                     
+           0013ffe8  ldr      r7, [sp, #8]                 
+           0013ffec  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher::PressedExit  token 0x060007aa @0x0013fff0 (100 bytes)
+   args: r0=this, 
+           0013fff0  mov      ip, sp                       
+           0013fff4  push     {r7, lr}                     
+           0013fff8  mov      r7, sp                       
+           0013fffc  push     {r8, fp, ip, lr}             
+           00140000  sub      sp, sp, #8                   
+           00140004  mov      fp, sp                       
+           00140008  str      r0, [fp]                     
+           0014000c  ldr      r0, [pc]                     
+           00140010  b        #0x140018                    ; -> L_140018
+           00140014  .word    0x00e65ea0                   ; literal 15097504 / 
+L_140018:  00140018  ldr      r0, [pc, r0]                 ; GOT[1110] LDSTR 'menuButton1'
+           0014001c  bl       #0x22cca0                    ; CALL SoundLibrary::ButtonClickPlay
+           00140020  ldr      r0, [pc]                     
+           00140024  b        #0x14002c                    ; -> L_14002c
+           00140028  .word    0x00e66788                   ; literal 15099784 / 
+L_14002c:  0014002c  ldr      r0, [pc, r0]                 ; GOT[1685] VTABLE RewindDialogPublisher/<DestroyThis>c__Iterator8B
+           00140030  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00140034  mov      r1, r0                       
+           00140038  ldr      r0, [fp]                     
+           0014003c  str      r0, [r1, #0x10]              ; field+0x10 (this-class: transformReferences)
+           00140040  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           00140044  add      sp, fp, #8                   
+           00140048  pop      {r8, fp}                     
+           0014004c  ldr      r7, [sp, #8]                 
+           00140050  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher::PressedBuy  token 0x060007ab @0x00140054 (404 bytes)
+   args: r0=this, 
+           00140054  mov      ip, sp                       
+           00140058  push     {r7, lr}                     
+           0014005c  mov      r7, sp                       
+           00140060  push     {r5, r8, sl, fp, ip, lr}     
+           00140064  sub      sp, sp, #0x18                
+           00140068  mov      fp, sp                       
+           0014006c  mov      sl, r0                       
+           00140070  mov      r0, sl                       
+           00140074  bl       #0x1401e8                    ; CALL RewindDialogPublisher::MoneyCheck (direct)
+           00140078  cmp      r0, #0                       
+           0014007c  beq      #0x1401d0                    ; -> L_1401d0
+           00140080  ldr      r0, [sl, #0x44]              ; field+0x44 (this-class: amountToDeduct)
+           00140084  add      r0, r0, #0x1f4               
+           00140088  str      r0, [fp]                     
+           0014008c  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00140090  mov      r2, r0                       
+           00140094  ldr      r0, [fp]                     
+           00140098  rsb      r1, r0, #0                   
+           0014009c  mov      r0, r2                       
+           001400a0  ldr      lr, [r2]                     
+           001400a4  bl       #0xe7e7c                     ; CALL DataUtility::AddPlayerMoney (direct)
+           001400a8  ldr      r0, [pc]                     
+           001400ac  b        #0x1400b4                    ; -> L_1400b4
+           001400b0  .word    0x00e64f58                   ; literal 15093592 / 
+L_1400b4:  001400b4  ldr      r0, [pc, r0]                 ; GOT[171] VTABLE System.Collections.Hashtable
+           001400b8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           001400bc  str      r0, [fp, #0x14]              
+           001400c0  bl       #0x22b6d0                    ; CALL System.Collections.Hashtable::.ctor
+           001400c4  ldr      r0, [fp, #0x14]              
+           001400c8  mov      r5, r0                       
+           001400cc  str      r0, [fp, #0x10]              
+           001400d0  ldr      r0, [pc]                     
+           001400d4  b        #0x1400dc                    ; -> L_1400dc
+           001400d8  .word    0x00e64f38                   ; literal 15093560 / 
+L_1400dc:  001400dc  ldr      r0, [pc, r0]                 ; GOT[173] LDSTR 'player_id'
+           001400e0  str      r0, [fp, #0xc]               
+           001400e4  bl       #0x22b6f0                    ; CALL UnityEngine.SystemInfo::get_deviceUniqueIdentifier
+           001400e8  mov      r2, r0                       
+           001400ec  ldr      r1, [fp, #0xc]               
+           001400f0  ldr      r3, [fp, #0x10]              
+           001400f4  mov      r0, r3                       
+           001400f8  ldr      r3, [r3]                     
+           001400fc  mov      lr, pc                       
+           00140100  ldr      pc, [r3, #0xa8]              ; VIRTUAL CALL slot +0xa8: System.Enum::System.IConvertible.ToInt64
+           00140104  ldr      r1, [pc]                     
+           00140108  b        #0x140110                    ; -> L_140110
+           0014010c  .word    0x00e64f08                   ; literal 15093512 / 
+L_140110:  00140110  ldr      r1, [pc, r1]                 ; GOT[174] LDSTR 'context'
+           00140114  ldr      r2, [pc]                     
+           00140118  b        #0x140120                    ; -> L_140120
+           0014011c  .word    0x00e65b18                   ; literal 15096600 / 
+L_140120:  00140120  ldr      r2, [pc, r2]                 ; GOT[950] LDSTR 'race'
+           00140124  mov      r0, r5                       
+           00140128  ldr      r3, [r5]                     
+           0014012c  mov      lr, pc                       
+           00140130  ldr      pc, [r3, #0xa8]              ; VIRTUAL CALL slot +0xa8: System.Enum::System.IConvertible.ToInt64
+           00140134  ldr      r1, [pc]                     
+           00140138  b        #0x140140                    ; -> L_140140
+           0014013c  .word    0x00e64ee0                   ; literal 15093472 / 
+L_140140:  00140140  ldr      r1, [pc, r1]                 ; GOT[176] LDSTR 'action'
+           00140144  ldr      r2, [pc]                     
+           00140148  b        #0x140150                    ; -> L_140150
+           0014014c  .word    0x00e66668                   ; literal 15099496 / 
+L_140150:  00140150  ldr      r2, [pc, r2]                 ; GOT[1686] LDSTR 'buy rewind'
+           00140154  mov      r0, r5                       
+           00140158  ldr      r3, [r5]                     
+           0014015c  mov      lr, pc                       
+           00140160  ldr      pc, [r3, #0xa8]              ; VIRTUAL CALL slot +0xa8: System.Enum::System.IConvertible.ToInt64
+           00140164  ldr      r0, [pc]                     
+           00140168  b        #0x140170                    ; -> L_140170
+           0014016c  .word    0x00e64eb8                   ; literal 15093432 / 
+L_140170:  00140170  ldr      r0, [pc, r0]                 ; GOT[178] LDSTR 'type'
+           00140174  str      r0, [fp, #8]                 
+           00140178  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           0014017c  ldr      r1, [fp, #8]                 
+           00140180  mov      r2, r0                       
+           00140184  ldr      lr, [r2]                     
+           00140188  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0014018c  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           00140190  mov      r2, r0                       
+           00140194  ldr      lr, [r2]                     
+           00140198  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0014019c  mov      r0, r5                       
+           001401a0  ldr      r3, [r5]                     
+           001401a4  mov      lr, pc                       
+           001401a8  ldr      pc, [r3, #0xa8]              ; VIRTUAL CALL slot +0xa8: System.Enum::System.IConvertible.ToInt64
+           001401ac  ldr      r0, [pc]                     
+           001401b0  b        #0x1401b8                    ; -> L_1401b8
+           001401b4  .word    0x00e64e74                   ; literal 15093364 / 
+L_1401b8:  001401b8  ldr      r0, [pc, r0]                 ; GOT[179] LDSTR 'game_action'
+           001401bc  mov      r1, r5                       
+           001401c0  bl       #0xffc14                     ; CALL GDMOManager::SendWithContext (direct)
+           001401c4  mov      r0, sl                       
+           001401c8  bl       #0x22f3d0                    ; CALL RewindDialogPublisher::FinalizedRewind
+           001401cc  b        #0x1401d8                    ; -> L_1401d8
+L_1401d0:  001401d0  mov      r0, sl                       
+           001401d4  bl       #0x22f3e0                    ; CALL RewindDialogPublisher::NeedMoreCoins
+L_1401d8:  001401d8  add      sp, fp, #0x18                
+           001401dc  pop      {r5, r8, sl, fp}             
+           001401e0  ldr      r7, [sp, #8]                 
+           001401e4  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher::MoneyCheck  token 0x060007ac @0x001401e8 (84 bytes)
+   args: r0=this, 
+           001401e8  mov      ip, sp                       
+           001401ec  push     {r7, lr}                     
+           001401f0  mov      r7, sp                       
+           001401f4  push     {r8, fp, ip, lr}             
+           001401f8  sub      sp, sp, #8                   
+           001401fc  mov      fp, sp                       
+           00140200  str      r0, [fp]                     
+           00140204  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00140208  mov      r1, r0                       
+           0014020c  ldr      lr, [r1]                     
+           00140210  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           00140214  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           00140218  cmp      r0, #0x1f4                   
+           0014021c  blt      #0x140228                    ; -> L_140228
+           00140220  mov      r0, #1                       
+           00140224  b        #0x14022c                    ; -> L_14022c
+L_140228:  00140228  mov      r0, #0                       
+L_14022c:  0014022c  add      sp, fp, #8                   
+           00140230  pop      {r8, fp}                     
+           00140234  ldr      r7, [sp, #8]                 
+           00140238  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher::NeedMoreCoins  token 0x060007ad @0x0014023c (168 bytes)
+   args: r0=this, 
+           0014023c  mov      ip, sp                       
+           00140240  push     {r7, lr}                     
+           00140244  mov      r7, sp                       
+           00140248  push     {r8, fp, ip, lr}             
+           0014024c  sub      sp, sp, #0x18                
+           00140250  mov      fp, sp                       
+           00140254  str      r0, [fp]                     
+           00140258  ldr      r0, [pc]                     
+           0014025c  b        #0x140264                    ; -> L_140264
+           00140260  .word    0x00e66558                   ; literal 15099224 / 
+L_140264:  00140264  ldr      r0, [pc, r0]                 ; GOT[1687] LDSTR 'You have '
+           00140268  bl       #0x22e530                    ; CALL Localize::Get
+           0014026c  str      r0, [fp, #8]                 
+           00140270  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00140274  mov      r1, r0                       
+           00140278  ldr      lr, [r1]                     
+           0014027c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           00140280  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           00140284  str      r0, [fp, #0x10]              
+           00140288  ldr      r0, [pc]                     
+           0014028c  b        #0x140294                    ; -> L_140294
+           00140290  .word    0x00e64b0c                   ; literal 15092492 / 
+L_140294:  00140294  ldr      r0, [pc, r0]                 ; GOT[16] VTABLE System.Int32
+           00140298  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0014029c  ldr      r1, [fp, #0x10]              
+           001402a0  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001402a4  str      r0, [fp, #0xc]               
+           001402a8  ldr      r0, [pc]                     
+           001402ac  b        #0x1402b4                    ; -> L_1402b4
+           001402b0  .word    0x00e6650c                   ; literal 15099148 / 
+L_1402b4:  001402b4  ldr      r0, [pc, r0]                 ; GOT[1688] LDSTR ', and need '
+           001402b8  bl       #0x22e530                    ; CALL Localize::Get
+           001402bc  mov      r2, r0                       
+           001402c0  ldr      r0, [fp, #8]                 
+           001402c4  ldr      r1, [fp, #0xc]               
+           001402c8  bl       #0x22b5f0                    ; CALL System.String::Concat
+           001402cc  mov      r1, #0x1f4                   
+           001402d0  bl       #0x22f3f0                    ; CALL RaceResultsPublisher::NeedMoreCoins
+           001402d4  add      sp, fp, #0x18                
+           001402d8  pop      {r8, fp}                     
+           001402dc  ldr      r7, [sp, #8]                 
+           001402e0  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher::FinalizedRewind  token 0x060007ae @0x001402e4 (132 bytes)
+   args: r0=this, 
+           001402e4  mov      ip, sp                       
+           001402e8  push     {r7, lr}                     
+           001402ec  mov      r7, sp                       
+           001402f0  push     {r8, fp, ip, lr}             
+           001402f4  sub      sp, sp, #0x10                
+           001402f8  mov      fp, sp                       
+           001402fc  str      r0, [fp]                     
+           00140300  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00140304  mov      r1, r0                       
+           00140308  ldr      lr, [r1]                     
+           0014030c  ldr      r0, [r0, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           00140310  str      r0, [fp, #8]                 
+           00140314  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00140318  mov      r1, r0                       
+           0014031c  ldr      r0, [fp, #8]                 
+           00140320  mov      r2, r1                       
+           00140324  ldr      lr, [r2]                     
+           00140328  ldr      r1, [r1, #0x24]              ; field+0x24 (this-class: ledScrollersDictionary)
+           0014032c  ldr      r1, [r1, #0x28]              ; field+0x28 (this-class: ughButtonReferences)
+           00140330  str      r1, [r0, #0x34]              ; field+0x34 (this-class: ughSlideTogglesDictionary)
+           00140334  bl       #0x22dbd0                    ; CALL ScreenFader::get_Instance
+           00140338  mov      r2, r0                       
+           0014033c  ldr      r1, [pc]                     
+           00140340  b        #0x140348                    ; -> L_140348
+           00140344  .word    0x00e65810                   ; literal 15095824 / 
+L_140348:  00140348  ldr      r1, [pc, r1]                 ; GOT[894] LDSTR 'Loading'
+           0014034c  mov      r0, r2                       
+           00140350  ldr      lr, [r2]                     
+           00140354  bl       #0x22e2a0                    ; CALL ScreenFader::LoadLevel
+           00140358  add      sp, fp, #0x10                
+           0014035c  pop      {r8, fp}                     
+           00140360  ldr      r7, [sp, #8]                 
+           00140364  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher::DestroyThis  token 0x060007af @0x00140368 (72 bytes)
+   args: r0=this, 
+           00140368  mov      ip, sp                       
+           0014036c  push     {r7, lr}                     
+           00140370  mov      r7, sp                       
+           00140374  push     {r8, fp, ip, lr}             
+           00140378  sub      sp, sp, #8                   
+           0014037c  mov      fp, sp                       
+           00140380  str      r0, [fp]                     
+           00140384  ldr      r0, [pc]                     
+           00140388  b        #0x140390                    ; -> L_140390
+           0014038c  .word    0x00e66424                   ; literal 15098916 / 
+L_140390:  00140390  ldr      r0, [pc, r0]                 ; GOT[1685] VTABLE RewindDialogPublisher/<DestroyThis>c__Iterator8B
+           00140394  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00140398  ldr      r1, [fp]                     
+           0014039c  str      r1, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           001403a0  add      sp, fp, #8                   
+           001403a4  pop      {r8, fp}                     
+           001403a8  ldr      r7, [sp, #8]                 
+           001403ac  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE RewindDialogPublisher/<DestroyThis>c__Iterator8B  (instance size 0x18)
+#   +0x08 <anim>__0                      UnityEngine.Animation
+#   +0x0c $current                       object
+#   +0x10 <>f__this                      RewindDialogPublisher
+#   +0x14 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== RewindDialogPublisher/<DestroyThis>c__Iterator8B::.ctor  token 0x06000b1b @0x00165b78 (44 bytes)
+   args: r0=this, 
+           00165b78  mov      ip, sp                       
+           00165b7c  push     {r7, lr}                     
+           00165b80  mov      r7, sp                       
+           00165b84  push     {r8, fp, ip, lr}             
+           00165b88  sub      sp, sp, #8                   
+           00165b8c  mov      fp, sp                       
+           00165b90  str      r0, [fp]                     
+           00165b94  add      sp, fp, #8                   
+           00165b98  pop      {r8, fp}                     
+           00165b9c  ldr      r7, [sp, #8]                 
+           00165ba0  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher/<DestroyThis>c__Iterator8B::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x06000b1c @0x00165ba4 (52 bytes)
+   args: r0=this, 
+           00165ba4  mov      ip, sp                       
+           00165ba8  push     {r7, lr}                     
+           00165bac  mov      r7, sp                       
+           00165bb0  push     {r8, fp, ip, lr}             
+           00165bb4  sub      sp, sp, #8                   
+           00165bb8  mov      fp, sp                       
+           00165bbc  str      r0, [fp]                     
+           00165bc0  ldr      r0, [fp]                     
+           00165bc4  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           00165bc8  add      sp, fp, #8                   
+           00165bcc  pop      {r8, fp}                     
+           00165bd0  ldr      r7, [sp, #8]                 
+           00165bd4  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher/<DestroyThis>c__Iterator8B::System.Collections.IEnumerator.get_Current  token 0x06000b1d @0x00165bd8 (52 bytes)
+   args: r0=this, 
+           00165bd8  mov      ip, sp                       
+           00165bdc  push     {r7, lr}                     
+           00165be0  mov      r7, sp                       
+           00165be4  push     {r8, fp, ip, lr}             
+           00165be8  sub      sp, sp, #8                   
+           00165bec  mov      fp, sp                       
+           00165bf0  str      r0, [fp]                     
+           00165bf4  ldr      r0, [fp]                     
+           00165bf8  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           00165bfc  add      sp, fp, #8                   
+           00165c00  pop      {r8, fp}                     
+           00165c04  ldr      r7, [sp, #8]                 
+           00165c08  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher/<DestroyThis>c__Iterator8B::MoveNext  token 0x06000b1e @0x00165c0c (340 bytes)
+   args: r0=this, 
+           00165c0c  mov      ip, sp                       
+           00165c10  push     {r7, lr}                     
+           00165c14  mov      r7, sp                       
+           00165c18  push     {r8, sl, fp, ip, lr}         
+           00165c1c  sub      sp, sp, #0x1c                
+           00165c20  mov      fp, sp                       
+           00165c24  mov      sl, r0                       
+           00165c28  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           00165c2c  mvn      r1, #0                       
+           00165c30  str      r1, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           00165c34  str      r0, [fp, #8]                 
+           00165c38  cmp      r0, #2                       
+           00165c3c  bhs      #0x165d44                    ; -> L_165d44
+           00165c40  ldr      r0, [fp, #8]                 
+           00165c44  lsl      r1, r0, #2                   
+           00165c48  ldr      r0, [pc]                     
+           00165c4c  b        #0x165c54                    ; -> L_165c54
+           00165c50  .word    0x00e4115c                   ; literal 14946652 / 
+L_165c54:  00165c54  ldr      r0, [pc, r0]                 ; GOT[2068] SWITCH switch table[2]
+           00165c58  add      r0, r0, r1                   
+           00165c5c  ldr      r0, [r0]                     
+           00165c60  mov      pc, r0                       
+           00165c64  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           00165c68  ldr      r8, [pc]                     
+           00165c6c  b        #0x165c74                    ; -> L_165c74
+           00165c70  .word    0x00e3f20c                   ; literal 14938636 / 
+L_165c74:  00165c74  ldr      r8, [pc, r8]                 ; GOT[72] METHOD_RGCTX UnityEngine.Component::GetComponentInChildren<UnityEngine.Animation>
+           00165c78  bl       #0x22ad80                    ; CALL UnityEngine.Component::GetComponentInChildren<UnityEngine.Animation>
+           00165c7c  str      r0, [sl, #8]                 ; field+0x8 (this-class: <anim>__0)
+           00165c80  mov      r1, #0                       
+           00165c84  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00165c88  cmp      r0, #0                       
+           00165c8c  beq      #0x165cb0                    ; -> L_165cb0
+           00165c90  ldr      r2, [sl, #8]                 ; field+0x8 (this-class: <anim>__0)
+           00165c94  ldr      r1, [pc]                     
+           00165c98  b        #0x165ca0                    ; -> L_165ca0
+           00165c9c  .word    0x00e40df0                   ; literal 14945776 / 
+L_165ca0:  00165ca0  ldr      r1, [pc, r1]                 ; GOT[1868] LDSTR 'AchievementOUT'
+           00165ca4  mov      r0, r2                       
+           00165ca8  ldr      lr, [r2]                     
+           00165cac  bl       #0x22e6f0                    ; CALL UnityEngine.Animation::Play
+L_165cb0:  00165cb0  bl       #0x22e230                    ; CALL SoundLibrary::PlayRandomWhoosh
+           00165cb4  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           00165cb8  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00165cbc  mov      r2, r0                       
+           00165cc0  ldr      r1, [pc]                     
+           00165cc4  b        #0x165ccc                    ; -> L_165ccc
+           00165cc8  .word    0x00e40dc8                   ; literal 14945736 / 
+L_165ccc:  00165ccc  ldr      r1, [pc, r1]                 ; GOT[1869] LDSTR 'FadeOut'
+           00165cd0  mov      r0, r2                       
+           00165cd4  ldr      lr, [r2]                     
+           00165cd8  bl       #0x22f870                    ; CALL UnityEngine.GameObject::BroadcastMessage
+           00165cdc  vldr     s4, [pc]                     ; float 0.5
+           00165ce0  b        #0x165ce8                    ; -> L_165ce8
+           00165ce4  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_165ce8:  00165ce8  vcvt.f64.f32 d2, s4                       
+           00165cec  vstr     d2, [fp, #0x10]              
+           00165cf0  ldr      r0, [pc]                     
+           00165cf4  b        #0x165cfc                    ; -> L_165cfc
+           00165cf8  .word    0x00e40afc                   ; literal 14945020 / 
+L_165cfc:  00165cfc  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           00165d00  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           00165d04  vldr     d2, [fp, #0x10]              
+           00165d08  vcvt.f32.f64 s0, d2                       
+           00165d0c  vstr     s0, [fp]                     
+           00165d10  vldr     s0, [fp]                     
+           00165d14  vcvt.f64.f32 d2, s0                       
+           00165d18  vcvt.f32.f64 s0, d2                       
+           00165d1c  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: <anim>__0)
+           00165d20  str      r0, [sl, #0xc]               ; field+0xc (this-class: $current)
+           00165d24  mov      r0, #1                       
+           00165d28  str      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           00165d2c  b        #0x165d4c                    ; -> L_165d4c
+           00165d30  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           00165d34  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00165d38  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+           00165d3c  mvn      r0, #0                       
+           00165d40  str      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+L_165d44:  00165d44  mov      r0, #0                       
+           00165d48  b        #0x165d50                    ; -> L_165d50
+L_165d4c:  00165d4c  mov      r0, #1                       
+L_165d50:  00165d50  add      sp, fp, #0x1c                
+           00165d54  pop      {r8, sl, fp}                 
+           00165d58  ldr      r7, [sp, #8]                 
+           00165d5c  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher/<DestroyThis>c__Iterator8B::Dispose  token 0x06000b1f @0x00165d60 (56 bytes)
+   args: r0=this, 
+           00165d60  mov      ip, sp                       
+           00165d64  push     {r7, lr}                     
+           00165d68  mov      r7, sp                       
+           00165d6c  push     {r8, fp, ip, lr}             
+           00165d70  sub      sp, sp, #8                   
+           00165d74  mov      fp, sp                       
+           00165d78  str      r0, [fp]                     
+           00165d7c  ldr      r0, [fp]                     
+           00165d80  mvn      r1, #0                       
+           00165d84  str      r1, [r0, #0x14]              ; field+0x14 (this-class: $PC)
+           00165d88  add      sp, fp, #8                   
+           00165d8c  pop      {r8, fp}                     
+           00165d90  ldr      r7, [sp, #8]                 
+           00165d94  ldm      sp, {sp, pc}                 
+
+== RewindDialogPublisher/<DestroyThis>c__Iterator8B::Reset  token 0x06000b20 @0x00165d98 (64 bytes)
+   args: r0=this, 
+           00165d98  mov      ip, sp                       
+           00165d9c  push     {r7, lr}                     
+           00165da0  mov      r7, sp                       
+           00165da4  push     {r8, fp, ip, lr}             
+           00165da8  sub      sp, sp, #8                   
+           00165dac  mov      fp, sp                       
+           00165db0  str      r0, [fp]                     
+           00165db4  mov      r0, #0x49                    
+           00165db8  add      r0, r0, #0x100               
+           00165dbc  add      r0, r0, #0x2000000           
+           00165dc0  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00165dc4  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00165dc8  add      sp, fp, #8                   
+           00165dcc  pop      {r8, fp}                     
+           00165dd0  ldr      r7, [sp, #8]                 
+           00165dd4  ldm      sp, {sp, pc}                 

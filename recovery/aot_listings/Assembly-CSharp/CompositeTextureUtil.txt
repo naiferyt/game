@@ -1,0 +1,1283 @@
+####################################################################################################
+# TYPE CompositeTextureUtil  (instance size 0x8)
+#   vtable slots: 
+####################################################################################################
+== CompositeTextureUtil::ColorMultiply  token 0x060001f4 @0x000df57c (328 bytes) static
+   args: source, color
+           000df57c  mov      ip, sp                       
+           000df580  push     {r7, lr}                     
+           000df584  mov      r7, sp                       
+           000df588  push     {r6, r8, sl, fp, ip, lr}     
+           000df58c  sub      sp, sp, #0x10                
+           000df590  mov      fp, sp                       
+           000df594  mov      sl, r0                       
+           000df598  str      r1, [fp, #8]                 
+           000df59c  mov      r0, #0                       
+           000df5a0  str      r0, [fp]                     
+           000df5a4  mov      r0, sl                       
+           000df5a8  ldr      lr, [sl]                     
+           000df5ac  bl       #0x22c050                    ; CALL UnityEngine.Texture2D::GetPixels32
+           000df5b0  mov      sl, r0                       
+           000df5b4  mov      r6, #0                       
+           000df5b8  b        #0xdf694                     ; -> L_df694
+L_df5bc:   000df5bc  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000df5c0  cmp      r0, r6                       
+           000df5c4  blls     #0xdf6b4                     ; THROW System.IndexOutOfRangeException (if ls)
+           000df5c8  lsl      r0, r6, #2                   
+           000df5cc  add      r0, sl, r0                   
+           000df5d0  add      r0, r0, #0x10                
+           000df5d4  ldr      r0, [r0]                     
+           000df5d8  str      r0, [fp]                     
+           000df5dc  ldrb     r0, [fp]                     
+           000df5e0  ldrb     r1, [fp, #8]                 
+           000df5e4  mul      r0, r1, r0                   
+           000df5e8  mov      r1, #0xff                    
+           000df5ec  bl       #0x22a9a0                    ; CALL [INTERNAL_METHOD] __emul_op_idiv
+           000df5f0  mov      r1, #0                       
+           000df5f4  mov      r2, #0xff                    
+           000df5f8  bl       #0x22c060                    ; CALL UnityEngine.Mathf::Clamp
+           000df5fc  strb     r0, [fp]                     
+           000df600  ldrb     r0, [fp, #1]                 
+           000df604  ldrb     r1, [fp, #9]                 
+           000df608  mul      r0, r1, r0                   
+           000df60c  mov      r1, #0xff                    
+           000df610  bl       #0x22a9a0                    ; CALL [INTERNAL_METHOD] __emul_op_idiv
+           000df614  mov      r1, #0                       
+           000df618  mov      r2, #0xff                    
+           000df61c  bl       #0x22c060                    ; CALL UnityEngine.Mathf::Clamp
+           000df620  strb     r0, [fp, #1]                 
+           000df624  ldrb     r0, [fp, #2]                 
+           000df628  ldrb     r1, [fp, #0xa]               
+           000df62c  mul      r0, r1, r0                   
+           000df630  mov      r1, #0xff                    
+           000df634  bl       #0x22a9a0                    ; CALL [INTERNAL_METHOD] __emul_op_idiv
+           000df638  mov      r1, #0                       
+           000df63c  mov      r2, #0xff                    
+           000df640  bl       #0x22c060                    ; CALL UnityEngine.Mathf::Clamp
+           000df644  strb     r0, [fp, #2]                 
+           000df648  ldrb     r0, [fp, #3]                 
+           000df64c  ldrb     r1, [fp, #0xb]               
+           000df650  mul      r0, r1, r0                   
+           000df654  mov      r1, #0xff                    
+           000df658  bl       #0x22a9a0                    ; CALL [INTERNAL_METHOD] __emul_op_idiv
+           000df65c  mov      r1, #0                       
+           000df660  mov      r2, #0xff                    
+           000df664  bl       #0x22c060                    ; CALL UnityEngine.Mathf::Clamp
+           000df668  strb     r0, [fp, #3]                 
+           000df66c  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000df670  cmp      r0, r6                       
+           000df674  blls     #0xdf6b4                     ; THROW System.IndexOutOfRangeException (if ls)
+           000df678  lsl      r0, r6, #2                   
+           000df67c  add      r0, sl, r0                   
+           000df680  add      r0, r0, #0x10                
+           000df684  ldr      r1, [fp]                     
+           000df688  str      r1, [fp, #4]                 
+           000df68c  str      r1, [r0]                     
+           000df690  add      r6, r6, #1                   
+L_df694:   000df694  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000df698  cmp      r6, r0                       
+           000df69c  blt      #0xdf5bc                     ; -> L_df5bc
+           000df6a0  mov      r0, sl                       
+           000df6a4  add      sp, fp, #0x10                
+           000df6a8  pop      {r6, r8, sl, fp}             
+           000df6ac  ldr      r7, [sp, #8]                 
+           000df6b0  ldm      sp, {sp, pc}                 
+           000df6b4  mov      r1, lr                       
+           000df6b8  ldr      r0, [pc]                     
+           000df6bc  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000df6c0  andeq    r0, r0, #0xf8                
+
+== CompositeTextureUtil::AlphaBlendColor32  token 0x060001f5 @0x000df6c4 (544 bytes) static
+   args: color1, color2
+           000df6c4  mov      ip, sp                       
+           000df6c8  push     {r7, lr}                     
+           000df6cc  mov      r7, sp                       
+           000df6d0  push     {r8, fp, ip, lr}             
+           000df6d4  sub      sp, sp, #0x20                
+           000df6d8  mov      fp, sp                       
+           000df6dc  str      r0, [fp]                     
+           000df6e0  str      r1, [fp, #0x18]              
+           000df6e4  str      r2, [fp, #0x1c]              
+           000df6e8  mov      r0, #0                       
+           000df6ec  str      r0, [fp, #4]                 
+           000df6f0  ldr      r0, [fp, #0x18]              
+           000df6f4  str      r0, [fp, #4]                 
+           000df6f8  ldrb     r0, [fp, #0x1b]              
+           000df6fc  vmov     s0, r0                       
+           000df700  vcvt.f32.s32 s0, s0                       
+           000df704  vcvt.f64.f32 d2, s0                       
+           000df708  vldr     s6, [pc]                     ; float 255.0
+           000df70c  b        #0xdf714                     ; -> L_df714
+           000df710  .word    0x437f0000                   ; literal 1132396544 / 255
+L_df714:   000df714  vcvt.f64.f32 d3, s6                       
+           000df718  vdiv.f64 d2, d2, d3                   
+           000df71c  vcvt.f32.f64 s0, d2                       
+           000df720  vstr     s0, [fp, #8]                 
+           000df724  vldr     s4, [pc]                     ; float 1.0
+           000df728  b        #0xdf730                     ; -> L_df730
+           000df72c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_df730:   000df730  vcvt.f64.f32 d2, s4                       
+           000df734  vldr     s0, [fp, #8]                 
+           000df738  vcvt.f64.f32 d3, s0                       
+           000df73c  vsub.f64 d2, d2, d3                   
+           000df740  vcvt.f32.f64 s0, d2                       
+           000df744  vstr     s0, [fp, #0xc]               
+           000df748  ldrb     r0, [fp, #0x1f]              
+           000df74c  vmov     s0, r0                       
+           000df750  vcvt.f32.s32 s0, s0                       
+           000df754  vcvt.f64.f32 d2, s0                       
+           000df758  vldr     s6, [pc]                     ; float 255.0
+           000df75c  b        #0xdf764                     ; -> L_df764
+           000df760  .word    0x437f0000                   ; literal 1132396544 / 255
+L_df764:   000df764  vcvt.f64.f32 d3, s6                       
+           000df768  vdiv.f64 d2, d2, d3                   
+           000df76c  vcvt.f32.f64 s0, d2                       
+           000df770  vstr     s0, [fp, #0x10]              
+           000df774  ldrb     r0, [fp, #0x18]              
+           000df778  vmov     s0, r0                       
+           000df77c  vcvt.f32.s32 s0, s0                       
+           000df780  vcvt.f64.f32 d2, s0                       
+           000df784  vldr     s0, [fp, #8]                 
+           000df788  vcvt.f64.f32 d3, s0                       
+           000df78c  vmul.f64 d2, d2, d3                   
+           000df790  ldrb     r0, [fp, #0x1c]              
+           000df794  vmov     s0, r0                       
+           000df798  vcvt.f32.s32 s0, s0                       
+           000df79c  vcvt.f64.f32 d3, s0                       
+           000df7a0  vldr     s0, [fp, #0x10]              
+           000df7a4  vcvt.f64.f32 d4, s0                       
+           000df7a8  vmul.f64 d3, d3, d4                   
+           000df7ac  vldr     s0, [fp, #0xc]               
+           000df7b0  vcvt.f64.f32 d4, s0                       
+           000df7b4  vmul.f64 d3, d3, d4                   
+           000df7b8  vadd.f64 d2, d2, d3                   
+           000df7bc  vcvt.u32.f64 s0, d2                       
+           000df7c0  vmov     r0, s0                       
+           000df7c4  and      r0, r0, #0xff                
+           000df7c8  strb     r0, [fp, #4]                 
+           000df7cc  ldrb     r0, [fp, #0x19]              
+           000df7d0  vmov     s0, r0                       
+           000df7d4  vcvt.f32.s32 s0, s0                       
+           000df7d8  vcvt.f64.f32 d2, s0                       
+           000df7dc  vldr     s0, [fp, #8]                 
+           000df7e0  vcvt.f64.f32 d3, s0                       
+           000df7e4  vmul.f64 d2, d2, d3                   
+           000df7e8  ldrb     r0, [fp, #0x1d]              
+           000df7ec  vmov     s0, r0                       
+           000df7f0  vcvt.f32.s32 s0, s0                       
+           000df7f4  vcvt.f64.f32 d3, s0                       
+           000df7f8  vldr     s0, [fp, #0x10]              
+           000df7fc  vcvt.f64.f32 d4, s0                       
+           000df800  vmul.f64 d3, d3, d4                   
+           000df804  vldr     s0, [fp, #0xc]               
+           000df808  vcvt.f64.f32 d4, s0                       
+           000df80c  vmul.f64 d3, d3, d4                   
+           000df810  vadd.f64 d2, d2, d3                   
+           000df814  vcvt.u32.f64 s0, d2                       
+           000df818  vmov     r0, s0                       
+           000df81c  and      r0, r0, #0xff                
+           000df820  strb     r0, [fp, #5]                 
+           000df824  ldrb     r0, [fp, #0x1a]              
+           000df828  vmov     s0, r0                       
+           000df82c  vcvt.f32.s32 s0, s0                       
+           000df830  vcvt.f64.f32 d2, s0                       
+           000df834  vldr     s0, [fp, #8]                 
+           000df838  vcvt.f64.f32 d3, s0                       
+           000df83c  vmul.f64 d2, d2, d3                   
+           000df840  ldrb     r0, [fp, #0x1e]              
+           000df844  vmov     s0, r0                       
+           000df848  vcvt.f32.s32 s0, s0                       
+           000df84c  vcvt.f64.f32 d3, s0                       
+           000df850  vldr     s0, [fp, #0x10]              
+           000df854  vcvt.f64.f32 d4, s0                       
+           000df858  vmul.f64 d3, d3, d4                   
+           000df85c  vldr     s0, [fp, #0xc]               
+           000df860  vcvt.f64.f32 d4, s0                       
+           000df864  vmul.f64 d3, d3, d4                   
+           000df868  vadd.f64 d2, d2, d3                   
+           000df86c  vcvt.u32.f64 s0, d2                       
+           000df870  vmov     r0, s0                       
+           000df874  and      r0, r0, #0xff                
+           000df878  strb     r0, [fp, #6]                 
+           000df87c  vldr     s0, [fp, #8]                 
+           000df880  vcvt.f64.f32 d2, s0                       
+           000df884  vldr     s0, [fp, #0x10]              
+           000df888  vcvt.f64.f32 d3, s0                       
+           000df88c  vldr     s0, [fp, #0xc]               
+           000df890  vcvt.f64.f32 d4, s0                       
+           000df894  vmul.f64 d3, d3, d4                   
+           000df898  vadd.f64 d2, d2, d3                   
+           000df89c  vldr     s6, [pc]                     ; float 255.0
+           000df8a0  b        #0xdf8a8                     ; -> L_df8a8
+           000df8a4  .word    0x437f0000                   ; literal 1132396544 / 255
+L_df8a8:   000df8a8  vcvt.f64.f32 d3, s6                       
+           000df8ac  vmul.f64 d2, d2, d3                   
+           000df8b0  vcvt.u32.f64 s0, d2                       
+           000df8b4  vmov     r0, s0                       
+           000df8b8  and      r0, r0, #0xff                
+           000df8bc  strb     r0, [fp, #7]                 
+           000df8c0  ldr      r0, [fp, #4]                 
+           000df8c4  str      r0, [fp, #0x14]              
+           000df8c8  ldr      r0, [fp]                     
+           000df8cc  ldr      r1, [fp, #0x14]              
+           000df8d0  str      r1, [r0]                     
+           000df8d4  add      sp, fp, #0x20                
+           000df8d8  pop      {r8, fp}                     
+           000df8dc  ldr      r7, [sp, #8]                 
+           000df8e0  ldm      sp, {sp, pc}                 
+
+== CompositeTextureUtil::BlitPixels  token 0x060001f6 @0x000df8e4 (1148 bytes) static
+   args: destination, destinationPosition, source, sourceRect, alphaBlend
+           000df8e4  mov      ip, sp                       
+           000df8e8  push     {r7, lr}                     
+           000df8ec  mov      r7, sp                       
+           000df8f0  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000df8f4  sub      sp, sp, #0x70                
+           000df8f8  mov      fp, sp                       
+           000df8fc  str      r0, [fp, #0x34]              
+           000df900  str      r1, [fp, #0x38]              
+           000df904  str      r2, [fp, #0x3c]              
+           000df908  str      r3, [fp, #0x40]              
+           000df90c  ldr      lr, [sp, #0x98]              
+           000df910  str      lr, [fp, #0x44]              
+           000df914  ldr      lr, [sp, #0x9c]              
+           000df918  str      lr, [fp, #0x48]              
+           000df91c  ldr      lr, [sp, #0xa0]              
+           000df920  str      lr, [fp, #0x4c]              
+           000df924  ldr      lr, [sp, #0xa4]              
+           000df928  str      lr, [fp, #0x50]              
+           000df92c  ldr      lr, [sp, #0xa8]              
+           000df930  strb     lr, [fp, #0x54]              
+           000df934  ldr      r0, [fp, #0x34]              
+           000df938  mov      r1, #0                       
+           000df93c  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000df940  cmp      r0, #0                       
+           000df944  bne      #0xdf95c                     ; -> L_df95c
+           000df948  ldr      r0, [fp, #0x40]              
+           000df94c  mov      r1, #0                       
+           000df950  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000df954  cmp      r0, #0                       
+           000df958  beq      #0xdf978                     ; -> L_df978
+L_df95c:   000df95c  ldr      r0, [pc]                     
+           000df960  b        #0xdf968                     ; -> L_df968
+           000df964  .word    0x00ec5984                   ; literal 15489412 / 
+L_df968:   000df968  ldr      r0, [pc, r0]                 ; GOT[355] LDSTR 'Must specify a valid blit destination and source.'
+           000df96c  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           000df970  mov      r0, #0                       
+           000df974  b        #0xdfd40                     ; -> L_dfd40
+L_df978:   000df978  add      r0, fp, #0x44                
+           000df97c  vldr     s0, [r0, #8]                 ; field+0x8 
+           000df980  vcvt.f64.f32 d2, s0                       
+           000df984  vldr     s0, [fp, #0x44]              
+           000df988  vcvt.f64.f32 d3, s0                       
+           000df98c  vadd.f64 d2, d2, d3                   
+           000df990  vcvt.f32.f64 s0, d2                       
+           000df994  vstr     s0, [fp, #0xc]               
+           000df998  vldr     s0, [fp, #0xc]               
+           000df99c  vcvt.f64.f32 d2, s0                       
+           000df9a0  vstr     d2, [fp, #0x58]              
+           000df9a4  ldr      r0, [fp, #0x34]              
+           000df9a8  mov      r1, r0                       
+           000df9ac  ldr      r1, [r1]                     
+           000df9b0  mov      lr, pc                       
+           000df9b4  ldr      pc, [r1, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+           000df9b8  vldr     d3, [fp, #0x58]              
+           000df9bc  vmov     s0, r0                       
+           000df9c0  vcvt.f32.s32 s0, s0                       
+           000df9c4  vcvt.f64.f32 d2, s0                       
+           000df9c8  vldr     s0, [fp, #0x38]              
+           000df9cc  vcvt.f64.f32 d4, s0                       
+           000df9d0  vsub.f64 d2, d2, d4                   
+           000df9d4  vcmp.f64 d2, d3                       
+           000df9d8  vmrs     apsr_nzcv, fpscr             
+           000df9dc  bmi      #0xdfa4c                     ; -> L_dfa4c
+           000df9e0  add      r0, fp, #0x44                
+           000df9e4  vldr     s0, [r0, #0xc]               ; field+0xc 
+           000df9e8  vcvt.f64.f32 d2, s0                       
+           000df9ec  vldr     s0, [fp, #0x48]              
+           000df9f0  vcvt.f64.f32 d3, s0                       
+           000df9f4  vadd.f64 d2, d2, d3                   
+           000df9f8  vcvt.f32.f64 s0, d2                       
+           000df9fc  vstr     s0, [fp, #0x10]              
+           000dfa00  vldr     s0, [fp, #0x10]              
+           000dfa04  vcvt.f64.f32 d2, s0                       
+           000dfa08  vstr     d2, [fp, #0x58]              
+           000dfa0c  ldr      r0, [fp, #0x34]              
+           000dfa10  mov      r1, r0                       
+           000dfa14  ldr      r1, [r1]                     
+           000dfa18  mov      lr, pc                       
+           000dfa1c  ldr      pc, [r1, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           000dfa20  vldr     d3, [fp, #0x58]              
+           000dfa24  vmov     s0, r0                       
+           000dfa28  vcvt.f32.s32 s0, s0                       
+           000dfa2c  vcvt.f64.f32 d2, s0                       
+           000dfa30  vldr     s0, [fp, #0x3c]              
+           000dfa34  vcvt.f64.f32 d4, s0                       
+           000dfa38  vsub.f64 d2, d2, d4                   
+           000dfa3c  vcmp.f64 d2, d3                       
+           000dfa40  vmrs     apsr_nzcv, fpscr             
+           000dfa44  bvs      #0xdfa68                     ; -> L_dfa68
+           000dfa48  bge      #0xdfa68                     ; -> L_dfa68
+L_dfa4c:   000dfa4c  ldr      r0, [pc]                     
+           000dfa50  b        #0xdfa58                     ; -> L_dfa58
+           000dfa54  .word    0x00ec5898                   ; literal 15489176 / 
+L_dfa58:   000dfa58  ldr      r0, [pc, r0]                 ; GOT[356] LDSTR 'Trying to blit a source rect that exceeds destination texture size.'
+           000dfa5c  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           000dfa60  mov      r0, #0                       
+           000dfa64  b        #0xdfd40                     ; -> L_dfd40
+L_dfa68:   000dfa68  ldr      r0, [fp, #0x34]              
+           000dfa6c  mov      r1, r0                       
+           000dfa70  ldr      r1, [r1]                     
+           000dfa74  mov      lr, pc                       
+           000dfa78  ldr      pc, [r1, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           000dfa7c  vmov     s0, r0                       
+           000dfa80  vcvt.f32.s32 s0, s0                       
+           000dfa84  vcvt.f64.f32 d2, s0                       
+           000dfa88  vldr     s0, [fp, #0x3c]              
+           000dfa8c  vcvt.f64.f32 d3, s0                       
+           000dfa90  vsub.f64 d2, d2, d3                   
+           000dfa94  vldr     s0, [fp, #0x50]              
+           000dfa98  vcvt.f64.f32 d3, s0                       
+           000dfa9c  vcvt.f32.f64 s0, d3                       
+           000dfaa0  vstr     s0, [fp, #0x14]              
+           000dfaa4  vldr     s0, [fp, #0x14]              
+           000dfaa8  vcvt.f64.f32 d3, s0                       
+           000dfaac  vsub.f64 d2, d2, d3                   
+           000dfab0  vcvt.f32.f64 s0, d2                       
+           000dfab4  vstr     s0, [fp, #0x3c]              
+           000dfab8  ldr      r0, [fp, #0x34]              
+           000dfabc  mov      r1, r0                       
+           000dfac0  ldr      lr, [r1]                     
+           000dfac4  bl       #0x22c050                    ; CALL UnityEngine.Texture2D::GetPixels32
+           000dfac8  str      r0, [fp]                     
+           000dfacc  ldr      r0, [fp, #0x40]              
+           000dfad0  mov      r1, r0                       
+           000dfad4  ldr      lr, [r1]                     
+           000dfad8  bl       #0x22c050                    ; CALL UnityEngine.Texture2D::GetPixels32
+           000dfadc  str      r0, [fp, #4]                 
+           000dfae0  ldr      r0, [fp]                     
+           000dfae4  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000dfae8  ldr      r0, [pc]                     
+           000dfaec  b        #0xdfaf4                     ; -> L_dfaf4
+           000dfaf0  .word    0x00ec5800                   ; literal 15489024 / 
+L_dfaf4:   000dfaf4  ldr      r0, [pc, r0]                 ; GOT[357] VTABLE UnityEngine.Color32[]
+           000dfaf8  bl       #0x22a7c0                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           000dfafc  mov      sl, r0                       
+           000dfb00  ldr      r0, [fp]                     
+           000dfb04  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000dfb08  mov      r1, sl                       
+           000dfb0c  bl       #0x22c070                    ; CALL System.Array::Copy
+           000dfb10  mov      r0, #0                       
+           000dfb14  str      r0, [fp, #8]                 
+           000dfb18  b        #0xdfd08                     ; -> L_dfd08
+L_dfb1c:   000dfb1c  mov      r5, #0                       
+           000dfb20  b        #0xdfccc                     ; -> L_dfccc
+L_dfb24:   000dfb24  vldr     s0, [fp, #0x44]              
+           000dfb28  vcvt.f64.f32 d2, s0                       
+           000dfb2c  vcvt.f32.f64 s0, d2                       
+           000dfb30  vstr     s0, [fp, #0x18]              
+           000dfb34  vldr     s0, [fp, #0x18]              
+           000dfb38  vcvt.f64.f32 d2, s0                       
+           000dfb3c  vcvt.s32.f64 s0, d2                       
+           000dfb40  vmov     r1, s0                       
+           000dfb44  ldr      r0, [fp, #8]                 
+           000dfb48  add      r0, r0, r1                   
+           000dfb4c  str      r0, [fp, #0x68]              
+           000dfb50  vldr     s0, [fp, #0x48]              
+           000dfb54  vcvt.f64.f32 d2, s0                       
+           000dfb58  vcvt.f32.f64 s0, d2                       
+           000dfb5c  vstr     s0, [fp, #0x1c]              
+           000dfb60  vldr     s0, [fp, #0x1c]              
+           000dfb64  vcvt.f64.f32 d2, s0                       
+           000dfb68  vcvt.s32.f64 s0, d2                       
+           000dfb6c  vmov     r0, s0                       
+           000dfb70  add      r0, r5, r0                   
+           000dfb74  str      r0, [fp, #0x6c]              
+           000dfb78  ldr      r0, [fp, #0x40]              
+           000dfb7c  mov      r1, r0                       
+           000dfb80  ldr      r1, [r1]                     
+           000dfb84  mov      lr, pc                       
+           000dfb88  ldr      pc, [r1, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+           000dfb8c  mov      r2, r0                       
+           000dfb90  ldr      r0, [fp, #0x68]              
+           000dfb94  ldr      r1, [fp, #0x6c]              
+           000dfb98  mul      r1, r2, r1                   
+           000dfb9c  add      r6, r0, r1                   
+           000dfba0  vldr     s0, [fp, #0x38]              
+           000dfba4  vcvt.f64.f32 d2, s0                       
+           000dfba8  vcvt.s32.f64 s0, d2                       
+           000dfbac  vmov     r1, s0                       
+           000dfbb0  ldr      r0, [fp, #8]                 
+           000dfbb4  add      r0, r0, r1                   
+           000dfbb8  str      r0, [fp, #0x60]              
+           000dfbbc  vldr     s0, [fp, #0x3c]              
+           000dfbc0  vcvt.f64.f32 d2, s0                       
+           000dfbc4  vcvt.s32.f64 s0, d2                       
+           000dfbc8  vmov     r0, s0                       
+           000dfbcc  add      r0, r5, r0                   
+           000dfbd0  str      r0, [fp, #0x64]              
+           000dfbd4  ldr      r0, [fp, #0x34]              
+           000dfbd8  mov      r1, r0                       
+           000dfbdc  ldr      r1, [r1]                     
+           000dfbe0  mov      lr, pc                       
+           000dfbe4  ldr      pc, [r1, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+           000dfbe8  mov      r2, r0                       
+           000dfbec  ldr      r0, [fp, #0x60]              
+           000dfbf0  ldr      r1, [fp, #0x64]              
+           000dfbf4  mul      r1, r2, r1                   
+           000dfbf8  add      r4, r0, r1                   
+           000dfbfc  ldrb     r0, [fp, #0x54]              
+           000dfc00  cmp      r0, #0                       
+           000dfc04  bne      #0xdfc48                     ; -> L_dfc48
+           000dfc08  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000dfc0c  cmp      r0, r4                       
+           000dfc10  blls     #0xdfd50                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfc14  lsl      r0, r4, #2                   
+           000dfc18  add      r0, sl, r0                   
+           000dfc1c  add      r0, r0, #0x10                
+           000dfc20  ldr      r1, [fp, #4]                 
+           000dfc24  ldr      r2, [r1, #0xc]               ; field+0xc 
+           000dfc28  cmp      r2, r6                       
+           000dfc2c  blls     #0xdfd50                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfc30  lsl      r2, r6, #2                   
+           000dfc34  add      r1, r1, r2                   
+           000dfc38  add      r1, r1, #0x10                
+           000dfc3c  ldr      r1, [r1]                     
+           000dfc40  str      r1, [r0]                     
+           000dfc44  b        #0xdfcc8                     ; -> L_dfcc8
+L_dfc48:   000dfc48  ldr      r0, [sl, #0xc]               ; field+0xc 
+           000dfc4c  cmp      r0, r4                       
+           000dfc50  blls     #0xdfd50                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfc54  lsl      r0, r4, #2                   
+           000dfc58  add      r0, sl, r0                   
+           000dfc5c  add      r0, r0, #0x10                
+           000dfc60  str      r0, [fp, #0x60]              
+           000dfc64  ldr      r0, [fp]                     
+           000dfc68  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000dfc6c  cmp      r1, r4                       
+           000dfc70  blls     #0xdfd50                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfc74  lsl      r1, r4, #2                   
+           000dfc78  add      r0, r0, r1                   
+           000dfc7c  add      r0, r0, #0x10                
+           000dfc80  ldr      r0, [r0]                     
+           000dfc84  str      r0, [fp, #0x28]              
+           000dfc88  ldr      r0, [fp, #4]                 
+           000dfc8c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000dfc90  cmp      r1, r6                       
+           000dfc94  blls     #0xdfd50                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfc98  lsl      r1, r6, #2                   
+           000dfc9c  add      r0, r0, r1                   
+           000dfca0  add      r0, r0, #0x10                
+           000dfca4  ldr      r0, [r0]                     
+           000dfca8  str      r0, [fp, #0x2c]              
+           000dfcac  add      r0, fp, #0x30                
+           000dfcb0  ldr      r1, [fp, #0x28]              
+           000dfcb4  ldr      r2, [fp, #0x2c]              
+           000dfcb8  bl       #0xdf6c4                     ; CALL CompositeTextureUtil::AlphaBlendColor32 (direct)
+           000dfcbc  ldr      r0, [fp, #0x60]              
+           000dfcc0  ldr      r1, [fp, #0x30]              
+           000dfcc4  str      r1, [r0]                     
+L_dfcc8:   000dfcc8  add      r5, r5, #1                   
+L_dfccc:   000dfccc  vmov     s0, r5                       
+           000dfcd0  vcvt.f32.s32 s0, s0                       
+           000dfcd4  vcvt.f64.f32 d2, s0                       
+           000dfcd8  vldr     s0, [fp, #0x50]              
+           000dfcdc  vcvt.f64.f32 d3, s0                       
+           000dfce0  vcvt.f32.f64 s0, d3                       
+           000dfce4  vstr     s0, [fp, #0x20]              
+           000dfce8  vldr     s0, [fp, #0x20]              
+           000dfcec  vcvt.f64.f32 d3, s0                       
+           000dfcf0  vcmp.f64 d2, d3                       
+           000dfcf4  vmrs     apsr_nzcv, fpscr             
+           000dfcf8  bmi      #0xdfb24                     ; -> L_dfb24
+           000dfcfc  ldr      r0, [fp, #8]                 
+           000dfd00  add      r0, r0, #1                   
+           000dfd04  str      r0, [fp, #8]                 
+L_dfd08:   000dfd08  ldr      r0, [fp, #8]                 
+           000dfd0c  vmov     s0, r0                       
+           000dfd10  vcvt.f32.s32 s0, s0                       
+           000dfd14  vcvt.f64.f32 d2, s0                       
+           000dfd18  vldr     s0, [fp, #0x4c]              
+           000dfd1c  vcvt.f64.f32 d3, s0                       
+           000dfd20  vcvt.f32.f64 s0, d3                       
+           000dfd24  vstr     s0, [fp, #0x24]              
+           000dfd28  vldr     s0, [fp, #0x24]              
+           000dfd2c  vcvt.f64.f32 d3, s0                       
+           000dfd30  vcmp.f64 d2, d3                       
+           000dfd34  vmrs     apsr_nzcv, fpscr             
+           000dfd38  bmi      #0xdfb1c                     ; -> L_dfb1c
+           000dfd3c  mov      r0, sl                       
+L_dfd40:   000dfd40  add      sp, fp, #0x70                
+           000dfd44  pop      {r4, r5, r6, r8, sl, fp}     
+           000dfd48  ldr      r7, [sp, #8]                 
+           000dfd4c  ldm      sp, {sp, pc}                 
+           000dfd50  mov      r1, lr                       
+           000dfd54  ldr      r0, [pc]                     
+           000dfd58  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000dfd5c  andeq    r0, r0, #0xf8                
+
+== CompositeTextureUtil::MergeLayers  token 0x060001f7 @0x000dfd60 (536 bytes) static
+   args: layers, layerColorMultiply
+           000dfd60  mov      ip, sp                       
+           000dfd64  push     {r7, lr}                     
+           000dfd68  mov      r7, sp                       
+           000dfd6c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000dfd70  sub      sp, sp, #0x30                
+           000dfd74  mov      fp, sp                       
+           000dfd78  str      r0, [fp, #0x14]              
+           000dfd7c  str      r1, [fp, #0x18]              
+           000dfd80  ldr      r0, [fp, #0x14]              
+           000dfd84  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000dfd88  cmp      r1, #0                       
+           000dfd8c  blls     #0xdff68                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfd90  ldr      r1, [r0, #0x10]              ; field+0x10 
+           000dfd94  mov      r0, r1                       
+           000dfd98  ldr      r1, [r1]                     
+           000dfd9c  mov      lr, pc                       
+           000dfda0  ldr      pc, [r1, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+           000dfda4  str      r0, [fp, #0x24]              
+           000dfda8  ldr      r0, [fp, #0x14]              
+           000dfdac  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000dfdb0  cmp      r1, #0                       
+           000dfdb4  blls     #0xdff68                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfdb8  ldr      r1, [r0, #0x10]              ; field+0x10 
+           000dfdbc  mov      r0, r1                       
+           000dfdc0  ldr      r1, [r1]                     
+           000dfdc4  mov      lr, pc                       
+           000dfdc8  ldr      pc, [r1, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           000dfdcc  str      r0, [fp, #0x28]              
+           000dfdd0  ldr      r0, [pc]                     
+           000dfdd4  b        #0xdfddc                     ; -> L_dfddc
+           000dfdd8  .word    0x00ec551c                   ; literal 15488284 / 
+L_dfddc:   000dfddc  ldr      r0, [pc, r0]                 ; GOT[358] VTABLE UnityEngine.Texture2D
+           000dfde0  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           000dfde4  ldr      r1, [fp, #0x24]              
+           000dfde8  ldr      r2, [fp, #0x28]              
+           000dfdec  str      r0, [fp, #0x20]              
+           000dfdf0  bl       #0x22c080                    ; CALL UnityEngine.Texture2D::.ctor
+           000dfdf4  ldr      r0, [fp, #0x20]              
+           000dfdf8  mov      r6, r0                       
+           000dfdfc  mov      r0, #0                       
+           000dfe00  str      r0, [fp]                     
+           000dfe04  b        #0xdff34                     ; -> L_dff34
+L_dfe08:   000dfe08  ldr      r0, [fp, #0x14]              
+           000dfe0c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000dfe10  ldr      r2, [fp]                     
+           000dfe14  cmp      r1, r2                       
+           000dfe18  blls     #0xdff68                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfe1c  lsl      r1, r2, #2                   
+           000dfe20  add      r0, r0, r1                   
+           000dfe24  add      r0, r0, #0x10                
+           000dfe28  ldr      r0, [r0]                     
+           000dfe2c  ldr      r1, [fp, #0x18]              
+           000dfe30  ldr      r3, [r1, #0xc]               ; field+0xc 
+           000dfe34  cmp      r3, r2                       
+           000dfe38  blls     #0xdff68                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfe3c  lsl      r2, r2, #2                   
+           000dfe40  add      r1, r1, r2                   
+           000dfe44  add      r1, r1, #0x10                
+           000dfe48  ldr      r1, [r1]                     
+           000dfe4c  str      r1, [fp, #4]                 
+           000dfe50  bl       #0xdf57c                     ; CALL CompositeTextureUtil::ColorMultiply (direct)
+           000dfe54  mov      r5, r0                       
+           000dfe58  ldr      r0, [fp]                     
+           000dfe5c  cmp      r0, #0                       
+           000dfe60  bne      #0xdfe78                     ; -> L_dfe78
+           000dfe64  mov      r0, r6                       
+           000dfe68  mov      r1, r5                       
+           000dfe6c  ldr      lr, [r6]                     
+           000dfe70  bl       #0x22c090                    ; CALL UnityEngine.Texture2D::SetPixels32
+           000dfe74  b        #0xdff28                     ; -> L_dff28
+L_dfe78:   000dfe78  mov      r0, r6                       
+           000dfe7c  ldr      lr, [r6]                     
+           000dfe80  bl       #0x22c050                    ; CALL UnityEngine.Texture2D::GetPixels32
+           000dfe84  mov      r4, r0                       
+           000dfe88  mov      sl, #0                       
+           000dfe8c  b        #0xdff0c                     ; -> L_dff0c
+L_dfe90:   000dfe90  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000dfe94  cmp      r0, sl                       
+           000dfe98  blls     #0xdff68                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfe9c  lsl      r0, sl, #2                   
+           000dfea0  add      r0, r4, r0                   
+           000dfea4  add      r0, r0, #0x10                
+           000dfea8  str      r0, [fp, #0x20]              
+           000dfeac  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000dfeb0  cmp      r0, sl                       
+           000dfeb4  blls     #0xdff68                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfeb8  lsl      r0, sl, #2                   
+           000dfebc  add      r0, r5, r0                   
+           000dfec0  add      r0, r0, #0x10                
+           000dfec4  ldr      r0, [r0]                     
+           000dfec8  str      r0, [fp, #8]                 
+           000dfecc  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000dfed0  cmp      r0, sl                       
+           000dfed4  blls     #0xdff68                     ; THROW System.IndexOutOfRangeException (if ls)
+           000dfed8  lsl      r0, sl, #2                   
+           000dfedc  add      r0, r4, r0                   
+           000dfee0  add      r0, r0, #0x10                
+           000dfee4  ldr      r0, [r0]                     
+           000dfee8  str      r0, [fp, #0xc]               
+           000dfeec  add      r0, fp, #0x10                
+           000dfef0  ldr      r1, [fp, #8]                 
+           000dfef4  ldr      r2, [fp, #0xc]               
+           000dfef8  bl       #0xdf6c4                     ; CALL CompositeTextureUtil::AlphaBlendColor32 (direct)
+           000dfefc  ldr      r0, [fp, #0x20]              
+           000dff00  ldr      r1, [fp, #0x10]              
+           000dff04  str      r1, [r0]                     
+           000dff08  add      sl, sl, #1                   
+L_dff0c:   000dff0c  ldr      r0, [r4, #0xc]               ; field+0xc 
+           000dff10  cmp      sl, r0                       
+           000dff14  blt      #0xdfe90                     ; -> L_dfe90
+           000dff18  mov      r0, r6                       
+           000dff1c  mov      r1, r4                       
+           000dff20  ldr      lr, [r6]                     
+           000dff24  bl       #0x22c090                    ; CALL UnityEngine.Texture2D::SetPixels32
+L_dff28:   000dff28  ldr      r0, [fp]                     
+           000dff2c  add      r0, r0, #1                   
+           000dff30  str      r0, [fp]                     
+L_dff34:   000dff34  ldr      r0, [fp, #0x14]              
+           000dff38  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000dff3c  ldr      r0, [fp]                     
+           000dff40  cmp      r0, r1                       
+           000dff44  blt      #0xdfe08                     ; -> L_dfe08
+           000dff48  mov      r0, r6                       
+           000dff4c  ldr      lr, [r6]                     
+           000dff50  bl       #0x22c0a0                    ; CALL UnityEngine.Texture2D::Apply
+           000dff54  mov      r0, r6                       
+           000dff58  add      sp, fp, #0x30                
+           000dff5c  pop      {r4, r5, r6, r8, sl, fp}     
+           000dff60  ldr      r7, [sp, #8]                 
+           000dff64  ldm      sp, {sp, pc}                 
+           000dff68  mov      r1, lr                       
+           000dff6c  ldr      r0, [pc]                     
+           000dff70  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000dff74  andeq    r0, r0, #0xf8                
+
+== CompositeTextureUtil::BlitToCachedTexture  token 0x060001f8 @0x000dff78 (656 bytes) static
+   args: profile, paint
+           000dff78  mov      ip, sp                       
+           000dff7c  push     {r7, lr}                     
+           000dff80  mov      r7, sp                       
+           000dff84  push     {r4, r5, r6, r8, fp, ip, lr} 
+           000dff88  sub      sp, sp, #0x4c                
+           000dff8c  mov      fp, sp                       
+           000dff90  mov      r6, r0                       
+           000dff94  str      r1, [fp, #0x44]              
+           000dff98  ldr      r0, [pc]                     
+           000dff9c  b        #0xdffa4                     ; -> L_dffa4
+           000dffa0  .word    0x00ec5358                   ; literal 15487832 / 
+L_dffa4:   000dffa4  ldr      r0, [pc, r0]                 ; GOT[359] TYPE_FROM_HANDLE typeof(PreviewCart)
+           000dffa8  bl       #0x22b610                    ; CALL UnityEngine.Object::FindObjectOfType
+           000dffac  str      r0, [fp, #0x24]              
+           000dffb0  str      r0, [fp, #0x28]              
+           000dffb4  ldr      r0, [fp, #0x24]              
+           000dffb8  cmp      r0, #0                       
+           000dffbc  beq      #0xdfff4                     ; -> L_dfff4
+           000dffc0  ldr      r0, [fp, #0x24]              
+           000dffc4  ldr      r0, [r0]                     
+           000dffc8  ldr      r0, [r0]                     
+           000dffcc  ldr      r0, [r0, #8]                 ; field+0x8 
+           000dffd0  ldr      r0, [r0, #0x14]              ; field+0x14 
+           000dffd4  ldr      r1, [pc]                     
+           000dffd8  b        #0xdffe0                     ; -> L_dffe0
+           000dffdc  .word    0x00ec5320                   ; literal 15487776 / 
+L_dffe0:   000dffe0  ldr      r1, [pc, r1]                 ; GOT[360] CLASS PreviewCart
+           000dffe4  cmp      r0, r1                       
+           000dffe8  beq      #0xdfff4                     ; -> L_dfff4
+           000dffec  mov      r0, #0                       
+           000dfff0  str      r0, [fp, #0x28]              
+L_dfff4:   000dfff4  ldr      r5, [fp, #0x28]              
+           000dfff8  mov      r0, r5                       
+           000dfffc  mov      r1, #0                       
+           000e0000  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e0004  cmp      r0, #0                       
+           000e0008  beq      #0xe01d0                     ; -> L_e01d0
+           000e000c  ldr      lr, [r5]                     
+           000e0010  ldr      r4, [r5, #0x20]              ; field+0x20 
+           000e0014  mov      r0, r4                       
+           000e0018  mov      r1, #0                       
+           000e001c  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000e0020  cmp      r0, #0                       
+           000e0024  beq      #0xe0044                     ; -> L_e0044
+           000e0028  ldr      r0, [pc]                     
+           000e002c  b        #0xe0034                     ; -> L_e0034
+           000e0030  .word    0x00ec52d0                   ; literal 15487696 / 
+L_e0034:   000e0034  ldr      r0, [pc, r0]                 ; GOT[361] LDSTR 'CachedPaint came back null in Blit()'
+           000e0038  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           000e003c  mov      r0, #0                       
+           000e0040  b        #0xe01e8                     ; -> L_e01e8
+L_e0044:   000e0044  ldr      r0, [fp, #0x44]              
+           000e0048  ldr      r1, [r0, #0x18]              ; field+0x18 
+           000e004c  ldr      r0, [pc]                     
+           000e0050  b        #0xe0058                     ; -> L_e0058
+           000e0054  .word    0x00ec52b0                   ; literal 15487664 / 
+L_e0058:   000e0058  ldr      r0, [pc, r0]                 ; GOT[362] SFLDA CartSlot::SlotNames
+           000e005c  ldr      r0, [r0]                     
+           000e0060  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000e0064  cmp      r2, r1                       
+           000e0068  blls     #0xe01f8                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e006c  lsl      r1, r1, #2                   
+           000e0070  add      r0, r0, r1                   
+           000e0074  add      r0, r0, #0x10                
+           000e0078  ldr      r1, [r0]                     
+           000e007c  str      r1, [fp, #0x18]              
+           000e0080  mov      r0, r1                       
+           000e0084  ldr      lr, [r1]                     
+           000e0088  bl       #0x22b900                    ; CALL System.String::ToLower
+           000e008c  mov      r1, r0                       
+           000e0090  mov      r0, r6                       
+           000e0094  ldr      lr, [r6]                     
+           000e0098  bl       #0x22c040                    ; CALL CompositeProfile::FindSlotByName
+           000e009c  str      r0, [fp, #0x1c]              
+           000e00a0  cmp      r0, #0                       
+           000e00a4  bne      #0xe00cc                     ; -> L_e00cc
+           000e00a8  ldr      r0, [pc]                     
+           000e00ac  b        #0xe00b4                     ; -> L_e00b4
+           000e00b0  .word    0x00ec5258                   ; literal 15487576 / 
+L_e00b4:   000e00b4  ldr      r0, [pc, r0]                 ; GOT[363] LDSTR 'Composite Slot came back null in Blit() - slotName: '
+           000e00b8  ldr      r1, [fp, #0x18]              
+           000e00bc  bl       #0x22adc0                    ; CALL System.String::Concat
+           000e00c0  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           000e00c4  mov      r0, #0                       
+           000e00c8  b        #0xe01e8                     ; -> L_e01e8
+L_e00cc:   000e00cc  ldr      r0, [fp, #0x1c]              
+           000e00d0  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e00d4  cmp      r0, #0                       
+           000e00d8  beq      #0xe01bc                     ; -> L_e01bc
+           000e00dc  ldr      r0, [fp, #0x1c]              
+           000e00e0  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e00e4  ldr      r0, [r0, #8]                 ; field+0x8 
+           000e00e8  mov      r1, #0                       
+           000e00ec  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e00f0  cmp      r0, #0                       
+           000e00f4  beq      #0xe01bc                     ; -> L_e01bc
+           000e00f8  ldr      r0, [fp, #0x1c]              
+           000e00fc  add      r1, r0, #0x10                
+           000e0100  ldr      r2, [r1]                     
+           000e0104  str      r2, [fp, #0x2c]              
+           000e0108  ldr      r1, [r1, #4]                 ; field+0x4 
+           000e010c  str      r1, [fp, #0x30]              
+           000e0110  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e0114  ldr      r3, [r1, #8]                 ; field+0x8 
+           000e0118  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e011c  add      r0, r0, #0xc                 
+           000e0120  ldr      r1, [r0]                     
+           000e0124  str      r1, [fp, #0x34]              
+           000e0128  ldr      r1, [r0, #4]                 ; field+0x4 
+           000e012c  str      r1, [fp, #0x38]              
+           000e0130  ldr      r1, [r0, #8]                 ; field+0x8 
+           000e0134  str      r1, [fp, #0x3c]              
+           000e0138  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e013c  str      r0, [fp, #0x40]              
+           000e0140  mov      r0, r4                       
+           000e0144  ldr      r1, [fp, #0x2c]              
+           000e0148  ldr      r2, [fp, #0x30]              
+           000e014c  ldr      ip, [fp, #0x34]              
+           000e0150  str      ip, [sp]                     
+           000e0154  ldr      ip, [fp, #0x38]              
+           000e0158  str      ip, [sp, #4]                 
+           000e015c  ldr      ip, [fp, #0x3c]              
+           000e0160  str      ip, [sp, #8]                 
+           000e0164  ldr      ip, [fp, #0x40]              
+           000e0168  str      ip, [sp, #0xc]               
+           000e016c  mov      ip, #0                       
+           000e0170  str      ip, [sp, #0x10]              
+           000e0174  bl       #0x22c0b0                    ; CALL CompositeTextureUtil::BlitPixels
+           000e0178  str      r0, [fp, #0x20]              
+           000e017c  cmp      r0, #0                       
+           000e0180  bne      #0xe01ac                     ; -> L_e01ac
+           000e0184  ldr      r0, [pc]                     
+           000e0188  b        #0xe0190                     ; -> L_e0190
+           000e018c  .word    0x00ec5180                   ; literal 15487360 / 
+L_e0190:   000e0190  ldr      r0, [pc, r0]                 ; GOT[364] LDSTR 'There was an issue with a composite blit with slot name '
+           000e0194  ldr      r1, [fp, #0x1c]              
+           000e0198  ldr      r1, [r1, #8]                 ; field+0x8 
+           000e019c  bl       #0x22adc0                    ; CALL System.String::Concat
+           000e01a0  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           000e01a4  mov      r0, #0                       
+           000e01a8  b        #0xe01e8                     ; -> L_e01e8
+L_e01ac:   000e01ac  mov      r0, r4                       
+           000e01b0  ldr      r1, [fp, #0x20]              
+           000e01b4  ldr      lr, [r4]                     
+           000e01b8  bl       #0x22c090                    ; CALL UnityEngine.Texture2D::SetPixels32
+L_e01bc:   000e01bc  mov      r0, r4                       
+           000e01c0  ldr      lr, [r4]                     
+           000e01c4  bl       #0x22c0a0                    ; CALL UnityEngine.Texture2D::Apply
+           000e01c8  mov      r0, r4                       
+           000e01cc  b        #0xe01e8                     ; -> L_e01e8
+L_e01d0:   000e01d0  ldr      r0, [pc]                     
+           000e01d4  b        #0xe01dc                     ; -> L_e01dc
+           000e01d8  .word    0x00ec5138                   ; literal 15487288 / 
+L_e01dc:   000e01dc  ldr      r0, [pc, r0]                 ; GOT[365] LDSTR 'Could not find previewCart object during BlitToCached()!'
+           000e01e0  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           000e01e4  mov      r0, #0                       
+L_e01e8:   000e01e8  add      sp, fp, #0x4c                
+           000e01ec  pop      {r4, r5, r6, r8, fp}         
+           000e01f0  ldr      r7, [sp, #8]                 
+           000e01f4  ldm      sp, {sp, pc}                 
+           000e01f8  mov      r1, lr                       
+           000e01fc  ldr      r0, [pc]                     
+           000e0200  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e0204  andeq    r0, r0, #0xf8                
+
+== CompositeTextureUtil::GenerateCompositeTexture  token 0x060001f9 @0x000e0208 (520 bytes) static
+   args: profile
+           000e0208  mov      ip, sp                       
+           000e020c  push     {r7, lr}                     
+           000e0210  mov      r7, sp                       
+           000e0214  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000e0218  sub      sp, sp, #0x48                
+           000e021c  mov      fp, sp                       
+           000e0220  str      r0, [fp, #0x34]              
+           000e0224  ldr      r0, [fp, #0x34]              
+           000e0228  ldr      r1, [r0, #0x10]              ; field+0x10 
+           000e022c  mov      r0, r1                       
+           000e0230  ldr      r1, [r1]                     
+           000e0234  mov      lr, pc                       
+           000e0238  ldr      pc, [r1, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+           000e023c  str      r0, [fp, #0x3c]              
+           000e0240  ldr      r0, [fp, #0x34]              
+           000e0244  ldr      r1, [r0, #0x10]              ; field+0x10 
+           000e0248  mov      r0, r1                       
+           000e024c  ldr      r1, [r1]                     
+           000e0250  mov      lr, pc                       
+           000e0254  ldr      pc, [r1, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           000e0258  str      r0, [fp, #0x40]              
+           000e025c  ldr      r0, [pc]                     
+           000e0260  b        #0xe0268                     ; -> L_e0268
+           000e0264  .word    0x00ec5090                   ; literal 15487120 / 
+L_e0268:   000e0268  ldr      r0, [pc, r0]                 ; GOT[358] VTABLE UnityEngine.Texture2D
+           000e026c  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           000e0270  ldr      r1, [fp, #0x3c]              
+           000e0274  ldr      r2, [fp, #0x40]              
+           000e0278  str      r0, [fp, #0x38]              
+           000e027c  bl       #0x22c080                    ; CALL UnityEngine.Texture2D::.ctor
+           000e0280  ldr      r0, [fp, #0x38]              
+           000e0284  mov      sl, r0                       
+           000e0288  ldr      r0, [fp, #0x34]              
+           000e028c  ldr      r0, [r0, #0x10]              ; field+0x10 
+           000e0290  mov      r1, #0                       
+           000e0294  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e0298  cmp      r0, #0                       
+           000e029c  beq      #0xe02c4                     ; -> L_e02c4
+           000e02a0  ldr      r0, [fp, #0x34]              
+           000e02a4  ldr      r1, [r0, #0x10]              ; field+0x10 
+           000e02a8  mov      r0, r1                       
+           000e02ac  ldr      lr, [r1]                     
+           000e02b0  bl       #0x22c050                    ; CALL UnityEngine.Texture2D::GetPixels32
+           000e02b4  mov      r1, r0                       
+           000e02b8  mov      r0, sl                       
+           000e02bc  ldr      lr, [sl]                     
+           000e02c0  bl       #0x22c090                    ; CALL UnityEngine.Texture2D::SetPixels32
+L_e02c4:   000e02c4  ldr      r0, [fp, #0x34]              
+           000e02c8  ldr      r5, [r0, #0x14]              ; field+0x14 
+           000e02cc  mov      r4, #0                       
+           000e02d0  b        #0xe03d4                     ; -> L_e03d4
+L_e02d4:   000e02d4  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000e02d8  cmp      r0, r4                       
+           000e02dc  blls     #0xe0400                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e02e0  lsl      r0, r4, #2                   
+           000e02e4  add      r0, r5, r0                   
+           000e02e8  add      r0, r0, #0x10                
+           000e02ec  ldr      r6, [r0]                     
+           000e02f0  mov      r0, r6                       
+           000e02f4  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e02f8  cmp      r0, #0                       
+           000e02fc  beq      #0xe03d0                     ; -> L_e03d0
+           000e0300  ldr      r0, [r6, #0xc]               ; field+0xc 
+           000e0304  ldr      r0, [r0, #8]                 ; field+0x8 
+           000e0308  mov      r1, #0                       
+           000e030c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000e0310  cmp      r0, #0                       
+           000e0314  beq      #0xe03d0                     ; -> L_e03d0
+           000e0318  add      r0, r6, #0x10                
+           000e031c  ldr      r1, [r0]                     
+           000e0320  str      r1, [fp, #0x1c]              
+           000e0324  ldr      r0, [r0, #4]                 ; field+0x4 
+           000e0328  str      r0, [fp, #0x20]              
+           000e032c  ldr      r0, [r6, #0xc]               ; field+0xc 
+           000e0330  ldr      r3, [r0, #8]                 ; field+0x8 
+           000e0334  ldr      r0, [r6, #0xc]               ; field+0xc 
+           000e0338  add      r0, r0, #0xc                 
+           000e033c  ldr      r1, [r0]                     
+           000e0340  str      r1, [fp, #0x24]              
+           000e0344  ldr      r1, [r0, #4]                 ; field+0x4 
+           000e0348  str      r1, [fp, #0x28]              
+           000e034c  ldr      r1, [r0, #8]                 ; field+0x8 
+           000e0350  str      r1, [fp, #0x2c]              
+           000e0354  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e0358  str      r0, [fp, #0x30]              
+           000e035c  mov      r0, sl                       
+           000e0360  ldr      r1, [fp, #0x1c]              
+           000e0364  ldr      r2, [fp, #0x20]              
+           000e0368  ldr      ip, [fp, #0x24]              
+           000e036c  str      ip, [sp]                     
+           000e0370  ldr      ip, [fp, #0x28]              
+           000e0374  str      ip, [sp, #4]                 
+           000e0378  ldr      ip, [fp, #0x2c]              
+           000e037c  str      ip, [sp, #8]                 
+           000e0380  ldr      ip, [fp, #0x30]              
+           000e0384  str      ip, [sp, #0xc]               
+           000e0388  mov      ip, #0                       
+           000e038c  str      ip, [sp, #0x10]              
+           000e0390  bl       #0x22c0b0                    ; CALL CompositeTextureUtil::BlitPixels
+           000e0394  str      r0, [fp, #0x18]              
+           000e0398  cmp      r0, #0                       
+           000e039c  bne      #0xe03c0                     ; -> L_e03c0
+           000e03a0  ldr      r0, [pc]                     
+           000e03a4  b        #0xe03ac                     ; -> L_e03ac
+           000e03a8  .word    0x00ec4f64                   ; literal 15486820 / 
+L_e03ac:   000e03ac  ldr      r0, [pc, r0]                 ; GOT[364] LDSTR 'There was an issue with a composite blit with slot name '
+           000e03b0  ldr      r1, [r6, #8]                 ; field+0x8 
+           000e03b4  bl       #0x22adc0                    ; CALL System.String::Concat
+           000e03b8  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           000e03bc  b        #0xe03d0                     ; -> L_e03d0
+L_e03c0:   000e03c0  mov      r0, sl                       
+           000e03c4  ldr      r1, [fp, #0x18]              
+           000e03c8  ldr      lr, [sl]                     
+           000e03cc  bl       #0x22c090                    ; CALL UnityEngine.Texture2D::SetPixels32
+L_e03d0:   000e03d0  add      r4, r4, #1                   
+L_e03d4:   000e03d4  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000e03d8  cmp      r4, r0                       
+           000e03dc  blt      #0xe02d4                     ; -> L_e02d4
+           000e03e0  mov      r0, sl                       
+           000e03e4  ldr      lr, [sl]                     
+           000e03e8  bl       #0x22c0a0                    ; CALL UnityEngine.Texture2D::Apply
+           000e03ec  mov      r0, sl                       
+           000e03f0  add      sp, fp, #0x48                
+           000e03f4  pop      {r4, r5, r6, r8, sl, fp}     
+           000e03f8  ldr      r7, [sp, #8]                 
+           000e03fc  ldm      sp, {sp, pc}                 
+           000e0400  mov      r1, lr                       
+           000e0404  ldr      r0, [pc]                     
+           000e0408  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e040c  andeq    r0, r0, #0xf8                
+
+####################################################################################################
+# TYPE CompositeTextureUtil/AsyncTextureProcessor  (instance size 0xc)
+#   +0x08 newTexture                     UnityEngine.Texture2D
+#   vtable slots: 
+####################################################################################################
+== CompositeTextureUtil/AsyncTextureProcessor::.ctor  token 0x060001fa @0x000e0410 (44 bytes)
+   args: r0=this, 
+           000e0410  mov      ip, sp                       
+           000e0414  push     {r7, lr}                     
+           000e0418  mov      r7, sp                       
+           000e041c  push     {r8, fp, ip, lr}             
+           000e0420  sub      sp, sp, #8                   
+           000e0424  mov      fp, sp                       
+           000e0428  str      r0, [fp]                     
+           000e042c  add      sp, fp, #8                   
+           000e0430  pop      {r8, fp}                     
+           000e0434  ldr      r7, [sp, #8]                 
+           000e0438  ldm      sp, {sp, pc}                 
+
+== CompositeTextureUtil/AsyncTextureProcessor::GenerateCompositeTextureAsync  token 0x060001fb @0x000e043c (88 bytes)
+   args: r0=this, profile
+           000e043c  mov      ip, sp                       
+           000e0440  push     {r7, lr}                     
+           000e0444  mov      r7, sp                       
+           000e0448  push     {r8, fp, ip, lr}             
+           000e044c  sub      sp, sp, #8                   
+           000e0450  mov      fp, sp                       
+           000e0454  str      r0, [fp]                     
+           000e0458  str      r1, [fp, #4]                 
+           000e045c  ldr      r0, [pc]                     
+           000e0460  b        #0xe0468                     ; -> L_e0468
+           000e0464  .word    0x00ec4eb0                   ; literal 15486640 / 
+L_e0468:   000e0468  ldr      r0, [pc, r0]                 ; GOT[366] VTABLE CompositeTextureUtil/AsyncTextureProcessor/<GenerateCompositeTextureAsync>c__Iterator1E
+           000e046c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000e0470  ldr      r1, [fp, #4]                 
+           000e0474  str      r1, [r0, #8]                 ; field+0x8 (this-class: newTexture)
+           000e0478  str      r1, [r0, #0x1c]              ; field+0x1c 
+           000e047c  ldr      r1, [fp]                     
+           000e0480  str      r1, [r0, #0x20]              ; field+0x20 
+           000e0484  add      sp, fp, #8                   
+           000e0488  pop      {r8, fp}                     
+           000e048c  ldr      r7, [sp, #8]                 
+           000e0490  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE CompositeTextureUtil/AsyncTextureProcessor/<GenerateCompositeTextureAsync>c__Iterator1E  (instance size 0x2c)
+#   +0x08 profile                        CompositeProfile
+#   +0x0c <$s_82>__0                     CompositeProfile/CompositeSlot[]
+#   +0x10 <slot>__2                      CompositeProfile/CompositeSlot
+#   +0x14 <pixelBuffer>__3               UnityEngine.Color32[]
+#   +0x18 $current                       object
+#   +0x1c <$>profile                     CompositeProfile
+#   +0x20 <>f__this                      CompositeTextureUtil/AsyncTextureProcessor
+#   +0x24 <$s_83>__1                     int
+#   +0x28 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== CompositeTextureUtil/AsyncTextureProcessor/<GenerateCompositeTextureAsync>c__Iterator1E::.ctor  token 0x06000881 @0x001457a4 (44 bytes)
+   args: r0=this, 
+           001457a4  mov      ip, sp                       
+           001457a8  push     {r7, lr}                     
+           001457ac  mov      r7, sp                       
+           001457b0  push     {r8, fp, ip, lr}             
+           001457b4  sub      sp, sp, #8                   
+           001457b8  mov      fp, sp                       
+           001457bc  str      r0, [fp]                     
+           001457c0  add      sp, fp, #8                   
+           001457c4  pop      {r8, fp}                     
+           001457c8  ldr      r7, [sp, #8]                 
+           001457cc  ldm      sp, {sp, pc}                 
+
+== CompositeTextureUtil/AsyncTextureProcessor/<GenerateCompositeTextureAsync>c__Iterator1E::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x06000882 @0x001457d0 (52 bytes)
+   args: r0=this, 
+           001457d0  mov      ip, sp                       
+           001457d4  push     {r7, lr}                     
+           001457d8  mov      r7, sp                       
+           001457dc  push     {r8, fp, ip, lr}             
+           001457e0  sub      sp, sp, #8                   
+           001457e4  mov      fp, sp                       
+           001457e8  str      r0, [fp]                     
+           001457ec  ldr      r0, [fp]                     
+           001457f0  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: $current)
+           001457f4  add      sp, fp, #8                   
+           001457f8  pop      {r8, fp}                     
+           001457fc  ldr      r7, [sp, #8]                 
+           00145800  ldm      sp, {sp, pc}                 
+
+== CompositeTextureUtil/AsyncTextureProcessor/<GenerateCompositeTextureAsync>c__Iterator1E::System.Collections.IEnumerator.get_Current  token 0x06000883 @0x00145804 (52 bytes)
+   args: r0=this, 
+           00145804  mov      ip, sp                       
+           00145808  push     {r7, lr}                     
+           0014580c  mov      r7, sp                       
+           00145810  push     {r8, fp, ip, lr}             
+           00145814  sub      sp, sp, #8                   
+           00145818  mov      fp, sp                       
+           0014581c  str      r0, [fp]                     
+           00145820  ldr      r0, [fp]                     
+           00145824  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: $current)
+           00145828  add      sp, fp, #8                   
+           0014582c  pop      {r8, fp}                     
+           00145830  ldr      r7, [sp, #8]                 
+           00145834  ldm      sp, {sp, pc}                 
+
+== CompositeTextureUtil/AsyncTextureProcessor/<GenerateCompositeTextureAsync>c__Iterator1E::MoveNext  token 0x06000884 @0x00145838 (748 bytes)
+   args: r0=this, 
+           00145838  mov      ip, sp                       
+           0014583c  push     {r7, lr}                     
+           00145840  mov      r7, sp                       
+           00145844  push     {r8, sl, fp, ip, lr}         
+           00145848  sub      sp, sp, #0x4c                
+           0014584c  mov      fp, sp                       
+           00145850  mov      sl, r0                       
+           00145854  ldr      r0, [sl, #0x28]              ; field+0x28 (this-class: $PC)
+           00145858  mvn      r1, #0                       
+           0014585c  str      r1, [sl, #0x28]              ; field+0x28 (this-class: $PC)
+           00145860  str      r0, [fp, #0x18]              
+           00145864  cmp      r0, #4                       
+           00145868  bhs      #0x145af8                    ; -> L_145af8
+           0014586c  ldr      r0, [fp, #0x18]              
+           00145870  lsl      r1, r0, #2                   
+           00145874  ldr      r0, [pc]                     
+           00145878  b        #0x145880                    ; -> L_145880
+           0014587c  .word    0x00e60ffc                   ; literal 15077372 / 
+L_145880:  00145880  ldr      r0, [pc, r0]                 ; GOT[1735] SWITCH switch table[4]
+           00145884  add      r0, r0, r1                   
+           00145888  ldr      r0, [r0]                     
+           0014588c  mov      pc, r0                       
+           00145890  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: <>f__this)
+           00145894  str      r0, [fp, #0x38]              
+           00145898  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: profile)
+           0014589c  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: <slot>__2)
+           001458a0  mov      r0, r1                       
+           001458a4  ldr      r1, [r1]                     
+           001458a8  mov      lr, pc                       
+           001458ac  ldr      pc, [r1, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+           001458b0  str      r0, [fp, #0x40]              
+           001458b4  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: profile)
+           001458b8  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: <slot>__2)
+           001458bc  mov      r0, r1                       
+           001458c0  ldr      r1, [r1]                     
+           001458c4  mov      lr, pc                       
+           001458c8  ldr      pc, [r1, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           001458cc  str      r0, [fp, #0x44]              
+           001458d0  ldr      r0, [pc]                     
+           001458d4  b        #0x1458dc                    ; -> L_1458dc
+           001458d8  .word    0x00e5fa1c                   ; literal 15071772 / 
+L_1458dc:  001458dc  ldr      r0, [pc, r0]                 ; GOT[358] VTABLE UnityEngine.Texture2D
+           001458e0  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           001458e4  ldr      r1, [fp, #0x40]              
+           001458e8  ldr      r2, [fp, #0x44]              
+           001458ec  str      r0, [fp, #0x3c]              
+           001458f0  bl       #0x22c080                    ; CALL UnityEngine.Texture2D::.ctor
+           001458f4  ldr      r0, [fp, #0x38]              
+           001458f8  ldr      r1, [fp, #0x3c]              
+           001458fc  str      r1, [r0, #8]                 ; field+0x8 (this-class: profile)
+           00145900  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: profile)
+           00145904  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: <slot>__2)
+           00145908  mov      r1, #0                       
+           0014590c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00145910  cmp      r0, #0                       
+           00145914  beq      #0x14594c                    ; -> L_14594c
+           00145918  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: <>f__this)
+           0014591c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: profile)
+           00145920  str      r0, [fp, #0x38]              
+           00145924  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: profile)
+           00145928  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: <slot>__2)
+           0014592c  mov      r0, r1                       
+           00145930  ldr      lr, [r1]                     
+           00145934  bl       #0x22c050                    ; CALL UnityEngine.Texture2D::GetPixels32
+           00145938  mov      r1, r0                       
+           0014593c  ldr      r2, [fp, #0x38]              
+           00145940  mov      r0, r2                       
+           00145944  ldr      lr, [r2]                     
+           00145948  bl       #0x22c090                    ; CALL UnityEngine.Texture2D::SetPixels32
+L_14594c:  0014594c  mov      r0, #0                       
+           00145950  str      r0, [sl, #0x18]              ; field+0x18 (this-class: $current)
+           00145954  mov      r0, #1                       
+           00145958  str      r0, [sl, #0x28]              ; field+0x28 (this-class: $PC)
+           0014595c  b        #0x145b00                    ; -> L_145b00
+           00145960  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: profile)
+           00145964  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: <pixelBuffer>__3)
+           00145968  str      r0, [sl, #0xc]               ; field+0xc (this-class: <$s_82>__0)
+           0014596c  mov      r0, #0                       
+           00145970  str      r0, [sl, #0x24]              ; field+0x24 (this-class: <$s_83>__1)
+           00145974  b        #0x145ad0                    ; -> L_145ad0
+L_145978:  00145978  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <$s_82>__0)
+           0014597c  ldr      r1, [sl, #0x24]              ; field+0x24 (this-class: <$s_83>__1)
+           00145980  ldr      r2, [r0, #0xc]               ; field+0xc (this-class: <$s_82>__0)
+           00145984  cmp      r2, r1                       
+           00145988  blls     #0x145b14                    ; THROW System.IndexOutOfRangeException (if ls)
+           0014598c  lsl      r1, r1, #2                   
+           00145990  add      r0, r0, r1                   
+           00145994  add      r0, r0, #0x10                
+           00145998  ldr      r0, [r0]                     
+           0014599c  str      r0, [sl, #0x10]              ; field+0x10 (this-class: <slot>__2)
+           001459a0  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: <$s_82>__0)
+           001459a4  cmp      r0, #0                       
+           001459a8  beq      #0x145ac4                    ; -> L_145ac4
+           001459ac  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <slot>__2)
+           001459b0  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: <$s_82>__0)
+           001459b4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: profile)
+           001459b8  mov      r1, #0                       
+           001459bc  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           001459c0  cmp      r0, #0                       
+           001459c4  beq      #0x145ac4                    ; -> L_145ac4
+           001459c8  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: <>f__this)
+           001459cc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: profile)
+           001459d0  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: <slot>__2)
+           001459d4  add      r1, r1, #0x10                
+           001459d8  ldr      r2, [r1]                     
+           001459dc  str      r2, [fp, #0x1c]              
+           001459e0  ldr      r1, [r1, #4]                 ; field+0x4 
+           001459e4  str      r1, [fp, #0x20]              
+           001459e8  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: <slot>__2)
+           001459ec  ldr      r1, [r1, #0xc]               ; field+0xc (this-class: <$s_82>__0)
+           001459f0  ldr      r3, [r1, #8]                 ; field+0x8 (this-class: profile)
+           001459f4  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: <slot>__2)
+           001459f8  ldr      r1, [r1, #0xc]               ; field+0xc (this-class: <$s_82>__0)
+           001459fc  add      r1, r1, #0xc                 
+           00145a00  ldr      r2, [r1]                     
+           00145a04  str      r2, [fp, #0x24]              
+           00145a08  ldr      r2, [r1, #4]                 ; field+0x4 
+           00145a0c  str      r2, [fp, #0x28]              
+           00145a10  ldr      r2, [r1, #8]                 ; field+0x8 (this-class: profile)
+           00145a14  str      r2, [fp, #0x2c]              
+           00145a18  ldr      r1, [r1, #0xc]               ; field+0xc (this-class: <$s_82>__0)
+           00145a1c  str      r1, [fp, #0x30]              
+           00145a20  ldr      r1, [fp, #0x1c]              
+           00145a24  ldr      r2, [fp, #0x20]              
+           00145a28  ldr      ip, [fp, #0x24]              
+           00145a2c  str      ip, [sp]                     
+           00145a30  ldr      ip, [fp, #0x28]              
+           00145a34  str      ip, [sp, #4]                 
+           00145a38  ldr      ip, [fp, #0x2c]              
+           00145a3c  str      ip, [sp, #8]                 
+           00145a40  ldr      ip, [fp, #0x30]              
+           00145a44  str      ip, [sp, #0xc]               
+           00145a48  mov      ip, #0                       
+           00145a4c  str      ip, [sp, #0x10]              
+           00145a50  bl       #0x22c0b0                    ; CALL CompositeTextureUtil::BlitPixels
+           00145a54  str      r0, [sl, #0x14]              ; field+0x14 (this-class: <pixelBuffer>__3)
+           00145a58  cmp      r0, #0                       
+           00145a5c  bne      #0x145a84                    ; -> L_145a84
+           00145a60  ldr      r0, [pc]                     
+           00145a64  b        #0x145a6c                    ; -> L_145a6c
+           00145a68  .word    0x00e5f8a4                   ; literal 15071396 / 
+L_145a6c:  00145a6c  ldr      r0, [pc, r0]                 ; GOT[364] LDSTR 'There was an issue with a composite blit with slot name '
+           00145a70  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: <slot>__2)
+           00145a74  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: profile)
+           00145a78  bl       #0x22adc0                    ; CALL System.String::Concat
+           00145a7c  bl       #0x22add0                    ; CALL UnityEngine.Debug::LogWarning
+           00145a80  b        #0x145ac4                    ; -> L_145ac4
+L_145a84:  00145a84  mov      r0, #0                       
+           00145a88  str      r0, [sl, #0x18]              ; field+0x18 (this-class: $current)
+           00145a8c  mov      r0, #2                       
+           00145a90  str      r0, [sl, #0x28]              ; field+0x28 (this-class: $PC)
+           00145a94  b        #0x145b00                    ; -> L_145b00
+           00145a98  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: <>f__this)
+           00145a9c  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: profile)
+           00145aa0  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: <pixelBuffer>__3)
+           00145aa4  mov      r0, r2                       
+           00145aa8  ldr      lr, [r2]                     
+           00145aac  bl       #0x22c090                    ; CALL UnityEngine.Texture2D::SetPixels32
+           00145ab0  mov      r0, #0                       
+           00145ab4  str      r0, [sl, #0x18]              ; field+0x18 (this-class: $current)
+           00145ab8  mov      r0, #3                       
+           00145abc  str      r0, [sl, #0x28]              ; field+0x28 (this-class: $PC)
+           00145ac0  b        #0x145b00                    ; -> L_145b00
+L_145ac4:  00145ac4  ldr      r0, [sl, #0x24]              ; field+0x24 (this-class: <$s_83>__1)
+           00145ac8  add      r0, r0, #1                   
+           00145acc  str      r0, [sl, #0x24]              ; field+0x24 (this-class: <$s_83>__1)
+L_145ad0:  00145ad0  ldr      r0, [sl, #0x24]              ; field+0x24 (this-class: <$s_83>__1)
+           00145ad4  ldr      r1, [sl, #0xc]               ; field+0xc (this-class: <$s_82>__0)
+           00145ad8  ldr      r1, [r1, #0xc]               ; field+0xc (this-class: <$s_82>__0)
+           00145adc  cmp      r0, r1                       
+           00145ae0  blt      #0x145978                    ; -> L_145978
+           00145ae4  ldr      r0, [sl, #0x20]              ; field+0x20 (this-class: <>f__this)
+           00145ae8  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: profile)
+           00145aec  mov      r0, r1                       
+           00145af0  ldr      lr, [r1]                     
+           00145af4  bl       #0x22c0a0                    ; CALL UnityEngine.Texture2D::Apply
+L_145af8:  00145af8  mov      r0, #0                       
+           00145afc  b        #0x145b04                    ; -> L_145b04
+L_145b00:  00145b00  mov      r0, #1                       
+L_145b04:  00145b04  add      sp, fp, #0x4c                
+           00145b08  pop      {r8, sl, fp}                 
+           00145b0c  ldr      r7, [sp, #8]                 
+           00145b10  ldm      sp, {sp, pc}                 
+           00145b14  mov      r1, lr                       
+           00145b18  ldr      r0, [pc]                     
+           00145b1c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00145b20  andeq    r0, r0, #0xf8                
+
+== CompositeTextureUtil/AsyncTextureProcessor/<GenerateCompositeTextureAsync>c__Iterator1E::Dispose  token 0x06000885 @0x00145b24 (56 bytes)
+   args: r0=this, 
+           00145b24  mov      ip, sp                       
+           00145b28  push     {r7, lr}                     
+           00145b2c  mov      r7, sp                       
+           00145b30  push     {r8, fp, ip, lr}             
+           00145b34  sub      sp, sp, #8                   
+           00145b38  mov      fp, sp                       
+           00145b3c  str      r0, [fp]                     
+           00145b40  ldr      r0, [fp]                     
+           00145b44  mvn      r1, #0                       
+           00145b48  str      r1, [r0, #0x28]              ; field+0x28 (this-class: $PC)
+           00145b4c  add      sp, fp, #8                   
+           00145b50  pop      {r8, fp}                     
+           00145b54  ldr      r7, [sp, #8]                 
+           00145b58  ldm      sp, {sp, pc}                 
+
+== CompositeTextureUtil/AsyncTextureProcessor/<GenerateCompositeTextureAsync>c__Iterator1E::Reset  token 0x06000886 @0x00145b5c (64 bytes)
+   args: r0=this, 
+           00145b5c  mov      ip, sp                       
+           00145b60  push     {r7, lr}                     
+           00145b64  mov      r7, sp                       
+           00145b68  push     {r8, fp, ip, lr}             
+           00145b6c  sub      sp, sp, #8                   
+           00145b70  mov      fp, sp                       
+           00145b74  str      r0, [fp]                     
+           00145b78  mov      r0, #0x49                    
+           00145b7c  add      r0, r0, #0x100               
+           00145b80  add      r0, r0, #0x2000000           
+           00145b84  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00145b88  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00145b8c  add      sp, fp, #8                   
+           00145b90  pop      {r8, fp}                     
+           00145b94  ldr      r7, [sp, #8]                 
+           00145b98  ldm      sp, {sp, pc}                 

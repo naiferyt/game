@@ -1,0 +1,1475 @@
+####################################################################################################
+# TYPE Perlin  (instance size 0x8)
+#   static int[] p
+#   vtable slots: 
+####################################################################################################
+== Perlin::.ctor  token 0x06000177 @0x0001e5d4 (44 bytes)
+   args: r0=this, 
+           0001e5d4  mov      ip, sp                       
+           0001e5d8  push     {r7, lr}                     
+           0001e5dc  mov      r7, sp                       
+           0001e5e0  push     {r8, fp, ip, lr}             
+           0001e5e4  sub      sp, sp, #8                   
+           0001e5e8  mov      fp, sp                       
+           0001e5ec  str      r0, [fp]                     
+           0001e5f0  add      sp, fp, #8                   
+           0001e5f4  pop      {r8, fp}                     
+           0001e5f8  ldr      r7, [sp, #8]                 
+           0001e5fc  ldm      sp, {sp, pc}                 
+
+== Perlin::.cctor  token 0x06000178 @0x0001e600 (120 bytes) static
+   args: 
+           0001e600  mov      ip, sp                       
+           0001e604  push     {r7, lr}                     
+           0001e608  mov      r7, sp                       
+           0001e60c  push     {r8, fp, ip, lr}             
+           0001e610  sub      sp, sp, #8                   
+           0001e614  mov      fp, sp                       
+           0001e618  ldr      r0, [pc]                     
+           0001e61c  b        #0x1e624                     ; -> L_1e624
+           0001e620  .word    0x00f7e3d0                   ; literal 16245712 / 
+L_1e624:   0001e624  ldr      r0, [pc, r0]                 ; GOT[245] VTABLE System.Int32[]
+           0001e628  mov      r1, #128, #30                
+           0001e62c  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           0001e630  str      r0, [fp]                     
+           0001e634  add      r0, r0, #0x10                
+           0001e638  ldr      r1, [pc]                     
+           0001e63c  b        #0x1e644                     ; -> L_1e644
+           0001e640  .word    0x00f7e3b4                   ; literal 16245684 / 
+L_1e644:   0001e644  ldr      r1, [pc, r1]                 ; GOT[246] T29 
+           0001e648  mov      r2, #128, #28                
+           0001e64c  bl       #0xba2d0                     ; CALL System.String::memcpy
+           0001e650  ldr      r1, [fp]                     
+           0001e654  ldr      r0, [pc]                     
+           0001e658  b        #0x1e660                     ; -> L_1e660
+           0001e65c  .word    0x00f7e39c                   ; literal 16245660 / 
+L_1e660:   0001e660  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001e664  str      r1, [r0]                     
+           0001e668  add      sp, fp, #8                   
+           0001e66c  pop      {r8, fp}                     
+           0001e670  ldr      r7, [sp, #8]                 
+           0001e674  ldm      sp, {sp, pc}                 
+
+== Perlin::NoiseNormalized  token 0x06000179 @0x0001e678 (180 bytes) static
+   args: x, y
+           0001e678  mov      ip, sp                       
+           0001e67c  push     {r7, lr}                     
+           0001e680  mov      r7, sp                       
+           0001e684  push     {r8, fp, ip, lr}             
+           0001e688  sub      sp, sp, #0x18                
+           0001e68c  mov      fp, sp                       
+           0001e690  str      r0, [fp, #0xc]               
+           0001e694  str      r1, [fp, #0x10]              
+           0001e698  vldr     s0, [fp, #0xc]               
+           0001e69c  vcvt.f64.f32 d3, s0                       
+           0001e6a0  vldr     s0, [fp, #0x10]              
+           0001e6a4  vcvt.f64.f32 d2, s0                       
+           0001e6a8  vcvt.f32.f64 s0, d3                       
+           0001e6ac  vstr     s0, [sp, #-8]                
+           0001e6b0  ldr      r0, [sp, #-8]                
+           0001e6b4  vcvt.f32.f64 s0, d2                       
+           0001e6b8  vstr     s0, [sp, #-8]                
+           0001e6bc  ldr      r1, [sp, #-8]                
+           0001e6c0  bl       #0xbadb0                     ; CALL Perlin::Noise
+           0001e6c4  vmov     s4, r0                       
+           0001e6c8  vcvt.f64.f32 d2, s4                       
+           0001e6cc  vcvt.f32.f64 s0, d2                       
+           0001e6d0  vstr     s0, [fp, #8]                 
+           0001e6d4  vldr     s0, [fp, #8]                 
+           0001e6d8  vcvt.f64.f32 d2, s0                       
+           0001e6dc  vldr     s6, [pc]                     ; float 0.6899999976158142
+           0001e6e0  b        #0x1e6e8                     ; -> L_1e6e8
+           0001e6e4  .word    0x3f30a3d7                   ; literal 1060152279 / 0.69
+L_1e6e8:   0001e6e8  vcvt.f64.f32 d3, s6                       
+           0001e6ec  vadd.f64 d2, d2, d3                   
+           0001e6f0  vldr     s6, [pc]                     ; float 1.4830000400543213
+           0001e6f4  b        #0x1e6fc                     ; -> L_1e6fc
+           0001e6f8  .word    0x3fbdd2f2                   ; literal 1069404914 / 1.483
+L_1e6fc:   0001e6fc  vcvt.f64.f32 d3, s6                       
+           0001e700  vdiv.f64 d2, d2, d3                   
+           0001e704  vcvt.f32.f64 s0, d2                       
+           0001e708  vstr     s0, [fp, #8]                 
+           0001e70c  vldr     s0, [fp, #8]                 
+           0001e710  vcvt.f64.f32 d2, s0                       
+           0001e714  vcvt.f32.f64 s0, d2                       
+           0001e718  vmov     r0, s0                       
+           0001e71c  add      sp, fp, #0x18                
+           0001e720  pop      {r8, fp}                     
+           0001e724  ldr      r7, [sp, #8]                 
+           0001e728  ldm      sp, {sp, pc}                 
+
+== Perlin::Noise  token 0x0600017a @0x0001e72c (1544 bytes) static
+   args: x, y
+           0001e72c  mov      ip, sp                       
+           0001e730  push     {r7, lr}                     
+           0001e734  mov      r7, sp                       
+           0001e738  push     {r8, fp, ip, lr}             
+           0001e73c  sub      sp, sp, #0xc8                
+           0001e740  mov      fp, sp                       
+           0001e744  str      r0, [fp, #0x64]              
+           0001e748  str      r1, [fp, #0x68]              
+           0001e74c  vldr     s0, [fp, #0x64]              
+           0001e750  vcvt.f64.f32 d2, s0                       
+           0001e754  vcvt.f32.f64 s0, d2                       
+           0001e758  vstr     s0, [sp, #-8]                
+           0001e75c  ldr      r0, [sp, #-8]                
+           0001e760  bl       #0xbadc0                     ; CALL UnityEngine.Mathf::Floor
+           0001e764  vmov     s4, r0                       
+           0001e768  vcvt.f64.f32 d2, s4                       
+           0001e76c  vcvt.s32.f64 s0, d2                       
+           0001e770  vmov     r0, s0                       
+           0001e774  and      r0, r0, #0xff                
+           0001e778  str      r0, [fp, #0xb4]              
+           0001e77c  vldr     s0, [fp, #0x68]              
+           0001e780  vcvt.f64.f32 d2, s0                       
+           0001e784  vcvt.f32.f64 s0, d2                       
+           0001e788  vstr     s0, [sp, #-8]                
+           0001e78c  ldr      r0, [sp, #-8]                
+           0001e790  bl       #0xbadc0                     ; CALL UnityEngine.Mathf::Floor
+           0001e794  vmov     s4, r0                       
+           0001e798  vcvt.f64.f32 d2, s4                       
+           0001e79c  vcvt.s32.f64 s0, d2                       
+           0001e7a0  vmov     r0, s0                       
+           0001e7a4  and      r0, r0, #0xff                
+           0001e7a8  str      r0, [fp, #0xb0]              
+           0001e7ac  vldr     s0, [fp, #0x64]              
+           0001e7b0  vcvt.f64.f32 d2, s0                       
+           0001e7b4  vstr     d2, [fp, #0xc0]              
+           0001e7b8  vldr     s0, [fp, #0x64]              
+           0001e7bc  vcvt.f64.f32 d2, s0                       
+           0001e7c0  vcvt.f32.f64 s0, d2                       
+           0001e7c4  vstr     s0, [sp, #-8]                
+           0001e7c8  ldr      r0, [sp, #-8]                
+           0001e7cc  bl       #0xbadc0                     ; CALL UnityEngine.Mathf::Floor
+           0001e7d0  vmov     s6, r0                       
+           0001e7d4  vcvt.f64.f32 d3, s6                       
+           0001e7d8  vldr     d2, [fp, #0xc0]              
+           0001e7dc  vsub.f64 d2, d2, d3                   
+           0001e7e0  vcvt.f32.f64 s0, d2                       
+           0001e7e4  vstr     s0, [fp, #0x64]              
+           0001e7e8  vldr     s0, [fp, #0x68]              
+           0001e7ec  vcvt.f64.f32 d2, s0                       
+           0001e7f0  vstr     d2, [fp, #0xb8]              
+           0001e7f4  vldr     s0, [fp, #0x68]              
+           0001e7f8  vcvt.f64.f32 d2, s0                       
+           0001e7fc  vcvt.f32.f64 s0, d2                       
+           0001e800  vstr     s0, [sp, #-8]                
+           0001e804  ldr      r0, [sp, #-8]                
+           0001e808  bl       #0xbadc0                     ; CALL UnityEngine.Mathf::Floor
+           0001e80c  vmov     s6, r0                       
+           0001e810  vcvt.f64.f32 d3, s6                       
+           0001e814  vldr     d2, [fp, #0xb8]              
+           0001e818  vsub.f64 d2, d2, d3                   
+           0001e81c  vcvt.f32.f64 s0, d2                       
+           0001e820  vstr     s0, [fp, #0x68]              
+           0001e824  vldr     s0, [fp, #0x64]              
+           0001e828  vcvt.f64.f32 d2, s0                       
+           0001e82c  vcvt.f32.f64 s0, d2                       
+           0001e830  vstr     s0, [sp, #-8]                
+           0001e834  ldr      r0, [sp, #-8]                
+           0001e838  bl       #0x1f8c8                     ; CALL Perlin::fade (direct)
+           0001e83c  vmov     s4, r0                       
+           0001e840  vcvt.f64.f32 d2, s4                       
+           0001e844  vcvt.f32.f64 s0, d2                       
+           0001e848  vstr     s0, [fp, #8]                 
+           0001e84c  vldr     s0, [fp, #0x68]              
+           0001e850  vcvt.f64.f32 d2, s0                       
+           0001e854  vcvt.f32.f64 s0, d2                       
+           0001e858  vstr     s0, [sp, #-8]                
+           0001e85c  ldr      r0, [sp, #-8]                
+           0001e860  bl       #0x1f8c8                     ; CALL Perlin::fade (direct)
+           0001e864  vmov     s4, r0                       
+           0001e868  vcvt.f64.f32 d2, s4                       
+           0001e86c  ldr      r2, [fp, #0xb0]              
+           0001e870  ldr      r3, [fp, #0xb4]              
+           0001e874  vcvt.f32.f64 s0, d2                       
+           0001e878  vstr     s0, [fp, #0xc]               
+           0001e87c  ldr      r0, [pc]                     
+           0001e880  b        #0x1e888                     ; -> L_1e888
+           0001e884  .word    0x00f7e174                   ; literal 16245108 / 
+L_1e888:   0001e888  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001e88c  ldr      r0, [r0]                     
+           0001e890  ldr      r1, [r0, #0xc]               ; field+0xc 
+           0001e894  cmp      r1, r3                       
+           0001e898  blls     #0x1ed24                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001e89c  lsl      r1, r3, #2                   
+           0001e8a0  add      r0, r0, r1                   
+           0001e8a4  add      r0, r0, #0x10                
+           0001e8a8  ldr      r0, [r0]                     
+           0001e8ac  add      ip, r0, r2                   
+           0001e8b0  ldr      r0, [pc]                     
+           0001e8b4  b        #0x1e8bc                     ; -> L_1e8bc
+           0001e8b8  .word    0x00f7e140                   ; literal 16245056 / 
+L_1e8bc:   0001e8bc  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001e8c0  ldr      r0, [r0]                     
+           0001e8c4  ldr      r1, [r0, #0xc]               ; field+0xc 
+           0001e8c8  cmp      r1, ip                       
+           0001e8cc  blls     #0x1ed24                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001e8d0  lsl      r1, ip, #2                   
+           0001e8d4  add      r0, r0, r1                   
+           0001e8d8  add      r0, r0, #0x10                
+           0001e8dc  ldr      r1, [r0]                     
+           0001e8e0  ldr      r0, [pc]                     
+           0001e8e4  b        #0x1e8ec                     ; -> L_1e8ec
+           0001e8e8  .word    0x00f7e110                   ; literal 16245008 / 
+L_1e8ec:   0001e8ec  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001e8f0  ldr      r0, [r0]                     
+           0001e8f4  add      ip, ip, #1                   
+           0001e8f8  str      r0, [fp, #0xac]              
+           0001e8fc  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0001e900  cmp      r0, ip                       
+           0001e904  ldr      r0, [fp, #0xac]              
+           0001e908  blls     #0x1ed24                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001e90c  lsl      ip, ip, #2                   
+           0001e910  add      r0, r0, ip                   
+           0001e914  add      r0, r0, #0x10                
+           0001e918  ldr      r0, [r0]                     
+           0001e91c  str      r0, [fp, #0x94]              
+           0001e920  ldr      r0, [pc]                     
+           0001e924  b        #0x1e92c                     ; -> L_1e92c
+           0001e928  .word    0x00f7e0d0                   ; literal 16244944 / 
+L_1e92c:   0001e92c  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001e930  ldr      r0, [r0]                     
+           0001e934  add      r3, r3, #1                   
+           0001e938  ldr      ip, [r0, #0xc]               ; field+0xc 
+           0001e93c  cmp      ip, r3                       
+           0001e940  blls     #0x1ed24                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001e944  lsl      r3, r3, #2                   
+           0001e948  add      r0, r0, r3                   
+           0001e94c  add      r0, r0, #0x10                
+           0001e950  ldr      r0, [r0]                     
+           0001e954  add      r2, r0, r2                   
+           0001e958  ldr      r0, [pc]                     
+           0001e95c  b        #0x1e964                     ; -> L_1e964
+           0001e960  .word    0x00f7e098                   ; literal 16244888 / 
+L_1e964:   0001e964  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001e968  ldr      r0, [r0]                     
+           0001e96c  ldr      r3, [r0, #0xc]               ; field+0xc 
+           0001e970  cmp      r3, r2                       
+           0001e974  blls     #0x1ed24                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001e978  lsl      r3, r2, #2                   
+           0001e97c  add      r0, r0, r3                   
+           0001e980  add      r0, r0, #0x10                
+           0001e984  ldr      r0, [r0]                     
+           0001e988  str      r0, [fp, #0xa8]              
+           0001e98c  ldr      r0, [pc]                     
+           0001e990  b        #0x1e998                     ; -> L_1e998
+           0001e994  .word    0x00f7e064                   ; literal 16244836 / 
+L_1e998:   0001e998  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001e99c  ldr      r0, [r0]                     
+           0001e9a0  add      r2, r2, #1                   
+           0001e9a4  ldr      r3, [r0, #0xc]               ; field+0xc 
+           0001e9a8  cmp      r3, r2                       
+           0001e9ac  blls     #0x1ed24                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001e9b0  lsl      r2, r2, #2                   
+           0001e9b4  add      r0, r0, r2                   
+           0001e9b8  add      r0, r0, #0x10                
+           0001e9bc  ldr      r0, [r0]                     
+           0001e9c0  str      r0, [fp, #0x90]              
+           0001e9c4  vldr     s0, [fp, #0xc]               
+           0001e9c8  vcvt.f64.f32 d2, s0                       
+           0001e9cc  vstr     d2, [fp, #0x78]              
+           0001e9d0  vldr     s0, [fp, #8]                 
+           0001e9d4  vcvt.f64.f32 d2, s0                       
+           0001e9d8  vstr     d2, [fp, #0xa0]              
+           0001e9dc  ldr      r0, [pc]                     
+           0001e9e0  b        #0x1e9e8                     ; -> L_1e9e8
+           0001e9e4  .word    0x00f7e014                   ; literal 16244756 / 
+L_1e9e8:   0001e9e8  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001e9ec  ldr      r0, [r0]                     
+           0001e9f0  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001e9f4  cmp      r2, r1                       
+           0001e9f8  blls     #0x1ed24                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001e9fc  lsl      r1, r1, #2                   
+           0001ea00  add      r0, r0, r1                   
+           0001ea04  add      r0, r0, #0x10                
+           0001ea08  ldr      r0, [r0]                     
+           0001ea0c  vldr     s0, [fp, #0x64]              
+           0001ea10  vcvt.f64.f32 d3, s0                       
+           0001ea14  vldr     s0, [fp, #0x68]              
+           0001ea18  vcvt.f64.f32 d2, s0                       
+           0001ea1c  vcvt.f32.f64 s0, d3                       
+           0001ea20  vstr     s0, [sp, #-8]                
+           0001ea24  ldr      r1, [sp, #-8]                
+           0001ea28  vcvt.f32.f64 s0, d2                       
+           0001ea2c  vstr     s0, [sp, #-8]                
+           0001ea30  ldr      r2, [sp, #-8]                
+           0001ea34  bl       #0x1fb1c                     ; CALL Perlin::grad2 (direct)
+           0001ea38  vmov     s4, r0                       
+           0001ea3c  vcvt.f64.f32 d2, s4                       
+           0001ea40  vstr     d2, [fp, #0x98]              
+           0001ea44  ldr      r1, [fp, #0xa8]              
+           0001ea48  ldr      r0, [pc]                     
+           0001ea4c  b        #0x1ea54                     ; -> L_1ea54
+           0001ea50  .word    0x00f7dfa8                   ; literal 16244648 / 
+L_1ea54:   0001ea54  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001ea58  ldr      r0, [r0]                     
+           0001ea5c  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001ea60  cmp      r2, r1                       
+           0001ea64  blls     #0x1ed24                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001ea68  lsl      r1, r1, #2                   
+           0001ea6c  add      r0, r0, r1                   
+           0001ea70  add      r0, r0, #0x10                
+           0001ea74  ldr      r0, [r0]                     
+           0001ea78  vldr     s0, [fp, #0x64]              
+           0001ea7c  vcvt.f64.f32 d2, s0                       
+           0001ea80  vldr     s8, [pc]                     ; float 1.0
+           0001ea84  b        #0x1ea8c                     ; -> L_1ea8c
+           0001ea88  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1ea8c:   0001ea8c  vcvt.f64.f32 d4, s8                       
+           0001ea90  vmov.f64 d3, d2                       
+           0001ea94  vsub.f64 d3, d3, d4                   
+           0001ea98  vldr     s0, [fp, #0x68]              
+           0001ea9c  vcvt.f64.f32 d2, s0                       
+           0001eaa0  vcvt.f32.f64 s0, d3                       
+           0001eaa4  vstr     s0, [sp, #-8]                
+           0001eaa8  ldr      r1, [sp, #-8]                
+           0001eaac  vcvt.f32.f64 s0, d2                       
+           0001eab0  vstr     s0, [sp, #-8]                
+           0001eab4  ldr      r2, [sp, #-8]                
+           0001eab8  bl       #0x1fb1c                     ; CALL Perlin::grad2 (direct)
+           0001eabc  vmov     s4, r0                       
+           0001eac0  vcvt.f64.f32 d2, s4                       
+           0001eac4  ldr      r1, [fp, #0x94]              
+           0001eac8  vldr     d3, [fp, #0x98]              
+           0001eacc  vldr     d4, [fp, #0xa0]              
+           0001ead0  vcvt.f32.f64 s0, d4                       
+           0001ead4  vstr     s0, [fp, #0x38]              
+           0001ead8  vcvt.f32.f64 s0, d3                       
+           0001eadc  vstr     s0, [fp, #0x3c]              
+           0001eae0  vcvt.f32.f64 s0, d2                       
+           0001eae4  vstr     s0, [fp, #0x40]              
+           0001eae8  vldr     s0, [fp, #0x3c]              
+           0001eaec  vcvt.f64.f32 d2, s0                       
+           0001eaf0  vldr     s0, [fp, #0x38]              
+           0001eaf4  vcvt.f64.f32 d3, s0                       
+           0001eaf8  vldr     s0, [fp, #0x40]              
+           0001eafc  vcvt.f64.f32 d4, s0                       
+           0001eb00  vldr     s0, [fp, #0x3c]              
+           0001eb04  vcvt.f64.f32 d5, s0                       
+           0001eb08  vsub.f64 d4, d4, d5                   
+           0001eb0c  vmul.f64 d3, d3, d4                   
+           0001eb10  vadd.f64 d2, d2, d3                   
+           0001eb14  vcvt.f32.f64 s0, d2                       
+           0001eb18  vstr     s0, [fp, #0x34]              
+           0001eb1c  vldr     s0, [fp, #0x34]              
+           0001eb20  vcvt.f64.f32 d2, s0                       
+           0001eb24  vstr     d2, [fp, #0x70]              
+           0001eb28  vldr     s0, [fp, #8]                 
+           0001eb2c  vcvt.f64.f32 d2, s0                       
+           0001eb30  vstr     d2, [fp, #0x88]              
+           0001eb34  ldr      r0, [pc]                     
+           0001eb38  b        #0x1eb40                     ; -> L_1eb40
+           0001eb3c  .word    0x00f7debc                   ; literal 16244412 / 
+L_1eb40:   0001eb40  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001eb44  ldr      r0, [r0]                     
+           0001eb48  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001eb4c  cmp      r2, r1                       
+           0001eb50  blls     #0x1ed24                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001eb54  lsl      r1, r1, #2                   
+           0001eb58  add      r0, r0, r1                   
+           0001eb5c  add      r0, r0, #0x10                
+           0001eb60  ldr      r0, [r0]                     
+           0001eb64  vldr     s0, [fp, #0x64]              
+           0001eb68  vcvt.f64.f32 d3, s0                       
+           0001eb6c  vldr     s0, [fp, #0x68]              
+           0001eb70  vcvt.f64.f32 d2, s0                       
+           0001eb74  vldr     s8, [pc]                     ; float 1.0
+           0001eb78  b        #0x1eb80                     ; -> L_1eb80
+           0001eb7c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1eb80:   0001eb80  vcvt.f64.f32 d4, s8                       
+           0001eb84  vsub.f64 d2, d2, d4                   
+           0001eb88  vcvt.f32.f64 s0, d3                       
+           0001eb8c  vstr     s0, [sp, #-8]                
+           0001eb90  ldr      r1, [sp, #-8]                
+           0001eb94  vcvt.f32.f64 s0, d2                       
+           0001eb98  vstr     s0, [sp, #-8]                
+           0001eb9c  ldr      r2, [sp, #-8]                
+           0001eba0  bl       #0x1fb1c                     ; CALL Perlin::grad2 (direct)
+           0001eba4  vmov     s4, r0                       
+           0001eba8  vcvt.f64.f32 d2, s4                       
+           0001ebac  vstr     d2, [fp, #0x80]              
+           0001ebb0  ldr      r1, [fp, #0x90]              
+           0001ebb4  ldr      r0, [pc]                     
+           0001ebb8  b        #0x1ebc0                     ; -> L_1ebc0
+           0001ebbc  .word    0x00f7de3c                   ; literal 16244284 / 
+L_1ebc0:   0001ebc0  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001ebc4  ldr      r0, [r0]                     
+           0001ebc8  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001ebcc  cmp      r2, r1                       
+           0001ebd0  blls     #0x1ed24                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001ebd4  lsl      r1, r1, #2                   
+           0001ebd8  add      r0, r0, r1                   
+           0001ebdc  add      r0, r0, #0x10                
+           0001ebe0  ldr      r0, [r0]                     
+           0001ebe4  vldr     s0, [fp, #0x64]              
+           0001ebe8  vcvt.f64.f32 d2, s0                       
+           0001ebec  vldr     s8, [pc]                     ; float 1.0
+           0001ebf0  b        #0x1ebf8                     ; -> L_1ebf8
+           0001ebf4  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1ebf8:   0001ebf8  vcvt.f64.f32 d4, s8                       
+           0001ebfc  vmov.f64 d3, d2                       
+           0001ec00  vsub.f64 d3, d3, d4                   
+           0001ec04  vldr     s0, [fp, #0x68]              
+           0001ec08  vcvt.f64.f32 d2, s0                       
+           0001ec0c  vldr     s8, [pc]                     ; float 1.0
+           0001ec10  b        #0x1ec18                     ; -> L_1ec18
+           0001ec14  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1ec18:   0001ec18  vcvt.f64.f32 d4, s8                       
+           0001ec1c  vsub.f64 d2, d2, d4                   
+           0001ec20  vcvt.f32.f64 s0, d3                       
+           0001ec24  vstr     s0, [sp, #-8]                
+           0001ec28  ldr      r1, [sp, #-8]                
+           0001ec2c  vcvt.f32.f64 s0, d2                       
+           0001ec30  vstr     s0, [sp, #-8]                
+           0001ec34  ldr      r2, [sp, #-8]                
+           0001ec38  bl       #0x1fb1c                     ; CALL Perlin::grad2 (direct)
+           0001ec3c  vmov     s4, r0                       
+           0001ec40  vcvt.f64.f32 d2, s4                       
+           0001ec44  vldr     d3, [fp, #0x70]              
+           0001ec48  vldr     d4, [fp, #0x78]              
+           0001ec4c  vldr     d5, [fp, #0x80]              
+           0001ec50  vldr     d6, [fp, #0x88]              
+           0001ec54  vcvt.f32.f64 s0, d6                       
+           0001ec58  vstr     s0, [fp, #0x48]              
+           0001ec5c  vcvt.f32.f64 s0, d5                       
+           0001ec60  vstr     s0, [fp, #0x4c]              
+           0001ec64  vcvt.f32.f64 s0, d2                       
+           0001ec68  vstr     s0, [fp, #0x50]              
+           0001ec6c  vldr     s0, [fp, #0x4c]              
+           0001ec70  vcvt.f64.f32 d2, s0                       
+           0001ec74  vldr     s0, [fp, #0x48]              
+           0001ec78  vcvt.f64.f32 d5, s0                       
+           0001ec7c  vldr     s0, [fp, #0x50]              
+           0001ec80  vcvt.f64.f32 d6, s0                       
+           0001ec84  vldr     s0, [fp, #0x4c]              
+           0001ec88  vcvt.f64.f32 d7, s0                       
+           0001ec8c  vsub.f64 d6, d6, d7                   
+           0001ec90  vmul.f64 d5, d5, d6                   
+           0001ec94  vadd.f64 d2, d2, d5                   
+           0001ec98  vcvt.f32.f64 s0, d2                       
+           0001ec9c  vstr     s0, [fp, #0x44]              
+           0001eca0  vldr     s0, [fp, #0x44]              
+           0001eca4  vcvt.f64.f32 d2, s0                       
+           0001eca8  vcvt.f32.f64 s0, d4                       
+           0001ecac  vstr     s0, [fp, #0x58]              
+           0001ecb0  vcvt.f32.f64 s0, d3                       
+           0001ecb4  vstr     s0, [fp, #0x5c]              
+           0001ecb8  vcvt.f32.f64 s0, d2                       
+           0001ecbc  vstr     s0, [fp, #0x60]              
+           0001ecc0  vldr     s0, [fp, #0x5c]              
+           0001ecc4  vcvt.f64.f32 d2, s0                       
+           0001ecc8  vldr     s0, [fp, #0x58]              
+           0001eccc  vcvt.f64.f32 d3, s0                       
+           0001ecd0  vldr     s0, [fp, #0x60]              
+           0001ecd4  vcvt.f64.f32 d4, s0                       
+           0001ecd8  vldr     s0, [fp, #0x5c]              
+           0001ecdc  vcvt.f64.f32 d5, s0                       
+           0001ece0  vsub.f64 d4, d4, d5                   
+           0001ece4  vmul.f64 d3, d3, d4                   
+           0001ece8  vadd.f64 d2, d2, d3                   
+           0001ecec  vcvt.f32.f64 s0, d2                       
+           0001ecf0  vstr     s0, [fp, #0x54]              
+           0001ecf4  vldr     s0, [fp, #0x54]              
+           0001ecf8  vcvt.f64.f32 d2, s0                       
+           0001ecfc  vcvt.f32.f64 s0, d2                       
+           0001ed00  vstr     s0, [fp, #0x10]              
+           0001ed04  vldr     s0, [fp, #0x10]              
+           0001ed08  vcvt.f64.f32 d2, s0                       
+           0001ed0c  vcvt.f32.f64 s0, d2                       
+           0001ed10  vmov     r0, s0                       
+           0001ed14  add      sp, fp, #0xc8                
+           0001ed18  pop      {r8, fp}                     
+           0001ed1c  ldr      r7, [sp, #8]                 
+           0001ed20  ldm      sp, {sp, pc}                 
+           0001ed24  mov      r1, lr                       
+           0001ed28  ldr      r0, [pc]                     
+           0001ed2c  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0001ed30  andeq    r0, r0, #0xf8                
+
+== Perlin::Noise  token 0x0600017b @0x0001ed34 (2964 bytes) static
+   args: x, y, z
+           0001ed34  mov      ip, sp                       
+           0001ed38  push     {r7, lr}                     
+           0001ed3c  mov      r7, sp                       
+           0001ed40  push     {r8, fp, ip, lr}             
+           0001ed44  sub      sp, sp, #100, #30            
+           0001ed48  mov      fp, sp                       
+           0001ed4c  str      r0, [fp, #0xb4]              
+           0001ed50  str      r1, [fp, #0xb8]              
+           0001ed54  str      r2, [fp, #0xbc]              
+           0001ed58  vldr     s0, [fp, #0xb4]              
+           0001ed5c  vcvt.f64.f32 d2, s0                       
+           0001ed60  vcvt.f32.f64 s0, d2                       
+           0001ed64  vstr     s0, [sp, #-8]                
+           0001ed68  ldr      r0, [sp, #-8]                
+           0001ed6c  bl       #0xbadc0                     ; CALL UnityEngine.Mathf::Floor
+           0001ed70  vmov     s4, r0                       
+           0001ed74  vcvt.f64.f32 d2, s4                       
+           0001ed78  vcvt.s32.f64 s0, d2                       
+           0001ed7c  vmov     r0, s0                       
+           0001ed80  and      r0, r0, #0xff                
+           0001ed84  str      r0, [fp, #0x170]             
+           0001ed88  vldr     s0, [fp, #0xb8]              
+           0001ed8c  vcvt.f64.f32 d2, s0                       
+           0001ed90  vcvt.f32.f64 s0, d2                       
+           0001ed94  vstr     s0, [sp, #-8]                
+           0001ed98  ldr      r0, [sp, #-8]                
+           0001ed9c  bl       #0xbadc0                     ; CALL UnityEngine.Mathf::Floor
+           0001eda0  vmov     s4, r0                       
+           0001eda4  vcvt.f64.f32 d2, s4                       
+           0001eda8  vcvt.s32.f64 s0, d2                       
+           0001edac  vmov     r0, s0                       
+           0001edb0  and      r0, r0, #0xff                
+           0001edb4  str      r0, [fp, #0x16c]             
+           0001edb8  vldr     s0, [fp, #0xbc]              
+           0001edbc  vcvt.f64.f32 d2, s0                       
+           0001edc0  vcvt.f32.f64 s0, d2                       
+           0001edc4  vstr     s0, [sp, #-8]                
+           0001edc8  ldr      r0, [sp, #-8]                
+           0001edcc  bl       #0xbadc0                     ; CALL UnityEngine.Mathf::Floor
+           0001edd0  vmov     s4, r0                       
+           0001edd4  vcvt.f64.f32 d2, s4                       
+           0001edd8  vcvt.s32.f64 s0, d2                       
+           0001eddc  vmov     r0, s0                       
+           0001ede0  and      r0, r0, #0xff                
+           0001ede4  str      r0, [fp, #0x168]             
+           0001ede8  vldr     s0, [fp, #0xb4]              
+           0001edec  vcvt.f64.f32 d2, s0                       
+           0001edf0  vstr     d2, [fp, #0x188]             
+           0001edf4  vldr     s0, [fp, #0xb4]              
+           0001edf8  vcvt.f64.f32 d2, s0                       
+           0001edfc  vcvt.f32.f64 s0, d2                       
+           0001ee00  vstr     s0, [sp, #-8]                
+           0001ee04  ldr      r0, [sp, #-8]                
+           0001ee08  bl       #0xbadc0                     ; CALL UnityEngine.Mathf::Floor
+           0001ee0c  vmov     s6, r0                       
+           0001ee10  vcvt.f64.f32 d3, s6                       
+           0001ee14  vldr     d2, [fp, #0x188]             
+           0001ee18  vsub.f64 d2, d2, d3                   
+           0001ee1c  vcvt.f32.f64 s0, d2                       
+           0001ee20  vstr     s0, [fp, #0xb4]              
+           0001ee24  vldr     s0, [fp, #0xb8]              
+           0001ee28  vcvt.f64.f32 d2, s0                       
+           0001ee2c  vstr     d2, [fp, #0x180]             
+           0001ee30  vldr     s0, [fp, #0xb8]              
+           0001ee34  vcvt.f64.f32 d2, s0                       
+           0001ee38  vcvt.f32.f64 s0, d2                       
+           0001ee3c  vstr     s0, [sp, #-8]                
+           0001ee40  ldr      r0, [sp, #-8]                
+           0001ee44  bl       #0xbadc0                     ; CALL UnityEngine.Mathf::Floor
+           0001ee48  vmov     s6, r0                       
+           0001ee4c  vcvt.f64.f32 d3, s6                       
+           0001ee50  vldr     d2, [fp, #0x180]             
+           0001ee54  vsub.f64 d2, d2, d3                   
+           0001ee58  vcvt.f32.f64 s0, d2                       
+           0001ee5c  vstr     s0, [fp, #0xb8]              
+           0001ee60  vldr     s0, [fp, #0xbc]              
+           0001ee64  vcvt.f64.f32 d2, s0                       
+           0001ee68  vstr     d2, [fp, #0x178]             
+           0001ee6c  vldr     s0, [fp, #0xbc]              
+           0001ee70  vcvt.f64.f32 d2, s0                       
+           0001ee74  vcvt.f32.f64 s0, d2                       
+           0001ee78  vstr     s0, [sp, #-8]                
+           0001ee7c  ldr      r0, [sp, #-8]                
+           0001ee80  bl       #0xbadc0                     ; CALL UnityEngine.Mathf::Floor
+           0001ee84  vmov     s6, r0                       
+           0001ee88  vcvt.f64.f32 d3, s6                       
+           0001ee8c  vldr     d2, [fp, #0x178]             
+           0001ee90  vsub.f64 d2, d2, d3                   
+           0001ee94  vcvt.f32.f64 s0, d2                       
+           0001ee98  vstr     s0, [fp, #0xbc]              
+           0001ee9c  vldr     s0, [fp, #0xb4]              
+           0001eea0  vcvt.f64.f32 d2, s0                       
+           0001eea4  vcvt.f32.f64 s0, d2                       
+           0001eea8  vstr     s0, [sp, #-8]                
+           0001eeac  ldr      r0, [sp, #-8]                
+           0001eeb0  bl       #0x1f8c8                     ; CALL Perlin::fade (direct)
+           0001eeb4  vmov     s4, r0                       
+           0001eeb8  vcvt.f64.f32 d2, s4                       
+           0001eebc  vcvt.f32.f64 s0, d2                       
+           0001eec0  vstr     s0, [fp, #8]                 
+           0001eec4  vldr     s0, [fp, #0xb8]              
+           0001eec8  vcvt.f64.f32 d2, s0                       
+           0001eecc  vcvt.f32.f64 s0, d2                       
+           0001eed0  vstr     s0, [sp, #-8]                
+           0001eed4  ldr      r0, [sp, #-8]                
+           0001eed8  bl       #0x1f8c8                     ; CALL Perlin::fade (direct)
+           0001eedc  vmov     s4, r0                       
+           0001eee0  vcvt.f64.f32 d2, s4                       
+           0001eee4  vcvt.f32.f64 s0, d2                       
+           0001eee8  vstr     s0, [fp, #0xc]               
+           0001eeec  vldr     s0, [fp, #0xbc]              
+           0001eef0  vcvt.f64.f32 d2, s0                       
+           0001eef4  vcvt.f32.f64 s0, d2                       
+           0001eef8  vstr     s0, [sp, #-8]                
+           0001eefc  ldr      r0, [sp, #-8]                
+           0001ef00  bl       #0x1f8c8                     ; CALL Perlin::fade (direct)
+           0001ef04  vmov     s4, r0                       
+           0001ef08  vcvt.f64.f32 d2, s4                       
+           0001ef0c  ldr      r2, [fp, #0x168]             
+           0001ef10  ldr      r3, [fp, #0x16c]             
+           0001ef14  ldr      ip, [fp, #0x170]             
+           0001ef18  vcvt.f32.f64 s0, d2                       
+           0001ef1c  vstr     s0, [fp, #0x10]              
+           0001ef20  ldr      r0, [pc]                     
+           0001ef24  b        #0x1ef2c                     ; -> L_1ef2c
+           0001ef28  .word    0x00f7dad0                   ; literal 16243408 / 
+L_1ef2c:   0001ef2c  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001ef30  ldr      r0, [r0]                     
+           0001ef34  ldr      r1, [r0, #0xc]               ; field+0xc 
+           0001ef38  cmp      r1, ip                       
+           0001ef3c  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001ef40  lsl      r1, ip, #2                   
+           0001ef44  add      r0, r0, r1                   
+           0001ef48  add      r0, r0, #0x10                
+           0001ef4c  ldr      r0, [r0]                     
+           0001ef50  add      r1, r0, r3                   
+           0001ef54  ldr      r0, [pc]                     
+           0001ef58  b        #0x1ef60                     ; -> L_1ef60
+           0001ef5c  .word    0x00f7da9c                   ; literal 16243356 / 
+L_1ef60:   0001ef60  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001ef64  ldr      r0, [r0]                     
+           0001ef68  str      r0, [fp, #0x164]             
+           0001ef6c  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0001ef70  cmp      r0, r1                       
+           0001ef74  ldr      r0, [fp, #0x164]             
+           0001ef78  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001ef7c  str      r1, [fp, #0x160]             
+           0001ef80  lsl      r1, r1, #2                   
+           0001ef84  add      r0, r0, r1                   
+           0001ef88  ldr      r1, [fp, #0x160]             
+           0001ef8c  add      r0, r0, #0x10                
+           0001ef90  ldr      r0, [r0]                     
+           0001ef94  add      r0, r0, r2                   
+           0001ef98  str      r0, [fp, #0x158]             
+           0001ef9c  ldr      r0, [pc]                     
+           0001efa0  b        #0x1efa8                     ; -> L_1efa8
+           0001efa4  .word    0x00f7da54                   ; literal 16243284 / 
+L_1efa8:   0001efa8  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001efac  ldr      r0, [r0]                     
+           0001efb0  add      r1, r1, #1                   
+           0001efb4  str      r0, [fp, #0x15c]             
+           0001efb8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0001efbc  cmp      r0, r1                       
+           0001efc0  ldr      r0, [fp, #0x15c]             
+           0001efc4  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001efc8  lsl      r1, r1, #2                   
+           0001efcc  add      r0, r0, r1                   
+           0001efd0  ldr      r1, [fp, #0x158]             
+           0001efd4  add      r0, r0, #0x10                
+           0001efd8  ldr      r0, [r0]                     
+           0001efdc  add      r0, r0, r2                   
+           0001efe0  str      r0, [fp, #0x13c]             
+           0001efe4  ldr      r0, [pc]                     
+           0001efe8  b        #0x1eff0                     ; -> L_1eff0
+           0001efec  .word    0x00f7da0c                   ; literal 16243212 / 
+L_1eff0:   0001eff0  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001eff4  ldr      r0, [r0]                     
+           0001eff8  add      ip, ip, #1                   
+           0001effc  str      r0, [fp, #0x154]             
+           0001f000  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0001f004  cmp      r0, ip                       
+           0001f008  ldr      r0, [fp, #0x154]             
+           0001f00c  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001f010  lsl      ip, ip, #2                   
+           0001f014  add      r0, r0, ip                   
+           0001f018  add      r0, r0, #0x10                
+           0001f01c  ldr      r0, [r0]                     
+           0001f020  add      r3, r0, r3                   
+           0001f024  ldr      r0, [pc]                     
+           0001f028  b        #0x1f030                     ; -> L_1f030
+           0001f02c  .word    0x00f7d9cc                   ; literal 16243148 / 
+L_1f030:   0001f030  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001f034  ldr      r0, [r0]                     
+           0001f038  ldr      ip, [r0, #0xc]               ; field+0xc 
+           0001f03c  cmp      ip, r3                       
+           0001f040  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001f044  lsl      ip, r3, #2                   
+           0001f048  add      r0, r0, ip                   
+           0001f04c  add      r0, r0, #0x10                
+           0001f050  ldr      r0, [r0]                     
+           0001f054  add      r0, r0, r2                   
+           0001f058  str      r0, [fp, #0x150]             
+           0001f05c  ldr      r0, [pc]                     
+           0001f060  b        #0x1f068                     ; -> L_1f068
+           0001f064  .word    0x00f7d994                   ; literal 16243092 / 
+L_1f068:   0001f068  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001f06c  ldr      r0, [r0]                     
+           0001f070  add      r3, r3, #1                   
+           0001f074  ldr      ip, [r0, #0xc]               ; field+0xc 
+           0001f078  cmp      ip, r3                       
+           0001f07c  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001f080  lsl      r3, r3, #2                   
+           0001f084  add      r0, r0, r3                   
+           0001f088  add      r0, r0, #0x10                
+           0001f08c  ldr      r0, [r0]                     
+           0001f090  add      r0, r0, r2                   
+           0001f094  str      r0, [fp, #0x138]             
+           0001f098  vldr     s0, [fp, #0x10]              
+           0001f09c  vcvt.f64.f32 d2, s0                       
+           0001f0a0  vstr     d2, [fp, #0xd8]              
+           0001f0a4  vldr     s0, [fp, #0xc]               
+           0001f0a8  vcvt.f64.f32 d2, s0                       
+           0001f0ac  vstr     d2, [fp, #0x120]             
+           0001f0b0  vldr     s0, [fp, #8]                 
+           0001f0b4  vcvt.f64.f32 d2, s0                       
+           0001f0b8  vstr     d2, [fp, #0x148]             
+           0001f0bc  ldr      r0, [pc]                     
+           0001f0c0  b        #0x1f0c8                     ; -> L_1f0c8
+           0001f0c4  .word    0x00f7d934                   ; literal 16242996 / 
+L_1f0c8:   0001f0c8  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001f0cc  ldr      r0, [r0]                     
+           0001f0d0  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001f0d4  cmp      r2, r1                       
+           0001f0d8  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001f0dc  str      r1, [fp, #0x114]             
+           0001f0e0  lsl      r1, r1, #2                   
+           0001f0e4  add      r0, r0, r1                   
+           0001f0e8  add      r0, r0, #0x10                
+           0001f0ec  ldr      r0, [r0]                     
+           0001f0f0  vldr     s0, [fp, #0xb4]              
+           0001f0f4  vcvt.f64.f32 d4, s0                       
+           0001f0f8  vldr     s0, [fp, #0xb8]              
+           0001f0fc  vcvt.f64.f32 d3, s0                       
+           0001f100  vldr     s0, [fp, #0xbc]              
+           0001f104  vcvt.f64.f32 d2, s0                       
+           0001f108  vcvt.f32.f64 s0, d4                       
+           0001f10c  vstr     s0, [sp, #-8]                
+           0001f110  ldr      r1, [sp, #-8]                
+           0001f114  vcvt.f32.f64 s0, d3                       
+           0001f118  vstr     s0, [sp, #-8]                
+           0001f11c  ldr      r2, [sp, #-8]                
+           0001f120  vcvt.f32.f64 s0, d2                       
+           0001f124  vstr     s0, [sp, #-8]                
+           0001f128  ldr      r3, [sp, #-8]                
+           0001f12c  bl       #0x1f9d8                     ; CALL Perlin::grad (direct)
+           0001f130  vmov     s4, r0                       
+           0001f134  vcvt.f64.f32 d2, s4                       
+           0001f138  vstr     d2, [fp, #0x140]             
+           0001f13c  ldr      r1, [fp, #0x150]             
+           0001f140  ldr      r0, [pc]                     
+           0001f144  b        #0x1f14c                     ; -> L_1f14c
+           0001f148  .word    0x00f7d8b0                   ; literal 16242864 / 
+L_1f14c:   0001f14c  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001f150  ldr      r0, [r0]                     
+           0001f154  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001f158  cmp      r2, r1                       
+           0001f15c  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001f160  str      r1, [fp, #0x110]             
+           0001f164  lsl      r1, r1, #2                   
+           0001f168  add      r0, r0, r1                   
+           0001f16c  add      r0, r0, #0x10                
+           0001f170  ldr      r0, [r0]                     
+           0001f174  vldr     s0, [fp, #0xb4]              
+           0001f178  vcvt.f64.f32 d2, s0                       
+           0001f17c  vldr     s6, [pc]                     ; float 1.0
+           0001f180  b        #0x1f188                     ; -> L_1f188
+           0001f184  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f188:   0001f188  vcvt.f64.f32 d3, s6                       
+           0001f18c  vmov.f64 d4, d2                       
+           0001f190  vsub.f64 d4, d4, d3                   
+           0001f194  vldr     s0, [fp, #0xb8]              
+           0001f198  vcvt.f64.f32 d3, s0                       
+           0001f19c  vldr     s0, [fp, #0xbc]              
+           0001f1a0  vcvt.f64.f32 d2, s0                       
+           0001f1a4  vcvt.f32.f64 s0, d4                       
+           0001f1a8  vstr     s0, [sp, #-8]                
+           0001f1ac  ldr      r1, [sp, #-8]                
+           0001f1b0  vcvt.f32.f64 s0, d3                       
+           0001f1b4  vstr     s0, [sp, #-8]                
+           0001f1b8  ldr      r2, [sp, #-8]                
+           0001f1bc  vcvt.f32.f64 s0, d2                       
+           0001f1c0  vstr     s0, [sp, #-8]                
+           0001f1c4  ldr      r3, [sp, #-8]                
+           0001f1c8  bl       #0x1f9d8                     ; CALL Perlin::grad (direct)
+           0001f1cc  vmov     s4, r0                       
+           0001f1d0  vcvt.f64.f32 d2, s4                       
+           0001f1d4  ldr      r1, [fp, #0x13c]             
+           0001f1d8  vldr     d3, [fp, #0x140]             
+           0001f1dc  vldr     d4, [fp, #0x148]             
+           0001f1e0  vcvt.f32.f64 s0, d4                       
+           0001f1e4  vstr     s0, [fp, #0x48]              
+           0001f1e8  vcvt.f32.f64 s0, d3                       
+           0001f1ec  vstr     s0, [fp, #0x4c]              
+           0001f1f0  vcvt.f32.f64 s0, d2                       
+           0001f1f4  vstr     s0, [fp, #0x50]              
+           0001f1f8  vldr     s0, [fp, #0x4c]              
+           0001f1fc  vcvt.f64.f32 d2, s0                       
+           0001f200  vldr     s0, [fp, #0x48]              
+           0001f204  vcvt.f64.f32 d3, s0                       
+           0001f208  vldr     s0, [fp, #0x50]              
+           0001f20c  vcvt.f64.f32 d4, s0                       
+           0001f210  vldr     s0, [fp, #0x4c]              
+           0001f214  vcvt.f64.f32 d5, s0                       
+           0001f218  vsub.f64 d4, d4, d5                   
+           0001f21c  vmul.f64 d3, d3, d4                   
+           0001f220  vadd.f64 d2, d2, d3                   
+           0001f224  vcvt.f32.f64 s0, d2                       
+           0001f228  vstr     s0, [fp, #0x44]              
+           0001f22c  vldr     s0, [fp, #0x44]              
+           0001f230  vcvt.f64.f32 d2, s0                       
+           0001f234  vstr     d2, [fp, #0x118]             
+           0001f238  vldr     s0, [fp, #8]                 
+           0001f23c  vcvt.f64.f32 d2, s0                       
+           0001f240  vstr     d2, [fp, #0x130]             
+           0001f244  ldr      r0, [pc]                     
+           0001f248  b        #0x1f250                     ; -> L_1f250
+           0001f24c  .word    0x00f7d7ac                   ; literal 16242604 / 
+L_1f250:   0001f250  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001f254  ldr      r0, [r0]                     
+           0001f258  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001f25c  cmp      r2, r1                       
+           0001f260  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001f264  str      r1, [fp, #0xfc]              
+           0001f268  lsl      r1, r1, #2                   
+           0001f26c  add      r0, r0, r1                   
+           0001f270  add      r0, r0, #0x10                
+           0001f274  ldr      r0, [r0]                     
+           0001f278  vldr     s0, [fp, #0xb4]              
+           0001f27c  vcvt.f64.f32 d4, s0                       
+           0001f280  vldr     s0, [fp, #0xb8]              
+           0001f284  vcvt.f64.f32 d2, s0                       
+           0001f288  vldr     s10, [pc]                    ; float 1.0
+           0001f28c  b        #0x1f294                     ; -> L_1f294
+           0001f290  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f294:   0001f294  vcvt.f64.f32 d5, s10                      
+           0001f298  vmov.f64 d3, d2                       
+           0001f29c  vsub.f64 d3, d3, d5                   
+           0001f2a0  vldr     s0, [fp, #0xbc]              
+           0001f2a4  vcvt.f64.f32 d2, s0                       
+           0001f2a8  vcvt.f32.f64 s0, d4                       
+           0001f2ac  vstr     s0, [sp, #-8]                
+           0001f2b0  ldr      r1, [sp, #-8]                
+           0001f2b4  vcvt.f32.f64 s0, d3                       
+           0001f2b8  vstr     s0, [sp, #-8]                
+           0001f2bc  ldr      r2, [sp, #-8]                
+           0001f2c0  vcvt.f32.f64 s0, d2                       
+           0001f2c4  vstr     s0, [sp, #-8]                
+           0001f2c8  ldr      r3, [sp, #-8]                
+           0001f2cc  bl       #0x1f9d8                     ; CALL Perlin::grad (direct)
+           0001f2d0  vmov     s4, r0                       
+           0001f2d4  vcvt.f64.f32 d2, s4                       
+           0001f2d8  vstr     d2, [fp, #0x128]             
+           0001f2dc  ldr      r1, [fp, #0x138]             
+           0001f2e0  ldr      r0, [pc]                     
+           0001f2e4  b        #0x1f2ec                     ; -> L_1f2ec
+           0001f2e8  .word    0x00f7d710                   ; literal 16242448 / 
+L_1f2ec:   0001f2ec  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001f2f0  ldr      r0, [r0]                     
+           0001f2f4  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001f2f8  cmp      r2, r1                       
+           0001f2fc  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001f300  str      r1, [fp, #0xf8]              
+           0001f304  lsl      r1, r1, #2                   
+           0001f308  add      r0, r0, r1                   
+           0001f30c  add      r0, r0, #0x10                
+           0001f310  ldr      r0, [r0]                     
+           0001f314  vldr     s0, [fp, #0xb4]              
+           0001f318  vcvt.f64.f32 d2, s0                       
+           0001f31c  vldr     s6, [pc]                     ; float 1.0
+           0001f320  b        #0x1f328                     ; -> L_1f328
+           0001f324  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f328:   0001f328  vcvt.f64.f32 d3, s6                       
+           0001f32c  vmov.f64 d4, d2                       
+           0001f330  vsub.f64 d4, d4, d3                   
+           0001f334  vldr     s0, [fp, #0xb8]              
+           0001f338  vcvt.f64.f32 d2, s0                       
+           0001f33c  vldr     s10, [pc]                    ; float 1.0
+           0001f340  b        #0x1f348                     ; -> L_1f348
+           0001f344  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f348:   0001f348  vcvt.f64.f32 d5, s10                      
+           0001f34c  vmov.f64 d3, d2                       
+           0001f350  vsub.f64 d3, d3, d5                   
+           0001f354  vldr     s0, [fp, #0xbc]              
+           0001f358  vcvt.f64.f32 d2, s0                       
+           0001f35c  vcvt.f32.f64 s0, d4                       
+           0001f360  vstr     s0, [sp, #-8]                
+           0001f364  ldr      r1, [sp, #-8]                
+           0001f368  vcvt.f32.f64 s0, d3                       
+           0001f36c  vstr     s0, [sp, #-8]                
+           0001f370  ldr      r2, [sp, #-8]                
+           0001f374  vcvt.f32.f64 s0, d2                       
+           0001f378  vstr     s0, [sp, #-8]                
+           0001f37c  ldr      r3, [sp, #-8]                
+           0001f380  bl       #0x1f9d8                     ; CALL Perlin::grad (direct)
+           0001f384  vmov     s4, r0                       
+           0001f388  vcvt.f64.f32 d2, s4                       
+           0001f38c  ldr      r1, [fp, #0x114]             
+           0001f390  vldr     d3, [fp, #0x118]             
+           0001f394  vldr     d4, [fp, #0x120]             
+           0001f398  vldr     d5, [fp, #0x128]             
+           0001f39c  vldr     d6, [fp, #0x130]             
+           0001f3a0  vcvt.f32.f64 s0, d6                       
+           0001f3a4  vstr     s0, [fp, #0x58]              
+           0001f3a8  vcvt.f32.f64 s0, d5                       
+           0001f3ac  vstr     s0, [fp, #0x5c]              
+           0001f3b0  vcvt.f32.f64 s0, d2                       
+           0001f3b4  vstr     s0, [fp, #0x60]              
+           0001f3b8  vldr     s0, [fp, #0x5c]              
+           0001f3bc  vcvt.f64.f32 d2, s0                       
+           0001f3c0  vldr     s0, [fp, #0x58]              
+           0001f3c4  vcvt.f64.f32 d5, s0                       
+           0001f3c8  vldr     s0, [fp, #0x60]              
+           0001f3cc  vcvt.f64.f32 d6, s0                       
+           0001f3d0  vldr     s0, [fp, #0x5c]              
+           0001f3d4  vcvt.f64.f32 d7, s0                       
+           0001f3d8  vsub.f64 d6, d6, d7                   
+           0001f3dc  vmul.f64 d5, d5, d6                   
+           0001f3e0  vadd.f64 d2, d2, d5                   
+           0001f3e4  vcvt.f32.f64 s0, d2                       
+           0001f3e8  vstr     s0, [fp, #0x54]              
+           0001f3ec  vldr     s0, [fp, #0x54]              
+           0001f3f0  vcvt.f64.f32 d2, s0                       
+           0001f3f4  vcvt.f32.f64 s0, d4                       
+           0001f3f8  vstr     s0, [fp, #0x68]              
+           0001f3fc  vcvt.f32.f64 s0, d3                       
+           0001f400  vstr     s0, [fp, #0x6c]              
+           0001f404  vcvt.f32.f64 s0, d2                       
+           0001f408  vstr     s0, [fp, #0x70]              
+           0001f40c  vldr     s0, [fp, #0x6c]              
+           0001f410  vcvt.f64.f32 d2, s0                       
+           0001f414  vldr     s0, [fp, #0x68]              
+           0001f418  vcvt.f64.f32 d3, s0                       
+           0001f41c  vldr     s0, [fp, #0x70]              
+           0001f420  vcvt.f64.f32 d4, s0                       
+           0001f424  vldr     s0, [fp, #0x6c]              
+           0001f428  vcvt.f64.f32 d5, s0                       
+           0001f42c  vsub.f64 d4, d4, d5                   
+           0001f430  vmul.f64 d3, d3, d4                   
+           0001f434  vadd.f64 d2, d2, d3                   
+           0001f438  vcvt.f32.f64 s0, d2                       
+           0001f43c  vstr     s0, [fp, #0x64]              
+           0001f440  vldr     s0, [fp, #0x64]              
+           0001f444  vcvt.f64.f32 d2, s0                       
+           0001f448  vstr     d2, [fp, #0xc8]              
+           0001f44c  vldr     s0, [fp, #0xc]               
+           0001f450  vcvt.f64.f32 d2, s0                       
+           0001f454  vstr     d2, [fp, #0xe8]              
+           0001f458  vldr     s0, [fp, #8]                 
+           0001f45c  vcvt.f64.f32 d2, s0                       
+           0001f460  vstr     d2, [fp, #0x108]             
+           0001f464  ldr      r0, [pc]                     
+           0001f468  b        #0x1f470                     ; -> L_1f470
+           0001f46c  .word    0x00f7d58c                   ; literal 16242060 / 
+L_1f470:   0001f470  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001f474  ldr      r0, [r0]                     
+           0001f478  add      r1, r1, #1                   
+           0001f47c  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001f480  cmp      r2, r1                       
+           0001f484  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001f488  lsl      r1, r1, #2                   
+           0001f48c  add      r0, r0, r1                   
+           0001f490  add      r0, r0, #0x10                
+           0001f494  ldr      r0, [r0]                     
+           0001f498  vldr     s0, [fp, #0xb4]              
+           0001f49c  vcvt.f64.f32 d4, s0                       
+           0001f4a0  vldr     s0, [fp, #0xb8]              
+           0001f4a4  vcvt.f64.f32 d3, s0                       
+           0001f4a8  vldr     s0, [fp, #0xbc]              
+           0001f4ac  vcvt.f64.f32 d2, s0                       
+           0001f4b0  vldr     s10, [pc]                    ; float 1.0
+           0001f4b4  b        #0x1f4bc                     ; -> L_1f4bc
+           0001f4b8  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f4bc:   0001f4bc  vcvt.f64.f32 d5, s10                      
+           0001f4c0  vsub.f64 d2, d2, d5                   
+           0001f4c4  vcvt.f32.f64 s0, d4                       
+           0001f4c8  vstr     s0, [sp, #-8]                
+           0001f4cc  ldr      r1, [sp, #-8]                
+           0001f4d0  vcvt.f32.f64 s0, d3                       
+           0001f4d4  vstr     s0, [sp, #-8]                
+           0001f4d8  ldr      r2, [sp, #-8]                
+           0001f4dc  vcvt.f32.f64 s0, d2                       
+           0001f4e0  vstr     s0, [sp, #-8]                
+           0001f4e4  ldr      r3, [sp, #-8]                
+           0001f4e8  bl       #0x1f9d8                     ; CALL Perlin::grad (direct)
+           0001f4ec  vmov     s4, r0                       
+           0001f4f0  vcvt.f64.f32 d2, s4                       
+           0001f4f4  vstr     d2, [fp, #0x100]             
+           0001f4f8  ldr      r1, [fp, #0x110]             
+           0001f4fc  ldr      r0, [pc]                     
+           0001f500  b        #0x1f508                     ; -> L_1f508
+           0001f504  .word    0x00f7d4f4                   ; literal 16241908 / 
+L_1f508:   0001f508  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001f50c  ldr      r0, [r0]                     
+           0001f510  add      r1, r1, #1                   
+           0001f514  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001f518  cmp      r2, r1                       
+           0001f51c  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001f520  lsl      r1, r1, #2                   
+           0001f524  add      r0, r0, r1                   
+           0001f528  add      r0, r0, #0x10                
+           0001f52c  ldr      r0, [r0]                     
+           0001f530  vldr     s0, [fp, #0xb4]              
+           0001f534  vcvt.f64.f32 d2, s0                       
+           0001f538  vldr     s6, [pc]                     ; float 1.0
+           0001f53c  b        #0x1f544                     ; -> L_1f544
+           0001f540  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f544:   0001f544  vcvt.f64.f32 d3, s6                       
+           0001f548  vmov.f64 d4, d2                       
+           0001f54c  vsub.f64 d4, d4, d3                   
+           0001f550  vldr     s0, [fp, #0xb8]              
+           0001f554  vcvt.f64.f32 d3, s0                       
+           0001f558  vldr     s0, [fp, #0xbc]              
+           0001f55c  vcvt.f64.f32 d2, s0                       
+           0001f560  vldr     s10, [pc]                    ; float 1.0
+           0001f564  b        #0x1f56c                     ; -> L_1f56c
+           0001f568  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f56c:   0001f56c  vcvt.f64.f32 d5, s10                      
+           0001f570  vsub.f64 d2, d2, d5                   
+           0001f574  vcvt.f32.f64 s0, d4                       
+           0001f578  vstr     s0, [sp, #-8]                
+           0001f57c  ldr      r1, [sp, #-8]                
+           0001f580  vcvt.f32.f64 s0, d3                       
+           0001f584  vstr     s0, [sp, #-8]                
+           0001f588  ldr      r2, [sp, #-8]                
+           0001f58c  vcvt.f32.f64 s0, d2                       
+           0001f590  vstr     s0, [sp, #-8]                
+           0001f594  ldr      r3, [sp, #-8]                
+           0001f598  bl       #0x1f9d8                     ; CALL Perlin::grad (direct)
+           0001f59c  vmov     s4, r0                       
+           0001f5a0  vcvt.f64.f32 d2, s4                       
+           0001f5a4  ldr      r1, [fp, #0xfc]              
+           0001f5a8  vldr     d3, [fp, #0x100]             
+           0001f5ac  vldr     d4, [fp, #0x108]             
+           0001f5b0  vcvt.f32.f64 s0, d4                       
+           0001f5b4  vstr     s0, [fp, #0x78]              
+           0001f5b8  vcvt.f32.f64 s0, d3                       
+           0001f5bc  vstr     s0, [fp, #0x7c]              
+           0001f5c0  vcvt.f32.f64 s0, d2                       
+           0001f5c4  vstr     s0, [fp, #0x80]              
+           0001f5c8  vldr     s0, [fp, #0x7c]              
+           0001f5cc  vcvt.f64.f32 d2, s0                       
+           0001f5d0  vldr     s0, [fp, #0x78]              
+           0001f5d4  vcvt.f64.f32 d3, s0                       
+           0001f5d8  vldr     s0, [fp, #0x80]              
+           0001f5dc  vcvt.f64.f32 d4, s0                       
+           0001f5e0  vldr     s0, [fp, #0x7c]              
+           0001f5e4  vcvt.f64.f32 d5, s0                       
+           0001f5e8  vsub.f64 d4, d4, d5                   
+           0001f5ec  vmul.f64 d3, d3, d4                   
+           0001f5f0  vadd.f64 d2, d2, d3                   
+           0001f5f4  vcvt.f32.f64 s0, d2                       
+           0001f5f8  vstr     s0, [fp, #0x74]              
+           0001f5fc  vldr     s0, [fp, #0x74]              
+           0001f600  vcvt.f64.f32 d2, s0                       
+           0001f604  vstr     d2, [fp, #0xe0]              
+           0001f608  vldr     s0, [fp, #8]                 
+           0001f60c  vcvt.f64.f32 d2, s0                       
+           0001f610  vstr     d2, [fp, #0xf0]              
+           0001f614  ldr      r0, [pc]                     
+           0001f618  b        #0x1f620                     ; -> L_1f620
+           0001f61c  .word    0x00f7d3dc                   ; literal 16241628 / 
+L_1f620:   0001f620  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001f624  ldr      r0, [r0]                     
+           0001f628  add      r1, r1, #1                   
+           0001f62c  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001f630  cmp      r2, r1                       
+           0001f634  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001f638  lsl      r1, r1, #2                   
+           0001f63c  add      r0, r0, r1                   
+           0001f640  add      r0, r0, #0x10                
+           0001f644  ldr      r0, [r0]                     
+           0001f648  vldr     s0, [fp, #0xb4]              
+           0001f64c  vcvt.f64.f32 d4, s0                       
+           0001f650  vldr     s0, [fp, #0xb8]              
+           0001f654  vcvt.f64.f32 d2, s0                       
+           0001f658  vldr     s10, [pc]                    ; float 1.0
+           0001f65c  b        #0x1f664                     ; -> L_1f664
+           0001f660  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f664:   0001f664  vcvt.f64.f32 d5, s10                      
+           0001f668  vmov.f64 d3, d2                       
+           0001f66c  vsub.f64 d3, d3, d5                   
+           0001f670  vldr     s0, [fp, #0xbc]              
+           0001f674  vcvt.f64.f32 d2, s0                       
+           0001f678  vldr     s10, [pc]                    ; float 1.0
+           0001f67c  b        #0x1f684                     ; -> L_1f684
+           0001f680  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f684:   0001f684  vcvt.f64.f32 d5, s10                      
+           0001f688  vsub.f64 d2, d2, d5                   
+           0001f68c  vcvt.f32.f64 s0, d4                       
+           0001f690  vstr     s0, [sp, #-8]                
+           0001f694  ldr      r1, [sp, #-8]                
+           0001f698  vcvt.f32.f64 s0, d3                       
+           0001f69c  vstr     s0, [sp, #-8]                
+           0001f6a0  ldr      r2, [sp, #-8]                
+           0001f6a4  vcvt.f32.f64 s0, d2                       
+           0001f6a8  vstr     s0, [sp, #-8]                
+           0001f6ac  ldr      r3, [sp, #-8]                
+           0001f6b0  bl       #0x1f9d8                     ; CALL Perlin::grad (direct)
+           0001f6b4  vmov     s4, r0                       
+           0001f6b8  vcvt.f64.f32 d2, s4                       
+           0001f6bc  vstr     d2, [fp, #0xd0]              
+           0001f6c0  ldr      r1, [fp, #0xf8]              
+           0001f6c4  ldr      r0, [pc]                     
+           0001f6c8  b        #0x1f6d0                     ; -> L_1f6d0
+           0001f6cc  .word    0x00f7d32c                   ; literal 16241452 / 
+L_1f6d0:   0001f6d0  ldr      r0, [pc, r0]                 ; GOT[247] SFLDA Perlin::p
+           0001f6d4  ldr      r0, [r0]                     
+           0001f6d8  add      r1, r1, #1                   
+           0001f6dc  ldr      r2, [r0, #0xc]               ; field+0xc 
+           0001f6e0  cmp      r2, r1                       
+           0001f6e4  blls     #0x1f8b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           0001f6e8  lsl      r1, r1, #2                   
+           0001f6ec  add      r0, r0, r1                   
+           0001f6f0  add      r0, r0, #0x10                
+           0001f6f4  ldr      r0, [r0]                     
+           0001f6f8  vldr     s0, [fp, #0xb4]              
+           0001f6fc  vcvt.f64.f32 d2, s0                       
+           0001f700  vldr     s6, [pc]                     ; float 1.0
+           0001f704  b        #0x1f70c                     ; -> L_1f70c
+           0001f708  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f70c:   0001f70c  vcvt.f64.f32 d3, s6                       
+           0001f710  vmov.f64 d4, d2                       
+           0001f714  vsub.f64 d4, d4, d3                   
+           0001f718  vldr     s0, [fp, #0xb8]              
+           0001f71c  vcvt.f64.f32 d2, s0                       
+           0001f720  vldr     s10, [pc]                    ; float 1.0
+           0001f724  b        #0x1f72c                     ; -> L_1f72c
+           0001f728  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f72c:   0001f72c  vcvt.f64.f32 d5, s10                      
+           0001f730  vmov.f64 d3, d2                       
+           0001f734  vsub.f64 d3, d3, d5                   
+           0001f738  vldr     s0, [fp, #0xbc]              
+           0001f73c  vcvt.f64.f32 d2, s0                       
+           0001f740  vldr     s10, [pc]                    ; float 1.0
+           0001f744  b        #0x1f74c                     ; -> L_1f74c
+           0001f748  .word    0x3f800000                   ; literal 1065353216 / 1
+L_1f74c:   0001f74c  vcvt.f64.f32 d5, s10                      
+           0001f750  vsub.f64 d2, d2, d5                   
+           0001f754  vcvt.f32.f64 s0, d4                       
+           0001f758  vstr     s0, [sp, #-8]                
+           0001f75c  ldr      r1, [sp, #-8]                
+           0001f760  vcvt.f32.f64 s0, d3                       
+           0001f764  vstr     s0, [sp, #-8]                
+           0001f768  ldr      r2, [sp, #-8]                
+           0001f76c  vcvt.f32.f64 s0, d2                       
+           0001f770  vstr     s0, [sp, #-8]                
+           0001f774  ldr      r3, [sp, #-8]                
+           0001f778  bl       #0x1f9d8                     ; CALL Perlin::grad (direct)
+           0001f77c  vmov     s4, r0                       
+           0001f780  vcvt.f64.f32 d2, s4                       
+           0001f784  vldr     d3, [fp, #0xd0]              
+           0001f788  vldr     d4, [fp, #0xd8]              
+           0001f78c  vldr     d5, [fp, #0xe0]              
+           0001f790  vldr     d6, [fp, #0xe8]              
+           0001f794  vldr     d7, [fp, #0xf0]              
+           0001f798  vcvt.f32.f64 s0, d7                       
+           0001f79c  vstr     s0, [fp, #0x88]              
+           0001f7a0  vcvt.f32.f64 s0, d3                       
+           0001f7a4  vstr     s0, [fp, #0x8c]              
+           0001f7a8  vcvt.f32.f64 s0, d2                       
+           0001f7ac  vstr     s0, [fp, #0x90]              
+           0001f7b0  vldr     s0, [fp, #0x8c]              
+           0001f7b4  vcvt.f64.f32 d2, s0                       
+           0001f7b8  vstr     d2, [fp, #0xc0]              
+           0001f7bc  vldr     s0, [fp, #0x88]              
+           0001f7c0  vcvt.f64.f32 d7, s0                       
+           0001f7c4  vldr     s0, [fp, #0x90]              
+           0001f7c8  vcvt.f64.f32 d2, s0                       
+           0001f7cc  vldr     s0, [fp, #0x8c]              
+           0001f7d0  vcvt.f64.f32 d3, s0                       
+           0001f7d4  vsub.f64 d2, d2, d3                   
+           0001f7d8  vldr     d3, [fp, #0xc8]              
+           0001f7dc  vmul.f64 d7, d7, d2                   
+           0001f7e0  vldr     d2, [fp, #0xc0]              
+           0001f7e4  vadd.f64 d2, d2, d7                   
+           0001f7e8  vcvt.f32.f64 s0, d2                       
+           0001f7ec  vstr     s0, [fp, #0x84]              
+           0001f7f0  vldr     s0, [fp, #0x84]              
+           0001f7f4  vcvt.f64.f32 d2, s0                       
+           0001f7f8  vcvt.f32.f64 s0, d6                       
+           0001f7fc  vstr     s0, [fp, #0x98]              
+           0001f800  vcvt.f32.f64 s0, d5                       
+           0001f804  vstr     s0, [fp, #0x9c]              
+           0001f808  vcvt.f32.f64 s0, d2                       
+           0001f80c  vstr     s0, [fp, #0xa0]              
+           0001f810  vldr     s0, [fp, #0x9c]              
+           0001f814  vcvt.f64.f32 d2, s0                       
+           0001f818  vldr     s0, [fp, #0x98]              
+           0001f81c  vcvt.f64.f32 d5, s0                       
+           0001f820  vldr     s0, [fp, #0xa0]              
+           0001f824  vcvt.f64.f32 d6, s0                       
+           0001f828  vldr     s0, [fp, #0x9c]              
+           0001f82c  vcvt.f64.f32 d7, s0                       
+           0001f830  vsub.f64 d6, d6, d7                   
+           0001f834  vmul.f64 d5, d5, d6                   
+           0001f838  vadd.f64 d2, d2, d5                   
+           0001f83c  vcvt.f32.f64 s0, d2                       
+           0001f840  vstr     s0, [fp, #0x94]              
+           0001f844  vldr     s0, [fp, #0x94]              
+           0001f848  vcvt.f64.f32 d2, s0                       
+           0001f84c  vcvt.f32.f64 s0, d4                       
+           0001f850  vstr     s0, [fp, #0xa8]              
+           0001f854  vcvt.f32.f64 s0, d3                       
+           0001f858  vstr     s0, [fp, #0xac]              
+           0001f85c  vcvt.f32.f64 s0, d2                       
+           0001f860  vstr     s0, [fp, #0xb0]              
+           0001f864  vldr     s0, [fp, #0xac]              
+           0001f868  vcvt.f64.f32 d2, s0                       
+           0001f86c  vldr     s0, [fp, #0xa8]              
+           0001f870  vcvt.f64.f32 d3, s0                       
+           0001f874  vldr     s0, [fp, #0xb0]              
+           0001f878  vcvt.f64.f32 d4, s0                       
+           0001f87c  vldr     s0, [fp, #0xac]              
+           0001f880  vcvt.f64.f32 d5, s0                       
+           0001f884  vsub.f64 d4, d4, d5                   
+           0001f888  vmul.f64 d3, d3, d4                   
+           0001f88c  vadd.f64 d2, d2, d3                   
+           0001f890  vcvt.f32.f64 s0, d2                       
+           0001f894  vstr     s0, [fp, #0xa4]              
+           0001f898  vldr     s0, [fp, #0xa4]              
+           0001f89c  vcvt.f64.f32 d2, s0                       
+           0001f8a0  vcvt.f32.f64 s0, d2                       
+           0001f8a4  vmov     r0, s0                       
+           0001f8a8  add      sp, fp, #100, #30            
+           0001f8ac  pop      {r8, fp}                     
+           0001f8b0  ldr      r7, [sp, #8]                 
+           0001f8b4  ldm      sp, {sp, pc}                 
+           0001f8b8  mov      r1, lr                       
+           0001f8bc  ldr      r0, [pc]                     
+           0001f8c0  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0001f8c4  andeq    r0, r0, #0xf8                
+
+== Perlin::fade  token 0x0600017c @0x0001f8c8 (168 bytes) static
+   args: t
+           0001f8c8  mov      ip, sp                       
+           0001f8cc  push     {r7, lr}                     
+           0001f8d0  mov      r7, sp                       
+           0001f8d4  push     {r8, fp, ip, lr}             
+           0001f8d8  sub      sp, sp, #8                   
+           0001f8dc  mov      fp, sp                       
+           0001f8e0  str      r0, [fp]                     
+           0001f8e4  vldr     s0, [fp]                     
+           0001f8e8  vcvt.f64.f32 d2, s0                       
+           0001f8ec  vldr     s0, [fp]                     
+           0001f8f0  vcvt.f64.f32 d3, s0                       
+           0001f8f4  vmul.f64 d2, d2, d3                   
+           0001f8f8  vldr     s0, [fp]                     
+           0001f8fc  vcvt.f64.f32 d3, s0                       
+           0001f900  vmul.f64 d2, d2, d3                   
+           0001f904  vldr     s0, [fp]                     
+           0001f908  vcvt.f64.f32 d3, s0                       
+           0001f90c  vldr     s0, [fp]                     
+           0001f910  vcvt.f64.f32 d4, s0                       
+           0001f914  vldr     s10, [pc]                    ; float 6.0
+           0001f918  b        #0x1f920                     ; -> L_1f920
+           0001f91c  .word    0x40c00000                   ; literal 1086324736 / 6
+L_1f920:   0001f920  vcvt.f64.f32 d5, s10                      
+           0001f924  vmul.f64 d4, d4, d5                   
+           0001f928  vldr     s10, [pc]                    ; float 15.0
+           0001f92c  b        #0x1f934                     ; -> L_1f934
+           0001f930  .word    0x41700000                   ; literal 1097859072 / 15
+L_1f934:   0001f934  vcvt.f64.f32 d5, s10                      
+           0001f938  vsub.f64 d4, d4, d5                   
+           0001f93c  vmul.f64 d3, d3, d4                   
+           0001f940  vldr     s8, [pc]                     ; float 10.0
+           0001f944  b        #0x1f94c                     ; -> L_1f94c
+           0001f948  .word    0x41200000                   ; literal 1092616192 / 10
+L_1f94c:   0001f94c  vcvt.f64.f32 d4, s8                       
+           0001f950  vadd.f64 d3, d3, d4                   
+           0001f954  vmul.f64 d2, d2, d3                   
+           0001f958  vcvt.f32.f64 s0, d2                       
+           0001f95c  vmov     r0, s0                       
+           0001f960  add      sp, fp, #8                   
+           0001f964  pop      {r8, fp}                     
+           0001f968  ldr      r7, [sp, #8]                 
+           0001f96c  ldm      sp, {sp, pc}                 
+
+== Perlin::lerp  token 0x0600017d @0x0001f970 (104 bytes) static
+   args: t, a, b
+           0001f970  mov      ip, sp                       
+           0001f974  push     {r7, lr}                     
+           0001f978  mov      r7, sp                       
+           0001f97c  push     {r8, fp, ip, lr}             
+           0001f980  sub      sp, sp, #0x10                
+           0001f984  mov      fp, sp                       
+           0001f988  str      r0, [fp]                     
+           0001f98c  str      r1, [fp, #4]                 
+           0001f990  str      r2, [fp, #8]                 
+           0001f994  vldr     s0, [fp, #4]                 
+           0001f998  vcvt.f64.f32 d2, s0                       
+           0001f99c  vldr     s0, [fp]                     
+           0001f9a0  vcvt.f64.f32 d3, s0                       
+           0001f9a4  vldr     s0, [fp, #8]                 
+           0001f9a8  vcvt.f64.f32 d4, s0                       
+           0001f9ac  vldr     s0, [fp, #4]                 
+           0001f9b0  vcvt.f64.f32 d5, s0                       
+           0001f9b4  vsub.f64 d4, d4, d5                   
+           0001f9b8  vmul.f64 d3, d3, d4                   
+           0001f9bc  vadd.f64 d2, d2, d3                   
+           0001f9c0  vcvt.f32.f64 s0, d2                       
+           0001f9c4  vmov     r0, s0                       
+           0001f9c8  add      sp, fp, #0x10                
+           0001f9cc  pop      {r8, fp}                     
+           0001f9d0  ldr      r7, [sp, #8]                 
+           0001f9d4  ldm      sp, {sp, pc}                 
+
+== Perlin::grad  token 0x0600017e @0x0001f9d8 (324 bytes) static
+   args: hash, x, y, z
+           0001f9d8  mov      ip, sp                       
+           0001f9dc  push     {r7, lr}                     
+           0001f9e0  mov      r7, sp                       
+           0001f9e4  push     {r8, sl, fp, ip, lr}         
+           0001f9e8  sub      sp, sp, #0x2c                
+           0001f9ec  mov      fp, sp                       
+           0001f9f0  mov      sl, r0                       
+           0001f9f4  str      r1, [fp, #0x18]              
+           0001f9f8  str      r2, [fp, #0x1c]              
+           0001f9fc  str      r3, [fp, #0x20]              
+           0001fa00  and      sl, sl, #0xf                 
+           0001fa04  mov      r0, sl                       
+           0001fa08  cmp      r0, #8                       
+           0001fa0c  bge      #0x1fa20                     ; -> L_1fa20
+           0001fa10  vldr     s0, [fp, #0x18]              
+           0001fa14  vcvt.f64.f32 d2, s0                       
+           0001fa18  vstr     d2, [fp, #8]                 
+           0001fa1c  b        #0x1fa2c                     ; -> L_1fa2c
+L_1fa20:   0001fa20  vldr     s0, [fp, #0x1c]              
+           0001fa24  vcvt.f64.f32 d2, s0                       
+           0001fa28  vstr     d2, [fp, #8]                 
+L_1fa2c:   0001fa2c  vldr     d2, [fp, #8]                 
+           0001fa30  vcvt.f32.f64 s0, d2                       
+           0001fa34  vstr     s0, [fp]                     
+           0001fa38  cmp      sl, #4                       
+           0001fa3c  bge      #0x1fa50                     ; -> L_1fa50
+           0001fa40  vldr     s0, [fp, #0x1c]              
+           0001fa44  vcvt.f64.f32 d2, s0                       
+           0001fa48  vstr     d2, [fp, #8]                 
+           0001fa4c  b        #0x1fa7c                     ; -> L_1fa7c
+L_1fa50:   0001fa50  cmp      sl, #0xc                     
+           0001fa54  beq      #0x1fa60                     ; -> L_1fa60
+           0001fa58  cmp      sl, #0xe                     
+           0001fa5c  bne      #0x1fa70                     ; -> L_1fa70
+L_1fa60:   0001fa60  vldr     s0, [fp, #0x18]              
+           0001fa64  vcvt.f64.f32 d2, s0                       
+           0001fa68  vstr     d2, [fp, #8]                 
+           0001fa6c  b        #0x1fa7c                     ; -> L_1fa7c
+L_1fa70:   0001fa70  vldr     s0, [fp, #0x20]              
+           0001fa74  vcvt.f64.f32 d2, s0                       
+           0001fa78  vstr     d2, [fp, #8]                 
+L_1fa7c:   0001fa7c  vldr     d2, [fp, #8]                 
+           0001fa80  vcvt.f32.f64 s0, d2                       
+           0001fa84  vstr     s0, [fp, #4]                 
+           0001fa88  and      r0, sl, #1                   
+           0001fa8c  cmp      r0, #0                       
+           0001fa90  bne      #0x1faa4                     ; -> L_1faa4
+           0001fa94  vldr     s0, [fp]                     
+           0001fa98  vcvt.f64.f32 d2, s0                       
+           0001fa9c  vstr     d2, [fp, #8]                 
+           0001faa0  b        #0x1fab4                     ; -> L_1fab4
+L_1faa4:   0001faa4  vldr     s0, [fp]                     
+           0001faa8  vcvt.f64.f32 d2, s0                       
+           0001faac  vneg.f64 d2, d2                       
+           0001fab0  vstr     d2, [fp, #8]                 
+L_1fab4:   0001fab4  vldr     d2, [fp, #8]                 
+           0001fab8  and      r0, sl, #2                   
+           0001fabc  vstr     d2, [fp, #8]                 
+           0001fac0  cmp      r0, #0                       
+           0001fac4  bne      #0x1fae0                     ; -> L_1fae0
+           0001fac8  vldr     d3, [fp, #8]                 
+           0001facc  vldr     s0, [fp, #4]                 
+           0001fad0  vcvt.f64.f32 d2, s0                       
+           0001fad4  vstr     d3, [fp, #8]                 
+           0001fad8  vstr     d2, [fp, #0x10]              
+           0001fadc  b        #0x1faf8                     ; -> L_1faf8
+L_1fae0:   0001fae0  vldr     d3, [fp, #8]                 
+           0001fae4  vldr     s0, [fp, #4]                 
+           0001fae8  vcvt.f64.f32 d2, s0                       
+           0001faec  vneg.f64 d2, d2                       
+           0001faf0  vstr     d3, [fp, #8]                 
+           0001faf4  vstr     d2, [fp, #0x10]              
+L_1faf8:   0001faf8  vldr     d2, [fp, #8]                 
+           0001fafc  vldr     d3, [fp, #0x10]              
+           0001fb00  vadd.f64 d2, d2, d3                   
+           0001fb04  vcvt.f32.f64 s0, d2                       
+           0001fb08  vmov     r0, s0                       
+           0001fb0c  add      sp, fp, #0x2c                
+           0001fb10  pop      {r8, sl, fp}                 
+           0001fb14  ldr      r7, [sp, #8]                 
+           0001fb18  ldm      sp, {sp, pc}                 
+
+== Perlin::grad2  token 0x0600017f @0x0001fb1c (328 bytes) static
+   args: hash, x, y
+           0001fb1c  mov      ip, sp                       
+           0001fb20  push     {r7, lr}                     
+           0001fb24  mov      r7, sp                       
+           0001fb28  push     {r8, sl, fp, ip, lr}         
+           0001fb2c  sub      sp, sp, #0x24                
+           0001fb30  mov      fp, sp                       
+           0001fb34  mov      sl, r0                       
+           0001fb38  str      r1, [fp, #0x18]              
+           0001fb3c  str      r2, [fp, #0x1c]              
+           0001fb40  and      sl, sl, #0xf                 
+           0001fb44  mov      r0, sl                       
+           0001fb48  cmp      r0, #8                       
+           0001fb4c  bge      #0x1fb60                     ; -> L_1fb60
+           0001fb50  vldr     s0, [fp, #0x18]              
+           0001fb54  vcvt.f64.f32 d2, s0                       
+           0001fb58  vstr     d2, [fp, #8]                 
+           0001fb5c  b        #0x1fb6c                     ; -> L_1fb6c
+L_1fb60:   0001fb60  vldr     s0, [fp, #0x1c]              
+           0001fb64  vcvt.f64.f32 d2, s0                       
+           0001fb68  vstr     d2, [fp, #8]                 
+L_1fb6c:   0001fb6c  vldr     d2, [fp, #8]                 
+           0001fb70  vcvt.f32.f64 s0, d2                       
+           0001fb74  vstr     s0, [fp]                     
+           0001fb78  cmp      sl, #4                       
+           0001fb7c  bge      #0x1fb90                     ; -> L_1fb90
+           0001fb80  vldr     s0, [fp, #0x1c]              
+           0001fb84  vcvt.f64.f32 d2, s0                       
+           0001fb88  vstr     d2, [fp, #8]                 
+           0001fb8c  b        #0x1fbc4                     ; -> L_1fbc4
+L_1fb90:   0001fb90  cmp      sl, #0xc                     
+           0001fb94  beq      #0x1fba0                     ; -> L_1fba0
+           0001fb98  cmp      sl, #0xe                     
+           0001fb9c  bne      #0x1fbb0                     ; -> L_1fbb0
+L_1fba0:   0001fba0  vldr     s0, [fp, #0x18]              
+           0001fba4  vcvt.f64.f32 d2, s0                       
+           0001fba8  vstr     d2, [fp, #8]                 
+           0001fbac  b        #0x1fbc4                     ; -> L_1fbc4
+L_1fbb0:   0001fbb0  vldr     s4, [pc]                     ; float 0.0
+           0001fbb4  b        #0x1fbbc                     ; -> L_1fbbc
+           0001fbb8  .word    0x00000000                   ; literal 0 / 0
+L_1fbbc:   0001fbbc  vcvt.f64.f32 d2, s4                       
+           0001fbc0  vstr     d2, [fp, #8]                 
+L_1fbc4:   0001fbc4  vldr     d2, [fp, #8]                 
+           0001fbc8  vcvt.f32.f64 s0, d2                       
+           0001fbcc  vstr     s0, [fp, #4]                 
+           0001fbd0  and      r0, sl, #1                   
+           0001fbd4  cmp      r0, #0                       
+           0001fbd8  bne      #0x1fbec                     ; -> L_1fbec
+           0001fbdc  vldr     s0, [fp]                     
+           0001fbe0  vcvt.f64.f32 d2, s0                       
+           0001fbe4  vstr     d2, [fp, #8]                 
+           0001fbe8  b        #0x1fbfc                     ; -> L_1fbfc
+L_1fbec:   0001fbec  vldr     s0, [fp]                     
+           0001fbf0  vcvt.f64.f32 d2, s0                       
+           0001fbf4  vneg.f64 d2, d2                       
+           0001fbf8  vstr     d2, [fp, #8]                 
+L_1fbfc:   0001fbfc  vldr     d2, [fp, #8]                 
+           0001fc00  and      r0, sl, #2                   
+           0001fc04  vstr     d2, [fp, #8]                 
+           0001fc08  cmp      r0, #0                       
+           0001fc0c  bne      #0x1fc28                     ; -> L_1fc28
+           0001fc10  vldr     d3, [fp, #8]                 
+           0001fc14  vldr     s0, [fp, #4]                 
+           0001fc18  vcvt.f64.f32 d2, s0                       
+           0001fc1c  vstr     d3, [fp, #8]                 
+           0001fc20  vstr     d2, [fp, #0x10]              
+           0001fc24  b        #0x1fc40                     ; -> L_1fc40
+L_1fc28:   0001fc28  vldr     d3, [fp, #8]                 
+           0001fc2c  vldr     s0, [fp, #4]                 
+           0001fc30  vcvt.f64.f32 d2, s0                       
+           0001fc34  vneg.f64 d2, d2                       
+           0001fc38  vstr     d3, [fp, #8]                 
+           0001fc3c  vstr     d2, [fp, #0x10]              
+L_1fc40:   0001fc40  vldr     d2, [fp, #8]                 
+           0001fc44  vldr     d3, [fp, #0x10]              
+           0001fc48  vadd.f64 d2, d2, d3                   
+           0001fc4c  vcvt.f32.f64 s0, d2                       
+           0001fc50  vmov     r0, s0                       
+           0001fc54  add      sp, fp, #0x24                
+           0001fc58  pop      {r8, sl, fp}                 
+           0001fc5c  ldr      r7, [sp, #8]                 
+           0001fc60  ldm      sp, {sp, pc}                 

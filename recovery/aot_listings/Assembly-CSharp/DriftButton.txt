@@ -1,0 +1,124 @@
+####################################################################################################
+# TYPE DriftButton  (instance size 0x54)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 normal                         UghSpritePrototype
+#   +0x14 anchor                         UghSprite/Anchor
+#   +0x18 customAnchorOffset             UnityEngine.Vector3
+#   +0x24 flippedHorizontal              bool
+#   +0x25 flippedVertical                bool
+#   +0x28 offset                         UnityEngine.Vector3
+#   +0x34 autoSizeCollider               bool
+#   +0x35 passThrough                    bool
+#   +0x38 <HotFingerID>k__BackingField   int
+#   +0x3c pressed                        UghSpritePrototype
+#   +0x40 mouseOver                      UghSpritePrototype
+#   +0x44 OnPressed                      System.Action`1<UghButton>
+#   +0x48 OnDown                         System.Action`2<UghButton,bool>
+#   +0x4c wasDown                        bool
+#   +0x50 isDownState                    bool
+#   vtable slots: 13:OnButtonHeld, 14:OnButtonUp, 15:OnButtonDown
+####################################################################################################
+== DriftButton::.ctor  token 0x06000748 @0x001391fc (52 bytes)
+   args: r0=this, 
+           001391fc  mov      ip, sp                       
+           00139200  push     {r7, lr}                     
+           00139204  mov      r7, sp                       
+           00139208  push     {r8, fp, ip, lr}             
+           0013920c  sub      sp, sp, #8                   
+           00139210  mov      fp, sp                       
+           00139214  str      r0, [fp]                     
+           00139218  ldr      r0, [fp]                     
+           0013921c  bl       #0x13ccb8                    ; CALL UghHeldButton::.ctor (direct)
+           00139220  add      sp, fp, #8                   
+           00139224  pop      {r8, fp}                     
+           00139228  ldr      r7, [sp, #8]                 
+           0013922c  ldm      sp, {sp, pc}                 
+
+== DriftButton::ApplyDrift  token 0x06000749 @0x00139230 (140 bytes)
+   args: r0=this, state
+           00139230  mov      ip, sp                       
+           00139234  push     {r7, lr}                     
+           00139238  mov      r7, sp                       
+           0013923c  push     {r8, sl, fp, ip, lr}         
+           00139240  sub      sp, sp, #0x14                
+           00139244  mov      fp, sp                       
+           00139248  str      r0, [fp]                     
+           0013924c  strb     r1, [fp, #4]                 
+           00139250  bl       #0x139ca4                    ; CALL HUDLogic::get_playerCar (direct)
+           00139254  mov      sl, r0                       
+           00139258  mov      r1, #0                       
+           0013925c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00139260  cmp      r0, #0                       
+           00139264  beq      #0x1392ac                    ; -> L_1392ac
+           00139268  ldr      r0, [pc]                     
+           0013926c  b        #0x139274                    ; -> L_139274
+           00139270  .word    0x00e6c708                   ; literal 15124232 / 
+L_139274:  00139274  ldr      r0, [pc, r0]                 ; GOT[775] LDSTR 'ApplyDrift'
+           00139278  str      r0, [fp, #8]                 
+           0013927c  ldr      r0, [pc]                     
+           00139280  b        #0x139288                    ; -> L_139288
+           00139284  .word    0x00e6c240                   ; literal 15123008 / 
+L_139288:  00139288  ldr      r0, [pc, r0]                 ; GOT[474] VTABLE System.Boolean
+           0013928c  bl       #0x22a8b0                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00139290  mov      r2, r0                       
+           00139294  ldr      r1, [fp, #8]                 
+           00139298  ldrb     r0, [fp, #4]                 
+           0013929c  strb     r0, [r2, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001392a0  mov      r0, sl                       
+           001392a4  ldr      lr, [sl]                     
+           001392a8  bl       #0x22b480                    ; CALL UnityEngine.GameObject::SendMessage
+L_1392ac:  001392ac  add      sp, fp, #0x14                
+           001392b0  pop      {r8, sl, fp}                 
+           001392b4  ldr      r7, [sp, #8]                 
+           001392b8  ldm      sp, {sp, pc}                 
+
+== DriftButton::OnButtonDown  token 0x0600074a @0x001392bc (56 bytes)
+   args: r0=this, 
+           001392bc  mov      ip, sp                       
+           001392c0  push     {r7, lr}                     
+           001392c4  mov      r7, sp                       
+           001392c8  push     {r8, fp, ip, lr}             
+           001392cc  sub      sp, sp, #8                   
+           001392d0  mov      fp, sp                       
+           001392d4  str      r0, [fp]                     
+           001392d8  ldr      r0, [fp]                     
+           001392dc  mov      r1, #1                       
+           001392e0  bl       #0x22f230                    ; CALL DriftButton::ApplyDrift
+           001392e4  add      sp, fp, #8                   
+           001392e8  pop      {r8, fp}                     
+           001392ec  ldr      r7, [sp, #8]                 
+           001392f0  ldm      sp, {sp, pc}                 
+
+== DriftButton::OnButtonUp  token 0x0600074b @0x001392f4 (56 bytes)
+   args: r0=this, 
+           001392f4  mov      ip, sp                       
+           001392f8  push     {r7, lr}                     
+           001392fc  mov      r7, sp                       
+           00139300  push     {r8, fp, ip, lr}             
+           00139304  sub      sp, sp, #8                   
+           00139308  mov      fp, sp                       
+           0013930c  str      r0, [fp]                     
+           00139310  ldr      r0, [fp]                     
+           00139314  mov      r1, #0                       
+           00139318  bl       #0x22f230                    ; CALL DriftButton::ApplyDrift
+           0013931c  add      sp, fp, #8                   
+           00139320  pop      {r8, fp}                     
+           00139324  ldr      r7, [sp, #8]                 
+           00139328  ldm      sp, {sp, pc}                 
+
+== DriftButton::OnButtonHeld  token 0x0600074c @0x0013932c (56 bytes)
+   args: r0=this, 
+           0013932c  mov      ip, sp                       
+           00139330  push     {r7, lr}                     
+           00139334  mov      r7, sp                       
+           00139338  push     {r8, fp, ip, lr}             
+           0013933c  sub      sp, sp, #8                   
+           00139340  mov      fp, sp                       
+           00139344  str      r0, [fp]                     
+           00139348  ldr      r0, [fp]                     
+           0013934c  mov      r1, #1                       
+           00139350  bl       #0x22f230                    ; CALL DriftButton::ApplyDrift
+           00139354  add      sp, fp, #8                   
+           00139358  pop      {r8, fp}                     
+           0013935c  ldr      r7, [sp, #8]                 
+           00139360  ldm      sp, {sp, pc}                 

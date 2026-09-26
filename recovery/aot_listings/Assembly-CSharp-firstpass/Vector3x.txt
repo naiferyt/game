@@ -1,0 +1,714 @@
+####################################################################################################
+# TYPE Vector3x  (instance size 0x8)
+#   static UnityEngine.Vector3 tiny
+#   vtable slots: 
+####################################################################################################
+== Vector3x::.ctor  token 0x060001e9 @0x00028724 (44 bytes)
+   args: r0=this, 
+           00028724  mov      ip, sp                       
+           00028728  push     {r7, lr}                     
+           0002872c  mov      r7, sp                       
+           00028730  push     {r8, fp, ip, lr}             
+           00028734  sub      sp, sp, #8                   
+           00028738  mov      fp, sp                       
+           0002873c  str      r0, [fp]                     
+           00028740  add      sp, fp, #8                   
+           00028744  pop      {r8, fp}                     
+           00028748  ldr      r7, [sp, #8]                 
+           0002874c  ldm      sp, {sp, pc}                 
+
+== Vector3x::.cctor  token 0x060001ea @0x00028750 (220 bytes) static
+   args: 
+           00028750  mov      ip, sp                       
+           00028754  push     {r7, lr}                     
+           00028758  mov      r7, sp                       
+           0002875c  push     {r8, fp, ip, lr}             
+           00028760  sub      sp, sp, #0x20                
+           00028764  mov      fp, sp                       
+           00028768  vldr     s8, [pc]                     ; float 0.0010000000474974513
+           0002876c  b        #0x28774                     ; -> L_28774
+           00028770  .word    0x3a83126f                   ; literal 981668463 / 0.001
+L_28774:   00028774  vcvt.f64.f32 d4, s8                       
+           00028778  vldr     s6, [pc]                     ; float 0.0010000000474974513
+           0002877c  b        #0x28784                     ; -> L_28784
+           00028780  .word    0x3a83126f                   ; literal 981668463 / 0.001
+L_28784:   00028784  vcvt.f64.f32 d3, s6                       
+           00028788  vldr     s4, [pc]                     ; float 0.0010000000474974513
+           0002878c  b        #0x28794                     ; -> L_28794
+           00028790  .word    0x3a83126f                   ; literal 981668463 / 0.001
+L_28794:   00028794  vcvt.f64.f32 d2, s4                       
+           00028798  mov      r0, #0                       
+           0002879c  str      r0, [fp, #8]                 
+           000287a0  mov      r0, #0                       
+           000287a4  str      r0, [fp, #0xc]               
+           000287a8  mov      r0, #0                       
+           000287ac  str      r0, [fp, #0x10]              
+           000287b0  add      r0, fp, #8                   
+           000287b4  vcvt.f32.f64 s0, d4                       
+           000287b8  vstr     s0, [sp, #-8]                
+           000287bc  ldr      r1, [sp, #-8]                
+           000287c0  vcvt.f32.f64 s0, d3                       
+           000287c4  vstr     s0, [sp, #-8]                
+           000287c8  ldr      r2, [sp, #-8]                
+           000287cc  vcvt.f32.f64 s0, d2                       
+           000287d0  vstr     s0, [sp, #-8]                
+           000287d4  ldr      r3, [sp, #-8]                
+           000287d8  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           000287dc  ldr      r0, [fp, #8]                 
+           000287e0  str      r0, [fp, #0x14]              
+           000287e4  ldr      r0, [fp, #0xc]               
+           000287e8  str      r0, [fp, #0x18]              
+           000287ec  ldr      r0, [fp, #0x10]              
+           000287f0  str      r0, [fp, #0x1c]              
+           000287f4  ldr      r0, [pc]                     
+           000287f8  b        #0x28800                     ; -> L_28800
+           000287fc  .word    0x00f7423c                   ; literal 16204348 / 
+L_28800:   00028800  ldr      r0, [pc, r0]                 ; GOT[263] SFLDA Vector3x::tiny
+           00028804  ldr      r1, [fp, #0x14]              
+           00028808  str      r1, [r0]                     
+           0002880c  ldr      r1, [fp, #0x18]              
+           00028810  str      r1, [r0, #4]                 ; field+0x4 
+           00028814  ldr      r1, [fp, #0x1c]              
+           00028818  str      r1, [r0, #8]                 ; field+0x8 
+           0002881c  add      sp, fp, #0x20                
+           00028820  pop      {r8, fp}                     
+           00028824  ldr      r7, [sp, #8]                 
+           00028828  ldm      sp, {sp, pc}                 
+
+== Vector3x::Sinerp  token 0x060001eb @0x0002882c (440 bytes) static
+   args: start, end, value
+           0002882c  mov      ip, sp                       
+           00028830  push     {r7, lr}                     
+           00028834  mov      r7, sp                       
+           00028838  push     {r8, fp, ip, lr}             
+           0002883c  sub      sp, sp, #0x50                
+           00028840  mov      fp, sp                       
+           00028844  str      r0, [fp, #8]                 
+           00028848  str      r1, [fp, #0x24]              
+           0002884c  str      r2, [fp, #0x28]              
+           00028850  str      r3, [fp, #0x2c]              
+           00028854  ldr      lr, [sp, #0x68]              
+           00028858  str      lr, [fp, #0x30]              
+           0002885c  ldr      lr, [sp, #0x6c]              
+           00028860  str      lr, [fp, #0x34]              
+           00028864  ldr      lr, [sp, #0x70]              
+           00028868  str      lr, [fp, #0x38]              
+           0002886c  ldr      lr, [sp, #0x74]              
+           00028870  str      lr, [fp, #0x3c]              
+           00028874  vldr     s0, [fp, #0x24]              
+           00028878  vcvt.f64.f32 d4, s0                       
+           0002887c  vldr     s0, [fp, #0x30]              
+           00028880  vcvt.f64.f32 d3, s0                       
+           00028884  vldr     s0, [fp, #0x3c]              
+           00028888  vcvt.f64.f32 d2, s0                       
+           0002888c  vcvt.f32.f64 s0, d4                       
+           00028890  vstr     s0, [sp, #-8]                
+           00028894  ldr      r0, [sp, #-8]                
+           00028898  vcvt.f32.f64 s0, d3                       
+           0002889c  vstr     s0, [sp, #-8]                
+           000288a0  ldr      r1, [sp, #-8]                
+           000288a4  vcvt.f32.f64 s0, d2                       
+           000288a8  vstr     s0, [sp, #-8]                
+           000288ac  ldr      r2, [sp, #-8]                
+           000288b0  bl       #0x1aaa0                     ; CALL Mathfx::Sinerp (direct)
+           000288b4  vmov     s4, r0                       
+           000288b8  vcvt.f64.f32 d2, s4                       
+           000288bc  vstr     d2, [fp, #0x48]              
+           000288c0  vldr     s0, [fp, #0x28]              
+           000288c4  vcvt.f64.f32 d4, s0                       
+           000288c8  vldr     s0, [fp, #0x34]              
+           000288cc  vcvt.f64.f32 d3, s0                       
+           000288d0  vldr     s0, [fp, #0x3c]              
+           000288d4  vcvt.f64.f32 d2, s0                       
+           000288d8  vcvt.f32.f64 s0, d4                       
+           000288dc  vstr     s0, [sp, #-8]                
+           000288e0  ldr      r0, [sp, #-8]                
+           000288e4  vcvt.f32.f64 s0, d3                       
+           000288e8  vstr     s0, [sp, #-8]                
+           000288ec  ldr      r1, [sp, #-8]                
+           000288f0  vcvt.f32.f64 s0, d2                       
+           000288f4  vstr     s0, [sp, #-8]                
+           000288f8  ldr      r2, [sp, #-8]                
+           000288fc  bl       #0x1aaa0                     ; CALL Mathfx::Sinerp (direct)
+           00028900  vmov     s4, r0                       
+           00028904  vcvt.f64.f32 d2, s4                       
+           00028908  vstr     d2, [fp, #0x40]              
+           0002890c  vldr     s0, [fp, #0x2c]              
+           00028910  vcvt.f64.f32 d4, s0                       
+           00028914  vldr     s0, [fp, #0x38]              
+           00028918  vcvt.f64.f32 d3, s0                       
+           0002891c  vldr     s0, [fp, #0x3c]              
+           00028920  vcvt.f64.f32 d2, s0                       
+           00028924  vcvt.f32.f64 s0, d4                       
+           00028928  vstr     s0, [sp, #-8]                
+           0002892c  ldr      r0, [sp, #-8]                
+           00028930  vcvt.f32.f64 s0, d3                       
+           00028934  vstr     s0, [sp, #-8]                
+           00028938  ldr      r1, [sp, #-8]                
+           0002893c  vcvt.f32.f64 s0, d2                       
+           00028940  vstr     s0, [sp, #-8]                
+           00028944  ldr      r2, [sp, #-8]                
+           00028948  bl       #0x1aaa0                     ; CALL Mathfx::Sinerp (direct)
+           0002894c  vmov     s4, r0                       
+           00028950  vcvt.f64.f32 d2, s4                       
+           00028954  vldr     d3, [fp, #0x40]              
+           00028958  vldr     d4, [fp, #0x48]              
+           0002895c  mov      r0, #0                       
+           00028960  str      r0, [fp, #0xc]               
+           00028964  mov      r0, #0                       
+           00028968  str      r0, [fp, #0x10]              
+           0002896c  mov      r0, #0                       
+           00028970  str      r0, [fp, #0x14]              
+           00028974  add      r0, fp, #0xc                 
+           00028978  vcvt.f32.f64 s0, d4                       
+           0002897c  vstr     s0, [sp, #-8]                
+           00028980  ldr      r1, [sp, #-8]                
+           00028984  vcvt.f32.f64 s0, d3                       
+           00028988  vstr     s0, [sp, #-8]                
+           0002898c  ldr      r2, [sp, #-8]                
+           00028990  vcvt.f32.f64 s0, d2                       
+           00028994  vstr     s0, [sp, #-8]                
+           00028998  ldr      r3, [sp, #-8]                
+           0002899c  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           000289a0  ldr      r0, [fp, #0xc]               
+           000289a4  str      r0, [fp, #0x18]              
+           000289a8  ldr      r0, [fp, #0x10]              
+           000289ac  str      r0, [fp, #0x1c]              
+           000289b0  ldr      r0, [fp, #0x14]              
+           000289b4  str      r0, [fp, #0x20]              
+           000289b8  ldr      r0, [fp, #8]                 
+           000289bc  ldr      r1, [fp, #0x18]              
+           000289c0  str      r1, [r0]                     
+           000289c4  ldr      r1, [fp, #0x1c]              
+           000289c8  str      r1, [r0, #4]                 ; field+0x4 
+           000289cc  ldr      r1, [fp, #0x20]              
+           000289d0  str      r1, [r0, #8]                 ; field+0x8 
+           000289d4  add      sp, fp, #0x50                
+           000289d8  pop      {r8, fp}                     
+           000289dc  ldr      r7, [sp, #8]                 
+           000289e0  ldm      sp, {sp, pc}                 
+
+== Vector3x::Coserp  token 0x060001ec @0x000289e4 (440 bytes) static
+   args: start, end, value
+           000289e4  mov      ip, sp                       
+           000289e8  push     {r7, lr}                     
+           000289ec  mov      r7, sp                       
+           000289f0  push     {r8, fp, ip, lr}             
+           000289f4  sub      sp, sp, #0x50                
+           000289f8  mov      fp, sp                       
+           000289fc  str      r0, [fp, #8]                 
+           00028a00  str      r1, [fp, #0x24]              
+           00028a04  str      r2, [fp, #0x28]              
+           00028a08  str      r3, [fp, #0x2c]              
+           00028a0c  ldr      lr, [sp, #0x68]              
+           00028a10  str      lr, [fp, #0x30]              
+           00028a14  ldr      lr, [sp, #0x6c]              
+           00028a18  str      lr, [fp, #0x34]              
+           00028a1c  ldr      lr, [sp, #0x70]              
+           00028a20  str      lr, [fp, #0x38]              
+           00028a24  ldr      lr, [sp, #0x74]              
+           00028a28  str      lr, [fp, #0x3c]              
+           00028a2c  vldr     s0, [fp, #0x24]              
+           00028a30  vcvt.f64.f32 d4, s0                       
+           00028a34  vldr     s0, [fp, #0x30]              
+           00028a38  vcvt.f64.f32 d3, s0                       
+           00028a3c  vldr     s0, [fp, #0x3c]              
+           00028a40  vcvt.f64.f32 d2, s0                       
+           00028a44  vcvt.f32.f64 s0, d4                       
+           00028a48  vstr     s0, [sp, #-8]                
+           00028a4c  ldr      r0, [sp, #-8]                
+           00028a50  vcvt.f32.f64 s0, d3                       
+           00028a54  vstr     s0, [sp, #-8]                
+           00028a58  ldr      r1, [sp, #-8]                
+           00028a5c  vcvt.f32.f64 s0, d2                       
+           00028a60  vstr     s0, [sp, #-8]                
+           00028a64  ldr      r2, [sp, #-8]                
+           00028a68  bl       #0x1ab74                     ; CALL Mathfx::Coserp (direct)
+           00028a6c  vmov     s4, r0                       
+           00028a70  vcvt.f64.f32 d2, s4                       
+           00028a74  vstr     d2, [fp, #0x48]              
+           00028a78  vldr     s0, [fp, #0x28]              
+           00028a7c  vcvt.f64.f32 d4, s0                       
+           00028a80  vldr     s0, [fp, #0x34]              
+           00028a84  vcvt.f64.f32 d3, s0                       
+           00028a88  vldr     s0, [fp, #0x3c]              
+           00028a8c  vcvt.f64.f32 d2, s0                       
+           00028a90  vcvt.f32.f64 s0, d4                       
+           00028a94  vstr     s0, [sp, #-8]                
+           00028a98  ldr      r0, [sp, #-8]                
+           00028a9c  vcvt.f32.f64 s0, d3                       
+           00028aa0  vstr     s0, [sp, #-8]                
+           00028aa4  ldr      r1, [sp, #-8]                
+           00028aa8  vcvt.f32.f64 s0, d2                       
+           00028aac  vstr     s0, [sp, #-8]                
+           00028ab0  ldr      r2, [sp, #-8]                
+           00028ab4  bl       #0x1ab74                     ; CALL Mathfx::Coserp (direct)
+           00028ab8  vmov     s4, r0                       
+           00028abc  vcvt.f64.f32 d2, s4                       
+           00028ac0  vstr     d2, [fp, #0x40]              
+           00028ac4  vldr     s0, [fp, #0x2c]              
+           00028ac8  vcvt.f64.f32 d4, s0                       
+           00028acc  vldr     s0, [fp, #0x38]              
+           00028ad0  vcvt.f64.f32 d3, s0                       
+           00028ad4  vldr     s0, [fp, #0x3c]              
+           00028ad8  vcvt.f64.f32 d2, s0                       
+           00028adc  vcvt.f32.f64 s0, d4                       
+           00028ae0  vstr     s0, [sp, #-8]                
+           00028ae4  ldr      r0, [sp, #-8]                
+           00028ae8  vcvt.f32.f64 s0, d3                       
+           00028aec  vstr     s0, [sp, #-8]                
+           00028af0  ldr      r1, [sp, #-8]                
+           00028af4  vcvt.f32.f64 s0, d2                       
+           00028af8  vstr     s0, [sp, #-8]                
+           00028afc  ldr      r2, [sp, #-8]                
+           00028b00  bl       #0x1ab74                     ; CALL Mathfx::Coserp (direct)
+           00028b04  vmov     s4, r0                       
+           00028b08  vcvt.f64.f32 d2, s4                       
+           00028b0c  vldr     d3, [fp, #0x40]              
+           00028b10  vldr     d4, [fp, #0x48]              
+           00028b14  mov      r0, #0                       
+           00028b18  str      r0, [fp, #0xc]               
+           00028b1c  mov      r0, #0                       
+           00028b20  str      r0, [fp, #0x10]              
+           00028b24  mov      r0, #0                       
+           00028b28  str      r0, [fp, #0x14]              
+           00028b2c  add      r0, fp, #0xc                 
+           00028b30  vcvt.f32.f64 s0, d4                       
+           00028b34  vstr     s0, [sp, #-8]                
+           00028b38  ldr      r1, [sp, #-8]                
+           00028b3c  vcvt.f32.f64 s0, d3                       
+           00028b40  vstr     s0, [sp, #-8]                
+           00028b44  ldr      r2, [sp, #-8]                
+           00028b48  vcvt.f32.f64 s0, d2                       
+           00028b4c  vstr     s0, [sp, #-8]                
+           00028b50  ldr      r3, [sp, #-8]                
+           00028b54  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           00028b58  ldr      r0, [fp, #0xc]               
+           00028b5c  str      r0, [fp, #0x18]              
+           00028b60  ldr      r0, [fp, #0x10]              
+           00028b64  str      r0, [fp, #0x1c]              
+           00028b68  ldr      r0, [fp, #0x14]              
+           00028b6c  str      r0, [fp, #0x20]              
+           00028b70  ldr      r0, [fp, #8]                 
+           00028b74  ldr      r1, [fp, #0x18]              
+           00028b78  str      r1, [r0]                     
+           00028b7c  ldr      r1, [fp, #0x1c]              
+           00028b80  str      r1, [r0, #4]                 ; field+0x4 
+           00028b84  ldr      r1, [fp, #0x20]              
+           00028b88  str      r1, [r0, #8]                 ; field+0x8 
+           00028b8c  add      sp, fp, #0x50                
+           00028b90  pop      {r8, fp}                     
+           00028b94  ldr      r7, [sp, #8]                 
+           00028b98  ldm      sp, {sp, pc}                 
+
+== Vector3x::Hermite  token 0x060001ed @0x00028b9c (440 bytes) static
+   args: start, end, value
+           00028b9c  mov      ip, sp                       
+           00028ba0  push     {r7, lr}                     
+           00028ba4  mov      r7, sp                       
+           00028ba8  push     {r8, fp, ip, lr}             
+           00028bac  sub      sp, sp, #0x50                
+           00028bb0  mov      fp, sp                       
+           00028bb4  str      r0, [fp, #8]                 
+           00028bb8  str      r1, [fp, #0x24]              
+           00028bbc  str      r2, [fp, #0x28]              
+           00028bc0  str      r3, [fp, #0x2c]              
+           00028bc4  ldr      lr, [sp, #0x68]              
+           00028bc8  str      lr, [fp, #0x30]              
+           00028bcc  ldr      lr, [sp, #0x6c]              
+           00028bd0  str      lr, [fp, #0x34]              
+           00028bd4  ldr      lr, [sp, #0x70]              
+           00028bd8  str      lr, [fp, #0x38]              
+           00028bdc  ldr      lr, [sp, #0x74]              
+           00028be0  str      lr, [fp, #0x3c]              
+           00028be4  vldr     s0, [fp, #0x24]              
+           00028be8  vcvt.f64.f32 d4, s0                       
+           00028bec  vldr     s0, [fp, #0x30]              
+           00028bf0  vcvt.f64.f32 d3, s0                       
+           00028bf4  vldr     s0, [fp, #0x3c]              
+           00028bf8  vcvt.f64.f32 d2, s0                       
+           00028bfc  vcvt.f32.f64 s0, d4                       
+           00028c00  vstr     s0, [sp, #-8]                
+           00028c04  ldr      r0, [sp, #-8]                
+           00028c08  vcvt.f32.f64 s0, d3                       
+           00028c0c  vstr     s0, [sp, #-8]                
+           00028c10  ldr      r1, [sp, #-8]                
+           00028c14  vcvt.f32.f64 s0, d2                       
+           00028c18  vstr     s0, [sp, #-8]                
+           00028c1c  ldr      r2, [sp, #-8]                
+           00028c20  bl       #0x1a9dc                     ; CALL Mathfx::Hermite (direct)
+           00028c24  vmov     s4, r0                       
+           00028c28  vcvt.f64.f32 d2, s4                       
+           00028c2c  vstr     d2, [fp, #0x48]              
+           00028c30  vldr     s0, [fp, #0x28]              
+           00028c34  vcvt.f64.f32 d4, s0                       
+           00028c38  vldr     s0, [fp, #0x34]              
+           00028c3c  vcvt.f64.f32 d3, s0                       
+           00028c40  vldr     s0, [fp, #0x3c]              
+           00028c44  vcvt.f64.f32 d2, s0                       
+           00028c48  vcvt.f32.f64 s0, d4                       
+           00028c4c  vstr     s0, [sp, #-8]                
+           00028c50  ldr      r0, [sp, #-8]                
+           00028c54  vcvt.f32.f64 s0, d3                       
+           00028c58  vstr     s0, [sp, #-8]                
+           00028c5c  ldr      r1, [sp, #-8]                
+           00028c60  vcvt.f32.f64 s0, d2                       
+           00028c64  vstr     s0, [sp, #-8]                
+           00028c68  ldr      r2, [sp, #-8]                
+           00028c6c  bl       #0x1a9dc                     ; CALL Mathfx::Hermite (direct)
+           00028c70  vmov     s4, r0                       
+           00028c74  vcvt.f64.f32 d2, s4                       
+           00028c78  vstr     d2, [fp, #0x40]              
+           00028c7c  vldr     s0, [fp, #0x2c]              
+           00028c80  vcvt.f64.f32 d4, s0                       
+           00028c84  vldr     s0, [fp, #0x38]              
+           00028c88  vcvt.f64.f32 d3, s0                       
+           00028c8c  vldr     s0, [fp, #0x3c]              
+           00028c90  vcvt.f64.f32 d2, s0                       
+           00028c94  vcvt.f32.f64 s0, d4                       
+           00028c98  vstr     s0, [sp, #-8]                
+           00028c9c  ldr      r0, [sp, #-8]                
+           00028ca0  vcvt.f32.f64 s0, d3                       
+           00028ca4  vstr     s0, [sp, #-8]                
+           00028ca8  ldr      r1, [sp, #-8]                
+           00028cac  vcvt.f32.f64 s0, d2                       
+           00028cb0  vstr     s0, [sp, #-8]                
+           00028cb4  ldr      r2, [sp, #-8]                
+           00028cb8  bl       #0x1a9dc                     ; CALL Mathfx::Hermite (direct)
+           00028cbc  vmov     s4, r0                       
+           00028cc0  vcvt.f64.f32 d2, s4                       
+           00028cc4  vldr     d3, [fp, #0x40]              
+           00028cc8  vldr     d4, [fp, #0x48]              
+           00028ccc  mov      r0, #0                       
+           00028cd0  str      r0, [fp, #0xc]               
+           00028cd4  mov      r0, #0                       
+           00028cd8  str      r0, [fp, #0x10]              
+           00028cdc  mov      r0, #0                       
+           00028ce0  str      r0, [fp, #0x14]              
+           00028ce4  add      r0, fp, #0xc                 
+           00028ce8  vcvt.f32.f64 s0, d4                       
+           00028cec  vstr     s0, [sp, #-8]                
+           00028cf0  ldr      r1, [sp, #-8]                
+           00028cf4  vcvt.f32.f64 s0, d3                       
+           00028cf8  vstr     s0, [sp, #-8]                
+           00028cfc  ldr      r2, [sp, #-8]                
+           00028d00  vcvt.f32.f64 s0, d2                       
+           00028d04  vstr     s0, [sp, #-8]                
+           00028d08  ldr      r3, [sp, #-8]                
+           00028d0c  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           00028d10  ldr      r0, [fp, #0xc]               
+           00028d14  str      r0, [fp, #0x18]              
+           00028d18  ldr      r0, [fp, #0x10]              
+           00028d1c  str      r0, [fp, #0x1c]              
+           00028d20  ldr      r0, [fp, #0x14]              
+           00028d24  str      r0, [fp, #0x20]              
+           00028d28  ldr      r0, [fp, #8]                 
+           00028d2c  ldr      r1, [fp, #0x18]              
+           00028d30  str      r1, [r0]                     
+           00028d34  ldr      r1, [fp, #0x1c]              
+           00028d38  str      r1, [r0, #4]                 ; field+0x4 
+           00028d3c  ldr      r1, [fp, #0x20]              
+           00028d40  str      r1, [r0, #8]                 ; field+0x8 
+           00028d44  add      sp, fp, #0x50                
+           00028d48  pop      {r8, fp}                     
+           00028d4c  ldr      r7, [sp, #8]                 
+           00028d50  ldm      sp, {sp, pc}                 
+
+== Vector3x::Berp  token 0x060001ee @0x00028d54 (440 bytes) static
+   args: start, end, value
+           00028d54  mov      ip, sp                       
+           00028d58  push     {r7, lr}                     
+           00028d5c  mov      r7, sp                       
+           00028d60  push     {r8, fp, ip, lr}             
+           00028d64  sub      sp, sp, #0x50                
+           00028d68  mov      fp, sp                       
+           00028d6c  str      r0, [fp, #8]                 
+           00028d70  str      r1, [fp, #0x24]              
+           00028d74  str      r2, [fp, #0x28]              
+           00028d78  str      r3, [fp, #0x2c]              
+           00028d7c  ldr      lr, [sp, #0x68]              
+           00028d80  str      lr, [fp, #0x30]              
+           00028d84  ldr      lr, [sp, #0x6c]              
+           00028d88  str      lr, [fp, #0x34]              
+           00028d8c  ldr      lr, [sp, #0x70]              
+           00028d90  str      lr, [fp, #0x38]              
+           00028d94  ldr      lr, [sp, #0x74]              
+           00028d98  str      lr, [fp, #0x3c]              
+           00028d9c  vldr     s0, [fp, #0x24]              
+           00028da0  vcvt.f64.f32 d4, s0                       
+           00028da4  vldr     s0, [fp, #0x30]              
+           00028da8  vcvt.f64.f32 d3, s0                       
+           00028dac  vldr     s0, [fp, #0x3c]              
+           00028db0  vcvt.f64.f32 d2, s0                       
+           00028db4  vcvt.f32.f64 s0, d4                       
+           00028db8  vstr     s0, [sp, #-8]                
+           00028dbc  ldr      r0, [sp, #-8]                
+           00028dc0  vcvt.f32.f64 s0, d3                       
+           00028dc4  vstr     s0, [sp, #-8]                
+           00028dc8  ldr      r1, [sp, #-8]                
+           00028dcc  vcvt.f32.f64 s0, d2                       
+           00028dd0  vstr     s0, [sp, #-8]                
+           00028dd4  ldr      r2, [sp, #-8]                
+           00028dd8  bl       #0x1ac64                     ; CALL Mathfx::Berp (direct)
+           00028ddc  vmov     s4, r0                       
+           00028de0  vcvt.f64.f32 d2, s4                       
+           00028de4  vstr     d2, [fp, #0x48]              
+           00028de8  vldr     s0, [fp, #0x28]              
+           00028dec  vcvt.f64.f32 d4, s0                       
+           00028df0  vldr     s0, [fp, #0x34]              
+           00028df4  vcvt.f64.f32 d3, s0                       
+           00028df8  vldr     s0, [fp, #0x3c]              
+           00028dfc  vcvt.f64.f32 d2, s0                       
+           00028e00  vcvt.f32.f64 s0, d4                       
+           00028e04  vstr     s0, [sp, #-8]                
+           00028e08  ldr      r0, [sp, #-8]                
+           00028e0c  vcvt.f32.f64 s0, d3                       
+           00028e10  vstr     s0, [sp, #-8]                
+           00028e14  ldr      r1, [sp, #-8]                
+           00028e18  vcvt.f32.f64 s0, d2                       
+           00028e1c  vstr     s0, [sp, #-8]                
+           00028e20  ldr      r2, [sp, #-8]                
+           00028e24  bl       #0x1ac64                     ; CALL Mathfx::Berp (direct)
+           00028e28  vmov     s4, r0                       
+           00028e2c  vcvt.f64.f32 d2, s4                       
+           00028e30  vstr     d2, [fp, #0x40]              
+           00028e34  vldr     s0, [fp, #0x2c]              
+           00028e38  vcvt.f64.f32 d4, s0                       
+           00028e3c  vldr     s0, [fp, #0x38]              
+           00028e40  vcvt.f64.f32 d3, s0                       
+           00028e44  vldr     s0, [fp, #0x3c]              
+           00028e48  vcvt.f64.f32 d2, s0                       
+           00028e4c  vcvt.f32.f64 s0, d4                       
+           00028e50  vstr     s0, [sp, #-8]                
+           00028e54  ldr      r0, [sp, #-8]                
+           00028e58  vcvt.f32.f64 s0, d3                       
+           00028e5c  vstr     s0, [sp, #-8]                
+           00028e60  ldr      r1, [sp, #-8]                
+           00028e64  vcvt.f32.f64 s0, d2                       
+           00028e68  vstr     s0, [sp, #-8]                
+           00028e6c  ldr      r2, [sp, #-8]                
+           00028e70  bl       #0x1ac64                     ; CALL Mathfx::Berp (direct)
+           00028e74  vmov     s4, r0                       
+           00028e78  vcvt.f64.f32 d2, s4                       
+           00028e7c  vldr     d3, [fp, #0x40]              
+           00028e80  vldr     d4, [fp, #0x48]              
+           00028e84  mov      r0, #0                       
+           00028e88  str      r0, [fp, #0xc]               
+           00028e8c  mov      r0, #0                       
+           00028e90  str      r0, [fp, #0x10]              
+           00028e94  mov      r0, #0                       
+           00028e98  str      r0, [fp, #0x14]              
+           00028e9c  add      r0, fp, #0xc                 
+           00028ea0  vcvt.f32.f64 s0, d4                       
+           00028ea4  vstr     s0, [sp, #-8]                
+           00028ea8  ldr      r1, [sp, #-8]                
+           00028eac  vcvt.f32.f64 s0, d3                       
+           00028eb0  vstr     s0, [sp, #-8]                
+           00028eb4  ldr      r2, [sp, #-8]                
+           00028eb8  vcvt.f32.f64 s0, d2                       
+           00028ebc  vstr     s0, [sp, #-8]                
+           00028ec0  ldr      r3, [sp, #-8]                
+           00028ec4  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           00028ec8  ldr      r0, [fp, #0xc]               
+           00028ecc  str      r0, [fp, #0x18]              
+           00028ed0  ldr      r0, [fp, #0x10]              
+           00028ed4  str      r0, [fp, #0x1c]              
+           00028ed8  ldr      r0, [fp, #0x14]              
+           00028edc  str      r0, [fp, #0x20]              
+           00028ee0  ldr      r0, [fp, #8]                 
+           00028ee4  ldr      r1, [fp, #0x18]              
+           00028ee8  str      r1, [r0]                     
+           00028eec  ldr      r1, [fp, #0x1c]              
+           00028ef0  str      r1, [r0, #4]                 ; field+0x4 
+           00028ef4  ldr      r1, [fp, #0x20]              
+           00028ef8  str      r1, [r0, #8]                 ; field+0x8 
+           00028efc  add      sp, fp, #0x50                
+           00028f00  pop      {r8, fp}                     
+           00028f04  ldr      r7, [sp, #8]                 
+           00028f08  ldm      sp, {sp, pc}                 
+
+== Vector3x::Inverse  token 0x060001ef @0x00028f0c (268 bytes) static
+   args: a
+           00028f0c  mov      ip, sp                       
+           00028f10  push     {r7, lr}                     
+           00028f14  mov      r7, sp                       
+           00028f18  push     {r8, fp, ip, lr}             
+           00028f1c  sub      sp, sp, #0x30                
+           00028f20  mov      fp, sp                       
+           00028f24  str      r0, [fp, #8]                 
+           00028f28  str      r1, [fp, #0x24]              
+           00028f2c  str      r2, [fp, #0x28]              
+           00028f30  str      r3, [fp, #0x2c]              
+           00028f34  vldr     s4, [pc]                     ; float 1.0
+           00028f38  b        #0x28f40                     ; -> L_28f40
+           00028f3c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_28f40:   00028f40  vcvt.f64.f32 d2, s4                       
+           00028f44  vldr     s0, [fp, #0x24]              
+           00028f48  vcvt.f64.f32 d3, s0                       
+           00028f4c  vmov.f64 d4, d2                       
+           00028f50  vdiv.f64 d4, d4, d3                   
+           00028f54  vldr     s4, [pc]                     ; float 1.0
+           00028f58  b        #0x28f60                     ; -> L_28f60
+           00028f5c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_28f60:   00028f60  vcvt.f64.f32 d2, s4                       
+           00028f64  vldr     s0, [fp, #0x28]              
+           00028f68  vcvt.f64.f32 d5, s0                       
+           00028f6c  vmov.f64 d3, d2                       
+           00028f70  vdiv.f64 d3, d3, d5                   
+           00028f74  vldr     s4, [pc]                     ; float 1.0
+           00028f78  b        #0x28f80                     ; -> L_28f80
+           00028f7c  .word    0x3f800000                   ; literal 1065353216 / 1
+L_28f80:   00028f80  vcvt.f64.f32 d2, s4                       
+           00028f84  vldr     s0, [fp, #0x2c]              
+           00028f88  vcvt.f64.f32 d5, s0                       
+           00028f8c  vdiv.f64 d2, d2, d5                   
+           00028f90  mov      r0, #0                       
+           00028f94  str      r0, [fp, #0xc]               
+           00028f98  mov      r0, #0                       
+           00028f9c  str      r0, [fp, #0x10]              
+           00028fa0  mov      r0, #0                       
+           00028fa4  str      r0, [fp, #0x14]              
+           00028fa8  add      r0, fp, #0xc                 
+           00028fac  vcvt.f32.f64 s0, d4                       
+           00028fb0  vstr     s0, [sp, #-8]                
+           00028fb4  ldr      r1, [sp, #-8]                
+           00028fb8  vcvt.f32.f64 s0, d3                       
+           00028fbc  vstr     s0, [sp, #-8]                
+           00028fc0  ldr      r2, [sp, #-8]                
+           00028fc4  vcvt.f32.f64 s0, d2                       
+           00028fc8  vstr     s0, [sp, #-8]                
+           00028fcc  ldr      r3, [sp, #-8]                
+           00028fd0  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           00028fd4  ldr      r0, [fp, #0xc]               
+           00028fd8  str      r0, [fp, #0x18]              
+           00028fdc  ldr      r0, [fp, #0x10]              
+           00028fe0  str      r0, [fp, #0x1c]              
+           00028fe4  ldr      r0, [fp, #0x14]              
+           00028fe8  str      r0, [fp, #0x20]              
+           00028fec  ldr      r0, [fp, #8]                 
+           00028ff0  ldr      r1, [fp, #0x18]              
+           00028ff4  str      r1, [r0]                     
+           00028ff8  ldr      r1, [fp, #0x1c]              
+           00028ffc  str      r1, [r0, #4]                 ; field+0x4 
+           00029000  ldr      r1, [fp, #0x20]              
+           00029004  str      r1, [r0, #8]                 ; field+0x8 
+           00029008  add      sp, fp, #0x30                
+           0002900c  pop      {r8, fp}                     
+           00029010  ldr      r7, [sp, #8]                 
+           00029014  ldm      sp, {sp, pc}                 
+
+== Vector3x::FromString  token 0x060001f0 @0x00029018 (452 bytes) static
+   args: vectorString
+           00029018  mov      ip, sp                       
+           0002901c  push     {r7, lr}                     
+           00029020  mov      r7, sp                       
+           00029024  push     {r6, r8, fp, ip, lr}         
+           00029028  sub      sp, sp, #0x3c                
+           0002902c  mov      fp, sp                       
+           00029030  str      r0, [fp]                     
+           00029034  mov      r6, r1                       
+           00029038  mov      r0, #0                       
+           0002903c  str      r0, [fp, #4]                 
+           00029040  mov      r0, #0                       
+           00029044  str      r0, [fp, #8]                 
+           00029048  mov      r0, #0                       
+           0002904c  str      r0, [fp, #0xc]               
+           00029050  ldr      r0, [pc]                     
+           00029054  b        #0x2905c                     ; -> L_2905c
+           00029058  .word    0x00f739b4                   ; literal 16202164 / 
+L_2905c:   0002905c  ldr      r0, [pc, r0]                 ; GOT[252] VTABLE System.Char[]
+           00029060  mov      r1, #1                       
+           00029064  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           00029068  mov      r1, r0                       
+           0002906c  ldr      r2, [r1, #0xc]               ; field+0xc 
+           00029070  cmp      r2, #0                       
+           00029074  blls     #0x291cc                     ; THROW System.IndexOutOfRangeException (if ls)
+           00029078  mov      r2, #0x2c                    
+           0002907c  strh     r2, [r1, #0x10]              ; field+0x10 
+           00029080  str      r0, [fp, #0x34]              
+           00029084  ldr      r0, [pc]                     
+           00029088  b        #0x29090                     ; -> L_29090
+           0002908c  .word    0x00f73980                   ; literal 16202112 / 
+L_29090:   00029090  ldr      r0, [pc, r0]                 ; GOT[252] VTABLE System.Char[]
+           00029094  mov      r1, #3                       
+           00029098  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           0002909c  mov      r1, r0                       
+           000290a0  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000290a4  cmp      r2, #0                       
+           000290a8  blls     #0x291cc                     ; THROW System.IndexOutOfRangeException (if ls)
+           000290ac  mov      r2, #0x28                    
+           000290b0  strh     r2, [r0, #0x10]              ; field+0x10 
+           000290b4  ldr      r2, [r1, #0xc]               ; field+0xc 
+           000290b8  cmp      r2, #1                       
+           000290bc  blls     #0x291cc                     ; THROW System.IndexOutOfRangeException (if ls)
+           000290c0  mov      r2, #0x20                    
+           000290c4  strh     r2, [r0, #0x12]              ; field+0x12 
+           000290c8  ldr      r2, [r1, #0xc]               ; field+0xc 
+           000290cc  cmp      r2, #2                       
+           000290d0  blls     #0x291cc                     ; THROW System.IndexOutOfRangeException (if ls)
+           000290d4  mov      r2, #0x29                    
+           000290d8  strh     r2, [r0, #0x14]              ; field+0x14 
+           000290dc  mov      r0, r6                       
+           000290e0  ldr      lr, [r6]                     
+           000290e4  bl       #0xbb260                     ; CALL System.String::Trim
+           000290e8  mov      r2, r0                       
+           000290ec  ldr      r1, [fp, #0x34]              
+           000290f0  mov      r0, r2                       
+           000290f4  ldr      lr, [r2]                     
+           000290f8  bl       #0xbaf00                     ; CALL System.String::Split
+           000290fc  str      r0, [fp, #0x30]              
+           00029100  add      r0, fp, #4                   
+           00029104  bl       #0xb9f70                     ; CALL UnityEngine.Vector3::get_zero
+           00029108  ldr      r0, [fp, #0x30]              
+           0002910c  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00029110  cmp      r1, #0                       
+           00029114  blls     #0x291cc                     ; THROW System.IndexOutOfRangeException (if ls)
+           00029118  str      r0, [fp, #0x2c]              
+           0002911c  ldr      r0, [r0, #0x10]              ; field+0x10 
+           00029120  bl       #0xbb270                     ; CALL System.Convert::ToSingle
+           00029124  vmov     s4, r0                       
+           00029128  vcvt.f64.f32 d2, s4                       
+           0002912c  ldr      r0, [fp, #0x2c]              
+           00029130  vcvt.f32.f64 s0, d2                       
+           00029134  vstr     s0, [fp, #4]                 
+           00029138  ldr      r1, [r0, #0xc]               ; field+0xc 
+           0002913c  cmp      r1, #1                       
+           00029140  blls     #0x291cc                     ; THROW System.IndexOutOfRangeException (if ls)
+           00029144  str      r0, [fp, #0x28]              
+           00029148  ldr      r0, [r0, #0x14]              ; field+0x14 
+           0002914c  bl       #0xbb270                     ; CALL System.Convert::ToSingle
+           00029150  vmov     s4, r0                       
+           00029154  vcvt.f64.f32 d2, s4                       
+           00029158  ldr      r0, [fp, #0x28]              
+           0002915c  vcvt.f32.f64 s0, d2                       
+           00029160  vstr     s0, [fp, #8]                 
+           00029164  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00029168  cmp      r1, #2                       
+           0002916c  blls     #0x291cc                     ; THROW System.IndexOutOfRangeException (if ls)
+           00029170  ldr      r0, [r0, #0x18]              ; field+0x18 
+           00029174  bl       #0xbb270                     ; CALL System.Convert::ToSingle
+           00029178  vmov     s4, r0                       
+           0002917c  vcvt.f64.f32 d2, s4                       
+           00029180  vcvt.f32.f64 s0, d2                       
+           00029184  vstr     s0, [fp, #0xc]               
+           00029188  ldr      r0, [fp, #4]                 
+           0002918c  str      r0, [fp, #0x1c]              
+           00029190  ldr      r0, [fp, #8]                 
+           00029194  str      r0, [fp, #0x20]              
+           00029198  ldr      r0, [fp, #0xc]               
+           0002919c  str      r0, [fp, #0x24]              
+           000291a0  ldr      r0, [fp]                     
+           000291a4  ldr      r1, [fp, #0x1c]              
+           000291a8  str      r1, [r0]                     
+           000291ac  ldr      r1, [fp, #0x20]              
+           000291b0  str      r1, [r0, #4]                 ; field+0x4 
+           000291b4  ldr      r1, [fp, #0x24]              
+           000291b8  str      r1, [r0, #8]                 ; field+0x8 
+           000291bc  add      sp, fp, #0x3c                
+           000291c0  pop      {r6, r8, fp}                 
+           000291c4  ldr      r7, [sp, #8]                 
+           000291c8  ldm      sp, {sp, pc}                 
+           000291cc  mov      r1, lr                       
+           000291d0  ldr      r0, [pc]                     
+           000291d4  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000291d8  andeq    r0, r0, #0xf8                

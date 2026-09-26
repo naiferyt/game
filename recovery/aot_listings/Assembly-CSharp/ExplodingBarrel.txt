@@ -1,0 +1,709 @@
+####################################################################################################
+# TYPE ExplodingBarrel  (instance size 0x28)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 lifeTime                       float
+#   +0x14 stationary                     bool
+#   +0x18 velocityForPause               UnityEngine.Vector3
+#   +0x24 paused                         bool
+#   vtable slots: 
+####################################################################################################
+== ExplodingBarrel::.ctor  token 0x060004de @0x0010ae30 (112 bytes)
+   args: r0=this, 
+           0010ae30  mov      ip, sp                       
+           0010ae34  push     {r7, lr}                     
+           0010ae38  mov      r7, sp                       
+           0010ae3c  push     {r8, sl, fp, ip, lr}         
+           0010ae40  sub      sp, sp, #0x14                
+           0010ae44  mov      fp, sp                       
+           0010ae48  mov      sl, r0                       
+           0010ae4c  vldr     s4, [pc]                     ; float 6.0
+           0010ae50  b        #0x10ae58                    ; -> L_10ae58
+           0010ae54  .word    0x40c00000                   ; literal 1086324736 / 6
+L_10ae58:  0010ae58  vcvt.f64.f32 d2, s4                       
+           0010ae5c  vcvt.f32.f64 s0, d2                       
+           0010ae60  vstr     s0, [sl, #0x10]              ; field+0x10 (this-class: lifeTime)
+           0010ae64  mov      r0, fp                       
+           0010ae68  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           0010ae6c  add      r0, sl, #0x18                
+           0010ae70  ldr      r1, [fp]                     
+           0010ae74  str      r1, [r0]                     
+           0010ae78  ldr      r1, [fp, #4]                 
+           0010ae7c  str      r1, [r0, #4]                 ; field+0x4 
+           0010ae80  ldr      r1, [fp, #8]                 
+           0010ae84  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010ae88  mov      r0, sl                       
+           0010ae8c  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0010ae90  add      sp, fp, #0x14                
+           0010ae94  pop      {r8, sl, fp}                 
+           0010ae98  ldr      r7, [sp, #8]                 
+           0010ae9c  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel::LifeCountdown  token 0x060004df @0x0010aea0 (72 bytes)
+   args: r0=this, 
+           0010aea0  mov      ip, sp                       
+           0010aea4  push     {r7, lr}                     
+           0010aea8  mov      r7, sp                       
+           0010aeac  push     {r8, fp, ip, lr}             
+           0010aeb0  sub      sp, sp, #8                   
+           0010aeb4  mov      fp, sp                       
+           0010aeb8  str      r0, [fp]                     
+           0010aebc  ldr      r0, [pc]                     
+           0010aec0  b        #0x10aec8                    ; -> L_10aec8
+           0010aec4  .word    0x00e9abf8                   ; literal 15313912 / 
+L_10aec8:  0010aec8  ldr      r0, [pc, r0]                 ; GOT[856] VTABLE ExplodingBarrel/<LifeCountdown>c__Iterator37
+           0010aecc  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010aed0  ldr      r1, [fp]                     
+           0010aed4  str      r1, [r0, #0xc]               ; field+0xc 
+           0010aed8  add      sp, fp, #8                   
+           0010aedc  pop      {r8, fp}                     
+           0010aee0  ldr      r7, [sp, #8]                 
+           0010aee4  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel::Update  token 0x060004e0 @0x0010aee8 (304 bytes)
+   args: r0=this, 
+           0010aee8  mov      ip, sp                       
+           0010aeec  push     {r7, lr}                     
+           0010aef0  mov      r7, sp                       
+           0010aef4  push     {r8, sl, fp, ip, lr}         
+           0010aef8  sub      sp, sp, #0x34                
+           0010aefc  mov      fp, sp                       
+           0010af00  mov      sl, r0                       
+           0010af04  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           0010af08  cmp      r0, #0                       
+           0010af0c  beq      #0x10af84                    ; -> L_10af84
+           0010af10  mov      r0, sl                       
+           0010af14  bl       #0x22b500                    ; CALL UnityEngine.Component::get_rigidbody
+           0010af18  mov      r1, #0                       
+           0010af1c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010af20  cmp      r0, #0                       
+           0010af24  beq      #0x10af84                    ; -> L_10af84
+           0010af28  mov      r0, sl                       
+           0010af2c  bl       #0x22b500                    ; CALL UnityEngine.Component::get_rigidbody
+           0010af30  mov      r2, r0                       
+           0010af34  add      r0, fp, #0x18                
+           0010af38  mov      r1, r2                       
+           0010af3c  ldr      lr, [r2]                     
+           0010af40  bl       #0x22b570                    ; CALL UnityEngine.Rigidbody::get_velocity
+           0010af44  add      r0, sl, #0x18                
+           0010af48  ldr      r1, [fp, #0x18]              
+           0010af4c  str      r1, [r0]                     
+           0010af50  ldr      r1, [fp, #0x1c]              
+           0010af54  str      r1, [r0, #4]                 ; field+0x4 
+           0010af58  ldr      r1, [fp, #0x20]              
+           0010af5c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010af60  mov      r0, sl                       
+           0010af64  bl       #0x22b500                    ; CALL UnityEngine.Component::get_rigidbody
+           0010af68  mov      r2, r0                       
+           0010af6c  mov      r1, #0x7e                    
+           0010af70  ldr      lr, [r2]                     
+           0010af74  bl       #0x22da50                    ; CALL UnityEngine.Rigidbody::set_constraints
+           0010af78  mov      r0, #1                       
+           0010af7c  strb     r0, [sl, #0x24]              ; field+0x24 (this-class: paused)
+           0010af80  b        #0x10b008                    ; -> L_10b008
+L_10af84:  0010af84  ldrb     r0, [sl, #0x24]              ; field+0x24 (this-class: paused)
+           0010af88  cmp      r0, #0                       
+           0010af8c  beq      #0x10b008                    ; -> L_10b008
+           0010af90  mov      r0, sl                       
+           0010af94  bl       #0x22b500                    ; CALL UnityEngine.Component::get_rigidbody
+           0010af98  mov      r1, #0                       
+           0010af9c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010afa0  cmp      r0, #0                       
+           0010afa4  beq      #0x10b008                    ; -> L_10b008
+           0010afa8  mov      r0, #0                       
+           0010afac  strb     r0, [sl, #0x24]              ; field+0x24 (this-class: paused)
+           0010afb0  mov      r0, sl                       
+           0010afb4  bl       #0x22b500                    ; CALL UnityEngine.Component::get_rigidbody
+           0010afb8  mov      r2, r0                       
+           0010afbc  mov      r1, #0                       
+           0010afc0  ldr      lr, [r2]                     
+           0010afc4  bl       #0x22da50                    ; CALL UnityEngine.Rigidbody::set_constraints
+           0010afc8  mov      r0, sl                       
+           0010afcc  bl       #0x22b500                    ; CALL UnityEngine.Component::get_rigidbody
+           0010afd0  mov      ip, r0                       
+           0010afd4  add      r0, sl, #0x18                
+           0010afd8  ldr      r1, [r0]                     
+           0010afdc  str      r1, [fp, #0x24]              
+           0010afe0  ldr      r1, [r0, #4]                 ; field+0x4 
+           0010afe4  str      r1, [fp, #0x28]              
+           0010afe8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010afec  str      r0, [fp, #0x2c]              
+           0010aff0  mov      r0, ip                       
+           0010aff4  ldr      r1, [fp, #0x24]              
+           0010aff8  ldr      r2, [fp, #0x28]              
+           0010affc  ldr      r3, [fp, #0x2c]              
+           0010b000  ldr      lr, [ip]                     
+           0010b004  bl       #0x22b510                    ; CALL UnityEngine.Rigidbody::set_velocity
+L_10b008:  0010b008  add      sp, fp, #0x34                
+           0010b00c  pop      {r8, sl, fp}                 
+           0010b010  ldr      r7, [sp, #8]                 
+           0010b014  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel::Explode  token 0x060004e1 @0x0010b018 (72 bytes)
+   args: r0=this, 
+           0010b018  mov      ip, sp                       
+           0010b01c  push     {r7, lr}                     
+           0010b020  mov      r7, sp                       
+           0010b024  push     {r8, fp, ip, lr}             
+           0010b028  sub      sp, sp, #8                   
+           0010b02c  mov      fp, sp                       
+           0010b030  str      r0, [fp]                     
+           0010b034  ldr      r0, [pc]                     
+           0010b038  b        #0x10b040                    ; -> L_10b040
+           0010b03c  .word    0x00e9aa84                   ; literal 15313540 / 
+L_10b040:  0010b040  ldr      r0, [pc, r0]                 ; GOT[857] VTABLE ExplodingBarrel/<Explode>c__Iterator38
+           0010b044  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010b048  ldr      r1, [fp]                     
+           0010b04c  str      r1, [r0, #0x10]              ; field+0x10 (this-class: lifeTime)
+           0010b050  add      sp, fp, #8                   
+           0010b054  pop      {r8, fp}                     
+           0010b058  ldr      r7, [sp, #8]                 
+           0010b05c  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel::Start  token 0x060004e2 @0x0010b060 (92 bytes)
+   args: r0=this, 
+           0010b060  mov      ip, sp                       
+           0010b064  push     {r7, lr}                     
+           0010b068  mov      r7, sp                       
+           0010b06c  push     {r8, sl, fp, ip, lr}         
+           0010b070  sub      sp, sp, #4                   
+           0010b074  mov      fp, sp                       
+           0010b078  mov      sl, r0                       
+           0010b07c  ldrb     r0, [sl, #0x14]              ; field+0x14 (this-class: stationary)
+           0010b080  cmp      r0, #0                       
+           0010b084  bne      #0x10b0ac                    ; -> L_10b0ac
+           0010b088  ldr      r0, [pc]                     
+           0010b08c  b        #0x10b094                    ; -> L_10b094
+           0010b090  .word    0x00e9aa2c                   ; literal 15313452 / 
+L_10b094:  0010b094  ldr      r0, [pc, r0]                 ; GOT[856] VTABLE ExplodingBarrel/<LifeCountdown>c__Iterator37
+           0010b098  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010b09c  mov      r1, r0                       
+           0010b0a0  str      sl, [r1, #0xc]               ; field+0xc 
+           0010b0a4  mov      r0, sl                       
+           0010b0a8  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+L_10b0ac:  0010b0ac  add      sp, fp, #4                   
+           0010b0b0  pop      {r8, sl, fp}                 
+           0010b0b4  ldr      r7, [sp, #8]                 
+           0010b0b8  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel::OnCollisionEnter  token 0x060004e3 @0x0010b0bc (64 bytes)
+   args: r0=this, col
+           0010b0bc  mov      ip, sp                       
+           0010b0c0  push     {r7, lr}                     
+           0010b0c4  mov      r7, sp                       
+           0010b0c8  push     {r8, sl, fp, ip, lr}         
+           0010b0cc  sub      sp, sp, #0xc                 
+           0010b0d0  mov      fp, sp                       
+           0010b0d4  str      r0, [fp]                     
+           0010b0d8  mov      sl, r1                       
+           0010b0dc  ldr      lr, [sl]                     
+           0010b0e0  ldr      r1, [sl, #0x18]              ; field+0x18 (this-class: velocityForPause)
+           0010b0e4  ldr      r0, [fp]                     
+           0010b0e8  bl       #0x22db20                    ; CALL ExplodingBarrel::OnTriggerEnter
+           0010b0ec  add      sp, fp, #0xc                 
+           0010b0f0  pop      {r8, sl, fp}                 
+           0010b0f4  ldr      r7, [sp, #8]                 
+           0010b0f8  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel::OnTriggerEnter  token 0x060004e4 @0x0010b0fc (468 bytes)
+   args: r0=this, other
+           0010b0fc  mov      ip, sp                       
+           0010b100  push     {r7, lr}                     
+           0010b104  mov      r7, sp                       
+           0010b108  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0010b10c  sub      sp, sp, #0x10                
+           0010b110  mov      fp, sp                       
+           0010b114  str      r0, [fp]                     
+           0010b118  mov      sl, r1                       
+           0010b11c  ldr      r0, [pc]                     
+           0010b120  b        #0x10b128                    ; -> L_10b128
+           0010b124  .word    0x00e99c9c                   ; literal 15309980 / 
+L_10b128:  0010b128  ldr      r0, [pc, r0]                 ; GOT[25] METHOD_RGCTX UnityEngine.Component::GetComponent<CarCollider>
+           0010b12c  ldr      lr, [sl]                     
+           0010b130  mov      r8, r0                       
+           0010b134  mov      r0, sl                       
+           0010b138  bl       #0x22aa80                    ; CALL UnityEngine.Component::GetComponent<CarCollider>
+           0010b13c  mov      r6, r0                       
+           0010b140  mov      r1, #0                       
+           0010b144  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010b148  cmp      r0, #0                       
+           0010b14c  bne      #0x10b2c0                    ; -> L_10b2c0
+           0010b150  ldr      r0, [pc]                     
+           0010b154  b        #0x10b15c                    ; -> L_10b15c
+           0010b158  .word    0x00e9a96c                   ; literal 15313260 / 
+L_10b15c:  0010b15c  ldr      r0, [pc, r0]                 ; GOT[858] LDSTR 'Colliding with Car'
+           0010b160  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           0010b164  ldr      lr, [r6]                     
+           0010b168  ldr      r0, [r6, #0x1c]              ; field+0x1c 
+           0010b16c  mov      r1, #0                       
+           0010b170  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010b174  cmp      r0, #0                       
+           0010b178  beq      #0x10b288                    ; -> L_10b288
+           0010b17c  ldr      lr, [r6]                     
+           0010b180  ldr      r2, [r6, #0x1c]              ; field+0x1c 
+           0010b184  ldr      r1, [pc]                     
+           0010b188  b        #0x10b190                    ; -> L_10b190
+           0010b18c  .word    0x00e99d4c                   ; literal 15310156 / 
+L_10b190:  0010b190  ldr      r1, [pc, r1]                 ; GOT[95] TYPE_FROM_HANDLE typeof(ShieldEffect)
+           0010b194  mov      r0, r2                       
+           0010b198  ldr      lr, [r2]                     
+           0010b19c  bl       #0x22b030                    ; CALL EffectManager::HasEffect
+           0010b1a0  cmp      r0, #0                       
+           0010b1a4  bne      #0x10b288                    ; -> L_10b288
+           0010b1a8  mov      r0, sl                       
+           0010b1ac  ldr      lr, [sl]                     
+           0010b1b0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010b1b4  str      r0, [fp, #0xc]               
+           0010b1b8  ldr      r0, [pc]                     
+           0010b1bc  b        #0x10b1c4                    ; -> L_10b1c4
+           0010b1c0  .word    0x00e99d6c                   ; literal 15310188 / 
+L_10b1c4:  0010b1c4  ldr      r0, [pc, r0]                 ; GOT[116] VTABLE WipeoutEffect
+           0010b1c8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010b1cc  ldr      r1, [fp, #0xc]               
+           0010b1d0  str      r0, [fp, #8]                 
+           0010b1d4  bl       #0xf9dcc                     ; CALL WipeoutEffect::.ctor (direct)
+           0010b1d8  ldr      r0, [fp, #8]                 
+           0010b1dc  mov      r5, r0                       
+           0010b1e0  mov      r1, #0x32                    
+           0010b1e4  str      r1, [r0, #0xc]               ; field+0xc 
+           0010b1e8  vldr     s4, [pc]                     ; float 1.5
+           0010b1ec  b        #0x10b1f4                    ; -> L_10b1f4
+           0010b1f0  .word    0x3fc00000                   ; literal 1069547520 / 1.5
+L_10b1f4:  0010b1f4  vcvt.f64.f32 d2, s4                       
+           0010b1f8  vcvt.f32.f64 s0, d2                       
+           0010b1fc  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010b200  ldr      lr, [r6]                     
+           0010b204  ldr      r2, [r6, #0x1c]              ; field+0x1c 
+           0010b208  mov      r0, r2                       
+           0010b20c  mov      r1, r5                       
+           0010b210  ldr      lr, [r2]                     
+           0010b214  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+           0010b218  mov      r0, sl                       
+           0010b21c  ldr      lr, [sl]                     
+           0010b220  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010b224  bl       #0x1129f8                    ; CALL RaceManager::IsPlayerCar (direct)
+           0010b228  cmp      r0, #0                       
+           0010b22c  beq      #0x10b288                    ; -> L_10b288
+           0010b230  mov      r0, sl                       
+           0010b234  ldr      lr, [sl]                     
+           0010b238  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010b23c  ldr      r1, [pc]                     
+           0010b240  b        #0x10b248                    ; -> L_10b248
+           0010b244  .word    0x00e99cec                   ; literal 15310060 / 
+L_10b248:  0010b248  ldr      r1, [pc, r1]                 ; GOT[117] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarMetrics>
+           0010b24c  ldr      lr, [r0]                     
+           0010b250  mov      r8, r1                       
+           0010b254  bl       #0x22b280                    ; CALL UnityEngine.GameObject::GetComponent<CarMetrics>
+           0010b258  mov      r4, r0                       
+           0010b25c  mov      r1, #0                       
+           0010b260  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010b264  cmp      r0, #0                       
+           0010b268  beq      #0x10b288                    ; -> L_10b288
+           0010b26c  ldr      r1, [pc]                     
+           0010b270  b        #0x10b278                    ; -> L_10b278
+           0010b274  .word    0x00e9a854                   ; literal 15312980 / 
+L_10b278:  0010b278  ldr      r1, [pc, r1]                 ; GOT[859] LDSTR 'Barrel collision'
+           0010b27c  mov      r0, r4                       
+           0010b280  ldr      lr, [r4]                     
+           0010b284  bl       #0x10d384                    ; CALL CarMetrics::Signal (direct)
+L_10b288:  0010b288  ldr      r0, [pc]                     
+           0010b28c  b        #0x10b294                    ; -> L_10b294
+           0010b290  .word    0x00e9a83c                   ; literal 15312956 / 
+L_10b294:  0010b294  ldr      r0, [pc, r0]                 ; GOT[860] LDSTR 'Exploding OnTrigger'
+           0010b298  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           0010b29c  ldr      r0, [pc]                     
+           0010b2a0  b        #0x10b2a8                    ; -> L_10b2a8
+           0010b2a4  .word    0x00e9a81c                   ; literal 15312924 / 
+L_10b2a8:  0010b2a8  ldr      r0, [pc, r0]                 ; GOT[857] VTABLE ExplodingBarrel/<Explode>c__Iterator38
+           0010b2ac  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010b2b0  mov      r1, r0                       
+           0010b2b4  ldr      r0, [fp]                     
+           0010b2b8  str      r0, [r1, #0x10]              ; field+0x10 (this-class: lifeTime)
+           0010b2bc  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+L_10b2c0:  0010b2c0  add      sp, fp, #0x10                
+           0010b2c4  pop      {r4, r5, r6, r8, sl, fp}     
+           0010b2c8  ldr      r7, [sp, #8]                 
+           0010b2cc  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE ExplodingBarrel/<LifeCountdown>c__Iterator37  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      ExplodingBarrel
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== ExplodingBarrel/<LifeCountdown>c__Iterator37::.ctor  token 0x0600091b @0x0014ce28 (44 bytes)
+   args: r0=this, 
+           0014ce28  mov      ip, sp                       
+           0014ce2c  push     {r7, lr}                     
+           0014ce30  mov      r7, sp                       
+           0014ce34  push     {r8, fp, ip, lr}             
+           0014ce38  sub      sp, sp, #8                   
+           0014ce3c  mov      fp, sp                       
+           0014ce40  str      r0, [fp]                     
+           0014ce44  add      sp, fp, #8                   
+           0014ce48  pop      {r8, fp}                     
+           0014ce4c  ldr      r7, [sp, #8]                 
+           0014ce50  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel/<LifeCountdown>c__Iterator37::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x0600091c @0x0014ce54 (52 bytes)
+   args: r0=this, 
+           0014ce54  mov      ip, sp                       
+           0014ce58  push     {r7, lr}                     
+           0014ce5c  mov      r7, sp                       
+           0014ce60  push     {r8, fp, ip, lr}             
+           0014ce64  sub      sp, sp, #8                   
+           0014ce68  mov      fp, sp                       
+           0014ce6c  str      r0, [fp]                     
+           0014ce70  ldr      r0, [fp]                     
+           0014ce74  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014ce78  add      sp, fp, #8                   
+           0014ce7c  pop      {r8, fp}                     
+           0014ce80  ldr      r7, [sp, #8]                 
+           0014ce84  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel/<LifeCountdown>c__Iterator37::System.Collections.IEnumerator.get_Current  token 0x0600091d @0x0014ce88 (52 bytes)
+   args: r0=this, 
+           0014ce88  mov      ip, sp                       
+           0014ce8c  push     {r7, lr}                     
+           0014ce90  mov      r7, sp                       
+           0014ce94  push     {r8, fp, ip, lr}             
+           0014ce98  sub      sp, sp, #8                   
+           0014ce9c  mov      fp, sp                       
+           0014cea0  str      r0, [fp]                     
+           0014cea4  ldr      r0, [fp]                     
+           0014cea8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014ceac  add      sp, fp, #8                   
+           0014ceb0  pop      {r8, fp}                     
+           0014ceb4  ldr      r7, [sp, #8]                 
+           0014ceb8  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel/<LifeCountdown>c__Iterator37::MoveNext  token 0x0600091e @0x0014cebc (260 bytes)
+   args: r0=this, 
+           0014cebc  mov      ip, sp                       
+           0014cec0  push     {r7, lr}                     
+           0014cec4  mov      r7, sp                       
+           0014cec8  push     {r8, sl, fp, ip, lr}         
+           0014cecc  sub      sp, sp, #0x1c                
+           0014ced0  mov      fp, sp                       
+           0014ced4  mov      sl, r0                       
+           0014ced8  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014cedc  mvn      r1, #0                       
+           0014cee0  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014cee4  str      r0, [fp, #4]                 
+           0014cee8  cmp      r0, #2                       
+           0014ceec  bhs      #0x14cfa4                    ; -> L_14cfa4
+           0014cef0  ldr      r0, [fp, #4]                 
+           0014cef4  lsl      r1, r0, #2                   
+           0014cef8  ldr      r0, [pc]                     
+           0014cefc  b        #0x14cf04                    ; -> L_14cf04
+           0014cf00  .word    0x00e59ac4                   ; literal 15047364 / 
+L_14cf04:  0014cf04  ldr      r0, [pc, r0]                 ; GOT[1818] SWITCH switch table[2]
+           0014cf08  add      r0, r0, r1                   
+           0014cf0c  ldr      r0, [r0]                     
+           0014cf10  mov      pc, r0                       
+           0014cf14  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014cf18  vldr     s0, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0014cf1c  vcvt.f64.f32 d2, s0                       
+           0014cf20  vstr     d2, [fp, #8]                 
+           0014cf24  ldr      r0, [pc]                     
+           0014cf28  b        #0x14cf30                    ; -> L_14cf30
+           0014cf2c  .word    0x00e598c8                   ; literal 15046856 / 
+L_14cf30:  0014cf30  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           0014cf34  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           0014cf38  vldr     d2, [fp, #8]                 
+           0014cf3c  vcvt.f32.f64 s0, d2                       
+           0014cf40  vstr     s0, [fp]                     
+           0014cf44  vldr     s0, [fp]                     
+           0014cf48  vcvt.f64.f32 d2, s0                       
+           0014cf4c  vcvt.f32.f64 s0, d2                       
+           0014cf50  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           0014cf54  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           0014cf58  mov      r0, #1                       
+           0014cf5c  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           0014cf60  b        #0x14cfac                    ; -> L_14cfac
+           0014cf64  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014cf68  str      r0, [fp, #0x10]              
+           0014cf6c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           0014cf70  str      r0, [fp, #0x14]              
+           0014cf74  ldr      r0, [pc]                     
+           0014cf78  b        #0x14cf80                    ; -> L_14cf80
+           0014cf7c  .word    0x00e58b44                   ; literal 15043396 / 
+L_14cf80:  0014cf80  ldr      r0, [pc, r0]                 ; GOT[857] VTABLE ExplodingBarrel/<Explode>c__Iterator38
+           0014cf84  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0014cf88  mov      r1, r0                       
+           0014cf8c  ldr      r0, [fp, #0x10]              
+           0014cf90  ldr      r2, [fp, #0x14]              
+           0014cf94  str      r2, [r1, #0x10]              ; field+0x10 (this-class: $PC)
+           0014cf98  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           0014cf9c  mvn      r0, #0                       
+           0014cfa0  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+L_14cfa4:  0014cfa4  mov      r0, #0                       
+           0014cfa8  b        #0x14cfb0                    ; -> L_14cfb0
+L_14cfac:  0014cfac  mov      r0, #1                       
+L_14cfb0:  0014cfb0  add      sp, fp, #0x1c                
+           0014cfb4  pop      {r8, sl, fp}                 
+           0014cfb8  ldr      r7, [sp, #8]                 
+           0014cfbc  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel/<LifeCountdown>c__Iterator37::Dispose  token 0x0600091f @0x0014cfc0 (56 bytes)
+   args: r0=this, 
+           0014cfc0  mov      ip, sp                       
+           0014cfc4  push     {r7, lr}                     
+           0014cfc8  mov      r7, sp                       
+           0014cfcc  push     {r8, fp, ip, lr}             
+           0014cfd0  sub      sp, sp, #8                   
+           0014cfd4  mov      fp, sp                       
+           0014cfd8  str      r0, [fp]                     
+           0014cfdc  ldr      r0, [fp]                     
+           0014cfe0  mvn      r1, #0                       
+           0014cfe4  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           0014cfe8  add      sp, fp, #8                   
+           0014cfec  pop      {r8, fp}                     
+           0014cff0  ldr      r7, [sp, #8]                 
+           0014cff4  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel/<LifeCountdown>c__Iterator37::Reset  token 0x06000920 @0x0014cff8 (64 bytes)
+   args: r0=this, 
+           0014cff8  mov      ip, sp                       
+           0014cffc  push     {r7, lr}                     
+           0014d000  mov      r7, sp                       
+           0014d004  push     {r8, fp, ip, lr}             
+           0014d008  sub      sp, sp, #8                   
+           0014d00c  mov      fp, sp                       
+           0014d010  str      r0, [fp]                     
+           0014d014  mov      r0, #0x49                    
+           0014d018  add      r0, r0, #0x100               
+           0014d01c  add      r0, r0, #0x2000000           
+           0014d020  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           0014d024  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0014d028  add      sp, fp, #8                   
+           0014d02c  pop      {r8, fp}                     
+           0014d030  ldr      r7, [sp, #8]                 
+           0014d034  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE ExplodingBarrel/<Explode>c__Iterator38  (instance size 0x18)
+#   +0x08 <particles>__0                 UnityEngine.GameObject
+#   +0x0c $current                       object
+#   +0x10 <>f__this                      ExplodingBarrel
+#   +0x14 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== ExplodingBarrel/<Explode>c__Iterator38::.ctor  token 0x06000921 @0x0014d038 (44 bytes)
+   args: r0=this, 
+           0014d038  mov      ip, sp                       
+           0014d03c  push     {r7, lr}                     
+           0014d040  mov      r7, sp                       
+           0014d044  push     {r8, fp, ip, lr}             
+           0014d048  sub      sp, sp, #8                   
+           0014d04c  mov      fp, sp                       
+           0014d050  str      r0, [fp]                     
+           0014d054  add      sp, fp, #8                   
+           0014d058  pop      {r8, fp}                     
+           0014d05c  ldr      r7, [sp, #8]                 
+           0014d060  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel/<Explode>c__Iterator38::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x06000922 @0x0014d064 (52 bytes)
+   args: r0=this, 
+           0014d064  mov      ip, sp                       
+           0014d068  push     {r7, lr}                     
+           0014d06c  mov      r7, sp                       
+           0014d070  push     {r8, fp, ip, lr}             
+           0014d074  sub      sp, sp, #8                   
+           0014d078  mov      fp, sp                       
+           0014d07c  str      r0, [fp]                     
+           0014d080  ldr      r0, [fp]                     
+           0014d084  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           0014d088  add      sp, fp, #8                   
+           0014d08c  pop      {r8, fp}                     
+           0014d090  ldr      r7, [sp, #8]                 
+           0014d094  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel/<Explode>c__Iterator38::System.Collections.IEnumerator.get_Current  token 0x06000923 @0x0014d098 (52 bytes)
+   args: r0=this, 
+           0014d098  mov      ip, sp                       
+           0014d09c  push     {r7, lr}                     
+           0014d0a0  mov      r7, sp                       
+           0014d0a4  push     {r8, fp, ip, lr}             
+           0014d0a8  sub      sp, sp, #8                   
+           0014d0ac  mov      fp, sp                       
+           0014d0b0  str      r0, [fp]                     
+           0014d0b4  ldr      r0, [fp]                     
+           0014d0b8  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: $current)
+           0014d0bc  add      sp, fp, #8                   
+           0014d0c0  pop      {r8, fp}                     
+           0014d0c4  ldr      r7, [sp, #8]                 
+           0014d0c8  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel/<Explode>c__Iterator38::MoveNext  token 0x06000924 @0x0014d0cc (536 bytes)
+   args: r0=this, 
+           0014d0cc  mov      ip, sp                       
+           0014d0d0  push     {r7, lr}                     
+           0014d0d4  mov      r7, sp                       
+           0014d0d8  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           0014d0dc  sub      sp, sp, #0x78                
+           0014d0e0  mov      fp, sp                       
+           0014d0e4  mov      sl, r0                       
+           0014d0e8  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           0014d0ec  mvn      r1, #0                       
+           0014d0f0  str      r1, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           0014d0f4  mov      r6, r0                       
+           0014d0f8  cmp      r0, #2                       
+           0014d0fc  bhs      #0x14d2c8                    ; -> L_14d2c8
+           0014d100  lsl      r1, r6, #2                   
+           0014d104  ldr      r0, [pc]                     
+           0014d108  b        #0x14d110                    ; -> L_14d110
+           0014d10c  .word    0x00e598bc                   ; literal 15046844 / 
+L_14d110:  0014d110  ldr      r0, [pc, r0]                 ; GOT[1819] SWITCH switch table[2]
+           0014d114  add      r0, r0, r1                   
+           0014d118  ldr      r0, [r0]                     
+           0014d11c  mov      pc, r0                       
+L_14d120:  0014d120  mov      r0, #0                       
+           0014d124  str      r0, [sl, #0xc]               ; field+0xc (this-class: $current)
+           0014d128  mov      r0, #1                       
+           0014d12c  str      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+           0014d130  b        #0x14d2d0                    ; -> L_14d2d0
+           0014d134  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           0014d138  cmp      r0, #0                       
+           0014d13c  bne      #0x14d120                    ; -> L_14d120
+           0014d140  mov      r6, sl                       
+           0014d144  bl       #0x22b2a0                    ; CALL ParticleLibrary::get_Instance
+           0014d148  mov      r2, r0                       
+           0014d14c  ldr      r1, [pc]                     
+           0014d150  b        #0x14d158                    ; -> L_14d158
+           0014d154  .word    0x00e57df0                   ; literal 15039984 / 
+L_14d158:  0014d158  ldr      r1, [pc, r1]                 ; GOT[122] LDSTR 'Explosion'
+           0014d15c  mov      r0, r2                       
+           0014d160  ldr      lr, [r2]                     
+           0014d164  bl       #0x22b2b0                    ; CALL ParticleLibrary::GetPrefab
+           0014d168  str      r0, [fp, #0x70]              
+           0014d16c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           0014d170  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0014d174  mov      r2, r0                       
+           0014d178  add      r0, fp, #0x38                
+           0014d17c  mov      r1, r2                       
+           0014d180  ldr      lr, [r2]                     
+           0014d184  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0014d188  add      r0, fp, #0x44                
+           0014d18c  bl       #0x22b050                    ; CALL UnityEngine.Quaternion::get_identity
+           0014d190  ldr      r0, [fp, #0x70]              
+           0014d194  ldr      r1, [fp, #0x38]              
+           0014d198  ldr      r2, [fp, #0x3c]              
+           0014d19c  ldr      r3, [fp, #0x40]              
+           0014d1a0  ldr      ip, [fp, #0x44]              
+           0014d1a4  str      ip, [sp]                     
+           0014d1a8  ldr      ip, [fp, #0x48]              
+           0014d1ac  str      ip, [sp, #4]                 
+           0014d1b0  ldr      ip, [fp, #0x4c]              
+           0014d1b4  str      ip, [sp, #8]                 
+           0014d1b8  ldr      ip, [fp, #0x50]              
+           0014d1bc  str      ip, [sp, #0xc]               
+           0014d1c0  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           0014d1c4  mov      r5, r0                       
+           0014d1c8  mov      r4, r5                       
+           0014d1cc  cmp      r5, #0                       
+           0014d1d0  beq      #0x14d200                    ; -> L_14d200
+           0014d1d4  ldr      r0, [r5]                     
+           0014d1d8  ldr      r0, [r0]                     
+           0014d1dc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: <particles>__0)
+           0014d1e0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: <particles>__0)
+           0014d1e4  ldr      r1, [pc]                     
+           0014d1e8  b        #0x14d1f0                    ; -> L_14d1f0
+           0014d1ec  .word    0x00e57d5c                   ; literal 15039836 / 
+L_14d1f0:  0014d1f0  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           0014d1f4  cmp      r0, r1                       
+           0014d1f8  beq      #0x14d200                    ; -> L_14d200
+           0014d1fc  mov      r4, #0                       
+L_14d200:  0014d200  str      r4, [r6, #8]                 ; field+0x8 (this-class: <particles>__0)
+           0014d204  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: <particles>__0)
+           0014d208  mov      r0, r1                       
+           0014d20c  ldr      lr, [r1]                     
+           0014d210  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           0014d214  mov      r2, r0                       
+           0014d218  mov      r1, #0                       
+           0014d21c  ldr      lr, [r2]                     
+           0014d220  bl       #0x22b2d0                    ; CALL UnityEngine.Transform::set_parent
+           0014d224  ldr      r1, [sl, #8]                 ; field+0x8 (this-class: <particles>__0)
+           0014d228  mov      r0, r1                       
+           0014d22c  ldr      lr, [r1]                     
+           0014d230  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           0014d234  mov      r2, r0                       
+           0014d238  str      r0, [fp, #0x70]              
+           0014d23c  add      r0, fp, #0x54                
+           0014d240  mov      r1, r2                       
+           0014d244  ldr      lr, [r2]                     
+           0014d248  bl       #0x22d030                    ; CALL UnityEngine.Transform::get_localScale
+           0014d24c  vldr     s4, [pc]                     ; float 2.0
+           0014d250  b        #0x14d258                    ; -> L_14d258
+           0014d254  .word    0x40000000                   ; literal 1073741824 / 2
+L_14d258:  0014d258  vcvt.f64.f32 d2, s4                       
+           0014d25c  add      r0, fp, #0x60                
+           0014d260  ldr      r1, [fp, #0x54]              
+           0014d264  ldr      r2, [fp, #0x58]              
+           0014d268  ldr      r3, [fp, #0x5c]              
+           0014d26c  vcvt.f32.f64 s0, d2                       
+           0014d270  vstr     s0, [sp]                     
+           0014d274  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           0014d278  ldr      ip, [fp, #0x70]              
+           0014d27c  mov      r0, ip                       
+           0014d280  ldr      r1, [fp, #0x60]              
+           0014d284  ldr      r2, [fp, #0x64]              
+           0014d288  ldr      r3, [fp, #0x68]              
+           0014d28c  ldr      lr, [ip]                     
+           0014d290  bl       #0x22b200                    ; CALL UnityEngine.Transform::set_localScale
+           0014d294  ldr      r2, [sl, #8]                 ; field+0x8 (this-class: <particles>__0)
+           0014d298  ldr      r1, [pc]                     
+           0014d29c  b        #0x14d2a4                    ; -> L_14d2a4
+           0014d2a0  .word    0x00e57ca0                   ; literal 15039648 / 
+L_14d2a4:  0014d2a4  ldr      r1, [pc, r1]                 ; GOT[121] LDSTR 'Explosion Particle Effect'
+           0014d2a8  mov      r0, r2                       
+           0014d2ac  ldr      lr, [r2]                     
+           0014d2b0  bl       #0x22b2e0                    ; CALL UnityEngine.Object::set_name
+           0014d2b4  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: <>f__this)
+           0014d2b8  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0014d2bc  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+           0014d2c0  mvn      r0, #0                       
+           0014d2c4  str      r0, [sl, #0x14]              ; field+0x14 (this-class: $PC)
+L_14d2c8:  0014d2c8  mov      r0, #0                       
+           0014d2cc  b        #0x14d2d4                    ; -> L_14d2d4
+L_14d2d0:  0014d2d0  mov      r0, #1                       
+L_14d2d4:  0014d2d4  add      sp, fp, #0x78                
+           0014d2d8  pop      {r4, r5, r6, r8, sl, fp}     
+           0014d2dc  ldr      r7, [sp, #8]                 
+           0014d2e0  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel/<Explode>c__Iterator38::Dispose  token 0x06000925 @0x0014d2e4 (56 bytes)
+   args: r0=this, 
+           0014d2e4  mov      ip, sp                       
+           0014d2e8  push     {r7, lr}                     
+           0014d2ec  mov      r7, sp                       
+           0014d2f0  push     {r8, fp, ip, lr}             
+           0014d2f4  sub      sp, sp, #8                   
+           0014d2f8  mov      fp, sp                       
+           0014d2fc  str      r0, [fp]                     
+           0014d300  ldr      r0, [fp]                     
+           0014d304  mvn      r1, #0                       
+           0014d308  str      r1, [r0, #0x14]              ; field+0x14 (this-class: $PC)
+           0014d30c  add      sp, fp, #8                   
+           0014d310  pop      {r8, fp}                     
+           0014d314  ldr      r7, [sp, #8]                 
+           0014d318  ldm      sp, {sp, pc}                 
+
+== ExplodingBarrel/<Explode>c__Iterator38::Reset  token 0x06000926 @0x0014d31c (64 bytes)
+   args: r0=this, 
+           0014d31c  mov      ip, sp                       
+           0014d320  push     {r7, lr}                     
+           0014d324  mov      r7, sp                       
+           0014d328  push     {r8, fp, ip, lr}             
+           0014d32c  sub      sp, sp, #8                   
+           0014d330  mov      fp, sp                       
+           0014d334  str      r0, [fp]                     
+           0014d338  mov      r0, #0x49                    
+           0014d33c  add      r0, r0, #0x100               
+           0014d340  add      r0, r0, #0x2000000           
+           0014d344  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           0014d348  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           0014d34c  add      sp, fp, #8                   
+           0014d350  pop      {r8, fp}                     
+           0014d354  ldr      r7, [sp, #8]                 
+           0014d358  ldm      sp, {sp, pc}                 

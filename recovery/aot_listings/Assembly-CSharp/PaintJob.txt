@@ -1,0 +1,54 @@
+####################################################################################################
+# TYPE PaintJob  (instance size 0x20)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 swatch                         UnityEngine.Texture2D
+#   +0x14 multilayerTexture              StreamedMultilayerTexture
+#   +0x18 slot                           CartSlot/Slots
+#   +0x1c cost                           int
+#   vtable slots: 
+####################################################################################################
+== PaintJob::.ctor  token 0x0600023f @0x000e4d80 (52 bytes)
+   args: r0=this, 
+           000e4d80  mov      ip, sp                       
+           000e4d84  push     {r7, lr}                     
+           000e4d88  mov      r7, sp                       
+           000e4d8c  push     {r8, fp, ip, lr}             
+           000e4d90  sub      sp, sp, #8                   
+           000e4d94  mov      fp, sp                       
+           000e4d98  str      r0, [fp]                     
+           000e4d9c  ldr      r0, [fp]                     
+           000e4da0  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000e4da4  add      sp, fp, #8                   
+           000e4da8  pop      {r8, fp}                     
+           000e4dac  ldr      r7, [sp, #8]                 
+           000e4db0  ldm      sp, {sp, pc}                 
+
+== PaintJob::GetTexture  token 0x06000240 @0x000e4db4 (108 bytes)
+   args: r0=this, 
+           000e4db4  mov      ip, sp                       
+           000e4db8  push     {r7, lr}                     
+           000e4dbc  mov      r7, sp                       
+           000e4dc0  push     {r8, sl, fp, ip, lr}         
+           000e4dc4  sub      sp, sp, #4                   
+           000e4dc8  mov      fp, sp                       
+           000e4dcc  mov      sl, r0                       
+           000e4dd0  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: multilayerTexture)
+           000e4dd4  mov      r0, r1                       
+           000e4dd8  ldr      lr, [r1]                     
+           000e4ddc  bl       #0xe0c64                     ; CALL StreamedMultilayerTexture::RequestAssets (direct)
+           000e4de0  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: multilayerTexture)
+           000e4de4  mov      r0, r1                       
+           000e4de8  ldr      lr, [r1]                     
+           000e4dec  bl       #0x22c2c0                    ; CALL StreamedMultilayerTexture::PrepareMultilayerTexture
+           000e4df0  mov      sl, r0                       
+           000e4df4  cmp      r0, #0                       
+           000e4df8  bne      #0xe4e04                     ; -> L_e4e04
+           000e4dfc  mov      r0, #0                       
+           000e4e00  b        #0xe4e10                     ; -> L_e4e10
+L_e4e04:   000e4e04  mov      r0, sl                       
+           000e4e08  ldr      lr, [sl]                     
+           000e4e0c  bl       #0x22c2d0                    ; CALL MultilayerTexture::ComposeTexture
+L_e4e10:   000e4e10  add      sp, fp, #4                   
+           000e4e14  pop      {r8, sl, fp}                 
+           000e4e18  ldr      r7, [sp, #8]                 
+           000e4e1c  ldm      sp, {sp, pc}                 

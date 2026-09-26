@@ -1,0 +1,1222 @@
+####################################################################################################
+# TYPE EffectManager  (instance size 0x30)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 rocketEffectPrefab             UnityEngine.GameObject
+#   +0x14 mineEffectPrefab               UnityEngine.GameObject
+#   +0x18 tripLinePrefab                 UnityEngine.GameObject
+#   +0x1c mineSpreaderPrefab             UnityEngine.GameObject
+#   +0x20 randomShotPrefab               UnityEngine.GameObject
+#   +0x24 anchorEffectPrefab             UnityEngine.GameObject
+#   +0x28 effectList                     System.Collections.Generic.List`1<BaseEffect>
+#   +0x2c updateLoop                     bool
+#   vtable slots: 
+####################################################################################################
+== EffectManager::.ctor  token 0x06000369 @0x000f2508 (104 bytes)
+   args: r0=this, 
+           000f2508  mov      ip, sp                       
+           000f250c  push     {r7, lr}                     
+           000f2510  mov      r7, sp                       
+           000f2514  push     {r8, fp, ip, lr}             
+           000f2518  sub      sp, sp, #8                   
+           000f251c  mov      fp, sp                       
+           000f2520  str      r0, [fp]                     
+           000f2524  ldr      r0, [pc]                     
+           000f2528  b        #0xf2530                     ; -> L_f2530
+           000f252c  .word    0x00eb2f14                   ; literal 15413012 / 
+L_f2530:   000f2530  ldr      r0, [pc, r0]                 ; GOT[441] VTABLE System.Collections.Generic.List`1<BaseEffect>
+           000f2534  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f2538  mov      r1, r0                       
+           000f253c  ldr      r0, [pc]                     
+           000f2540  b        #0xf2548                     ; -> L_f2548
+           000f2544  .word    0x00eb2f00                   ; literal 15412992 / 
+L_f2548:   000f2548  ldr      r0, [pc, r0]                 ; GOT[442] SFLDA System.Collections.Generic.List`1<BaseEffect>::EmptyArray
+           000f254c  ldr      r0, [r0]                     
+           000f2550  str      r0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2554  ldr      r0, [fp]                     
+           000f2558  str      r1, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+           000f255c  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000f2560  add      sp, fp, #8                   
+           000f2564  pop      {r8, fp}                     
+           000f2568  ldr      r7, [sp, #8]                 
+           000f256c  ldm      sp, {sp, pc}                 
+
+== EffectManager::Update  token 0x0600036a @0x000f2570 (716 bytes)
+   args: r0=this, 
+           000f2570  mov      ip, sp                       
+           000f2574  push     {r7, lr}                     
+           000f2578  mov      r7, sp                       
+           000f257c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000f2580  sub      sp, sp, #0x60                
+           000f2584  mov      fp, sp                       
+           000f2588  str      r0, [fp, #0x5c]              
+           000f258c  mov      r0, #0                       
+           000f2590  str      r0, [fp]                     
+           000f2594  mov      r0, #0                       
+           000f2598  str      r0, [fp, #4]                 
+           000f259c  mov      r0, #0                       
+           000f25a0  str      r0, [fp, #8]                 
+           000f25a4  mov      r0, #0                       
+           000f25a8  str      r0, [fp, #0xc]               
+           000f25ac  bl       #0x22d0d0                    ; CALL RaceManager::get_Exists
+           000f25b0  cmp      r0, #0                       
+           000f25b4  beq      #0xf25c4                     ; -> L_f25c4
+           000f25b8  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           000f25bc  cmp      r0, #0                       
+           000f25c0  bne      #0xf282c                     ; -> L_f282c
+L_f25c4:   000f25c4  ldr      r0, [pc]                     
+           000f25c8  b        #0xf25d0                     ; -> L_f25d0
+           000f25cc  .word    0x00eb2e74                   ; literal 15412852 / 
+L_f25d0:   000f25d0  ldr      r0, [pc, r0]                 ; GOT[441] VTABLE System.Collections.Generic.List`1<BaseEffect>
+           000f25d4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f25d8  ldr      r1, [pc]                     
+           000f25dc  b        #0xf25e4                     ; -> L_f25e4
+           000f25e0  .word    0x00eb2e64                   ; literal 15412836 / 
+L_f25e4:   000f25e4  ldr      r1, [pc, r1]                 ; GOT[442] SFLDA System.Collections.Generic.List`1<BaseEffect>::EmptyArray
+           000f25e8  ldr      r1, [r1]                     
+           000f25ec  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f25f0  mov      r6, r0                       
+           000f25f4  ldr      r0, [fp, #0x5c]              
+           000f25f8  ldr      r2, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+           000f25fc  add      r0, fp, #0x3c                
+           000f2600  mov      r1, r2                       
+           000f2604  ldr      lr, [r2]                     
+           000f2608  bl       #0x22d0e0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::GetEnumerator
+           000f260c  ldr      r0, [pc]                     
+           000f2610  b        #0xf2618                     ; -> L_f2618
+           000f2614  .word    0x00eb316c                   ; literal 15413612 / 
+L_f2618:   000f2618  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f261c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f2620  add      r1, r0, #8                   
+           000f2624  ldr      r2, [fp, #0x3c]              
+           000f2628  str      r2, [r1]                     
+           000f262c  ldr      r2, [fp, #0x40]              
+           000f2630  str      r2, [r1, #4]                 ; field+0x4 
+           000f2634  ldr      r2, [fp, #0x44]              
+           000f2638  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f263c  ldr      r2, [fp, #0x48]              
+           000f2640  str      r2, [r1, #0xc]               ; field+0xc 
+           000f2644  mov      r5, r0                       
+           000f2648  ldr      r0, [fp, #0x5c]              
+           000f264c  mov      r1, #1                       
+           000f2650  strb     r1, [r0, #0x2c]              ; field+0x2c (this-class: updateLoop)
+           000f2654  b        #0xf26f0                     ; -> L_f26f0
+L_f2658:   000f2658  mov      r0, r5                       
+           000f265c  ldr      r1, [r5]                     
+           000f2660  ldr      r8, [pc]                     
+           000f2664  b        #0xf266c                     ; -> L_f266c
+           000f2668  .word    0x00eb311c                   ; literal 15413532 / 
+L_f266c:   000f266c  ldr      r8, [pc, r8]                 ; GOT[650] METHODCONST System.Collections.Generic.IEnumerator`1<BaseEffect>::get_Current
+           000f2670  add      lr, pc, #4                   
+           000f2674  ldr      pc, [r1, #-0x2c]             ; INTERFACE CALL System.Collections.Generic.IEnumerator`1<BaseEffect>::get_Current
+           000f2678  andeq    r0, r0, r0                   
+           000f267c  mov      r4, r0                       
+           000f2680  mov      r1, r4                       
+           000f2684  mov      r0, r1                       
+           000f2688  ldr      r1, [r1]                     
+           000f268c  mov      lr, pc                       
+           000f2690  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           000f2694  vldr     s0, [r4, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2698  vcvt.f64.f32 d3, s0                       
+           000f269c  vldr     s4, [pc]                     ; float 0.0
+           000f26a0  b        #0xf26a8                     ; -> L_f26a8
+           000f26a4  .word    0x00000000                   ; literal 0 / 0
+L_f26a8:   000f26a8  vcvt.f64.f32 d2, s4                       
+           000f26ac  vcmp.f64 d2, d3                       
+           000f26b0  vmrs     apsr_nzcv, fpscr             
+           000f26b4  bvs      #0xf26f0                     ; -> L_f26f0
+           000f26b8  bmi      #0xf26f0                     ; -> L_f26f0
+           000f26bc  vldr     s0, [r4, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f26c0  vcvt.f64.f32 d2, s0                       
+           000f26c4  vldr     s6, [pc]                     ; float -3.4028234663852886e+38
+           000f26c8  b        #0xf26d0                     ; -> L_f26d0
+           000f26cc  .word    0xff7fffff                   ; literal -8388609 / 
+L_f26d0:   000f26d0  vcvt.f64.f32 d3, s6                       
+           000f26d4  vcmp.f64 d2, d3                       
+           000f26d8  vmrs     apsr_nzcv, fpscr             
+           000f26dc  beq      #0xf26f0                     ; -> L_f26f0
+           000f26e0  mov      r0, r6                       
+           000f26e4  mov      r1, r4                       
+           000f26e8  ldr      lr, [r6]                     
+           000f26ec  bl       #0x22c3a0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::Add
+L_f26f0:   000f26f0  mov      r0, r5                       
+           000f26f4  ldr      r1, [r5]                     
+           000f26f8  ldr      r8, [pc]                     
+           000f26fc  b        #0xf2704                     ; -> L_f2704
+           000f2700  .word    0x00eb27bc                   ; literal 15411132 / 
+L_f2704:   000f2704  ldr      r8, [pc, r8]                 ; GOT[88] METHODCONST System.Collections.IEnumerator::MoveNext
+           000f2708  add      lr, pc, #4                   
+           000f270c  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           000f2710  andeq    r0, r0, r0                   
+           000f2714  cmp      r0, #0                       
+           000f2718  bne      #0xf2658                     ; -> L_f2658
+           000f271c  ldr      r0, [fp, #0x5c]              
+           000f2720  mov      r1, #0                       
+           000f2724  strb     r1, [r0, #0x2c]              ; field+0x2c (this-class: updateLoop)
+           000f2728  mov      r1, r6                       
+           000f272c  mov      r0, fp                       
+           000f2730  ldr      lr, [r6]                     
+           000f2734  bl       #0x22d0e0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::GetEnumerator
+           000f2738  b        #0xf2778                     ; -> L_f2778
+L_f273c:   000f273c  ldr      r0, [pc]                     
+           000f2740  b        #0xf2748                     ; -> L_f2748
+           000f2744  .word    0x00eb303c                   ; literal 15413308 / 
+L_f2748:   000f2748  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f274c  ldr      sl, [fp, #0xc]               
+           000f2750  ldr      r0, [fp, #0x5c]              
+           000f2754  ldr      r2, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+           000f2758  mov      r0, r2                       
+           000f275c  mov      r1, sl                       
+           000f2760  ldr      lr, [r2]                     
+           000f2764  bl       #0x22d0f0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::Remove
+           000f2768  mov      r0, sl                       
+           000f276c  ldr      r1, [sl]                     
+           000f2770  mov      lr, pc                       
+           000f2774  ldr      pc, [r1, #0x40]              ; VIRTUAL CALL slot +0x40: AchievementListener::IsAvailable | BaseCarAIState::Init | BaseEffect::Shutdown | BaseMission::Update | BoatAnchorEffect::Shutdown | BoosterEffect::Shutdown | BrakeMission::Update | BuyPowerupMission::Update ...(74)
+L_f2778:   000f2778  ldr      r8, [pc]                     
+           000f277c  b        #0xf2784                     ; -> L_f2784
+           000f2780  .word    0x00eb3000                   ; literal 15413248 / 
+L_f2784:   000f2784  ldr      r8, [pc, r8]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f2788  mov      r0, fp                       
+           000f278c  bl       #0x22d100                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseEffect>::MoveNext
+           000f2790  cmp      r0, #0                       
+           000f2794  bne      #0xf273c                     ; -> L_f273c
+           000f2798  bl       #0xf27a0                     ; CALL 0xf27a0
+           000f279c  b        #0xf282c                     ; -> L_f282c
+           000f27a0  str      lr, [fp, #0x38]              
+           000f27a4  ldr      r0, [fp]                     
+           000f27a8  str      r0, [fp, #0x4c]              
+           000f27ac  ldr      r0, [fp, #4]                 
+           000f27b0  str      r0, [fp, #0x50]              
+           000f27b4  ldr      r0, [fp, #8]                 
+           000f27b8  str      r0, [fp, #0x54]              
+           000f27bc  ldr      r0, [fp, #0xc]               
+           000f27c0  str      r0, [fp, #0x58]              
+           000f27c4  ldr      r0, [pc]                     
+           000f27c8  b        #0xf27d0                     ; -> L_f27d0
+           000f27cc  .word    0x00eb2fb4                   ; literal 15413172 / 
+L_f27d0:   000f27d0  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f27d4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f27d8  mov      r1, r0                       
+           000f27dc  add      r0, r1, #8                   
+           000f27e0  ldr      r2, [fp, #0x4c]              
+           000f27e4  str      r2, [r0]                     
+           000f27e8  ldr      r2, [fp, #0x50]              
+           000f27ec  str      r2, [r0, #4]                 ; field+0x4 
+           000f27f0  ldr      r2, [fp, #0x54]              
+           000f27f4  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f27f8  ldr      r2, [fp, #0x58]              
+           000f27fc  str      r2, [r0, #0xc]               ; field+0xc 
+           000f2800  mov      r0, r1                       
+           000f2804  ldr      r1, [r1]                     
+           000f2808  ldr      r8, [pc]                     
+           000f280c  b        #0xf2814                     ; -> L_f2814
+           000f2810  .word    0x00eb2594                   ; literal 15410580 / 
+L_f2814:   000f2814  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000f2818  add      lr, pc, #4                   
+           000f281c  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000f2820  andeq    r0, r0, r0                   
+           000f2824  ldr      ip, [fp, #0x38]              
+           000f2828  mov      pc, ip                       
+L_f282c:   000f282c  add      sp, fp, #0x60                
+           000f2830  pop      {r4, r5, r6, r8, sl, fp}     
+           000f2834  ldr      r7, [sp, #8]                 
+           000f2838  ldm      sp, {sp, pc}                 
+
+== EffectManager::Start  token 0x0600036b @0x000f283c (44 bytes)
+   args: r0=this, 
+           000f283c  mov      ip, sp                       
+           000f2840  push     {r7, lr}                     
+           000f2844  mov      r7, sp                       
+           000f2848  push     {r8, fp, ip, lr}             
+           000f284c  sub      sp, sp, #8                   
+           000f2850  mov      fp, sp                       
+           000f2854  str      r0, [fp]                     
+           000f2858  add      sp, fp, #8                   
+           000f285c  pop      {r8, fp}                     
+           000f2860  ldr      r7, [sp, #8]                 
+           000f2864  ldm      sp, {sp, pc}                 
+
+== EffectManager::FixedUpdate  token 0x0600036c @0x000f2868 (336 bytes)
+   args: r0=this, 
+           000f2868  mov      ip, sp                       
+           000f286c  push     {r7, lr}                     
+           000f2870  mov      r7, sp                       
+           000f2874  push     {r5, r6, r8, fp, ip, lr}     
+           000f2878  sub      sp, sp, #0x30                
+           000f287c  mov      fp, sp                       
+           000f2880  str      r0, [fp, #0x20]              
+           000f2884  bl       #0x22d0d0                    ; CALL RaceManager::get_Exists
+           000f2888  cmp      r0, #0                       
+           000f288c  beq      #0xf289c                     ; -> L_f289c
+           000f2890  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           000f2894  cmp      r0, #0                       
+           000f2898  bne      #0xf29a8                     ; -> L_f29a8
+L_f289c:   000f289c  ldr      r0, [fp, #0x20]              
+           000f28a0  ldr      r2, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+           000f28a4  add      r0, fp, #0x10                
+           000f28a8  mov      r1, r2                       
+           000f28ac  ldr      lr, [r2]                     
+           000f28b0  bl       #0x22d0e0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::GetEnumerator
+           000f28b4  ldr      r0, [pc]                     
+           000f28b8  b        #0xf28c0                     ; -> L_f28c0
+           000f28bc  .word    0x00eb2ec4                   ; literal 15412932 / 
+L_f28c0:   000f28c0  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f28c4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f28c8  add      r1, r0, #8                   
+           000f28cc  ldr      r2, [fp, #0x10]              
+           000f28d0  str      r2, [r1]                     
+           000f28d4  ldr      r2, [fp, #0x14]              
+           000f28d8  str      r2, [r1, #4]                 ; field+0x4 
+           000f28dc  ldr      r2, [fp, #0x18]              
+           000f28e0  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f28e4  ldr      r2, [fp, #0x1c]              
+           000f28e8  str      r2, [r1, #0xc]               ; field+0xc 
+           000f28ec  mov      r6, r0                       
+           000f28f0  b        #0xf297c                     ; -> L_f297c
+L_f28f4:   000f28f4  mov      r0, r6                       
+           000f28f8  ldr      r1, [r6]                     
+           000f28fc  ldr      r8, [pc]                     
+           000f2900  b        #0xf2908                     ; -> L_f2908
+           000f2904  .word    0x00eb2e80                   ; literal 15412864 / 
+L_f2908:   000f2908  ldr      r8, [pc, r8]                 ; GOT[650] METHODCONST System.Collections.Generic.IEnumerator`1<BaseEffect>::get_Current
+           000f290c  add      lr, pc, #4                   
+           000f2910  ldr      pc, [r1, #-0x2c]             ; INTERFACE CALL System.Collections.Generic.IEnumerator`1<BaseEffect>::get_Current
+           000f2914  andeq    r0, r0, r0                   
+           000f2918  mov      r5, r0                       
+           000f291c  mov      r1, r5                       
+           000f2920  mov      r0, r1                       
+           000f2924  ldr      r1, [r1]                     
+           000f2928  mov      lr, pc                       
+           000f292c  ldr      pc, [r1, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           000f2930  vldr     s0, [r5, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2934  vcvt.f64.f32 d2, s0                       
+           000f2938  vldr     s6, [pc]                     ; float -3.4028234663852886e+38
+           000f293c  b        #0xf2944                     ; -> L_f2944
+           000f2940  .word    0xff7fffff                   ; literal -8388609 / 
+L_f2944:   000f2944  vcvt.f64.f32 d3, s6                       
+           000f2948  vcmp.f64 d2, d3                       
+           000f294c  vmrs     apsr_nzcv, fpscr             
+           000f2950  beq      #0xf297c                     ; -> L_f297c
+           000f2954  vldr     s0, [r5, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2958  vcvt.f64.f32 d2, s0                       
+           000f295c  vstr     d2, [fp, #0x28]              
+           000f2960  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           000f2964  vmov     s6, r0                       
+           000f2968  vcvt.f64.f32 d3, s6                       
+           000f296c  vldr     d2, [fp, #0x28]              
+           000f2970  vsub.f64 d2, d2, d3                   
+           000f2974  vcvt.f32.f64 s0, d2                       
+           000f2978  vstr     s0, [r5, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+L_f297c:   000f297c  mov      r0, r6                       
+           000f2980  ldr      r1, [r6]                     
+           000f2984  ldr      r8, [pc]                     
+           000f2988  b        #0xf2990                     ; -> L_f2990
+           000f298c  .word    0x00eb2530                   ; literal 15410480 / 
+L_f2990:   000f2990  ldr      r8, [pc, r8]                 ; GOT[88] METHODCONST System.Collections.IEnumerator::MoveNext
+           000f2994  add      lr, pc, #4                   
+           000f2998  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           000f299c  andeq    r0, r0, r0                   
+           000f29a0  cmp      r0, #0                       
+           000f29a4  bne      #0xf28f4                     ; -> L_f28f4
+L_f29a8:   000f29a8  add      sp, fp, #0x30                
+           000f29ac  pop      {r5, r6, r8, fp}             
+           000f29b0  ldr      r7, [sp, #8]                 
+           000f29b4  ldm      sp, {sp, pc}                 
+
+== EffectManager::AddEffect  token 0x0600036d @0x000f29b8 (640 bytes)
+   args: r0=this, newEffect
+           000f29b8  mov      ip, sp                       
+           000f29bc  push     {r7, lr}                     
+           000f29c0  mov      r7, sp                       
+           000f29c4  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000f29c8  sub      sp, sp, #0x40                
+           000f29cc  mov      fp, sp                       
+           000f29d0  mov      r6, r0                       
+           000f29d4  mov      sl, r1                       
+           000f29d8  mov      r0, #0                       
+           000f29dc  str      r0, [fp, #4]                 
+           000f29e0  mov      r0, #0                       
+           000f29e4  str      r0, [fp, #8]                 
+           000f29e8  mov      r0, #0                       
+           000f29ec  str      r0, [fp, #0xc]               
+           000f29f0  mov      r0, #0                       
+           000f29f4  str      r0, [fp, #0x10]              
+           000f29f8  mov      r0, #1                       
+           000f29fc  strb     r0, [fp]                     
+           000f2a00  ldr      r1, [pc]                     
+           000f2a04  b        #0xf2a0c                     ; -> L_f2a0c
+           000f2a08  .word    0x00eb2d80                   ; literal 15412608 / 
+L_f2a0c:   000f2a0c  ldr      r1, [pc, r1]                 ; GOT[651] TYPE_FROM_HANDLE typeof(RocketRideEffect)
+           000f2a10  mov      r0, r6                       
+           000f2a14  bl       #0x22b030                    ; CALL EffectManager::HasEffect
+           000f2a18  cmp      r0, #0                       
+           000f2a1c  beq      #0xf2ad0                     ; -> L_f2ad0
+           000f2a20  ldr      lr, [sl]                     
+           000f2a24  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f2a28  cmp      r0, #3                       
+           000f2a2c  beq      #0xf2a60                     ; -> L_f2a60
+           000f2a30  ldr      lr, [sl]                     
+           000f2a34  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f2a38  cmp      r0, #4                       
+           000f2a3c  beq      #0xf2a60                     ; -> L_f2a60
+           000f2a40  ldr      lr, [sl]                     
+           000f2a44  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f2a48  cmp      r0, #1                       
+           000f2a4c  beq      #0xf2a60                     ; -> L_f2a60
+           000f2a50  ldr      lr, [sl]                     
+           000f2a54  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f2a58  cmp      r0, #2                       
+           000f2a5c  bne      #0xf2ad0                     ; -> L_f2ad0
+L_f2a60:   000f2a60  ldr      r1, [pc]                     
+           000f2a64  b        #0xf2a6c                     ; -> L_f2a6c
+           000f2a68  .word    0x00eb2d20                   ; literal 15412512 / 
+L_f2a6c:   000f2a6c  ldr      r1, [pc, r1]                 ; GOT[651] TYPE_FROM_HANDLE typeof(RocketRideEffect)
+           000f2a70  mov      r0, r6                       
+           000f2a74  bl       #0x22b230                    ; CALL EffectManager::GetStrongestEffect
+           000f2a78  mov      r4, r0                       
+           000f2a7c  cmp      r4, #0                       
+           000f2a80  beq      #0xf2aac                     ; -> L_f2aac
+           000f2a84  ldr      r0, [r4]                     
+           000f2a88  ldr      r0, [r0]                     
+           000f2a8c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2a90  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2a94  ldr      r1, [pc]                     
+           000f2a98  b        #0xf2aa0                     ; -> L_f2aa0
+           000f2a9c  .word    0x00eb2cf0                   ; literal 15412464 / 
+L_f2aa0:   000f2aa0  ldr      r1, [pc, r1]                 ; GOT[652] CLASS RocketRideEffect
+           000f2aa4  cmp      r0, r1                       
+           000f2aa8  blne     #0xf2c28                     ; THROW System.InvalidCastException (if ne)
+L_f2aac:   000f2aac  mov      r5, r4                       
+           000f2ab0  cmp      r4, #0                       
+           000f2ab4  beq      #0xf2ad0                     ; -> L_f2ad0
+           000f2ab8  mov      r0, r5                       
+           000f2abc  ldr      lr, [r5]                     
+           000f2ac0  bl       #0x22b3f0                    ; CALL RocketRideEffect::DetachFromRocket
+           000f2ac4  mov      r0, r6                       
+           000f2ac8  mov      r1, r5                       
+           000f2acc  bl       #0xf2c38                     ; CALL EffectManager::RemoveEffect (direct)
+L_f2ad0:   000f2ad0  ldr      r2, [r6, #0x28]              ; field+0x28 (this-class: effectList)
+           000f2ad4  add      r0, fp, #4                   
+           000f2ad8  mov      r1, r2                       
+           000f2adc  ldr      lr, [r2]                     
+           000f2ae0  bl       #0x22d0e0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::GetEnumerator
+           000f2ae4  b        #0xf2b34                     ; -> L_f2b34
+L_f2ae8:   000f2ae8  ldr      r0, [pc]                     
+           000f2aec  b        #0xf2af4                     ; -> L_f2af4
+           000f2af0  .word    0x00eb2c90                   ; literal 15412368 / 
+L_f2af4:   000f2af4  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f2af8  ldr      r4, [fp, #0x10]              
+           000f2afc  mov      r0, r4                       
+           000f2b00  ldr      r0, [r0]                     
+           000f2b04  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f2b08  ldr      r1, [sl]                     
+           000f2b0c  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f2b10  cmp      r0, r1                       
+           000f2b14  bne      #0xf2b34                     ; -> L_f2b34
+           000f2b18  mov      r0, r4                       
+           000f2b1c  mov      r1, sl                       
+           000f2b20  ldr      r2, [r4]                     
+           000f2b24  mov      lr, pc                       
+           000f2b28  ldr      pc, [r2, #0x3c]              ; VIRTUAL CALL slot +0x3c: AchievementListener::Prerace | BaseCarAIState::Update | BaseEffect::Stack | BaseMission::Shutdown | BoatAnchorEffect::Stack | BoosterEffect::Stack | BrakeMission::Shutdown | BuyPowerupMission::Shutdown ...(74)
+           000f2b2c  strb     r0, [fp]                     
+           000f2b30  b        #0xf2b54                     ; -> L_f2b54
+L_f2b34:   000f2b34  add      r0, fp, #4                   
+           000f2b38  ldr      r8, [pc]                     
+           000f2b3c  b        #0xf2b44                     ; -> L_f2b44
+           000f2b40  .word    0x00eb2c40                   ; literal 15412288 / 
+L_f2b44:   000f2b44  ldr      r8, [pc, r8]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f2b48  bl       #0x22d100                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseEffect>::MoveNext
+           000f2b4c  cmp      r0, #0                       
+           000f2b50  bne      #0xf2ae8                     ; -> L_f2ae8
+L_f2b54:   000f2b54  bl       #0xf2b5c                     ; CALL 0xf2b5c
+           000f2b58  b        #0xf2be8                     ; -> L_f2be8
+           000f2b5c  str      lr, [fp, #0x2c]              
+           000f2b60  ldr      r0, [fp, #4]                 
+           000f2b64  str      r0, [fp, #0x30]              
+           000f2b68  ldr      r0, [fp, #8]                 
+           000f2b6c  str      r0, [fp, #0x34]              
+           000f2b70  ldr      r0, [fp, #0xc]               
+           000f2b74  str      r0, [fp, #0x38]              
+           000f2b78  ldr      r0, [fp, #0x10]              
+           000f2b7c  str      r0, [fp, #0x3c]              
+           000f2b80  ldr      r0, [pc]                     
+           000f2b84  b        #0xf2b8c                     ; -> L_f2b8c
+           000f2b88  .word    0x00eb2bf8                   ; literal 15412216 / 
+L_f2b8c:   000f2b8c  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f2b90  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f2b94  mov      r1, r0                       
+           000f2b98  add      r0, r1, #8                   
+           000f2b9c  ldr      r2, [fp, #0x30]              
+           000f2ba0  str      r2, [r0]                     
+           000f2ba4  ldr      r2, [fp, #0x34]              
+           000f2ba8  str      r2, [r0, #4]                 ; field+0x4 
+           000f2bac  ldr      r2, [fp, #0x38]              
+           000f2bb0  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2bb4  ldr      r2, [fp, #0x3c]              
+           000f2bb8  str      r2, [r0, #0xc]               ; field+0xc 
+           000f2bbc  mov      r0, r1                       
+           000f2bc0  ldr      r1, [r1]                     
+           000f2bc4  ldr      r8, [pc]                     
+           000f2bc8  b        #0xf2bd0                     ; -> L_f2bd0
+           000f2bcc  .word    0x00eb21d8                   ; literal 15409624 / 
+L_f2bd0:   000f2bd0  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000f2bd4  add      lr, pc, #4                   
+           000f2bd8  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000f2bdc  andeq    r0, r0, r0                   
+           000f2be0  ldr      ip, [fp, #0x2c]              
+           000f2be4  mov      pc, ip                       
+L_f2be8:   000f2be8  ldrb     r0, [fp]                     
+           000f2bec  cmp      r0, #0                       
+           000f2bf0  beq      #0xf2c18                     ; -> L_f2c18
+           000f2bf4  ldr      r2, [r6, #0x28]              ; field+0x28 (this-class: effectList)
+           000f2bf8  mov      r0, r2                       
+           000f2bfc  mov      r1, sl                       
+           000f2c00  ldr      lr, [r2]                     
+           000f2c04  bl       #0x22c3a0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::Add
+           000f2c08  mov      r0, sl                       
+           000f2c0c  ldr      r1, [sl]                     
+           000f2c10  mov      lr, pc                       
+           000f2c14  ldr      pc, [r1, #0x48]              ; VIRTUAL CALL slot +0x48: AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D::Reset | AchievementUI/<AnimatePanelOutCoroutine>c__Iterator4C::Reset | AchievementWindowPublisher/<AnimInHelper>c__Iterator4F::Reset | AchievementWindowPublisher/<DestroyThis>c__Iterator4E::Reset | AnimatedTexture/<UpdateTexture>c__Iterator1A::Reset | AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B::Reset | BarrelLauncher/<LaunchPump>c__Iterator33::Reset | BarrelSpawner/<SpawnCheck>c__Iterator34::Reset ...(214)
+L_f2c18:   000f2c18  add      sp, fp, #0x40                
+           000f2c1c  pop      {r4, r5, r6, r8, sl, fp}     
+           000f2c20  ldr      r7, [sp, #8]                 
+           000f2c24  ldm      sp, {sp, pc}                 
+           000f2c28  mov      r1, lr                       
+           000f2c2c  ldr      r0, [pc]                     
+           000f2c30  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000f2c34  andeq    r0, r0, #0xfd                
+
+== EffectManager::RemoveEffect  token 0x0600036e @0x000f2c38 (148 bytes)
+   args: r0=this, e
+           000f2c38  mov      ip, sp                       
+           000f2c3c  push     {r7, lr}                     
+           000f2c40  mov      r7, sp                       
+           000f2c44  push     {r6, r8, sl, fp, ip, lr}     
+           000f2c48  mov      fp, sp                       
+           000f2c4c  mov      r6, r0                       
+           000f2c50  mov      sl, r1                       
+           000f2c54  ldr      r2, [r6, #0x28]              ; field+0x28 (this-class: effectList)
+           000f2c58  mov      r0, r2                       
+           000f2c5c  mov      r1, sl                       
+           000f2c60  ldr      lr, [r2]                     
+           000f2c64  bl       #0x22d110                    ; CALL System.Collections.Generic.List`1<BaseEffect>::Contains
+           000f2c68  cmp      r0, #0                       
+           000f2c6c  beq      #0xf2cbc                     ; -> L_f2cbc
+           000f2c70  ldrb     r0, [r6, #0x2c]              ; field+0x2c (this-class: updateLoop)
+           000f2c74  cmp      r0, #0                       
+           000f2c78  bne      #0xf2ca4                     ; -> L_f2ca4
+           000f2c7c  ldr      r2, [r6, #0x28]              ; field+0x28 (this-class: effectList)
+           000f2c80  mov      r0, r2                       
+           000f2c84  mov      r1, sl                       
+           000f2c88  ldr      lr, [r2]                     
+           000f2c8c  bl       #0x22d0f0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::Remove
+           000f2c90  mov      r0, sl                       
+           000f2c94  ldr      r1, [sl]                     
+           000f2c98  mov      lr, pc                       
+           000f2c9c  ldr      pc, [r1, #0x40]              ; VIRTUAL CALL slot +0x40: AchievementListener::IsAvailable | BaseCarAIState::Init | BaseEffect::Shutdown | BaseMission::Update | BoatAnchorEffect::Shutdown | BoosterEffect::Shutdown | BrakeMission::Update | BuyPowerupMission::Update ...(74)
+           000f2ca0  b        #0xf2cbc                     ; -> L_f2cbc
+L_f2ca4:   000f2ca4  vldr     s4, [pc]                     ; float 0.0
+           000f2ca8  b        #0xf2cb0                     ; -> L_f2cb0
+           000f2cac  .word    0x00000000                   ; literal 0 / 0
+L_f2cb0:   000f2cb0  vcvt.f64.f32 d2, s4                       
+           000f2cb4  vcvt.f32.f64 s0, d2                       
+           000f2cb8  vstr     s0, [sl, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+L_f2cbc:   000f2cbc  add      sp, fp, #0                   
+           000f2cc0  pop      {r6, r8, sl, fp}             
+           000f2cc4  ldr      r7, [sp, #8]                 
+           000f2cc8  ldm      sp, {sp, pc}                 
+
+== EffectManager::RemoveAllEffects  token 0x0600036f @0x000f2ccc (448 bytes)
+   args: r0=this, 
+           000f2ccc  mov      ip, sp                       
+           000f2cd0  push     {r7, lr}                     
+           000f2cd4  mov      r7, sp                       
+           000f2cd8  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000f2cdc  sub      sp, sp, #0x44                
+           000f2ce0  mov      fp, sp                       
+           000f2ce4  mov      sl, r0                       
+           000f2ce8  mov      r0, #0                       
+           000f2cec  str      r0, [fp]                     
+           000f2cf0  mov      r0, #0                       
+           000f2cf4  str      r0, [fp, #4]                 
+           000f2cf8  mov      r0, #0                       
+           000f2cfc  str      r0, [fp, #8]                 
+           000f2d00  mov      r0, #0                       
+           000f2d04  str      r0, [fp, #0xc]               
+           000f2d08  ldr      r0, [sl, #0x28]              ; field+0x28 (this-class: effectList)
+           000f2d0c  mov      r1, r0                       
+           000f2d10  ldr      lr, [r1]                     
+           000f2d14  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000f2d18  cmp      r0, #0                       
+           000f2d1c  ble      #0xf2e6c                     ; -> L_f2e6c
+           000f2d20  ldr      r2, [sl, #0x28]              ; field+0x28 (this-class: effectList)
+           000f2d24  mov      r1, r2                       
+           000f2d28  mov      r0, fp                       
+           000f2d2c  ldr      lr, [r2]                     
+           000f2d30  bl       #0x22d0e0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::GetEnumerator
+           000f2d34  b        #0xf2db8                     ; -> L_f2db8
+L_f2d38:   000f2d38  ldr      r0, [pc]                     
+           000f2d3c  b        #0xf2d44                     ; -> L_f2d44
+           000f2d40  .word    0x00eb2a40                   ; literal 15411776 / 
+L_f2d44:   000f2d44  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f2d48  ldr      r6, [fp, #0xc]               
+           000f2d4c  vldr     s4, [pc]                     ; float 0.0
+           000f2d50  b        #0xf2d58                     ; -> L_f2d58
+           000f2d54  .word    0x00000000                   ; literal 0 / 0
+L_f2d58:   000f2d58  vcvt.f64.f32 d2, s4                       
+           000f2d5c  vcvt.f32.f64 s0, d2                       
+           000f2d60  vstr     s0, [r6, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2d64  ldr      lr, [r6]                     
+           000f2d68  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f2d6c  cmp      r0, #0xc                     
+           000f2d70  bne      #0xf2db8                     ; -> L_f2db8
+           000f2d74  mov      sl, r6                       
+           000f2d78  cmp      r6, #0                       
+           000f2d7c  beq      #0xf2da8                     ; -> L_f2da8
+           000f2d80  ldr      r0, [sl]                     
+           000f2d84  ldr      r0, [r0]                     
+           000f2d88  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2d8c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2d90  ldr      r1, [pc]                     
+           000f2d94  b        #0xf2d9c                     ; -> L_f2d9c
+           000f2d98  .word    0x00eb29f4                   ; literal 15411700 / 
+L_f2d9c:   000f2d9c  ldr      r1, [pc, r1]                 ; GOT[652] CLASS RocketRideEffect
+           000f2da0  cmp      r0, r1                       
+           000f2da4  blne     #0xf2e7c                     ; THROW System.InvalidCastException (if ne)
+L_f2da8:   000f2da8  mov      r5, sl                       
+           000f2dac  mov      r0, sl                       
+           000f2db0  ldr      lr, [sl]                     
+           000f2db4  bl       #0x22b3f0                    ; CALL RocketRideEffect::DetachFromRocket
+L_f2db8:   000f2db8  ldr      r8, [pc]                     
+           000f2dbc  b        #0xf2dc4                     ; -> L_f2dc4
+           000f2dc0  .word    0x00eb29c0                   ; literal 15411648 / 
+L_f2dc4:   000f2dc4  ldr      r8, [pc, r8]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f2dc8  mov      r0, fp                       
+           000f2dcc  bl       #0x22d100                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseEffect>::MoveNext
+           000f2dd0  cmp      r0, #0                       
+           000f2dd4  bne      #0xf2d38                     ; -> L_f2d38
+           000f2dd8  bl       #0xf2de0                     ; CALL 0xf2de0
+           000f2ddc  b        #0xf2e6c                     ; -> L_f2e6c
+           000f2de0  str      lr, [fp, #0x28]              
+           000f2de4  ldr      r0, [fp]                     
+           000f2de8  str      r0, [fp, #0x2c]              
+           000f2dec  ldr      r0, [fp, #4]                 
+           000f2df0  str      r0, [fp, #0x30]              
+           000f2df4  ldr      r0, [fp, #8]                 
+           000f2df8  str      r0, [fp, #0x34]              
+           000f2dfc  ldr      r0, [fp, #0xc]               
+           000f2e00  str      r0, [fp, #0x38]              
+           000f2e04  ldr      r0, [pc]                     
+           000f2e08  b        #0xf2e10                     ; -> L_f2e10
+           000f2e0c  .word    0x00eb2974                   ; literal 15411572 / 
+L_f2e10:   000f2e10  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f2e14  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f2e18  mov      r1, r0                       
+           000f2e1c  add      r0, r1, #8                   
+           000f2e20  ldr      r2, [fp, #0x2c]              
+           000f2e24  str      r2, [r0]                     
+           000f2e28  ldr      r2, [fp, #0x30]              
+           000f2e2c  str      r2, [r0, #4]                 ; field+0x4 
+           000f2e30  ldr      r2, [fp, #0x34]              
+           000f2e34  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2e38  ldr      r2, [fp, #0x38]              
+           000f2e3c  str      r2, [r0, #0xc]               ; field+0xc 
+           000f2e40  mov      r0, r1                       
+           000f2e44  ldr      r1, [r1]                     
+           000f2e48  ldr      r8, [pc]                     
+           000f2e4c  b        #0xf2e54                     ; -> L_f2e54
+           000f2e50  .word    0x00eb1f54                   ; literal 15408980 / 
+L_f2e54:   000f2e54  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000f2e58  add      lr, pc, #4                   
+           000f2e5c  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000f2e60  andeq    r0, r0, r0                   
+           000f2e64  ldr      ip, [fp, #0x28]              
+           000f2e68  mov      pc, ip                       
+L_f2e6c:   000f2e6c  add      sp, fp, #0x44                
+           000f2e70  pop      {r5, r6, r8, sl, fp}         
+           000f2e74  ldr      r7, [sp, #8]                 
+           000f2e78  ldm      sp, {sp, pc}                 
+           000f2e7c  mov      r1, lr                       
+           000f2e80  ldr      r0, [pc]                     
+           000f2e84  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000f2e88  andeq    r0, r0, #0xfd                
+
+== EffectManager::HasEffect  token 0x06000370 @0x000f2e8c (356 bytes)
+   args: r0=this, effectType
+           000f2e8c  mov      ip, sp                       
+           000f2e90  push     {r7, lr}                     
+           000f2e94  mov      r7, sp                       
+           000f2e98  push     {r5, r8, sl, fp, ip, lr}     
+           000f2e9c  sub      sp, sp, #0x48                
+           000f2ea0  mov      fp, sp                       
+           000f2ea4  str      r0, [fp, #0x40]              
+           000f2ea8  mov      sl, r1                       
+           000f2eac  mov      r0, #0                       
+           000f2eb0  str      r0, [fp]                     
+           000f2eb4  mov      r0, #0                       
+           000f2eb8  str      r0, [fp, #4]                 
+           000f2ebc  mov      r0, #0                       
+           000f2ec0  str      r0, [fp, #8]                 
+           000f2ec4  mov      r0, #0                       
+           000f2ec8  str      r0, [fp, #0xc]               
+           000f2ecc  ldr      r0, [fp, #0x40]              
+           000f2ed0  ldr      r2, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+           000f2ed4  mov      r1, r2                       
+           000f2ed8  mov      r0, fp                       
+           000f2edc  ldr      lr, [r2]                     
+           000f2ee0  bl       #0x22d0e0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::GetEnumerator
+           000f2ee4  b        #0xf2f20                     ; -> L_f2f20
+L_f2ee8:   000f2ee8  ldr      r0, [pc]                     
+           000f2eec  b        #0xf2ef4                     ; -> L_f2ef4
+           000f2ef0  .word    0x00eb2890                   ; literal 15411344 / 
+L_f2ef4:   000f2ef4  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f2ef8  ldr      r5, [fp, #0xc]               
+           000f2efc  mov      r0, r5                       
+           000f2f00  ldr      r0, [r0]                     
+           000f2f04  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f2f08  cmp      r0, sl                       
+           000f2f0c  bne      #0xf2f20                     ; -> L_f2f20
+           000f2f10  mov      r0, #1                       
+           000f2f14  strb     r0, [fp, #0x10]              
+           000f2f18  bl       #0xf2f48                     ; CALL 0xf2f48
+           000f2f1c  b        #0xf2fdc                     ; -> L_f2fdc
+L_f2f20:   000f2f20  ldr      r8, [pc]                     
+           000f2f24  b        #0xf2f2c                     ; -> L_f2f2c
+           000f2f28  .word    0x00eb2858                   ; literal 15411288 / 
+L_f2f2c:   000f2f2c  ldr      r8, [pc, r8]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f2f30  mov      r0, fp                       
+           000f2f34  bl       #0x22d100                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseEffect>::MoveNext
+           000f2f38  cmp      r0, #0                       
+           000f2f3c  bne      #0xf2ee8                     ; -> L_f2ee8
+           000f2f40  bl       #0xf2f48                     ; CALL 0xf2f48
+           000f2f44  b        #0xf2fd4                     ; -> L_f2fd4
+           000f2f48  str      lr, [fp, #0x2c]              
+           000f2f4c  ldr      r0, [fp]                     
+           000f2f50  str      r0, [fp, #0x30]              
+           000f2f54  ldr      r0, [fp, #4]                 
+           000f2f58  str      r0, [fp, #0x34]              
+           000f2f5c  ldr      r0, [fp, #8]                 
+           000f2f60  str      r0, [fp, #0x38]              
+           000f2f64  ldr      r0, [fp, #0xc]               
+           000f2f68  str      r0, [fp, #0x3c]              
+           000f2f6c  ldr      r0, [pc]                     
+           000f2f70  b        #0xf2f78                     ; -> L_f2f78
+           000f2f74  .word    0x00eb280c                   ; literal 15411212 / 
+L_f2f78:   000f2f78  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f2f7c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f2f80  mov      r1, r0                       
+           000f2f84  add      r0, r1, #8                   
+           000f2f88  ldr      r2, [fp, #0x30]              
+           000f2f8c  str      r2, [r0]                     
+           000f2f90  ldr      r2, [fp, #0x34]              
+           000f2f94  str      r2, [r0, #4]                 ; field+0x4 
+           000f2f98  ldr      r2, [fp, #0x38]              
+           000f2f9c  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f2fa0  ldr      r2, [fp, #0x3c]              
+           000f2fa4  str      r2, [r0, #0xc]               ; field+0xc 
+           000f2fa8  mov      r0, r1                       
+           000f2fac  ldr      r1, [r1]                     
+           000f2fb0  ldr      r8, [pc]                     
+           000f2fb4  b        #0xf2fbc                     ; -> L_f2fbc
+           000f2fb8  .word    0x00eb1dec                   ; literal 15408620 / 
+L_f2fbc:   000f2fbc  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000f2fc0  add      lr, pc, #4                   
+           000f2fc4  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000f2fc8  andeq    r0, r0, r0                   
+           000f2fcc  ldr      ip, [fp, #0x2c]              
+           000f2fd0  mov      pc, ip                       
+L_f2fd4:   000f2fd4  mov      r0, #0                       
+           000f2fd8  b        #0xf2fe0                     ; -> L_f2fe0
+L_f2fdc:   000f2fdc  ldrb     r0, [fp, #0x10]              
+L_f2fe0:   000f2fe0  add      sp, fp, #0x48                
+           000f2fe4  pop      {r5, r8, sl, fp}             
+           000f2fe8  ldr      r7, [sp, #8]                 
+           000f2fec  ldm      sp, {sp, pc}                 
+
+== EffectManager::GetEffectCount  token 0x06000371 @0x000f2ff0 (340 bytes)
+   args: r0=this, effectType
+           000f2ff0  mov      ip, sp                       
+           000f2ff4  push     {r7, lr}                     
+           000f2ff8  mov      r7, sp                       
+           000f2ffc  push     {r4, r5, r8, sl, fp, ip, lr} 
+           000f3000  sub      sp, sp, #0x44                
+           000f3004  mov      fp, sp                       
+           000f3008  str      r0, [fp, #0x3c]              
+           000f300c  mov      sl, r1                       
+           000f3010  mov      r0, #0                       
+           000f3014  str      r0, [fp]                     
+           000f3018  mov      r0, #0                       
+           000f301c  str      r0, [fp, #4]                 
+           000f3020  mov      r0, #0                       
+           000f3024  str      r0, [fp, #8]                 
+           000f3028  mov      r0, #0                       
+           000f302c  str      r0, [fp, #0xc]               
+           000f3030  mov      r4, #0                       
+           000f3034  ldr      r0, [fp, #0x3c]              
+           000f3038  ldr      r2, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+           000f303c  mov      r1, r2                       
+           000f3040  mov      r0, fp                       
+           000f3044  ldr      lr, [r2]                     
+           000f3048  bl       #0x22d0e0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::GetEnumerator
+           000f304c  b        #0xf307c                     ; -> L_f307c
+L_f3050:   000f3050  ldr      r0, [pc]                     
+           000f3054  b        #0xf305c                     ; -> L_f305c
+           000f3058  .word    0x00eb2728                   ; literal 15410984 / 
+L_f305c:   000f305c  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f3060  ldr      r5, [fp, #0xc]               
+           000f3064  mov      r0, r5                       
+           000f3068  ldr      r0, [r0]                     
+           000f306c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f3070  cmp      r0, sl                       
+           000f3074  bne      #0xf307c                     ; -> L_f307c
+           000f3078  add      r4, r4, #1                   
+L_f307c:   000f307c  ldr      r8, [pc]                     
+           000f3080  b        #0xf3088                     ; -> L_f3088
+           000f3084  .word    0x00eb26fc                   ; literal 15410940 / 
+L_f3088:   000f3088  ldr      r8, [pc, r8]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f308c  mov      r0, fp                       
+           000f3090  bl       #0x22d100                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseEffect>::MoveNext
+           000f3094  cmp      r0, #0                       
+           000f3098  bne      #0xf3050                     ; -> L_f3050
+           000f309c  bl       #0xf30a4                     ; CALL 0xf30a4
+           000f30a0  b        #0xf3130                     ; -> L_f3130
+           000f30a4  str      lr, [fp, #0x28]              
+           000f30a8  ldr      r0, [fp]                     
+           000f30ac  str      r0, [fp, #0x2c]              
+           000f30b0  ldr      r0, [fp, #4]                 
+           000f30b4  str      r0, [fp, #0x30]              
+           000f30b8  ldr      r0, [fp, #8]                 
+           000f30bc  str      r0, [fp, #0x34]              
+           000f30c0  ldr      r0, [fp, #0xc]               
+           000f30c4  str      r0, [fp, #0x38]              
+           000f30c8  ldr      r0, [pc]                     
+           000f30cc  b        #0xf30d4                     ; -> L_f30d4
+           000f30d0  .word    0x00eb26b0                   ; literal 15410864 / 
+L_f30d4:   000f30d4  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f30d8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f30dc  mov      r1, r0                       
+           000f30e0  add      r0, r1, #8                   
+           000f30e4  ldr      r2, [fp, #0x2c]              
+           000f30e8  str      r2, [r0]                     
+           000f30ec  ldr      r2, [fp, #0x30]              
+           000f30f0  str      r2, [r0, #4]                 ; field+0x4 
+           000f30f4  ldr      r2, [fp, #0x34]              
+           000f30f8  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f30fc  ldr      r2, [fp, #0x38]              
+           000f3100  str      r2, [r0, #0xc]               ; field+0xc 
+           000f3104  mov      r0, r1                       
+           000f3108  ldr      r1, [r1]                     
+           000f310c  ldr      r8, [pc]                     
+           000f3110  b        #0xf3118                     ; -> L_f3118
+           000f3114  .word    0x00eb1c90                   ; literal 15408272 / 
+L_f3118:   000f3118  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000f311c  add      lr, pc, #4                   
+           000f3120  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000f3124  andeq    r0, r0, r0                   
+           000f3128  ldr      ip, [fp, #0x28]              
+           000f312c  mov      pc, ip                       
+L_f3130:   000f3130  mov      r0, r4                       
+           000f3134  add      sp, fp, #0x44                
+           000f3138  pop      {r4, r5, r8, sl, fp}         
+           000f313c  ldr      r7, [sp, #8]                 
+           000f3140  ldm      sp, {sp, pc}                 
+
+== EffectManager::GetHighestPoweredEffect  token 0x06000372 @0x000f3144 (352 bytes)
+   args: r0=this, effectType
+           000f3144  mov      ip, sp                       
+           000f3148  push     {r7, lr}                     
+           000f314c  mov      r7, sp                       
+           000f3150  push     {r4, r5, r8, sl, fp, ip, lr} 
+           000f3154  sub      sp, sp, #0x44                
+           000f3158  mov      fp, sp                       
+           000f315c  str      r0, [fp, #0x3c]              
+           000f3160  mov      sl, r1                       
+           000f3164  mov      r0, #0                       
+           000f3168  str      r0, [fp]                     
+           000f316c  mov      r0, #0                       
+           000f3170  str      r0, [fp, #4]                 
+           000f3174  mov      r0, #0                       
+           000f3178  str      r0, [fp, #8]                 
+           000f317c  mov      r0, #0                       
+           000f3180  str      r0, [fp, #0xc]               
+           000f3184  mov      r4, #0                       
+           000f3188  ldr      r0, [fp, #0x3c]              
+           000f318c  ldr      r2, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+           000f3190  mov      r1, r2                       
+           000f3194  mov      r0, fp                       
+           000f3198  ldr      lr, [r2]                     
+           000f319c  bl       #0x22d0e0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::GetEnumerator
+           000f31a0  b        #0xf31dc                     ; -> L_f31dc
+L_f31a4:   000f31a4  ldr      r0, [pc]                     
+           000f31a8  b        #0xf31b0                     ; -> L_f31b0
+           000f31ac  .word    0x00eb25d4                   ; literal 15410644 / 
+L_f31b0:   000f31b0  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f31b4  ldr      r5, [fp, #0xc]               
+           000f31b8  mov      r0, r5                       
+           000f31bc  ldr      r0, [r0]                     
+           000f31c0  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f31c4  cmp      r0, sl                       
+           000f31c8  bne      #0xf31dc                     ; -> L_f31dc
+           000f31cc  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000f31d0  cmp      r0, r4                       
+           000f31d4  ble      #0xf31dc                     ; -> L_f31dc
+           000f31d8  ldr      r4, [r5, #0xc]               ; field+0xc 
+L_f31dc:   000f31dc  ldr      r8, [pc]                     
+           000f31e0  b        #0xf31e8                     ; -> L_f31e8
+           000f31e4  .word    0x00eb259c                   ; literal 15410588 / 
+L_f31e8:   000f31e8  ldr      r8, [pc, r8]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f31ec  mov      r0, fp                       
+           000f31f0  bl       #0x22d100                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseEffect>::MoveNext
+           000f31f4  cmp      r0, #0                       
+           000f31f8  bne      #0xf31a4                     ; -> L_f31a4
+           000f31fc  bl       #0xf3204                     ; CALL 0xf3204
+           000f3200  b        #0xf3290                     ; -> L_f3290
+           000f3204  str      lr, [fp, #0x28]              
+           000f3208  ldr      r0, [fp]                     
+           000f320c  str      r0, [fp, #0x2c]              
+           000f3210  ldr      r0, [fp, #4]                 
+           000f3214  str      r0, [fp, #0x30]              
+           000f3218  ldr      r0, [fp, #8]                 
+           000f321c  str      r0, [fp, #0x34]              
+           000f3220  ldr      r0, [fp, #0xc]               
+           000f3224  str      r0, [fp, #0x38]              
+           000f3228  ldr      r0, [pc]                     
+           000f322c  b        #0xf3234                     ; -> L_f3234
+           000f3230  .word    0x00eb2550                   ; literal 15410512 / 
+L_f3234:   000f3234  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f3238  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f323c  mov      r1, r0                       
+           000f3240  add      r0, r1, #8                   
+           000f3244  ldr      r2, [fp, #0x2c]              
+           000f3248  str      r2, [r0]                     
+           000f324c  ldr      r2, [fp, #0x30]              
+           000f3250  str      r2, [r0, #4]                 ; field+0x4 
+           000f3254  ldr      r2, [fp, #0x34]              
+           000f3258  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f325c  ldr      r2, [fp, #0x38]              
+           000f3260  str      r2, [r0, #0xc]               ; field+0xc 
+           000f3264  mov      r0, r1                       
+           000f3268  ldr      r1, [r1]                     
+           000f326c  ldr      r8, [pc]                     
+           000f3270  b        #0xf3278                     ; -> L_f3278
+           000f3274  .word    0x00eb1b30                   ; literal 15407920 / 
+L_f3278:   000f3278  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000f327c  add      lr, pc, #4                   
+           000f3280  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000f3284  andeq    r0, r0, r0                   
+           000f3288  ldr      ip, [fp, #0x28]              
+           000f328c  mov      pc, ip                       
+L_f3290:   000f3290  mov      r0, r4                       
+           000f3294  add      sp, fp, #0x44                
+           000f3298  pop      {r4, r5, r8, sl, fp}         
+           000f329c  ldr      r7, [sp, #8]                 
+           000f32a0  ldm      sp, {sp, pc}                 
+
+== EffectManager::GetStrongestEffect  token 0x06000373 @0x000f32a4 (364 bytes)
+   args: r0=this, effectType
+           000f32a4  mov      ip, sp                       
+           000f32a8  push     {r7, lr}                     
+           000f32ac  mov      r7, sp                       
+           000f32b0  push     {r4, r5, r8, sl, fp, ip, lr} 
+           000f32b4  sub      sp, sp, #0x4c                
+           000f32b8  mov      fp, sp                       
+           000f32bc  str      r0, [fp, #0x3c]              
+           000f32c0  str      r1, [fp, #0x40]              
+           000f32c4  mov      r0, #0                       
+           000f32c8  str      r0, [fp]                     
+           000f32cc  mov      r0, #0                       
+           000f32d0  str      r0, [fp, #4]                 
+           000f32d4  mov      r0, #0                       
+           000f32d8  str      r0, [fp, #8]                 
+           000f32dc  mov      r0, #0                       
+           000f32e0  str      r0, [fp, #0xc]               
+           000f32e4  mov      r4, #0                       
+           000f32e8  mov      sl, #0                       
+           000f32ec  ldr      r0, [fp, #0x3c]              
+           000f32f0  ldr      r2, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+           000f32f4  mov      r1, r2                       
+           000f32f8  mov      r0, fp                       
+           000f32fc  ldr      lr, [r2]                     
+           000f3300  bl       #0x22d0e0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::GetEnumerator
+           000f3304  b        #0xf3348                     ; -> L_f3348
+L_f3308:   000f3308  ldr      r0, [pc]                     
+           000f330c  b        #0xf3314                     ; -> L_f3314
+           000f3310  .word    0x00eb2470                   ; literal 15410288 / 
+L_f3314:   000f3314  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f3318  ldr      r5, [fp, #0xc]               
+           000f331c  mov      r0, r5                       
+           000f3320  ldr      r0, [r0]                     
+           000f3324  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f3328  ldr      r1, [fp, #0x40]              
+           000f332c  cmp      r0, r1                       
+           000f3330  bne      #0xf3348                     ; -> L_f3348
+           000f3334  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000f3338  cmp      r0, r4                       
+           000f333c  blt      #0xf3348                     ; -> L_f3348
+           000f3340  ldr      r4, [r5, #0xc]               ; field+0xc 
+           000f3344  mov      sl, r5                       
+L_f3348:   000f3348  ldr      r8, [pc]                     
+           000f334c  b        #0xf3354                     ; -> L_f3354
+           000f3350  .word    0x00eb2430                   ; literal 15410224 / 
+L_f3354:   000f3354  ldr      r8, [pc, r8]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f3358  mov      r0, fp                       
+           000f335c  bl       #0x22d100                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseEffect>::MoveNext
+           000f3360  cmp      r0, #0                       
+           000f3364  bne      #0xf3308                     ; -> L_f3308
+           000f3368  bl       #0xf3370                     ; CALL 0xf3370
+           000f336c  b        #0xf33fc                     ; -> L_f33fc
+           000f3370  str      lr, [fp, #0x28]              
+           000f3374  ldr      r0, [fp]                     
+           000f3378  str      r0, [fp, #0x2c]              
+           000f337c  ldr      r0, [fp, #4]                 
+           000f3380  str      r0, [fp, #0x30]              
+           000f3384  ldr      r0, [fp, #8]                 
+           000f3388  str      r0, [fp, #0x34]              
+           000f338c  ldr      r0, [fp, #0xc]               
+           000f3390  str      r0, [fp, #0x38]              
+           000f3394  ldr      r0, [pc]                     
+           000f3398  b        #0xf33a0                     ; -> L_f33a0
+           000f339c  .word    0x00eb23e4                   ; literal 15410148 / 
+L_f33a0:   000f33a0  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f33a4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f33a8  mov      r1, r0                       
+           000f33ac  add      r0, r1, #8                   
+           000f33b0  ldr      r2, [fp, #0x2c]              
+           000f33b4  str      r2, [r0]                     
+           000f33b8  ldr      r2, [fp, #0x30]              
+           000f33bc  str      r2, [r0, #4]                 ; field+0x4 
+           000f33c0  ldr      r2, [fp, #0x34]              
+           000f33c4  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f33c8  ldr      r2, [fp, #0x38]              
+           000f33cc  str      r2, [r0, #0xc]               ; field+0xc 
+           000f33d0  mov      r0, r1                       
+           000f33d4  ldr      r1, [r1]                     
+           000f33d8  ldr      r8, [pc]                     
+           000f33dc  b        #0xf33e4                     ; -> L_f33e4
+           000f33e0  .word    0x00eb19c4                   ; literal 15407556 / 
+L_f33e4:   000f33e4  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000f33e8  add      lr, pc, #4                   
+           000f33ec  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000f33f0  andeq    r0, r0, r0                   
+           000f33f4  ldr      ip, [fp, #0x28]              
+           000f33f8  mov      pc, ip                       
+L_f33fc:   000f33fc  mov      r0, sl                       
+           000f3400  add      sp, fp, #0x4c                
+           000f3404  pop      {r4, r5, r8, sl, fp}         
+           000f3408  ldr      r7, [sp, #8]                 
+           000f340c  ldm      sp, {sp, pc}                 
+
+== EffectManager::HasEffectOfLevel  token 0x06000374 @0x000f3410 (376 bytes)
+   args: r0=this, effectType, level
+           000f3410  mov      ip, sp                       
+           000f3414  push     {r7, lr}                     
+           000f3418  mov      r7, sp                       
+           000f341c  push     {r4, r6, r8, sl, fp, ip, lr} 
+           000f3420  sub      sp, sp, #0x4c                
+           000f3424  mov      fp, sp                       
+           000f3428  str      r0, [fp, #0x40]              
+           000f342c  mov      r6, r1                       
+           000f3430  mov      sl, r2                       
+           000f3434  mov      r0, #0                       
+           000f3438  str      r0, [fp]                     
+           000f343c  mov      r0, #0                       
+           000f3440  str      r0, [fp, #4]                 
+           000f3444  mov      r0, #0                       
+           000f3448  str      r0, [fp, #8]                 
+           000f344c  mov      r0, #0                       
+           000f3450  str      r0, [fp, #0xc]               
+           000f3454  ldr      r0, [fp, #0x40]              
+           000f3458  ldr      r2, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+           000f345c  mov      r1, r2                       
+           000f3460  mov      r0, fp                       
+           000f3464  ldr      lr, [r2]                     
+           000f3468  bl       #0x22d0e0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::GetEnumerator
+           000f346c  b        #0xf34b8                     ; -> L_f34b8
+L_f3470:   000f3470  ldr      r0, [pc]                     
+           000f3474  b        #0xf347c                     ; -> L_f347c
+           000f3478  .word    0x00eb2308                   ; literal 15409928 / 
+L_f347c:   000f347c  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f3480  ldr      r4, [fp, #0xc]               
+           000f3484  mov      r0, r4                       
+           000f3488  ldr      r0, [r0]                     
+           000f348c  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: rocketEffectPrefab)
+           000f3490  cmp      r0, r6                       
+           000f3494  bne      #0xf34b8                     ; -> L_f34b8
+           000f3498  ldr      lr, [r4]                     
+           000f349c  ldr      r0, [r4, #0x18]              ; field+0x18 (this-class: tripLinePrefab)
+           000f34a0  cmp      r0, sl                       
+           000f34a4  bne      #0xf34b8                     ; -> L_f34b8
+           000f34a8  mov      r0, #1                       
+           000f34ac  strb     r0, [fp, #0x10]              
+           000f34b0  bl       #0xf34e0                     ; CALL 0xf34e0
+           000f34b4  b        #0xf3574                     ; -> L_f3574
+L_f34b8:   000f34b8  ldr      r8, [pc]                     
+           000f34bc  b        #0xf34c4                     ; -> L_f34c4
+           000f34c0  .word    0x00eb22c0                   ; literal 15409856 / 
+L_f34c4:   000f34c4  ldr      r8, [pc, r8]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f34c8  mov      r0, fp                       
+           000f34cc  bl       #0x22d100                    ; CALL System.Collections.Generic.List`1/Enumerator<BaseEffect>::MoveNext
+           000f34d0  cmp      r0, #0                       
+           000f34d4  bne      #0xf3470                     ; -> L_f3470
+           000f34d8  bl       #0xf34e0                     ; CALL 0xf34e0
+           000f34dc  b        #0xf356c                     ; -> L_f356c
+           000f34e0  str      lr, [fp, #0x2c]              
+           000f34e4  ldr      r0, [fp]                     
+           000f34e8  str      r0, [fp, #0x30]              
+           000f34ec  ldr      r0, [fp, #4]                 
+           000f34f0  str      r0, [fp, #0x34]              
+           000f34f4  ldr      r0, [fp, #8]                 
+           000f34f8  str      r0, [fp, #0x38]              
+           000f34fc  ldr      r0, [fp, #0xc]               
+           000f3500  str      r0, [fp, #0x3c]              
+           000f3504  ldr      r0, [pc]                     
+           000f3508  b        #0xf3510                     ; -> L_f3510
+           000f350c  .word    0x00eb2274                   ; literal 15409780 / 
+L_f3510:   000f3510  ldr      r0, [pc, r0]                 ; GOT[649] VTABLE System.Collections.Generic.List`1/Enumerator<BaseEffect>
+           000f3514  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f3518  mov      r1, r0                       
+           000f351c  add      r0, r1, #8                   
+           000f3520  ldr      r2, [fp, #0x30]              
+           000f3524  str      r2, [r0]                     
+           000f3528  ldr      r2, [fp, #0x34]              
+           000f352c  str      r2, [r0, #4]                 ; field+0x4 
+           000f3530  ldr      r2, [fp, #0x38]              
+           000f3534  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f3538  ldr      r2, [fp, #0x3c]              
+           000f353c  str      r2, [r0, #0xc]               ; field+0xc 
+           000f3540  mov      r0, r1                       
+           000f3544  ldr      r1, [r1]                     
+           000f3548  ldr      r8, [pc]                     
+           000f354c  b        #0xf3554                     ; -> L_f3554
+           000f3550  .word    0x00eb1854                   ; literal 15407188 / 
+L_f3554:   000f3554  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000f3558  add      lr, pc, #4                   
+           000f355c  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000f3560  andeq    r0, r0, r0                   
+           000f3564  ldr      ip, [fp, #0x2c]              
+           000f3568  mov      pc, ip                       
+L_f356c:   000f356c  mov      r0, #0                       
+           000f3570  b        #0xf3578                     ; -> L_f3578
+L_f3574:   000f3574  ldrb     r0, [fp, #0x10]              
+L_f3578:   000f3578  add      sp, fp, #0x4c                
+           000f357c  pop      {r4, r6, r8, sl, fp}         
+           000f3580  ldr      r7, [sp, #8]                 
+           000f3584  ldm      sp, {sp, pc}                 
+
+== EffectManager::GetEffect  token 0x06000375 @0x000f3588 (112 bytes)
+   args: r0=this, index
+           000f3588  mov      ip, sp                       
+           000f358c  push     {r7, lr}                     
+           000f3590  mov      r7, sp                       
+           000f3594  push     {r8, fp, ip, lr}             
+           000f3598  sub      sp, sp, #8                   
+           000f359c  mov      fp, sp                       
+           000f35a0  str      r0, [fp]                     
+           000f35a4  str      r1, [fp, #4]                 
+           000f35a8  ldr      r0, [fp]                     
+           000f35ac  ldr      r2, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+           000f35b0  mov      r0, r2                       
+           000f35b4  ldr      r1, [fp, #4]                 
+           000f35b8  ldr      lr, [r2]                     
+           000f35bc  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           000f35c0  cmp      r0, #0                       
+           000f35c4  beq      #0xf35e4                     ; -> L_f35e4
+           000f35c8  ldr      r0, [fp]                     
+           000f35cc  ldr      r2, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+           000f35d0  mov      r0, r2                       
+           000f35d4  ldr      r1, [fp, #4]                 
+           000f35d8  ldr      lr, [r2]                     
+           000f35dc  bl       #0x22d120                    ; CALL System.Collections.Generic.List`1<BaseEffect>::get_Item
+           000f35e0  b        #0xf35e8                     ; -> L_f35e8
+L_f35e4:   000f35e4  mov      r0, #0                       
+L_f35e8:   000f35e8  add      sp, fp, #8                   
+           000f35ec  pop      {r8, fp}                     
+           000f35f0  ldr      r7, [sp, #8]                 
+           000f35f4  ldm      sp, {sp, pc}                 
+
+== EffectManager::GetEffectListCopy  token 0x06000376 @0x000f35f8 (252 bytes)
+   args: r0=this, 
+           000f35f8  mov      ip, sp                       
+           000f35fc  push     {r7, lr}                     
+           000f3600  mov      r7, sp                       
+           000f3604  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000f3608  sub      sp, sp, #8                   
+           000f360c  mov      fp, sp                       
+           000f3610  mov      sl, r0                       
+           000f3614  ldr      r0, [sl, #0x28]              ; field+0x28 (this-class: effectList)
+           000f3618  mov      r1, r0                       
+           000f361c  ldr      lr, [r1]                     
+           000f3620  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000f3624  ldr      r0, [pc]                     
+           000f3628  b        #0xf3630                     ; -> L_f3630
+           000f362c  .word    0x00eb2164                   ; literal 15409508 / 
+L_f3630:   000f3630  ldr      r0, [pc, r0]                 ; GOT[653] VTABLE BaseEffect[]
+           000f3634  bl       #0x22a7c0                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           000f3638  mov      r1, r0                       
+           000f363c  ldr      r2, [sl, #0x28]              ; field+0x28 (this-class: effectList)
+           000f3640  mov      r0, r2                       
+           000f3644  str      r1, [fp]                     
+           000f3648  ldr      lr, [r2]                     
+           000f364c  bl       #0x22d130                    ; CALL System.Collections.Generic.List`1<BaseEffect>::CopyTo
+           000f3650  ldr      r0, [pc]                     
+           000f3654  b        #0xf365c                     ; -> L_f365c
+           000f3658  .word    0x00eb1de8                   ; literal 15408616 / 
+L_f365c:   000f365c  ldr      r0, [pc, r0]                 ; GOT[441] VTABLE System.Collections.Generic.List`1<BaseEffect>
+           000f3660  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f3664  mov      r1, r0                       
+           000f3668  ldr      r0, [fp]                     
+           000f366c  ldr      r2, [pc]                     
+           000f3670  b        #0xf3678                     ; -> L_f3678
+           000f3674  .word    0x00eb1dd0                   ; literal 15408592 / 
+L_f3678:   000f3678  ldr      r2, [pc, r2]                 ; GOT[442] SFLDA System.Collections.Generic.List`1<BaseEffect>::EmptyArray
+           000f367c  ldr      r2, [r2]                     
+           000f3680  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000f3684  mov      sl, r1                       
+           000f3688  mov      r5, r0                       
+           000f368c  mov      r4, #0                       
+           000f3690  b        #0xf36c4                     ; -> L_f36c4
+L_f3694:   000f3694  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000f3698  cmp      r0, r4                       
+           000f369c  blls     #0xf36e4                     ; THROW System.IndexOutOfRangeException (if ls)
+           000f36a0  lsl      r0, r4, #2                   
+           000f36a4  add      r0, r5, r0                   
+           000f36a8  add      r0, r0, #0x10                
+           000f36ac  ldr      r6, [r0]                     
+           000f36b0  mov      r0, sl                       
+           000f36b4  mov      r1, r6                       
+           000f36b8  ldr      lr, [sl]                     
+           000f36bc  bl       #0x22c3a0                    ; CALL System.Collections.Generic.List`1<BaseEffect>::Add
+           000f36c0  add      r4, r4, #1                   
+L_f36c4:   000f36c4  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000f36c8  cmp      r4, r0                       
+           000f36cc  blt      #0xf3694                     ; -> L_f3694
+           000f36d0  mov      r0, sl                       
+           000f36d4  add      sp, fp, #8                   
+           000f36d8  pop      {r4, r5, r6, r8, sl, fp}     
+           000f36dc  ldr      r7, [sp, #8]                 
+           000f36e0  ldm      sp, {sp, pc}                 
+           000f36e4  mov      r1, lr                       
+           000f36e8  ldr      r0, [pc]                     
+           000f36ec  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000f36f0  andeq    r0, r0, #0xf8                
+
+== EffectManager::SetEffectList  token 0x06000377 @0x000f36f4 (72 bytes)
+   args: r0=this, list
+           000f36f4  mov      ip, sp                       
+           000f36f8  push     {r7, lr}                     
+           000f36fc  mov      r7, sp                       
+           000f3700  push     {r8, fp, ip, lr}             
+           000f3704  sub      sp, sp, #8                   
+           000f3708  mov      fp, sp                       
+           000f370c  str      r0, [fp]                     
+           000f3710  str      r1, [fp, #4]                 
+           000f3714  ldr      r0, [fp, #4]                 
+           000f3718  cmp      r0, #0                       
+           000f371c  beq      #0xf372c                     ; -> L_f372c
+           000f3720  ldr      r1, [fp, #4]                 
+           000f3724  ldr      r0, [fp]                     
+           000f3728  str      r1, [r0, #0x28]              ; field+0x28 (this-class: effectList)
+L_f372c:   000f372c  add      sp, fp, #8                   
+           000f3730  pop      {r8, fp}                     
+           000f3734  ldr      r7, [sp, #8]                 
+           000f3738  ldm      sp, {sp, pc}                 

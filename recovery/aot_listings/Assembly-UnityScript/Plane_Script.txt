@@ -1,0 +1,1264 @@
+####################################################################################################
+# TYPE Plane_Script  (instance size 0x44)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 propeller                      UnityEngine.Transform
+#   +0x14 speed                          float
+#   +0x18 turnSpeed                      float
+#   +0x1c climbSpeed                     float
+#   +0x20 climbLimit                     float
+#   +0x24 diveSpeed                      float
+#   +0x28 diveLimit                      float
+#   +0x2c topLimit                       float
+#   +0x30 bottomLimit                    float
+#   +0x34 defaultTilt                    UnityEngine.Quaternion
+#   vtable slots: 4:Main, 5:Update, 6:Start
+####################################################################################################
+== Plane_Script::.ctor  token 0x06000001 @0x00235460 (244 bytes)
+   args: r0=this, 
+           00235460  mov      ip, sp                       
+           00235464  push     {r7, lr}                     
+           00235468  mov      r7, sp                       
+           0023546c  push     {r8, sl, fp, ip, lr}         
+           00235470  sub      sp, sp, #4                   
+           00235474  mov      fp, sp                       
+           00235478  mov      sl, r0                       
+           0023547c  mov      r0, sl                       
+           00235480  bl       #0x238530                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00235484  mov      r0, #0x32                    
+           00235488  vmov     s0, r0                       
+           0023548c  vcvt.f32.s32 s0, s0                       
+           00235490  vcvt.f64.f32 d2, s0                       
+           00235494  vcvt.f32.f64 s0, d2                       
+           00235498  vstr     s0, [sl, #0x14]              ; field+0x14 (this-class: speed)
+           0023549c  mov      r0, #0x32                    
+           002354a0  vmov     s0, r0                       
+           002354a4  vcvt.f32.s32 s0, s0                       
+           002354a8  vcvt.f64.f32 d2, s0                       
+           002354ac  vcvt.f32.f64 s0, d2                       
+           002354b0  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: turnSpeed)
+           002354b4  mov      r0, #5                       
+           002354b8  vmov     s0, r0                       
+           002354bc  vcvt.f32.s32 s0, s0                       
+           002354c0  vcvt.f64.f32 d2, s0                       
+           002354c4  vcvt.f32.f64 s0, d2                       
+           002354c8  vstr     s0, [sl, #0x1c]              ; field+0x1c (this-class: climbSpeed)
+           002354cc  mov      r0, #0x28                    
+           002354d0  vmov     s0, r0                       
+           002354d4  vcvt.f32.s32 s0, s0                       
+           002354d8  vcvt.f64.f32 d2, s0                       
+           002354dc  vcvt.f32.f64 s0, d2                       
+           002354e0  vstr     s0, [sl, #0x20]              ; field+0x20 (this-class: climbLimit)
+           002354e4  mov      r0, #5                       
+           002354e8  vmov     s0, r0                       
+           002354ec  vcvt.f32.s32 s0, s0                       
+           002354f0  vcvt.f64.f32 d2, s0                       
+           002354f4  vcvt.f32.f64 s0, d2                       
+           002354f8  vstr     s0, [sl, #0x24]              ; field+0x24 (this-class: diveSpeed)
+           002354fc  mov      r0, #80, #30                 
+           00235500  vmov     s0, r0                       
+           00235504  vcvt.f32.s32 s0, s0                       
+           00235508  vcvt.f64.f32 d2, s0                       
+           0023550c  vcvt.f32.f64 s0, d2                       
+           00235510  vstr     s0, [sl, #0x28]              ; field+0x28 (this-class: diveLimit)
+           00235514  mov      r0, #0x64                    
+           00235518  vmov     s0, r0                       
+           0023551c  vcvt.f32.s32 s0, s0                       
+           00235520  vcvt.f64.f32 d2, s0                       
+           00235524  vcvt.f32.f64 s0, d2                       
+           00235528  vstr     s0, [sl, #0x2c]              ; field+0x2c (this-class: topLimit)
+           0023552c  mov      r0, #5                       
+           00235530  vmov     s0, r0                       
+           00235534  vcvt.f32.s32 s0, s0                       
+           00235538  vcvt.f64.f32 d2, s0                       
+           0023553c  vcvt.f32.f64 s0, d2                       
+           00235540  vstr     s0, [sl, #0x30]              ; field+0x30 (this-class: bottomLimit)
+           00235544  add      sp, fp, #4                   
+           00235548  pop      {r8, sl, fp}                 
+           0023554c  ldr      r7, [sp, #8]                 
+           00235550  ldm      sp, {sp, pc}                 
+
+== Plane_Script::Start  token 0x06000002 @0x00235554 (188 bytes)
+   args: r0=this, 
+           00235554  mov      ip, sp                       
+           00235558  push     {r7, lr}                     
+           0023555c  mov      r7, sp                       
+           00235560  push     {r8, sl, fp, ip, lr}         
+           00235564  sub      sp, sp, #4                   
+           00235568  mov      fp, sp                       
+           0023556c  mov      sl, r0                       
+           00235570  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: propeller)
+           00235574  bl       #0x238540                    ; CALL UnityEngine.Object::op_Implicit
+           00235578  cmp      r0, #0                       
+           0023557c  bne      #0x235600                    ; -> L_235600
+           00235580  mov      r0, sl                       
+           00235584  ldr      lr, [sl]                     
+           00235588  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           0023558c  mov      r2, r0                       
+           00235590  ldr      r1, [pc]                     
+           00235594  b        #0x23559c                    ; -> L_23559c
+           00235598  .word    0x00d74f8c                   ; literal 14110604 / 
+L_23559c:  0023559c  ldr      r1, [pc, r1]                 ; GOT[2] LDSTR 'Propeller'
+           002355a0  mov      r0, r2                       
+           002355a4  ldr      lr, [r2]                     
+           002355a8  bl       #0x238560                    ; CALL UnityEngine.Transform::Find
+           002355ac  bl       #0x238540                    ; CALL UnityEngine.Object::op_Implicit
+           002355b0  cmp      r0, #0                       
+           002355b4  beq      #0x2355ec                    ; -> L_2355ec
+           002355b8  mov      r0, sl                       
+           002355bc  ldr      lr, [sl]                     
+           002355c0  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           002355c4  mov      r2, r0                       
+           002355c8  ldr      r1, [pc]                     
+           002355cc  b        #0x2355d4                    ; -> L_2355d4
+           002355d0  .word    0x00d74f54                   ; literal 14110548 / 
+L_2355d4:  002355d4  ldr      r1, [pc, r1]                 ; GOT[2] LDSTR 'Propeller'
+           002355d8  mov      r0, r2                       
+           002355dc  ldr      lr, [r2]                     
+           002355e0  bl       #0x238560                    ; CALL UnityEngine.Transform::Find
+           002355e4  str      r0, [sl, #0x10]              ; field+0x10 (this-class: propeller)
+           002355e8  b        #0x235600                    ; -> L_235600
+L_2355ec:  002355ec  ldr      r0, [pc]                     
+           002355f0  b        #0x2355f8                    ; -> L_2355f8
+           002355f4  .word    0x00d74f34                   ; literal 14110516 / 
+L_2355f8:  002355f8  ldr      r0, [pc, r0]                 ; GOT[3] LDSTR 'No propeller assigned'
+           002355fc  bl       #0x238570                    ; CALL UnityEngine.Debug::Log
+L_235600:  00235600  add      sp, fp, #4                   
+           00235604  pop      {r8, sl, fp}                 
+           00235608  ldr      r7, [sp, #8]                 
+           0023560c  ldm      sp, {sp, pc}                 
+
+== Plane_Script::Update  token 0x06000003 @0x00235610 (4036 bytes)
+   args: r0=this, 
+           00235610  mov      ip, sp                       
+           00235614  push     {r7, lr}                     
+           00235618  mov      r7, sp                       
+           0023561c  push     {r8, sl, fp, ip, lr}         
+           00235620  mov      ip, #0x4c                    
+           00235624  add      ip, ip, #4, #24              
+           00235628  sub      sp, sp, ip                   
+           0023562c  mov      fp, sp                       
+           00235630  mov      sl, r0                       
+           00235634  mov      r0, #0                       
+           00235638  str      r0, [fp, #0x24]              
+           0023563c  mov      r0, #0                       
+           00235640  str      r0, [fp, #0x28]              
+           00235644  mov      r0, #0                       
+           00235648  str      r0, [fp, #0x2c]              
+           0023564c  mov      r0, #0                       
+           00235650  str      r0, [fp, #0x34]              
+           00235654  mov      r0, #0                       
+           00235658  str      r0, [fp, #0x38]              
+           0023565c  mov      r0, #0                       
+           00235660  str      r0, [fp, #0x3c]              
+           00235664  mov      r0, #0                       
+           00235668  str      r0, [fp, #0x44]              
+           0023566c  mov      r0, #0                       
+           00235670  str      r0, [fp, #0x48]              
+           00235674  mov      r0, #0                       
+           00235678  str      r0, [fp, #0x4c]              
+           0023567c  mov      r0, #0                       
+           00235680  str      r0, [fp, #0x54]              
+           00235684  mov      r0, #0                       
+           00235688  str      r0, [fp, #0x58]              
+           0023568c  mov      r0, #0                       
+           00235690  str      r0, [fp, #0x5c]              
+           00235694  mov      r0, #0                       
+           00235698  str      r0, [fp, #0x64]              
+           0023569c  mov      r0, #0                       
+           002356a0  str      r0, [fp, #0x68]              
+           002356a4  mov      r0, #0                       
+           002356a8  str      r0, [fp, #0x6c]              
+           002356ac  mov      r0, #0                       
+           002356b0  str      r0, [fp, #0x74]              
+           002356b4  mov      r0, #0                       
+           002356b8  str      r0, [fp, #0x78]              
+           002356bc  mov      r0, #0                       
+           002356c0  str      r0, [fp, #0x7c]              
+           002356c4  mov      r0, #0                       
+           002356c8  str      r0, [fp, #0x80]              
+           002356cc  mov      r0, #0                       
+           002356d0  str      r0, [fp, #0x84]              
+           002356d4  mov      r0, #0                       
+           002356d8  str      r0, [fp, #0x88]              
+           002356dc  mov      r0, #0                       
+           002356e0  str      r0, [fp, #0x90]              
+           002356e4  mov      r0, #0                       
+           002356e8  str      r0, [fp, #0x94]              
+           002356ec  mov      r0, #0                       
+           002356f0  str      r0, [fp, #0x98]              
+           002356f4  mov      r0, #0                       
+           002356f8  str      r0, [fp, #0x9c]              
+           002356fc  mov      r0, #0                       
+           00235700  str      r0, [fp, #0xa0]              
+           00235704  mov      r0, #0                       
+           00235708  str      r0, [fp, #0xa4]              
+           0023570c  mov      r0, #0                       
+           00235710  str      r0, [fp, #0xac]              
+           00235714  mov      r0, #0                       
+           00235718  str      r0, [fp, #0xb0]              
+           0023571c  mov      r0, #0                       
+           00235720  str      r0, [fp, #0xb4]              
+           00235724  mov      r0, #0                       
+           00235728  str      r0, [fp, #0xb8]              
+           0023572c  mov      r0, #0                       
+           00235730  str      r0, [fp, #0xbc]              
+           00235734  mov      r0, #0                       
+           00235738  str      r0, [fp, #0xc0]              
+           0023573c  mov      r0, #0                       
+           00235740  str      r0, [fp, #0xc4]              
+           00235744  mov      r0, #0                       
+           00235748  str      r0, [fp, #0xc8]              
+           0023574c  mov      r0, #0                       
+           00235750  str      r0, [fp, #0xcc]              
+           00235754  mov      r0, #0                       
+           00235758  str      r0, [fp, #0xd0]              
+           0023575c  mov      r0, #0                       
+           00235760  str      r0, [fp, #0xd4]              
+           00235764  mov      r0, #0                       
+           00235768  str      r0, [fp, #0xd8]              
+           0023576c  mov      r0, #0                       
+           00235770  str      r0, [fp, #0xe0]              
+           00235774  mov      r0, #0                       
+           00235778  str      r0, [fp, #0xe4]              
+           0023577c  mov      r0, #0                       
+           00235780  str      r0, [fp, #0xe8]              
+           00235784  mov      r0, #0                       
+           00235788  str      r0, [fp, #0xec]              
+           0023578c  mov      r0, #0                       
+           00235790  str      r0, [fp, #0xf0]              
+           00235794  mov      r0, #0                       
+           00235798  str      r0, [fp, #0xf4]              
+           0023579c  mov      r0, #0                       
+           002357a0  str      r0, [fp, #0xf8]              
+           002357a4  mov      r0, #0                       
+           002357a8  str      r0, [fp, #0xfc]              
+           002357ac  mov      r0, #0                       
+           002357b0  str      r0, [fp, #0x100]             
+           002357b4  mov      r0, #0                       
+           002357b8  str      r0, [fp, #0x104]             
+           002357bc  mov      r0, #0                       
+           002357c0  str      r0, [fp, #0x108]             
+           002357c4  mov      r0, #0                       
+           002357c8  str      r0, [fp, #0x10c]             
+           002357cc  mov      r0, #0                       
+           002357d0  str      r0, [fp, #0x114]             
+           002357d4  mov      r0, #0                       
+           002357d8  str      r0, [fp, #0x118]             
+           002357dc  mov      r0, #0                       
+           002357e0  str      r0, [fp, #0x11c]             
+           002357e4  mov      r0, #0                       
+           002357e8  str      r0, [fp, #0x120]             
+           002357ec  mov      r0, #0                       
+           002357f0  str      r0, [fp, #0x124]             
+           002357f4  mov      r0, #0                       
+           002357f8  str      r0, [fp, #0x128]             
+           002357fc  mov      r0, #0                       
+           00235800  str      r0, [fp, #0x130]             
+           00235804  mov      r0, #0                       
+           00235808  str      r0, [fp, #0x134]             
+           0023580c  mov      r0, #0                       
+           00235810  str      r0, [fp, #0x138]             
+           00235814  mov      r0, #0                       
+           00235818  str      r0, [fp, #0x13c]             
+           0023581c  mov      r0, #0                       
+           00235820  str      r0, [fp, #0x140]             
+           00235824  mov      r0, #0                       
+           00235828  str      r0, [fp, #0x144]             
+           0023582c  mov      r0, #0                       
+           00235830  str      r0, [fp, #0x14c]             
+           00235834  mov      r0, #0                       
+           00235838  str      r0, [fp, #0x150]             
+           0023583c  mov      r0, #0                       
+           00235840  str      r0, [fp, #0x154]             
+           00235844  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: propeller)
+           00235848  bl       #0x238540                    ; CALL UnityEngine.Object::op_Implicit
+           0023584c  cmp      r0, #0                       
+           00235850  beq      #0x235920                    ; -> L_235920
+           00235854  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: propeller)
+           00235858  str      r0, [fp, #0x418]             
+           0023585c  mov      r0, #0                       
+           00235860  vmov     s0, r0                       
+           00235864  vcvt.f32.s32 s0, s0                       
+           00235868  vcvt.f64.f32 d2, s0                       
+           0023586c  mov      lr, #0x430                   
+           00235870  add      lr, lr, fp                   
+           00235874  vstr     d2, [lr]                     
+           00235878  mov      r0, #0                       
+           0023587c  vmov     s0, r0                       
+           00235880  vcvt.f32.s32 s0, s0                       
+           00235884  vcvt.f64.f32 d2, s0                       
+           00235888  mov      lr, #0x28                    
+           0023588c  add      lr, lr, #4, #24              
+           00235890  add      lr, lr, fp                   
+           00235894  vstr     d2, [lr]                     
+           00235898  mov      r0, #0xfa                    
+           0023589c  vmov     s0, r0                       
+           002358a0  vcvt.f32.s32 s0, s0                       
+           002358a4  vcvt.f64.f32 d2, s0                       
+           002358a8  mov      lr, #0x420                   
+           002358ac  add      lr, lr, fp                   
+           002358b0  vstr     d2, [lr]                     
+           002358b4  bl       #0x238580                    ; CALL UnityEngine.Time::get_deltaTime
+           002358b8  vmov     s10, r0                      
+           002358bc  vcvt.f64.f32 d5, s10                      
+           002358c0  ldr      ip, [fp, #0x418]             
+           002358c4  mov      lr, #0x420                   
+           002358c8  add      lr, lr, fp                   
+           002358cc  vldr     d2, [lr]                     
+           002358d0  mov      lr, #0x28                    
+           002358d4  add      lr, lr, #4, #24              
+           002358d8  add      lr, lr, fp                   
+           002358dc  vldr     d3, [lr]                     
+           002358e0  mov      lr, #0x430                   
+           002358e4  add      lr, lr, fp                   
+           002358e8  vldr     d4, [lr]                     
+           002358ec  vmul.f64 d2, d2, d5                   
+           002358f0  mov      r0, ip                       
+           002358f4  vcvt.f32.f64 s0, d4                       
+           002358f8  vstr     s0, [sp, #-8]                
+           002358fc  ldr      r1, [sp, #-8]                
+           00235900  vcvt.f32.f64 s0, d3                       
+           00235904  vstr     s0, [sp, #-8]                
+           00235908  ldr      r2, [sp, #-8]                
+           0023590c  vcvt.f32.f64 s0, d2                       
+           00235910  vstr     s0, [sp, #-8]                
+           00235914  ldr      r3, [sp, #-8]                
+           00235918  ldr      lr, [ip]                     
+           0023591c  bl       #0x238590                    ; CALL UnityEngine.Transform::Rotate
+L_235920:  00235920  mov      r0, sl                       
+           00235924  ldr      lr, [sl]                     
+           00235928  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           0023592c  mov      r2, r0                       
+           00235930  add      r0, fp, #0x2fc               
+           00235934  mov      r1, r2                       
+           00235938  ldr      lr, [r2]                     
+           0023593c  bl       #0x2385a0                    ; CALL UnityEngine.Transform::get_rotation
+           00235940  add      r0, sl, #0x34                
+           00235944  ldr      r1, [fp, #0x2fc]             
+           00235948  str      r1, [r0]                     
+           0023594c  ldr      r1, [fp, #0x300]             
+           00235950  str      r1, [r0, #4]                 ; field+0x4 
+           00235954  ldr      r1, [fp, #0x304]             
+           00235958  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0023595c  ldr      r1, [fp, #0x308]             
+           00235960  str      r1, [r0, #0xc]               ; field+0xc 
+           00235964  add      r0, sl, #0x34                
+           00235968  mov      r1, #0                       
+           0023596c  vmov     s0, r1                       
+           00235970  vcvt.f32.s32 s0, s0                       
+           00235974  vcvt.f64.f32 d2, s0                       
+           00235978  vcvt.f32.f64 s0, d2                       
+           0023597c  vstr     s0, [r0]                     
+           00235980  add      r0, sl, #0x34                
+           00235984  mov      r1, #0                       
+           00235988  vmov     s0, r1                       
+           0023598c  vcvt.f32.s32 s0, s0                       
+           00235990  vcvt.f64.f32 d2, s0                       
+           00235994  vcvt.f32.f64 s0, d2                       
+           00235998  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0023599c  ldr      r0, [pc]                     
+           002359a0  b        #0x2359a8                    ; -> L_2359a8
+           002359a4  .word    0x00d74b88                   ; literal 14109576 / 
+L_2359a8:  002359a8  ldr      r0, [pc, r0]                 ; GOT[4] LDSTR 'Horizontal'
+           002359ac  bl       #0x2385b0                    ; CALL UnityEngine.Input::GetAxis
+           002359b0  vmov     s6, r0                       
+           002359b4  vcvt.f64.f32 d3, s6                       
+           002359b8  mov      r0, #0                       
+           002359bc  vmov     s0, r0                       
+           002359c0  vcvt.f32.s32 s0, s0                       
+           002359c4  vcvt.f64.f32 d2, s0                       
+           002359c8  vcmp.f64 d2, d3                       
+           002359cc  vmrs     apsr_nzcv, fpscr             
+           002359d0  bge      #0x235b34                    ; -> L_235b34
+           002359d4  mov      r0, sl                       
+           002359d8  ldr      lr, [sl]                     
+           002359dc  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           002359e0  mov      r2, r0                       
+           002359e4  add      r0, fp, #0x80                
+           002359e8  mov      r1, r2                       
+           002359ec  ldr      lr, [r2]                     
+           002359f0  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           002359f4  vldr     s0, [fp, #0x84]              
+           002359f8  vcvt.f64.f32 d2, s0                       
+           002359fc  mov      lr, #0x38                    
+           00235a00  add      lr, lr, #4, #24              
+           00235a04  add      lr, lr, fp                   
+           00235a08  vstr     d2, [lr]                     
+           00235a0c  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: turnSpeed)
+           00235a10  vcvt.f64.f32 d2, s0                       
+           00235a14  mov      lr, #0x420                   
+           00235a18  add      lr, lr, fp                   
+           00235a1c  vstr     d2, [lr]                     
+           00235a20  bl       #0x238580                    ; CALL UnityEngine.Time::get_deltaTime
+           00235a24  vmov     s8, r0                       
+           00235a28  vcvt.f64.f32 d4, s8                       
+           00235a2c  mov      lr, #0x38                    
+           00235a30  add      lr, lr, #4, #24              
+           00235a34  add      lr, lr, fp                   
+           00235a38  vldr     d2, [lr]                     
+           00235a3c  mov      lr, #0x420                   
+           00235a40  add      lr, lr, fp                   
+           00235a44  vldr     d3, [lr]                     
+           00235a48  vmul.f64 d3, d3, d4                   
+           00235a4c  vadd.f64 d2, d2, d3                   
+           00235a50  vmov.f64 d2, d2                       
+           00235a54  vmov.f64 d2, d2                       
+           00235a58  vcvt.f32.f64 s0, d2                       
+           00235a5c  vstr     s0, [fp, #0x20]              
+           00235a60  mov      r0, sl                       
+           00235a64  ldr      lr, [sl]                     
+           00235a68  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235a6c  mov      r2, r0                       
+           00235a70  add      r0, fp, #0x30c               
+           00235a74  mov      r1, r2                       
+           00235a78  ldr      lr, [r2]                     
+           00235a7c  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           00235a80  ldr      r0, [fp, #0x30c]             
+           00235a84  str      r0, [fp, #0x24]              
+           00235a88  ldr      r0, [fp, #0x310]             
+           00235a8c  str      r0, [fp, #0x28]              
+           00235a90  ldr      r0, [fp, #0x314]             
+           00235a94  str      r0, [fp, #0x2c]              
+           00235a98  vldr     s0, [fp, #0x20]              
+           00235a9c  vcvt.f64.f32 d2, s0                       
+           00235aa0  vmov.f64 d3, d2                       
+           00235aa4  vmov.f64 d3, d3                       
+           00235aa8  vmov.f64 d2, d3                       
+           00235aac  vmov.f64 d2, d2                       
+           00235ab0  vmov.f64 d3, d3                       
+           00235ab4  vcvt.f32.f64 s0, d3                       
+           00235ab8  vstr     s0, [fp, #0x8c]              
+           00235abc  vcvt.f32.f64 s0, d2                       
+           00235ac0  vstr     s0, [fp, #0x28]              
+           00235ac4  mov      r0, sl                       
+           00235ac8  ldr      lr, [sl]                     
+           00235acc  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235ad0  mov      ip, r0                       
+           00235ad4  ldr      r0, [fp, #0x24]              
+           00235ad8  str      r0, [fp, #0x318]             
+           00235adc  ldr      r0, [fp, #0x28]              
+           00235ae0  str      r0, [fp, #0x31c]             
+           00235ae4  ldr      r0, [fp, #0x2c]              
+           00235ae8  str      r0, [fp, #0x320]             
+           00235aec  ldr      r0, [fp, #0x318]             
+           00235af0  str      r0, [fp, #0x324]             
+           00235af4  ldr      r0, [fp, #0x31c]             
+           00235af8  str      r0, [fp, #0x328]             
+           00235afc  ldr      r0, [fp, #0x320]             
+           00235b00  str      r0, [fp, #0x32c]             
+           00235b04  ldr      r0, [fp, #0x318]             
+           00235b08  str      r0, [fp, #0x90]              
+           00235b0c  ldr      r0, [fp, #0x31c]             
+           00235b10  str      r0, [fp, #0x94]              
+           00235b14  ldr      r0, [fp, #0x320]             
+           00235b18  str      r0, [fp, #0x98]              
+           00235b1c  mov      r0, ip                       
+           00235b20  ldr      r1, [fp, #0x324]             
+           00235b24  ldr      r2, [fp, #0x328]             
+           00235b28  ldr      r3, [fp, #0x32c]             
+           00235b2c  ldr      lr, [ip]                     
+           00235b30  bl       #0x2385d0                    ; CALL UnityEngine.Transform::set_eulerAngles
+L_235b34:  00235b34  ldr      r0, [pc]                     
+           00235b38  b        #0x235b40                    ; -> L_235b40
+           00235b3c  .word    0x00d749f0                   ; literal 14109168 / 
+L_235b40:  00235b40  ldr      r0, [pc, r0]                 ; GOT[4] LDSTR 'Horizontal'
+           00235b44  bl       #0x2385b0                    ; CALL UnityEngine.Input::GetAxis
+           00235b48  vmov     s4, r0                       
+           00235b4c  vcvt.f64.f32 d2, s4                       
+           00235b50  mov      r0, #0                       
+           00235b54  vmov     s0, r0                       
+           00235b58  vcvt.f32.s32 s0, s0                       
+           00235b5c  vcvt.f64.f32 d3, s0                       
+           00235b60  vcmp.f64 d2, d3                       
+           00235b64  vmrs     apsr_nzcv, fpscr             
+           00235b68  bge      #0x235ccc                    ; -> L_235ccc
+           00235b6c  mov      r0, sl                       
+           00235b70  ldr      lr, [sl]                     
+           00235b74  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235b78  mov      r2, r0                       
+           00235b7c  add      r0, fp, #0x9c                
+           00235b80  mov      r1, r2                       
+           00235b84  ldr      lr, [r2]                     
+           00235b88  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           00235b8c  vldr     s0, [fp, #0xa0]              
+           00235b90  vcvt.f64.f32 d2, s0                       
+           00235b94  mov      lr, #0x38                    
+           00235b98  add      lr, lr, #4, #24              
+           00235b9c  add      lr, lr, fp                   
+           00235ba0  vstr     d2, [lr]                     
+           00235ba4  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: turnSpeed)
+           00235ba8  vcvt.f64.f32 d2, s0                       
+           00235bac  mov      lr, #0x420                   
+           00235bb0  add      lr, lr, fp                   
+           00235bb4  vstr     d2, [lr]                     
+           00235bb8  bl       #0x238580                    ; CALL UnityEngine.Time::get_deltaTime
+           00235bbc  vmov     s8, r0                       
+           00235bc0  vcvt.f64.f32 d4, s8                       
+           00235bc4  mov      lr, #0x38                    
+           00235bc8  add      lr, lr, #4, #24              
+           00235bcc  add      lr, lr, fp                   
+           00235bd0  vldr     d2, [lr]                     
+           00235bd4  mov      lr, #0x420                   
+           00235bd8  add      lr, lr, fp                   
+           00235bdc  vldr     d3, [lr]                     
+           00235be0  vmul.f64 d3, d3, d4                   
+           00235be4  vsub.f64 d2, d2, d3                   
+           00235be8  vmov.f64 d2, d2                       
+           00235bec  vmov.f64 d2, d2                       
+           00235bf0  vcvt.f32.f64 s0, d2                       
+           00235bf4  vstr     s0, [fp, #0x30]              
+           00235bf8  mov      r0, sl                       
+           00235bfc  ldr      lr, [sl]                     
+           00235c00  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235c04  mov      r2, r0                       
+           00235c08  add      r0, fp, #204, #30            
+           00235c0c  mov      r1, r2                       
+           00235c10  ldr      lr, [r2]                     
+           00235c14  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           00235c18  ldr      r0, [fp, #0x330]             
+           00235c1c  str      r0, [fp, #0x34]              
+           00235c20  ldr      r0, [fp, #0x334]             
+           00235c24  str      r0, [fp, #0x38]              
+           00235c28  ldr      r0, [fp, #0x338]             
+           00235c2c  str      r0, [fp, #0x3c]              
+           00235c30  vldr     s0, [fp, #0x30]              
+           00235c34  vcvt.f64.f32 d2, s0                       
+           00235c38  vmov.f64 d3, d2                       
+           00235c3c  vmov.f64 d3, d3                       
+           00235c40  vmov.f64 d2, d3                       
+           00235c44  vmov.f64 d2, d2                       
+           00235c48  vmov.f64 d3, d3                       
+           00235c4c  vcvt.f32.f64 s0, d3                       
+           00235c50  vstr     s0, [fp, #0xa8]              
+           00235c54  vcvt.f32.f64 s0, d2                       
+           00235c58  vstr     s0, [fp, #0x38]              
+           00235c5c  mov      r0, sl                       
+           00235c60  ldr      lr, [sl]                     
+           00235c64  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235c68  mov      ip, r0                       
+           00235c6c  ldr      r0, [fp, #0x34]              
+           00235c70  str      r0, [fp, #0x33c]             
+           00235c74  ldr      r0, [fp, #0x38]              
+           00235c78  str      r0, [fp, #0x340]             
+           00235c7c  ldr      r0, [fp, #0x3c]              
+           00235c80  str      r0, [fp, #0x344]             
+           00235c84  ldr      r0, [fp, #0x33c]             
+           00235c88  str      r0, [fp, #0x348]             
+           00235c8c  ldr      r0, [fp, #0x340]             
+           00235c90  str      r0, [fp, #0x34c]             
+           00235c94  ldr      r0, [fp, #0x344]             
+           00235c98  str      r0, [fp, #0x350]             
+           00235c9c  ldr      r0, [fp, #0x33c]             
+           00235ca0  str      r0, [fp, #0xac]              
+           00235ca4  ldr      r0, [fp, #0x340]             
+           00235ca8  str      r0, [fp, #0xb0]              
+           00235cac  ldr      r0, [fp, #0x344]             
+           00235cb0  str      r0, [fp, #0xb4]              
+           00235cb4  mov      r0, ip                       
+           00235cb8  ldr      r1, [fp, #0x348]             
+           00235cbc  ldr      r2, [fp, #0x34c]             
+           00235cc0  ldr      r3, [fp, #0x350]             
+           00235cc4  ldr      lr, [ip]                     
+           00235cc8  bl       #0x2385d0                    ; CALL UnityEngine.Transform::set_eulerAngles
+L_235ccc:  00235ccc  ldr      r0, [pc]                     
+           00235cd0  b        #0x235cd8                    ; -> L_235cd8
+           00235cd4  .word    0x00d7485c                   ; literal 14108764 / 
+L_235cd8:  00235cd8  ldr      r0, [pc, r0]                 ; GOT[5] LDSTR 'Vertical'
+           00235cdc  bl       #0x2385b0                    ; CALL UnityEngine.Input::GetAxis
+           00235ce0  vmov     s4, r0                       
+           00235ce4  vcvt.f64.f32 d2, s4                       
+           00235ce8  mov      r0, #0                       
+           00235cec  vmov     s0, r0                       
+           00235cf0  vcvt.f32.s32 s0, s0                       
+           00235cf4  vcvt.f64.f32 d3, s0                       
+           00235cf8  vcmp.f64 d2, d3                       
+           00235cfc  vmrs     apsr_nzcv, fpscr             
+           00235d00  bge      #0x235efc                    ; -> L_235efc
+           00235d04  mov      r0, sl                       
+           00235d08  ldr      lr, [sl]                     
+           00235d0c  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235d10  mov      r2, r0                       
+           00235d14  add      r0, fp, #0xb8                
+           00235d18  mov      r1, r2                       
+           00235d1c  ldr      lr, [r2]                     
+           00235d20  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           00235d24  vldr     s0, [fp, #0xb8]              
+           00235d28  vcvt.f64.f32 d2, s0                       
+           00235d2c  vldr     s0, [sl, #0x20]              ; field+0x20 (this-class: climbLimit)
+           00235d30  vcvt.f64.f32 d3, s0                       
+           00235d34  vcmp.f64 d2, d3                       
+           00235d38  vmrs     apsr_nzcv, fpscr             
+           00235d3c  bmi      #0x235d88                    ; -> L_235d88
+           00235d40  mov      r0, sl                       
+           00235d44  ldr      lr, [sl]                     
+           00235d48  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235d4c  mov      r2, r0                       
+           00235d50  add      r0, fp, #0xc4                
+           00235d54  mov      r1, r2                       
+           00235d58  ldr      lr, [r2]                     
+           00235d5c  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           00235d60  vldr     s0, [fp, #0xc4]              
+           00235d64  vcvt.f64.f32 d3, s0                       
+           00235d68  mov      r0, #0x13                    
+           00235d6c  add      r0, r0, #0x100               
+           00235d70  vmov     s0, r0                       
+           00235d74  vcvt.f32.s32 s0, s0                       
+           00235d78  vcvt.f64.f32 d2, s0                       
+           00235d7c  vcmp.f64 d2, d3                       
+           00235d80  vmrs     apsr_nzcv, fpscr             
+           00235d84  bge      #0x235efc                    ; -> L_235efc
+L_235d88:  00235d88  mov      r0, sl                       
+           00235d8c  ldr      lr, [sl]                     
+           00235d90  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235d94  mov      r2, r0                       
+           00235d98  add      r0, fp, #0xd0                
+           00235d9c  mov      r1, r2                       
+           00235da0  ldr      lr, [r2]                     
+           00235da4  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           00235da8  vldr     s0, [fp, #0xd0]              
+           00235dac  vcvt.f64.f32 d2, s0                       
+           00235db0  mov      lr, #0x38                    
+           00235db4  add      lr, lr, #4, #24              
+           00235db8  add      lr, lr, fp                   
+           00235dbc  vstr     d2, [lr]                     
+           00235dc0  vldr     s0, [sl, #0x1c]              ; field+0x1c (this-class: climbSpeed)
+           00235dc4  vcvt.f64.f32 d2, s0                       
+           00235dc8  mov      r0, #5                       
+           00235dcc  vmov     s0, r0                       
+           00235dd0  vcvt.f32.s32 s0, s0                       
+           00235dd4  vcvt.f64.f32 d3, s0                       
+           00235dd8  vmul.f64 d2, d2, d3                   
+           00235ddc  mov      lr, #0x420                   
+           00235de0  add      lr, lr, fp                   
+           00235de4  vstr     d2, [lr]                     
+           00235de8  bl       #0x238580                    ; CALL UnityEngine.Time::get_deltaTime
+           00235dec  vmov     s8, r0                       
+           00235df0  vcvt.f64.f32 d4, s8                       
+           00235df4  mov      lr, #0x38                    
+           00235df8  add      lr, lr, #4, #24              
+           00235dfc  add      lr, lr, fp                   
+           00235e00  vldr     d2, [lr]                     
+           00235e04  mov      lr, #0x420                   
+           00235e08  add      lr, lr, fp                   
+           00235e0c  vldr     d3, [lr]                     
+           00235e10  vmul.f64 d3, d3, d4                   
+           00235e14  vadd.f64 d2, d2, d3                   
+           00235e18  vmov.f64 d2, d2                       
+           00235e1c  vmov.f64 d2, d2                       
+           00235e20  vcvt.f32.f64 s0, d2                       
+           00235e24  vstr     s0, [fp, #0x40]              
+           00235e28  mov      r0, sl                       
+           00235e2c  ldr      lr, [sl]                     
+           00235e30  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235e34  mov      r2, r0                       
+           00235e38  add      r0, fp, #0x354               
+           00235e3c  mov      r1, r2                       
+           00235e40  ldr      lr, [r2]                     
+           00235e44  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           00235e48  ldr      r0, [fp, #0x354]             
+           00235e4c  str      r0, [fp, #0x44]              
+           00235e50  ldr      r0, [fp, #0x358]             
+           00235e54  str      r0, [fp, #0x48]              
+           00235e58  ldr      r0, [fp, #0x35c]             
+           00235e5c  str      r0, [fp, #0x4c]              
+           00235e60  vldr     s0, [fp, #0x40]              
+           00235e64  vcvt.f64.f32 d2, s0                       
+           00235e68  vmov.f64 d3, d2                       
+           00235e6c  vmov.f64 d3, d3                       
+           00235e70  vmov.f64 d2, d3                       
+           00235e74  vmov.f64 d2, d2                       
+           00235e78  vmov.f64 d3, d3                       
+           00235e7c  vcvt.f32.f64 s0, d3                       
+           00235e80  vstr     s0, [fp, #0xdc]              
+           00235e84  vcvt.f32.f64 s0, d2                       
+           00235e88  vstr     s0, [fp, #0x44]              
+           00235e8c  mov      r0, sl                       
+           00235e90  ldr      lr, [sl]                     
+           00235e94  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235e98  mov      ip, r0                       
+           00235e9c  ldr      r0, [fp, #0x44]              
+           00235ea0  str      r0, [fp, #0x360]             
+           00235ea4  ldr      r0, [fp, #0x48]              
+           00235ea8  str      r0, [fp, #0x364]             
+           00235eac  ldr      r0, [fp, #0x4c]              
+           00235eb0  str      r0, [fp, #0x368]             
+           00235eb4  ldr      r0, [fp, #0x360]             
+           00235eb8  str      r0, [fp, #0x36c]             
+           00235ebc  ldr      r0, [fp, #0x364]             
+           00235ec0  str      r0, [fp, #0x370]             
+           00235ec4  ldr      r0, [fp, #0x368]             
+           00235ec8  str      r0, [fp, #0x374]             
+           00235ecc  ldr      r0, [fp, #0x360]             
+           00235ed0  str      r0, [fp, #0xe0]              
+           00235ed4  ldr      r0, [fp, #0x364]             
+           00235ed8  str      r0, [fp, #0xe4]              
+           00235edc  ldr      r0, [fp, #0x368]             
+           00235ee0  str      r0, [fp, #0xe8]              
+           00235ee4  mov      r0, ip                       
+           00235ee8  ldr      r1, [fp, #0x36c]             
+           00235eec  ldr      r2, [fp, #0x370]             
+           00235ef0  ldr      r3, [fp, #0x374]             
+           00235ef4  ldr      lr, [ip]                     
+           00235ef8  bl       #0x2385d0                    ; CALL UnityEngine.Transform::set_eulerAngles
+L_235efc:  00235efc  ldr      r0, [pc]                     
+           00235f00  b        #0x235f08                    ; -> L_235f08
+           00235f04  .word    0x00d7462c                   ; literal 14108204 / 
+L_235f08:  00235f08  ldr      r0, [pc, r0]                 ; GOT[5] LDSTR 'Vertical'
+           00235f0c  bl       #0x2385b0                    ; CALL UnityEngine.Input::GetAxis
+           00235f10  vmov     s6, r0                       
+           00235f14  vcvt.f64.f32 d3, s6                       
+           00235f18  mov      r0, #0                       
+           00235f1c  vmov     s0, r0                       
+           00235f20  vcvt.f32.s32 s0, s0                       
+           00235f24  vcvt.f64.f32 d2, s0                       
+           00235f28  vcmp.f64 d2, d3                       
+           00235f2c  vmrs     apsr_nzcv, fpscr             
+           00235f30  bge      #0x23612c                    ; -> L_23612c
+           00235f34  mov      r0, sl                       
+           00235f38  ldr      lr, [sl]                     
+           00235f3c  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235f40  mov      r2, r0                       
+           00235f44  add      r0, fp, #0xec                
+           00235f48  mov      r1, r2                       
+           00235f4c  ldr      lr, [r2]                     
+           00235f50  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           00235f54  vldr     s0, [fp, #0xec]              
+           00235f58  vcvt.f64.f32 d3, s0                       
+           00235f5c  vldr     s0, [sl, #0x28]              ; field+0x28 (this-class: diveLimit)
+           00235f60  vcvt.f64.f32 d2, s0                       
+           00235f64  vcmp.f64 d2, d3                       
+           00235f68  vmrs     apsr_nzcv, fpscr             
+           00235f6c  bmi      #0x235fb8                    ; -> L_235fb8
+           00235f70  mov      r0, sl                       
+           00235f74  ldr      lr, [sl]                     
+           00235f78  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235f7c  mov      r2, r0                       
+           00235f80  add      r0, fp, #0xf8                
+           00235f84  mov      r1, r2                       
+           00235f88  ldr      lr, [r2]                     
+           00235f8c  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           00235f90  vldr     s0, [fp, #0xf8]              
+           00235f94  vcvt.f64.f32 d2, s0                       
+           00235f98  mov      r0, #0x13                    
+           00235f9c  add      r0, r0, #0x100               
+           00235fa0  vmov     s0, r0                       
+           00235fa4  vcvt.f32.s32 s0, s0                       
+           00235fa8  vcvt.f64.f32 d3, s0                       
+           00235fac  vcmp.f64 d2, d3                       
+           00235fb0  vmrs     apsr_nzcv, fpscr             
+           00235fb4  bge      #0x23612c                    ; -> L_23612c
+L_235fb8:  00235fb8  mov      r0, sl                       
+           00235fbc  ldr      lr, [sl]                     
+           00235fc0  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00235fc4  mov      r2, r0                       
+           00235fc8  add      r0, fp, #0x104               
+           00235fcc  mov      r1, r2                       
+           00235fd0  ldr      lr, [r2]                     
+           00235fd4  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           00235fd8  vldr     s0, [fp, #0x104]             
+           00235fdc  vcvt.f64.f32 d2, s0                       
+           00235fe0  mov      lr, #0x38                    
+           00235fe4  add      lr, lr, #4, #24              
+           00235fe8  add      lr, lr, fp                   
+           00235fec  vstr     d2, [lr]                     
+           00235ff0  vldr     s0, [sl, #0x24]              ; field+0x24 (this-class: diveSpeed)
+           00235ff4  vcvt.f64.f32 d2, s0                       
+           00235ff8  mov      r0, #5                       
+           00235ffc  vmov     s0, r0                       
+           00236000  vcvt.f32.s32 s0, s0                       
+           00236004  vcvt.f64.f32 d3, s0                       
+           00236008  vmul.f64 d2, d2, d3                   
+           0023600c  mov      lr, #0x420                   
+           00236010  add      lr, lr, fp                   
+           00236014  vstr     d2, [lr]                     
+           00236018  bl       #0x238580                    ; CALL UnityEngine.Time::get_deltaTime
+           0023601c  vmov     s8, r0                       
+           00236020  vcvt.f64.f32 d4, s8                       
+           00236024  mov      lr, #0x38                    
+           00236028  add      lr, lr, #4, #24              
+           0023602c  add      lr, lr, fp                   
+           00236030  vldr     d2, [lr]                     
+           00236034  mov      lr, #0x420                   
+           00236038  add      lr, lr, fp                   
+           0023603c  vldr     d3, [lr]                     
+           00236040  vmul.f64 d3, d3, d4                   
+           00236044  vsub.f64 d2, d2, d3                   
+           00236048  vmov.f64 d2, d2                       
+           0023604c  vmov.f64 d2, d2                       
+           00236050  vcvt.f32.f64 s0, d2                       
+           00236054  vstr     s0, [fp, #0x50]              
+           00236058  mov      r0, sl                       
+           0023605c  ldr      lr, [sl]                     
+           00236060  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00236064  mov      r2, r0                       
+           00236068  add      r0, fp, #0x378               
+           0023606c  mov      r1, r2                       
+           00236070  ldr      lr, [r2]                     
+           00236074  bl       #0x2385c0                    ; CALL UnityEngine.Transform::get_eulerAngles
+           00236078  ldr      r0, [fp, #0x378]             
+           0023607c  str      r0, [fp, #0x54]              
+           00236080  ldr      r0, [fp, #0x37c]             
+           00236084  str      r0, [fp, #0x58]              
+           00236088  ldr      r0, [fp, #0x380]             
+           0023608c  str      r0, [fp, #0x5c]              
+           00236090  vldr     s0, [fp, #0x50]              
+           00236094  vcvt.f64.f32 d2, s0                       
+           00236098  vmov.f64 d3, d2                       
+           0023609c  vmov.f64 d3, d3                       
+           002360a0  vmov.f64 d2, d3                       
+           002360a4  vmov.f64 d2, d2                       
+           002360a8  vmov.f64 d3, d3                       
+           002360ac  vcvt.f32.f64 s0, d3                       
+           002360b0  vstr     s0, [fp, #0x110]             
+           002360b4  vcvt.f32.f64 s0, d2                       
+           002360b8  vstr     s0, [fp, #0x54]              
+           002360bc  mov      r0, sl                       
+           002360c0  ldr      lr, [sl]                     
+           002360c4  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           002360c8  mov      ip, r0                       
+           002360cc  ldr      r0, [fp, #0x54]              
+           002360d0  str      r0, [fp, #0x384]             
+           002360d4  ldr      r0, [fp, #0x58]              
+           002360d8  str      r0, [fp, #0x388]             
+           002360dc  ldr      r0, [fp, #0x5c]              
+           002360e0  str      r0, [fp, #0x38c]             
+           002360e4  ldr      r0, [fp, #0x384]             
+           002360e8  str      r0, [fp, #0x390]             
+           002360ec  ldr      r0, [fp, #0x388]             
+           002360f0  str      r0, [fp, #0x394]             
+           002360f4  ldr      r0, [fp, #0x38c]             
+           002360f8  str      r0, [fp, #0x398]             
+           002360fc  ldr      r0, [fp, #0x384]             
+           00236100  str      r0, [fp, #0x114]             
+           00236104  ldr      r0, [fp, #0x388]             
+           00236108  str      r0, [fp, #0x118]             
+           0023610c  ldr      r0, [fp, #0x38c]             
+           00236110  str      r0, [fp, #0x11c]             
+           00236114  mov      r0, ip                       
+           00236118  ldr      r1, [fp, #0x390]             
+           0023611c  ldr      r2, [fp, #0x394]             
+           00236120  ldr      r3, [fp, #0x398]             
+           00236124  ldr      lr, [ip]                     
+           00236128  bl       #0x2385d0                    ; CALL UnityEngine.Transform::set_eulerAngles
+L_23612c:  0023612c  ldr      r0, [pc]                     
+           00236130  b        #0x236138                    ; -> L_236138
+           00236134  .word    0x00d743fc                   ; literal 14107644 / 
+L_236138:  00236138  ldr      r0, [pc, r0]                 ; GOT[5] LDSTR 'Vertical'
+           0023613c  bl       #0x2385b0                    ; CALL UnityEngine.Input::GetAxis
+           00236140  vmov     s4, r0                       
+           00236144  vcvt.f64.f32 d2, s4                       
+           00236148  mov      r0, #0                       
+           0023614c  vmov     s0, r0                       
+           00236150  vcvt.f32.s32 s0, s0                       
+           00236154  vcvt.f64.f32 d3, s0                       
+           00236158  vcmp.f64 d2, d3                       
+           0023615c  vmrs     apsr_nzcv, fpscr             
+           00236160  bne      #0x2362a0                    ; -> L_2362a0
+           00236164  ldr      r0, [pc]                     
+           00236168  b        #0x236170                    ; -> L_236170
+           0023616c  .word    0x00d743c0                   ; literal 14107584 / 
+L_236170:  00236170  ldr      r0, [pc, r0]                 ; GOT[4] LDSTR 'Horizontal'
+           00236174  bl       #0x2385b0                    ; CALL UnityEngine.Input::GetAxis
+           00236178  vmov     s4, r0                       
+           0023617c  vcvt.f64.f32 d2, s4                       
+           00236180  mov      r0, #0                       
+           00236184  vmov     s0, r0                       
+           00236188  vcvt.f32.s32 s0, s0                       
+           0023618c  vcvt.f64.f32 d3, s0                       
+           00236190  vcmp.f64 d2, d3                       
+           00236194  vmrs     apsr_nzcv, fpscr             
+           00236198  bne      #0x2362a0                    ; -> L_2362a0
+           0023619c  mov      r0, sl                       
+           002361a0  ldr      lr, [sl]                     
+           002361a4  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           002361a8  str      r0, [fp, #0x440]             
+           002361ac  mov      r0, sl                       
+           002361b0  ldr      lr, [sl]                     
+           002361b4  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           002361b8  mov      r2, r0                       
+           002361bc  add      r0, fp, #0x39c               
+           002361c0  mov      r1, r2                       
+           002361c4  ldr      lr, [r2]                     
+           002361c8  bl       #0x2385a0                    ; CALL UnityEngine.Transform::get_rotation
+           002361cc  add      r0, sl, #0x34                
+           002361d0  ldr      r1, [r0]                     
+           002361d4  str      r1, [fp, #0x3ac]             
+           002361d8  ldr      r1, [r0, #4]                 ; field+0x4 
+           002361dc  str      r1, [fp, #0x3b0]             
+           002361e0  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           002361e4  str      r1, [fp, #0x3b4]             
+           002361e8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           002361ec  str      r0, [fp, #0x3b8]             
+           002361f0  mov      r0, #5                       
+           002361f4  vmov     s0, r0                       
+           002361f8  vcvt.f32.s32 s0, s0                       
+           002361fc  vcvt.f64.f32 d2, s0                       
+           00236200  mov      lr, #0x28                    
+           00236204  add      lr, lr, #4, #24              
+           00236208  add      lr, lr, fp                   
+           0023620c  vstr     d2, [lr]                     
+           00236210  bl       #0x238580                    ; CALL UnityEngine.Time::get_deltaTime
+           00236214  vmov     s6, r0                       
+           00236218  vcvt.f64.f32 d3, s6                       
+           0023621c  mov      lr, #0x28                    
+           00236220  add      lr, lr, #4, #24              
+           00236224  add      lr, lr, fp                   
+           00236228  vldr     d2, [lr]                     
+           0023622c  vmul.f64 d2, d2, d3                   
+           00236230  add      r0, fp, #0x3bc               
+           00236234  ldr      r1, [fp, #0x39c]             
+           00236238  ldr      r2, [fp, #0x3a0]             
+           0023623c  ldr      r3, [fp, #0x3a4]             
+           00236240  ldr      ip, [fp, #0x3a8]             
+           00236244  str      ip, [sp]                     
+           00236248  ldr      ip, [fp, #0x3ac]             
+           0023624c  str      ip, [sp, #4]                 
+           00236250  ldr      ip, [fp, #0x3b0]             
+           00236254  str      ip, [sp, #8]                 
+           00236258  ldr      ip, [fp, #0x3b4]             
+           0023625c  str      ip, [sp, #0xc]               
+           00236260  ldr      ip, [fp, #0x3b8]             
+           00236264  str      ip, [sp, #0x10]              
+           00236268  vcvt.f32.f64 s0, d2                       
+           0023626c  vstr     s0, [sp, #0x14]              
+           00236270  bl       #0x2385e0                    ; CALL UnityEngine.Quaternion::Slerp
+           00236274  ldr      ip, [fp, #0x440]             
+           00236278  mov      r0, ip                       
+           0023627c  str      r0, [fp, #0x418]             
+           00236280  ldr      r1, [fp, #0x3bc]             
+           00236284  ldr      r2, [fp, #0x3c0]             
+           00236288  ldr      r3, [fp, #0x3c4]             
+           0023628c  ldr      r0, [fp, #0x3c8]             
+           00236290  str      r0, [sp]                     
+           00236294  ldr      r0, [fp, #0x418]             
+           00236298  ldr      lr, [ip]                     
+           0023629c  bl       #0x2385f0                    ; CALL UnityEngine.Transform::set_rotation
+L_2362a0:  002362a0  mov      r0, sl                       
+           002362a4  ldr      lr, [sl]                     
+           002362a8  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           002362ac  mov      r2, r0                       
+           002362b0  add      r0, fp, #72, #30             
+           002362b4  mov      r1, r2                       
+           002362b8  ldr      lr, [r2]                     
+           002362bc  bl       #0x238600                    ; CALL UnityEngine.Transform::get_position
+           002362c0  vldr     s0, [fp, #0x124]             
+           002362c4  vcvt.f64.f32 d2, s0                       
+           002362c8  vldr     s0, [sl, #0x30]              ; field+0x30 (this-class: bottomLimit)
+           002362cc  vcvt.f64.f32 d3, s0                       
+           002362d0  vcmp.f64 d2, d3                       
+           002362d4  vmrs     apsr_nzcv, fpscr             
+           002362d8  bge      #0x2363c8                    ; -> L_2363c8
+           002362dc  vldr     s0, [sl, #0x30]              ; field+0x30 (this-class: bottomLimit)
+           002362e0  vcvt.f64.f32 d2, s0                       
+           002362e4  vmov.f64 d2, d2                       
+           002362e8  vmov.f64 d2, d2                       
+           002362ec  vcvt.f32.f64 s0, d2                       
+           002362f0  vstr     s0, [fp, #0x60]              
+           002362f4  mov      r0, sl                       
+           002362f8  ldr      lr, [sl]                     
+           002362fc  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00236300  mov      r2, r0                       
+           00236304  add      r0, fp, #0x3cc               
+           00236308  mov      r1, r2                       
+           0023630c  ldr      lr, [r2]                     
+           00236310  bl       #0x238600                    ; CALL UnityEngine.Transform::get_position
+           00236314  ldr      r0, [fp, #0x3cc]             
+           00236318  str      r0, [fp, #0x64]              
+           0023631c  ldr      r0, [fp, #0x3d0]             
+           00236320  str      r0, [fp, #0x68]              
+           00236324  ldr      r0, [fp, #0x3d4]             
+           00236328  str      r0, [fp, #0x6c]              
+           0023632c  vldr     s0, [fp, #0x60]              
+           00236330  vcvt.f64.f32 d2, s0                       
+           00236334  vmov.f64 d3, d2                       
+           00236338  vmov.f64 d3, d3                       
+           0023633c  vmov.f64 d2, d3                       
+           00236340  vmov.f64 d2, d2                       
+           00236344  vmov.f64 d3, d3                       
+           00236348  vcvt.f32.f64 s0, d3                       
+           0023634c  vstr     s0, [fp, #0x12c]             
+           00236350  vcvt.f32.f64 s0, d2                       
+           00236354  vstr     s0, [fp, #0x68]              
+           00236358  mov      r0, sl                       
+           0023635c  ldr      lr, [sl]                     
+           00236360  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00236364  mov      ip, r0                       
+           00236368  ldr      r0, [fp, #0x64]              
+           0023636c  str      r0, [fp, #0x3d8]             
+           00236370  ldr      r0, [fp, #0x68]              
+           00236374  str      r0, [fp, #0x3dc]             
+           00236378  ldr      r0, [fp, #0x6c]              
+           0023637c  str      r0, [fp, #0x3e0]             
+           00236380  ldr      r0, [fp, #0x3d8]             
+           00236384  str      r0, [fp, #0x3e4]             
+           00236388  ldr      r0, [fp, #0x3dc]             
+           0023638c  str      r0, [fp, #0x3e8]             
+           00236390  ldr      r0, [fp, #0x3e0]             
+           00236394  str      r0, [fp, #0x3ec]             
+           00236398  ldr      r0, [fp, #0x3d8]             
+           0023639c  str      r0, [fp, #0x130]             
+           002363a0  ldr      r0, [fp, #0x3dc]             
+           002363a4  str      r0, [fp, #0x134]             
+           002363a8  ldr      r0, [fp, #0x3e0]             
+           002363ac  str      r0, [fp, #0x138]             
+           002363b0  mov      r0, ip                       
+           002363b4  ldr      r1, [fp, #0x3e4]             
+           002363b8  ldr      r2, [fp, #0x3e8]             
+           002363bc  ldr      r3, [fp, #0x3ec]             
+           002363c0  ldr      lr, [ip]                     
+           002363c4  bl       #0x238610                    ; CALL UnityEngine.Transform::set_position
+L_2363c8:  002363c8  mov      r0, sl                       
+           002363cc  ldr      lr, [sl]                     
+           002363d0  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           002363d4  mov      r2, r0                       
+           002363d8  add      r0, fp, #0x13c               
+           002363dc  mov      r1, r2                       
+           002363e0  ldr      lr, [r2]                     
+           002363e4  bl       #0x238600                    ; CALL UnityEngine.Transform::get_position
+           002363e8  vldr     s0, [fp, #0x140]             
+           002363ec  vcvt.f64.f32 d3, s0                       
+           002363f0  vldr     s0, [sl, #0x2c]              ; field+0x2c (this-class: topLimit)
+           002363f4  vcvt.f64.f32 d2, s0                       
+           002363f8  vcmp.f64 d2, d3                       
+           002363fc  vmrs     apsr_nzcv, fpscr             
+           00236400  bge      #0x2364f0                    ; -> L_2364f0
+           00236404  vldr     s0, [sl, #0x2c]              ; field+0x2c (this-class: topLimit)
+           00236408  vcvt.f64.f32 d2, s0                       
+           0023640c  vmov.f64 d2, d2                       
+           00236410  vmov.f64 d2, d2                       
+           00236414  vcvt.f32.f64 s0, d2                       
+           00236418  vstr     s0, [fp, #0x70]              
+           0023641c  mov      r0, sl                       
+           00236420  ldr      lr, [sl]                     
+           00236424  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           00236428  mov      r2, r0                       
+           0023642c  add      r0, fp, #252, #30            
+           00236430  mov      r1, r2                       
+           00236434  ldr      lr, [r2]                     
+           00236438  bl       #0x238600                    ; CALL UnityEngine.Transform::get_position
+           0023643c  ldr      r0, [fp, #0x3f0]             
+           00236440  str      r0, [fp, #0x74]              
+           00236444  ldr      r0, [fp, #0x3f4]             
+           00236448  str      r0, [fp, #0x78]              
+           0023644c  ldr      r0, [fp, #0x3f8]             
+           00236450  str      r0, [fp, #0x7c]              
+           00236454  vldr     s0, [fp, #0x70]              
+           00236458  vcvt.f64.f32 d2, s0                       
+           0023645c  vmov.f64 d3, d2                       
+           00236460  vmov.f64 d3, d3                       
+           00236464  vmov.f64 d2, d3                       
+           00236468  vmov.f64 d2, d2                       
+           0023646c  vmov.f64 d3, d3                       
+           00236470  vcvt.f32.f64 s0, d3                       
+           00236474  vstr     s0, [fp, #0x148]             
+           00236478  vcvt.f32.f64 s0, d2                       
+           0023647c  vstr     s0, [fp, #0x78]              
+           00236480  mov      r0, sl                       
+           00236484  ldr      lr, [sl]                     
+           00236488  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           0023648c  mov      ip, r0                       
+           00236490  ldr      r0, [fp, #0x74]              
+           00236494  str      r0, [fp, #0x3fc]             
+           00236498  ldr      r0, [fp, #0x78]              
+           0023649c  str      r0, [fp, #0x400]             
+           002364a0  ldr      r0, [fp, #0x7c]              
+           002364a4  str      r0, [fp, #0x404]             
+           002364a8  ldr      r0, [fp, #0x3fc]             
+           002364ac  str      r0, [fp, #0x408]             
+           002364b0  ldr      r0, [fp, #0x400]             
+           002364b4  str      r0, [fp, #0x40c]             
+           002364b8  ldr      r0, [fp, #0x404]             
+           002364bc  str      r0, [fp, #0x410]             
+           002364c0  ldr      r0, [fp, #0x3fc]             
+           002364c4  str      r0, [fp, #0x14c]             
+           002364c8  ldr      r0, [fp, #0x400]             
+           002364cc  str      r0, [fp, #0x150]             
+           002364d0  ldr      r0, [fp, #0x404]             
+           002364d4  str      r0, [fp, #0x154]             
+           002364d8  mov      r0, ip                       
+           002364dc  ldr      r1, [fp, #0x408]             
+           002364e0  ldr      r2, [fp, #0x40c]             
+           002364e4  ldr      r3, [fp, #0x410]             
+           002364e8  ldr      lr, [ip]                     
+           002364ec  bl       #0x238610                    ; CALL UnityEngine.Transform::set_position
+L_2364f0:  002364f0  mov      r0, sl                       
+           002364f4  ldr      lr, [sl]                     
+           002364f8  bl       #0x238550                    ; CALL UnityEngine.Component::get_transform
+           002364fc  str      r0, [fp, #0x418]             
+           00236500  mov      r0, #0                       
+           00236504  vmov     s0, r0                       
+           00236508  vcvt.f32.s32 s0, s0                       
+           0023650c  vcvt.f64.f32 d2, s0                       
+           00236510  mov      lr, #0x430                   
+           00236514  add      lr, lr, fp                   
+           00236518  vstr     d2, [lr]                     
+           0023651c  mov      r0, #0                       
+           00236520  vmov     s0, r0                       
+           00236524  vcvt.f32.s32 s0, s0                       
+           00236528  vcvt.f64.f32 d2, s0                       
+           0023652c  mov      lr, #0x28                    
+           00236530  add      lr, lr, #4, #24              
+           00236534  add      lr, lr, fp                   
+           00236538  vstr     d2, [lr]                     
+           0023653c  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: speed)
+           00236540  vcvt.f64.f32 d2, s0                       
+           00236544  mov      lr, #0x420                   
+           00236548  add      lr, lr, fp                   
+           0023654c  vstr     d2, [lr]                     
+           00236550  bl       #0x238580                    ; CALL UnityEngine.Time::get_deltaTime
+           00236554  vmov     s10, r0                      
+           00236558  vcvt.f64.f32 d5, s10                      
+           0023655c  ldr      ip, [fp, #0x418]             
+           00236560  mov      lr, #0x420                   
+           00236564  add      lr, lr, fp                   
+           00236568  vldr     d2, [lr]                     
+           0023656c  mov      lr, #0x28                    
+           00236570  add      lr, lr, #4, #24              
+           00236574  add      lr, lr, fp                   
+           00236578  vldr     d3, [lr]                     
+           0023657c  mov      lr, #0x430                   
+           00236580  add      lr, lr, fp                   
+           00236584  vldr     d4, [lr]                     
+           00236588  vmul.f64 d2, d2, d5                   
+           0023658c  mov      r0, ip                       
+           00236590  vcvt.f32.f64 s0, d4                       
+           00236594  vstr     s0, [sp, #0x10]              
+           00236598  ldr      r1, [sp, #0x10]              
+           0023659c  vcvt.f32.f64 s0, d3                       
+           002365a0  vstr     s0, [sp, #0x10]              
+           002365a4  ldr      r2, [sp, #0x10]              
+           002365a8  vcvt.f32.f64 s0, d2                       
+           002365ac  vstr     s0, [sp, #0x10]              
+           002365b0  ldr      r3, [sp, #0x10]              
+           002365b4  ldr      lr, [ip]                     
+           002365b8  bl       #0x238620                    ; CALL UnityEngine.Transform::Translate
+           002365bc  mov      ip, #0x4c                    
+           002365c0  add      ip, ip, #4, #24              
+           002365c4  add      sp, sp, ip                   
+           002365c8  pop      {r8, sl, fp}                 
+           002365cc  ldr      r7, [sp, #8]                 
+           002365d0  ldm      sp, {sp, pc}                 
+
+== Plane_Script::Main  token 0x06000004 @0x002365d4 (484 bytes)
+   args: r0=this, 
+           002365d4  mov      ip, sp                       
+           002365d8  push     {r7, lr}                     
+           002365dc  mov      r7, sp                       
+           002365e0  push     {r8, fp, ip, lr}             
+           002365e4  sub      sp, sp, #0x78                
+           002365e8  mov      fp, sp                       
+           002365ec  str      r0, [fp, #0x70]              
+           002365f0  vldr     s10, [pc]                    ; float 0.800000011920929
+           002365f4  b        #0x2365fc                    ; -> L_2365fc
+           002365f8  .word    0x3f4ccccd                   ; literal 1061997773 / 0.8
+L_2365fc:  002365fc  vcvt.f64.f32 d5, s10                      
+           00236600  vldr     s8, [pc]                     ; float 0.800000011920929
+           00236604  b        #0x23660c                    ; -> L_23660c
+           00236608  .word    0x3f4ccccd                   ; literal 1061997773 / 0.8
+L_23660c:  0023660c  vcvt.f64.f32 d4, s8                       
+           00236610  vldr     s6, [pc]                     ; float 0.800000011920929
+           00236614  b        #0x23661c                    ; -> L_23661c
+           00236618  .word    0x3f4ccccd                   ; literal 1061997773 / 0.8
+L_23661c:  0023661c  vcvt.f64.f32 d3, s6                       
+           00236620  mov      r0, #1                       
+           00236624  vmov     s0, r0                       
+           00236628  vcvt.f32.s32 s0, s0                       
+           0023662c  vcvt.f64.f32 d2, s0                       
+           00236630  mov      r0, #0                       
+           00236634  str      r0, [fp, #0x10]              
+           00236638  mov      r0, #0                       
+           0023663c  str      r0, [fp, #0x14]              
+           00236640  mov      r0, #0                       
+           00236644  str      r0, [fp, #0x18]              
+           00236648  mov      r0, #0                       
+           0023664c  str      r0, [fp, #0x1c]              
+           00236650  add      r0, fp, #0x10                
+           00236654  vcvt.f32.f64 s0, d5                       
+           00236658  vstr     s0, [sp, #-8]                
+           0023665c  ldr      r1, [sp, #-8]                
+           00236660  vcvt.f32.f64 s0, d4                       
+           00236664  vstr     s0, [sp, #-8]                
+           00236668  ldr      r2, [sp, #-8]                
+           0023666c  vcvt.f32.f64 s0, d3                       
+           00236670  vstr     s0, [sp, #-8]                
+           00236674  ldr      r3, [sp, #-8]                
+           00236678  vcvt.f32.f64 s0, d2                       
+           0023667c  vstr     s0, [sp]                     
+           00236680  bl       #0x238630                    ; CALL UnityEngine.Color::.ctor
+           00236684  ldr      r0, [fp, #0x10]              
+           00236688  str      r0, [fp, #0x50]              
+           0023668c  ldr      r0, [fp, #0x14]              
+           00236690  str      r0, [fp, #0x54]              
+           00236694  ldr      r0, [fp, #0x18]              
+           00236698  str      r0, [fp, #0x58]              
+           0023669c  ldr      r0, [fp, #0x1c]              
+           002366a0  str      r0, [fp, #0x5c]              
+           002366a4  ldr      r0, [fp, #0x50]              
+           002366a8  ldr      r1, [fp, #0x54]              
+           002366ac  ldr      r2, [fp, #0x58]              
+           002366b0  ldr      r3, [fp, #0x5c]              
+           002366b4  bl       #0x238640                    ; CALL UnityEngine.RenderSettings::set_ambientLight
+           002366b8  vldr     s4, [pc]                     ; float 0.007000000216066837
+           002366bc  b        #0x2366c4                    ; -> L_2366c4
+           002366c0  .word    0x3be56042                   ; literal 1004888130 / 0.007
+L_2366c4:  002366c4  vcvt.f64.f32 d2, s4                       
+           002366c8  vcvt.f32.f64 s0, d2                       
+           002366cc  vstr     s0, [sp]                     
+           002366d0  ldr      r0, [sp]                     
+           002366d4  bl       #0x238650                    ; CALL UnityEngine.RenderSettings::set_fogDensity
+           002366d8  mov      r0, #0                       
+           002366dc  vmov     s0, r0                       
+           002366e0  vcvt.f32.s32 s0, s0                       
+           002366e4  vcvt.f64.f32 d5, s0                       
+           002366e8  vldr     s8, [pc]                     ; float 0.5
+           002366ec  b        #0x2366f4                    ; -> L_2366f4
+           002366f0  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_2366f4:  002366f4  vcvt.f64.f32 d4, s8                       
+           002366f8  vldr     s6, [pc]                     ; float 0.4000000059604645
+           002366fc  b        #0x236704                    ; -> L_236704
+           00236700  .word    0x3ecccccd                   ; literal 1053609165 / 0.4
+L_236704:  00236704  vcvt.f64.f32 d3, s6                       
+           00236708  mov      r0, #1                       
+           0023670c  vmov     s0, r0                       
+           00236710  vcvt.f32.s32 s0, s0                       
+           00236714  vcvt.f64.f32 d2, s0                       
+           00236718  mov      r0, #0                       
+           0023671c  str      r0, [fp, #0x30]              
+           00236720  mov      r0, #0                       
+           00236724  str      r0, [fp, #0x34]              
+           00236728  mov      r0, #0                       
+           0023672c  str      r0, [fp, #0x38]              
+           00236730  mov      r0, #0                       
+           00236734  str      r0, [fp, #0x3c]              
+           00236738  add      r0, fp, #0x30                
+           0023673c  vcvt.f32.f64 s0, d5                       
+           00236740  vstr     s0, [sp]                     
+           00236744  ldr      r1, [sp]                     
+           00236748  vcvt.f32.f64 s0, d4                       
+           0023674c  vstr     s0, [sp]                     
+           00236750  ldr      r2, [sp]                     
+           00236754  vcvt.f32.f64 s0, d3                       
+           00236758  vstr     s0, [sp]                     
+           0023675c  ldr      r3, [sp]                     
+           00236760  vcvt.f32.f64 s0, d2                       
+           00236764  vstr     s0, [sp]                     
+           00236768  bl       #0x238630                    ; CALL UnityEngine.Color::.ctor
+           0023676c  ldr      r0, [fp, #0x30]              
+           00236770  str      r0, [fp, #0x60]              
+           00236774  ldr      r0, [fp, #0x34]              
+           00236778  str      r0, [fp, #0x64]              
+           0023677c  ldr      r0, [fp, #0x38]              
+           00236780  str      r0, [fp, #0x68]              
+           00236784  ldr      r0, [fp, #0x3c]              
+           00236788  str      r0, [fp, #0x6c]              
+           0023678c  ldr      r0, [fp, #0x60]              
+           00236790  ldr      r1, [fp, #0x64]              
+           00236794  ldr      r2, [fp, #0x68]              
+           00236798  ldr      r3, [fp, #0x6c]              
+           0023679c  bl       #0x238660                    ; CALL UnityEngine.RenderSettings::set_fogColor
+           002367a0  mov      r0, #1                       
+           002367a4  bl       #0x238670                    ; CALL UnityEngine.RenderSettings::set_fog
+           002367a8  add      sp, fp, #0x78                
+           002367ac  pop      {r8, fp}                     
+           002367b0  ldr      r7, [sp, #8]                 
+           002367b4  ldm      sp, {sp, pc}                 

@@ -1,0 +1,870 @@
+####################################################################################################
+# TYPE StoreKitGUIManager  (instance size 0x14)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 _products                      System.Collections.Generic.List`1<StoreKitProduct>
+#   vtable slots: 
+####################################################################################################
+== StoreKitGUIManager::.ctor  token 0x06000386 @0x00039e48 (52 bytes)
+   args: r0=this, 
+           00039e48  mov      ip, sp                       
+           00039e4c  push     {r7, lr}                     
+           00039e50  mov      r7, sp                       
+           00039e54  push     {r8, fp, ip, lr}             
+           00039e58  sub      sp, sp, #8                   
+           00039e5c  mov      fp, sp                       
+           00039e60  str      r0, [fp]                     
+           00039e64  ldr      r0, [fp]                     
+           00039e68  bl       #0xb98f0                     ; CALL UnityEngine.MonoBehaviour::.ctor
+           00039e6c  add      sp, fp, #8                   
+           00039e70  pop      {r8, fp}                     
+           00039e74  ldr      r7, [sp, #8]                 
+           00039e78  ldm      sp, {sp, pc}                 
+
+== StoreKitGUIManager::Start  token 0x06000387 @0x00039e7c (144 bytes)
+   args: r0=this, 
+           00039e7c  mov      ip, sp                       
+           00039e80  push     {r7, lr}                     
+           00039e84  mov      r7, sp                       
+           00039e88  push     {r8, fp, ip, lr}             
+           00039e8c  sub      sp, sp, #8                   
+           00039e90  mov      fp, sp                       
+           00039e94  str      r0, [fp]                     
+           00039e98  ldr      r0, [fp]                     
+           00039e9c  cmp      r0, #0                       
+           00039ea0  bleq     #0x39efc                     ; THROW System.ArgumentException (if eq)
+           00039ea4  ldr      r0, [pc]                     
+           00039ea8  b        #0x39eb0                     ; -> L_39eb0
+           00039eac  .word    0x00f62e94                   ; literal 16133780 / 
+L_39eb0:   00039eb0  ldr      r0, [pc, r0]                 ; GOT[457] VTABLE System.Action`1<System.Collections.Generic.List`1<StoreKitProduct>>
+           00039eb4  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00039eb8  ldr      r1, [fp]                     
+           00039ebc  str      r1, [r0, #0x10]              ; field+0x10 (this-class: _products)
+           00039ec0  ldr      r1, [pc]                     
+           00039ec4  b        #0x39ecc                     ; -> L_39ecc
+           00039ec8  .word    0x00f62f34                   ; literal 16133940 / 
+L_39ecc:   00039ecc  ldr      r1, [pc, r1]                 ; GOT[504] METHODCONST StoreKitGUIManager::<Start>m__5
+           00039ed0  str      r1, [r0, #0x14]              ; field+0x14 
+           00039ed4  ldr      r1, [pc]                     
+           00039ed8  b        #0x39ee0                     ; -> L_39ee0
+           00039edc  .word    0x00f62e6c                   ; literal 16133740 / 
+L_39ee0:   00039ee0  ldr      r1, [pc, r1]                 ; GOT[459] DELEGATE_TRAMPOLINE System.Action`1<System.Collections.Generic.List`1<StoreKitProduct>>
+           00039ee4  str      r1, [r0, #0xc]               ; field+0xc 
+           00039ee8  bl       #0xbc810                     ; CALL StoreKitManager::add_productListReceived
+           00039eec  add      sp, fp, #8                   
+           00039ef0  pop      {r8, fp}                     
+           00039ef4  ldr      r7, [sp, #8]                 
+           00039ef8  ldm      sp, {sp, pc}                 
+           00039efc  mov      r1, lr                       
+           00039f00  ldr      r0, [pc]                     
+           00039f04  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00039f08  andeq    r0, r0, #0x4d                
+
+== StoreKitGUIManager::OnGUI  token 0x06000388 @0x00039f0c (3084 bytes)
+   args: r0=this, 
+           00039f0c  mov      ip, sp                       
+           00039f10  push     {r7, lr}                     
+           00039f14  mov      r7, sp                       
+           00039f18  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00039f1c  sub      sp, sp, #108, #30            
+           00039f20  mov      fp, sp                       
+           00039f24  str      r0, [fp, #0x190]             
+           00039f28  mov      r0, #0                       
+           00039f2c  str      r0, [fp, #0x3c]              
+           00039f30  mov      r0, #0                       
+           00039f34  str      r0, [fp, #0x40]              
+           00039f38  mov      r0, #0                       
+           00039f3c  str      r0, [fp, #0x44]              
+           00039f40  mov      r0, #0                       
+           00039f44  str      r0, [fp, #0x48]              
+           00039f48  mov      r0, #0                       
+           00039f4c  str      r0, [fp, #0x4c]              
+           00039f50  mov      r0, #0                       
+           00039f54  str      r0, [fp, #0x50]              
+           00039f58  mov      r0, #0                       
+           00039f5c  str      r0, [fp, #0x54]              
+           00039f60  mov      r0, #0                       
+           00039f64  str      r0, [fp, #0x58]              
+           00039f68  vldr     s4, [pc]                     ; float 5.0
+           00039f6c  b        #0x39f74                     ; -> L_39f74
+           00039f70  .word    0x40a00000                   ; literal 1084227584 / 5
+L_39f74:   00039f74  vcvt.f64.f32 d2, s4                       
+           00039f78  vcvt.f32.f64 s0, d2                       
+           00039f7c  vstr     s0, [fp, #0x10]              
+           00039f80  vldr     s4, [pc]                     ; float 5.0
+           00039f84  b        #0x39f8c                     ; -> L_39f8c
+           00039f88  .word    0x40a00000                   ; literal 1084227584 / 5
+L_39f8c:   00039f8c  vcvt.f64.f32 d2, s4                       
+           00039f90  vcvt.f32.f64 s0, d2                       
+           00039f94  vstr     s0, [fp, #0x14]              
+           00039f98  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00039f9c  cmp      r0, #240, #30                
+           00039fa0  bge      #0x39fb0                     ; -> L_39fb0
+           00039fa4  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00039fa8  cmp      r0, #240, #30                
+           00039fac  blt      #0x39fb8                     ; -> L_39fb8
+L_39fb0:   00039fb0  mov      r4, #80, #30                 
+           00039fb4  b        #0x39fbc                     ; -> L_39fbc
+L_39fb8:   00039fb8  mov      r4, #0xa0                    
+L_39fbc:   00039fbc  vmov     s0, r4                       
+           00039fc0  vcvt.f32.s32 s0, s0                       
+           00039fc4  vcvt.f64.f32 d2, s0                       
+           00039fc8  vcvt.f32.f64 s0, d2                       
+           00039fcc  vstr     s0, [fp, #0x18]              
+           00039fd0  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00039fd4  cmp      r0, #240, #30                
+           00039fd8  bge      #0x39fe8                     ; -> L_39fe8
+           00039fdc  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00039fe0  cmp      r0, #240, #30                
+           00039fe4  blt      #0x39ff0                     ; -> L_39ff0
+L_39fe8:   00039fe8  mov      r4, #0x50                    
+           00039fec  b        #0x39ff4                     ; -> L_39ff4
+L_39ff0:   00039ff0  mov      r4, #0x28                    
+L_39ff4:   00039ff4  vmov     s0, r4                       
+           00039ff8  vcvt.f32.s32 s0, s0                       
+           00039ffc  vcvt.f64.f32 d2, s0                       
+           0003a000  vcvt.f32.f64 s0, d2                       
+           0003a004  vstr     s0, [fp, #0x1c]              
+           0003a008  vldr     s0, [fp, #0x1c]              
+           0003a00c  vcvt.f64.f32 d2, s0                       
+           0003a010  vldr     s6, [pc]                     ; float 10.0
+           0003a014  b        #0x3a01c                     ; -> L_3a01c
+           0003a018  .word    0x41200000                   ; literal 1092616192 / 10
+L_3a01c:   0003a01c  vcvt.f64.f32 d3, s6                       
+           0003a020  vadd.f64 d2, d2, d3                   
+           0003a024  vcvt.f32.f64 s0, d2                       
+           0003a028  vstr     s0, [fp, #0x20]              
+           0003a02c  vldr     s0, [fp, #0x14]              
+           0003a030  vcvt.f64.f32 d5, s0                       
+           0003a034  vldr     s0, [fp, #0x10]              
+           0003a038  vcvt.f64.f32 d4, s0                       
+           0003a03c  vldr     s0, [fp, #0x18]              
+           0003a040  vcvt.f64.f32 d3, s0                       
+           0003a044  vldr     s0, [fp, #0x1c]              
+           0003a048  vcvt.f64.f32 d2, s0                       
+           0003a04c  mov      r0, #0                       
+           0003a050  str      r0, [fp, #0x5c]              
+           0003a054  mov      r0, #0                       
+           0003a058  str      r0, [fp, #0x60]              
+           0003a05c  mov      r0, #0                       
+           0003a060  str      r0, [fp, #0x64]              
+           0003a064  mov      r0, #0                       
+           0003a068  str      r0, [fp, #0x68]              
+           0003a06c  add      r0, fp, #0x5c                
+           0003a070  vcvt.f32.f64 s0, d5                       
+           0003a074  vstr     s0, [sp, #-8]                
+           0003a078  ldr      r1, [sp, #-8]                
+           0003a07c  vcvt.f32.f64 s0, d4                       
+           0003a080  vstr     s0, [sp, #-8]                
+           0003a084  ldr      r2, [sp, #-8]                
+           0003a088  vcvt.f32.f64 s0, d3                       
+           0003a08c  vstr     s0, [sp, #-8]                
+           0003a090  ldr      r3, [sp, #-8]                
+           0003a094  vcvt.f32.f64 s0, d2                       
+           0003a098  vstr     s0, [sp]                     
+           0003a09c  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0003a0a0  ldr      r0, [fp, #0x5c]              
+           0003a0a4  str      r0, [fp, #0x100]             
+           0003a0a8  ldr      r0, [fp, #0x60]              
+           0003a0ac  str      r0, [fp, #0x104]             
+           0003a0b0  ldr      r0, [fp, #0x64]              
+           0003a0b4  str      r0, [fp, #0x108]             
+           0003a0b8  ldr      r0, [fp, #0x68]              
+           0003a0bc  str      r0, [fp, #0x10c]             
+           0003a0c0  ldr      ip, [pc]                     
+           0003a0c4  b        #0x3a0cc                     ; -> L_3a0cc
+           0003a0c8  .word    0x00f62d38                   ; literal 16133432 / 
+L_3a0cc:   0003a0cc  ldr      ip, [pc, ip]                 ; GOT[505] LDSTR 'Get Can Make Payments'
+           0003a0d0  ldr      r0, [fp, #0x100]             
+           0003a0d4  ldr      r1, [fp, #0x104]             
+           0003a0d8  ldr      r2, [fp, #0x108]             
+           0003a0dc  ldr      r3, [fp, #0x10c]             
+           0003a0e0  str      ip, [sp]                     
+           0003a0e4  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0003a0e8  cmp      r0, #0                       
+           0003a0ec  beq      #0x3a138                     ; -> L_3a138
+           0003a0f0  bl       #0x37338                     ; CALL StoreKitBinding::canMakePayments (direct)
+           0003a0f4  strb     r0, [fp, #0x24]              
+           0003a0f8  ldr      r0, [pc]                     
+           0003a0fc  b        #0x3a104                     ; -> L_3a104
+           0003a100  .word    0x00f62d04                   ; literal 16133380 / 
+L_3a104:   0003a104  ldr      r0, [pc, r0]                 ; GOT[506] LDSTR 'StoreKit canMakePayments: '
+           0003a108  str      r0, [fp, #0x198]             
+           0003a10c  ldr      r0, [pc]                     
+           0003a110  b        #0x3a118                     ; -> L_3a118
+           0003a114  .word    0x00f62558                   ; literal 16131416 / 
+L_3a118:   0003a118  ldr      r0, [pc, r0]                 ; GOT[20] VTABLE System.Boolean
+           0003a11c  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0003a120  mov      r1, r0                       
+           0003a124  ldr      r0, [fp, #0x198]             
+           0003a128  ldrb     r2, [fp, #0x24]              
+           0003a12c  strb     r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003a130  bl       #0xb9e60                     ; CALL System.String::Concat
+           0003a134  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_3a138:   0003a138  vldr     s0, [fp, #0x14]              
+           0003a13c  vcvt.f64.f32 d5, s0                       
+           0003a140  vldr     s0, [fp, #0x10]              
+           0003a144  vcvt.f64.f32 d2, s0                       
+           0003a148  vldr     s0, [fp, #0x20]              
+           0003a14c  vcvt.f64.f32 d3, s0                       
+           0003a150  vadd.f64 d2, d2, d3                   
+           0003a154  vmov.f64 d2, d2                       
+           0003a158  vmov.f64 d4, d2                       
+           0003a15c  vmov.f64 d4, d4                       
+           0003a160  vmov.f64 d2, d2                       
+           0003a164  vcvt.f32.f64 s0, d2                       
+           0003a168  vstr     s0, [fp, #0x10]              
+           0003a16c  vldr     s0, [fp, #0x18]              
+           0003a170  vcvt.f64.f32 d3, s0                       
+           0003a174  vldr     s0, [fp, #0x1c]              
+           0003a178  vcvt.f64.f32 d2, s0                       
+           0003a17c  mov      r0, #0                       
+           0003a180  str      r0, [fp, #0x6c]              
+           0003a184  mov      r0, #0                       
+           0003a188  str      r0, [fp, #0x70]              
+           0003a18c  mov      r0, #0                       
+           0003a190  str      r0, [fp, #0x74]              
+           0003a194  mov      r0, #0                       
+           0003a198  str      r0, [fp, #0x78]              
+           0003a19c  add      r0, fp, #0x6c                
+           0003a1a0  vcvt.f32.f64 s0, d5                       
+           0003a1a4  vstr     s0, [sp]                     
+           0003a1a8  ldr      r1, [sp]                     
+           0003a1ac  vcvt.f32.f64 s0, d4                       
+           0003a1b0  vstr     s0, [sp]                     
+           0003a1b4  ldr      r2, [sp]                     
+           0003a1b8  vcvt.f32.f64 s0, d3                       
+           0003a1bc  vstr     s0, [sp]                     
+           0003a1c0  ldr      r3, [sp]                     
+           0003a1c4  vcvt.f32.f64 s0, d2                       
+           0003a1c8  vstr     s0, [sp]                     
+           0003a1cc  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0003a1d0  ldr      r0, [fp, #0x6c]              
+           0003a1d4  str      r0, [fp, #0x110]             
+           0003a1d8  ldr      r0, [fp, #0x70]              
+           0003a1dc  str      r0, [fp, #0x114]             
+           0003a1e0  ldr      r0, [fp, #0x74]              
+           0003a1e4  str      r0, [fp, #0x118]             
+           0003a1e8  ldr      r0, [fp, #0x78]              
+           0003a1ec  str      r0, [fp, #0x11c]             
+           0003a1f0  ldr      ip, [pc]                     
+           0003a1f4  b        #0x3a1fc                     ; -> L_3a1fc
+           0003a1f8  .word    0x00f62c10                   ; literal 16133136 / 
+L_3a1fc:   0003a1fc  ldr      ip, [pc, ip]                 ; GOT[507] LDSTR 'Get Product Data'
+           0003a200  ldr      r0, [fp, #0x110]             
+           0003a204  ldr      r1, [fp, #0x114]             
+           0003a208  ldr      r2, [fp, #0x118]             
+           0003a20c  ldr      r3, [fp, #0x11c]             
+           0003a210  str      ip, [sp]                     
+           0003a214  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0003a218  cmp      r0, #0                       
+           0003a21c  beq      #0x3a2f4                     ; -> L_3a2f4
+           0003a220  ldr      r0, [pc]                     
+           0003a224  b        #0x3a22c                     ; -> L_3a22c
+           0003a228  .word    0x00f62718                   ; literal 16131864 / 
+L_3a22c:   0003a22c  ldr      r0, [pc, r0]                 ; GOT[201] VTABLE System.String[]
+           0003a230  mov      r1, #5                       
+           0003a234  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           0003a238  mov      r1, r0                       
+           0003a23c  str      r1, [fp, #0x1a8]             
+           0003a240  ldr      r2, [pc]                     
+           0003a244  b        #0x3a24c                     ; -> L_3a24c
+           0003a248  .word    0x00f62bc4                   ; literal 16133060 / 
+L_3a24c:   0003a24c  ldr      r2, [pc, r2]                 ; GOT[508] LDSTR 'anotherProduct'
+           0003a250  mov      r1, #0                       
+           0003a254  bl       #0xb9700                     ; CALL wrapper stelemref
+           0003a258  ldr      r0, [fp, #0x1a8]             
+           0003a25c  mov      r1, r0                       
+           0003a260  str      r1, [fp, #0x1a4]             
+           0003a264  ldr      r2, [pc]                     
+           0003a268  b        #0x3a270                     ; -> L_3a270
+           0003a26c  .word    0x00f62ba4                   ; literal 16133028 / 
+L_3a270:   0003a270  ldr      r2, [pc, r2]                 ; GOT[509] LDSTR 'tt'
+           0003a274  mov      r1, #1                       
+           0003a278  bl       #0xb9700                     ; CALL wrapper stelemref
+           0003a27c  ldr      r0, [fp, #0x1a4]             
+           0003a280  mov      r1, r0                       
+           0003a284  str      r1, [fp, #0x1a0]             
+           0003a288  ldr      r2, [pc]                     
+           0003a28c  b        #0x3a294                     ; -> L_3a294
+           0003a290  .word    0x00f62b84                   ; literal 16132996 / 
+L_3a294:   0003a294  ldr      r2, [pc, r2]                 ; GOT[510] LDSTR 'testProduct'
+           0003a298  mov      r1, #2                       
+           0003a29c  bl       #0xb9700                     ; CALL wrapper stelemref
+           0003a2a0  ldr      r0, [fp, #0x1a0]             
+           0003a2a4  mov      r1, r0                       
+           0003a2a8  str      r1, [fp, #0x19c]             
+           0003a2ac  ldr      r2, [pc]                     
+           0003a2b0  b        #0x3a2b8                     ; -> L_3a2b8
+           0003a2b4  .word    0x00f62b64                   ; literal 16132964 / 
+L_3a2b8:   0003a2b8  ldr      r2, [pc, r2]                 ; GOT[511] LDSTR 'sevenDays'
+           0003a2bc  mov      r1, #3                       
+           0003a2c0  bl       #0xb9700                     ; CALL wrapper stelemref
+           0003a2c4  ldr      r0, [fp, #0x19c]             
+           0003a2c8  mov      r1, r0                       
+           0003a2cc  str      r1, [fp, #0x198]             
+           0003a2d0  ldr      r2, [pc]                     
+           0003a2d4  b        #0x3a2dc                     ; -> L_3a2dc
+           0003a2d8  .word    0x00f62b44                   ; literal 16132932 / 
+L_3a2dc:   0003a2dc  ldr      r2, [pc, r2]                 ; GOT[512] LDSTR 'oneMonthSubsciber'
+           0003a2e0  mov      r1, #4                       
+           0003a2e4  bl       #0xb9700                     ; CALL wrapper stelemref
+           0003a2e8  ldr      r0, [fp, #0x198]             
+           0003a2ec  str      r0, [fp, #0x28]              
+           0003a2f0  bl       #0xbc820                     ; CALL StoreKitBinding::requestProductData
+L_3a2f4:   0003a2f4  vldr     s0, [fp, #0x14]              
+           0003a2f8  vcvt.f64.f32 d5, s0                       
+           0003a2fc  vldr     s0, [fp, #0x10]              
+           0003a300  vcvt.f64.f32 d2, s0                       
+           0003a304  vldr     s0, [fp, #0x20]              
+           0003a308  vcvt.f64.f32 d3, s0                       
+           0003a30c  vadd.f64 d2, d2, d3                   
+           0003a310  vmov.f64 d2, d2                       
+           0003a314  vmov.f64 d4, d2                       
+           0003a318  vmov.f64 d4, d4                       
+           0003a31c  vmov.f64 d2, d2                       
+           0003a320  vcvt.f32.f64 s0, d2                       
+           0003a324  vstr     s0, [fp, #0x10]              
+           0003a328  vldr     s0, [fp, #0x18]              
+           0003a32c  vcvt.f64.f32 d3, s0                       
+           0003a330  vldr     s0, [fp, #0x1c]              
+           0003a334  vcvt.f64.f32 d2, s0                       
+           0003a338  mov      r0, #0                       
+           0003a33c  str      r0, [fp, #0x7c]              
+           0003a340  mov      r0, #0                       
+           0003a344  str      r0, [fp, #0x80]              
+           0003a348  mov      r0, #0                       
+           0003a34c  str      r0, [fp, #0x84]              
+           0003a350  mov      r0, #0                       
+           0003a354  str      r0, [fp, #0x88]              
+           0003a358  add      r0, fp, #0x7c                
+           0003a35c  vcvt.f32.f64 s0, d5                       
+           0003a360  vstr     s0, [sp]                     
+           0003a364  ldr      r1, [sp]                     
+           0003a368  vcvt.f32.f64 s0, d4                       
+           0003a36c  vstr     s0, [sp]                     
+           0003a370  ldr      r2, [sp]                     
+           0003a374  vcvt.f32.f64 s0, d3                       
+           0003a378  vstr     s0, [sp]                     
+           0003a37c  ldr      r3, [sp]                     
+           0003a380  vcvt.f32.f64 s0, d2                       
+           0003a384  vstr     s0, [sp]                     
+           0003a388  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0003a38c  ldr      r0, [fp, #0x7c]              
+           0003a390  str      r0, [fp, #0x120]             
+           0003a394  ldr      r0, [fp, #0x80]              
+           0003a398  str      r0, [fp, #0x124]             
+           0003a39c  ldr      r0, [fp, #0x84]              
+           0003a3a0  str      r0, [fp, #0x128]             
+           0003a3a4  ldr      r0, [fp, #0x88]              
+           0003a3a8  str      r0, [fp, #0x12c]             
+           0003a3ac  ldr      ip, [pc]                     
+           0003a3b0  b        #0x3a3b8                     ; -> L_3a3b8
+           0003a3b4  .word    0x00f62a6c                   ; literal 16132716 / 
+L_3a3b8:   0003a3b8  ldr      ip, [pc, ip]                 ; GOT[513] LDSTR 'Restore Completed Transactions'
+           0003a3bc  ldr      r0, [fp, #0x120]             
+           0003a3c0  ldr      r1, [fp, #0x124]             
+           0003a3c4  ldr      r2, [fp, #0x128]             
+           0003a3c8  ldr      r3, [fp, #0x12c]             
+           0003a3cc  str      ip, [sp]                     
+           0003a3d0  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0003a3d4  cmp      r0, #0                       
+           0003a3d8  beq      #0x3a3e0                     ; -> L_3a3e0
+           0003a3dc  bl       #0x37410                     ; CALL StoreKitBinding::restoreCompletedTransactions (direct)
+L_3a3e0:   0003a3e0  vldr     s0, [fp, #0x14]              
+           0003a3e4  vcvt.f64.f32 d5, s0                       
+           0003a3e8  vldr     s0, [fp, #0x10]              
+           0003a3ec  vcvt.f64.f32 d2, s0                       
+           0003a3f0  vldr     s0, [fp, #0x20]              
+           0003a3f4  vcvt.f64.f32 d3, s0                       
+           0003a3f8  vadd.f64 d2, d2, d3                   
+           0003a3fc  vmov.f64 d2, d2                       
+           0003a400  vmov.f64 d4, d2                       
+           0003a404  vmov.f64 d4, d4                       
+           0003a408  vmov.f64 d2, d2                       
+           0003a40c  vcvt.f32.f64 s0, d2                       
+           0003a410  vstr     s0, [fp, #0x10]              
+           0003a414  vldr     s0, [fp, #0x18]              
+           0003a418  vcvt.f64.f32 d3, s0                       
+           0003a41c  vldr     s0, [fp, #0x1c]              
+           0003a420  vcvt.f64.f32 d2, s0                       
+           0003a424  mov      r0, #0                       
+           0003a428  str      r0, [fp, #0x8c]              
+           0003a42c  mov      r0, #0                       
+           0003a430  str      r0, [fp, #0x90]              
+           0003a434  mov      r0, #0                       
+           0003a438  str      r0, [fp, #0x94]              
+           0003a43c  mov      r0, #0                       
+           0003a440  str      r0, [fp, #0x98]              
+           0003a444  add      r0, fp, #0x8c                
+           0003a448  vcvt.f32.f64 s0, d5                       
+           0003a44c  vstr     s0, [sp]                     
+           0003a450  ldr      r1, [sp]                     
+           0003a454  vcvt.f32.f64 s0, d4                       
+           0003a458  vstr     s0, [sp]                     
+           0003a45c  ldr      r2, [sp]                     
+           0003a460  vcvt.f32.f64 s0, d3                       
+           0003a464  vstr     s0, [sp]                     
+           0003a468  ldr      r3, [sp]                     
+           0003a46c  vcvt.f32.f64 s0, d2                       
+           0003a470  vstr     s0, [sp]                     
+           0003a474  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0003a478  ldr      r0, [fp, #0x8c]              
+           0003a47c  str      r0, [fp, #0x130]             
+           0003a480  ldr      r0, [fp, #0x90]              
+           0003a484  str      r0, [fp, #0x134]             
+           0003a488  ldr      r0, [fp, #0x94]              
+           0003a48c  str      r0, [fp, #0x138]             
+           0003a490  ldr      r0, [fp, #0x98]              
+           0003a494  str      r0, [fp, #0x13c]             
+           0003a498  ldr      ip, [pc]                     
+           0003a49c  b        #0x3a4a4                     ; -> L_3a4a4
+           0003a4a0  .word    0x00f62984                   ; literal 16132484 / 
+L_3a4a4:   0003a4a4  ldr      ip, [pc, ip]                 ; GOT[514] LDSTR 'Validate Receipt'
+           0003a4a8  ldr      r0, [fp, #0x130]             
+           0003a4ac  ldr      r1, [fp, #0x134]             
+           0003a4b0  ldr      r2, [fp, #0x138]             
+           0003a4b4  ldr      r3, [fp, #0x13c]             
+           0003a4b8  str      ip, [sp]                     
+           0003a4bc  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0003a4c0  cmp      r0, #0                       
+           0003a4c4  beq      #0x3a504                     ; -> L_3a504
+           0003a4c8  bl       #0xbc830                     ; CALL StoreKitBinding::getAllSavedTransactions
+           0003a4cc  str      r0, [fp, #0x2c]              
+           0003a4d0  mov      r1, r0                       
+           0003a4d4  ldr      lr, [r1]                     
+           0003a4d8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0003a4dc  cmp      r0, #0                       
+           0003a4e0  ble      #0x3a504                     ; -> L_3a504
+           0003a4e4  ldr      r0, [fp, #0x2c]              
+           0003a4e8  mov      r1, #0                       
+           0003a4ec  ldr      r2, [fp, #0x2c]              
+           0003a4f0  ldr      lr, [r2]                     
+           0003a4f4  bl       #0xbc840                     ; CALL System.Collections.Generic.List`1<StoreKitTransaction>::get_Item
+           0003a4f8  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0003a4fc  mov      r1, #1                       
+           0003a500  bl       #0x37444                     ; CALL StoreKitBinding::validateReceipt (direct)
+L_3a504:   0003a504  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           0003a508  vmov     s0, r0                       
+           0003a50c  vcvt.f32.s32 s0, s0                       
+           0003a510  vcvt.f64.f32 d2, s0                       
+           0003a514  vldr     s0, [fp, #0x18]              
+           0003a518  vcvt.f64.f32 d3, s0                       
+           0003a51c  vsub.f64 d2, d2, d3                   
+           0003a520  vldr     s6, [pc]                     ; float 5.0
+           0003a524  b        #0x3a52c                     ; -> L_3a52c
+           0003a528  .word    0x40a00000                   ; literal 1084227584 / 5
+L_3a52c:   0003a52c  vcvt.f64.f32 d3, s6                       
+           0003a530  vsub.f64 d2, d2, d3                   
+           0003a534  vcvt.f32.f64 s0, d2                       
+           0003a538  vstr     s0, [fp, #0x14]              
+           0003a53c  vldr     s4, [pc]                     ; float 5.0
+           0003a540  b        #0x3a548                     ; -> L_3a548
+           0003a544  .word    0x40a00000                   ; literal 1084227584 / 5
+L_3a548:   0003a548  vcvt.f64.f32 d2, s4                       
+           0003a54c  vcvt.f32.f64 s0, d2                       
+           0003a550  vstr     s0, [fp, #0x10]              
+           0003a554  ldr      r0, [fp, #0x190]             
+           0003a558  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: _products)
+           0003a55c  cmp      r0, #0                       
+           0003a560  beq      #0x3a6b0                     ; -> L_3a6b0
+           0003a564  ldr      r0, [fp, #0x190]             
+           0003a568  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: _products)
+           0003a56c  mov      r1, r0                       
+           0003a570  ldr      lr, [r1]                     
+           0003a574  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0003a578  cmp      r0, #0                       
+           0003a57c  ble      #0x3a6b0                     ; -> L_3a6b0
+           0003a580  vldr     s0, [fp, #0x14]              
+           0003a584  vcvt.f64.f32 d5, s0                       
+           0003a588  vldr     s0, [fp, #0x10]              
+           0003a58c  vcvt.f64.f32 d4, s0                       
+           0003a590  vldr     s0, [fp, #0x18]              
+           0003a594  vcvt.f64.f32 d3, s0                       
+           0003a598  vldr     s0, [fp, #0x1c]              
+           0003a59c  vcvt.f64.f32 d2, s0                       
+           0003a5a0  mov      r0, #0                       
+           0003a5a4  str      r0, [fp, #0x9c]              
+           0003a5a8  mov      r0, #0                       
+           0003a5ac  str      r0, [fp, #0xa0]              
+           0003a5b0  mov      r0, #0                       
+           0003a5b4  str      r0, [fp, #0xa4]              
+           0003a5b8  mov      r0, #0                       
+           0003a5bc  str      r0, [fp, #0xa8]              
+           0003a5c0  add      r0, fp, #0x9c                
+           0003a5c4  vcvt.f32.f64 s0, d5                       
+           0003a5c8  vstr     s0, [sp]                     
+           0003a5cc  ldr      r1, [sp]                     
+           0003a5d0  vcvt.f32.f64 s0, d4                       
+           0003a5d4  vstr     s0, [sp]                     
+           0003a5d8  ldr      r2, [sp]                     
+           0003a5dc  vcvt.f32.f64 s0, d3                       
+           0003a5e0  vstr     s0, [sp]                     
+           0003a5e4  ldr      r3, [sp]                     
+           0003a5e8  vcvt.f32.f64 s0, d2                       
+           0003a5ec  vstr     s0, [sp]                     
+           0003a5f0  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0003a5f4  ldr      r0, [fp, #0x9c]              
+           0003a5f8  str      r0, [fp, #0x140]             
+           0003a5fc  ldr      r0, [fp, #0xa0]              
+           0003a600  str      r0, [fp, #0x144]             
+           0003a604  ldr      r0, [fp, #0xa4]              
+           0003a608  str      r0, [fp, #0x148]             
+           0003a60c  ldr      r0, [fp, #0xa8]              
+           0003a610  str      r0, [fp, #0x14c]             
+           0003a614  ldr      ip, [pc]                     
+           0003a618  b        #0x3a620                     ; -> L_3a620
+           0003a61c  .word    0x00f6280c                   ; literal 16132108 / 
+L_3a620:   0003a620  ldr      ip, [pc, ip]                 ; GOT[515] LDSTR 'Purchase Random Product'
+           0003a624  ldr      r0, [fp, #0x140]             
+           0003a628  ldr      r1, [fp, #0x144]             
+           0003a62c  ldr      r2, [fp, #0x148]             
+           0003a630  ldr      r3, [fp, #0x14c]             
+           0003a634  str      ip, [sp]                     
+           0003a638  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0003a63c  cmp      r0, #0                       
+           0003a640  beq      #0x3a6b0                     ; -> L_3a6b0
+           0003a644  ldr      r0, [fp, #0x190]             
+           0003a648  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: _products)
+           0003a64c  mov      r1, r0                       
+           0003a650  ldr      lr, [r1]                     
+           0003a654  ldr      r1, [r0, #0xc]               ; field+0xc 
+           0003a658  mov      r0, #0                       
+           0003a65c  bl       #0xb9e50                     ; CALL UnityEngine.Random::Range
+           0003a660  str      r0, [fp, #0x30]              
+           0003a664  ldr      r0, [fp, #0x190]             
+           0003a668  ldr      r2, [r0, #0x10]              ; field+0x10 (this-class: _products)
+           0003a66c  mov      r0, r2                       
+           0003a670  ldr      r1, [fp, #0x30]              
+           0003a674  ldr      lr, [r2]                     
+           0003a678  bl       #0xbc850                     ; CALL System.Collections.Generic.List`1<StoreKitProduct>::get_Item
+           0003a67c  str      r0, [fp, #0x34]              
+           0003a680  ldr      r0, [pc]                     
+           0003a684  b        #0x3a68c                     ; -> L_3a68c
+           0003a688  .word    0x00f627a4                   ; literal 16132004 / 
+L_3a68c:   0003a68c  ldr      r0, [pc, r0]                 ; GOT[516] LDSTR 'preparing to purchase product: '
+           0003a690  ldr      r1, [fp, #0x34]              
+           0003a694  ldr      r1, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003a698  bl       #0xb9be0                     ; CALL System.String::Concat
+           0003a69c  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+           0003a6a0  ldr      r0, [fp, #0x34]              
+           0003a6a4  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003a6a8  mov      r1, #1                       
+           0003a6ac  bl       #0x373c8                     ; CALL StoreKitBinding::purchaseProduct (direct)
+L_3a6b0:   0003a6b0  vldr     s0, [fp, #0x14]              
+           0003a6b4  vcvt.f64.f32 d5, s0                       
+           0003a6b8  vldr     s0, [fp, #0x10]              
+           0003a6bc  vcvt.f64.f32 d2, s0                       
+           0003a6c0  vldr     s0, [fp, #0x20]              
+           0003a6c4  vcvt.f64.f32 d3, s0                       
+           0003a6c8  vadd.f64 d2, d2, d3                   
+           0003a6cc  vmov.f64 d2, d2                       
+           0003a6d0  vmov.f64 d4, d2                       
+           0003a6d4  vmov.f64 d4, d4                       
+           0003a6d8  vmov.f64 d2, d2                       
+           0003a6dc  vcvt.f32.f64 s0, d2                       
+           0003a6e0  vstr     s0, [fp, #0x10]              
+           0003a6e4  vldr     s0, [fp, #0x18]              
+           0003a6e8  vcvt.f64.f32 d3, s0                       
+           0003a6ec  vldr     s0, [fp, #0x1c]              
+           0003a6f0  vcvt.f64.f32 d2, s0                       
+           0003a6f4  mov      r0, #0                       
+           0003a6f8  str      r0, [fp, #0xac]              
+           0003a6fc  mov      r0, #0                       
+           0003a700  str      r0, [fp, #0xb0]              
+           0003a704  mov      r0, #0                       
+           0003a708  str      r0, [fp, #0xb4]              
+           0003a70c  mov      r0, #0                       
+           0003a710  str      r0, [fp, #0xb8]              
+           0003a714  add      r0, fp, #0xac                
+           0003a718  vcvt.f32.f64 s0, d5                       
+           0003a71c  vstr     s0, [sp]                     
+           0003a720  ldr      r1, [sp]                     
+           0003a724  vcvt.f32.f64 s0, d4                       
+           0003a728  vstr     s0, [sp]                     
+           0003a72c  ldr      r2, [sp]                     
+           0003a730  vcvt.f32.f64 s0, d3                       
+           0003a734  vstr     s0, [sp]                     
+           0003a738  ldr      r3, [sp]                     
+           0003a73c  vcvt.f32.f64 s0, d2                       
+           0003a740  vstr     s0, [sp]                     
+           0003a744  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0003a748  ldr      r0, [fp, #0xac]              
+           0003a74c  str      r0, [fp, #0x150]             
+           0003a750  ldr      r0, [fp, #0xb0]              
+           0003a754  str      r0, [fp, #0x154]             
+           0003a758  ldr      r0, [fp, #0xb4]              
+           0003a75c  str      r0, [fp, #0x158]             
+           0003a760  ldr      r0, [fp, #0xb8]              
+           0003a764  str      r0, [fp, #0x15c]             
+           0003a768  ldr      ip, [pc]                     
+           0003a76c  b        #0x3a774                     ; -> L_3a774
+           0003a770  .word    0x00f626c0                   ; literal 16131776 / 
+L_3a774:   0003a774  ldr      ip, [pc, ip]                 ; GOT[517] LDSTR 'Validate Subscription'
+           0003a778  ldr      r0, [fp, #0x150]             
+           0003a77c  ldr      r1, [fp, #0x154]             
+           0003a780  ldr      r2, [fp, #0x158]             
+           0003a784  ldr      r3, [fp, #0x15c]             
+           0003a788  str      ip, [sp]                     
+           0003a78c  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0003a790  cmp      r0, #0                       
+           0003a794  beq      #0x3a8c4                     ; -> L_3a8c4
+           0003a798  bl       #0xbc830                     ; CALL StoreKitBinding::getAllSavedTransactions
+           0003a79c  str      r0, [fp, #0x38]              
+           0003a7a0  mov      r2, r0                       
+           0003a7a4  add      r0, fp, #0x3c                
+           0003a7a8  mov      r1, r2                       
+           0003a7ac  ldr      lr, [r2]                     
+           0003a7b0  bl       #0xbc860                     ; CALL System.Collections.Generic.List`1<StoreKitTransaction>::GetEnumerator
+           0003a7b4  b        #0x3a810                     ; -> L_3a810
+L_3a7b8:   0003a7b8  ldr      r0, [pc]                     
+           0003a7bc  b        #0x3a7c4                     ; -> L_3a7c4
+           0003a7c0  .word    0x00f62674                   ; literal 16131700 / 
+L_3a7c4:   0003a7c4  ldr      r0, [pc, r0]                 ; GOT[518] VTABLE System.Collections.Generic.List`1/Enumerator<StoreKitTransaction>
+           0003a7c8  ldr      sl, [fp, #0x48]              
+           0003a7cc  mov      r0, sl                       
+           0003a7d0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003a7d4  ldr      r1, [pc]                     
+           0003a7d8  b        #0x3a7e0                     ; -> L_3a7e0
+           0003a7dc  .word    0x00f6263c                   ; literal 16131644 / 
+L_3a7e0:   0003a7e0  ldr      r1, [pc, r1]                 ; GOT[511] LDSTR 'sevenDays'
+           0003a7e4  bl       #0xbae80                     ; CALL System.String::op_Equality
+           0003a7e8  cmp      r0, #0                       
+           0003a7ec  beq      #0x3a810                     ; -> L_3a810
+           0003a7f0  ldr      r0, [sl, #0xc]               ; field+0xc 
+           0003a7f4  ldr      r1, [pc]                     
+           0003a7f8  b        #0x3a800                     ; -> L_3a800
+           0003a7fc  .word    0x00f6263c                   ; literal 16131644 / 
+L_3a800:   0003a800  ldr      r1, [pc, r1]                 ; GOT[519] LDSTR 'YOUR_SECRET_FROM_ITC'
+           0003a804  mov      r2, #1                       
+           0003a808  bl       #0x3748c                     ; CALL StoreKitBinding::validateAutoRenewableReceipt (direct)
+           0003a80c  b        #0x3a830                     ; -> L_3a830
+L_3a810:   0003a810  add      r0, fp, #0x3c                
+           0003a814  ldr      r8, [pc]                     
+           0003a818  b        #0x3a820                     ; -> L_3a820
+           0003a81c  .word    0x00f62618                   ; literal 16131608 / 
+L_3a820:   0003a820  ldr      r8, [pc, r8]                 ; GOT[518] VTABLE System.Collections.Generic.List`1/Enumerator<StoreKitTransaction>
+           0003a824  bl       #0xbc870                     ; CALL System.Collections.Generic.List`1/Enumerator<StoreKitTransaction>::MoveNext
+           0003a828  cmp      r0, #0                       
+           0003a82c  bne      #0x3a7b8                     ; -> L_3a7b8
+L_3a830:   0003a830  bl       #0x3a838                     ; CALL 0x3a838
+           0003a834  b        #0x3a8c4                     ; -> L_3a8c4
+           0003a838  str      lr, [fp, #0xf4]              
+           0003a83c  ldr      r0, [fp, #0x3c]              
+           0003a840  str      r0, [fp, #0x160]             
+           0003a844  ldr      r0, [fp, #0x40]              
+           0003a848  str      r0, [fp, #0x164]             
+           0003a84c  ldr      r0, [fp, #0x44]              
+           0003a850  str      r0, [fp, #0x168]             
+           0003a854  ldr      r0, [fp, #0x48]              
+           0003a858  str      r0, [fp, #0x16c]             
+           0003a85c  ldr      r0, [pc]                     
+           0003a860  b        #0x3a868                     ; -> L_3a868
+           0003a864  .word    0x00f625d0                   ; literal 16131536 / 
+L_3a868:   0003a868  ldr      r0, [pc, r0]                 ; GOT[518] VTABLE System.Collections.Generic.List`1/Enumerator<StoreKitTransaction>
+           0003a86c  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003a870  mov      r1, r0                       
+           0003a874  add      r0, r1, #8                   
+           0003a878  ldr      r2, [fp, #0x160]             
+           0003a87c  str      r2, [r0]                     
+           0003a880  ldr      r2, [fp, #0x164]             
+           0003a884  str      r2, [r0, #4]                 ; field+0x4 
+           0003a888  ldr      r2, [fp, #0x168]             
+           0003a88c  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003a890  ldr      r2, [fp, #0x16c]             
+           0003a894  str      r2, [r0, #0xc]               ; field+0xc 
+           0003a898  mov      r0, r1                       
+           0003a89c  ldr      r1, [r1]                     
+           0003a8a0  ldr      r8, [pc]                     
+           0003a8a4  b        #0x3a8ac                     ; -> L_3a8ac
+           0003a8a8  .word    0x00f61db8                   ; literal 16129464 / 
+L_3a8ac:   0003a8ac  ldr      r8, [pc, r8]                 ; GOT[17] METHODCONST System.IDisposable::Dispose
+           0003a8b0  add      lr, pc, #4                   
+           0003a8b4  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           0003a8b8  andeq    r0, r0, r0                   
+           0003a8bc  ldr      ip, [fp, #0xf4]              
+           0003a8c0  mov      pc, ip                       
+L_3a8c4:   0003a8c4  vldr     s0, [fp, #0x14]              
+           0003a8c8  vcvt.f64.f32 d5, s0                       
+           0003a8cc  vldr     s0, [fp, #0x10]              
+           0003a8d0  vcvt.f64.f32 d2, s0                       
+           0003a8d4  vldr     s0, [fp, #0x20]              
+           0003a8d8  vcvt.f64.f32 d3, s0                       
+           0003a8dc  vadd.f64 d2, d2, d3                   
+           0003a8e0  vmov.f64 d2, d2                       
+           0003a8e4  vmov.f64 d4, d2                       
+           0003a8e8  vmov.f64 d4, d4                       
+           0003a8ec  vmov.f64 d2, d2                       
+           0003a8f0  vcvt.f32.f64 s0, d2                       
+           0003a8f4  vstr     s0, [fp, #0x10]              
+           0003a8f8  vldr     s0, [fp, #0x18]              
+           0003a8fc  vcvt.f64.f32 d3, s0                       
+           0003a900  vldr     s0, [fp, #0x1c]              
+           0003a904  vcvt.f64.f32 d2, s0                       
+           0003a908  mov      r0, #0                       
+           0003a90c  str      r0, [fp, #0xcc]              
+           0003a910  mov      r0, #0                       
+           0003a914  str      r0, [fp, #0xd0]              
+           0003a918  mov      r0, #0                       
+           0003a91c  str      r0, [fp, #0xd4]              
+           0003a920  mov      r0, #0                       
+           0003a924  str      r0, [fp, #0xd8]              
+           0003a928  add      r0, fp, #0xcc                
+           0003a92c  vcvt.f32.f64 s0, d5                       
+           0003a930  vstr     s0, [sp]                     
+           0003a934  ldr      r1, [sp]                     
+           0003a938  vcvt.f32.f64 s0, d4                       
+           0003a93c  vstr     s0, [sp]                     
+           0003a940  ldr      r2, [sp]                     
+           0003a944  vcvt.f32.f64 s0, d3                       
+           0003a948  vstr     s0, [sp]                     
+           0003a94c  ldr      r3, [sp]                     
+           0003a950  vcvt.f32.f64 s0, d2                       
+           0003a954  vstr     s0, [sp]                     
+           0003a958  bl       #0xb9e30                     ; CALL UnityEngine.Rect::.ctor
+           0003a95c  ldr      r0, [fp, #0xcc]              
+           0003a960  str      r0, [fp, #0x170]             
+           0003a964  ldr      r0, [fp, #0xd0]              
+           0003a968  str      r0, [fp, #0x174]             
+           0003a96c  ldr      r0, [fp, #0xd4]              
+           0003a970  str      r0, [fp, #0x178]             
+           0003a974  ldr      r0, [fp, #0xd8]              
+           0003a978  str      r0, [fp, #0x17c]             
+           0003a97c  ldr      ip, [pc]                     
+           0003a980  b        #0x3a988                     ; -> L_3a988
+           0003a984  .word    0x00f624b8                   ; literal 16131256 / 
+L_3a988:   0003a988  ldr      ip, [pc, ip]                 ; GOT[520] LDSTR 'Get Saved Transactions'
+           0003a98c  ldr      r0, [fp, #0x170]             
+           0003a990  ldr      r1, [fp, #0x174]             
+           0003a994  ldr      r2, [fp, #0x178]             
+           0003a998  ldr      r3, [fp, #0x17c]             
+           0003a99c  str      ip, [sp]                     
+           0003a9a0  bl       #0xb9e40                     ; CALL UnityEngine.GUI::Button
+           0003a9a4  cmp      r0, #0                       
+           0003a9a8  beq      #0x3ab08                     ; -> L_3ab08
+           0003a9ac  bl       #0xbc830                     ; CALL StoreKitBinding::getAllSavedTransactions
+           0003a9b0  mov      r6, r0                       
+           0003a9b4  ldr      r0, [pc]                     
+           0003a9b8  b        #0x3a9c0                     ; -> L_3a9c0
+           0003a9bc  .word    0x00f62484                   ; literal 16131204 / 
+L_3a9c0:   0003a9c0  ldr      r0, [pc, r0]                 ; GOT[521] LDSTR '\ntotal transaction received: '
+           0003a9c4  str      r0, [fp, #0x198]             
+           0003a9c8  ldr      lr, [r6]                     
+           0003a9cc  ldr      r0, [r6, #0xc]               ; field+0xc 
+           0003a9d0  str      r0, [fp, #0x19c]             
+           0003a9d4  ldr      r0, [pc]                     
+           0003a9d8  b        #0x3a9e0                     ; -> L_3a9e0
+           0003a9dc  .word    0x00f61cbc                   ; literal 16129212 / 
+L_3a9e0:   0003a9e0  ldr      r0, [pc, r0]                 ; GOT[31] VTABLE System.Int32
+           0003a9e4  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0003a9e8  mov      r1, r0                       
+           0003a9ec  ldr      r0, [fp, #0x198]             
+           0003a9f0  ldr      r2, [fp, #0x19c]             
+           0003a9f4  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003a9f8  bl       #0xb9e60                     ; CALL System.String::Concat
+           0003a9fc  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+           0003aa00  add      r0, fp, #0x4c                
+           0003aa04  mov      r1, r6                       
+           0003aa08  ldr      lr, [r6]                     
+           0003aa0c  bl       #0xbc860                     ; CALL System.Collections.Generic.List`1<StoreKitTransaction>::GetEnumerator
+           0003aa10  b        #0x3aa54                     ; -> L_3aa54
+L_3aa14:   0003aa14  ldr      r0, [pc]                     
+           0003aa18  b        #0x3aa20                     ; -> L_3aa20
+           0003aa1c  .word    0x00f62418                   ; literal 16131096 / 
+L_3aa20:   0003aa20  ldr      r0, [pc, r0]                 ; GOT[518] VTABLE System.Collections.Generic.List`1/Enumerator<StoreKitTransaction>
+           0003aa24  ldr      r5, [fp, #0x58]              
+           0003aa28  mov      r1, r5                       
+           0003aa2c  mov      r0, r1                       
+           0003aa30  ldr      r1, [r1]                     
+           0003aa34  mov      lr, pc                       
+           0003aa38  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           0003aa3c  ldr      r1, [pc]                     
+           0003aa40  b        #0x3aa48                     ; -> L_3aa48
+           0003aa44  .word    0x00f6231c                   ; literal 16130844 / 
+L_3aa48:   0003aa48  ldr      r1, [pc, r1]                 ; GOT[465] LDSTR '\n'
+           0003aa4c  bl       #0xb9be0                     ; CALL System.String::Concat
+           0003aa50  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+L_3aa54:   0003aa54  add      r0, fp, #0x4c                
+           0003aa58  ldr      r8, [pc]                     
+           0003aa5c  b        #0x3aa64                     ; -> L_3aa64
+           0003aa60  .word    0x00f623d4                   ; literal 16131028 / 
+L_3aa64:   0003aa64  ldr      r8, [pc, r8]                 ; GOT[518] VTABLE System.Collections.Generic.List`1/Enumerator<StoreKitTransaction>
+           0003aa68  bl       #0xbc870                     ; CALL System.Collections.Generic.List`1/Enumerator<StoreKitTransaction>::MoveNext
+           0003aa6c  cmp      r0, #0                       
+           0003aa70  bne      #0x3aa14                     ; -> L_3aa14
+           0003aa74  bl       #0x3aa7c                     ; CALL 0x3aa7c
+           0003aa78  b        #0x3ab08                     ; -> L_3ab08
+           0003aa7c  str      lr, [fp, #0xfc]              
+           0003aa80  ldr      r0, [fp, #0x4c]              
+           0003aa84  str      r0, [fp, #0x180]             
+           0003aa88  ldr      r0, [fp, #0x50]              
+           0003aa8c  str      r0, [fp, #0x184]             
+           0003aa90  ldr      r0, [fp, #0x54]              
+           0003aa94  str      r0, [fp, #0x188]             
+           0003aa98  ldr      r0, [fp, #0x58]              
+           0003aa9c  str      r0, [fp, #0x18c]             
+           0003aaa0  ldr      r0, [pc]                     
+           0003aaa4  b        #0x3aaac                     ; -> L_3aaac
+           0003aaa8  .word    0x00f6238c                   ; literal 16130956 / 
+L_3aaac:   0003aaac  ldr      r0, [pc, r0]                 ; GOT[518] VTABLE System.Collections.Generic.List`1/Enumerator<StoreKitTransaction>
+           0003aab0  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003aab4  mov      r1, r0                       
+           0003aab8  add      r0, r1, #8                   
+           0003aabc  ldr      r2, [fp, #0x180]             
+           0003aac0  str      r2, [r0]                     
+           0003aac4  ldr      r2, [fp, #0x184]             
+           0003aac8  str      r2, [r0, #4]                 ; field+0x4 
+           0003aacc  ldr      r2, [fp, #0x188]             
+           0003aad0  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003aad4  ldr      r2, [fp, #0x18c]             
+           0003aad8  str      r2, [r0, #0xc]               ; field+0xc 
+           0003aadc  mov      r0, r1                       
+           0003aae0  ldr      r1, [r1]                     
+           0003aae4  ldr      r8, [pc]                     
+           0003aae8  b        #0x3aaf0                     ; -> L_3aaf0
+           0003aaec  .word    0x00f61b74                   ; literal 16128884 / 
+L_3aaf0:   0003aaf0  ldr      r8, [pc, r8]                 ; GOT[17] METHODCONST System.IDisposable::Dispose
+           0003aaf4  add      lr, pc, #4                   
+           0003aaf8  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           0003aafc  andeq    r0, r0, r0                   
+           0003ab00  ldr      ip, [fp, #0xfc]              
+           0003ab04  mov      pc, ip                       
+L_3ab08:   0003ab08  add      sp, fp, #108, #30            
+           0003ab0c  pop      {r4, r5, r6, r8, sl, fp}     
+           0003ab10  ldr      r7, [sp, #8]                 
+           0003ab14  ldm      sp, {sp, pc}                 
+
+== StoreKitGUIManager::<Start>m__5  token 0x06000389 @0x0003ab18 (132 bytes)
+   args: r0=this, allProducts
+           0003ab18  mov      ip, sp                       
+           0003ab1c  push     {r7, lr}                     
+           0003ab20  mov      r7, sp                       
+           0003ab24  push     {r8, sl, fp, ip, lr}         
+           0003ab28  sub      sp, sp, #0x14                
+           0003ab2c  mov      fp, sp                       
+           0003ab30  str      r0, [fp]                     
+           0003ab34  mov      sl, r1                       
+           0003ab38  ldr      r0, [pc]                     
+           0003ab3c  b        #0x3ab44                     ; -> L_3ab44
+           0003ab40  .word    0x00f62304                   ; literal 16130820 / 
+L_3ab44:   0003ab44  ldr      r0, [pc, r0]                 ; GOT[522] LDSTR 'received total products: '
+           0003ab48  str      r0, [fp, #8]                 
+           0003ab4c  ldr      lr, [sl]                     
+           0003ab50  ldr      r0, [sl, #0xc]               ; field+0xc 
+           0003ab54  str      r0, [fp, #0xc]               
+           0003ab58  ldr      r0, [pc]                     
+           0003ab5c  b        #0x3ab64                     ; -> L_3ab64
+           0003ab60  .word    0x00f61b38                   ; literal 16128824 / 
+L_3ab64:   0003ab64  ldr      r0, [pc, r0]                 ; GOT[31] VTABLE System.Int32
+           0003ab68  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           0003ab6c  mov      r1, r0                       
+           0003ab70  ldr      r0, [fp, #8]                 
+           0003ab74  ldr      r2, [fp, #0xc]               
+           0003ab78  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0003ab7c  bl       #0xb9e60                     ; CALL System.String::Concat
+           0003ab80  bl       #0xb9bd0                     ; CALL UnityEngine.Debug::Log
+           0003ab84  ldr      r0, [fp]                     
+           0003ab88  str      sl, [r0, #0x10]              ; field+0x10 (this-class: _products)
+           0003ab8c  add      sp, fp, #0x14                
+           0003ab90  pop      {r8, sl, fp}                 
+           0003ab94  ldr      r7, [sp, #8]                 
+           0003ab98  ldm      sp, {sp, pc}                 

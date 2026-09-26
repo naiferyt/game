@@ -1,0 +1,73 @@
+####################################################################################################
+# TYPE CarProgress  (instance size 0x24)
+#   +0x08 carName                        string
+#   +0x0c lastProgressTrigger            ProgressTriggerLogic
+#   +0x10 lapCount                       int
+#   +0x14 lastDistance                   float
+#   +0x18 isActive                       bool
+#   +0x1c finalPlace                     int
+#   +0x20 finishTime                     int
+#   vtable slots: 
+####################################################################################################
+== CarProgress::.ctor  token 0x06000516 @0x0010dacc (88 bytes)
+   args: r0=this, name
+           0010dacc  mov      ip, sp                       
+           0010dad0  push     {r7, lr}                     
+           0010dad4  mov      r7, sp                       
+           0010dad8  push     {r6, r8, fp, ip, lr}         
+           0010dadc  sub      sp, sp, #0xc                 
+           0010dae0  mov      fp, sp                       
+           0010dae4  mov      r6, r0                       
+           0010dae8  str      r1, [fp]                     
+           0010daec  ldr      r0, [pc]                     
+           0010daf0  b        #0x10daf8                    ; -> L_10daf8
+           0010daf4  .word    0x00e9750c                   ; literal 15299852 / 
+L_10daf8:  0010daf8  ldr      r0, [pc, r0]                 ; GOT[169] SFLDA System.String::Empty
+           0010dafc  ldr      r0, [r0]                     
+           0010db00  str      r0, [r6, #8]                 ; field+0x8 (this-class: carName)
+           0010db04  mov      r0, #1                       
+           0010db08  strb     r0, [r6, #0x18]              ; field+0x18 (this-class: isActive)
+           0010db0c  ldr      r0, [fp]                     
+           0010db10  str      r0, [r6, #8]                 ; field+0x8 (this-class: carName)
+           0010db14  add      sp, fp, #0xc                 
+           0010db18  pop      {r6, r8, fp}                 
+           0010db1c  ldr      r7, [sp, #8]                 
+           0010db20  ldm      sp, {sp, pc}                 
+
+== CarProgress::GetProgressCopy  token 0x06000517 @0x0010db24 (140 bytes)
+   args: r0=this, 
+           0010db24  mov      ip, sp                       
+           0010db28  push     {r7, lr}                     
+           0010db2c  mov      r7, sp                       
+           0010db30  push     {r8, sl, fp, ip, lr}         
+           0010db34  sub      sp, sp, #0xc                 
+           0010db38  mov      fp, sp                       
+           0010db3c  mov      sl, r0                       
+           0010db40  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: carName)
+           0010db44  str      r0, [fp, #4]                 
+           0010db48  ldr      r0, [pc]                     
+           0010db4c  b        #0x10db54                    ; -> L_10db54
+           0010db50  .word    0x00e97ff0                   ; literal 15302640 / 
+L_10db54:  0010db54  ldr      r0, [pc, r0]                 ; GOT[889] VTABLE CarProgress
+           0010db58  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010db5c  ldr      r1, [fp, #4]                 
+           0010db60  str      r0, [fp]                     
+           0010db64  bl       #0x22dbc0                    ; CALL CarProgress::.ctor
+           0010db68  ldr      r1, [fp]                     
+           0010db6c  mov      r0, r1                       
+           0010db70  ldr      r2, [sl, #0x10]              ; field+0x10 (this-class: lapCount)
+           0010db74  str      r2, [r1, #0x10]              ; field+0x10 (this-class: lapCount)
+           0010db78  vldr     s0, [sl, #0x14]              ; field+0x14 (this-class: lastDistance)
+           0010db7c  vcvt.f64.f32 d2, s0                       
+           0010db80  vcvt.f32.f64 s0, d2                       
+           0010db84  vstr     s0, [r1, #0x14]              ; field+0x14 (this-class: lastDistance)
+           0010db88  ldr      r2, [sl, #0xc]               ; field+0xc (this-class: lastProgressTrigger)
+           0010db8c  str      r2, [r1, #0xc]               ; field+0xc (this-class: lastProgressTrigger)
+           0010db90  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: finalPlace)
+           0010db94  str      r2, [r1, #0x1c]              ; field+0x1c (this-class: finalPlace)
+           0010db98  ldr      r2, [sl, #0x20]              ; field+0x20 (this-class: finishTime)
+           0010db9c  str      r2, [r1, #0x20]              ; field+0x20 (this-class: finishTime)
+           0010dba0  add      sp, fp, #0xc                 
+           0010dba4  pop      {r8, sl, fp}                 
+           0010dba8  ldr      r7, [sp, #8]                 
+           0010dbac  ldm      sp, {sp, pc}                 

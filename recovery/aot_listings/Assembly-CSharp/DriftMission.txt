@@ -1,0 +1,192 @@
+####################################################################################################
+# TYPE DriftMission  (instance size 0x38)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 missionName                    LocalizedString
+#   +0x14 missionInstructions            LocalizedString
+#   +0x18 missionInstructionsWeb         LocalizedString
+#   +0x1c manager                        MissionManager
+#   +0x20 missionCollection              MissionCollection
+#   +0x24 hasArrow                       bool
+#   +0x28 arrowRotation                  float
+#   +0x2c arrowXOffset                   float
+#   +0x30 arrowYOffset                   float
+#   +0x34 isBoost                        bool
+#   +0x35 hasStartedMission              bool
+#   vtable slots: 5:Signal, 6:Shutdown, 7:Update, 8:Init
+####################################################################################################
+== DriftMission::.ctor  token 0x060002b5 @0x000eb07c (52 bytes)
+   args: r0=this, 
+           000eb07c  mov      ip, sp                       
+           000eb080  push     {r7, lr}                     
+           000eb084  mov      r7, sp                       
+           000eb088  push     {r8, fp, ip, lr}             
+           000eb08c  sub      sp, sp, #8                   
+           000eb090  mov      fp, sp                       
+           000eb094  str      r0, [fp]                     
+           000eb098  ldr      r0, [fp]                     
+           000eb09c  bl       #0x22ca40                    ; CALL BaseMission::.ctor
+           000eb0a0  add      sp, fp, #8                   
+           000eb0a4  pop      {r8, fp}                     
+           000eb0a8  ldr      r7, [sp, #8]                 
+           000eb0ac  ldm      sp, {sp, pc}                 
+
+== DriftMission::Init  token 0x060002b6 @0x000eb0b0 (96 bytes)
+   args: r0=this, 
+           000eb0b0  mov      ip, sp                       
+           000eb0b4  push     {r7, lr}                     
+           000eb0b8  mov      r7, sp                       
+           000eb0bc  push     {r8, sl, fp, ip, lr}         
+           000eb0c0  sub      sp, sp, #4                   
+           000eb0c4  mov      fp, sp                       
+           000eb0c8  mov      sl, r0                       
+           000eb0cc  mov      r0, #0                       
+           000eb0d0  strb     r0, [sl, #0x35]              ; field+0x35 (this-class: hasStartedMission)
+           000eb0d4  bl       #0x22c920                    ; CALL UnityEngine.Application::get_platform
+           000eb0d8  cmp      r0, #8                       
+           000eb0dc  beq      #0xeb0f8                     ; -> L_eb0f8
+           000eb0e0  ldrb     r0, [sl, #0x34]              ; field+0x34 (this-class: isBoost)
+           000eb0e4  cmp      r0, #0                       
+           000eb0e8  bne      #0xeb0f8                     ; -> L_eb0f8
+           000eb0ec  mov      r0, #0                       
+           000eb0f0  strb     r0, [sl, #0x24]              ; field+0x24 (this-class: hasArrow)
+           000eb0f4  b        #0xeb100                     ; -> L_eb100
+L_eb0f8:   000eb0f8  mov      r0, #1                       
+           000eb0fc  strb     r0, [sl, #0x24]              ; field+0x24 (this-class: hasArrow)
+L_eb100:   000eb100  add      sp, fp, #4                   
+           000eb104  pop      {r8, sl, fp}                 
+           000eb108  ldr      r7, [sp, #8]                 
+           000eb10c  ldm      sp, {sp, pc}                 
+
+== DriftMission::Update  token 0x060002b7 @0x000eb110 (344 bytes)
+   args: r0=this, 
+           000eb110  mov      ip, sp                       
+           000eb114  push     {r7, lr}                     
+           000eb118  mov      r7, sp                       
+           000eb11c  push     {r5, r8, sl, fp, ip, lr}     
+           000eb120  sub      sp, sp, #0x10                
+           000eb124  mov      fp, sp                       
+           000eb128  mov      sl, r0                       
+           000eb12c  ldrb     r0, [sl, #0x35]              ; field+0x35 (this-class: hasStartedMission)
+           000eb130  cmp      r0, #0                       
+           000eb134  bne      #0xeb184                     ; -> L_eb184
+           000eb138  mov      r0, #1                       
+           000eb13c  strb     r0, [sl, #0x35]              ; field+0x35 (this-class: hasStartedMission)
+           000eb140  ldrb     r0, [sl, #0x34]              ; field+0x34 (this-class: isBoost)
+           000eb144  cmp      r0, #0                       
+           000eb148  bne      #0xeb184                     ; -> L_eb184
+           000eb14c  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000eb150  str      r0, [fp, #8]                 
+           000eb154  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000eb158  ldr      lr, [r0]                     
+           000eb15c  ldr      r0, [pc]                     
+           000eb160  b        #0xeb168                     ; -> L_eb168
+           000eb164  .word    0x00eba4b0                   ; literal 15443120 / 
+L_eb168:   000eb168  ldr      r0, [pc, r0]                 ; GOT[558] VTABLE HUDLogic/<AnimateDriftButtonIn>c__Iterator80
+           000eb16c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000eb170  mov      r1, r0                       
+           000eb174  ldr      r2, [fp, #8]                 
+           000eb178  mov      r0, r2                       
+           000eb17c  ldr      lr, [r2]                     
+           000eb180  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+L_eb184:   000eb184  bl       #0x1129cc                    ; CALL RaceManager::GetPlayerCar (direct)
+           000eb188  str      r0, [fp]                     
+           000eb18c  ldr      r1, [pc]                     
+           000eb190  b        #0xeb198                     ; -> L_eb198
+           000eb194  .word    0x00eb9d6c                   ; literal 15441260 / 
+L_eb198:   000eb198  ldr      r1, [pc, r1]                 ; GOT[105] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarCollider>
+           000eb19c  ldr      lr, [r0]                     
+           000eb1a0  mov      r8, r1                       
+           000eb1a4  bl       #0x22b100                    ; CALL UnityEngine.GameObject::GetComponent<CarCollider>
+           000eb1a8  mov      r5, r0                       
+           000eb1ac  ldrb     r0, [sl, #0x34]              ; field+0x34 (this-class: isBoost)
+           000eb1b0  cmp      r0, #0                       
+           000eb1b4  beq      #0xeb208                     ; -> L_eb208
+           000eb1b8  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000eb1bc  mov      r1, #1                       
+           000eb1c0  strb     r1, [r0, #0xa2]              ; field+0xa2 
+           000eb1c4  ldr      lr, [r5]                     
+           000eb1c8  ldrb     r0, [r5, #0x60]              ; field+0x60 
+           000eb1cc  cmp      r0, #0                       
+           000eb1d0  beq      #0xeb258                     ; -> L_eb258
+           000eb1d4  ldr      lr, [r5]                     
+           000eb1d8  ldrb     r0, [r5, #0x80]              ; field+0x80 
+           000eb1dc  cmp      r0, #0                       
+           000eb1e0  beq      #0xeb258                     ; -> L_eb258
+           000eb1e4  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000eb1e8  mov      r1, #0                       
+           000eb1ec  strb     r1, [r0, #0xa2]              ; field+0xa2 
+           000eb1f0  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: manager)
+           000eb1f4  mov      r0, r2                       
+           000eb1f8  mov      r1, sl                       
+           000eb1fc  ldr      lr, [r2]                     
+           000eb200  bl       #0x22ca50                    ; CALL MissionManager::CompleteMission
+           000eb204  b        #0xeb258                     ; -> L_eb258
+L_eb208:   000eb208  ldr      lr, [r5]                     
+           000eb20c  vldr     s0, [r5, #0x7c]              ; field+0x7c 
+           000eb210  vcvt.f64.f32 d2, s0                       
+           000eb214  vcvt.f32.f64 s0, d2                       
+           000eb218  vstr     s0, [fp, #4]                 
+           000eb21c  vldr     s0, [fp, #4]                 
+           000eb220  vcvt.f64.f32 d3, s0                       
+           000eb224  vldr     s4, [pc]                     ; float 0.5
+           000eb228  b        #0xeb230                     ; -> L_eb230
+           000eb22c  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_eb230:   000eb230  vcvt.f64.f32 d2, s4                       
+           000eb234  vcmp.f64 d2, d3                       
+           000eb238  vmrs     apsr_nzcv, fpscr             
+           000eb23c  bvs      #0xeb258                     ; -> L_eb258
+           000eb240  bge      #0xeb258                     ; -> L_eb258
+           000eb244  ldr      r2, [sl, #0x1c]              ; field+0x1c (this-class: manager)
+           000eb248  mov      r0, r2                       
+           000eb24c  mov      r1, sl                       
+           000eb250  ldr      lr, [r2]                     
+           000eb254  bl       #0x22ca50                    ; CALL MissionManager::CompleteMission
+L_eb258:   000eb258  add      sp, fp, #0x10                
+           000eb25c  pop      {r5, r8, sl, fp}             
+           000eb260  ldr      r7, [sp, #8]                 
+           000eb264  ldm      sp, {sp, pc}                 
+
+== DriftMission::Shutdown  token 0x060002b8 @0x000eb268 (44 bytes)
+   args: r0=this, 
+           000eb268  mov      ip, sp                       
+           000eb26c  push     {r7, lr}                     
+           000eb270  mov      r7, sp                       
+           000eb274  push     {r8, fp, ip, lr}             
+           000eb278  sub      sp, sp, #8                   
+           000eb27c  mov      fp, sp                       
+           000eb280  str      r0, [fp]                     
+           000eb284  add      sp, fp, #8                   
+           000eb288  pop      {r8, fp}                     
+           000eb28c  ldr      r7, [sp, #8]                 
+           000eb290  ldm      sp, {sp, pc}                 
+
+== DriftMission::Signal  token 0x060002b9 @0x000eb294 (48 bytes)
+   args: r0=this, signal
+           000eb294  mov      ip, sp                       
+           000eb298  push     {r7, lr}                     
+           000eb29c  mov      r7, sp                       
+           000eb2a0  push     {r8, fp, ip, lr}             
+           000eb2a4  sub      sp, sp, #8                   
+           000eb2a8  mov      fp, sp                       
+           000eb2ac  str      r0, [fp]                     
+           000eb2b0  str      r1, [fp, #4]                 
+           000eb2b4  add      sp, fp, #8                   
+           000eb2b8  pop      {r8, fp}                     
+           000eb2bc  ldr      r7, [sp, #8]                 
+           000eb2c0  ldm      sp, {sp, pc}                 
+
+== DriftMission::Signal  token 0x060002ba @0x000eb2c4 (52 bytes)
+   args: r0=this, signal, value
+           000eb2c4  mov      ip, sp                       
+           000eb2c8  push     {r7, lr}                     
+           000eb2cc  mov      r7, sp                       
+           000eb2d0  push     {r8, fp, ip, lr}             
+           000eb2d4  sub      sp, sp, #0x10                
+           000eb2d8  mov      fp, sp                       
+           000eb2dc  str      r0, [fp]                     
+           000eb2e0  str      r1, [fp, #4]                 
+           000eb2e4  str      r2, [fp, #8]                 
+           000eb2e8  add      sp, fp, #0x10                
+           000eb2ec  pop      {r8, fp}                     
+           000eb2f0  ldr      r7, [sp, #8]                 
+           000eb2f4  ldm      sp, {sp, pc}                 

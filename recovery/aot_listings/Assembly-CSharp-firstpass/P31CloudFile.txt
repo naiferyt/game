@@ -1,0 +1,506 @@
+####################################################################################################
+# TYPE P31CloudFile  (instance size 0x8)
+#   static P31CloudFile/LocalFileManager _file
+#   vtable slots: 
+####################################################################################################
+== P31CloudFile::.ctor  token 0x0600048a @0x0004cf7c (44 bytes)
+   args: r0=this, 
+           0004cf7c  mov      ip, sp                       
+           0004cf80  push     {r7, lr}                     
+           0004cf84  mov      r7, sp                       
+           0004cf88  push     {r8, fp, ip, lr}             
+           0004cf8c  sub      sp, sp, #8                   
+           0004cf90  mov      fp, sp                       
+           0004cf94  str      r0, [fp]                     
+           0004cf98  add      sp, fp, #8                   
+           0004cf9c  pop      {r8, fp}                     
+           0004cfa0  ldr      r7, [sp, #8]                 
+           0004cfa4  ldm      sp, {sp, pc}                 
+
+== P31CloudFile::.cctor  token 0x0600048b @0x0004cfa8 (176 bytes) static
+   args: 
+           0004cfa8  mov      ip, sp                       
+           0004cfac  push     {r7, lr}                     
+           0004cfb0  mov      r7, sp                       
+           0004cfb4  push     {r8, fp, ip, lr}             
+           0004cfb8  sub      sp, sp, #8                   
+           0004cfbc  mov      fp, sp                       
+           0004cfc0  bl       #0xbd240                     ; CALL P31Prefs::get_iCloudDocumentStoreAvailable
+           0004cfc4  cmp      r0, #0                       
+           0004cfc8  beq      #0x4d00c                     ; -> L_4d00c
+           0004cfcc  bl       #0xbd250                     ; CALL iCloudBinding::documentsDirectory
+           0004cfd0  str      r0, [fp]                     
+           0004cfd4  ldr      r0, [pc]                     
+           0004cfd8  b        #0x4cfe0                     ; -> L_4cfe0
+           0004cfdc  .word    0x00f50014                   ; literal 16056340 / 
+L_4cfe0:   0004cfe0  ldr      r0, [pc, r0]                 ; GOT[629] VTABLE P31CloudFile/CloudFileManager
+           0004cfe4  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0004cfe8  mov      r1, r0                       
+           0004cfec  ldr      r0, [fp]                     
+           0004cff0  str      r0, [r1, #8]                 ; field+0x8 
+           0004cff4  ldr      r0, [pc]                     
+           0004cff8  b        #0x4d000                     ; -> L_4d000
+           0004cffc  .word    0x00f4fff8                   ; literal 16056312 / 
+L_4d000:   0004d000  ldr      r0, [pc, r0]                 ; GOT[630] SFLDA P31CloudFile::_file
+           0004d004  str      r1, [r0]                     
+           0004d008  b        #0x4d048                     ; -> L_4d048
+L_4d00c:   0004d00c  bl       #0xba310                     ; CALL UnityEngine.Application::get_persistentDataPath
+           0004d010  str      r0, [fp]                     
+           0004d014  ldr      r0, [pc]                     
+           0004d018  b        #0x4d020                     ; -> L_4d020
+           0004d01c  .word    0x00f4ffdc                   ; literal 16056284 / 
+L_4d020:   0004d020  ldr      r0, [pc, r0]                 ; GOT[631] VTABLE P31CloudFile/LocalFileManager
+           0004d024  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0004d028  mov      r1, r0                       
+           0004d02c  ldr      r0, [fp]                     
+           0004d030  str      r0, [r1, #8]                 ; field+0x8 
+           0004d034  ldr      r0, [pc]                     
+           0004d038  b        #0x4d040                     ; -> L_4d040
+           0004d03c  .word    0x00f4ffb8                   ; literal 16056248 / 
+L_4d040:   0004d040  ldr      r0, [pc, r0]                 ; GOT[630] SFLDA P31CloudFile::_file
+           0004d044  str      r1, [r0]                     
+L_4d048:   0004d048  add      sp, fp, #8                   
+           0004d04c  pop      {r8, fp}                     
+           0004d050  ldr      r7, [sp, #8]                 
+           0004d054  ldm      sp, {sp, pc}                 
+
+== P31CloudFile::exists  token 0x0600048c @0x0004d058 (84 bytes) static
+   args: file
+           0004d058  mov      ip, sp                       
+           0004d05c  push     {r7, lr}                     
+           0004d060  mov      r7, sp                       
+           0004d064  push     {r8, fp, ip, lr}             
+           0004d068  sub      sp, sp, #8                   
+           0004d06c  mov      fp, sp                       
+           0004d070  str      r0, [fp]                     
+           0004d074  bl       #0xbd260                     ; CALL [CLASS_INIT] P31CloudFile
+           0004d078  ldr      r0, [pc]                     
+           0004d07c  b        #0x4d084                     ; -> L_4d084
+           0004d080  .word    0x00f4ff74                   ; literal 16056180 / 
+L_4d084:   0004d084  ldr      r0, [pc, r0]                 ; GOT[630] SFLDA P31CloudFile::_file
+           0004d088  ldr      r2, [r0]                     
+           0004d08c  mov      r0, r2                       
+           0004d090  ldr      r1, [fp]                     
+           0004d094  ldr      lr, [r2]                     
+           0004d098  bl       #0x4d2ec                     ; CALL P31CloudFile/LocalFileManager::exists (direct)
+           0004d09c  add      sp, fp, #8                   
+           0004d0a0  pop      {r8, fp}                     
+           0004d0a4  ldr      r7, [sp, #8]                 
+           0004d0a8  ldm      sp, {sp, pc}                 
+
+== P31CloudFile::delete  token 0x0600048d @0x0004d0ac (84 bytes) static
+   args: file
+           0004d0ac  mov      ip, sp                       
+           0004d0b0  push     {r7, lr}                     
+           0004d0b4  mov      r7, sp                       
+           0004d0b8  push     {r8, fp, ip, lr}             
+           0004d0bc  sub      sp, sp, #8                   
+           0004d0c0  mov      fp, sp                       
+           0004d0c4  str      r0, [fp]                     
+           0004d0c8  bl       #0xbd260                     ; CALL [CLASS_INIT] P31CloudFile
+           0004d0cc  ldr      r0, [pc]                     
+           0004d0d0  b        #0x4d0d8                     ; -> L_4d0d8
+           0004d0d4  .word    0x00f4ff20                   ; literal 16056096 / 
+L_4d0d8:   0004d0d8  ldr      r0, [pc, r0]                 ; GOT[630] SFLDA P31CloudFile::_file
+           0004d0dc  ldr      r2, [r0]                     
+           0004d0e0  mov      r0, r2                       
+           0004d0e4  ldr      r1, [fp]                     
+           0004d0e8  ldr      lr, [r2]                     
+           0004d0ec  bl       #0x4d330                     ; CALL P31CloudFile/LocalFileManager::delete (direct)
+           0004d0f0  add      sp, fp, #8                   
+           0004d0f4  pop      {r8, fp}                     
+           0004d0f8  ldr      r7, [sp, #8]                 
+           0004d0fc  ldm      sp, {sp, pc}                 
+
+== P31CloudFile::writeAllBytes  token 0x0600048e @0x0004d100 (96 bytes) static
+   args: file, bytes
+           0004d100  mov      ip, sp                       
+           0004d104  push     {r7, lr}                     
+           0004d108  mov      r7, sp                       
+           0004d10c  push     {r8, fp, ip, lr}             
+           0004d110  sub      sp, sp, #8                   
+           0004d114  mov      fp, sp                       
+           0004d118  str      r0, [fp]                     
+           0004d11c  str      r1, [fp, #4]                 
+           0004d120  bl       #0xbd260                     ; CALL [CLASS_INIT] P31CloudFile
+           0004d124  ldr      r0, [pc]                     
+           0004d128  b        #0x4d130                     ; -> L_4d130
+           0004d12c  .word    0x00f4fec8                   ; literal 16056008 / 
+L_4d130:   0004d130  ldr      r0, [pc, r0]                 ; GOT[630] SFLDA P31CloudFile::_file
+           0004d134  ldr      r3, [r0]                     
+           0004d138  mov      r0, r3                       
+           0004d13c  ldr      r1, [fp]                     
+           0004d140  ldr      r2, [fp, #4]                 
+           0004d144  ldr      r3, [r3]                     
+           0004d148  mov      lr, pc                       
+           0004d14c  ldr      pc, [r3, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+           0004d150  add      sp, fp, #8                   
+           0004d154  pop      {r8, fp}                     
+           0004d158  ldr      r7, [sp, #8]                 
+           0004d15c  ldm      sp, {sp, pc}                 
+
+== P31CloudFile::writeAllText  token 0x0600048f @0x0004d160 (96 bytes) static
+   args: file, text
+           0004d160  mov      ip, sp                       
+           0004d164  push     {r7, lr}                     
+           0004d168  mov      r7, sp                       
+           0004d16c  push     {r8, fp, ip, lr}             
+           0004d170  sub      sp, sp, #8                   
+           0004d174  mov      fp, sp                       
+           0004d178  str      r0, [fp]                     
+           0004d17c  str      r1, [fp, #4]                 
+           0004d180  bl       #0xbd260                     ; CALL [CLASS_INIT] P31CloudFile
+           0004d184  ldr      r0, [pc]                     
+           0004d188  b        #0x4d190                     ; -> L_4d190
+           0004d18c  .word    0x00f4fe68                   ; literal 16055912 / 
+L_4d190:   0004d190  ldr      r0, [pc, r0]                 ; GOT[630] SFLDA P31CloudFile::_file
+           0004d194  ldr      r3, [r0]                     
+           0004d198  mov      r0, r3                       
+           0004d19c  ldr      r1, [fp]                     
+           0004d1a0  ldr      r2, [fp, #4]                 
+           0004d1a4  ldr      r3, [r3]                     
+           0004d1a8  mov      lr, pc                       
+           0004d1ac  ldr      pc, [r3, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+           0004d1b0  add      sp, fp, #8                   
+           0004d1b4  pop      {r8, fp}                     
+           0004d1b8  ldr      r7, [sp, #8]                 
+           0004d1bc  ldm      sp, {sp, pc}                 
+
+== P31CloudFile::readAllLines  token 0x06000490 @0x0004d1c0 (84 bytes) static
+   args: file
+           0004d1c0  mov      ip, sp                       
+           0004d1c4  push     {r7, lr}                     
+           0004d1c8  mov      r7, sp                       
+           0004d1cc  push     {r8, fp, ip, lr}             
+           0004d1d0  sub      sp, sp, #8                   
+           0004d1d4  mov      fp, sp                       
+           0004d1d8  str      r0, [fp]                     
+           0004d1dc  bl       #0xbd260                     ; CALL [CLASS_INIT] P31CloudFile
+           0004d1e0  ldr      r0, [pc]                     
+           0004d1e4  b        #0x4d1ec                     ; -> L_4d1ec
+           0004d1e8  .word    0x00f4fe0c                   ; literal 16055820 / 
+L_4d1ec:   0004d1ec  ldr      r0, [pc, r0]                 ; GOT[630] SFLDA P31CloudFile::_file
+           0004d1f0  ldr      r2, [r0]                     
+           0004d1f4  mov      r0, r2                       
+           0004d1f8  ldr      r1, [fp]                     
+           0004d1fc  ldr      lr, [r2]                     
+           0004d200  bl       #0x4d478                     ; CALL P31CloudFile/LocalFileManager::readAllLines (direct)
+           0004d204  add      sp, fp, #8                   
+           0004d208  pop      {r8, fp}                     
+           0004d20c  ldr      r7, [sp, #8]                 
+           0004d210  ldm      sp, {sp, pc}                 
+
+== P31CloudFile::readAllBytes  token 0x06000491 @0x0004d214 (84 bytes) static
+   args: file
+           0004d214  mov      ip, sp                       
+           0004d218  push     {r7, lr}                     
+           0004d21c  mov      r7, sp                       
+           0004d220  push     {r8, fp, ip, lr}             
+           0004d224  sub      sp, sp, #8                   
+           0004d228  mov      fp, sp                       
+           0004d22c  str      r0, [fp]                     
+           0004d230  bl       #0xbd260                     ; CALL [CLASS_INIT] P31CloudFile
+           0004d234  ldr      r0, [pc]                     
+           0004d238  b        #0x4d240                     ; -> L_4d240
+           0004d23c  .word    0x00f4fdb8                   ; literal 16055736 / 
+L_4d240:   0004d240  ldr      r0, [pc, r0]                 ; GOT[630] SFLDA P31CloudFile::_file
+           0004d244  ldr      r2, [r0]                     
+           0004d248  mov      r0, r2                       
+           0004d24c  ldr      r1, [fp]                     
+           0004d250  ldr      lr, [r2]                     
+           0004d254  bl       #0x4d418                     ; CALL P31CloudFile/LocalFileManager::readAllBytes (direct)
+           0004d258  add      sp, fp, #8                   
+           0004d25c  pop      {r8, fp}                     
+           0004d260  ldr      r7, [sp, #8]                 
+           0004d264  ldm      sp, {sp, pc}                 
+
+== P31CloudFile::listAllFiles  token 0x06000492 @0x0004d268 (72 bytes) static
+   args: 
+           0004d268  mov      ip, sp                       
+           0004d26c  push     {r7, lr}                     
+           0004d270  mov      r7, sp                       
+           0004d274  push     {r8, fp, ip, lr}             
+           0004d278  mov      fp, sp                       
+           0004d27c  bl       #0xbd260                     ; CALL [CLASS_INIT] P31CloudFile
+           0004d280  ldr      r0, [pc]                     
+           0004d284  b        #0x4d28c                     ; -> L_4d28c
+           0004d288  .word    0x00f4fd6c                   ; literal 16055660 / 
+L_4d28c:   0004d28c  ldr      r0, [pc, r0]                 ; GOT[630] SFLDA P31CloudFile::_file
+           0004d290  ldr      r1, [r0]                     
+           0004d294  mov      r0, r1                       
+           0004d298  ldr      lr, [r1]                     
+           0004d29c  bl       #0x4d4d8                     ; CALL P31CloudFile/LocalFileManager::listAllFiles (direct)
+           0004d2a0  add      sp, fp, #0                   
+           0004d2a4  pop      {r8, fp}                     
+           0004d2a8  ldr      r7, [sp, #8]                 
+           0004d2ac  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE P31CloudFile/LocalFileManager  (instance size 0xc)
+#   +0x08 basePath                       string
+#   vtable slots: 4:writeAllText, 5:writeAllBytes
+####################################################################################################
+== P31CloudFile/LocalFileManager::.ctor  token 0x06000493 @0x0004d2b0 (60 bytes)
+   args: r0=this, basePath
+           0004d2b0  mov      ip, sp                       
+           0004d2b4  push     {r7, lr}                     
+           0004d2b8  mov      r7, sp                       
+           0004d2bc  push     {r8, fp, ip, lr}             
+           0004d2c0  sub      sp, sp, #8                   
+           0004d2c4  mov      fp, sp                       
+           0004d2c8  str      r0, [fp]                     
+           0004d2cc  str      r1, [fp, #4]                 
+           0004d2d0  ldr      r1, [fp, #4]                 
+           0004d2d4  ldr      r0, [fp]                     
+           0004d2d8  str      r1, [r0, #8]                 ; field+0x8 (this-class: basePath)
+           0004d2dc  add      sp, fp, #8                   
+           0004d2e0  pop      {r8, fp}                     
+           0004d2e4  ldr      r7, [sp, #8]                 
+           0004d2e8  ldm      sp, {sp, pc}                 
+
+== P31CloudFile/LocalFileManager::exists  token 0x06000494 @0x0004d2ec (68 bytes)
+   args: r0=this, file
+           0004d2ec  mov      ip, sp                       
+           0004d2f0  push     {r7, lr}                     
+           0004d2f4  mov      r7, sp                       
+           0004d2f8  push     {r8, fp, ip, lr}             
+           0004d2fc  sub      sp, sp, #8                   
+           0004d300  mov      fp, sp                       
+           0004d304  str      r0, [fp]                     
+           0004d308  str      r1, [fp, #4]                 
+           0004d30c  ldr      r0, [fp]                     
+           0004d310  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: basePath)
+           0004d314  ldr      r1, [fp, #4]                 
+           0004d318  bl       #0xbd270                     ; CALL System.IO.Path::Combine
+           0004d31c  bl       #0xba330                     ; CALL System.IO.File::Exists
+           0004d320  add      sp, fp, #8                   
+           0004d324  pop      {r8, fp}                     
+           0004d328  ldr      r7, [sp, #8]                 
+           0004d32c  ldm      sp, {sp, pc}                 
+
+== P31CloudFile/LocalFileManager::delete  token 0x06000495 @0x0004d330 (72 bytes)
+   args: r0=this, file
+           0004d330  mov      ip, sp                       
+           0004d334  push     {r7, lr}                     
+           0004d338  mov      r7, sp                       
+           0004d33c  push     {r8, fp, ip, lr}             
+           0004d340  sub      sp, sp, #8                   
+           0004d344  mov      fp, sp                       
+           0004d348  str      r0, [fp]                     
+           0004d34c  str      r1, [fp, #4]                 
+           0004d350  ldr      r0, [fp]                     
+           0004d354  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: basePath)
+           0004d358  ldr      r1, [fp, #4]                 
+           0004d35c  bl       #0xbd270                     ; CALL System.IO.Path::Combine
+           0004d360  bl       #0xba340                     ; CALL System.IO.File::Delete
+           0004d364  mov      r0, #1                       
+           0004d368  add      sp, fp, #8                   
+           0004d36c  pop      {r8, fp}                     
+           0004d370  ldr      r7, [sp, #8]                 
+           0004d374  ldm      sp, {sp, pc}                 
+
+== P31CloudFile/LocalFileManager::writeAllBytes  token 0x06000496 @0x0004d378 (80 bytes)
+   args: r0=this, file, bytes
+           0004d378  mov      ip, sp                       
+           0004d37c  push     {r7, lr}                     
+           0004d380  mov      r7, sp                       
+           0004d384  push     {r8, fp, ip, lr}             
+           0004d388  sub      sp, sp, #0x10                
+           0004d38c  mov      fp, sp                       
+           0004d390  str      r0, [fp]                     
+           0004d394  str      r1, [fp, #4]                 
+           0004d398  str      r2, [fp, #8]                 
+           0004d39c  ldr      r0, [fp]                     
+           0004d3a0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: basePath)
+           0004d3a4  ldr      r1, [fp, #4]                 
+           0004d3a8  bl       #0xbd270                     ; CALL System.IO.Path::Combine
+           0004d3ac  ldr      r1, [fp, #8]                 
+           0004d3b0  bl       #0xbbef0                     ; CALL System.IO.File::WriteAllBytes
+           0004d3b4  mov      r0, #1                       
+           0004d3b8  add      sp, fp, #0x10                
+           0004d3bc  pop      {r8, fp}                     
+           0004d3c0  ldr      r7, [sp, #8]                 
+           0004d3c4  ldm      sp, {sp, pc}                 
+
+== P31CloudFile/LocalFileManager::writeAllText  token 0x06000497 @0x0004d3c8 (80 bytes)
+   args: r0=this, file, text
+           0004d3c8  mov      ip, sp                       
+           0004d3cc  push     {r7, lr}                     
+           0004d3d0  mov      r7, sp                       
+           0004d3d4  push     {r8, fp, ip, lr}             
+           0004d3d8  sub      sp, sp, #0x10                
+           0004d3dc  mov      fp, sp                       
+           0004d3e0  str      r0, [fp]                     
+           0004d3e4  str      r1, [fp, #4]                 
+           0004d3e8  str      r2, [fp, #8]                 
+           0004d3ec  ldr      r0, [fp]                     
+           0004d3f0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: basePath)
+           0004d3f4  ldr      r1, [fp, #4]                 
+           0004d3f8  bl       #0xbd270                     ; CALL System.IO.Path::Combine
+           0004d3fc  ldr      r1, [fp, #8]                 
+           0004d400  bl       #0xbd280                     ; CALL System.IO.File::WriteAllText
+           0004d404  mov      r0, #1                       
+           0004d408  add      sp, fp, #0x10                
+           0004d40c  pop      {r8, fp}                     
+           0004d410  ldr      r7, [sp, #8]                 
+           0004d414  ldm      sp, {sp, pc}                 
+
+== P31CloudFile/LocalFileManager::readAllBytes  token 0x06000498 @0x0004d418 (96 bytes)
+   args: r0=this, file
+           0004d418  mov      ip, sp                       
+           0004d41c  push     {r7, lr}                     
+           0004d420  mov      r7, sp                       
+           0004d424  push     {r8, sl, fp, ip, lr}         
+           0004d428  sub      sp, sp, #0xc                 
+           0004d42c  mov      fp, sp                       
+           0004d430  str      r0, [fp]                     
+           0004d434  mov      sl, r1                       
+           0004d438  ldr      r0, [fp]                     
+           0004d43c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: basePath)
+           0004d440  mov      r1, sl                       
+           0004d444  bl       #0xbd270                     ; CALL System.IO.Path::Combine
+           0004d448  mov      sl, r0                       
+           0004d44c  bl       #0xba330                     ; CALL System.IO.File::Exists
+           0004d450  cmp      r0, #0                       
+           0004d454  beq      #0x4d464                     ; -> L_4d464
+           0004d458  mov      r0, sl                       
+           0004d45c  bl       #0xbbf20                     ; CALL System.IO.File::ReadAllBytes
+           0004d460  b        #0x4d468                     ; -> L_4d468
+L_4d464:   0004d464  mov      r0, #0                       
+L_4d468:   0004d468  add      sp, fp, #0xc                 
+           0004d46c  pop      {r8, sl, fp}                 
+           0004d470  ldr      r7, [sp, #8]                 
+           0004d474  ldm      sp, {sp, pc}                 
+
+== P31CloudFile/LocalFileManager::readAllLines  token 0x06000499 @0x0004d478 (96 bytes)
+   args: r0=this, file
+           0004d478  mov      ip, sp                       
+           0004d47c  push     {r7, lr}                     
+           0004d480  mov      r7, sp                       
+           0004d484  push     {r8, sl, fp, ip, lr}         
+           0004d488  sub      sp, sp, #0xc                 
+           0004d48c  mov      fp, sp                       
+           0004d490  str      r0, [fp]                     
+           0004d494  mov      sl, r1                       
+           0004d498  ldr      r0, [fp]                     
+           0004d49c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: basePath)
+           0004d4a0  mov      r1, sl                       
+           0004d4a4  bl       #0xbd270                     ; CALL System.IO.Path::Combine
+           0004d4a8  mov      sl, r0                       
+           0004d4ac  bl       #0xba330                     ; CALL System.IO.File::Exists
+           0004d4b0  cmp      r0, #0                       
+           0004d4b4  beq      #0x4d4c4                     ; -> L_4d4c4
+           0004d4b8  mov      r0, sl                       
+           0004d4bc  bl       #0xbd290                     ; CALL System.IO.File::ReadAllLines
+           0004d4c0  b        #0x4d4c8                     ; -> L_4d4c8
+L_4d4c4:   0004d4c4  mov      r0, #0                       
+L_4d4c8:   0004d4c8  add      sp, fp, #0xc                 
+           0004d4cc  pop      {r8, sl, fp}                 
+           0004d4d0  ldr      r7, [sp, #8]                 
+           0004d4d4  ldm      sp, {sp, pc}                 
+
+== P31CloudFile/LocalFileManager::listAllFiles  token 0x0600049a @0x0004d4d8 (56 bytes)
+   args: r0=this, 
+           0004d4d8  mov      ip, sp                       
+           0004d4dc  push     {r7, lr}                     
+           0004d4e0  mov      r7, sp                       
+           0004d4e4  push     {r8, fp, ip, lr}             
+           0004d4e8  sub      sp, sp, #8                   
+           0004d4ec  mov      fp, sp                       
+           0004d4f0  str      r0, [fp]                     
+           0004d4f4  ldr      r0, [fp]                     
+           0004d4f8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: basePath)
+           0004d4fc  bl       #0xbc010                     ; CALL System.IO.Directory::GetFiles
+           0004d500  add      sp, fp, #8                   
+           0004d504  pop      {r8, fp}                     
+           0004d508  ldr      r7, [sp, #8]                 
+           0004d50c  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE P31CloudFile/CloudFileManager  (instance size 0xc)
+#   +0x08 basePath                       string
+#   vtable slots: 4:writeAllText, 5:writeAllBytes
+####################################################################################################
+== P31CloudFile/CloudFileManager::.ctor  token 0x0600049b @0x0004d510 (60 bytes)
+   args: r0=this, basePath
+           0004d510  mov      ip, sp                       
+           0004d514  push     {r7, lr}                     
+           0004d518  mov      r7, sp                       
+           0004d51c  push     {r8, fp, ip, lr}             
+           0004d520  sub      sp, sp, #8                   
+           0004d524  mov      fp, sp                       
+           0004d528  str      r0, [fp]                     
+           0004d52c  str      r1, [fp, #4]                 
+           0004d530  ldr      r1, [fp, #4]                 
+           0004d534  ldr      r0, [fp]                     
+           0004d538  str      r1, [r0, #8]                 ; field+0x8 (this-class: basePath)
+           0004d53c  add      sp, fp, #8                   
+           0004d540  pop      {r8, fp}                     
+           0004d544  ldr      r7, [sp, #8]                 
+           0004d548  ldm      sp, {sp, pc}                 
+
+== P31CloudFile/CloudFileManager::writeAllBytes  token 0x0600049c @0x0004d54c (120 bytes)
+   args: r0=this, file, bytes
+           0004d54c  mov      ip, sp                       
+           0004d550  push     {r7, lr}                     
+           0004d554  mov      r7, sp                       
+           0004d558  push     {r6, r8, fp, ip, lr}         
+           0004d55c  sub      sp, sp, #0xc                 
+           0004d560  mov      fp, sp                       
+           0004d564  str      r0, [fp]                     
+           0004d568  mov      r6, r1                       
+           0004d56c  str      r2, [fp, #4]                 
+           0004d570  ldr      r0, [fp]                     
+           0004d574  mov      r1, r6                       
+           0004d578  bl       #0x4d2ec                     ; CALL P31CloudFile/LocalFileManager::exists (direct)
+           0004d57c  cmp      r0, #0                       
+           0004d580  bne      #0x4d5a4                     ; -> L_4d5a4
+           0004d584  bl       #0xba310                     ; CALL UnityEngine.Application::get_persistentDataPath
+           0004d588  mov      r1, r6                       
+           0004d58c  bl       #0xbd270                     ; CALL System.IO.Path::Combine
+           0004d590  ldr      r1, [fp, #4]                 
+           0004d594  bl       #0xbbef0                     ; CALL System.IO.File::WriteAllBytes
+           0004d598  mov      r0, r6                       
+           0004d59c  bl       #0x4e350                     ; CALL iCloudBinding::addFile (direct)
+           0004d5a0  b        #0x4d5b4                     ; -> L_4d5b4
+L_4d5a4:   0004d5a4  ldr      r0, [fp]                     
+           0004d5a8  mov      r1, r6                       
+           0004d5ac  ldr      r2, [fp, #4]                 
+           0004d5b0  bl       #0x4d378                     ; CALL P31CloudFile/LocalFileManager::writeAllBytes (direct)
+L_4d5b4:   0004d5b4  add      sp, fp, #0xc                 
+           0004d5b8  pop      {r6, r8, fp}                 
+           0004d5bc  ldr      r7, [sp, #8]                 
+           0004d5c0  ldm      sp, {sp, pc}                 
+
+== P31CloudFile/CloudFileManager::writeAllText  token 0x0600049d @0x0004d5c4 (120 bytes)
+   args: r0=this, file, text
+           0004d5c4  mov      ip, sp                       
+           0004d5c8  push     {r7, lr}                     
+           0004d5cc  mov      r7, sp                       
+           0004d5d0  push     {r6, r8, fp, ip, lr}         
+           0004d5d4  sub      sp, sp, #0xc                 
+           0004d5d8  mov      fp, sp                       
+           0004d5dc  str      r0, [fp]                     
+           0004d5e0  mov      r6, r1                       
+           0004d5e4  str      r2, [fp, #4]                 
+           0004d5e8  ldr      r0, [fp]                     
+           0004d5ec  mov      r1, r6                       
+           0004d5f0  bl       #0x4d2ec                     ; CALL P31CloudFile/LocalFileManager::exists (direct)
+           0004d5f4  cmp      r0, #0                       
+           0004d5f8  bne      #0x4d61c                     ; -> L_4d61c
+           0004d5fc  bl       #0xba310                     ; CALL UnityEngine.Application::get_persistentDataPath
+           0004d600  mov      r1, r6                       
+           0004d604  bl       #0xbd270                     ; CALL System.IO.Path::Combine
+           0004d608  ldr      r1, [fp, #4]                 
+           0004d60c  bl       #0xbd280                     ; CALL System.IO.File::WriteAllText
+           0004d610  mov      r0, r6                       
+           0004d614  bl       #0x4e350                     ; CALL iCloudBinding::addFile (direct)
+           0004d618  b        #0x4d62c                     ; -> L_4d62c
+L_4d61c:   0004d61c  ldr      r0, [fp]                     
+           0004d620  mov      r1, r6                       
+           0004d624  ldr      r2, [fp, #4]                 
+           0004d628  bl       #0x4d3c8                     ; CALL P31CloudFile/LocalFileManager::writeAllText (direct)
+L_4d62c:   0004d62c  add      sp, fp, #0xc                 
+           0004d630  pop      {r6, r8, fp}                 
+           0004d634  ldr      r7, [sp, #8]                 
+           0004d638  ldm      sp, {sp, pc}                 

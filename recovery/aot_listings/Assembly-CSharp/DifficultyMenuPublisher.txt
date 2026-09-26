@@ -1,0 +1,479 @@
+####################################################################################################
+# TYPE DifficultyMenuPublisher  (instance size 0x58)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 transformReferences            UghPublisher/TransformReference[]
+#   +0x14 transformsDictionary           UghPublisher/TransformsDictionary
+#   +0x18 ughTextReferences              UghPublisher/UghTextReference[]
+#   +0x1c ughTextsDictionary             UghPublisher/UghTextsDictionary
+#   +0x20 ledScrollerReferences          UghPublisher/LEDScrollerReference[]
+#   +0x24 ledScrollersDictionary         UghPublisher/LEDScrollersDictionary
+#   +0x28 ughButtonReferences            UghPublisher/UghButtonReference[]
+#   +0x2c ughButtonsDictionary           UghPublisher/UghButtonsDictionary
+#   +0x30 ughSlideToggleReferences       UghPublisher/UghSlideToggleReference[]
+#   +0x34 ughSlideTogglesDictionary      UghPublisher/UghSlideToggleDictionary
+#   +0x38 ughSliderReferences            UghPublisher/UghSliderReference[]
+#   +0x3c ughSlidersDictionary           UghPublisher/UghSliderDictionary
+#   +0x40 ughSprites                     System.Collections.Generic.List`1<UghSprite>
+#   +0x44 easyMetaAchievement            MetaMissionGroupAchievementListener
+#   +0x48 mediumMetaAchievement          MetaMissionGroupAchievementListener
+#   +0x4c disabledButtonSpritePrototype  UghSpritePrototype
+#   +0x50 popoverPrefab                  UnityEngine.GameObject
+#   +0x54 activePopover                  UnityEngine.GameObject
+#   vtable slots: 
+####################################################################################################
+== DifficultyMenuPublisher::.ctor  token 0x06000654 @0x00129444 (52 bytes)
+   args: r0=this, 
+           00129444  mov      ip, sp                       
+           00129448  push     {r7, lr}                     
+           0012944c  mov      r7, sp                       
+           00129450  push     {r8, fp, ip, lr}             
+           00129454  sub      sp, sp, #8                   
+           00129458  mov      fp, sp                       
+           0012945c  str      r0, [fp]                     
+           00129460  ldr      r0, [fp]                     
+           00129464  bl       #0x22e1d0                    ; CALL UghPublisher::.ctor
+           00129468  add      sp, fp, #8                   
+           0012946c  pop      {r8, fp}                     
+           00129470  ldr      r7, [sp, #8]                 
+           00129474  ldm      sp, {sp, pc}                 
+
+== DifficultyMenuPublisher::CalculateCompletion  token 0x06000655 @0x00129478 (252 bytes)
+   args: r0=this, listener
+           00129478  mov      ip, sp                       
+           0012947c  push     {r7, lr}                     
+           00129480  mov      r7, sp                       
+           00129484  push     {r4, r5, r6, r8, fp, ip, lr} 
+           00129488  sub      sp, sp, #0x14                
+           0012948c  mov      fp, sp                       
+           00129490  str      r0, [fp, #4]                 
+           00129494  str      r1, [fp, #8]                 
+           00129498  vldr     s4, [pc]                     ; float 0.0
+           0012949c  b        #0x1294a4                    ; -> L_1294a4
+           001294a0  .word    0x00000000                   ; literal 0 / 0
+L_1294a4:  001294a4  vcvt.f64.f32 d2, s4                       
+           001294a8  vcvt.f32.f64 s0, d2                       
+           001294ac  vstr     s0, [fp]                     
+           001294b0  ldr      r0, [fp, #8]                 
+           001294b4  ldr      r5, [r0, #0x34]              ; field+0x34 (this-class: ughSlideTogglesDictionary)
+           001294b8  mov      r4, #0                       
+           001294bc  b        #0x12951c                    ; -> L_12951c
+L_1294c0:  001294c0  ldr      r0, [r5, #0xc]               ; field+0xc 
+           001294c4  cmp      r0, r4                       
+           001294c8  blls     #0x129564                    ; THROW System.IndexOutOfRangeException (if ls)
+           001294cc  lsl      r0, r4, #2                   
+           001294d0  add      r0, r5, r0                   
+           001294d4  add      r0, r0, #0x10                
+           001294d8  ldr      r6, [r0]                     
+           001294dc  mov      r1, r6                       
+           001294e0  mov      r0, r1                       
+           001294e4  ldr      lr, [r1]                     
+           001294e8  bl       #0xcf9ac                     ; CALL AchievementListener::HasAchieved (direct)
+           001294ec  cmp      r0, #0                       
+           001294f0  beq      #0x129518                    ; -> L_129518
+           001294f4  vldr     s0, [fp]                     
+           001294f8  vcvt.f64.f32 d2, s0                       
+           001294fc  vldr     s6, [pc]                     ; float 1.0
+           00129500  b        #0x129508                    ; -> L_129508
+           00129504  .word    0x3f800000                   ; literal 1065353216 / 1
+L_129508:  00129508  vcvt.f64.f32 d3, s6                       
+           0012950c  vadd.f64 d2, d2, d3                   
+           00129510  vcvt.f32.f64 s0, d2                       
+           00129514  vstr     s0, [fp]                     
+L_129518:  00129518  add      r4, r4, #1                   
+L_12951c:  0012951c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           00129520  cmp      r4, r0                       
+           00129524  blt      #0x1294c0                    ; -> L_1294c0
+           00129528  vldr     s0, [fp]                     
+           0012952c  vcvt.f64.f32 d2, s0                       
+           00129530  ldr      r0, [fp, #8]                 
+           00129534  ldr      r0, [r0, #0x34]              ; field+0x34 (this-class: ughSlideTogglesDictionary)
+           00129538  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0012953c  vmov     s0, r0                       
+           00129540  vcvt.f32.s32 s0, s0                       
+           00129544  vcvt.f64.f32 d3, s0                       
+           00129548  vdiv.f64 d2, d2, d3                   
+           0012954c  vcvt.f32.f64 s0, d2                       
+           00129550  vmov     r0, s0                       
+           00129554  add      sp, fp, #0x14                
+           00129558  pop      {r4, r5, r6, r8, fp}         
+           0012955c  ldr      r7, [sp, #8]                 
+           00129560  ldm      sp, {sp, pc}                 
+           00129564  mov      r1, lr                       
+           00129568  ldr      r0, [pc]                     
+           0012956c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00129570  andeq    r0, r0, #0xf8                
+
+== DifficultyMenuPublisher::ShowPopover  token 0x06000656 @0x00129574 (144 bytes)
+   args: r0=this, text
+           00129574  mov      ip, sp                       
+           00129578  push     {r7, lr}                     
+           0012957c  mov      r7, sp                       
+           00129580  push     {r6, r8, fp, ip, lr}         
+           00129584  sub      sp, sp, #0xc                 
+           00129588  mov      fp, sp                       
+           0012958c  mov      r6, r0                       
+           00129590  str      r1, [fp, #4]                 
+           00129594  ldr      r0, [r6, #0x54]              ; field+0x54 (this-class: activePopover)
+           00129598  mov      r1, #0                       
+           0012959c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           001295a0  cmp      r0, #0                       
+           001295a4  bne      #0x1295f4                    ; -> L_1295f4
+           001295a8  ldr      r0, [r6, #0x50]              ; field+0x50 (this-class: popoverPrefab)
+           001295ac  ldr      r8, [pc]                     
+           001295b0  b        #0x1295b8                    ; -> L_1295b8
+           001295b4  .word    0x00e7c8dc                   ; literal 15190236 / 
+L_1295b8:  001295b8  ldr      r8, [pc, r8]                 ; GOT[1101] METHOD_RGCTX Script::Instantiate<UnityEngine.GameObject>
+           001295bc  bl       #0x22e2b0                    ; CALL Script::Instantiate<UnityEngine.GameObject>
+           001295c0  str      r0, [r6, #0x54]              ; field+0x54 (this-class: activePopover)
+           001295c4  ldr      r1, [pc]                     
+           001295c8  b        #0x1295d0                    ; -> L_1295d0
+           001295cc  .word    0x00e7cbac                   ; literal 15190956 / 
+L_1295d0:  001295d0  ldr      r1, [pc, r1]                 ; GOT[1287] METHOD_RGCTX UnityEngine.GameObject::GetComponent<PopoverPublisher>
+           001295d4  ldr      lr, [r0]                     
+           001295d8  mov      r8, r1                       
+           001295dc  bl       #0x22e8b0                    ; CALL UnityEngine.GameObject::GetComponent<PopoverPublisher>
+           001295e0  str      r0, [fp]                     
+           001295e4  mov      r2, r0                       
+           001295e8  ldr      r1, [fp, #4]                 
+           001295ec  ldr      lr, [r2]                     
+           001295f0  bl       #0x22e8c0                    ; CALL PopoverPublisher::SetText
+L_1295f4:  001295f4  add      sp, fp, #0xc                 
+           001295f8  pop      {r6, r8, fp}                 
+           001295fc  ldr      r7, [sp, #8]                 
+           00129600  ldm      sp, {sp, pc}                 
+
+== DifficultyMenuPublisher::Start  token 0x06000657 @0x00129604 (836 bytes)
+   args: r0=this, 
+           00129604  mov      ip, sp                       
+           00129608  push     {r7, lr}                     
+           0012960c  mov      r7, sp                       
+           00129610  push     {r8, sl, fp, ip, lr}         
+           00129614  sub      sp, sp, #0x6c                
+           00129618  mov      fp, sp                       
+           0012961c  mov      sl, r0                       
+           00129620  mov      r0, #0                       
+           00129624  str      r0, [fp]                     
+           00129628  mov      r0, #0                       
+           0012962c  str      r0, [fp, #4]                 
+           00129630  mov      r0, #0                       
+           00129634  str      r0, [fp, #8]                 
+           00129638  ldr      r2, [sl, #0x40]              ; field+0x40 (this-class: ughSprites)
+           0012963c  mov      r0, r2                       
+           00129640  mov      r1, #0                       
+           00129644  ldr      lr, [r2]                     
+           00129648  bl       #0x22e8d0                    ; CALL System.Collections.Generic.List`1<UghSprite>::get_Item
+           0012964c  mov      r1, r0                       
+           00129650  ldr      lr, [r1]                     
+           00129654  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00129658  mov      r2, r0                       
+           0012965c  mov      r1, r2                       
+           00129660  mov      r0, fp                       
+           00129664  ldr      lr, [r2]                     
+           00129668  bl       #0x22d030                    ; CALL UnityEngine.Transform::get_localScale
+           0012966c  vldr     s0, [fp]                     
+           00129670  vcvt.f64.f32 d2, s0                       
+           00129674  vstr     d2, [fp, #0x60]              
+           00129678  ldr      r1, [sl, #0x44]              ; field+0x44 (this-class: easyMetaAchievement)
+           0012967c  mov      r0, sl                       
+           00129680  bl       #0x129478                    ; CALL DifficultyMenuPublisher::CalculateCompletion (direct)
+           00129684  vmov     s6, r0                       
+           00129688  vcvt.f64.f32 d3, s6                       
+           0012968c  vldr     d2, [fp, #0x60]              
+           00129690  vmul.f64 d2, d2, d3                   
+           00129694  vcvt.f32.f64 s0, d2                       
+           00129698  vstr     s0, [fp]                     
+           0012969c  ldr      r2, [sl, #0x40]              ; field+0x40 (this-class: ughSprites)
+           001296a0  mov      r0, r2                       
+           001296a4  mov      r1, #0                       
+           001296a8  ldr      lr, [r2]                     
+           001296ac  bl       #0x22e8d0                    ; CALL System.Collections.Generic.List`1<UghSprite>::get_Item
+           001296b0  mov      r1, r0                       
+           001296b4  ldr      lr, [r1]                     
+           001296b8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           001296bc  mov      ip, r0                       
+           001296c0  ldr      r0, [fp]                     
+           001296c4  str      r0, [fp, #0x3c]              
+           001296c8  ldr      r0, [fp, #4]                 
+           001296cc  str      r0, [fp, #0x40]              
+           001296d0  ldr      r0, [fp, #8]                 
+           001296d4  str      r0, [fp, #0x44]              
+           001296d8  mov      r0, ip                       
+           001296dc  ldr      r1, [fp, #0x3c]              
+           001296e0  ldr      r2, [fp, #0x40]              
+           001296e4  ldr      r3, [fp, #0x44]              
+           001296e8  ldr      lr, [ip]                     
+           001296ec  bl       #0x22b200                    ; CALL UnityEngine.Transform::set_localScale
+           001296f0  ldr      r2, [sl, #0x40]              ; field+0x40 (this-class: ughSprites)
+           001296f4  mov      r0, r2                       
+           001296f8  mov      r1, #0                       
+           001296fc  ldr      lr, [r2]                     
+           00129700  bl       #0x22e8d0                    ; CALL System.Collections.Generic.List`1<UghSprite>::get_Item
+           00129704  mov      r1, r0                       
+           00129708  ldr      lr, [r1]                     
+           0012970c  bl       #0x22e4f0                    ; CALL UghSprite::UpdateMesh
+           00129710  ldr      r2, [sl, #0x40]              ; field+0x40 (this-class: ughSprites)
+           00129714  mov      r0, r2                       
+           00129718  mov      r1, #1                       
+           0012971c  ldr      lr, [r2]                     
+           00129720  bl       #0x22e8d0                    ; CALL System.Collections.Generic.List`1<UghSprite>::get_Item
+           00129724  mov      r1, r0                       
+           00129728  ldr      lr, [r1]                     
+           0012972c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00129730  mov      r2, r0                       
+           00129734  mov      r1, r2                       
+           00129738  mov      r0, fp                       
+           0012973c  ldr      lr, [r2]                     
+           00129740  bl       #0x22d030                    ; CALL UnityEngine.Transform::get_localScale
+           00129744  vldr     s0, [fp]                     
+           00129748  vcvt.f64.f32 d2, s0                       
+           0012974c  vstr     d2, [fp, #0x58]              
+           00129750  ldr      r1, [sl, #0x48]              ; field+0x48 (this-class: mediumMetaAchievement)
+           00129754  mov      r0, sl                       
+           00129758  bl       #0x129478                    ; CALL DifficultyMenuPublisher::CalculateCompletion (direct)
+           0012975c  vmov     s6, r0                       
+           00129760  vcvt.f64.f32 d3, s6                       
+           00129764  vldr     d2, [fp, #0x58]              
+           00129768  vmul.f64 d2, d2, d3                   
+           0012976c  vcvt.f32.f64 s0, d2                       
+           00129770  vstr     s0, [fp]                     
+           00129774  ldr      r2, [sl, #0x40]              ; field+0x40 (this-class: ughSprites)
+           00129778  mov      r0, r2                       
+           0012977c  mov      r1, #1                       
+           00129780  ldr      lr, [r2]                     
+           00129784  bl       #0x22e8d0                    ; CALL System.Collections.Generic.List`1<UghSprite>::get_Item
+           00129788  mov      r1, r0                       
+           0012978c  ldr      lr, [r1]                     
+           00129790  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00129794  mov      ip, r0                       
+           00129798  ldr      r0, [fp]                     
+           0012979c  str      r0, [fp, #0x48]              
+           001297a0  ldr      r0, [fp, #4]                 
+           001297a4  str      r0, [fp, #0x4c]              
+           001297a8  ldr      r0, [fp, #8]                 
+           001297ac  str      r0, [fp, #0x50]              
+           001297b0  mov      r0, ip                       
+           001297b4  ldr      r1, [fp, #0x48]              
+           001297b8  ldr      r2, [fp, #0x4c]              
+           001297bc  ldr      r3, [fp, #0x50]              
+           001297c0  ldr      lr, [ip]                     
+           001297c4  bl       #0x22b200                    ; CALL UnityEngine.Transform::set_localScale
+           001297c8  ldr      r2, [sl, #0x40]              ; field+0x40 (this-class: ughSprites)
+           001297cc  mov      r0, r2                       
+           001297d0  mov      r1, #1                       
+           001297d4  ldr      lr, [r2]                     
+           001297d8  bl       #0x22e8d0                    ; CALL System.Collections.Generic.List`1<UghSprite>::get_Item
+           001297dc  mov      r1, r0                       
+           001297e0  ldr      lr, [r1]                     
+           001297e4  bl       #0x22e4f0                    ; CALL UghSprite::UpdateMesh
+           001297e8  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           001297ec  mov      r2, r0                       
+           001297f0  ldr      r1, [pc]                     
+           001297f4  b        #0x1297fc                    ; -> L_1297fc
+           001297f8  .word    0x00e7c984                   ; literal 15190404 / 
+L_1297fc:  001297fc  ldr      r1, [pc, r1]                 ; GOT[1288] LDSTR 'Medium Difficulty'
+           00129800  mov      r0, r2                       
+           00129804  ldr      lr, [r2]                     
+           00129808  bl       #0xe6794                     ; CALL DataUtility::IsUnlocked (direct)
+           0012980c  cmp      r0, #0                       
+           00129810  bne      #0x129890                    ; -> L_129890
+           00129814  ldr      r2, [sl, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           00129818  ldr      r1, [pc]                     
+           0012981c  b        #0x129824                    ; -> L_129824
+           00129820  .word    0x00e7c960                   ; literal 15190368 / 
+L_129824:  00129824  ldr      r1, [pc, r1]                 ; GOT[1289] LDSTR 'MediumButton'
+           00129828  mov      r0, r2                       
+           0012982c  ldr      lr, [r2]                     
+           00129830  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           00129834  ldr      r1, [sl, #0x4c]              ; field+0x4c (this-class: disabledButtonSpritePrototype)
+           00129838  str      r1, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           0012983c  ldr      r2, [sl, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           00129840  ldr      r1, [pc]                     
+           00129844  b        #0x12984c                    ; -> L_12984c
+           00129848  .word    0x00e7c938                   ; literal 15190328 / 
+L_12984c:  0012984c  ldr      r1, [pc, r1]                 ; GOT[1289] LDSTR 'MediumButton'
+           00129850  mov      r0, r2                       
+           00129854  ldr      lr, [r2]                     
+           00129858  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           0012985c  mov      r1, #0                       
+           00129860  str      r1, [r0, #0x3c]              ; field+0x3c (this-class: ughSlidersDictionary)
+           00129864  ldr      r2, [sl, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           00129868  ldr      r1, [pc]                     
+           0012986c  b        #0x129874                    ; -> L_129874
+           00129870  .word    0x00e7c910                   ; literal 15190288 / 
+L_129874:  00129874  ldr      r1, [pc, r1]                 ; GOT[1289] LDSTR 'MediumButton'
+           00129878  mov      r0, r2                       
+           0012987c  ldr      lr, [r2]                     
+           00129880  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           00129884  mov      r1, r0                       
+           00129888  ldr      lr, [r1]                     
+           0012988c  bl       #0x22e4f0                    ; CALL UghSprite::UpdateMesh
+L_129890:  00129890  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00129894  mov      r2, r0                       
+           00129898  ldr      r1, [pc]                     
+           0012989c  b        #0x1298a4                    ; -> L_1298a4
+           001298a0  .word    0x00e7c8e4                   ; literal 15190244 / 
+L_1298a4:  001298a4  ldr      r1, [pc, r1]                 ; GOT[1290] LDSTR 'Hard Difficulty'
+           001298a8  mov      r0, r2                       
+           001298ac  ldr      lr, [r2]                     
+           001298b0  bl       #0xe6794                     ; CALL DataUtility::IsUnlocked (direct)
+           001298b4  cmp      r0, #0                       
+           001298b8  bne      #0x129938                    ; -> L_129938
+           001298bc  ldr      r2, [sl, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           001298c0  ldr      r1, [pc]                     
+           001298c4  b        #0x1298cc                    ; -> L_1298cc
+           001298c8  .word    0x00e7c8c0                   ; literal 15190208 / 
+L_1298cc:  001298cc  ldr      r1, [pc, r1]                 ; GOT[1291] LDSTR 'HardButton'
+           001298d0  mov      r0, r2                       
+           001298d4  ldr      lr, [r2]                     
+           001298d8  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           001298dc  ldr      r1, [sl, #0x4c]              ; field+0x4c (this-class: disabledButtonSpritePrototype)
+           001298e0  str      r1, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           001298e4  ldr      r2, [sl, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           001298e8  ldr      r1, [pc]                     
+           001298ec  b        #0x1298f4                    ; -> L_1298f4
+           001298f0  .word    0x00e7c898                   ; literal 15190168 / 
+L_1298f4:  001298f4  ldr      r1, [pc, r1]                 ; GOT[1291] LDSTR 'HardButton'
+           001298f8  mov      r0, r2                       
+           001298fc  ldr      lr, [r2]                     
+           00129900  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           00129904  mov      r1, #0                       
+           00129908  str      r1, [r0, #0x3c]              ; field+0x3c (this-class: ughSlidersDictionary)
+           0012990c  ldr      r2, [sl, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           00129910  ldr      r1, [pc]                     
+           00129914  b        #0x12991c                    ; -> L_12991c
+           00129918  .word    0x00e7c870                   ; literal 15190128 / 
+L_12991c:  0012991c  ldr      r1, [pc, r1]                 ; GOT[1291] LDSTR 'HardButton'
+           00129920  mov      r0, r2                       
+           00129924  ldr      lr, [r2]                     
+           00129928  bl       #0x22cb30                    ; CALL UghPublisher/UghButtonsDictionary::get_Item
+           0012992c  mov      r1, r0                       
+           00129930  ldr      lr, [r1]                     
+           00129934  bl       #0x22e4f0                    ; CALL UghSprite::UpdateMesh
+L_129938:  00129938  add      sp, fp, #0x6c                
+           0012993c  pop      {r8, sl, fp}                 
+           00129940  ldr      r7, [sp, #8]                 
+           00129944  ldm      sp, {sp, pc}                 
+
+== DifficultyMenuPublisher::PushedEasy  token 0x06000658 @0x00129948 (100 bytes)
+   args: r0=this, 
+           00129948  mov      ip, sp                       
+           0012994c  push     {r7, lr}                     
+           00129950  mov      r7, sp                       
+           00129954  push     {r8, fp, ip, lr}             
+           00129958  sub      sp, sp, #8                   
+           0012995c  mov      fp, sp                       
+           00129960  str      r0, [fp]                     
+           00129964  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00129968  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           0012996c  mov      r1, #0                       
+           00129970  str      r1, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           00129974  ldr      r0, [pc]                     
+           00129978  b        #0x129980                    ; -> L_129980
+           0012997c  .word    0x00e7c810                   ; literal 15190032 / 
+L_129980:  00129980  ldr      r0, [pc, r0]                 ; GOT[1292] LDSTR 'Circuit Select'
+           00129984  bl       #0x22e2f0                    ; CALL FrontEndLogic::RequestMenuChange
+           00129988  ldr      r0, [pc]                     
+           0012998c  b        #0x129994                    ; -> L_129994
+           00129990  .word    0x00e7c524                   ; literal 15189284 / 
+L_129994:  00129994  ldr      r0, [pc, r0]                 ; GOT[1110] LDSTR 'menuButton1'
+           00129998  bl       #0x22cca0                    ; CALL SoundLibrary::ButtonClickPlay
+           0012999c  add      sp, fp, #8                   
+           001299a0  pop      {r8, fp}                     
+           001299a4  ldr      r7, [sp, #8]                 
+           001299a8  ldm      sp, {sp, pc}                 
+
+== DifficultyMenuPublisher::PushedMedium  token 0x06000659 @0x001299ac (180 bytes)
+   args: r0=this, 
+           001299ac  mov      ip, sp                       
+           001299b0  push     {r7, lr}                     
+           001299b4  mov      r7, sp                       
+           001299b8  push     {r8, fp, ip, lr}             
+           001299bc  sub      sp, sp, #8                   
+           001299c0  mov      fp, sp                       
+           001299c4  str      r0, [fp]                     
+           001299c8  ldr      r0, [pc]                     
+           001299cc  b        #0x1299d4                    ; -> L_1299d4
+           001299d0  .word    0x00e7c4e4                   ; literal 15189220 / 
+L_1299d4:  001299d4  ldr      r0, [pc, r0]                 ; GOT[1110] LDSTR 'menuButton1'
+           001299d8  bl       #0x22cca0                    ; CALL SoundLibrary::ButtonClickPlay
+           001299dc  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           001299e0  mov      r2, r0                       
+           001299e4  ldr      r1, [pc]                     
+           001299e8  b        #0x1299f0                    ; -> L_1299f0
+           001299ec  .word    0x00e7c790                   ; literal 15189904 / 
+L_1299f0:  001299f0  ldr      r1, [pc, r1]                 ; GOT[1288] LDSTR 'Medium Difficulty'
+           001299f4  mov      r0, r2                       
+           001299f8  ldr      lr, [r2]                     
+           001299fc  bl       #0xe6794                     ; CALL DataUtility::IsUnlocked (direct)
+           00129a00  cmp      r0, #0                       
+           00129a04  bne      #0x129a2c                    ; -> L_129a2c
+           00129a08  ldr      r0, [pc]                     
+           00129a0c  b        #0x129a14                    ; -> L_129a14
+           00129a10  .word    0x00e7c780                   ; literal 15189888 / 
+L_129a14:  00129a14  ldr      r0, [pc, r0]                 ; GOT[1293] LDSTR 'Unlock Medium difficulty by placing 3rd or better on all tracks with Easy difficulty.'
+           00129a18  bl       #0x22e530                    ; CALL Localize::Get
+           00129a1c  mov      r1, r0                       
+           00129a20  ldr      r0, [fp]                     
+           00129a24  bl       #0x22e8e0                    ; CALL DifficultyMenuPublisher::ShowPopover
+           00129a28  b        #0x129a50                    ; -> L_129a50
+L_129a2c:  00129a2c  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00129a30  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           00129a34  mov      r1, #1                       
+           00129a38  str      r1, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           00129a3c  ldr      r0, [pc]                     
+           00129a40  b        #0x129a48                    ; -> L_129a48
+           00129a44  .word    0x00e7c748                   ; literal 15189832 / 
+L_129a48:  00129a48  ldr      r0, [pc, r0]                 ; GOT[1292] LDSTR 'Circuit Select'
+           00129a4c  bl       #0x22e2f0                    ; CALL FrontEndLogic::RequestMenuChange
+L_129a50:  00129a50  add      sp, fp, #8                   
+           00129a54  pop      {r8, fp}                     
+           00129a58  ldr      r7, [sp, #8]                 
+           00129a5c  ldm      sp, {sp, pc}                 
+
+== DifficultyMenuPublisher::PushedHard  token 0x0600065a @0x00129a60 (180 bytes)
+   args: r0=this, 
+           00129a60  mov      ip, sp                       
+           00129a64  push     {r7, lr}                     
+           00129a68  mov      r7, sp                       
+           00129a6c  push     {r8, fp, ip, lr}             
+           00129a70  sub      sp, sp, #8                   
+           00129a74  mov      fp, sp                       
+           00129a78  str      r0, [fp]                     
+           00129a7c  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00129a80  mov      r2, r0                       
+           00129a84  ldr      r1, [pc]                     
+           00129a88  b        #0x129a90                    ; -> L_129a90
+           00129a8c  .word    0x00e7c6f8                   ; literal 15189752 / 
+L_129a90:  00129a90  ldr      r1, [pc, r1]                 ; GOT[1290] LDSTR 'Hard Difficulty'
+           00129a94  mov      r0, r2                       
+           00129a98  ldr      lr, [r2]                     
+           00129a9c  bl       #0xe6794                     ; CALL DataUtility::IsUnlocked (direct)
+           00129aa0  cmp      r0, #0                       
+           00129aa4  bne      #0x129acc                    ; -> L_129acc
+           00129aa8  ldr      r0, [pc]                     
+           00129aac  b        #0x129ab4                    ; -> L_129ab4
+           00129ab0  .word    0x00e7c6e4                   ; literal 15189732 / 
+L_129ab4:  00129ab4  ldr      r0, [pc, r0]                 ; GOT[1294] LDSTR 'Unlock Hard difficulty by placing 3rd or better on all tracks with Medium difficulty.'
+           00129ab8  bl       #0x22e530                    ; CALL Localize::Get
+           00129abc  mov      r1, r0                       
+           00129ac0  ldr      r0, [fp]                     
+           00129ac4  bl       #0x22e8e0                    ; CALL DifficultyMenuPublisher::ShowPopover
+           00129ac8  b        #0x129b04                    ; -> L_129b04
+L_129acc:  00129acc  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00129ad0  ldr      r0, [r0, #0x18]              ; field+0x18 (this-class: ughTextReferences)
+           00129ad4  mov      r1, #2                       
+           00129ad8  str      r1, [r0, #0x1c]              ; field+0x1c (this-class: ughTextsDictionary)
+           00129adc  ldr      r0, [pc]                     
+           00129ae0  b        #0x129ae8                    ; -> L_129ae8
+           00129ae4  .word    0x00e7c6a8                   ; literal 15189672 / 
+L_129ae8:  00129ae8  ldr      r0, [pc, r0]                 ; GOT[1292] LDSTR 'Circuit Select'
+           00129aec  bl       #0x22e2f0                    ; CALL FrontEndLogic::RequestMenuChange
+           00129af0  ldr      r0, [pc]                     
+           00129af4  b        #0x129afc                    ; -> L_129afc
+           00129af8  .word    0x00e7c3bc                   ; literal 15188924 / 
+L_129afc:  00129afc  ldr      r0, [pc, r0]                 ; GOT[1110] LDSTR 'menuButton1'
+           00129b00  bl       #0x22cca0                    ; CALL SoundLibrary::ButtonClickPlay
+L_129b04:  00129b04  add      sp, fp, #8                   
+           00129b08  pop      {r8, fp}                     
+           00129b0c  ldr      r7, [sp, #8]                 
+           00129b10  ldm      sp, {sp, pc}                 

@@ -1,0 +1,60 @@
+####################################################################################################
+# TYPE ShieldPickup  (instance size 0x1c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 pickupPUPEffectPrefab          UnityEngine.GameObject
+#   +0x14 particles                      UnityEngine.ParticleEmitter[]
+#   +0x18 isPaused                       bool
+#   static float shieldDuration  = const 00000041
+#   vtable slots: 4:GetTriggeredEffect
+####################################################################################################
+== ShieldPickup::.ctor  token 0x06000452 @0x00100e28 (52 bytes)
+   args: r0=this, 
+           00100e28  mov      ip, sp                       
+           00100e2c  push     {r7, lr}                     
+           00100e30  mov      r7, sp                       
+           00100e34  push     {r8, fp, ip, lr}             
+           00100e38  sub      sp, sp, #8                   
+           00100e3c  mov      fp, sp                       
+           00100e40  str      r0, [fp]                     
+           00100e44  ldr      r0, [fp]                     
+           00100e48  bl       #0x100088                    ; CALL BasePickup::.ctor (direct)
+           00100e4c  add      sp, fp, #8                   
+           00100e50  pop      {r8, fp}                     
+           00100e54  ldr      r7, [sp, #8]                 
+           00100e58  ldm      sp, {sp, pc}                 
+
+== ShieldPickup::GetTriggeredEffect  token 0x06000453 @0x00100e5c (132 bytes)
+   args: r0=this, obj
+           00100e5c  mov      ip, sp                       
+           00100e60  push     {r7, lr}                     
+           00100e64  mov      r7, sp                       
+           00100e68  push     {r8, fp, ip, lr}             
+           00100e6c  sub      sp, sp, #0x10                
+           00100e70  mov      fp, sp                       
+           00100e74  str      r0, [fp]                     
+           00100e78  str      r1, [fp, #4]                 
+           00100e7c  ldr      r0, [pc]                     
+           00100e80  b        #0x100e88                    ; -> L_100e88
+           00100e84  .word    0x00ea4890                   ; literal 15354000 / 
+L_100e88:  00100e88  ldr      r0, [pc, r0]                 ; GOT[622] VTABLE ShieldEffect
+           00100e8c  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00100e90  str      r0, [fp, #8]                 
+           00100e94  ldr      r1, [fp, #4]                 
+           00100e98  bl       #0xf7908                     ; CALL ShieldEffect::.ctor (direct)
+           00100e9c  ldr      r1, [fp, #8]                 
+           00100ea0  mov      r0, r1                       
+           00100ea4  mov      r2, #3                       
+           00100ea8  str      r2, [r1, #0xc]               ; field+0xc 
+           00100eac  vldr     s4, [pc]                     ; float 8.0
+           00100eb0  b        #0x100eb8                    ; -> L_100eb8
+           00100eb4  .word    0x41000000                   ; literal 1090519040 / 8
+L_100eb8:  00100eb8  vcvt.f64.f32 d2, s4                       
+           00100ebc  vcvt.f32.f64 s0, d2                       
+           00100ec0  vstr     s0, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00100ec4  ldr      lr, [r0]                     
+           00100ec8  mov      r2, #1                       
+           00100ecc  strb     r2, [r1, #0x14]              ; field+0x14 (this-class: particles)
+           00100ed0  add      sp, fp, #0x10                
+           00100ed4  pop      {r8, fp}                     
+           00100ed8  ldr      r7, [sp, #8]                 
+           00100edc  ldm      sp, {sp, pc}                 

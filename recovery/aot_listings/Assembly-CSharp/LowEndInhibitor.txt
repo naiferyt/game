@@ -1,0 +1,103 @@
+####################################################################################################
+# TYPE LowEndInhibitor  (instance size 0x18)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 inhibitPlatforms               UnityEngine.iPhoneGeneration[]
+#   +0x14 destroyList                    UnityEngine.GameObject[]
+#   vtable slots: 
+####################################################################################################
+== LowEndInhibitor::.ctor  token 0x0600043c @0x000ffc80 (160 bytes)
+   args: r0=this, 
+           000ffc80  mov      ip, sp                       
+           000ffc84  push     {r7, lr}                     
+           000ffc88  mov      r7, sp                       
+           000ffc8c  push     {r8, fp, ip, lr}             
+           000ffc90  sub      sp, sp, #8                   
+           000ffc94  mov      fp, sp                       
+           000ffc98  str      r0, [fp]                     
+           000ffc9c  ldr      r0, [pc]                     
+           000ffca0  b        #0xffca8                     ; -> L_ffca8
+           000ffca4  .word    0x00ea5c68                   ; literal 15359080 / 
+L_ffca8:   000ffca8  ldr      r0, [pc, r0]                 ; GOT[748] VTABLE UnityEngine.iPhoneGeneration[]
+           000ffcac  mov      r1, #3                       
+           000ffcb0  bl       #0x22a7c0                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           000ffcb4  mov      r1, r0                       
+           000ffcb8  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000ffcbc  cmp      r2, #0                       
+           000ffcc0  blls     #0xffd10                     ; THROW System.IndexOutOfRangeException (if ls)
+           000ffcc4  mov      r2, #7                       
+           000ffcc8  str      r2, [r0, #0x10]              ; field+0x10 (this-class: inhibitPlatforms)
+           000ffccc  ldr      r2, [r1, #0xc]               ; field+0xc 
+           000ffcd0  cmp      r2, #1                       
+           000ffcd4  blls     #0xffd10                     ; THROW System.IndexOutOfRangeException (if ls)
+           000ffcd8  mov      r2, #3                       
+           000ffcdc  str      r2, [r0, #0x14]              ; field+0x14 (this-class: destroyList)
+           000ffce0  ldr      r2, [r1, #0xc]               ; field+0xc 
+           000ffce4  cmp      r2, #2                       
+           000ffce8  blls     #0xffd10                     ; THROW System.IndexOutOfRangeException (if ls)
+           000ffcec  mov      r2, #6                       
+           000ffcf0  str      r2, [r0, #0x18]              ; field+0x18 
+           000ffcf4  ldr      r0, [fp]                     
+           000ffcf8  str      r1, [r0, #0x10]              ; field+0x10 (this-class: inhibitPlatforms)
+           000ffcfc  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000ffd00  add      sp, fp, #8                   
+           000ffd04  pop      {r8, fp}                     
+           000ffd08  ldr      r7, [sp, #8]                 
+           000ffd0c  ldm      sp, {sp, pc}                 
+           000ffd10  mov      r1, lr                       
+           000ffd14  ldr      r0, [pc]                     
+           000ffd18  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ffd1c  andeq    r0, r0, #0xf8                
+
+== LowEndInhibitor::Start  token 0x0600043d @0x000ffd20 (204 bytes)
+   args: r0=this, 
+           000ffd20  mov      ip, sp                       
+           000ffd24  push     {r7, lr}                     
+           000ffd28  mov      r7, sp                       
+           000ffd2c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000ffd30  sub      sp, sp, #0x10                
+           000ffd34  mov      fp, sp                       
+           000ffd38  mov      sl, r0                       
+           000ffd3c  bl       #0x22c920                    ; CALL UnityEngine.Application::get_platform
+           000ffd40  cmp      r0, #8                       
+           000ffd44  bne      #0xffdc0                     ; -> L_ffdc0
+           000ffd48  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: inhibitPlatforms)
+           000ffd4c  str      r0, [fp, #8]                 
+           000ffd50  bl       #0x22d280                    ; CALL UnityEngine.iPhone::get_generation
+           000ffd54  mov      r1, r0                       
+           000ffd58  ldr      r0, [fp, #8]                 
+           000ffd5c  bl       #0x22d590                    ; CALL System.Array::IndexOf<UnityEngine.iPhoneGeneration>
+           000ffd60  mvn      r1, #0                       
+           000ffd64  cmp      r0, r1                       
+           000ffd68  beq      #0xffdc0                     ; -> L_ffdc0
+           000ffd6c  ldr      r0, [pc]                     
+           000ffd70  b        #0xffd78                     ; -> L_ffd78
+           000ffd74  .word    0x00ea5b9c                   ; literal 15358876 / 
+L_ffd78:   000ffd78  ldr      r0, [pc, r0]                 ; GOT[749] LDSTR 'Inhibiting objects based on platform'
+           000ffd7c  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           000ffd80  ldr      r5, [sl, #0x14]              ; field+0x14 (this-class: destroyList)
+           000ffd84  mov      r4, #0                       
+           000ffd88  b        #0xffdb4                     ; -> L_ffdb4
+L_ffd8c:   000ffd8c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000ffd90  cmp      r0, r4                       
+           000ffd94  blls     #0xffddc                     ; THROW System.IndexOutOfRangeException (if ls)
+           000ffd98  lsl      r0, r4, #2                   
+           000ffd9c  add      r0, r5, r0                   
+           000ffda0  add      r0, r0, #0x10                
+           000ffda4  ldr      r6, [r0]                     
+           000ffda8  mov      r0, r6                       
+           000ffdac  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+           000ffdb0  add      r4, r4, #1                   
+L_ffdb4:   000ffdb4  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000ffdb8  cmp      r4, r0                       
+           000ffdbc  blt      #0xffd8c                     ; -> L_ffd8c
+L_ffdc0:   000ffdc0  mov      r0, sl                       
+           000ffdc4  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000ffdc8  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+           000ffdcc  add      sp, fp, #0x10                
+           000ffdd0  pop      {r4, r5, r6, r8, sl, fp}     
+           000ffdd4  ldr      r7, [sp, #8]                 
+           000ffdd8  ldm      sp, {sp, pc}                 
+           000ffddc  mov      r1, lr                       
+           000ffde0  ldr      r0, [pc]                     
+           000ffde4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ffde8  andeq    r0, r0, #0xf8                

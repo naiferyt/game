@@ -1,0 +1,350 @@
+####################################################################################################
+# TYPE SmoothRandom  (instance size 0x8)
+#   static FractalNoise s_Noise
+#   vtable slots: 
+####################################################################################################
+== SmoothRandom::.ctor  token 0x06000173 @0x0001e09c (44 bytes)
+   args: r0=this, 
+           0001e09c  mov      ip, sp                       
+           0001e0a0  push     {r7, lr}                     
+           0001e0a4  mov      r7, sp                       
+           0001e0a8  push     {r8, fp, ip, lr}             
+           0001e0ac  sub      sp, sp, #8                   
+           0001e0b0  mov      fp, sp                       
+           0001e0b4  str      r0, [fp]                     
+           0001e0b8  add      sp, fp, #8                   
+           0001e0bc  pop      {r8, fp}                     
+           0001e0c0  ldr      r7, [sp, #8]                 
+           0001e0c4  ldm      sp, {sp, pc}                 
+
+== SmoothRandom::GetVector3  token 0x06000174 @0x0001e0c8 (744 bytes) static
+   args: speed
+           0001e0c8  mov      ip, sp                       
+           0001e0cc  push     {r7, lr}                     
+           0001e0d0  mov      r7, sp                       
+           0001e0d4  push     {r8, fp, ip, lr}             
+           0001e0d8  sub      sp, sp, #0x58                
+           0001e0dc  mov      fp, sp                       
+           0001e0e0  str      r0, [fp, #0x10]              
+           0001e0e4  str      r1, [fp, #0x3c]              
+           0001e0e8  mov      r0, #0                       
+           0001e0ec  str      r0, [fp, #0x18]              
+           0001e0f0  mov      r0, #0                       
+           0001e0f4  str      r0, [fp, #0x1c]              
+           0001e0f8  mov      r0, #0                       
+           0001e0fc  str      r0, [fp, #0x20]              
+           0001e100  bl       #0xbad80                     ; CALL UnityEngine.Time::get_time
+           0001e104  vmov     s4, r0                       
+           0001e108  vcvt.f64.f32 d2, s4                       
+           0001e10c  vldr     s6, [pc]                     ; float 0.009999999776482582
+           0001e110  b        #0x1e118                     ; -> L_1e118
+           0001e114  .word    0x3c23d70a                   ; literal 1008981770 / 0.01
+L_1e118:   0001e118  vcvt.f64.f32 d3, s6                       
+           0001e11c  vmul.f64 d2, d2, d3                   
+           0001e120  vldr     s0, [fp, #0x3c]              
+           0001e124  vcvt.f64.f32 d3, s0                       
+           0001e128  vmul.f64 d2, d2, d3                   
+           0001e12c  vcvt.f32.f64 s0, d2                       
+           0001e130  vstr     s0, [fp, #0x14]              
+           0001e134  bl       #0xbad90                     ; CALL SmoothRandom::Get
+           0001e138  mov      ip, r0                       
+           0001e13c  vldr     s0, [fp, #0x14]              
+           0001e140  vcvt.f64.f32 d4, s0                       
+           0001e144  vldr     s6, [pc]                     ; float 15.729999542236328
+           0001e148  b        #0x1e150                     ; -> L_1e150
+           0001e14c  .word    0x417bae14                   ; literal 1098624532 / 15.73
+L_1e150:   0001e150  vcvt.f64.f32 d3, s6                       
+           0001e154  vldr     s4, [pc]                     ; float 0.5799999833106995
+           0001e158  b        #0x1e160                     ; -> L_1e160
+           0001e15c  .word    0x3f147ae1                   ; literal 1058306785 / 0.58
+L_1e160:   0001e160  vcvt.f64.f32 d2, s4                       
+           0001e164  mov      r0, ip                       
+           0001e168  vcvt.f32.f64 s0, d4                       
+           0001e16c  vstr     s0, [sp, #-8]                
+           0001e170  ldr      r1, [sp, #-8]                
+           0001e174  vcvt.f32.f64 s0, d3                       
+           0001e178  vstr     s0, [sp, #-8]                
+           0001e17c  ldr      r2, [sp, #-8]                
+           0001e180  vcvt.f32.f64 s0, d2                       
+           0001e184  vstr     s0, [sp, #-8]                
+           0001e188  ldr      r3, [sp, #-8]                
+           0001e18c  ldr      lr, [ip]                     
+           0001e190  bl       #0x20040                     ; CALL FractalNoise::HybridMultifractal (direct)
+           0001e194  vmov     s4, r0                       
+           0001e198  vcvt.f64.f32 d2, s4                       
+           0001e19c  vcvt.f32.f64 s0, d2                       
+           0001e1a0  vstr     s0, [fp, #0x18]              
+           0001e1a4  bl       #0xbad90                     ; CALL SmoothRandom::Get
+           0001e1a8  mov      ip, r0                       
+           0001e1ac  vldr     s0, [fp, #0x14]              
+           0001e1b0  vcvt.f64.f32 d4, s0                       
+           0001e1b4  vldr     s6, [pc]                     ; float 63.939998626708984
+           0001e1b8  b        #0x1e1c0                     ; -> L_1e1c0
+           0001e1bc  .word    0x427fc28f                   ; literal 1115669135 / 63.94
+L_1e1c0:   0001e1c0  vcvt.f64.f32 d3, s6                       
+           0001e1c4  vldr     s4, [pc]                     ; float 0.5799999833106995
+           0001e1c8  b        #0x1e1d0                     ; -> L_1e1d0
+           0001e1cc  .word    0x3f147ae1                   ; literal 1058306785 / 0.58
+L_1e1d0:   0001e1d0  vcvt.f64.f32 d2, s4                       
+           0001e1d4  mov      r0, ip                       
+           0001e1d8  vcvt.f32.f64 s0, d4                       
+           0001e1dc  vstr     s0, [sp, #-8]                
+           0001e1e0  ldr      r1, [sp, #-8]                
+           0001e1e4  vcvt.f32.f64 s0, d3                       
+           0001e1e8  vstr     s0, [sp, #-8]                
+           0001e1ec  ldr      r2, [sp, #-8]                
+           0001e1f0  vcvt.f32.f64 s0, d2                       
+           0001e1f4  vstr     s0, [sp, #-8]                
+           0001e1f8  ldr      r3, [sp, #-8]                
+           0001e1fc  ldr      lr, [ip]                     
+           0001e200  bl       #0x20040                     ; CALL FractalNoise::HybridMultifractal (direct)
+           0001e204  vmov     s4, r0                       
+           0001e208  vcvt.f64.f32 d2, s4                       
+           0001e20c  vcvt.f32.f64 s0, d2                       
+           0001e210  vstr     s0, [fp, #0x1c]              
+           0001e214  bl       #0xbad90                     ; CALL SmoothRandom::Get
+           0001e218  mov      ip, r0                       
+           0001e21c  vldr     s0, [fp, #0x14]              
+           0001e220  vcvt.f64.f32 d4, s0                       
+           0001e224  vldr     s6, [pc]                     ; float 0.20000000298023224
+           0001e228  b        #0x1e230                     ; -> L_1e230
+           0001e22c  .word    0x3e4ccccd                   ; literal 1045220557 / 0.2
+L_1e230:   0001e230  vcvt.f64.f32 d3, s6                       
+           0001e234  vldr     s4, [pc]                     ; float 0.5799999833106995
+           0001e238  b        #0x1e240                     ; -> L_1e240
+           0001e23c  .word    0x3f147ae1                   ; literal 1058306785 / 0.58
+L_1e240:   0001e240  vcvt.f64.f32 d2, s4                       
+           0001e244  mov      r0, ip                       
+           0001e248  vcvt.f32.f64 s0, d4                       
+           0001e24c  vstr     s0, [sp, #-8]                
+           0001e250  ldr      r1, [sp, #-8]                
+           0001e254  vcvt.f32.f64 s0, d3                       
+           0001e258  vstr     s0, [sp, #-8]                
+           0001e25c  ldr      r2, [sp, #-8]                
+           0001e260  vcvt.f32.f64 s0, d2                       
+           0001e264  vstr     s0, [sp, #-8]                
+           0001e268  ldr      r3, [sp, #-8]                
+           0001e26c  ldr      lr, [ip]                     
+           0001e270  bl       #0x20040                     ; CALL FractalNoise::HybridMultifractal (direct)
+           0001e274  vmov     s4, r0                       
+           0001e278  vcvt.f64.f32 d2, s4                       
+           0001e27c  vcvt.f32.f64 s0, d2                       
+           0001e280  vstr     s0, [fp, #0x20]              
+           0001e284  ldr      r0, [fp, #0x18]              
+           0001e288  str      r0, [fp, #0x24]              
+           0001e28c  ldr      r0, [fp, #0x1c]              
+           0001e290  str      r0, [fp, #0x28]              
+           0001e294  ldr      r0, [fp, #0x20]              
+           0001e298  str      r0, [fp, #0x2c]              
+           0001e29c  vldr     s4, [pc]                     ; float 0.6000000238418579
+           0001e2a0  b        #0x1e2a8                     ; -> L_1e2a8
+           0001e2a4  .word    0x3f19999a                   ; literal 1058642330 / 0.6
+L_1e2a8:   0001e2a8  vcvt.f64.f32 d2, s4                       
+           0001e2ac  add      r0, fp, #0x18                
+           0001e2b0  ldr      r1, [fp, #0x24]              
+           0001e2b4  ldr      r2, [fp, #0x28]              
+           0001e2b8  ldr      r3, [fp, #0x2c]              
+           0001e2bc  vcvt.f32.f64 s0, d2                       
+           0001e2c0  vstr     s0, [sp]                     
+           0001e2c4  bl       #0xbada0                     ; CALL UnityEngine.Vector3::op_Division
+           0001e2c8  add      r0, fp, #0x18                
+           0001e2cc  str      r0, [fp, #0x40]              
+           0001e2d0  vldr     s0, [fp, #0x18]              
+           0001e2d4  vcvt.f64.f32 d2, s0                       
+           0001e2d8  vcvt.f32.f64 s0, d2                       
+           0001e2dc  vstr     s0, [sp]                     
+           0001e2e0  ldr      r0, [sp]                     
+           0001e2e4  bl       #0xba9d0                     ; CALL UnityEngine.Mathf::Clamp01
+           0001e2e8  vmov     s4, r0                       
+           0001e2ec  vcvt.f64.f32 d2, s4                       
+           0001e2f0  vstr     d2, [fp, #0x50]              
+           0001e2f4  vldr     s0, [fp, #0x1c]              
+           0001e2f8  vcvt.f64.f32 d2, s0                       
+           0001e2fc  vcvt.f32.f64 s0, d2                       
+           0001e300  vstr     s0, [sp]                     
+           0001e304  ldr      r0, [sp]                     
+           0001e308  bl       #0xba9d0                     ; CALL UnityEngine.Mathf::Clamp01
+           0001e30c  vmov     s4, r0                       
+           0001e310  vcvt.f64.f32 d2, s4                       
+           0001e314  vstr     d2, [fp, #0x48]              
+           0001e318  vldr     s0, [fp, #0x20]              
+           0001e31c  vcvt.f64.f32 d2, s0                       
+           0001e320  vcvt.f32.f64 s0, d2                       
+           0001e324  vstr     s0, [sp]                     
+           0001e328  ldr      r0, [sp]                     
+           0001e32c  bl       #0xba9d0                     ; CALL UnityEngine.Mathf::Clamp01
+           0001e330  vmov     s4, r0                       
+           0001e334  vcvt.f64.f32 d2, s4                       
+           0001e338  ldr      r0, [fp, #0x40]              
+           0001e33c  vldr     d3, [fp, #0x48]              
+           0001e340  vldr     d4, [fp, #0x50]              
+           0001e344  vcvt.f32.f64 s0, d4                       
+           0001e348  vstr     s0, [sp]                     
+           0001e34c  ldr      r1, [sp]                     
+           0001e350  vcvt.f32.f64 s0, d3                       
+           0001e354  vstr     s0, [sp]                     
+           0001e358  ldr      r2, [sp]                     
+           0001e35c  vcvt.f32.f64 s0, d2                       
+           0001e360  vstr     s0, [sp]                     
+           0001e364  ldr      r3, [sp]                     
+           0001e368  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           0001e36c  ldr      r0, [fp, #0x18]              
+           0001e370  str      r0, [fp, #0x30]              
+           0001e374  ldr      r0, [fp, #0x1c]              
+           0001e378  str      r0, [fp, #0x34]              
+           0001e37c  ldr      r0, [fp, #0x20]              
+           0001e380  str      r0, [fp, #0x38]              
+           0001e384  ldr      r0, [fp, #0x10]              
+           0001e388  ldr      r1, [fp, #0x30]              
+           0001e38c  str      r1, [r0]                     
+           0001e390  ldr      r1, [fp, #0x34]              
+           0001e394  str      r1, [r0, #4]                 ; field+0x4 
+           0001e398  ldr      r1, [fp, #0x38]              
+           0001e39c  str      r1, [r0, #8]                 ; field+0x8 
+           0001e3a0  add      sp, fp, #0x58                
+           0001e3a4  pop      {r8, fp}                     
+           0001e3a8  ldr      r7, [sp, #8]                 
+           0001e3ac  ldm      sp, {sp, pc}                 
+
+== SmoothRandom::Get  token 0x06000175 @0x0001e3b0 (300 bytes) static
+   args: speed
+           0001e3b0  mov      ip, sp                       
+           0001e3b4  push     {r7, lr}                     
+           0001e3b8  mov      r7, sp                       
+           0001e3bc  push     {r8, fp, ip, lr}             
+           0001e3c0  sub      sp, sp, #0x18                
+           0001e3c4  mov      fp, sp                       
+           0001e3c8  str      r0, [fp, #0x10]              
+           0001e3cc  bl       #0xbad80                     ; CALL UnityEngine.Time::get_time
+           0001e3d0  vmov     s4, r0                       
+           0001e3d4  vcvt.f64.f32 d2, s4                       
+           0001e3d8  vldr     s6, [pc]                     ; float 0.009999999776482582
+           0001e3dc  b        #0x1e3e4                     ; -> L_1e3e4
+           0001e3e0  .word    0x3c23d70a                   ; literal 1008981770 / 0.01
+L_1e3e4:   0001e3e4  vcvt.f64.f32 d3, s6                       
+           0001e3e8  vmul.f64 d2, d2, d3                   
+           0001e3ec  vldr     s0, [fp, #0x10]              
+           0001e3f0  vcvt.f64.f32 d3, s0                       
+           0001e3f4  vmul.f64 d2, d2, d3                   
+           0001e3f8  vcvt.f32.f64 s0, d2                       
+           0001e3fc  vstr     s0, [fp, #8]                 
+           0001e400  bl       #0xbad90                     ; CALL SmoothRandom::Get
+           0001e404  mov      ip, r0                       
+           0001e408  vldr     s0, [fp, #8]                 
+           0001e40c  vcvt.f64.f32 d4, s0                       
+           0001e410  vldr     s6, [pc]                     ; float 15.699999809265137
+           0001e414  b        #0x1e41c                     ; -> L_1e41c
+           0001e418  .word    0x417b3333                   ; literal 1098593075 / 15.7
+L_1e41c:   0001e41c  vcvt.f64.f32 d3, s6                       
+           0001e420  vldr     s4, [pc]                     ; float 0.5799999833106995
+           0001e424  b        #0x1e42c                     ; -> L_1e42c
+           0001e428  .word    0x3f147ae1                   ; literal 1058306785 / 0.58
+L_1e42c:   0001e42c  vcvt.f64.f32 d2, s4                       
+           0001e430  mov      r0, ip                       
+           0001e434  vcvt.f32.f64 s0, d4                       
+           0001e438  vstr     s0, [sp, #-8]                
+           0001e43c  ldr      r1, [sp, #-8]                
+           0001e440  vcvt.f32.f64 s0, d3                       
+           0001e444  vstr     s0, [sp, #-8]                
+           0001e448  ldr      r2, [sp, #-8]                
+           0001e44c  vcvt.f32.f64 s0, d2                       
+           0001e450  vstr     s0, [sp, #-8]                
+           0001e454  ldr      r3, [sp, #-8]                
+           0001e458  ldr      lr, [ip]                     
+           0001e45c  bl       #0x20040                     ; CALL FractalNoise::HybridMultifractal (direct)
+           0001e460  vmov     s4, r0                       
+           0001e464  vcvt.f64.f32 d2, s4                       
+           0001e468  vcvt.f32.f64 s0, d2                       
+           0001e46c  vstr     s0, [fp, #0xc]               
+           0001e470  vldr     s0, [fp, #0xc]               
+           0001e474  vcvt.f64.f32 d2, s0                       
+           0001e478  vldr     s6, [pc]                     ; float 0.6000000238418579
+           0001e47c  b        #0x1e484                     ; -> L_1e484
+           0001e480  .word    0x3f19999a                   ; literal 1058642330 / 0.6
+L_1e484:   0001e484  vcvt.f64.f32 d3, s6                       
+           0001e488  vdiv.f64 d2, d2, d3                   
+           0001e48c  vcvt.f32.f64 s0, d2                       
+           0001e490  vstr     s0, [fp, #0xc]               
+           0001e494  vldr     s0, [fp, #0xc]               
+           0001e498  vcvt.f64.f32 d2, s0                       
+           0001e49c  vcvt.f32.f64 s0, d2                       
+           0001e4a0  vstr     s0, [sp, #-8]                
+           0001e4a4  ldr      r0, [sp, #-8]                
+           0001e4a8  bl       #0xba9d0                     ; CALL UnityEngine.Mathf::Clamp01
+           0001e4ac  vmov     s4, r0                       
+           0001e4b0  vcvt.f64.f32 d2, s4                       
+           0001e4b4  vcvt.f32.f64 s0, d2                       
+           0001e4b8  vstr     s0, [fp, #0xc]               
+           0001e4bc  vldr     s0, [fp, #0xc]               
+           0001e4c0  vcvt.f64.f32 d2, s0                       
+           0001e4c4  vcvt.f32.f64 s0, d2                       
+           0001e4c8  vmov     r0, s0                       
+           0001e4cc  add      sp, fp, #0x18                
+           0001e4d0  pop      {r8, fp}                     
+           0001e4d4  ldr      r7, [sp, #8]                 
+           0001e4d8  ldm      sp, {sp, pc}                 
+
+== SmoothRandom::Get  token 0x06000176 @0x0001e4dc (248 bytes) static
+   args: 
+           0001e4dc  mov      ip, sp                       
+           0001e4e0  push     {r7, lr}                     
+           0001e4e4  mov      r7, sp                       
+           0001e4e8  push     {r8, fp, ip, lr}             
+           0001e4ec  sub      sp, sp, #0x38                
+           0001e4f0  mov      fp, sp                       
+           0001e4f4  ldr      r0, [pc]                     
+           0001e4f8  b        #0x1e500                     ; -> L_1e500
+           0001e4fc  .word    0x00f7e4ec                   ; literal 16245996 / 
+L_1e500:   0001e500  ldr      r0, [pc, r0]                 ; GOT[243] SFLDA SmoothRandom::s_Noise
+           0001e504  ldr      r0, [r0]                     
+           0001e508  cmp      r0, #0                       
+           0001e50c  bne      #0x1e5b0                     ; -> L_1e5b0
+           0001e510  vldr     s4, [pc]                     ; float 1.2699999809265137
+           0001e514  b        #0x1e51c                     ; -> L_1e51c
+           0001e518  .word    0x3fa28f5c                   ; literal 1067618140 / 1.27
+L_1e51c:   0001e51c  vcvt.f64.f32 d2, s4                       
+           0001e520  vstr     d2, [fp, #0x30]              
+           0001e524  vldr     s4, [pc]                     ; float 2.0399999618530273
+           0001e528  b        #0x1e530                     ; -> L_1e530
+           0001e52c  .word    0x40028f5c                   ; literal 1073909596 / 2.04
+L_1e530:   0001e530  vcvt.f64.f32 d2, s4                       
+           0001e534  vstr     d2, [fp, #0x28]              
+           0001e538  vldr     s4, [pc]                     ; float 8.359999656677246
+           0001e53c  b        #0x1e544                     ; -> L_1e544
+           0001e540  .word    0x4105c28f                   ; literal 1090896527 / 8.36
+L_1e544:   0001e544  vcvt.f64.f32 d2, s4                       
+           0001e548  vstr     d2, [fp, #0x20]              
+           0001e54c  ldr      r0, [pc]                     
+           0001e550  b        #0x1e558                     ; -> L_1e558
+           0001e554  .word    0x00f7e498                   ; literal 16245912 / 
+L_1e558:   0001e558  ldr      r0, [pc, r0]                 ; GOT[244] VTABLE FractalNoise
+           0001e55c  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0001e560  vldr     d2, [fp, #0x20]              
+           0001e564  vldr     d3, [fp, #0x28]              
+           0001e568  vldr     d4, [fp, #0x30]              
+           0001e56c  str      r0, [fp, #0x18]              
+           0001e570  vcvt.f32.f64 s0, d4                       
+           0001e574  vstr     s0, [sp, #-8]                
+           0001e578  ldr      r1, [sp, #-8]                
+           0001e57c  vcvt.f32.f64 s0, d3                       
+           0001e580  vstr     s0, [sp, #-8]                
+           0001e584  ldr      r2, [sp, #-8]                
+           0001e588  vcvt.f32.f64 s0, d2                       
+           0001e58c  vstr     s0, [sp, #-8]                
+           0001e590  ldr      r3, [sp, #-8]                
+           0001e594  bl       #0x1fde4                     ; CALL FractalNoise::.ctor (direct)
+           0001e598  ldr      r1, [fp, #0x18]              
+           0001e59c  ldr      r0, [pc]                     
+           0001e5a0  b        #0x1e5a8                     ; -> L_1e5a8
+           0001e5a4  .word    0x00f7e444                   ; literal 16245828 / 
+L_1e5a8:   0001e5a8  ldr      r0, [pc, r0]                 ; GOT[243] SFLDA SmoothRandom::s_Noise
+           0001e5ac  str      r1, [r0]                     
+L_1e5b0:   0001e5b0  ldr      r0, [pc]                     
+           0001e5b4  b        #0x1e5bc                     ; -> L_1e5bc
+           0001e5b8  .word    0x00f7e430                   ; literal 16245808 / 
+L_1e5bc:   0001e5bc  ldr      r0, [pc, r0]                 ; GOT[243] SFLDA SmoothRandom::s_Noise
+           0001e5c0  ldr      r0, [r0]                     
+           0001e5c4  add      sp, fp, #0x38                
+           0001e5c8  pop      {r8, fp}                     
+           0001e5cc  ldr      r7, [sp, #8]                 
+           0001e5d0  ldm      sp, {sp, pc}                 

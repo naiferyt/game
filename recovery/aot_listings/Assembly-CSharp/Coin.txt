@@ -1,0 +1,258 @@
+####################################################################################################
+# TYPE Coin  (instance size 0x18)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 audioSource                    UnityEngine.AudioSource
+#   +0x14 pickupCoinEffectPrefab         UnityEngine.GameObject
+#   static int COIN_VALUE  = const 0a000000
+#   vtable slots: 
+####################################################################################################
+== Coin::.ctor  token 0x060004cc @0x001081d4 (52 bytes)
+   args: r0=this, 
+           001081d4  mov      ip, sp                       
+           001081d8  push     {r7, lr}                     
+           001081dc  mov      r7, sp                       
+           001081e0  push     {r8, fp, ip, lr}             
+           001081e4  sub      sp, sp, #8                   
+           001081e8  mov      fp, sp                       
+           001081ec  str      r0, [fp]                     
+           001081f0  ldr      r0, [fp]                     
+           001081f4  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           001081f8  add      sp, fp, #8                   
+           001081fc  pop      {r8, fp}                     
+           00108200  ldr      r7, [sp, #8]                 
+           00108204  ldm      sp, {sp, pc}                 
+
+== Coin::Start  token 0x060004cd @0x00108208 (288 bytes)
+   args: r0=this, 
+           00108208  mov      ip, sp                       
+           0010820c  push     {r7, lr}                     
+           00108210  mov      r7, sp                       
+           00108214  push     {r8, sl, fp, ip, lr}         
+           00108218  sub      sp, sp, #0x2c                
+           0010821c  mov      fp, sp                       
+           00108220  mov      sl, r0                       
+           00108224  mov      r0, #0                       
+           00108228  str      r0, [fp, #8]                 
+           0010822c  mov      r0, #0                       
+           00108230  str      r0, [fp, #0xc]               
+           00108234  mov      r0, #0                       
+           00108238  str      r0, [fp, #0x10]              
+           0010823c  ldr      r8, [pc]                     
+           00108240  b        #0x108248                    ; -> L_108248
+           00108244  .word    0x00e9d85c                   ; literal 15325276 / 
+L_108248:  00108248  ldr      r8, [pc, r8]                 ; GOT[849] METHOD_RGCTX UnityEngine.Component::GetComponent<RotatorAI>
+           0010824c  mov      r0, sl                       
+           00108250  bl       #0x22da90                    ; CALL UnityEngine.Component::GetComponent<RotatorAI>
+           00108254  mov      sl, r0                       
+           00108258  mov      r1, #0                       
+           0010825c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00108260  cmp      r0, #0                       
+           00108264  beq      #0x108318                    ; -> L_108318
+           00108268  add      r0, sl, #0x10                
+           0010826c  ldr      r1, [r0]                     
+           00108270  str      r1, [fp, #8]                 
+           00108274  ldr      r1, [r0, #4]                 ; field+0x4 
+           00108278  str      r1, [fp, #0xc]               
+           0010827c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00108280  str      r0, [fp, #0x10]              
+           00108284  vldr     s0, [fp, #0xc]               
+           00108288  vcvt.f64.f32 d2, s0                       
+           0010828c  vstr     d2, [fp, #0x20]              
+           00108290  vldr     s6, [pc]                     ; float -5.0
+           00108294  b        #0x10829c                    ; -> L_10829c
+           00108298  .word    0xc0a00000                   ; literal -1063256064 / -5
+L_10829c:  0010829c  vcvt.f64.f32 d3, s6                       
+           001082a0  vldr     s4, [pc]                     ; float 20.0
+           001082a4  b        #0x1082ac                    ; -> L_1082ac
+           001082a8  .word    0x41a00000                   ; literal 1101004800 / 20
+L_1082ac:  001082ac  vcvt.f64.f32 d2, s4                       
+           001082b0  vcvt.f32.f64 s0, d3                       
+           001082b4  vstr     s0, [sp, #-8]                
+           001082b8  ldr      r0, [sp, #-8]                
+           001082bc  vcvt.f32.f64 s0, d2                       
+           001082c0  vstr     s0, [sp, #-8]                
+           001082c4  ldr      r1, [sp, #-8]                
+           001082c8  bl       #0x22d220                    ; CALL UnityEngine.Random::Range
+           001082cc  vmov     s6, r0                       
+           001082d0  vcvt.f64.f32 d3, s6                       
+           001082d4  vldr     d2, [fp, #0x20]              
+           001082d8  vadd.f64 d2, d2, d3                   
+           001082dc  vcvt.f32.f64 s0, d2                       
+           001082e0  vstr     s0, [fp, #0xc]               
+           001082e4  ldr      r0, [fp, #8]                 
+           001082e8  str      r0, [fp, #0x14]              
+           001082ec  ldr      r0, [fp, #0xc]               
+           001082f0  str      r0, [fp, #0x18]              
+           001082f4  ldr      r0, [fp, #0x10]              
+           001082f8  str      r0, [fp, #0x1c]              
+           001082fc  add      r0, sl, #0x10                
+           00108300  ldr      r1, [fp, #0x14]              
+           00108304  str      r1, [r0]                     
+           00108308  ldr      r1, [fp, #0x18]              
+           0010830c  str      r1, [r0, #4]                 ; field+0x4 
+           00108310  ldr      r1, [fp, #0x1c]              
+           00108314  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+L_108318:  00108318  add      sp, fp, #0x2c                
+           0010831c  pop      {r8, sl, fp}                 
+           00108320  ldr      r7, [sp, #8]                 
+           00108324  ldm      sp, {sp, pc}                 
+
+== Coin::OnTriggerEnter  token 0x060004ce @0x00108328 (628 bytes)
+   args: r0=this, collider
+           00108328  mov      ip, sp                       
+           0010832c  push     {r7, lr}                     
+           00108330  mov      r7, sp                       
+           00108334  push     {r4, r5, r8, sl, fp, ip, lr} 
+           00108338  sub      sp, sp, #0x6c                
+           0010833c  mov      fp, sp                       
+           00108340  str      r0, [fp, #0x5c]              
+           00108344  mov      sl, r1                       
+           00108348  mov      r0, sl                       
+           0010834c  ldr      lr, [sl]                     
+           00108350  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00108354  bl       #0x1129f8                    ; CALL RaceManager::IsPlayerCar (direct)
+           00108358  cmp      r0, #0                       
+           0010835c  beq      #0x10858c                    ; -> L_10858c
+           00108360  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           00108364  mov      r2, r0                       
+           00108368  mov      r1, #0xa                     
+           0010836c  ldr      lr, [r2]                     
+           00108370  bl       #0xe7e7c                     ; CALL DataUtility::AddPlayerMoney (direct)
+           00108374  ldr      r0, [pc]                     
+           00108378  b        #0x108380                    ; -> L_108380
+           0010837c  .word    0x00e9ce9c                   ; literal 15322780 / 
+L_108380:  00108380  ldr      r0, [pc, r0]                 ; GOT[303] METHOD_RGCTX UnityEngine.Component::GetComponent<CarMetrics>
+           00108384  ldr      lr, [sl]                     
+           00108388  mov      r8, r0                       
+           0010838c  mov      r0, sl                       
+           00108390  bl       #0x22bcc0                    ; CALL UnityEngine.Component::GetComponent<CarMetrics>
+           00108394  mov      r5, r0                       
+           00108398  mov      r1, #0                       
+           0010839c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           001083a0  cmp      r0, #0                       
+           001083a4  beq      #0x1083c4                    ; -> L_1083c4
+           001083a8  ldr      r1, [pc]                     
+           001083ac  b        #0x1083b4                    ; -> L_1083b4
+           001083b0  .word    0x00e9cd48                   ; literal 15322440 / 
+L_1083b4:  001083b4  ldr      r1, [pc, r1]                 ; GOT[231] LDSTR 'Tokens Collected'
+           001083b8  mov      r0, r5                       
+           001083bc  ldr      lr, [r5]                     
+           001083c0  bl       #0x10d384                    ; CALL CarMetrics::Signal (direct)
+L_1083c4:  001083c4  mov      r0, sl                       
+           001083c8  ldr      lr, [sl]                     
+           001083cc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           001083d0  ldr      r1, [pc]                     
+           001083d4  b        #0x1083dc                    ; -> L_1083dc
+           001083d8  .word    0x00e9cb94                   ; literal 15322004 / 
+L_1083dc:  001083dc  ldr      r1, [pc, r1]                 ; GOT[132] METHOD_RGCTX UnityEngine.GameObject::GetComponent<SoundSequencer>
+           001083e0  ldr      lr, [r0]                     
+           001083e4  mov      r8, r1                       
+           001083e8  bl       #0x22b3c0                    ; CALL UnityEngine.GameObject::GetComponent<SoundSequencer>
+           001083ec  mov      r4, r0                       
+           001083f0  mov      r1, #0                       
+           001083f4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           001083f8  cmp      r0, #0                       
+           001083fc  beq      #0x10841c                    ; -> L_10841c
+           00108400  ldr      r1, [pc]                     
+           00108404  b        #0x10840c                    ; -> L_10840c
+           00108408  .word    0x00e9d69c                   ; literal 15324828 / 
+L_10840c:  0010840c  ldr      r1, [pc, r1]                 ; GOT[850] LDSTR 'coinPickup'
+           00108410  mov      r0, r4                       
+           00108414  ldr      lr, [r4]                     
+           00108418  bl       #0xef614                     ; CALL SoundSequencer::RequestPlay (direct)
+L_10841c:  0010841c  mov      r0, sl                       
+           00108420  ldr      lr, [sl]                     
+           00108424  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00108428  mov      r2, r0                       
+           0010842c  ldr      r1, [pc]                     
+           00108430  b        #0x108438                    ; -> L_108438
+           00108434  .word    0x00e9d674                   ; literal 15324788 / 
+L_108438:  00108438  ldr      r1, [pc, r1]                 ; GOT[851] LDSTR 'Tokens Pickup Particles'
+           0010843c  mov      r0, r2                       
+           00108440  ldr      lr, [r2]                     
+           00108444  bl       #0x22b290                    ; CALL UnityEngine.Transform::FindChild
+           00108448  str      r0, [fp, #0x10]              
+           0010844c  mov      r1, #0                       
+           00108450  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           00108454  cmp      r0, #0                       
+           00108458  beq      #0x108580                    ; -> L_108580
+           0010845c  ldr      r0, [fp, #0x5c]              
+           00108460  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: pickupCoinEffectPrefab)
+           00108464  str      r0, [fp, #0x60]              
+           00108468  mov      r0, sl                       
+           0010846c  ldr      lr, [sl]                     
+           00108470  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00108474  mov      r2, r0                       
+           00108478  add      r0, fp, #0x40                
+           0010847c  mov      r1, r2                       
+           00108480  ldr      lr, [r2]                     
+           00108484  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00108488  mov      r0, sl                       
+           0010848c  ldr      lr, [sl]                     
+           00108490  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00108494  mov      r2, r0                       
+           00108498  add      r0, fp, #0x4c                
+           0010849c  mov      r1, r2                       
+           001084a0  ldr      lr, [r2]                     
+           001084a4  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           001084a8  ldr      r0, [fp, #0x60]              
+           001084ac  ldr      r1, [fp, #0x40]              
+           001084b0  ldr      r2, [fp, #0x44]              
+           001084b4  ldr      r3, [fp, #0x48]              
+           001084b8  ldr      ip, [fp, #0x4c]              
+           001084bc  str      ip, [sp]                     
+           001084c0  ldr      ip, [fp, #0x50]              
+           001084c4  str      ip, [sp, #4]                 
+           001084c8  ldr      ip, [fp, #0x54]              
+           001084cc  str      ip, [sp, #8]                 
+           001084d0  ldr      ip, [fp, #0x58]              
+           001084d4  str      ip, [sp, #0xc]               
+           001084d8  bl       #0x22b2c0                    ; CALL UnityEngine.Object::Instantiate
+           001084dc  str      r0, [fp, #0x38]              
+           001084e0  str      r0, [fp, #0x3c]              
+           001084e4  ldr      r0, [fp, #0x38]              
+           001084e8  cmp      r0, #0                       
+           001084ec  beq      #0x108524                    ; -> L_108524
+           001084f0  ldr      r0, [fp, #0x38]              
+           001084f4  ldr      r0, [r0]                     
+           001084f8  ldr      r0, [r0]                     
+           001084fc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00108500  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00108504  ldr      r1, [pc]                     
+           00108508  b        #0x108510                    ; -> L_108510
+           0010850c  .word    0x00e9ca3c                   ; literal 15321660 / 
+L_108510:  00108510  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           00108514  cmp      r0, r1                       
+           00108518  beq      #0x108524                    ; -> L_108524
+           0010851c  mov      r0, #0                       
+           00108520  str      r0, [fp, #0x3c]              
+L_108524:  00108524  ldr      r0, [fp, #0x3c]              
+           00108528  str      r0, [fp, #0x14]              
+           0010852c  ldr      r0, [fp, #0x3c]              
+           00108530  mov      r1, r0                       
+           00108534  ldr      lr, [r1]                     
+           00108538  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           0010853c  str      r0, [fp, #0x60]              
+           00108540  mov      r0, sl                       
+           00108544  ldr      lr, [sl]                     
+           00108548  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0010854c  mov      r1, r0                       
+           00108550  ldr      r2, [fp, #0x60]              
+           00108554  mov      r0, r2                       
+           00108558  ldr      lr, [r2]                     
+           0010855c  bl       #0x22b2d0                    ; CALL UnityEngine.Transform::set_parent
+           00108560  ldr      r1, [pc]                     
+           00108564  b        #0x10856c                    ; -> L_10856c
+           00108568  .word    0x00e9d540                   ; literal 15324480 / 
+L_10856c:  0010856c  ldr      r1, [pc, r1]                 ; GOT[851] LDSTR 'Tokens Pickup Particles'
+           00108570  ldr      r0, [fp, #0x3c]              
+           00108574  mov      r2, r0                       
+           00108578  ldr      lr, [r2]                     
+           0010857c  bl       #0x22b2e0                    ; CALL UnityEngine.Object::set_name
+L_108580:  00108580  ldr      r0, [fp, #0x5c]              
+           00108584  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00108588  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_10858c:  0010858c  add      sp, fp, #0x6c                
+           00108590  pop      {r4, r5, r8, sl, fp}         
+           00108594  ldr      r7, [sp, #8]                 
+           00108598  ldm      sp, {sp, pc}                 

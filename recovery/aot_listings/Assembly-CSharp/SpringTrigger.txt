@@ -1,0 +1,127 @@
+####################################################################################################
+# TYPE SpringTrigger  (instance size 0x1c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 springPower                    UnityEngine.Vector3
+#   vtable slots: 
+####################################################################################################
+== SpringTrigger::.ctor  token 0x060004f8 @0x0010c190 (52 bytes)
+   args: r0=this, 
+           0010c190  mov      ip, sp                       
+           0010c194  push     {r7, lr}                     
+           0010c198  mov      r7, sp                       
+           0010c19c  push     {r8, fp, ip, lr}             
+           0010c1a0  sub      sp, sp, #8                   
+           0010c1a4  mov      fp, sp                       
+           0010c1a8  str      r0, [fp]                     
+           0010c1ac  ldr      r0, [fp]                     
+           0010c1b0  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0010c1b4  add      sp, fp, #8                   
+           0010c1b8  pop      {r8, fp}                     
+           0010c1bc  ldr      r7, [sp, #8]                 
+           0010c1c0  ldm      sp, {sp, pc}                 
+
+== SpringTrigger::OnTriggerEnter  token 0x060004f9 @0x0010c1c4 (164 bytes)
+   args: r0=this, other
+           0010c1c4  mov      ip, sp                       
+           0010c1c8  push     {r7, lr}                     
+           0010c1cc  mov      r7, sp                       
+           0010c1d0  push     {r8, sl, fp, ip, lr}         
+           0010c1d4  sub      sp, sp, #0x14                
+           0010c1d8  mov      fp, sp                       
+           0010c1dc  str      r0, [fp, #0xc]               
+           0010c1e0  mov      sl, r1                       
+           0010c1e4  mov      r0, sl                       
+           0010c1e8  ldr      lr, [sl]                     
+           0010c1ec  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010c1f0  ldr      r1, [pc]                     
+           0010c1f4  b        #0x10c1fc                    ; -> L_10c1fc
+           0010c1f8  .word    0x00e98d08                   ; literal 15305992 / 
+L_10c1fc:  0010c1fc  ldr      r1, [pc, r1]                 ; GOT[105] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarCollider>
+           0010c200  ldr      lr, [r0]                     
+           0010c204  mov      r8, r1                       
+           0010c208  bl       #0x22b100                    ; CALL UnityEngine.GameObject::GetComponent<CarCollider>
+           0010c20c  mov      sl, r0                       
+           0010c210  mov      r1, #0                       
+           0010c214  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010c218  cmp      r0, #0                       
+           0010c21c  bne      #0x10c258                    ; -> L_10c258
+           0010c220  ldr      r0, [fp, #0xc]               
+           0010c224  add      r0, r0, #0x10                
+           0010c228  ldr      r1, [r0]                     
+           0010c22c  str      r1, [fp]                     
+           0010c230  ldr      r1, [r0, #4]                 ; field+0x4 
+           0010c234  str      r1, [fp, #4]                 
+           0010c238  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010c23c  str      r0, [fp, #8]                 
+           0010c240  mov      r0, sl                       
+           0010c244  ldr      r1, [fp]                     
+           0010c248  ldr      r2, [fp, #4]                 
+           0010c24c  ldr      r3, [fp, #8]                 
+           0010c250  ldr      lr, [sl]                     
+           0010c254  bl       #0xde0dc                     ; CALL CarCollider::TransformVelocity (direct)
+L_10c258:  0010c258  add      sp, fp, #0x14                
+           0010c25c  pop      {r8, sl, fp}                 
+           0010c260  ldr      r7, [sp, #8]                 
+           0010c264  ldm      sp, {sp, pc}                 
+
+== SpringTrigger::OnDrawGizmos  token 0x060004fa @0x0010c268 (236 bytes)
+   args: r0=this, 
+           0010c268  mov      ip, sp                       
+           0010c26c  push     {r7, lr}                     
+           0010c270  mov      r7, sp                       
+           0010c274  push     {r8, fp, ip, lr}             
+           0010c278  sub      sp, sp, #0xc0                
+           0010c27c  mov      fp, sp                       
+           0010c280  str      r0, [fp, #0xb8]              
+           0010c284  add      r0, fp, #8                   
+           0010c288  mov      r1, #0                       
+           0010c28c  mov      r2, #0x18                    
+           0010c290  bl       #0x22a990                    ; CALL System.String::memset
+           0010c294  add      r0, fp, #0x20                
+           0010c298  mov      r1, #0                       
+           0010c29c  mov      r2, #0x18                    
+           0010c2a0  bl       #0x22a990                    ; CALL System.String::memset
+           0010c2a4  add      r0, fp, #0x90                
+           0010c2a8  bl       #0x22da80                    ; CALL UnityEngine.Color::get_green
+           0010c2ac  ldr      r0, [fp, #0x90]              
+           0010c2b0  ldr      r1, [fp, #0x94]              
+           0010c2b4  ldr      r2, [fp, #0x98]              
+           0010c2b8  ldr      r3, [fp, #0x9c]              
+           0010c2bc  bl       #0x22a890                    ; CALL UnityEngine.Gizmos::set_color
+           0010c2c0  ldr      r0, [fp, #0xb8]              
+           0010c2c4  bl       #0x22b080                    ; CALL UnityEngine.Component::get_collider
+           0010c2c8  mov      r2, r0                       
+           0010c2cc  add      r0, fp, #8                   
+           0010c2d0  mov      r1, r2                       
+           0010c2d4  ldr      lr, [r2]                     
+           0010c2d8  bl       #0x22b090                    ; CALL UnityEngine.Collider::get_bounds
+           0010c2dc  add      r0, fp, #8                   
+           0010c2e0  ldr      r1, [r0]                     
+           0010c2e4  str      r1, [fp, #0xa0]              
+           0010c2e8  ldr      r1, [r0, #4]                 ; field+0x4 
+           0010c2ec  str      r1, [fp, #0xa4]              
+           0010c2f0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0010c2f4  str      r0, [fp, #0xa8]              
+           0010c2f8  ldr      r0, [fp, #0xb8]              
+           0010c2fc  bl       #0x22b080                    ; CALL UnityEngine.Component::get_collider
+           0010c300  mov      r2, r0                       
+           0010c304  add      r0, fp, #0x20                
+           0010c308  mov      r1, r2                       
+           0010c30c  ldr      lr, [r2]                     
+           0010c310  bl       #0x22b090                    ; CALL UnityEngine.Collider::get_bounds
+           0010c314  add      r1, fp, #0x20                
+           0010c318  add      r0, fp, #0xac                
+           0010c31c  bl       #0x22b0a0                    ; CALL UnityEngine.Bounds::get_size
+           0010c320  ldr      r0, [fp, #0xa0]              
+           0010c324  ldr      r1, [fp, #0xa4]              
+           0010c328  ldr      r2, [fp, #0xa8]              
+           0010c32c  ldr      r3, [fp, #0xac]              
+           0010c330  ldr      ip, [fp, #0xb0]              
+           0010c334  str      ip, [sp]                     
+           0010c338  ldr      ip, [fp, #0xb4]              
+           0010c33c  str      ip, [sp, #4]                 
+           0010c340  bl       #0x22d640                    ; CALL UnityEngine.Gizmos::DrawWireCube
+           0010c344  add      sp, fp, #0xc0                
+           0010c348  pop      {r8, fp}                     
+           0010c34c  ldr      r7, [sp, #8]                 
+           0010c350  ldm      sp, {sp, pc}                 

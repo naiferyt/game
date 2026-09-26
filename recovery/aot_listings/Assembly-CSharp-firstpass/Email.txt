@@ -1,0 +1,82 @@
+####################################################################################################
+# TYPE Email  (instance size 0x8)
+#   vtable slots: 
+####################################################################################################
+== Email::.ctor  token 0x06000110 @0x0001671c (44 bytes)
+   args: r0=this, 
+           0001671c  mov      ip, sp                       
+           00016720  push     {r7, lr}                     
+           00016724  mov      r7, sp                       
+           00016728  push     {r8, fp, ip, lr}             
+           0001672c  sub      sp, sp, #8                   
+           00016730  mov      fp, sp                       
+           00016734  str      r0, [fp]                     
+           00016738  add      sp, fp, #8                   
+           0001673c  pop      {r8, fp}                     
+           00016740  ldr      r7, [sp, #8]                 
+           00016744  ldm      sp, {sp, pc}                 
+
+== Email::EscapeText  token 0x06000111 @0x00016748 (108 bytes) static
+   args: text
+           00016748  mov      ip, sp                       
+           0001674c  push     {r7, lr}                     
+           00016750  mov      r7, sp                       
+           00016754  push     {r8, sl, fp, ip, lr}         
+           00016758  sub      sp, sp, #4                   
+           0001675c  mov      fp, sp                       
+           00016760  mov      sl, r0                       
+           00016764  mov      r0, sl                       
+           00016768  bl       #0xba680                     ; CALL UnityEngine.WWW::EscapeURL
+           0001676c  mov      sl, r0                       
+           00016770  mov      r3, sl                       
+           00016774  ldr      r1, [pc]                     
+           00016778  b        #0x16780                     ; -> L_16780
+           0001677c  .word    0x00f86224                   ; literal 16278052 / 
+L_16780:   00016780  ldr      r1, [pc, r1]                 ; GOT[225] LDSTR '+'
+           00016784  ldr      r2, [pc]                     
+           00016788  b        #0x16790                     ; -> L_16790
+           0001678c  .word    0x00f86218                   ; literal 16278040 / 
+L_16790:   00016790  ldr      r2, [pc, r2]                 ; GOT[226] LDSTR '%20'
+           00016794  mov      r0, r3                       
+           00016798  ldr      lr, [r3]                     
+           0001679c  bl       #0xba0c0                     ; CALL System.String::Replace
+           000167a0  mov      sl, r0                       
+           000167a4  add      sp, fp, #4                   
+           000167a8  pop      {r8, sl, fp}                 
+           000167ac  ldr      r7, [sp, #8]                 
+           000167b0  ldm      sp, {sp, pc}                 
+
+== Email::Send  token 0x06000112 @0x000167b4 (128 bytes) static
+   args: to, subject, body
+           000167b4  mov      ip, sp                       
+           000167b8  push     {r7, lr}                     
+           000167bc  mov      r7, sp                       
+           000167c0  push     {r8, fp, ip, lr}             
+           000167c4  sub      sp, sp, #0x20                
+           000167c8  mov      fp, sp                       
+           000167cc  str      r0, [fp]                     
+           000167d0  str      r1, [fp, #4]                 
+           000167d4  str      r2, [fp, #8]                 
+           000167d8  ldr      r0, [pc]                     
+           000167dc  b        #0x167e4                     ; -> L_167e4
+           000167e0  .word    0x00f861c8                   ; literal 16277960 / 
+L_167e4:   000167e4  ldr      r0, [pc, r0]                 ; GOT[227] LDSTR 'mailto:{0}?subject={1}&body={2}'
+           000167e8  str      r0, [fp, #0x10]              
+           000167ec  ldr      r0, [fp]                     
+           000167f0  bl       #0xba690                     ; CALL Email::EscapeText
+           000167f4  str      r0, [fp, #0x14]              
+           000167f8  ldr      r0, [fp, #4]                 
+           000167fc  bl       #0xba690                     ; CALL Email::EscapeText
+           00016800  str      r0, [fp, #0x18]              
+           00016804  ldr      r0, [fp, #8]                 
+           00016808  bl       #0xba690                     ; CALL Email::EscapeText
+           0001680c  mov      r3, r0                       
+           00016810  ldr      r0, [fp, #0x10]              
+           00016814  ldr      r1, [fp, #0x14]              
+           00016818  ldr      r2, [fp, #0x18]              
+           0001681c  bl       #0xb9da0                     ; CALL System.String::Format
+           00016820  bl       #0xba6a0                     ; CALL UnityEngine.Application::OpenURL
+           00016824  add      sp, fp, #0x20                
+           00016828  pop      {r8, fp}                     
+           0001682c  ldr      r7, [sp, #8]                 
+           00016830  ldm      sp, {sp, pc}                 

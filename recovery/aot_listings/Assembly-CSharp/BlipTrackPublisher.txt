@@ -1,0 +1,638 @@
+####################################################################################################
+# TYPE BlipTrackPublisher  (instance size 0x70)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 transformReferences            UghPublisher/TransformReference[]
+#   +0x14 transformsDictionary           UghPublisher/TransformsDictionary
+#   +0x18 ughTextReferences              UghPublisher/UghTextReference[]
+#   +0x1c ughTextsDictionary             UghPublisher/UghTextsDictionary
+#   +0x20 ledScrollerReferences          UghPublisher/LEDScrollerReference[]
+#   +0x24 ledScrollersDictionary         UghPublisher/LEDScrollersDictionary
+#   +0x28 ughButtonReferences            UghPublisher/UghButtonReference[]
+#   +0x2c ughButtonsDictionary           UghPublisher/UghButtonsDictionary
+#   +0x30 ughSlideToggleReferences       UghPublisher/UghSlideToggleReference[]
+#   +0x34 ughSlideTogglesDictionary      UghPublisher/UghSlideToggleDictionary
+#   +0x38 ughSliderReferences            UghPublisher/UghSliderReference[]
+#   +0x3c ughSlidersDictionary           UghPublisher/UghSliderDictionary
+#   +0x40 ughSprites                     System.Collections.Generic.List`1<UghSprite>
+#   +0x44 playerBlipPrefab               UnityEngine.GameObject
+#   +0x48 aiBlipPrefab                   UnityEngine.GameObject
+#   +0x4c blipMap                        System.Collections.Generic.Dictionary`2<UnityEngine.GameObject,UnityEngine.GameObject>
+#   +0x50 playerCar                      UnityEngine.GameObject
+#   +0x54 trackBounds                    UnityEngine.Bounds
+#   +0x6c totalTrackDistance             float
+#   vtable slots: 
+####################################################################################################
+== BlipTrackPublisher::.ctor  token 0x06000741 @0x001387c4 (52 bytes)
+   args: r0=this, 
+           001387c4  mov      ip, sp                       
+           001387c8  push     {r7, lr}                     
+           001387cc  mov      r7, sp                       
+           001387d0  push     {r8, fp, ip, lr}             
+           001387d4  sub      sp, sp, #8                   
+           001387d8  mov      fp, sp                       
+           001387dc  str      r0, [fp]                     
+           001387e0  ldr      r0, [fp]                     
+           001387e4  bl       #0x22e1d0                    ; CALL UghPublisher::.ctor
+           001387e8  add      sp, fp, #8                   
+           001387ec  pop      {r8, fp}                     
+           001387f0  ldr      r7, [sp, #8]                 
+           001387f4  ldm      sp, {sp, pc}                 
+
+== BlipTrackPublisher::InitBlips  token 0x06000742 @0x001387f8 (864 bytes)
+   args: r0=this, 
+           001387f8  mov      ip, sp                       
+           001387fc  push     {r7, lr}                     
+           00138800  mov      r7, sp                       
+           00138804  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00138808  sub      sp, sp, #0x68                
+           0013880c  mov      fp, sp                       
+           00138810  mov      sl, r0                       
+           00138814  bl       #0x111350                    ; CALL RaceManager::get_allCars (direct)
+           00138818  str      r0, [fp, #0x58]              
+           0013881c  ldr      r0, [r0, #0xc]               ; field+0xc 
+           00138820  str      r0, [fp, #0x60]              
+           00138824  ldr      r0, [pc]                     
+           00138828  b        #0x138830                    ; -> L_138830
+           0013882c  .word    0x00e6ddb0                   ; literal 15130032 / 
+L_138830:  00138830  ldr      r0, [pc, r0]                 ; GOT[1568] VTABLE System.Collections.Generic.Dictionary`2<UnityEngine.GameObject,UnityEngine.GameObject>
+           00138834  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00138838  ldr      r1, [fp, #0x60]              
+           0013883c  str      r0, [fp, #0x5c]              
+           00138840  bl       #0x22f1e0                    ; CALL System.Collections.Generic.Dictionary`2<UnityEngine.GameObject,UnityEngine.GameObject>::.ctor
+           00138844  ldr      r0, [fp, #0x58]              
+           00138848  ldr      r1, [fp, #0x5c]              
+           0013884c  str      r1, [sl, #0x4c]              ; field+0x4c (this-class: blipMap)
+           00138850  mov      r4, r0                       
+           00138854  mov      r0, #0                       
+           00138858  str      r0, [fp, #8]                 
+           0013885c  b        #0x138b28                    ; -> L_138b28
+L_138860:  00138860  ldr      r1, [r4, #0xc]               ; field+0xc 
+           00138864  ldr      r0, [fp, #8]                 
+           00138868  cmp      r1, r0                       
+           0013886c  blls     #0x138b48                    ; THROW System.IndexOutOfRangeException (if ls)
+           00138870  lsl      r0, r0, #2                   
+           00138874  add      r0, r4, r0                   
+           00138878  add      r0, r0, #0x10                
+           0013887c  ldr      r6, [r0]                     
+           00138880  mov      r5, #0                       
+           00138884  mov      r0, r6                       
+           00138888  bl       #0x1129f8                    ; CALL RaceManager::IsPlayerCar (direct)
+           0013888c  cmp      r0, #0                       
+           00138890  beq      #0x1389d0                    ; -> L_1389d0
+           00138894  ldr      r0, [sl, #0x44]              ; field+0x44 (this-class: playerBlipPrefab)
+           00138898  ldr      r8, [pc]                     
+           0013889c  b        #0x1388a4                    ; -> L_1388a4
+           001388a0  .word    0x00e6d5f0                   ; literal 15128048 / 
+L_1388a4:  001388a4  ldr      r8, [pc, r8]                 ; GOT[1101] METHOD_RGCTX Script::Instantiate<UnityEngine.GameObject>
+           001388a8  bl       #0x22e2b0                    ; CALL Script::Instantiate<UnityEngine.GameObject>
+           001388ac  mov      r5, r0                       
+           001388b0  mov      r1, r5                       
+           001388b4  mov      r0, r1                       
+           001388b8  ldr      lr, [r1]                     
+           001388bc  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           001388c0  str      r0, [fp, #0x5c]              
+           001388c4  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           001388c8  ldr      r1, [pc]                     
+           001388cc  b        #0x1388d4                    ; -> L_1388d4
+           001388d0  .word    0x00e6dca8                   ; literal 15129768 / 
+L_1388d4:  001388d4  ldr      r1, [pc, r1]                 ; GOT[1543] LDSTR 'Track'
+           001388d8  mov      r0, r2                       
+           001388dc  ldr      lr, [r2]                     
+           001388e0  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           001388e4  mov      r1, r0                       
+           001388e8  ldr      lr, [r1]                     
+           001388ec  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           001388f0  mov      r1, r0                       
+           001388f4  ldr      lr, [r1]                     
+           001388f8  bl       #0x22ba40                    ; CALL UnityEngine.Transform::get_parent
+           001388fc  mov      r1, r0                       
+           00138900  ldr      r2, [fp, #0x5c]              
+           00138904  mov      r0, r2                       
+           00138908  ldr      lr, [r2]                     
+           0013890c  bl       #0x22b2d0                    ; CALL UnityEngine.Transform::set_parent
+           00138910  mov      r0, r5                       
+           00138914  ldr      lr, [r5]                     
+           00138918  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           0013891c  str      r0, [fp, #0x58]              
+           00138920  vldr     s8, [pc]                     ; float 0.0
+           00138924  b        #0x13892c                    ; -> L_13892c
+           00138928  .word    0x00000000                   ; literal 0 / 0
+L_13892c:  0013892c  vcvt.f64.f32 d4, s8                       
+           00138930  vldr     s6, [pc]                     ; float 0.0
+           00138934  b        #0x13893c                    ; -> L_13893c
+           00138938  .word    0x00000000                   ; literal 0 / 0
+L_13893c:  0013893c  vcvt.f64.f32 d3, s6                       
+           00138940  vldr     s4, [pc]                     ; float -0.5
+           00138944  b        #0x13894c                    ; -> L_13894c
+           00138948  .word    0xbf000000                   ; literal -1090519040 / -0.5
+L_13894c:  0013894c  vcvt.f64.f32 d2, s4                       
+           00138950  mov      r0, #0                       
+           00138954  str      r0, [fp, #0xc]               
+           00138958  mov      r0, #0                       
+           0013895c  str      r0, [fp, #0x10]              
+           00138960  mov      r0, #0                       
+           00138964  str      r0, [fp, #0x14]              
+           00138968  add      r0, fp, #0xc                 
+           0013896c  vcvt.f32.f64 s0, d4                       
+           00138970  vstr     s0, [sp, #-8]                
+           00138974  ldr      r1, [sp, #-8]                
+           00138978  vcvt.f32.f64 s0, d3                       
+           0013897c  vstr     s0, [sp, #-8]                
+           00138980  ldr      r2, [sp, #-8]                
+           00138984  vcvt.f32.f64 s0, d2                       
+           00138988  vstr     s0, [sp, #-8]                
+           0013898c  ldr      r3, [sp, #-8]                
+           00138990  bl       #0x22b1f0                    ; CALL UnityEngine.Vector3::.ctor
+           00138994  ldr      ip, [fp, #0x58]              
+           00138998  ldr      r0, [fp, #0xc]               
+           0013899c  str      r0, [fp, #0x3c]              
+           001389a0  ldr      r0, [fp, #0x10]              
+           001389a4  str      r0, [fp, #0x40]              
+           001389a8  ldr      r0, [fp, #0x14]              
+           001389ac  str      r0, [fp, #0x44]              
+           001389b0  mov      r0, ip                       
+           001389b4  ldr      r1, [fp, #0x3c]              
+           001389b8  ldr      r2, [fp, #0x40]              
+           001389bc  ldr      r3, [fp, #0x44]              
+           001389c0  ldr      lr, [ip]                     
+           001389c4  bl       #0x22cb50                    ; CALL UnityEngine.Transform::set_localPosition
+           001389c8  str      r6, [sl, #0x50]              ; field+0x50 (this-class: playerCar)
+           001389cc  b        #0x138b04                    ; -> L_138b04
+L_1389d0:  001389d0  ldr      r0, [sl, #0x48]              ; field+0x48 (this-class: aiBlipPrefab)
+           001389d4  ldr      r8, [pc]                     
+           001389d8  b        #0x1389e0                    ; -> L_1389e0
+           001389dc  .word    0x00e6d4b4                   ; literal 15127732 / 
+L_1389e0:  001389e0  ldr      r8, [pc, r8]                 ; GOT[1101] METHOD_RGCTX Script::Instantiate<UnityEngine.GameObject>
+           001389e4  bl       #0x22e2b0                    ; CALL Script::Instantiate<UnityEngine.GameObject>
+           001389e8  mov      r5, r0                       
+           001389ec  mov      r1, r5                       
+           001389f0  mov      r0, r1                       
+           001389f4  ldr      lr, [r1]                     
+           001389f8  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           001389fc  str      r0, [fp, #0x5c]              
+           00138a00  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           00138a04  ldr      r1, [pc]                     
+           00138a08  b        #0x138a10                    ; -> L_138a10
+           00138a0c  .word    0x00e6db6c                   ; literal 15129452 / 
+L_138a10:  00138a10  ldr      r1, [pc, r1]                 ; GOT[1543] LDSTR 'Track'
+           00138a14  mov      r0, r2                       
+           00138a18  ldr      lr, [r2]                     
+           00138a1c  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           00138a20  mov      r1, r0                       
+           00138a24  ldr      lr, [r1]                     
+           00138a28  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00138a2c  mov      r1, r0                       
+           00138a30  ldr      lr, [r1]                     
+           00138a34  bl       #0x22ba40                    ; CALL UnityEngine.Transform::get_parent
+           00138a38  mov      r1, r0                       
+           00138a3c  ldr      r2, [fp, #0x5c]              
+           00138a40  mov      r0, r2                       
+           00138a44  ldr      lr, [r2]                     
+           00138a48  bl       #0x22b2d0                    ; CALL UnityEngine.Transform::set_parent
+           00138a4c  mov      r0, r5                       
+           00138a50  ldr      lr, [r5]                     
+           00138a54  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00138a58  str      r0, [fp, #0x58]              
+           00138a5c  vldr     s8, [pc]                     ; float 0.0
+           00138a60  b        #0x138a68                    ; -> L_138a68
+           00138a64  .word    0x00000000                   ; literal 0 / 0
+L_138a68:  00138a68  vcvt.f64.f32 d4, s8                       
+           00138a6c  vldr     s6, [pc]                     ; float 0.0
+           00138a70  b        #0x138a78                    ; -> L_138a78
+           00138a74  .word    0x00000000                   ; literal 0 / 0
+L_138a78:  00138a78  vcvt.f64.f32 d3, s6                       
+           00138a7c  vldr     s4, [pc]                     ; float -0.25
+           00138a80  b        #0x138a88                    ; -> L_138a88
+           00138a84  .word    0xbe800000                   ; literal -1098907648 / -0.25
+L_138a88:  00138a88  vcvt.f64.f32 d2, s4                       
+           00138a8c  mov      r0, #0                       
+           00138a90  str      r0, [fp, #0x24]              
+           00138a94  mov      r0, #0                       
+           00138a98  str      r0, [fp, #0x28]              
+           00138a9c  mov      r0, #0                       
+           00138aa0  str      r0, [fp, #0x2c]              
+           00138aa4  add      r0, fp, #0x24                
+           00138aa8  vcvt.f32.f64 s0, d4                       
+           00138aac  vstr     s0, [sp, #-8]                
+           00138ab0  ldr      r1, [sp, #-8]                
+           00138ab4  vcvt.f32.f64 s0, d3                       
+           00138ab8  vstr     s0, [sp, #-8]                
+           00138abc  ldr      r2, [sp, #-8]                
+           00138ac0  vcvt.f32.f64 s0, d2                       
+           00138ac4  vstr     s0, [sp, #-8]                
+           00138ac8  ldr      r3, [sp, #-8]                
+           00138acc  bl       #0x22b1f0                    ; CALL UnityEngine.Vector3::.ctor
+           00138ad0  ldr      ip, [fp, #0x58]              
+           00138ad4  ldr      r0, [fp, #0x24]              
+           00138ad8  str      r0, [fp, #0x48]              
+           00138adc  ldr      r0, [fp, #0x28]              
+           00138ae0  str      r0, [fp, #0x4c]              
+           00138ae4  ldr      r0, [fp, #0x2c]              
+           00138ae8  str      r0, [fp, #0x50]              
+           00138aec  mov      r0, ip                       
+           00138af0  ldr      r1, [fp, #0x48]              
+           00138af4  ldr      r2, [fp, #0x4c]              
+           00138af8  ldr      r3, [fp, #0x50]              
+           00138afc  ldr      lr, [ip]                     
+           00138b00  bl       #0x22cb50                    ; CALL UnityEngine.Transform::set_localPosition
+L_138b04:  00138b04  ldr      r3, [sl, #0x4c]              ; field+0x4c (this-class: blipMap)
+           00138b08  mov      r0, r3                       
+           00138b0c  mov      r1, r6                       
+           00138b10  mov      r2, r5                       
+           00138b14  ldr      lr, [r3]                     
+           00138b18  bl       #0x22f1f0                    ; CALL System.Collections.Generic.Dictionary`2<UnityEngine.GameObject,UnityEngine.GameObject>::Add
+           00138b1c  ldr      r0, [fp, #8]                 
+           00138b20  add      r0, r0, #1                   
+           00138b24  str      r0, [fp, #8]                 
+L_138b28:  00138b28  ldr      r1, [r4, #0xc]               ; field+0xc 
+           00138b2c  ldr      r0, [fp, #8]                 
+           00138b30  cmp      r0, r1                       
+           00138b34  blt      #0x138860                    ; -> L_138860
+           00138b38  add      sp, fp, #0x68                
+           00138b3c  pop      {r4, r5, r6, r8, sl, fp}     
+           00138b40  ldr      r7, [sp, #8]                 
+           00138b44  ldm      sp, {sp, pc}                 
+           00138b48  mov      r1, lr                       
+           00138b4c  ldr      r0, [pc]                     
+           00138b50  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00138b54  andeq    r0, r0, #0xf8                
+
+== BlipTrackPublisher::InitValues  token 0x06000743 @0x00138b58 (176 bytes)
+   args: r0=this, 
+           00138b58  mov      ip, sp                       
+           00138b5c  push     {r7, lr}                     
+           00138b60  mov      r7, sp                       
+           00138b64  push     {r6, r8, sl, fp, ip, lr}     
+           00138b68  sub      sp, sp, #0x18                
+           00138b6c  mov      fp, sp                       
+           00138b70  mov      sl, r0                       
+           00138b74  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: transformsDictionary)
+           00138b78  ldr      r1, [pc]                     
+           00138b7c  b        #0x138b84                    ; -> L_138b84
+           00138b80  .word    0x00e6d9f8                   ; literal 15129080 / 
+L_138b84:  00138b84  ldr      r1, [pc, r1]                 ; GOT[1543] LDSTR 'Track'
+           00138b88  mov      r0, r2                       
+           00138b8c  ldr      lr, [r2]                     
+           00138b90  bl       #0x22e2d0                    ; CALL UghPublisher/TransformsDictionary::get_Item
+           00138b94  mov      r1, r0                       
+           00138b98  ldr      lr, [r1]                     
+           00138b9c  bl       #0x22d4d0                    ; CALL UnityEngine.Component::get_renderer
+           00138ba0  mov      r2, r0                       
+           00138ba4  mov      r1, r2                       
+           00138ba8  mov      r0, fp                       
+           00138bac  ldr      lr, [r2]                     
+           00138bb0  bl       #0x22e580                    ; CALL UnityEngine.Renderer::get_bounds
+           00138bb4  add      r0, sl, #0x54                
+           00138bb8  mov      r1, fp                       
+           00138bbc  mov      r2, #0x18                    
+           00138bc0  bl       #0x22aa20                    ; CALL System.String::memcpy
+           00138bc4  bl       #0x111538                    ; CALL RaceManager::get_lastWaypoint (direct)
+           00138bc8  mov      r6, r0                       
+           00138bcc  mov      r1, #0                       
+           00138bd0  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00138bd4  cmp      r0, #0                       
+           00138bd8  beq      #0x138bf8                    ; -> L_138bf8
+           00138bdc  vldr     s0, [r6, #0x30]              ; field+0x30 (this-class: ughSlideToggleReferences)
+           00138be0  vcvt.f64.f32 d2, s0                       
+           00138be4  vldr     s0, [r6, #0x2c]              ; field+0x2c (this-class: ughButtonsDictionary)
+           00138be8  vcvt.f64.f32 d3, s0                       
+           00138bec  vadd.f64 d2, d2, d3                   
+           00138bf0  vcvt.f32.f64 s0, d2                       
+           00138bf4  vstr     s0, [sl, #0x6c]              ; field+0x6c (this-class: totalTrackDistance)
+L_138bf8:  00138bf8  add      sp, fp, #0x18                
+           00138bfc  pop      {r6, r8, sl, fp}             
+           00138c00  ldr      r7, [sp, #8]                 
+           00138c04  ldm      sp, {sp, pc}                 
+
+== BlipTrackPublisher::UpdateBlips  token 0x06000744 @0x00138c08 (1320 bytes)
+   args: r0=this, 
+           00138c08  mov      ip, sp                       
+           00138c0c  push     {r7, lr}                     
+           00138c10  mov      r7, sp                       
+           00138c14  push     {r5, r6, r8, sl, fp, ip, lr} 
+           00138c18  sub      sp, sp, #0xd4                
+           00138c1c  mov      fp, sp                       
+           00138c20  mov      sl, r0                       
+           00138c24  mov      r0, #0                       
+           00138c28  str      r0, [fp, #0xc]               
+           00138c2c  mov      r0, #0                       
+           00138c30  str      r0, [fp, #0x10]              
+           00138c34  mov      r0, #0                       
+           00138c38  str      r0, [fp, #0x14]              
+           00138c3c  mov      r0, #0                       
+           00138c40  str      r0, [fp, #0x18]              
+           00138c44  mov      r0, #0                       
+           00138c48  str      r0, [fp, #0x1c]              
+           00138c4c  mov      r0, #0                       
+           00138c50  str      r0, [fp, #0x20]              
+           00138c54  mov      r0, #0                       
+           00138c58  str      r0, [fp, #0x24]              
+           00138c5c  mov      r0, #0                       
+           00138c60  str      r0, [fp, #0x30]              
+           00138c64  mov      r0, #0                       
+           00138c68  str      r0, [fp, #0x34]              
+           00138c6c  mov      r0, #0                       
+           00138c70  str      r0, [fp, #0x38]              
+           00138c74  mov      r0, #0                       
+           00138c78  str      r0, [fp, #0x40]              
+           00138c7c  mov      r0, #0                       
+           00138c80  str      r0, [fp, #0x44]              
+           00138c84  mov      r0, #0                       
+           00138c88  str      r0, [fp, #0x48]              
+           00138c8c  mov      r0, #0                       
+           00138c90  str      r0, [fp, #0x4c]              
+           00138c94  mov      r0, #0                       
+           00138c98  str      r0, [fp, #0x50]              
+           00138c9c  mov      r0, #0                       
+           00138ca0  str      r0, [fp, #0x54]              
+           00138ca4  vldr     s0, [sl, #0x6c]              ; field+0x6c (this-class: totalTrackDistance)
+           00138ca8  vcvt.f64.f32 d3, s0                       
+           00138cac  vldr     s4, [pc]                     ; float 0.0
+           00138cb0  b        #0x138cb8                    ; -> L_138cb8
+           00138cb4  .word    0x00000000                   ; literal 0 / 0
+L_138cb8:  00138cb8  vcvt.f64.f32 d2, s4                       
+           00138cbc  vcmp.f64 d2, d3                       
+           00138cc0  vmrs     apsr_nzcv, fpscr             
+           00138cc4  bvs      #0x139120                    ; -> L_139120
+           00138cc8  bge      #0x139120                    ; -> L_139120
+           00138ccc  ldr      r0, [sl, #0x50]              ; field+0x50 (this-class: playerCar)
+           00138cd0  bl       #0x112270                    ; CALL RaceManager::GetCarLastTrackDistance (direct)
+           00138cd4  vmov     s4, r0                       
+           00138cd8  vcvt.f64.f32 d2, s4                       
+           00138cdc  vcvt.f32.f64 s0, d2                       
+           00138ce0  vstr     s0, [fp, #8]                 
+           00138ce4  ldr      r2, [sl, #0x4c]              ; field+0x4c (this-class: blipMap)
+           00138ce8  add      r0, fp, #0x14                
+           00138cec  mov      r1, r2                       
+           00138cf0  ldr      lr, [r2]                     
+           00138cf4  bl       #0x22f200                    ; CALL System.Collections.Generic.Dictionary`2<UnityEngine.GameObject,UnityEngine.GameObject>::GetEnumerator
+           00138cf8  b        #0x13905c                    ; -> L_13905c
+L_138cfc:  00138cfc  add      r0, fp, #0x14                
+           00138d00  ldr      r1, [pc]                     
+           00138d04  b        #0x138d0c                    ; -> L_138d0c
+           00138d08  .word    0x00e6d8d8                   ; literal 15128792 / 
+L_138d0c:  00138d0c  ldr      r1, [pc, r1]                 ; GOT[1569] VTABLE System.Collections.Generic.Dictionary`2/Enumerator<UnityEngine.GameObject,UnityEngine.GameObject>
+           00138d10  add      r0, r0, #0xc                 
+           00138d14  ldr      r1, [r0]                     
+           00138d18  str      r1, [fp, #0xc]               
+           00138d1c  ldr      r0, [r0, #4]                 ; field+0x4 
+           00138d20  str      r0, [fp, #0x10]              
+           00138d24  bl       #0x22bb60                    ; CALL RaceManager::get_Instance
+           00138d28  mov      r2, r0                       
+           00138d2c  ldr      r0, [pc]                     
+           00138d30  b        #0x138d38                    ; -> L_138d38
+           00138d34  .word    0x00e6d8b0                   ; literal 15128752 / 
+L_138d38:  00138d38  ldr      r0, [pc, r0]                 ; GOT[1570] VTABLE System.Collections.Generic.KeyValuePair`2<UnityEngine.GameObject,UnityEngine.GameObject>
+           00138d3c  ldr      r1, [fp, #0xc]               
+           00138d40  mov      r0, r2                       
+           00138d44  ldr      lr, [r2]                     
+           00138d48  bl       #0x113000                    ; CALL RaceManager::GetCarIsActive (direct)
+           00138d4c  cmp      r0, #0                       
+           00138d50  bne      #0x138da4                    ; -> L_138da4
+           00138d54  ldr      r0, [pc]                     
+           00138d58  b        #0x138d60                    ; -> L_138d60
+           00138d5c  .word    0x00e6d888                   ; literal 15128712 / 
+L_138d60:  00138d60  ldr      r0, [pc, r0]                 ; GOT[1570] VTABLE System.Collections.Generic.KeyValuePair`2<UnityEngine.GameObject,UnityEngine.GameObject>
+           00138d64  ldr      r1, [fp, #0x10]              
+           00138d68  mov      r0, r1                       
+           00138d6c  ldr      lr, [r1]                     
+           00138d70  bl       #0x22b9c0                    ; CALL UnityEngine.GameObject::get_activeInHierarchy
+           00138d74  cmp      r0, #0                       
+           00138d78  beq      #0x138da0                    ; -> L_138da0
+           00138d7c  ldr      r0, [pc]                     
+           00138d80  b        #0x138d88                    ; -> L_138d88
+           00138d84  .word    0x00e6d860                   ; literal 15128672 / 
+L_138d88:  00138d88  ldr      r0, [pc, r0]                 ; GOT[1570] VTABLE System.Collections.Generic.KeyValuePair`2<UnityEngine.GameObject,UnityEngine.GameObject>
+           00138d8c  ldr      r2, [fp, #0x10]              
+           00138d90  mov      r0, r2                       
+           00138d94  mov      r1, #0                       
+           00138d98  ldr      lr, [r2]                     
+           00138d9c  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+L_138da0:  00138da0  b        #0x13905c                    ; -> L_13905c
+L_138da4:  00138da4  ldr      r0, [pc]                     
+           00138da8  b        #0x138db0                    ; -> L_138db0
+           00138dac  .word    0x00e6d838                   ; literal 15128632 / 
+L_138db0:  00138db0  ldr      r0, [pc, r0]                 ; GOT[1570] VTABLE System.Collections.Generic.KeyValuePair`2<UnityEngine.GameObject,UnityEngine.GameObject>
+           00138db4  ldr      r0, [fp, #0xc]               
+           00138db8  bl       #0x112270                    ; CALL RaceManager::GetCarLastTrackDistance (direct)
+           00138dbc  vmov     s4, r0                       
+           00138dc0  vcvt.f64.f32 d2, s4                       
+           00138dc4  vcvt.f32.f64 s0, d2                       
+           00138dc8  vstr     s0, [fp, #0x28]              
+           00138dcc  vldr     s0, [fp, #0x28]              
+           00138dd0  vcvt.f64.f32 d2, s0                       
+           00138dd4  vldr     s0, [sl, #0x6c]              ; field+0x6c (this-class: totalTrackDistance)
+           00138dd8  vcvt.f64.f32 d3, s0                       
+           00138ddc  vdiv.f64 d2, d2, d3                   
+           00138de0  vcvt.f32.f64 s0, d2                       
+           00138de4  vstr     s0, [fp, #0x2c]              
+           00138de8  vldr     s0, [fp, #0x2c]              
+           00138dec  vcvt.f64.f32 d2, s0                       
+           00138df0  vstr     d2, [fp, #0xc8]              
+           00138df4  ldr      r0, [pc]                     
+           00138df8  b        #0x138e00                    ; -> L_138e00
+           00138dfc  .word    0x00e6d7e8                   ; literal 15128552 / 
+L_138e00:  00138e00  ldr      r0, [pc, r0]                 ; GOT[1570] VTABLE System.Collections.Generic.KeyValuePair`2<UnityEngine.GameObject,UnityEngine.GameObject>
+           00138e04  ldr      r0, [fp, #0xc]               
+           00138e08  bl       #0x112024                    ; CALL RaceManager::GetCarLap (direct)
+           00138e0c  vldr     d2, [fp, #0xc8]              
+           00138e10  vmov     s0, r0                       
+           00138e14  vcvt.f32.s32 s0, s0                       
+           00138e18  vcvt.f64.f32 d3, s0                       
+           00138e1c  vsub.f64 d2, d2, d3                   
+           00138e20  vcvt.f32.f64 s0, d2                       
+           00138e24  vstr     s0, [fp, #0x2c]              
+           00138e28  ldr      r0, [pc]                     
+           00138e2c  b        #0x138e34                    ; -> L_138e34
+           00138e30  .word    0x00e6d7b4                   ; literal 15128500 / 
+L_138e34:  00138e34  ldr      r0, [pc, r0]                 ; GOT[1570] VTABLE System.Collections.Generic.KeyValuePair`2<UnityEngine.GameObject,UnityEngine.GameObject>
+           00138e38  ldr      r1, [fp, #0x10]              
+           00138e3c  mov      r0, r1                       
+           00138e40  ldr      lr, [r1]                     
+           00138e44  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00138e48  mov      r2, r0                       
+           00138e4c  add      r0, fp, #0x30                
+           00138e50  mov      r1, r2                       
+           00138e54  ldr      lr, [r2]                     
+           00138e58  bl       #0x22cb40                    ; CALL UnityEngine.Transform::get_localPosition
+           00138e5c  add      r1, sl, #0x54                
+           00138e60  add      r0, fp, #0x40                
+           00138e64  bl       #0x22f210                    ; CALL UnityEngine.Bounds::get_min
+           00138e68  vldr     s0, [fp, #0x44]              
+           00138e6c  vcvt.f64.f32 d2, s0                       
+           00138e70  vstr     d2, [fp, #0xc0]              
+           00138e74  add      r1, sl, #0x54                
+           00138e78  add      r0, fp, #0x4c                
+           00138e7c  bl       #0x22ebe0                    ; CALL UnityEngine.Bounds::get_max
+           00138e80  vldr     d4, [fp, #0xc0]              
+           00138e84  vldr     s0, [fp, #0x50]              
+           00138e88  vcvt.f64.f32 d3, s0                       
+           00138e8c  vldr     s0, [fp, #0x2c]              
+           00138e90  vcvt.f64.f32 d2, s0                       
+           00138e94  vcvt.f32.f64 s0, d4                       
+           00138e98  vstr     s0, [sp, #-8]                
+           00138e9c  ldr      r0, [sp, #-8]                
+           00138ea0  vcvt.f32.f64 s0, d3                       
+           00138ea4  vstr     s0, [sp, #-8]                
+           00138ea8  ldr      r1, [sp, #-8]                
+           00138eac  vcvt.f32.f64 s0, d2                       
+           00138eb0  vstr     s0, [sp, #-8]                
+           00138eb4  ldr      r2, [sp, #-8]                
+           00138eb8  bl       #0x22f100                    ; CALL UnityEngine.Mathf::Lerp
+           00138ebc  vmov     s4, r0                       
+           00138ec0  vcvt.f64.f32 d2, s4                       
+           00138ec4  vldr     s6, [pc]                     ; float 0.5
+           00138ec8  b        #0x138ed0                    ; -> L_138ed0
+           00138ecc  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_138ed0:  00138ed0  vcvt.f64.f32 d3, s6                       
+           00138ed4  vadd.f64 d2, d2, d3                   
+           00138ed8  vcvt.f32.f64 s0, d2                       
+           00138edc  vstr     s0, [fp, #0x34]              
+           00138ee0  ldr      r0, [pc]                     
+           00138ee4  b        #0x138eec                    ; -> L_138eec
+           00138ee8  .word    0x00e6d6fc                   ; literal 15128316 / 
+L_138eec:  00138eec  ldr      r0, [pc, r0]                 ; GOT[1570] VTABLE System.Collections.Generic.KeyValuePair`2<UnityEngine.GameObject,UnityEngine.GameObject>
+           00138ef0  ldr      r0, [fp, #0xc]               
+           00138ef4  ldr      r1, [sl, #0x50]              ; field+0x50 (this-class: playerCar)
+           00138ef8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00138efc  cmp      r0, #0                       
+           00138f00  beq      #0x139008                    ; -> L_139008
+           00138f04  ldr      r0, [pc]                     
+           00138f08  b        #0x138f10                    ; -> L_138f10
+           00138f0c  .word    0x00e6d6d8                   ; literal 15128280 / 
+L_138f10:  00138f10  ldr      r0, [pc, r0]                 ; GOT[1570] VTABLE System.Collections.Generic.KeyValuePair`2<UnityEngine.GameObject,UnityEngine.GameObject>
+           00138f14  ldr      r1, [fp, #0x10]              
+           00138f18  mov      r0, r1                       
+           00138f1c  ldr      lr, [r1]                     
+           00138f20  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00138f24  mov      r2, r0                       
+           00138f28  ldr      r1, [pc]                     
+           00138f2c  b        #0x138f34                    ; -> L_138f34
+           00138f30  .word    0x00e6d6b8                   ; literal 15128248 / 
+L_138f34:  00138f34  ldr      r1, [pc, r1]                 ; GOT[1571] LDSTR 'AI Behind Blip'
+           00138f38  mov      r0, r2                       
+           00138f3c  ldr      lr, [r2]                     
+           00138f40  bl       #0x22b290                    ; CALL UnityEngine.Transform::FindChild
+           00138f44  mov      r6, r0                       
+           00138f48  ldr      r0, [pc]                     
+           00138f4c  b        #0x138f54                    ; -> L_138f54
+           00138f50  .word    0x00e6d694                   ; literal 15128212 / 
+L_138f54:  00138f54  ldr      r0, [pc, r0]                 ; GOT[1570] VTABLE System.Collections.Generic.KeyValuePair`2<UnityEngine.GameObject,UnityEngine.GameObject>
+           00138f58  ldr      r1, [fp, #0x10]              
+           00138f5c  mov      r0, r1                       
+           00138f60  ldr      lr, [r1]                     
+           00138f64  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00138f68  mov      r2, r0                       
+           00138f6c  ldr      r1, [pc]                     
+           00138f70  b        #0x138f78                    ; -> L_138f78
+           00138f74  .word    0x00e6d678                   ; literal 15128184 / 
+L_138f78:  00138f78  ldr      r1, [pc, r1]                 ; GOT[1572] LDSTR 'AI Ahead Blip'
+           00138f7c  mov      r0, r2                       
+           00138f80  ldr      lr, [r2]                     
+           00138f84  bl       #0x22b290                    ; CALL UnityEngine.Transform::FindChild
+           00138f88  mov      r5, r0                       
+           00138f8c  vldr     s0, [fp, #0x28]              
+           00138f90  vcvt.f64.f32 d2, s0                       
+           00138f94  vldr     s0, [fp, #8]                 
+           00138f98  vcvt.f64.f32 d3, s0                       
+           00138f9c  vcmp.f64 d2, d3                       
+           00138fa0  vmrs     apsr_nzcv, fpscr             
+           00138fa4  mov      r0, #0                       
+           00138fa8  movmi    r0, #1                       
+           00138fac  movvs    r0, #1                       
+           00138fb0  cmp      r0, #0                       
+           00138fb4  movne    r0, #0                       
+           00138fb8  moveq    r0, #1                       
+           00138fbc  strb     r0, [fp, #0x3c]              
+           00138fc0  mov      r0, r6                       
+           00138fc4  ldr      lr, [r6]                     
+           00138fc8  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00138fcc  mov      r2, r0                       
+           00138fd0  ldrb     r0, [fp, #0x3c]              
+           00138fd4  cmp      r0, #0                       
+           00138fd8  movne    r1, #0                       
+           00138fdc  moveq    r1, #1                       
+           00138fe0  mov      r0, r2                       
+           00138fe4  ldr      lr, [r2]                     
+           00138fe8  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+           00138fec  mov      r0, r5                       
+           00138ff0  ldr      lr, [r5]                     
+           00138ff4  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           00138ff8  mov      r2, r0                       
+           00138ffc  ldrb     r1, [fp, #0x3c]              
+           00139000  ldr      lr, [r2]                     
+           00139004  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+L_139008:  00139008  ldr      r0, [pc]                     
+           0013900c  b        #0x139014                    ; -> L_139014
+           00139010  .word    0x00e6d5d4                   ; literal 15128020 / 
+L_139014:  00139014  ldr      r0, [pc, r0]                 ; GOT[1570] VTABLE System.Collections.Generic.KeyValuePair`2<UnityEngine.GameObject,UnityEngine.GameObject>
+           00139018  ldr      r1, [fp, #0x10]              
+           0013901c  mov      r0, r1                       
+           00139020  ldr      lr, [r1]                     
+           00139024  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00139028  mov      ip, r0                       
+           0013902c  ldr      r0, [fp, #0x30]              
+           00139030  str      r0, [fp, #0xa0]              
+           00139034  ldr      r0, [fp, #0x34]              
+           00139038  str      r0, [fp, #0xa4]              
+           0013903c  ldr      r0, [fp, #0x38]              
+           00139040  str      r0, [fp, #0xa8]              
+           00139044  mov      r0, ip                       
+           00139048  ldr      r1, [fp, #0xa0]              
+           0013904c  ldr      r2, [fp, #0xa4]              
+           00139050  ldr      r3, [fp, #0xa8]              
+           00139054  ldr      lr, [ip]                     
+           00139058  bl       #0x22cb50                    ; CALL UnityEngine.Transform::set_localPosition
+L_13905c:  0013905c  add      r0, fp, #0x14                
+           00139060  ldr      r8, [pc]                     
+           00139064  b        #0x13906c                    ; -> L_13906c
+           00139068  .word    0x00e6d578                   ; literal 15127928 / 
+L_13906c:  0013906c  ldr      r8, [pc, r8]                 ; GOT[1569] VTABLE System.Collections.Generic.Dictionary`2/Enumerator<UnityEngine.GameObject,UnityEngine.GameObject>
+           00139070  bl       #0x22f220                    ; CALL System.Collections.Generic.Dictionary`2/Enumerator<UnityEngine.GameObject,UnityEngine.GameObject>::MoveNext
+           00139074  cmp      r0, #0                       
+           00139078  bne      #0x138cfc                    ; -> L_138cfc
+           0013907c  bl       #0x139084                    ; CALL 0x139084
+           00139080  b        #0x139120                    ; -> L_139120
+           00139084  str      lr, [fp, #0x9c]              
+           00139088  ldr      r0, [fp, #0x14]              
+           0013908c  str      r0, [fp, #0xac]              
+           00139090  ldr      r0, [fp, #0x18]              
+           00139094  str      r0, [fp, #0xb0]              
+           00139098  ldr      r0, [fp, #0x1c]              
+           0013909c  str      r0, [fp, #0xb4]              
+           001390a0  ldr      r0, [fp, #0x20]              
+           001390a4  str      r0, [fp, #0xb8]              
+           001390a8  ldr      r0, [fp, #0x24]              
+           001390ac  str      r0, [fp, #0xbc]              
+           001390b0  ldr      r0, [pc]                     
+           001390b4  b        #0x1390bc                    ; -> L_1390bc
+           001390b8  .word    0x00e6d528                   ; literal 15127848 / 
+L_1390bc:  001390bc  ldr      r0, [pc, r0]                 ; GOT[1569] VTABLE System.Collections.Generic.Dictionary`2/Enumerator<UnityEngine.GameObject,UnityEngine.GameObject>
+           001390c0  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           001390c4  mov      r1, r0                       
+           001390c8  add      r0, r1, #8                   
+           001390cc  ldr      r2, [fp, #0xac]              
+           001390d0  str      r2, [r0]                     
+           001390d4  ldr      r2, [fp, #0xb0]              
+           001390d8  str      r2, [r0, #4]                 ; field+0x4 
+           001390dc  ldr      r2, [fp, #0xb4]              
+           001390e0  str      r2, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001390e4  ldr      r2, [fp, #0xb8]              
+           001390e8  str      r2, [r0, #0xc]               ; field+0xc 
+           001390ec  ldr      r2, [fp, #0xbc]              
+           001390f0  str      r2, [r0, #0x10]              ; field+0x10 (this-class: transformReferences)
+           001390f4  mov      r0, r1                       
+           001390f8  ldr      r1, [r1]                     
+           001390fc  ldr      r8, [pc]                     
+           00139100  b        #0x139108                    ; -> L_139108
+           00139104  .word    0x00e6bca0                   ; literal 15121568 / 
+L_139108:  00139108  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           0013910c  add      lr, pc, #4                   
+           00139110  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           00139114  andeq    r0, r0, r0                   
+           00139118  ldr      ip, [fp, #0x9c]              
+           0013911c  mov      pc, ip                       
+L_139120:  00139120  add      sp, fp, #0xd4                
+           00139124  pop      {r5, r6, r8, sl, fp}         
+           00139128  ldr      r7, [sp, #8]                 
+           0013912c  ldm      sp, {sp, pc}                 

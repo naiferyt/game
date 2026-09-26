@@ -1,0 +1,1223 @@
+####################################################################################################
+# TYPE Screenx  (instance size 0x8)
+#   static int baseWidth
+#   static int baseHeight
+#   vtable slots: 
+####################################################################################################
+== Screenx::.ctor  token 0x06000197 @0x0002181c (44 bytes)
+   args: r0=this, 
+           0002181c  mov      ip, sp                       
+           00021820  push     {r7, lr}                     
+           00021824  mov      r7, sp                       
+           00021828  push     {r8, fp, ip, lr}             
+           0002182c  sub      sp, sp, #8                   
+           00021830  mov      fp, sp                       
+           00021834  str      r0, [fp]                     
+           00021838  add      sp, fp, #8                   
+           0002183c  pop      {r8, fp}                     
+           00021840  ldr      r7, [sp, #8]                 
+           00021844  ldm      sp, {sp, pc}                 
+
+== Screenx::.cctor  token 0x06000198 @0x00021848 (84 bytes) static
+   args: 
+           00021848  mov      ip, sp                       
+           0002184c  push     {r7, lr}                     
+           00021850  mov      r7, sp                       
+           00021854  push     {r8, fp, ip, lr}             
+           00021858  mov      fp, sp                       
+           0002185c  ldr      r0, [pc]                     
+           00021860  b        #0x21868                     ; -> L_21868
+           00021864  .word    0x00f7b098                   ; literal 16232600 / 
+L_21868:   00021868  ldr      r0, [pc, r0]                 ; GOT[184] SFLDA Screenx::baseWidth
+           0002186c  mov      r1, #192, #30                
+           00021870  str      r1, [r0]                     
+           00021874  ldr      r0, [pc]                     
+           00021878  b        #0x21880                     ; -> L_21880
+           0002187c  .word    0x00f7b088                   ; literal 16232584 / 
+L_21880:   00021880  ldr      r0, [pc, r0]                 ; GOT[186] SFLDA Screenx::baseHeight
+           00021884  mov      r1, #64, #28                 
+           00021888  str      r1, [r0]                     
+           0002188c  add      sp, fp, #0                   
+           00021890  pop      {r8, fp}                     
+           00021894  ldr      r7, [sp, #8]                 
+           00021898  ldm      sp, {sp, pc}                 
+
+== Screenx::get_baseAspectRatio  token 0x06000199 @0x0002189c (112 bytes) static
+   args: 
+           0002189c  mov      ip, sp                       
+           000218a0  push     {r7, lr}                     
+           000218a4  mov      r7, sp                       
+           000218a8  push     {r8, fp, ip, lr}             
+           000218ac  mov      fp, sp                       
+           000218b0  ldr      r0, [pc]                     
+           000218b4  b        #0x218bc                     ; -> L_218bc
+           000218b8  .word    0x00f7b044                   ; literal 16232516 / 
+L_218bc:   000218bc  ldr      r0, [pc, r0]                 ; GOT[184] SFLDA Screenx::baseWidth
+           000218c0  ldr      r0, [r0]                     
+           000218c4  vmov     s0, r0                       
+           000218c8  vcvt.f32.s32 s0, s0                       
+           000218cc  vcvt.f64.f32 d2, s0                       
+           000218d0  ldr      r0, [pc]                     
+           000218d4  b        #0x218dc                     ; -> L_218dc
+           000218d8  .word    0x00f7b02c                   ; literal 16232492 / 
+L_218dc:   000218dc  ldr      r0, [pc, r0]                 ; GOT[186] SFLDA Screenx::baseHeight
+           000218e0  ldr      r0, [r0]                     
+           000218e4  vmov     s0, r0                       
+           000218e8  vcvt.f32.s32 s0, s0                       
+           000218ec  vcvt.f64.f32 d3, s0                       
+           000218f0  vdiv.f64 d2, d2, d3                   
+           000218f4  vcvt.f32.f64 s0, d2                       
+           000218f8  vmov     r0, s0                       
+           000218fc  add      sp, fp, #0                   
+           00021900  pop      {r8, fp}                     
+           00021904  ldr      r7, [sp, #8]                 
+           00021908  ldm      sp, {sp, pc}                 
+
+== Screenx::get_aspectRatio  token 0x0600019a @0x0002190c (92 bytes) static
+   args: 
+           0002190c  mov      ip, sp                       
+           00021910  push     {r7, lr}                     
+           00021914  mov      r7, sp                       
+           00021918  push     {r8, fp, ip, lr}             
+           0002191c  sub      sp, sp, #8                   
+           00021920  mov      fp, sp                       
+           00021924  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00021928  vmov     s0, r0                       
+           0002192c  vcvt.f32.s32 s0, s0                       
+           00021930  vcvt.f64.f32 d2, s0                       
+           00021934  vstr     d2, [fp]                     
+           00021938  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           0002193c  vldr     d2, [fp]                     
+           00021940  vmov     s0, r0                       
+           00021944  vcvt.f32.s32 s0, s0                       
+           00021948  vcvt.f64.f32 d3, s0                       
+           0002194c  vdiv.f64 d2, d2, d3                   
+           00021950  vcvt.f32.f64 s0, d2                       
+           00021954  vmov     r0, s0                       
+           00021958  add      sp, fp, #8                   
+           0002195c  pop      {r8, fp}                     
+           00021960  ldr      r7, [sp, #8]                 
+           00021964  ldm      sp, {sp, pc}                 
+
+== Screenx::get_scaleWithCutoff  token 0x0600019b @0x00021968 (312 bytes) static
+   args: 
+           00021968  mov      ip, sp                       
+           0002196c  push     {r7, lr}                     
+           00021970  mov      r7, sp                       
+           00021974  push     {r8, fp, ip, lr}             
+           00021978  sub      sp, sp, #0x10                
+           0002197c  mov      fp, sp                       
+           00021980  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00021984  vmov     s0, r0                       
+           00021988  vcvt.f32.s32 s0, s0                       
+           0002198c  vcvt.f64.f32 d2, s0                       
+           00021990  vstr     d2, [fp, #8]                 
+           00021994  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00021998  vldr     d2, [fp, #8]                 
+           0002199c  vmov     s0, r0                       
+           000219a0  vcvt.f32.s32 s0, s0                       
+           000219a4  vcvt.f64.f32 d4, s0                       
+           000219a8  vmov.f64 d3, d2                       
+           000219ac  vdiv.f64 d3, d3, d4                   
+           000219b0  ldr      r0, [pc]                     
+           000219b4  b        #0x219bc                     ; -> L_219bc
+           000219b8  .word    0x00f7af44                   ; literal 16232260 / 
+L_219bc:   000219bc  ldr      r0, [pc, r0]                 ; GOT[184] SFLDA Screenx::baseWidth
+           000219c0  ldr      r0, [r0]                     
+           000219c4  vmov     s0, r0                       
+           000219c8  vcvt.f32.s32 s0, s0                       
+           000219cc  vcvt.f64.f32 d2, s0                       
+           000219d0  ldr      r0, [pc]                     
+           000219d4  b        #0x219dc                     ; -> L_219dc
+           000219d8  .word    0x00f7af2c                   ; literal 16232236 / 
+L_219dc:   000219dc  ldr      r0, [pc, r0]                 ; GOT[186] SFLDA Screenx::baseHeight
+           000219e0  ldr      r0, [r0]                     
+           000219e4  vmov     s0, r0                       
+           000219e8  vcvt.f32.s32 s0, s0                       
+           000219ec  vcvt.f64.f32 d4, s0                       
+           000219f0  vdiv.f64 d2, d2, d4                   
+           000219f4  vcvt.f32.f64 s0, d2                       
+           000219f8  vstr     s0, [fp]                     
+           000219fc  vldr     s0, [fp]                     
+           00021a00  vcvt.f64.f32 d2, s0                       
+           00021a04  vcmp.f64 d2, d3                       
+           00021a08  vmrs     apsr_nzcv, fpscr             
+           00021a0c  bvs      #0x21a54                     ; -> L_21a54
+           00021a10  bge      #0x21a54                     ; -> L_21a54
+           00021a14  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00021a18  vmov     s0, r0                       
+           00021a1c  vcvt.f32.s32 s0, s0                       
+           00021a20  vcvt.f64.f32 d2, s0                       
+           00021a24  ldr      r0, [pc]                     
+           00021a28  b        #0x21a30                     ; -> L_21a30
+           00021a2c  .word    0x00f7aed0                   ; literal 16232144 / 
+L_21a30:   00021a30  ldr      r0, [pc, r0]                 ; GOT[184] SFLDA Screenx::baseWidth
+           00021a34  ldr      r0, [r0]                     
+           00021a38  vmov     s0, r0                       
+           00021a3c  vcvt.f32.s32 s0, s0                       
+           00021a40  vcvt.f64.f32 d3, s0                       
+           00021a44  vdiv.f64 d2, d2, d3                   
+           00021a48  vcvt.f32.f64 s0, d2                       
+           00021a4c  vmov     r0, s0                       
+           00021a50  b        #0x21a90                     ; -> L_21a90
+L_21a54:   00021a54  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00021a58  vmov     s0, r0                       
+           00021a5c  vcvt.f32.s32 s0, s0                       
+           00021a60  vcvt.f64.f32 d2, s0                       
+           00021a64  ldr      r0, [pc]                     
+           00021a68  b        #0x21a70                     ; -> L_21a70
+           00021a6c  .word    0x00f7ae98                   ; literal 16232088 / 
+L_21a70:   00021a70  ldr      r0, [pc, r0]                 ; GOT[186] SFLDA Screenx::baseHeight
+           00021a74  ldr      r0, [r0]                     
+           00021a78  vmov     s0, r0                       
+           00021a7c  vcvt.f32.s32 s0, s0                       
+           00021a80  vcvt.f64.f32 d3, s0                       
+           00021a84  vdiv.f64 d2, d2, d3                   
+           00021a88  vcvt.f32.f64 s0, d2                       
+           00021a8c  vmov     r0, s0                       
+L_21a90:   00021a90  add      sp, fp, #0x10                
+           00021a94  pop      {r8, fp}                     
+           00021a98  ldr      r7, [sp, #8]                 
+           00021a9c  ldm      sp, {sp, pc}                 
+
+== Screenx::get_scale  token 0x0600019c @0x00021aa0 (308 bytes) static
+   args: 
+           00021aa0  mov      ip, sp                       
+           00021aa4  push     {r7, lr}                     
+           00021aa8  mov      r7, sp                       
+           00021aac  push     {r8, fp, ip, lr}             
+           00021ab0  sub      sp, sp, #0x10                
+           00021ab4  mov      fp, sp                       
+           00021ab8  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00021abc  vmov     s0, r0                       
+           00021ac0  vcvt.f32.s32 s0, s0                       
+           00021ac4  vcvt.f64.f32 d2, s0                       
+           00021ac8  vstr     d2, [fp, #8]                 
+           00021acc  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00021ad0  vldr     d2, [fp, #8]                 
+           00021ad4  vmov     s0, r0                       
+           00021ad8  vcvt.f32.s32 s0, s0                       
+           00021adc  vcvt.f64.f32 d3, s0                       
+           00021ae0  vdiv.f64 d2, d2, d3                   
+           00021ae4  ldr      r0, [pc]                     
+           00021ae8  b        #0x21af0                     ; -> L_21af0
+           00021aec  .word    0x00f7ae10                   ; literal 16231952 / 
+L_21af0:   00021af0  ldr      r0, [pc, r0]                 ; GOT[184] SFLDA Screenx::baseWidth
+           00021af4  ldr      r0, [r0]                     
+           00021af8  vmov     s0, r0                       
+           00021afc  vcvt.f32.s32 s0, s0                       
+           00021b00  vcvt.f64.f32 d3, s0                       
+           00021b04  ldr      r0, [pc]                     
+           00021b08  b        #0x21b10                     ; -> L_21b10
+           00021b0c  .word    0x00f7adf8                   ; literal 16231928 / 
+L_21b10:   00021b10  ldr      r0, [pc, r0]                 ; GOT[186] SFLDA Screenx::baseHeight
+           00021b14  ldr      r0, [r0]                     
+           00021b18  vmov     s0, r0                       
+           00021b1c  vcvt.f32.s32 s0, s0                       
+           00021b20  vcvt.f64.f32 d4, s0                       
+           00021b24  vdiv.f64 d3, d3, d4                   
+           00021b28  vcvt.f32.f64 s0, d3                       
+           00021b2c  vstr     s0, [fp]                     
+           00021b30  vldr     s0, [fp]                     
+           00021b34  vcvt.f64.f32 d3, s0                       
+           00021b38  vcmp.f64 d2, d3                       
+           00021b3c  vmrs     apsr_nzcv, fpscr             
+           00021b40  bvs      #0x21b88                     ; -> L_21b88
+           00021b44  bge      #0x21b88                     ; -> L_21b88
+           00021b48  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00021b4c  vmov     s0, r0                       
+           00021b50  vcvt.f32.s32 s0, s0                       
+           00021b54  vcvt.f64.f32 d2, s0                       
+           00021b58  ldr      r0, [pc]                     
+           00021b5c  b        #0x21b64                     ; -> L_21b64
+           00021b60  .word    0x00f7ad9c                   ; literal 16231836 / 
+L_21b64:   00021b64  ldr      r0, [pc, r0]                 ; GOT[184] SFLDA Screenx::baseWidth
+           00021b68  ldr      r0, [r0]                     
+           00021b6c  vmov     s0, r0                       
+           00021b70  vcvt.f32.s32 s0, s0                       
+           00021b74  vcvt.f64.f32 d3, s0                       
+           00021b78  vdiv.f64 d2, d2, d3                   
+           00021b7c  vcvt.f32.f64 s0, d2                       
+           00021b80  vmov     r0, s0                       
+           00021b84  b        #0x21bc4                     ; -> L_21bc4
+L_21b88:   00021b88  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00021b8c  vmov     s0, r0                       
+           00021b90  vcvt.f32.s32 s0, s0                       
+           00021b94  vcvt.f64.f32 d2, s0                       
+           00021b98  ldr      r0, [pc]                     
+           00021b9c  b        #0x21ba4                     ; -> L_21ba4
+           00021ba0  .word    0x00f7ad64                   ; literal 16231780 / 
+L_21ba4:   00021ba4  ldr      r0, [pc, r0]                 ; GOT[186] SFLDA Screenx::baseHeight
+           00021ba8  ldr      r0, [r0]                     
+           00021bac  vmov     s0, r0                       
+           00021bb0  vcvt.f32.s32 s0, s0                       
+           00021bb4  vcvt.f64.f32 d3, s0                       
+           00021bb8  vdiv.f64 d2, d2, d3                   
+           00021bbc  vcvt.f32.f64 s0, d2                       
+           00021bc0  vmov     r0, s0                       
+L_21bc4:   00021bc4  add      sp, fp, #0x10                
+           00021bc8  pop      {r8, fp}                     
+           00021bcc  ldr      r7, [sp, #8]                 
+           00021bd0  ldm      sp, {sp, pc}                 
+
+== Screenx::get_center  token 0x0600019d @0x00021bd4 (248 bytes) static
+   args: 
+           00021bd4  mov      ip, sp                       
+           00021bd8  push     {r7, lr}                     
+           00021bdc  mov      r7, sp                       
+           00021be0  push     {r8, fp, ip, lr}             
+           00021be4  sub      sp, sp, #0x30                
+           00021be8  mov      fp, sp                       
+           00021bec  str      r0, [fp]                     
+           00021bf0  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00021bf4  vmov     s0, r0                       
+           00021bf8  vcvt.f32.s32 s0, s0                       
+           00021bfc  vcvt.f64.f32 d2, s0                       
+           00021c00  vldr     s6, [pc]                     ; float 0.5
+           00021c04  b        #0x21c0c                     ; -> L_21c0c
+           00021c08  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_21c0c:   00021c0c  vcvt.f64.f32 d3, s6                       
+           00021c10  vmul.f64 d2, d2, d3                   
+           00021c14  vstr     d2, [fp, #0x28]              
+           00021c18  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00021c1c  vldr     d3, [fp, #0x28]              
+           00021c20  vmov     s0, r0                       
+           00021c24  vcvt.f32.s32 s0, s0                       
+           00021c28  vcvt.f64.f32 d2, s0                       
+           00021c2c  vldr     s8, [pc]                     ; float 0.5
+           00021c30  b        #0x21c38                     ; -> L_21c38
+           00021c34  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_21c38:   00021c38  vcvt.f64.f32 d4, s8                       
+           00021c3c  vmul.f64 d2, d2, d4                   
+           00021c40  mov      r0, #0                       
+           00021c44  str      r0, [fp, #4]                 
+           00021c48  mov      r0, #0                       
+           00021c4c  str      r0, [fp, #8]                 
+           00021c50  vcvt.f32.f64 s0, d3                       
+           00021c54  vstr     s0, [fp, #0xc]               
+           00021c58  vcvt.f32.f64 s0, d2                       
+           00021c5c  vstr     s0, [fp, #0x10]              
+           00021c60  vldr     s0, [fp, #0xc]               
+           00021c64  vcvt.f64.f32 d2, s0                       
+           00021c68  vcvt.f32.f64 s0, d2                       
+           00021c6c  vstr     s0, [fp, #4]                 
+           00021c70  vldr     s0, [fp, #0x10]              
+           00021c74  vcvt.f64.f32 d2, s0                       
+           00021c78  vcvt.f32.f64 s0, d2                       
+           00021c7c  vstr     s0, [fp, #8]                 
+           00021c80  ldr      r0, [fp, #4]                 
+           00021c84  str      r0, [fp, #0x14]              
+           00021c88  ldr      r0, [fp, #8]                 
+           00021c8c  str      r0, [fp, #0x18]              
+           00021c90  add      r0, fp, #0x1c                
+           00021c94  ldr      r1, [fp, #0x14]              
+           00021c98  ldr      r2, [fp, #0x18]              
+           00021c9c  bl       #0xba990                     ; CALL UnityEngine.Vector2::op_Implicit
+           00021ca0  ldr      r0, [fp]                     
+           00021ca4  ldr      r1, [fp, #0x1c]              
+           00021ca8  str      r1, [r0]                     
+           00021cac  ldr      r1, [fp, #0x20]              
+           00021cb0  str      r1, [r0, #4]                 ; field+0x4 
+           00021cb4  ldr      r1, [fp, #0x24]              
+           00021cb8  str      r1, [r0, #8]                 ; field+0x8 
+           00021cbc  add      sp, fp, #0x30                
+           00021cc0  pop      {r8, fp}                     
+           00021cc4  ldr      r7, [sp, #8]                 
+           00021cc8  ldm      sp, {sp, pc}                 
+
+== Screenx::get_bottomLeft  token 0x0600019e @0x00021ccc (184 bytes) static
+   args: 
+           00021ccc  mov      ip, sp                       
+           00021cd0  push     {r7, lr}                     
+           00021cd4  mov      r7, sp                       
+           00021cd8  push     {r8, fp, ip, lr}             
+           00021cdc  sub      sp, sp, #0x28                
+           00021ce0  mov      fp, sp                       
+           00021ce4  str      r0, [fp]                     
+           00021ce8  vldr     s4, [pc]                     ; float 0.0
+           00021cec  b        #0x21cf4                     ; -> L_21cf4
+           00021cf0  .word    0x00000000                   ; literal 0 / 0
+L_21cf4:   00021cf4  vcvt.f64.f32 d2, s4                       
+           00021cf8  vstr     d2, [fp, #0x20]              
+           00021cfc  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00021d00  vldr     d3, [fp, #0x20]              
+           00021d04  vmov     s0, r0                       
+           00021d08  vcvt.f32.s32 s0, s0                       
+           00021d0c  vcvt.f64.f32 d2, s0                       
+           00021d10  mov      r0, #0                       
+           00021d14  str      r0, [fp, #4]                 
+           00021d18  mov      r0, #0                       
+           00021d1c  str      r0, [fp, #8]                 
+           00021d20  vcvt.f32.f64 s0, d3                       
+           00021d24  vstr     s0, [fp, #0xc]               
+           00021d28  vcvt.f32.f64 s0, d2                       
+           00021d2c  vstr     s0, [fp, #0x10]              
+           00021d30  vldr     s0, [fp, #0xc]               
+           00021d34  vcvt.f64.f32 d2, s0                       
+           00021d38  vcvt.f32.f64 s0, d2                       
+           00021d3c  vstr     s0, [fp, #4]                 
+           00021d40  vldr     s0, [fp, #0x10]              
+           00021d44  vcvt.f64.f32 d2, s0                       
+           00021d48  vcvt.f32.f64 s0, d2                       
+           00021d4c  vstr     s0, [fp, #8]                 
+           00021d50  ldr      r0, [fp, #4]                 
+           00021d54  str      r0, [fp, #0x14]              
+           00021d58  ldr      r0, [fp, #8]                 
+           00021d5c  str      r0, [fp, #0x18]              
+           00021d60  ldr      r0, [fp]                     
+           00021d64  ldr      r1, [fp, #0x14]              
+           00021d68  str      r1, [r0]                     
+           00021d6c  ldr      r1, [fp, #0x18]              
+           00021d70  str      r1, [r0, #4]                 ; field+0x4 
+           00021d74  add      sp, fp, #0x28                
+           00021d78  pop      {r8, fp}                     
+           00021d7c  ldr      r7, [sp, #8]                 
+           00021d80  ldm      sp, {sp, pc}                 
+
+== Screenx::get_bottomCenter  token 0x0600019f @0x00021d84 (204 bytes) static
+   args: 
+           00021d84  mov      ip, sp                       
+           00021d88  push     {r7, lr}                     
+           00021d8c  mov      r7, sp                       
+           00021d90  push     {r8, fp, ip, lr}             
+           00021d94  sub      sp, sp, #0x28                
+           00021d98  mov      fp, sp                       
+           00021d9c  str      r0, [fp]                     
+           00021da0  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00021da4  vmov     s0, r0                       
+           00021da8  vcvt.f32.s32 s0, s0                       
+           00021dac  vcvt.f64.f32 d2, s0                       
+           00021db0  vldr     s6, [pc]                     ; float 0.5
+           00021db4  b        #0x21dbc                     ; -> L_21dbc
+           00021db8  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_21dbc:   00021dbc  vcvt.f64.f32 d3, s6                       
+           00021dc0  vmul.f64 d2, d2, d3                   
+           00021dc4  vstr     d2, [fp, #0x20]              
+           00021dc8  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00021dcc  vldr     d3, [fp, #0x20]              
+           00021dd0  vmov     s0, r0                       
+           00021dd4  vcvt.f32.s32 s0, s0                       
+           00021dd8  vcvt.f64.f32 d2, s0                       
+           00021ddc  mov      r0, #0                       
+           00021de0  str      r0, [fp, #4]                 
+           00021de4  mov      r0, #0                       
+           00021de8  str      r0, [fp, #8]                 
+           00021dec  vcvt.f32.f64 s0, d3                       
+           00021df0  vstr     s0, [fp, #0xc]               
+           00021df4  vcvt.f32.f64 s0, d2                       
+           00021df8  vstr     s0, [fp, #0x10]              
+           00021dfc  vldr     s0, [fp, #0xc]               
+           00021e00  vcvt.f64.f32 d2, s0                       
+           00021e04  vcvt.f32.f64 s0, d2                       
+           00021e08  vstr     s0, [fp, #4]                 
+           00021e0c  vldr     s0, [fp, #0x10]              
+           00021e10  vcvt.f64.f32 d2, s0                       
+           00021e14  vcvt.f32.f64 s0, d2                       
+           00021e18  vstr     s0, [fp, #8]                 
+           00021e1c  ldr      r0, [fp, #4]                 
+           00021e20  str      r0, [fp, #0x14]              
+           00021e24  ldr      r0, [fp, #8]                 
+           00021e28  str      r0, [fp, #0x18]              
+           00021e2c  ldr      r0, [fp]                     
+           00021e30  ldr      r1, [fp, #0x14]              
+           00021e34  str      r1, [r0]                     
+           00021e38  ldr      r1, [fp, #0x18]              
+           00021e3c  str      r1, [r0, #4]                 ; field+0x4 
+           00021e40  add      sp, fp, #0x28                
+           00021e44  pop      {r8, fp}                     
+           00021e48  ldr      r7, [sp, #8]                 
+           00021e4c  ldm      sp, {sp, pc}                 
+
+== Screenx::get_bottomRight  token 0x060001a0 @0x00021e50 (184 bytes) static
+   args: 
+           00021e50  mov      ip, sp                       
+           00021e54  push     {r7, lr}                     
+           00021e58  mov      r7, sp                       
+           00021e5c  push     {r8, fp, ip, lr}             
+           00021e60  sub      sp, sp, #0x28                
+           00021e64  mov      fp, sp                       
+           00021e68  str      r0, [fp]                     
+           00021e6c  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00021e70  vmov     s0, r0                       
+           00021e74  vcvt.f32.s32 s0, s0                       
+           00021e78  vcvt.f64.f32 d2, s0                       
+           00021e7c  vstr     d2, [fp, #0x20]              
+           00021e80  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00021e84  vldr     d3, [fp, #0x20]              
+           00021e88  vmov     s0, r0                       
+           00021e8c  vcvt.f32.s32 s0, s0                       
+           00021e90  vcvt.f64.f32 d2, s0                       
+           00021e94  mov      r0, #0                       
+           00021e98  str      r0, [fp, #4]                 
+           00021e9c  mov      r0, #0                       
+           00021ea0  str      r0, [fp, #8]                 
+           00021ea4  vcvt.f32.f64 s0, d3                       
+           00021ea8  vstr     s0, [fp, #0xc]               
+           00021eac  vcvt.f32.f64 s0, d2                       
+           00021eb0  vstr     s0, [fp, #0x10]              
+           00021eb4  vldr     s0, [fp, #0xc]               
+           00021eb8  vcvt.f64.f32 d2, s0                       
+           00021ebc  vcvt.f32.f64 s0, d2                       
+           00021ec0  vstr     s0, [fp, #4]                 
+           00021ec4  vldr     s0, [fp, #0x10]              
+           00021ec8  vcvt.f64.f32 d2, s0                       
+           00021ecc  vcvt.f32.f64 s0, d2                       
+           00021ed0  vstr     s0, [fp, #8]                 
+           00021ed4  ldr      r0, [fp, #4]                 
+           00021ed8  str      r0, [fp, #0x14]              
+           00021edc  ldr      r0, [fp, #8]                 
+           00021ee0  str      r0, [fp, #0x18]              
+           00021ee4  ldr      r0, [fp]                     
+           00021ee8  ldr      r1, [fp, #0x14]              
+           00021eec  str      r1, [r0]                     
+           00021ef0  ldr      r1, [fp, #0x18]              
+           00021ef4  str      r1, [r0, #4]                 ; field+0x4 
+           00021ef8  add      sp, fp, #0x28                
+           00021efc  pop      {r8, fp}                     
+           00021f00  ldr      r7, [sp, #8]                 
+           00021f04  ldm      sp, {sp, pc}                 
+
+== Screenx::get_topCenter  token 0x060001a1 @0x00021f08 (200 bytes) static
+   args: 
+           00021f08  mov      ip, sp                       
+           00021f0c  push     {r7, lr}                     
+           00021f10  mov      r7, sp                       
+           00021f14  push     {r8, fp, ip, lr}             
+           00021f18  sub      sp, sp, #0x20                
+           00021f1c  mov      fp, sp                       
+           00021f20  str      r0, [fp]                     
+           00021f24  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00021f28  vmov     s0, r0                       
+           00021f2c  vcvt.f32.s32 s0, s0                       
+           00021f30  vcvt.f64.f32 d2, s0                       
+           00021f34  vldr     s8, [pc]                     ; float 0.5
+           00021f38  b        #0x21f40                     ; -> L_21f40
+           00021f3c  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_21f40:   00021f40  vcvt.f64.f32 d4, s8                       
+           00021f44  vmov.f64 d3, d2                       
+           00021f48  vmul.f64 d3, d3, d4                   
+           00021f4c  vldr     s4, [pc]                     ; float 0.0
+           00021f50  b        #0x21f58                     ; -> L_21f58
+           00021f54  .word    0x00000000                   ; literal 0 / 0
+L_21f58:   00021f58  vcvt.f64.f32 d2, s4                       
+           00021f5c  mov      r0, #0                       
+           00021f60  str      r0, [fp, #4]                 
+           00021f64  mov      r0, #0                       
+           00021f68  str      r0, [fp, #8]                 
+           00021f6c  vcvt.f32.f64 s0, d3                       
+           00021f70  vstr     s0, [fp, #0xc]               
+           00021f74  vcvt.f32.f64 s0, d2                       
+           00021f78  vstr     s0, [fp, #0x10]              
+           00021f7c  vldr     s0, [fp, #0xc]               
+           00021f80  vcvt.f64.f32 d2, s0                       
+           00021f84  vcvt.f32.f64 s0, d2                       
+           00021f88  vstr     s0, [fp, #4]                 
+           00021f8c  vldr     s0, [fp, #0x10]              
+           00021f90  vcvt.f64.f32 d2, s0                       
+           00021f94  vcvt.f32.f64 s0, d2                       
+           00021f98  vstr     s0, [fp, #8]                 
+           00021f9c  ldr      r0, [fp, #4]                 
+           00021fa0  str      r0, [fp, #0x14]              
+           00021fa4  ldr      r0, [fp, #8]                 
+           00021fa8  str      r0, [fp, #0x18]              
+           00021fac  ldr      r0, [fp]                     
+           00021fb0  ldr      r1, [fp, #0x14]              
+           00021fb4  str      r1, [r0]                     
+           00021fb8  ldr      r1, [fp, #0x18]              
+           00021fbc  str      r1, [r0, #4]                 ; field+0x4 
+           00021fc0  add      sp, fp, #0x20                
+           00021fc4  pop      {r8, fp}                     
+           00021fc8  ldr      r7, [sp, #8]                 
+           00021fcc  ldm      sp, {sp, pc}                 
+
+== Screenx::get_topLeft  token 0x060001a2 @0x00021fd0 (176 bytes) static
+   args: 
+           00021fd0  mov      ip, sp                       
+           00021fd4  push     {r7, lr}                     
+           00021fd8  mov      r7, sp                       
+           00021fdc  push     {r8, fp, ip, lr}             
+           00021fe0  sub      sp, sp, #0x20                
+           00021fe4  mov      fp, sp                       
+           00021fe8  str      r0, [fp]                     
+           00021fec  vldr     s6, [pc]                     ; float 0.0
+           00021ff0  b        #0x21ff8                     ; -> L_21ff8
+           00021ff4  .word    0x00000000                   ; literal 0 / 0
+L_21ff8:   00021ff8  vcvt.f64.f32 d3, s6                       
+           00021ffc  vldr     s4, [pc]                     ; float 0.0
+           00022000  b        #0x22008                     ; -> L_22008
+           00022004  .word    0x00000000                   ; literal 0 / 0
+L_22008:   00022008  vcvt.f64.f32 d2, s4                       
+           0002200c  mov      r0, #0                       
+           00022010  str      r0, [fp, #4]                 
+           00022014  mov      r0, #0                       
+           00022018  str      r0, [fp, #8]                 
+           0002201c  vcvt.f32.f64 s0, d3                       
+           00022020  vstr     s0, [fp, #0xc]               
+           00022024  vcvt.f32.f64 s0, d2                       
+           00022028  vstr     s0, [fp, #0x10]              
+           0002202c  vldr     s0, [fp, #0xc]               
+           00022030  vcvt.f64.f32 d2, s0                       
+           00022034  vcvt.f32.f64 s0, d2                       
+           00022038  vstr     s0, [fp, #4]                 
+           0002203c  vldr     s0, [fp, #0x10]              
+           00022040  vcvt.f64.f32 d2, s0                       
+           00022044  vcvt.f32.f64 s0, d2                       
+           00022048  vstr     s0, [fp, #8]                 
+           0002204c  ldr      r0, [fp, #4]                 
+           00022050  str      r0, [fp, #0x14]              
+           00022054  ldr      r0, [fp, #8]                 
+           00022058  str      r0, [fp, #0x18]              
+           0002205c  ldr      r0, [fp]                     
+           00022060  ldr      r1, [fp, #0x14]              
+           00022064  str      r1, [r0]                     
+           00022068  ldr      r1, [fp, #0x18]              
+           0002206c  str      r1, [r0, #4]                 ; field+0x4 
+           00022070  add      sp, fp, #0x20                
+           00022074  pop      {r8, fp}                     
+           00022078  ldr      r7, [sp, #8]                 
+           0002207c  ldm      sp, {sp, pc}                 
+
+== Screenx::get_topRight  token 0x060001a3 @0x00022080 (176 bytes) static
+   args: 
+           00022080  mov      ip, sp                       
+           00022084  push     {r7, lr}                     
+           00022088  mov      r7, sp                       
+           0002208c  push     {r8, fp, ip, lr}             
+           00022090  sub      sp, sp, #0x20                
+           00022094  mov      fp, sp                       
+           00022098  str      r0, [fp]                     
+           0002209c  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           000220a0  vmov     s0, r0                       
+           000220a4  vcvt.f32.s32 s0, s0                       
+           000220a8  vcvt.f64.f32 d3, s0                       
+           000220ac  vldr     s4, [pc]                     ; float 0.0
+           000220b0  b        #0x220b8                     ; -> L_220b8
+           000220b4  .word    0x00000000                   ; literal 0 / 0
+L_220b8:   000220b8  vcvt.f64.f32 d2, s4                       
+           000220bc  mov      r0, #0                       
+           000220c0  str      r0, [fp, #4]                 
+           000220c4  mov      r0, #0                       
+           000220c8  str      r0, [fp, #8]                 
+           000220cc  vcvt.f32.f64 s0, d3                       
+           000220d0  vstr     s0, [fp, #0xc]               
+           000220d4  vcvt.f32.f64 s0, d2                       
+           000220d8  vstr     s0, [fp, #0x10]              
+           000220dc  vldr     s0, [fp, #0xc]               
+           000220e0  vcvt.f64.f32 d2, s0                       
+           000220e4  vcvt.f32.f64 s0, d2                       
+           000220e8  vstr     s0, [fp, #4]                 
+           000220ec  vldr     s0, [fp, #0x10]              
+           000220f0  vcvt.f64.f32 d2, s0                       
+           000220f4  vcvt.f32.f64 s0, d2                       
+           000220f8  vstr     s0, [fp, #8]                 
+           000220fc  ldr      r0, [fp, #4]                 
+           00022100  str      r0, [fp, #0x14]              
+           00022104  ldr      r0, [fp, #8]                 
+           00022108  str      r0, [fp, #0x18]              
+           0002210c  ldr      r0, [fp]                     
+           00022110  ldr      r1, [fp, #0x14]              
+           00022114  str      r1, [r0]                     
+           00022118  ldr      r1, [fp, #0x18]              
+           0002211c  str      r1, [r0, #4]                 ; field+0x4 
+           00022120  add      sp, fp, #0x20                
+           00022124  pop      {r8, fp}                     
+           00022128  ldr      r7, [sp, #8]                 
+           0002212c  ldm      sp, {sp, pc}                 
+
+== Screenx::get_middleCenter  token 0x060001a4 @0x00022130 (92 bytes) static
+   args: 
+           00022130  mov      ip, sp                       
+           00022134  push     {r7, lr}                     
+           00022138  mov      r7, sp                       
+           0002213c  push     {r8, fp, ip, lr}             
+           00022140  sub      sp, sp, #0x18                
+           00022144  mov      fp, sp                       
+           00022148  str      r0, [fp]                     
+           0002214c  add      r0, fp, #4                   
+           00022150  bl       #0x21bd4                     ; CALL Screenx::get_center (direct)
+           00022154  add      r0, fp, #0x10                
+           00022158  ldr      r1, [fp, #4]                 
+           0002215c  ldr      r2, [fp, #8]                 
+           00022160  ldr      r3, [fp, #0xc]               
+           00022164  bl       #0xbae30                     ; CALL UnityEngine.Vector2::op_Implicit
+           00022168  ldr      r0, [fp]                     
+           0002216c  ldr      r1, [fp, #0x10]              
+           00022170  str      r1, [r0]                     
+           00022174  ldr      r1, [fp, #0x14]              
+           00022178  str      r1, [r0, #4]                 ; field+0x4 
+           0002217c  add      sp, fp, #0x18                
+           00022180  pop      {r8, fp}                     
+           00022184  ldr      r7, [sp, #8]                 
+           00022188  ldm      sp, {sp, pc}                 
+
+== Screenx::get_middleRight  token 0x060001a5 @0x0002218c (204 bytes) static
+   args: 
+           0002218c  mov      ip, sp                       
+           00022190  push     {r7, lr}                     
+           00022194  mov      r7, sp                       
+           00022198  push     {r8, fp, ip, lr}             
+           0002219c  sub      sp, sp, #0x28                
+           000221a0  mov      fp, sp                       
+           000221a4  str      r0, [fp]                     
+           000221a8  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           000221ac  vmov     s0, r0                       
+           000221b0  vcvt.f32.s32 s0, s0                       
+           000221b4  vcvt.f64.f32 d2, s0                       
+           000221b8  vstr     d2, [fp, #0x20]              
+           000221bc  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           000221c0  vldr     d3, [fp, #0x20]              
+           000221c4  vmov     s0, r0                       
+           000221c8  vcvt.f32.s32 s0, s0                       
+           000221cc  vcvt.f64.f32 d2, s0                       
+           000221d0  vldr     s8, [pc]                     ; float 0.5
+           000221d4  b        #0x221dc                     ; -> L_221dc
+           000221d8  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_221dc:   000221dc  vcvt.f64.f32 d4, s8                       
+           000221e0  vmul.f64 d2, d2, d4                   
+           000221e4  mov      r0, #0                       
+           000221e8  str      r0, [fp, #4]                 
+           000221ec  mov      r0, #0                       
+           000221f0  str      r0, [fp, #8]                 
+           000221f4  vcvt.f32.f64 s0, d3                       
+           000221f8  vstr     s0, [fp, #0xc]               
+           000221fc  vcvt.f32.f64 s0, d2                       
+           00022200  vstr     s0, [fp, #0x10]              
+           00022204  vldr     s0, [fp, #0xc]               
+           00022208  vcvt.f64.f32 d2, s0                       
+           0002220c  vcvt.f32.f64 s0, d2                       
+           00022210  vstr     s0, [fp, #4]                 
+           00022214  vldr     s0, [fp, #0x10]              
+           00022218  vcvt.f64.f32 d2, s0                       
+           0002221c  vcvt.f32.f64 s0, d2                       
+           00022220  vstr     s0, [fp, #8]                 
+           00022224  ldr      r0, [fp, #4]                 
+           00022228  str      r0, [fp, #0x14]              
+           0002222c  ldr      r0, [fp, #8]                 
+           00022230  str      r0, [fp, #0x18]              
+           00022234  ldr      r0, [fp]                     
+           00022238  ldr      r1, [fp, #0x14]              
+           0002223c  str      r1, [r0]                     
+           00022240  ldr      r1, [fp, #0x18]              
+           00022244  str      r1, [r0, #4]                 ; field+0x4 
+           00022248  add      sp, fp, #0x28                
+           0002224c  pop      {r8, fp}                     
+           00022250  ldr      r7, [sp, #8]                 
+           00022254  ldm      sp, {sp, pc}                 
+
+== Screenx::get_middleLeft  token 0x060001a6 @0x00022258 (204 bytes) static
+   args: 
+           00022258  mov      ip, sp                       
+           0002225c  push     {r7, lr}                     
+           00022260  mov      r7, sp                       
+           00022264  push     {r8, fp, ip, lr}             
+           00022268  sub      sp, sp, #0x28                
+           0002226c  mov      fp, sp                       
+           00022270  str      r0, [fp]                     
+           00022274  vldr     s4, [pc]                     ; float 0.0
+           00022278  b        #0x22280                     ; -> L_22280
+           0002227c  .word    0x00000000                   ; literal 0 / 0
+L_22280:   00022280  vcvt.f64.f32 d2, s4                       
+           00022284  vstr     d2, [fp, #0x20]              
+           00022288  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           0002228c  vldr     d3, [fp, #0x20]              
+           00022290  vmov     s0, r0                       
+           00022294  vcvt.f32.s32 s0, s0                       
+           00022298  vcvt.f64.f32 d2, s0                       
+           0002229c  vldr     s8, [pc]                     ; float 0.5
+           000222a0  b        #0x222a8                     ; -> L_222a8
+           000222a4  .word    0x3f000000                   ; literal 1056964608 / 0.5
+L_222a8:   000222a8  vcvt.f64.f32 d4, s8                       
+           000222ac  vmul.f64 d2, d2, d4                   
+           000222b0  mov      r0, #0                       
+           000222b4  str      r0, [fp, #4]                 
+           000222b8  mov      r0, #0                       
+           000222bc  str      r0, [fp, #8]                 
+           000222c0  vcvt.f32.f64 s0, d3                       
+           000222c4  vstr     s0, [fp, #0xc]               
+           000222c8  vcvt.f32.f64 s0, d2                       
+           000222cc  vstr     s0, [fp, #0x10]              
+           000222d0  vldr     s0, [fp, #0xc]               
+           000222d4  vcvt.f64.f32 d2, s0                       
+           000222d8  vcvt.f32.f64 s0, d2                       
+           000222dc  vstr     s0, [fp, #4]                 
+           000222e0  vldr     s0, [fp, #0x10]              
+           000222e4  vcvt.f64.f32 d2, s0                       
+           000222e8  vcvt.f32.f64 s0, d2                       
+           000222ec  vstr     s0, [fp, #8]                 
+           000222f0  ldr      r0, [fp, #4]                 
+           000222f4  str      r0, [fp, #0x14]              
+           000222f8  ldr      r0, [fp, #8]                 
+           000222fc  str      r0, [fp, #0x18]              
+           00022300  ldr      r0, [fp]                     
+           00022304  ldr      r1, [fp, #0x14]              
+           00022308  str      r1, [r0]                     
+           0002230c  ldr      r1, [fp, #0x18]              
+           00022310  str      r1, [r0, #4]                 ; field+0x4 
+           00022314  add      sp, fp, #0x28                
+           00022318  pop      {r8, fp}                     
+           0002231c  ldr      r7, [sp, #8]                 
+           00022320  ldm      sp, {sp, pc}                 
+
+== Screenx::ScaleGUI  token 0x060001a7 @0x00022324 (444 bytes) static
+   args: 
+           00022324  mov      ip, sp                       
+           00022328  push     {r7, lr}                     
+           0002232c  mov      r7, sp                       
+           00022330  push     {r8, fp, ip, lr}             
+           00022334  sub      sp, sp, #0xb0                
+           00022338  mov      fp, sp                       
+           0002233c  mov      r0, #0                       
+           00022340  str      r0, [fp, #0x38]              
+           00022344  mov      r0, #0                       
+           00022348  str      r0, [fp, #0x3c]              
+           0002234c  mov      r0, #0                       
+           00022350  str      r0, [fp, #0x40]              
+           00022354  add      r0, fp, #0x38                
+           00022358  str      r0, [fp, #0xa0]              
+           0002235c  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           00022360  vmov     s0, r0                       
+           00022364  vcvt.f32.s32 s0, s0                       
+           00022368  vcvt.f64.f32 d2, s0                       
+           0002236c  ldr      r0, [pc]                     
+           00022370  b        #0x22378                     ; -> L_22378
+           00022374  .word    0x00f7a588                   ; literal 16229768 / 
+L_22378:   00022378  ldr      r0, [pc, r0]                 ; GOT[184] SFLDA Screenx::baseWidth
+           0002237c  ldr      r0, [r0]                     
+           00022380  vmov     s0, r0                       
+           00022384  vcvt.f32.s32 s0, s0                       
+           00022388  vcvt.f64.f32 d3, s0                       
+           0002238c  vdiv.f64 d2, d2, d3                   
+           00022390  vstr     d2, [fp, #0xa8]              
+           00022394  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00022398  mov      r1, r0                       
+           0002239c  ldr      r0, [fp, #0xa0]              
+           000223a0  vldr     d4, [fp, #0xa8]              
+           000223a4  vmov     s0, r1                       
+           000223a8  vcvt.f32.s32 s0, s0                       
+           000223ac  vcvt.f64.f32 d2, s0                       
+           000223b0  ldr      r1, [pc]                     
+           000223b4  b        #0x223bc                     ; -> L_223bc
+           000223b8  .word    0x00f7a54c                   ; literal 16229708 / 
+L_223bc:   000223bc  ldr      r1, [pc, r1]                 ; GOT[186] SFLDA Screenx::baseHeight
+           000223c0  ldr      r1, [r1]                     
+           000223c4  vmov     s0, r1                       
+           000223c8  vcvt.f32.s32 s0, s0                       
+           000223cc  vcvt.f64.f32 d5, s0                       
+           000223d0  vmov.f64 d3, d2                       
+           000223d4  vdiv.f64 d3, d3, d5                   
+           000223d8  vldr     s4, [pc]                     ; float 1.0
+           000223dc  b        #0x223e4                     ; -> L_223e4
+           000223e0  .word    0x3f800000                   ; literal 1065353216 / 1
+L_223e4:   000223e4  vcvt.f64.f32 d2, s4                       
+           000223e8  vcvt.f32.f64 s0, d4                       
+           000223ec  vstr     s0, [sp, #-8]                
+           000223f0  ldr      r1, [sp, #-8]                
+           000223f4  vcvt.f32.f64 s0, d3                       
+           000223f8  vstr     s0, [sp, #-8]                
+           000223fc  ldr      r2, [sp, #-8]                
+           00022400  vcvt.f32.f64 s0, d2                       
+           00022404  vstr     s0, [sp, #-8]                
+           00022408  ldr      r3, [sp, #-8]                
+           0002240c  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           00022410  add      r0, fp, #0x44                
+           00022414  bl       #0xb9f70                     ; CALL UnityEngine.Vector3::get_zero
+           00022418  ldr      r0, [fp, #0x38]              
+           0002241c  str      r0, [fp, #0x50]              
+           00022420  ldr      r0, [fp, #0x3c]              
+           00022424  str      r0, [fp, #0x54]              
+           00022428  ldr      r0, [fp, #0x40]              
+           0002242c  str      r0, [fp, #0x58]              
+           00022430  add      r0, fp, #0x5c                
+           00022434  ldr      r1, [fp, #0x44]              
+           00022438  ldr      r2, [fp, #0x48]              
+           0002243c  ldr      r3, [fp, #0x4c]              
+           00022440  ldr      ip, [fp, #0x50]              
+           00022444  str      ip, [sp]                     
+           00022448  ldr      ip, [fp, #0x54]              
+           0002244c  str      ip, [sp, #4]                 
+           00022450  ldr      ip, [fp, #0x58]              
+           00022454  str      ip, [sp, #8]                 
+           00022458  bl       #0x1b868                     ; CALL Matrix4x4x::ScaleAtOrigin (direct)
+           0002245c  ldr      r0, [fp, #0x5c]              
+           00022460  ldr      r1, [fp, #0x60]              
+           00022464  ldr      r2, [fp, #0x64]              
+           00022468  ldr      r3, [fp, #0x68]              
+           0002246c  ldr      ip, [fp, #0x6c]              
+           00022470  str      ip, [sp]                     
+           00022474  ldr      ip, [fp, #0x70]              
+           00022478  str      ip, [sp, #4]                 
+           0002247c  ldr      ip, [fp, #0x74]              
+           00022480  str      ip, [sp, #8]                 
+           00022484  ldr      ip, [fp, #0x78]              
+           00022488  str      ip, [sp, #0xc]               
+           0002248c  ldr      ip, [fp, #0x7c]              
+           00022490  str      ip, [sp, #0x10]              
+           00022494  ldr      ip, [fp, #0x80]              
+           00022498  str      ip, [sp, #0x14]              
+           0002249c  ldr      ip, [fp, #0x84]              
+           000224a0  str      ip, [sp, #0x18]              
+           000224a4  ldr      ip, [fp, #0x88]              
+           000224a8  str      ip, [sp, #0x1c]              
+           000224ac  ldr      ip, [fp, #0x8c]              
+           000224b0  str      ip, [sp, #0x20]              
+           000224b4  ldr      ip, [fp, #0x90]              
+           000224b8  str      ip, [sp, #0x24]              
+           000224bc  ldr      ip, [fp, #0x94]              
+           000224c0  str      ip, [sp, #0x28]              
+           000224c4  ldr      ip, [fp, #0x98]              
+           000224c8  str      ip, [sp, #0x2c]              
+           000224cc  bl       #0xba040                     ; CALL UnityEngine.GUI::set_matrix
+           000224d0  add      sp, fp, #0xb0                
+           000224d4  pop      {r8, fp}                     
+           000224d8  ldr      r7, [sp, #8]                 
+           000224dc  ldm      sp, {sp, pc}                 
+
+== Screenx::TouchToScreenCords  token 0x060001a8 @0x000224e0 (124 bytes) static
+   args: pos
+           000224e0  mov      ip, sp                       
+           000224e4  push     {r7, lr}                     
+           000224e8  mov      r7, sp                       
+           000224ec  push     {r8, fp, ip, lr}             
+           000224f0  sub      sp, sp, #0x18                
+           000224f4  mov      fp, sp                       
+           000224f8  str      r0, [fp]                     
+           000224fc  str      r1, [fp, #0xc]               
+           00022500  str      r2, [fp, #0x10]              
+           00022504  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           00022508  vmov     s0, r0                       
+           0002250c  vcvt.f32.s32 s0, s0                       
+           00022510  vcvt.f64.f32 d2, s0                       
+           00022514  vldr     s0, [fp, #0x10]              
+           00022518  vcvt.f64.f32 d3, s0                       
+           0002251c  vsub.f64 d2, d2, d3                   
+           00022520  vcvt.f32.f64 s0, d2                       
+           00022524  vstr     s0, [fp, #0x10]              
+           00022528  ldr      r0, [fp, #0xc]               
+           0002252c  str      r0, [fp, #4]                 
+           00022530  ldr      r0, [fp, #0x10]              
+           00022534  str      r0, [fp, #8]                 
+           00022538  ldr      r0, [fp]                     
+           0002253c  ldr      r1, [fp, #4]                 
+           00022540  str      r1, [r0]                     
+           00022544  ldr      r1, [fp, #8]                 
+           00022548  str      r1, [r0, #4]                 ; field+0x4 
+           0002254c  add      sp, fp, #0x18                
+           00022550  pop      {r8, fp}                     
+           00022554  ldr      r7, [sp, #8]                 
+           00022558  ldm      sp, {sp, pc}                 
+
+== Screenx::TouchToiPadScreenCoords  token 0x060001a9 @0x0002255c (412 bytes) static
+   args: pos
+           0002255c  mov      ip, sp                       
+           00022560  push     {r7, lr}                     
+           00022564  mov      r7, sp                       
+           00022568  push     {r8, fp, ip, lr}             
+           0002256c  sub      sp, sp, #0x38                
+           00022570  mov      fp, sp                       
+           00022574  str      r0, [fp]                     
+           00022578  str      r1, [fp, #0x30]              
+           0002257c  str      r2, [fp, #0x34]              
+           00022580  mov      r0, #0                       
+           00022584  str      r0, [fp, #4]                 
+           00022588  mov      r0, #0                       
+           0002258c  str      r0, [fp, #8]                 
+           00022590  mov      r0, #0                       
+           00022594  str      r0, [fp, #0xc]               
+           00022598  mov      r0, #0                       
+           0002259c  str      r0, [fp, #0x10]              
+           000225a0  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           000225a4  vmov     s0, r0                       
+           000225a8  vcvt.f32.s32 s0, s0                       
+           000225ac  vcvt.f64.f32 d2, s0                       
+           000225b0  vldr     s0, [fp, #0x34]              
+           000225b4  vcvt.f64.f32 d3, s0                       
+           000225b8  vsub.f64 d2, d2, d3                   
+           000225bc  vcvt.f32.f64 s0, d2                       
+           000225c0  vstr     s0, [fp, #0x34]              
+           000225c4  bl       #0xbae40                     ; CALL UnityEngine.iPhone::get_generation
+           000225c8  cmp      r0, #7                       
+           000225cc  beq      #0x226c4                     ; -> L_226c4
+           000225d0  vldr     s6, [pc]                     ; float 320.0
+           000225d4  b        #0x225dc                     ; -> L_225dc
+           000225d8  .word    0x43a00000                   ; literal 1134559232 / 320
+L_225dc:   000225dc  vcvt.f64.f32 d3, s6                       
+           000225e0  vldr     s4, [pc]                     ; float 480.0
+           000225e4  b        #0x225ec                     ; -> L_225ec
+           000225e8  .word    0x43f00000                   ; literal 1139802112 / 480
+L_225ec:   000225ec  vcvt.f64.f32 d2, s4                       
+           000225f0  vcvt.f32.f64 s0, d3                       
+           000225f4  vstr     s0, [fp, #0x18]              
+           000225f8  vcvt.f32.f64 s0, d2                       
+           000225fc  vstr     s0, [fp, #0x1c]              
+           00022600  vldr     s0, [fp, #0x18]              
+           00022604  vcvt.f64.f32 d2, s0                       
+           00022608  vcvt.f32.f64 s0, d2                       
+           0002260c  vstr     s0, [fp, #4]                 
+           00022610  vldr     s0, [fp, #0x1c]              
+           00022614  vcvt.f64.f32 d2, s0                       
+           00022618  vcvt.f32.f64 s0, d2                       
+           0002261c  vstr     s0, [fp, #8]                 
+           00022620  vldr     s6, [pc]                     ; float 768.0
+           00022624  b        #0x2262c                     ; -> L_2262c
+           00022628  .word    0x44400000                   ; literal 1145044992 / 768
+L_2262c:   0002262c  vcvt.f64.f32 d3, s6                       
+           00022630  vldr     s4, [pc]                     ; float 1024.0
+           00022634  b        #0x2263c                     ; -> L_2263c
+           00022638  .word    0x44800000                   ; literal 1149239296 / 1024
+L_2263c:   0002263c  vcvt.f64.f32 d2, s4                       
+           00022640  vcvt.f32.f64 s0, d3                       
+           00022644  vstr     s0, [fp, #0x20]              
+           00022648  vcvt.f32.f64 s0, d2                       
+           0002264c  vstr     s0, [fp, #0x24]              
+           00022650  vldr     s0, [fp, #0x20]              
+           00022654  vcvt.f64.f32 d2, s0                       
+           00022658  vcvt.f32.f64 s0, d2                       
+           0002265c  vstr     s0, [fp, #0xc]               
+           00022660  vldr     s0, [fp, #0x24]              
+           00022664  vcvt.f64.f32 d2, s0                       
+           00022668  vcvt.f32.f64 s0, d2                       
+           0002266c  vstr     s0, [fp, #0x10]              
+           00022670  vldr     s0, [fp, #0xc]               
+           00022674  vcvt.f64.f32 d2, s0                       
+           00022678  vldr     s0, [fp, #4]                 
+           0002267c  vcvt.f64.f32 d3, s0                       
+           00022680  vdiv.f64 d2, d2, d3                   
+           00022684  vcvt.f32.f64 s0, d2                       
+           00022688  vstr     s0, [fp, #0x14]              
+           0002268c  vldr     s0, [fp, #0x30]              
+           00022690  vcvt.f64.f32 d2, s0                       
+           00022694  vldr     s0, [fp, #0x14]              
+           00022698  vcvt.f64.f32 d3, s0                       
+           0002269c  vmul.f64 d2, d2, d3                   
+           000226a0  vcvt.f32.f64 s0, d2                       
+           000226a4  vstr     s0, [fp, #0x30]              
+           000226a8  vldr     s0, [fp, #0x34]              
+           000226ac  vcvt.f64.f32 d2, s0                       
+           000226b0  vldr     s0, [fp, #0x14]              
+           000226b4  vcvt.f64.f32 d3, s0                       
+           000226b8  vmul.f64 d2, d2, d3                   
+           000226bc  vcvt.f32.f64 s0, d2                       
+           000226c0  vstr     s0, [fp, #0x34]              
+L_226c4:   000226c4  ldr      r0, [fp, #0x30]              
+           000226c8  str      r0, [fp, #0x28]              
+           000226cc  ldr      r0, [fp, #0x34]              
+           000226d0  str      r0, [fp, #0x2c]              
+           000226d4  ldr      r0, [fp]                     
+           000226d8  ldr      r1, [fp, #0x28]              
+           000226dc  str      r1, [r0]                     
+           000226e0  ldr      r1, [fp, #0x2c]              
+           000226e4  str      r1, [r0, #4]                 ; field+0x4 
+           000226e8  add      sp, fp, #0x38                
+           000226ec  pop      {r8, fp}                     
+           000226f0  ldr      r7, [sp, #8]                 
+           000226f4  ldm      sp, {sp, pc}                 
+
+== Screenx::ScaleGUIToHeight  token 0x060001aa @0x000226f8 (408 bytes) static
+   args: 
+           000226f8  mov      ip, sp                       
+           000226fc  push     {r7, lr}                     
+           00022700  mov      r7, sp                       
+           00022704  push     {r8, fp, ip, lr}             
+           00022708  sub      sp, sp, #0xa0                
+           0002270c  mov      fp, sp                       
+           00022710  mov      r0, #0                       
+           00022714  str      r0, [fp, #0x3c]              
+           00022718  mov      r0, #0                       
+           0002271c  str      r0, [fp, #0x40]              
+           00022720  mov      r0, #0                       
+           00022724  str      r0, [fp, #0x44]              
+           00022728  bl       #0xb9e20                     ; CALL UnityEngine.Screen::get_height
+           0002272c  vmov     s0, r0                       
+           00022730  vcvt.f32.s32 s0, s0                       
+           00022734  vcvt.f64.f32 d2, s0                       
+           00022738  ldr      r0, [pc]                     
+           0002273c  b        #0x22744                     ; -> L_22744
+           00022740  .word    0x00f7a1c4                   ; literal 16228804 / 
+L_22744:   00022744  ldr      r0, [pc, r0]                 ; GOT[186] SFLDA Screenx::baseHeight
+           00022748  ldr      r0, [r0]                     
+           0002274c  vmov     s0, r0                       
+           00022750  vcvt.f32.s32 s0, s0                       
+           00022754  vcvt.f64.f32 d3, s0                       
+           00022758  vdiv.f64 d2, d2, d3                   
+           0002275c  vcvt.f32.f64 s0, d2                       
+           00022760  vstr     s0, [fp, #0x38]              
+           00022764  add      r0, fp, #0x3c                
+           00022768  vldr     s0, [fp, #0x38]              
+           0002276c  vcvt.f64.f32 d4, s0                       
+           00022770  vldr     s0, [fp, #0x38]              
+           00022774  vcvt.f64.f32 d3, s0                       
+           00022778  vldr     s4, [pc]                     ; float 1.0
+           0002277c  b        #0x22784                     ; -> L_22784
+           00022780  .word    0x3f800000                   ; literal 1065353216 / 1
+L_22784:   00022784  vcvt.f64.f32 d2, s4                       
+           00022788  vcvt.f32.f64 s0, d4                       
+           0002278c  vstr     s0, [sp, #-8]                
+           00022790  ldr      r1, [sp, #-8]                
+           00022794  vcvt.f32.f64 s0, d3                       
+           00022798  vstr     s0, [sp, #-8]                
+           0002279c  ldr      r2, [sp, #-8]                
+           000227a0  vcvt.f32.f64 s0, d2                       
+           000227a4  vstr     s0, [sp, #-8]                
+           000227a8  ldr      r3, [sp, #-8]                
+           000227ac  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           000227b0  add      r0, fp, #0x48                
+           000227b4  bl       #0xb9f70                     ; CALL UnityEngine.Vector3::get_zero
+           000227b8  ldr      r0, [fp, #0x3c]              
+           000227bc  str      r0, [fp, #0x54]              
+           000227c0  ldr      r0, [fp, #0x40]              
+           000227c4  str      r0, [fp, #0x58]              
+           000227c8  ldr      r0, [fp, #0x44]              
+           000227cc  str      r0, [fp, #0x5c]              
+           000227d0  add      r0, fp, #0x60                
+           000227d4  ldr      r1, [fp, #0x48]              
+           000227d8  ldr      r2, [fp, #0x4c]              
+           000227dc  ldr      r3, [fp, #0x50]              
+           000227e0  ldr      ip, [fp, #0x54]              
+           000227e4  str      ip, [sp]                     
+           000227e8  ldr      ip, [fp, #0x58]              
+           000227ec  str      ip, [sp, #4]                 
+           000227f0  ldr      ip, [fp, #0x5c]              
+           000227f4  str      ip, [sp, #8]                 
+           000227f8  bl       #0x1b868                     ; CALL Matrix4x4x::ScaleAtOrigin (direct)
+           000227fc  ldr      r0, [fp, #0x60]              
+           00022800  ldr      r1, [fp, #0x64]              
+           00022804  ldr      r2, [fp, #0x68]              
+           00022808  ldr      r3, [fp, #0x6c]              
+           0002280c  ldr      ip, [fp, #0x70]              
+           00022810  str      ip, [sp]                     
+           00022814  ldr      ip, [fp, #0x74]              
+           00022818  str      ip, [sp, #4]                 
+           0002281c  ldr      ip, [fp, #0x78]              
+           00022820  str      ip, [sp, #8]                 
+           00022824  ldr      ip, [fp, #0x7c]              
+           00022828  str      ip, [sp, #0xc]               
+           0002282c  ldr      ip, [fp, #0x80]              
+           00022830  str      ip, [sp, #0x10]              
+           00022834  ldr      ip, [fp, #0x84]              
+           00022838  str      ip, [sp, #0x14]              
+           0002283c  ldr      ip, [fp, #0x88]              
+           00022840  str      ip, [sp, #0x18]              
+           00022844  ldr      ip, [fp, #0x8c]              
+           00022848  str      ip, [sp, #0x1c]              
+           0002284c  ldr      ip, [fp, #0x90]              
+           00022850  str      ip, [sp, #0x20]              
+           00022854  ldr      ip, [fp, #0x94]              
+           00022858  str      ip, [sp, #0x24]              
+           0002285c  ldr      ip, [fp, #0x98]              
+           00022860  str      ip, [sp, #0x28]              
+           00022864  ldr      ip, [fp, #0x9c]              
+           00022868  str      ip, [sp, #0x2c]              
+           0002286c  bl       #0xba040                     ; CALL UnityEngine.GUI::set_matrix
+           00022870  vldr     s0, [fp, #0x38]              
+           00022874  vcvt.f64.f32 d2, s0                       
+           00022878  vcvt.f32.f64 s0, d2                       
+           0002287c  vmov     r0, s0                       
+           00022880  add      sp, fp, #0xa0                
+           00022884  pop      {r8, fp}                     
+           00022888  ldr      r7, [sp, #8]                 
+           0002288c  ldm      sp, {sp, pc}                 
+
+== Screenx::ScaleGUIToWidth  token 0x060001ab @0x00022890 (408 bytes) static
+   args: 
+           00022890  mov      ip, sp                       
+           00022894  push     {r7, lr}                     
+           00022898  mov      r7, sp                       
+           0002289c  push     {r8, fp, ip, lr}             
+           000228a0  sub      sp, sp, #0xa0                
+           000228a4  mov      fp, sp                       
+           000228a8  mov      r0, #0                       
+           000228ac  str      r0, [fp, #0x3c]              
+           000228b0  mov      r0, #0                       
+           000228b4  str      r0, [fp, #0x40]              
+           000228b8  mov      r0, #0                       
+           000228bc  str      r0, [fp, #0x44]              
+           000228c0  bl       #0xb9e10                     ; CALL UnityEngine.Screen::get_width
+           000228c4  vmov     s0, r0                       
+           000228c8  vcvt.f32.s32 s0, s0                       
+           000228cc  vcvt.f64.f32 d2, s0                       
+           000228d0  ldr      r0, [pc]                     
+           000228d4  b        #0x228dc                     ; -> L_228dc
+           000228d8  .word    0x00f7a024                   ; literal 16228388 / 
+L_228dc:   000228dc  ldr      r0, [pc, r0]                 ; GOT[184] SFLDA Screenx::baseWidth
+           000228e0  ldr      r0, [r0]                     
+           000228e4  vmov     s0, r0                       
+           000228e8  vcvt.f32.s32 s0, s0                       
+           000228ec  vcvt.f64.f32 d3, s0                       
+           000228f0  vdiv.f64 d2, d2, d3                   
+           000228f4  vcvt.f32.f64 s0, d2                       
+           000228f8  vstr     s0, [fp, #0x38]              
+           000228fc  add      r0, fp, #0x3c                
+           00022900  vldr     s0, [fp, #0x38]              
+           00022904  vcvt.f64.f32 d4, s0                       
+           00022908  vldr     s0, [fp, #0x38]              
+           0002290c  vcvt.f64.f32 d3, s0                       
+           00022910  vldr     s4, [pc]                     ; float 1.0
+           00022914  b        #0x2291c                     ; -> L_2291c
+           00022918  .word    0x3f800000                   ; literal 1065353216 / 1
+L_2291c:   0002291c  vcvt.f64.f32 d2, s4                       
+           00022920  vcvt.f32.f64 s0, d4                       
+           00022924  vstr     s0, [sp, #-8]                
+           00022928  ldr      r1, [sp, #-8]                
+           0002292c  vcvt.f32.f64 s0, d3                       
+           00022930  vstr     s0, [sp, #-8]                
+           00022934  ldr      r2, [sp, #-8]                
+           00022938  vcvt.f32.f64 s0, d2                       
+           0002293c  vstr     s0, [sp, #-8]                
+           00022940  ldr      r3, [sp, #-8]                
+           00022944  bl       #0xb9fb0                     ; CALL UnityEngine.Vector3::.ctor
+           00022948  add      r0, fp, #0x48                
+           0002294c  bl       #0xb9f70                     ; CALL UnityEngine.Vector3::get_zero
+           00022950  ldr      r0, [fp, #0x3c]              
+           00022954  str      r0, [fp, #0x54]              
+           00022958  ldr      r0, [fp, #0x40]              
+           0002295c  str      r0, [fp, #0x58]              
+           00022960  ldr      r0, [fp, #0x44]              
+           00022964  str      r0, [fp, #0x5c]              
+           00022968  add      r0, fp, #0x60                
+           0002296c  ldr      r1, [fp, #0x48]              
+           00022970  ldr      r2, [fp, #0x4c]              
+           00022974  ldr      r3, [fp, #0x50]              
+           00022978  ldr      ip, [fp, #0x54]              
+           0002297c  str      ip, [sp]                     
+           00022980  ldr      ip, [fp, #0x58]              
+           00022984  str      ip, [sp, #4]                 
+           00022988  ldr      ip, [fp, #0x5c]              
+           0002298c  str      ip, [sp, #8]                 
+           00022990  bl       #0x1b868                     ; CALL Matrix4x4x::ScaleAtOrigin (direct)
+           00022994  ldr      r0, [fp, #0x60]              
+           00022998  ldr      r1, [fp, #0x64]              
+           0002299c  ldr      r2, [fp, #0x68]              
+           000229a0  ldr      r3, [fp, #0x6c]              
+           000229a4  ldr      ip, [fp, #0x70]              
+           000229a8  str      ip, [sp]                     
+           000229ac  ldr      ip, [fp, #0x74]              
+           000229b0  str      ip, [sp, #4]                 
+           000229b4  ldr      ip, [fp, #0x78]              
+           000229b8  str      ip, [sp, #8]                 
+           000229bc  ldr      ip, [fp, #0x7c]              
+           000229c0  str      ip, [sp, #0xc]               
+           000229c4  ldr      ip, [fp, #0x80]              
+           000229c8  str      ip, [sp, #0x10]              
+           000229cc  ldr      ip, [fp, #0x84]              
+           000229d0  str      ip, [sp, #0x14]              
+           000229d4  ldr      ip, [fp, #0x88]              
+           000229d8  str      ip, [sp, #0x18]              
+           000229dc  ldr      ip, [fp, #0x8c]              
+           000229e0  str      ip, [sp, #0x1c]              
+           000229e4  ldr      ip, [fp, #0x90]              
+           000229e8  str      ip, [sp, #0x20]              
+           000229ec  ldr      ip, [fp, #0x94]              
+           000229f0  str      ip, [sp, #0x24]              
+           000229f4  ldr      ip, [fp, #0x98]              
+           000229f8  str      ip, [sp, #0x28]              
+           000229fc  ldr      ip, [fp, #0x9c]              
+           00022a00  str      ip, [sp, #0x2c]              
+           00022a04  bl       #0xba040                     ; CALL UnityEngine.GUI::set_matrix
+           00022a08  vldr     s0, [fp, #0x38]              
+           00022a0c  vcvt.f64.f32 d2, s0                       
+           00022a10  vcvt.f32.f64 s0, d2                       
+           00022a14  vmov     r0, s0                       
+           00022a18  add      sp, fp, #0xa0                
+           00022a1c  pop      {r8, fp}                     
+           00022a20  ldr      r7, [sp, #8]                 
+           00022a24  ldm      sp, {sp, pc}                 

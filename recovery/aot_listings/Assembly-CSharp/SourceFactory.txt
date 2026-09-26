@@ -1,0 +1,424 @@
+####################################################################################################
+# TYPE SourceFactory  (instance size 0x14)
+#   +0x08 available                      System.Collections.Generic.List`1<UnityEngine.AudioSource>
+#   +0x0c used                           System.Collections.Generic.List`1<UnityEngine.AudioSource>
+#   +0x10 capacity                       int
+#   vtable slots: 
+####################################################################################################
+== SourceFactory::.ctor  token 0x0600032a @0x000eef24 (56 bytes)
+   args: r0=this, 
+           000eef24  mov      ip, sp                       
+           000eef28  push     {r7, lr}                     
+           000eef2c  mov      r7, sp                       
+           000eef30  push     {r8, fp, ip, lr}             
+           000eef34  sub      sp, sp, #8                   
+           000eef38  mov      fp, sp                       
+           000eef3c  str      r0, [fp]                     
+           000eef40  ldr      r0, [fp]                     
+           000eef44  mov      r1, #0xa                     
+           000eef48  str      r1, [r0, #0x10]              ; field+0x10 (this-class: capacity)
+           000eef4c  add      sp, fp, #8                   
+           000eef50  pop      {r8, fp}                     
+           000eef54  ldr      r7, [sp, #8]                 
+           000eef58  ldm      sp, {sp, pc}                 
+
+== SourceFactory::GetSource  token 0x0600032b @0x000eef5c (140 bytes)
+   args: r0=this, 
+           000eef5c  mov      ip, sp                       
+           000eef60  push     {r7, lr}                     
+           000eef64  mov      r7, sp                       
+           000eef68  push     {r6, r8, sl, fp, ip, lr}     
+           000eef6c  mov      fp, sp                       
+           000eef70  mov      sl, r0                       
+           000eef74  ldr      r0, [sl, #8]                 ; field+0x8 (this-class: available)
+           000eef78  mov      r1, r0                       
+           000eef7c  ldr      lr, [r1]                     
+           000eef80  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: used)
+           000eef84  cmp      r0, #0                       
+           000eef88  ble      #0xeefd4                     ; -> L_eefd4
+           000eef8c  ldr      r2, [sl, #8]                 ; field+0x8 (this-class: available)
+           000eef90  mov      r0, r2                       
+           000eef94  mov      r1, #0                       
+           000eef98  ldr      lr, [r2]                     
+           000eef9c  bl       #0x22cdf0                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::get_Item
+           000eefa0  mov      r6, r0                       
+           000eefa4  ldr      r2, [sl, #0xc]               ; field+0xc (this-class: used)
+           000eefa8  mov      r0, r2                       
+           000eefac  mov      r1, r6                       
+           000eefb0  ldr      lr, [r2]                     
+           000eefb4  bl       #0x22ce00                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::Add
+           000eefb8  ldr      r2, [sl, #8]                 ; field+0x8 (this-class: available)
+           000eefbc  mov      r0, r2                       
+           000eefc0  mov      r1, #0                       
+           000eefc4  ldr      lr, [r2]                     
+           000eefc8  bl       #0x22ce10                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::RemoveAt
+           000eefcc  mov      r0, r6                       
+           000eefd0  b        #0xeefd8                     ; -> L_eefd8
+L_eefd4:   000eefd4  mov      r0, #0                       
+L_eefd8:   000eefd8  add      sp, fp, #0                   
+           000eefdc  pop      {r6, r8, sl, fp}             
+           000eefe0  ldr      r7, [sp, #8]                 
+           000eefe4  ldm      sp, {sp, pc}                 
+
+== SourceFactory::RecycleSources  token 0x0600032c @0x000eefe8 (188 bytes)
+   args: r0=this, 
+           000eefe8  mov      ip, sp                       
+           000eefec  push     {r7, lr}                     
+           000eeff0  mov      r7, sp                       
+           000eeff4  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000eeff8  sub      sp, sp, #4                   
+           000eeffc  mov      fp, sp                       
+           000ef000  mov      sl, r0                       
+           000ef004  mov      r5, #0                       
+           000ef008  b        #0xef07c                     ; -> L_ef07c
+L_ef00c:   000ef00c  ldr      r2, [sl, #0xc]               ; field+0xc (this-class: used)
+           000ef010  mov      r0, r2                       
+           000ef014  mov      r1, r5                       
+           000ef018  ldr      lr, [r2]                     
+           000ef01c  bl       #0x22cdf0                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::get_Item
+           000ef020  mov      r6, r0                       
+           000ef024  mov      r1, r6                       
+           000ef028  mov      r0, r1                       
+           000ef02c  ldr      lr, [r1]                     
+           000ef030  bl       #0x22cbb0                    ; CALL UnityEngine.AudioSource::get_isPlaying
+           000ef034  cmp      r0, #0                       
+           000ef038  bne      #0xef078                     ; -> L_ef078
+           000ef03c  mov      r0, r6                       
+           000ef040  mov      r1, #0                       
+           000ef044  ldr      lr, [r6]                     
+           000ef048  bl       #0x22bd90                    ; CALL UnityEngine.AudioSource::set_clip
+           000ef04c  ldr      r2, [sl, #8]                 ; field+0x8 (this-class: available)
+           000ef050  mov      r0, r2                       
+           000ef054  mov      r1, r6                       
+           000ef058  ldr      lr, [r2]                     
+           000ef05c  bl       #0x22ce00                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::Add
+           000ef060  ldr      r2, [sl, #0xc]               ; field+0xc (this-class: used)
+           000ef064  mov      r1, r5                       
+           000ef068  sub      r5, r5, #1                   
+           000ef06c  mov      r0, r2                       
+           000ef070  ldr      lr, [r2]                     
+           000ef074  bl       #0x22ce10                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::RemoveAt
+L_ef078:   000ef078  add      r5, r5, #1                   
+L_ef07c:   000ef07c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: used)
+           000ef080  mov      r1, r0                       
+           000ef084  ldr      lr, [r1]                     
+           000ef088  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: used)
+           000ef08c  cmp      r5, r0                       
+           000ef090  blt      #0xef00c                     ; -> L_ef00c
+           000ef094  add      sp, fp, #4                   
+           000ef098  pop      {r5, r6, r8, sl, fp}         
+           000ef09c  ldr      r7, [sp, #8]                 
+           000ef0a0  ldm      sp, {sp, pc}                 
+
+== SourceFactory::GetUsedList  token 0x0600032d @0x000ef0a4 (52 bytes)
+   args: r0=this, 
+           000ef0a4  mov      ip, sp                       
+           000ef0a8  push     {r7, lr}                     
+           000ef0ac  mov      r7, sp                       
+           000ef0b0  push     {r8, fp, ip, lr}             
+           000ef0b4  sub      sp, sp, #8                   
+           000ef0b8  mov      fp, sp                       
+           000ef0bc  str      r0, [fp]                     
+           000ef0c0  ldr      r0, [fp]                     
+           000ef0c4  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: used)
+           000ef0c8  add      sp, fp, #8                   
+           000ef0cc  pop      {r8, fp}                     
+           000ef0d0  ldr      r7, [sp, #8]                 
+           000ef0d4  ldm      sp, {sp, pc}                 
+
+== SourceFactory::Init  token 0x0600032e @0x000ef0d8 (556 bytes)
+   args: r0=this, owner
+           000ef0d8  mov      ip, sp                       
+           000ef0dc  push     {r7, lr}                     
+           000ef0e0  mov      r7, sp                       
+           000ef0e4  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000ef0e8  sub      sp, sp, #0x40                
+           000ef0ec  mov      fp, sp                       
+           000ef0f0  str      r0, [fp, #0x20]              
+           000ef0f4  mov      sl, r1                       
+           000ef0f8  ldr      r0, [pc]                     
+           000ef0fc  b        #0xef104                     ; -> L_ef104
+           000ef100  .word    0x00eb65d0                   ; literal 15427024 / 
+L_ef104:   000ef104  ldr      r0, [pc, r0]                 ; GOT[605] LDSTR 'Audio Source Factory'
+           000ef108  str      r0, [fp, #0x3c]              
+           000ef10c  ldr      r0, [pc]                     
+           000ef110  b        #0xef118                     ; -> L_ef118
+           000ef114  .word    0x00eb5c74                   ; literal 15424628 / 
+L_ef118:   000ef118  ldr      r0, [pc, r0]                 ; GOT[11] VTABLE UnityEngine.GameObject
+           000ef11c  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           000ef120  ldr      r1, [fp, #0x3c]              
+           000ef124  str      r0, [fp, #0x38]              
+           000ef128  bl       #0x22a850                    ; CALL UnityEngine.GameObject::.ctor
+           000ef12c  ldr      r0, [fp, #0x38]              
+           000ef130  mov      r4, r0                       
+           000ef134  mov      r1, r4                       
+           000ef138  mov      r0, r1                       
+           000ef13c  ldr      lr, [r1]                     
+           000ef140  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000ef144  str      r0, [fp, #0x34]              
+           000ef148  mov      r0, sl                       
+           000ef14c  ldr      lr, [sl]                     
+           000ef150  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000ef154  mov      r1, r0                       
+           000ef158  ldr      r2, [fp, #0x34]              
+           000ef15c  mov      r0, r2                       
+           000ef160  ldr      lr, [r2]                     
+           000ef164  bl       #0x22b2d0                    ; CALL UnityEngine.Transform::set_parent
+           000ef168  mov      r0, r4                       
+           000ef16c  ldr      lr, [r4]                     
+           000ef170  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           000ef174  str      r0, [fp, #0x30]              
+           000ef178  add      r0, fp, #0x14                
+           000ef17c  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           000ef180  ldr      ip, [fp, #0x30]              
+           000ef184  mov      r0, ip                       
+           000ef188  ldr      r1, [fp, #0x14]              
+           000ef18c  ldr      r2, [fp, #0x18]              
+           000ef190  ldr      r3, [fp, #0x1c]              
+           000ef194  ldr      lr, [ip]                     
+           000ef198  bl       #0x22cb50                    ; CALL UnityEngine.Transform::set_localPosition
+           000ef19c  ldr      r0, [fp, #0x20]              
+           000ef1a0  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: capacity)
+           000ef1a4  str      r0, [fp, #0x2c]              
+           000ef1a8  ldr      r0, [pc]                     
+           000ef1ac  b        #0xef1b4                     ; -> L_ef1b4
+           000ef1b0  .word    0x00eb6524                   ; literal 15426852 / 
+L_ef1b4:   000ef1b4  ldr      r0, [pc, r0]                 ; GOT[606] VTABLE System.Collections.Generic.List`1<UnityEngine.AudioSource>
+           000ef1b8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ef1bc  ldr      r1, [fp, #0x2c]              
+           000ef1c0  str      r0, [fp, #0x28]              
+           000ef1c4  bl       #0x22ce20                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::.ctor
+           000ef1c8  ldr      r1, [fp, #0x28]              
+           000ef1cc  ldr      r0, [fp, #0x20]              
+           000ef1d0  str      r1, [r0, #8]                 ; field+0x8 (this-class: available)
+           000ef1d4  ldr      r0, [pc]                     
+           000ef1d8  b        #0xef1e0                     ; -> L_ef1e0
+           000ef1dc  .word    0x00eb64f8                   ; literal 15426808 / 
+L_ef1e0:   000ef1e0  ldr      r0, [pc, r0]                 ; GOT[606] VTABLE System.Collections.Generic.List`1<UnityEngine.AudioSource>
+           000ef1e4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ef1e8  mov      r1, r0                       
+           000ef1ec  ldr      r0, [pc]                     
+           000ef1f0  b        #0xef1f8                     ; -> L_ef1f8
+           000ef1f4  .word    0x00eb64e4                   ; literal 15426788 / 
+L_ef1f8:   000ef1f8  ldr      r0, [pc, r0]                 ; GOT[607] SFLDA System.Collections.Generic.List`1<UnityEngine.AudioSource>::EmptyArray
+           000ef1fc  ldr      r0, [r0]                     
+           000ef200  str      r0, [r1, #8]                 ; field+0x8 (this-class: available)
+           000ef204  ldr      r0, [fp, #0x20]              
+           000ef208  str      r1, [r0, #0xc]               ; field+0xc (this-class: used)
+           000ef20c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: available)
+           000ef210  mov      r1, r0                       
+           000ef214  ldr      lr, [r1]                     
+           000ef218  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: available)
+           000ef21c  ldr      sl, [r0, #0xc]               ; field+0xc (this-class: used)
+           000ef220  mov      r6, #0                       
+           000ef224  b        #0xef2ec                     ; -> L_ef2ec
+L_ef228:   000ef228  ldr      r0, [pc]                     
+           000ef22c  b        #0xef234                     ; -> L_ef234
+           000ef230  .word    0x00eb6474                   ; literal 15426676 / 
+L_ef234:   000ef234  ldr      r0, [pc, r0]                 ; GOT[594] METHOD_RGCTX UnityEngine.GameObject::AddComponent<UnityEngine.AudioSource>
+           000ef238  ldr      lr, [r4]                     
+           000ef23c  mov      r8, r0                       
+           000ef240  mov      r0, r4                       
+           000ef244  bl       #0x22cc80                    ; CALL UnityEngine.GameObject::AddComponent<UnityEngine.AudioSource>
+           000ef248  mov      r5, r0                       
+           000ef24c  mov      r2, r5                       
+           000ef250  mov      r0, r2                       
+           000ef254  mov      r1, #0                       
+           000ef258  ldr      lr, [r2]                     
+           000ef25c  bl       #0x22bbf0                    ; CALL UnityEngine.AudioSource::set_playOnAwake
+           000ef260  mov      r0, r5                       
+           000ef264  mov      r1, #1                       
+           000ef268  ldr      lr, [r5]                     
+           000ef26c  bl       #0x22bc00                    ; CALL UnityEngine.AudioSource::set_rolloffMode
+           000ef270  vldr     s4, [pc]                     ; float 100.0
+           000ef274  b        #0xef27c                     ; -> L_ef27c
+           000ef278  .word    0x42c80000                   ; literal 1120403456 / 100
+L_ef27c:   000ef27c  vcvt.f64.f32 d2, s4                       
+           000ef280  mov      r0, r5                       
+           000ef284  vcvt.f32.f64 s0, d2                       
+           000ef288  vstr     s0, [sp, #-8]                
+           000ef28c  ldr      r1, [sp, #-8]                
+           000ef290  ldr      lr, [r5]                     
+           000ef294  bl       #0x22bc10                    ; CALL UnityEngine.AudioSource::set_maxDistance
+           000ef298  mov      r0, r5                       
+           000ef29c  mov      r1, #1                       
+           000ef2a0  ldr      lr, [r5]                     
+           000ef2a4  bl       #0x22bc40                    ; CALL UnityEngine.AudioSource::set_priority
+           000ef2a8  bl       #0x22b5d0                    ; CALL DataUtility::get_Instance
+           000ef2ac  ldr      r0, [r0, #0x18]              ; field+0x18 
+           000ef2b0  vldr     s0, [r0, #0x14]              ; field+0x14 
+           000ef2b4  vcvt.f64.f32 d2, s0                       
+           000ef2b8  mov      r0, r5                       
+           000ef2bc  vcvt.f32.f64 s0, d2                       
+           000ef2c0  vstr     s0, [sp, #-8]                
+           000ef2c4  ldr      r1, [sp, #-8]                
+           000ef2c8  ldr      lr, [r5]                     
+           000ef2cc  bl       #0x22bc20                    ; CALL UnityEngine.AudioSource::set_volume
+           000ef2d0  ldr      r0, [fp, #0x20]              
+           000ef2d4  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: available)
+           000ef2d8  mov      r0, r2                       
+           000ef2dc  mov      r1, r5                       
+           000ef2e0  ldr      lr, [r2]                     
+           000ef2e4  bl       #0x22ce00                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::Add
+           000ef2e8  add      r6, r6, #1                   
+L_ef2ec:   000ef2ec  cmp      r6, sl                       
+           000ef2f0  ble      #0xef228                     ; -> L_ef228
+           000ef2f4  add      sp, fp, #0x40                
+           000ef2f8  pop      {r4, r5, r6, r8, sl, fp}     
+           000ef2fc  ldr      r7, [sp, #8]                 
+           000ef300  ldm      sp, {sp, pc}                 
+
+== SourceFactory::SetPriority  token 0x0600032f @0x000ef304 (608 bytes)
+   args: r0=this, priority
+           000ef304  mov      ip, sp                       
+           000ef308  push     {r7, lr}                     
+           000ef30c  mov      r7, sp                       
+           000ef310  push     {r4, r5, r8, sl, fp, ip, lr} 
+           000ef314  sub      sp, sp, #0x7c                
+           000ef318  mov      fp, sp                       
+           000ef31c  str      r0, [fp, #0x74]              
+           000ef320  mov      sl, r1                       
+           000ef324  mov      r0, #0                       
+           000ef328  str      r0, [fp]                     
+           000ef32c  mov      r0, #0                       
+           000ef330  str      r0, [fp, #4]                 
+           000ef334  mov      r0, #0                       
+           000ef338  str      r0, [fp, #8]                 
+           000ef33c  mov      r0, #0                       
+           000ef340  str      r0, [fp, #0xc]               
+           000ef344  mov      r0, #0                       
+           000ef348  str      r0, [fp, #0x10]              
+           000ef34c  mov      r0, #0                       
+           000ef350  str      r0, [fp, #0x14]              
+           000ef354  mov      r0, #0                       
+           000ef358  str      r0, [fp, #0x18]              
+           000ef35c  mov      r0, #0                       
+           000ef360  str      r0, [fp, #0x1c]              
+           000ef364  ldr      r0, [fp, #0x74]              
+           000ef368  ldr      r2, [r0, #8]                 ; field+0x8 (this-class: available)
+           000ef36c  mov      r1, r2                       
+           000ef370  mov      r0, fp                       
+           000ef374  ldr      lr, [r2]                     
+           000ef378  bl       #0x22ce30                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::GetEnumerator
+           000ef37c  b        #0xef3a8                     ; -> L_ef3a8
+L_ef380:   000ef380  ldr      r0, [pc]                     
+           000ef384  b        #0xef38c                     ; -> L_ef38c
+           000ef388  .word    0x00eb6354                   ; literal 15426388 / 
+L_ef38c:   000ef38c  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000ef390  ldr      r5, [fp, #0xc]               
+           000ef394  mov      r2, r5                       
+           000ef398  mov      r0, r2                       
+           000ef39c  mov      r1, sl                       
+           000ef3a0  ldr      lr, [r2]                     
+           000ef3a4  bl       #0x22bc40                    ; CALL UnityEngine.AudioSource::set_priority
+L_ef3a8:   000ef3a8  ldr      r8, [pc]                     
+           000ef3ac  b        #0xef3b4                     ; -> L_ef3b4
+           000ef3b0  .word    0x00eb632c                   ; literal 15426348 / 
+L_ef3b4:   000ef3b4  ldr      r8, [pc, r8]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000ef3b8  mov      r0, fp                       
+           000ef3bc  bl       #0x22ce40                    ; CALL System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>::MoveNext
+           000ef3c0  cmp      r0, #0                       
+           000ef3c4  bne      #0xef380                     ; -> L_ef380
+           000ef3c8  bl       #0xef3d0                     ; CALL 0xef3d0
+           000ef3cc  b        #0xef45c                     ; -> L_ef45c
+           000ef3d0  str      lr, [fp, #0x48]              
+           000ef3d4  ldr      r0, [fp]                     
+           000ef3d8  str      r0, [fp, #0x54]              
+           000ef3dc  ldr      r0, [fp, #4]                 
+           000ef3e0  str      r0, [fp, #0x58]              
+           000ef3e4  ldr      r0, [fp, #8]                 
+           000ef3e8  str      r0, [fp, #0x5c]              
+           000ef3ec  ldr      r0, [fp, #0xc]               
+           000ef3f0  str      r0, [fp, #0x60]              
+           000ef3f4  ldr      r0, [pc]                     
+           000ef3f8  b        #0xef400                     ; -> L_ef400
+           000ef3fc  .word    0x00eb62e0                   ; literal 15426272 / 
+L_ef400:   000ef400  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000ef404  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ef408  mov      r1, r0                       
+           000ef40c  add      r0, r1, #8                   
+           000ef410  ldr      r2, [fp, #0x54]              
+           000ef414  str      r2, [r0]                     
+           000ef418  ldr      r2, [fp, #0x58]              
+           000ef41c  str      r2, [r0, #4]                 ; field+0x4 
+           000ef420  ldr      r2, [fp, #0x5c]              
+           000ef424  str      r2, [r0, #8]                 ; field+0x8 (this-class: available)
+           000ef428  ldr      r2, [fp, #0x60]              
+           000ef42c  str      r2, [r0, #0xc]               ; field+0xc (this-class: used)
+           000ef430  mov      r0, r1                       
+           000ef434  ldr      r1, [r1]                     
+           000ef438  ldr      r8, [pc]                     
+           000ef43c  b        #0xef444                     ; -> L_ef444
+           000ef440  .word    0x00eb5964                   ; literal 15423844 / 
+L_ef444:   000ef444  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000ef448  add      lr, pc, #4                   
+           000ef44c  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000ef450  andeq    r0, r0, r0                   
+           000ef454  ldr      ip, [fp, #0x48]              
+           000ef458  mov      pc, ip                       
+L_ef45c:   000ef45c  ldr      r0, [fp, #0x74]              
+           000ef460  ldr      r2, [r0, #0xc]               ; field+0xc (this-class: used)
+           000ef464  add      r0, fp, #0x10                
+           000ef468  mov      r1, r2                       
+           000ef46c  ldr      lr, [r2]                     
+           000ef470  bl       #0x22ce30                    ; CALL System.Collections.Generic.List`1<UnityEngine.AudioSource>::GetEnumerator
+           000ef474  b        #0xef4a0                     ; -> L_ef4a0
+L_ef478:   000ef478  ldr      r0, [pc]                     
+           000ef47c  b        #0xef484                     ; -> L_ef484
+           000ef480  .word    0x00eb625c                   ; literal 15426140 / 
+L_ef484:   000ef484  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000ef488  ldr      r4, [fp, #0x1c]              
+           000ef48c  mov      r2, r4                       
+           000ef490  mov      r0, r2                       
+           000ef494  mov      r1, sl                       
+           000ef498  ldr      lr, [r2]                     
+           000ef49c  bl       #0x22bc40                    ; CALL UnityEngine.AudioSource::set_priority
+L_ef4a0:   000ef4a0  add      r0, fp, #0x10                
+           000ef4a4  ldr      r8, [pc]                     
+           000ef4a8  b        #0xef4b0                     ; -> L_ef4b0
+           000ef4ac  .word    0x00eb6230                   ; literal 15426096 / 
+L_ef4b0:   000ef4b0  ldr      r8, [pc, r8]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000ef4b4  bl       #0x22ce40                    ; CALL System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>::MoveNext
+           000ef4b8  cmp      r0, #0                       
+           000ef4bc  bne      #0xef478                     ; -> L_ef478
+           000ef4c0  bl       #0xef4c8                     ; CALL 0xef4c8
+           000ef4c4  b        #0xef554                     ; -> L_ef554
+           000ef4c8  str      lr, [fp, #0x50]              
+           000ef4cc  ldr      r0, [fp, #0x10]              
+           000ef4d0  str      r0, [fp, #0x64]              
+           000ef4d4  ldr      r0, [fp, #0x14]              
+           000ef4d8  str      r0, [fp, #0x68]              
+           000ef4dc  ldr      r0, [fp, #0x18]              
+           000ef4e0  str      r0, [fp, #0x6c]              
+           000ef4e4  ldr      r0, [fp, #0x1c]              
+           000ef4e8  str      r0, [fp, #0x70]              
+           000ef4ec  ldr      r0, [pc]                     
+           000ef4f0  b        #0xef4f8                     ; -> L_ef4f8
+           000ef4f4  .word    0x00eb61e8                   ; literal 15426024 / 
+L_ef4f8:   000ef4f8  ldr      r0, [pc, r0]                 ; GOT[608] VTABLE System.Collections.Generic.List`1/Enumerator<UnityEngine.AudioSource>
+           000ef4fc  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ef500  mov      r1, r0                       
+           000ef504  add      r0, r1, #8                   
+           000ef508  ldr      r2, [fp, #0x64]              
+           000ef50c  str      r2, [r0]                     
+           000ef510  ldr      r2, [fp, #0x68]              
+           000ef514  str      r2, [r0, #4]                 ; field+0x4 
+           000ef518  ldr      r2, [fp, #0x6c]              
+           000ef51c  str      r2, [r0, #8]                 ; field+0x8 (this-class: available)
+           000ef520  ldr      r2, [fp, #0x70]              
+           000ef524  str      r2, [r0, #0xc]               ; field+0xc (this-class: used)
+           000ef528  mov      r0, r1                       
+           000ef52c  ldr      r1, [r1]                     
+           000ef530  ldr      r8, [pc]                     
+           000ef534  b        #0xef53c                     ; -> L_ef53c
+           000ef538  .word    0x00eb586c                   ; literal 15423596 / 
+L_ef53c:   000ef53c  ldr      r8, [pc, r8]                 ; GOT[18] METHODCONST System.IDisposable::Dispose
+           000ef540  add      lr, pc, #4                   
+           000ef544  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           000ef548  andeq    r0, r0, r0                   
+           000ef54c  ldr      ip, [fp, #0x50]              
+           000ef550  mov      pc, ip                       
+L_ef554:   000ef554  add      sp, fp, #0x7c                
+           000ef558  pop      {r4, r5, r8, sl, fp}         
+           000ef55c  ldr      r7, [sp, #8]                 
+           000ef560  ldm      sp, {sp, pc}                 

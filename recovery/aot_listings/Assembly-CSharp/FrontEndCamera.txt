@@ -1,0 +1,525 @@
+####################################################################################################
+# TYPE FrontEndCamera  (instance size 0x58)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 targetList                     FrontEndCameraTarget[]
+#   +0x14 desiredTarget                  FrontEndCameraTarget
+#   +0x18 transitionDuration             float
+#   +0x1c transitionStartPos             UnityEngine.Vector3
+#   +0x28 transitionStartRot             UnityEngine.Quaternion
+#   +0x38 transitionTargetPos            UnityEngine.Vector3
+#   +0x44 transitionTargetRot            UnityEngine.Quaternion
+#   +0x54 transitionAccumulatedTime      float
+#   vtable slots: 
+####################################################################################################
+== FrontEndCamera::.ctor  token 0x0600065b @0x00129b14 (236 bytes)
+   args: r0=this, 
+           00129b14  mov      ip, sp                       
+           00129b18  push     {r7, lr}                     
+           00129b1c  mov      r7, sp                       
+           00129b20  push     {r8, sl, fp, ip, lr}         
+           00129b24  sub      sp, sp, #0x3c                
+           00129b28  mov      fp, sp                       
+           00129b2c  mov      sl, r0                       
+           00129b30  vldr     s4, [pc]                     ; float 0.75
+           00129b34  b        #0x129b3c                    ; -> L_129b3c
+           00129b38  .word    0x3f400000                   ; literal 1061158912 / 0.75
+L_129b3c:  00129b3c  vcvt.f64.f32 d2, s4                       
+           00129b40  vcvt.f32.f64 s0, d2                       
+           00129b44  vstr     s0, [sl, #0x18]              ; field+0x18 (this-class: transitionDuration)
+           00129b48  mov      r0, fp                       
+           00129b4c  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           00129b50  add      r0, sl, #0x1c                
+           00129b54  ldr      r1, [fp]                     
+           00129b58  str      r1, [r0]                     
+           00129b5c  ldr      r1, [fp, #4]                 
+           00129b60  str      r1, [r0, #4]                 ; field+0x4 
+           00129b64  ldr      r1, [fp, #8]                 
+           00129b68  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00129b6c  add      r0, fp, #0xc                 
+           00129b70  bl       #0x22b050                    ; CALL UnityEngine.Quaternion::get_identity
+           00129b74  add      r0, sl, #0x28                
+           00129b78  ldr      r1, [fp, #0xc]               
+           00129b7c  str      r1, [r0]                     
+           00129b80  ldr      r1, [fp, #0x10]              
+           00129b84  str      r1, [r0, #4]                 ; field+0x4 
+           00129b88  ldr      r1, [fp, #0x14]              
+           00129b8c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00129b90  ldr      r1, [fp, #0x18]              
+           00129b94  str      r1, [r0, #0xc]               ; field+0xc 
+           00129b98  add      r0, fp, #0x1c                
+           00129b9c  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           00129ba0  add      r0, sl, #0x38                
+           00129ba4  ldr      r1, [fp, #0x1c]              
+           00129ba8  str      r1, [r0]                     
+           00129bac  ldr      r1, [fp, #0x20]              
+           00129bb0  str      r1, [r0, #4]                 ; field+0x4 
+           00129bb4  ldr      r1, [fp, #0x24]              
+           00129bb8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00129bbc  add      r0, fp, #0x28                
+           00129bc0  bl       #0x22b050                    ; CALL UnityEngine.Quaternion::get_identity
+           00129bc4  add      r0, sl, #0x44                
+           00129bc8  ldr      r1, [fp, #0x28]              
+           00129bcc  str      r1, [r0]                     
+           00129bd0  ldr      r1, [fp, #0x2c]              
+           00129bd4  str      r1, [r0, #4]                 ; field+0x4 
+           00129bd8  ldr      r1, [fp, #0x30]              
+           00129bdc  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00129be0  ldr      r1, [fp, #0x34]              
+           00129be4  str      r1, [r0, #0xc]               ; field+0xc 
+           00129be8  mov      r0, sl                       
+           00129bec  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00129bf0  add      sp, fp, #0x3c                
+           00129bf4  pop      {r8, sl, fp}                 
+           00129bf8  ldr      r7, [sp, #8]                 
+           00129bfc  ldm      sp, {sp, pc}                 
+
+== FrontEndCamera::get_isTransitioning  token 0x0600065c @0x00129c00 (80 bytes)
+   args: r0=this, 
+           00129c00  mov      ip, sp                       
+           00129c04  push     {r7, lr}                     
+           00129c08  mov      r7, sp                       
+           00129c0c  push     {r8, fp, ip, lr}             
+           00129c10  sub      sp, sp, #8                   
+           00129c14  mov      fp, sp                       
+           00129c18  str      r0, [fp]                     
+           00129c1c  ldr      r0, [fp]                     
+           00129c20  vldr     s0, [r0, #0x54]              ; field+0x54 (this-class: transitionAccumulatedTime)
+           00129c24  vcvt.f64.f32 d2, s0                       
+           00129c28  vldr     s0, [r0, #0x18]              ; field+0x18 (this-class: transitionDuration)
+           00129c2c  vcvt.f64.f32 d3, s0                       
+           00129c30  vcmp.f64 d2, d3                       
+           00129c34  vmrs     apsr_nzcv, fpscr             
+           00129c38  mov      r0, #0                       
+           00129c3c  movmi    r0, #1                       
+           00129c40  add      sp, fp, #8                   
+           00129c44  pop      {r8, fp}                     
+           00129c48  ldr      r7, [sp, #8]                 
+           00129c4c  ldm      sp, {sp, pc}                 
+
+== FrontEndCamera::StartTransition  token 0x0600065d @0x00129c50 (684 bytes)
+   args: r0=this, newTarget
+           00129c50  mov      ip, sp                       
+           00129c54  push     {r7, lr}                     
+           00129c58  mov      r7, sp                       
+           00129c5c  push     {r6, r8, fp, ip, lr}         
+           00129c60  sub      sp, sp, #0x114               
+           00129c64  mov      fp, sp                       
+           00129c68  mov      r6, r0                       
+           00129c6c  str      r1, [fp, #0x108]             
+           00129c70  mov      r0, #0                       
+           00129c74  str      r0, [fp, #0x10]              
+           00129c78  mov      r0, #0                       
+           00129c7c  str      r0, [fp, #0x14]              
+           00129c80  mov      r0, #0                       
+           00129c84  str      r0, [fp, #0x18]              
+           00129c88  mov      r0, #0                       
+           00129c8c  str      r0, [fp, #0x1c]              
+           00129c90  mov      r0, #0                       
+           00129c94  str      r0, [fp, #0x20]              
+           00129c98  mov      r0, #0                       
+           00129c9c  str      r0, [fp, #0x24]              
+           00129ca0  mov      r0, #0                       
+           00129ca4  str      r0, [fp, #0x28]              
+           00129ca8  mov      r0, #0                       
+           00129cac  str      r0, [fp, #0x2c]              
+           00129cb0  mov      r0, #0                       
+           00129cb4  str      r0, [fp, #0x30]              
+           00129cb8  ldr      r1, [r6, #0x14]              ; field+0x14 (this-class: desiredTarget)
+           00129cbc  ldr      r0, [fp, #0x108]             
+           00129cc0  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           00129cc4  cmp      r0, #0                       
+           00129cc8  bne      #0x129eec                    ; -> L_129eec
+           00129ccc  ldr      r0, [fp, #0x108]             
+           00129cd0  str      r0, [r6, #0x14]              ; field+0x14 (this-class: desiredTarget)
+           00129cd4  mov      r0, r6                       
+           00129cd8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00129cdc  mov      r2, r0                       
+           00129ce0  add      r0, fp, #0xa0                
+           00129ce4  mov      r1, r2                       
+           00129ce8  ldr      lr, [r2]                     
+           00129cec  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00129cf0  add      r0, r6, #0x1c                
+           00129cf4  ldr      r1, [fp, #0xa0]              
+           00129cf8  str      r1, [r0]                     
+           00129cfc  ldr      r1, [fp, #0xa4]              
+           00129d00  str      r1, [r0, #4]                 ; field+0x4 
+           00129d04  ldr      r1, [fp, #0xa8]              
+           00129d08  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00129d0c  mov      r0, r6                       
+           00129d10  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00129d14  mov      r2, r0                       
+           00129d18  add      r0, fp, #0xac                
+           00129d1c  mov      r1, r2                       
+           00129d20  ldr      lr, [r2]                     
+           00129d24  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           00129d28  add      r0, r6, #0x28                
+           00129d2c  ldr      r1, [fp, #0xac]              
+           00129d30  str      r1, [r0]                     
+           00129d34  ldr      r1, [fp, #0xb0]              
+           00129d38  str      r1, [r0, #4]                 ; field+0x4 
+           00129d3c  ldr      r1, [fp, #0xb4]              
+           00129d40  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00129d44  ldr      r1, [fp, #0xb8]              
+           00129d48  str      r1, [r0, #0xc]               ; field+0xc 
+           00129d4c  vldr     s4, [pc]                     ; float 0.0
+           00129d50  b        #0x129d58                    ; -> L_129d58
+           00129d54  .word    0x00000000                   ; literal 0 / 0
+L_129d58:  00129d58  vcvt.f64.f32 d2, s4                       
+           00129d5c  vcvt.f32.f64 s0, d2                       
+           00129d60  vstr     s0, [r6, #0x54]              ; field+0x54 (this-class: transitionAccumulatedTime)
+           00129d64  ldr      r1, [r6, #0x14]              ; field+0x14 (this-class: desiredTarget)
+           00129d68  mov      r0, r1                       
+           00129d6c  ldr      lr, [r1]                     
+           00129d70  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00129d74  mov      r2, r0                       
+           00129d78  add      r0, fp, #0xbc                
+           00129d7c  mov      r1, r2                       
+           00129d80  ldr      lr, [r2]                     
+           00129d84  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00129d88  add      r0, r6, #0x38                
+           00129d8c  ldr      r1, [fp, #0xbc]              
+           00129d90  str      r1, [r0]                     
+           00129d94  ldr      r1, [fp, #0xc0]              
+           00129d98  str      r1, [r0, #4]                 ; field+0x4 
+           00129d9c  ldr      r1, [fp, #0xc4]              
+           00129da0  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00129da4  ldr      r1, [r6, #0x14]              ; field+0x14 (this-class: desiredTarget)
+           00129da8  mov      r0, r1                       
+           00129dac  ldr      lr, [r1]                     
+           00129db0  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00129db4  mov      r2, r0                       
+           00129db8  add      r0, fp, #0x10                
+           00129dbc  mov      r1, r2                       
+           00129dc0  ldr      lr, [r2]                     
+           00129dc4  bl       #0x22aea0                    ; CALL UnityEngine.Transform::get_forward
+           00129dc8  add      r1, fp, #0x10                
+           00129dcc  add      r0, fp, #0xc8                
+           00129dd0  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           00129dd4  ldr      r1, [r6, #0x14]              ; field+0x14 (this-class: desiredTarget)
+           00129dd8  mov      r0, r1                       
+           00129ddc  ldr      lr, [r1]                     
+           00129de0  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00129de4  mov      r2, r0                       
+           00129de8  add      r0, fp, #0x1c                
+           00129dec  mov      r1, r2                       
+           00129df0  ldr      lr, [r2]                     
+           00129df4  bl       #0x22d800                    ; CALL UnityEngine.Transform::get_up
+           00129df8  add      r1, fp, #0x1c                
+           00129dfc  add      r0, fp, #0xd4                
+           00129e00  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           00129e04  add      r0, fp, #0xe0                
+           00129e08  ldr      r1, [fp, #0xc8]              
+           00129e0c  ldr      r2, [fp, #0xcc]              
+           00129e10  ldr      r3, [fp, #0xd0]              
+           00129e14  ldr      ip, [fp, #0xd4]              
+           00129e18  str      ip, [sp]                     
+           00129e1c  ldr      ip, [fp, #0xd8]              
+           00129e20  str      ip, [sp, #4]                 
+           00129e24  ldr      ip, [fp, #0xdc]              
+           00129e28  str      ip, [sp, #8]                 
+           00129e2c  bl       #0x22bdb0                    ; CALL UnityEngine.Quaternion::LookRotation
+           00129e30  add      r0, r6, #0x44                
+           00129e34  ldr      r1, [fp, #0xe0]              
+           00129e38  str      r1, [r0]                     
+           00129e3c  ldr      r1, [fp, #0xe4]              
+           00129e40  str      r1, [r0, #4]                 ; field+0x4 
+           00129e44  ldr      r1, [fp, #0xe8]              
+           00129e48  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00129e4c  ldr      r1, [fp, #0xec]              
+           00129e50  str      r1, [r0, #0xc]               ; field+0xc 
+           00129e54  add      r0, r6, #0x38                
+           00129e58  ldr      r1, [r0]                     
+           00129e5c  str      r1, [fp, #0xf0]              
+           00129e60  ldr      r1, [r0, #4]                 ; field+0x4 
+           00129e64  str      r1, [fp, #0xf4]              
+           00129e68  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00129e6c  str      r0, [fp, #0xf8]              
+           00129e70  mov      r0, r6                       
+           00129e74  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00129e78  mov      r2, r0                       
+           00129e7c  add      r0, fp, #0xfc                
+           00129e80  mov      r1, r2                       
+           00129e84  ldr      lr, [r2]                     
+           00129e88  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00129e8c  add      r0, fp, #0x28                
+           00129e90  ldr      r1, [fp, #0xf0]              
+           00129e94  ldr      r2, [fp, #0xf4]              
+           00129e98  ldr      r3, [fp, #0xf8]              
+           00129e9c  ldr      ip, [fp, #0xfc]              
+           00129ea0  str      ip, [sp]                     
+           00129ea4  ldr      ip, [fp, #0x100]             
+           00129ea8  str      ip, [sp, #4]                 
+           00129eac  ldr      ip, [fp, #0x104]             
+           00129eb0  str      ip, [sp, #8]                 
+           00129eb4  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           00129eb8  add      r0, fp, #0x28                
+           00129ebc  bl       #0x22a970                    ; CALL UnityEngine.Vector3::get_magnitude
+           00129ec0  vmov     s6, r0                       
+           00129ec4  vcvt.f64.f32 d3, s6                       
+           00129ec8  vldr     s4, [pc]                     ; float 0.10000000149011612
+           00129ecc  b        #0x129ed4                    ; -> L_129ed4
+           00129ed0  .word    0x3dcccccd                   ; literal 1036831949 / 0.1
+L_129ed4:  00129ed4  vcvt.f64.f32 d2, s4                       
+           00129ed8  vcmp.f64 d2, d3                       
+           00129edc  vmrs     apsr_nzcv, fpscr             
+           00129ee0  bvs      #0x129eec                    ; -> L_129eec
+           00129ee4  bge      #0x129eec                    ; -> L_129eec
+           00129ee8  bl       #0x22e8f0                    ; CALL FrontEndLogic::PlayRandomWhoosh
+L_129eec:  00129eec  add      sp, fp, #0x114               
+           00129ef0  pop      {r6, r8, fp}                 
+           00129ef4  ldr      r7, [sp, #8]                 
+           00129ef8  ldm      sp, {sp, pc}                 
+
+== FrontEndCamera::Start  token 0x0600065e @0x00129efc (108 bytes)
+   args: r0=this, 
+           00129efc  mov      ip, sp                       
+           00129f00  push     {r7, lr}                     
+           00129f04  mov      r7, sp                       
+           00129f08  push     {r8, sl, fp, ip, lr}         
+           00129f0c  sub      sp, sp, #4                   
+           00129f10  mov      fp, sp                       
+           00129f14  mov      sl, r0                       
+           00129f18  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: desiredTarget)
+           00129f1c  mov      r1, #0                       
+           00129f20  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           00129f24  cmp      r0, #0                       
+           00129f28  beq      #0x129f48                    ; -> L_129f48
+           00129f2c  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: targetList)
+           00129f30  ldr      r1, [r0, #0xc]               ; field+0xc 
+           00129f34  cmp      r1, #0                       
+           00129f38  blls     #0x129f58                    ; THROW System.IndexOutOfRangeException (if ls)
+           00129f3c  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: targetList)
+           00129f40  mov      r0, sl                       
+           00129f44  bl       #0x129c50                    ; CALL FrontEndCamera::StartTransition (direct)
+L_129f48:  00129f48  add      sp, fp, #4                   
+           00129f4c  pop      {r8, sl, fp}                 
+           00129f50  ldr      r7, [sp, #8]                 
+           00129f54  ldm      sp, {sp, pc}                 
+           00129f58  mov      r1, lr                       
+           00129f5c  ldr      r0, [pc]                     
+           00129f60  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00129f64  andeq    r0, r0, #0xf8                
+
+== FrontEndCamera::FixedUpdate  token 0x0600065f @0x00129f68 (504 bytes)
+   args: r0=this, 
+           00129f68  mov      ip, sp                       
+           00129f6c  push     {r7, lr}                     
+           00129f70  mov      r7, sp                       
+           00129f74  push     {r8, sl, fp, ip, lr}         
+           00129f78  sub      sp, sp, #0xec                
+           00129f7c  mov      fp, sp                       
+           00129f80  mov      sl, r0                       
+           00129f84  vldr     s0, [sl, #0x54]              ; field+0x54 (this-class: transitionAccumulatedTime)
+           00129f88  vcvt.f64.f32 d2, s0                       
+           00129f8c  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: transitionDuration)
+           00129f90  vcvt.f64.f32 d3, s0                       
+           00129f94  vcmp.f64 d2, d3                       
+           00129f98  vmrs     apsr_nzcv, fpscr             
+           00129f9c  bvs      #0x12a150                    ; -> L_12a150
+           00129fa0  bge      #0x12a150                    ; -> L_12a150
+           00129fa4  vldr     s0, [sl, #0x54]              ; field+0x54 (this-class: transitionAccumulatedTime)
+           00129fa8  vcvt.f64.f32 d2, s0                       
+           00129fac  vstr     d2, [fp, #0xe0]              
+           00129fb0  bl       #0x22b0f0                    ; CALL UnityEngine.Time::get_deltaTime
+           00129fb4  vmov     s6, r0                       
+           00129fb8  vcvt.f64.f32 d3, s6                       
+           00129fbc  vldr     d2, [fp, #0xe0]              
+           00129fc0  vadd.f64 d2, d2, d3                   
+           00129fc4  vcvt.f32.f64 s0, d2                       
+           00129fc8  vstr     s0, [sl, #0x54]              ; field+0x54 (this-class: transitionAccumulatedTime)
+           00129fcc  vldr     s0, [sl, #0x54]              ; field+0x54 (this-class: transitionAccumulatedTime)
+           00129fd0  vcvt.f64.f32 d2, s0                       
+           00129fd4  vldr     s0, [sl, #0x18]              ; field+0x18 (this-class: transitionDuration)
+           00129fd8  vcvt.f64.f32 d3, s0                       
+           00129fdc  vdiv.f64 d2, d2, d3                   
+           00129fe0  vcvt.f32.f64 s0, d2                       
+           00129fe4  vstr     s0, [fp, #0x18]              
+           00129fe8  mov      r0, sl                       
+           00129fec  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00129ff0  str      r0, [fp, #0xd8]              
+           00129ff4  add      r0, sl, #0x1c                
+           00129ff8  ldr      r1, [r0]                     
+           00129ffc  str      r1, [fp, #0x78]              
+           0012a000  ldr      r1, [r0, #4]                 ; field+0x4 
+           0012a004  str      r1, [fp, #0x7c]              
+           0012a008  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012a00c  str      r0, [fp, #0x80]              
+           0012a010  add      r0, sl, #0x38                
+           0012a014  ldr      r1, [r0]                     
+           0012a018  str      r1, [fp, #0x84]              
+           0012a01c  ldr      r1, [r0, #4]                 ; field+0x4 
+           0012a020  str      r1, [fp, #0x88]              
+           0012a024  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012a028  str      r0, [fp, #0x8c]              
+           0012a02c  vldr     s0, [fp, #0x18]              
+           0012a030  vcvt.f64.f32 d2, s0                       
+           0012a034  add      r0, fp, #0x90                
+           0012a038  ldr      r1, [fp, #0x78]              
+           0012a03c  ldr      r2, [fp, #0x7c]              
+           0012a040  ldr      r3, [fp, #0x80]              
+           0012a044  ldr      ip, [fp, #0x84]              
+           0012a048  str      ip, [sp]                     
+           0012a04c  ldr      ip, [fp, #0x88]              
+           0012a050  str      ip, [sp, #4]                 
+           0012a054  ldr      ip, [fp, #0x8c]              
+           0012a058  str      ip, [sp, #8]                 
+           0012a05c  vcvt.f32.f64 s0, d2                       
+           0012a060  vstr     s0, [sp, #0xc]               
+           0012a064  bl       #0x22ba70                    ; CALL UnityEngine.Vector3::Slerp
+           0012a068  ldr      ip, [fp, #0xd8]              
+           0012a06c  mov      r0, ip                       
+           0012a070  ldr      r1, [fp, #0x90]              
+           0012a074  ldr      r2, [fp, #0x94]              
+           0012a078  ldr      r3, [fp, #0x98]              
+           0012a07c  ldr      lr, [ip]                     
+           0012a080  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           0012a084  mov      r0, sl                       
+           0012a088  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0012a08c  str      r0, [fp, #0xd4]              
+           0012a090  add      r0, sl, #0x28                
+           0012a094  ldr      r1, [r0]                     
+           0012a098  str      r1, [fp, #0x9c]              
+           0012a09c  ldr      r1, [r0, #4]                 ; field+0x4 
+           0012a0a0  str      r1, [fp, #0xa0]              
+           0012a0a4  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012a0a8  str      r1, [fp, #0xa4]              
+           0012a0ac  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0012a0b0  str      r0, [fp, #0xa8]              
+           0012a0b4  add      r0, sl, #0x44                
+           0012a0b8  ldr      r1, [r0]                     
+           0012a0bc  str      r1, [fp, #0xac]              
+           0012a0c0  ldr      r1, [r0, #4]                 ; field+0x4 
+           0012a0c4  str      r1, [fp, #0xb0]              
+           0012a0c8  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           0012a0cc  str      r1, [fp, #0xb4]              
+           0012a0d0  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0012a0d4  str      r0, [fp, #0xb8]              
+           0012a0d8  vldr     s0, [fp, #0x18]              
+           0012a0dc  vcvt.f64.f32 d2, s0                       
+           0012a0e0  add      r0, fp, #0xbc                
+           0012a0e4  ldr      r1, [fp, #0x9c]              
+           0012a0e8  ldr      r2, [fp, #0xa0]              
+           0012a0ec  ldr      r3, [fp, #0xa4]              
+           0012a0f0  ldr      ip, [fp, #0xa8]              
+           0012a0f4  str      ip, [sp]                     
+           0012a0f8  ldr      ip, [fp, #0xac]              
+           0012a0fc  str      ip, [sp, #4]                 
+           0012a100  ldr      ip, [fp, #0xb0]              
+           0012a104  str      ip, [sp, #8]                 
+           0012a108  ldr      ip, [fp, #0xb4]              
+           0012a10c  str      ip, [sp, #0xc]               
+           0012a110  ldr      ip, [fp, #0xb8]              
+           0012a114  str      ip, [sp, #0x10]              
+           0012a118  vcvt.f32.f64 s0, d2                       
+           0012a11c  vstr     s0, [sp, #0x14]              
+           0012a120  bl       #0x22b180                    ; CALL UnityEngine.Quaternion::Slerp
+           0012a124  ldr      ip, [fp, #0xd4]              
+           0012a128  mov      r0, ip                       
+           0012a12c  str      r0, [fp, #0xd0]              
+           0012a130  ldr      r1, [fp, #0xbc]              
+           0012a134  ldr      r2, [fp, #0xc0]              
+           0012a138  ldr      r3, [fp, #0xc4]              
+           0012a13c  ldr      r0, [fp, #0xc8]              
+           0012a140  str      r0, [sp]                     
+           0012a144  ldr      r0, [fp, #0xd0]              
+           0012a148  ldr      lr, [ip]                     
+           0012a14c  bl       #0x22b190                    ; CALL UnityEngine.Transform::set_rotation
+L_12a150:  0012a150  add      sp, fp, #0xec                
+           0012a154  pop      {r8, sl, fp}                 
+           0012a158  ldr      r7, [sp, #8]                 
+           0012a15c  ldm      sp, {sp, pc}                 
+
+== FrontEndCamera::SetCameraTarget  token 0x06000660 @0x0012a160 (128 bytes)
+   args: r0=this, newTarget
+           0012a160  mov      ip, sp                       
+           0012a164  push     {r7, lr}                     
+           0012a168  mov      r7, sp                       
+           0012a16c  push     {r8, fp, ip, lr}             
+           0012a170  sub      sp, sp, #8                   
+           0012a174  mov      fp, sp                       
+           0012a178  str      r0, [fp]                     
+           0012a17c  str      r1, [fp, #4]                 
+           0012a180  ldr      r0, [fp]                     
+           0012a184  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: targetList)
+           0012a188  ldr      r8, [pc]                     
+           0012a18c  b        #0x12a194                    ; -> L_12a194
+           0012a190  .word    0x00e7c008                   ; literal 15187976 / 
+L_12a194:  0012a194  ldr      r8, [pc, r8]                 ; GOT[1295] METHOD_RGCTX System.Array::IndexOf<FrontEndCameraTarget>
+           0012a198  ldr      r1, [fp, #4]                 
+           0012a19c  bl       #0x22e900                    ; CALL System.Array::IndexOf<FrontEndCameraTarget>
+           0012a1a0  mvn      r1, #0                       
+           0012a1a4  cmp      r0, r1                       
+           0012a1a8  bne      #0x12a1c4                    ; -> L_12a1c4
+           0012a1ac  ldr      r0, [pc]                     
+           0012a1b0  b        #0x12a1b8                    ; -> L_12a1b8
+           0012a1b4  .word    0x00e7bfe8                   ; literal 15187944 / 
+L_12a1b8:  0012a1b8  ldr      r0, [pc, r0]                 ; GOT[1296] LDSTR 'Illegal target.'
+           0012a1bc  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           0012a1c0  b        #0x12a1d0                    ; -> L_12a1d0
+L_12a1c4:  0012a1c4  ldr      r0, [fp]                     
+           0012a1c8  ldr      r1, [fp, #4]                 
+           0012a1cc  bl       #0x129c50                    ; CALL FrontEndCamera::StartTransition (direct)
+L_12a1d0:  0012a1d0  add      sp, fp, #8                   
+           0012a1d4  pop      {r8, fp}                     
+           0012a1d8  ldr      r7, [sp, #8]                 
+           0012a1dc  ldm      sp, {sp, pc}                 
+
+== FrontEndCamera::SetCameraTargetByIndex  token 0x06000661 @0x0012a1e0 (148 bytes)
+   args: r0=this, index
+           0012a1e0  mov      ip, sp                       
+           0012a1e4  push     {r7, lr}                     
+           0012a1e8  mov      r7, sp                       
+           0012a1ec  push     {r6, r8, sl, fp, ip, lr}     
+           0012a1f0  mov      fp, sp                       
+           0012a1f4  mov      r6, r0                       
+           0012a1f8  mov      sl, r1                       
+           0012a1fc  cmp      sl, #0                       
+           0012a200  blt      #0x12a214                    ; -> L_12a214
+           0012a204  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: targetList)
+           0012a208  ldr      r0, [r0, #0xc]               ; field+0xc 
+           0012a20c  cmp      sl, r0                       
+           0012a210  ble      #0x12a22c                    ; -> L_12a22c
+L_12a214:  0012a214  ldr      r0, [pc]                     
+           0012a218  b        #0x12a220                    ; -> L_12a220
+           0012a21c  .word    0x00e7bf84                   ; literal 15187844 / 
+L_12a220:  0012a220  ldr      r0, [pc, r0]                 ; GOT[1297] LDSTR 'Illegal target index.'
+           0012a224  bl       #0x22abf0                    ; CALL UnityEngine.Debug::LogError
+           0012a228  b        #0x12a254                    ; -> L_12a254
+L_12a22c:  0012a22c  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: targetList)
+           0012a230  ldr      r1, [r0, #0xc]               ; field+0xc 
+           0012a234  cmp      r1, sl                       
+           0012a238  blls     #0x12a264                    ; THROW System.IndexOutOfRangeException (if ls)
+           0012a23c  lsl      r1, sl, #2                   
+           0012a240  add      r0, r0, r1                   
+           0012a244  add      r0, r0, #0x10                
+           0012a248  ldr      r1, [r0]                     
+           0012a24c  mov      r0, r6                       
+           0012a250  bl       #0x129c50                    ; CALL FrontEndCamera::StartTransition (direct)
+L_12a254:  0012a254  add      sp, fp, #0                   
+           0012a258  pop      {r6, r8, sl, fp}             
+           0012a25c  ldr      r7, [sp, #8]                 
+           0012a260  ldm      sp, {sp, pc}                 
+           0012a264  mov      r1, lr                       
+           0012a268  ldr      r0, [pc]                     
+           0012a26c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0012a270  andeq    r0, r0, #0xf8                
+
+== FrontEndCamera::ForceCameraTarget  token 0x06000662 @0x0012a274 (68 bytes)
+   args: r0=this, newTarget
+           0012a274  mov      ip, sp                       
+           0012a278  push     {r7, lr}                     
+           0012a27c  mov      r7, sp                       
+           0012a280  push     {r8, fp, ip, lr}             
+           0012a284  sub      sp, sp, #8                   
+           0012a288  mov      fp, sp                       
+           0012a28c  str      r0, [fp]                     
+           0012a290  str      r1, [fp, #4]                 
+           0012a294  ldr      r0, [fp]                     
+           0012a298  mov      r1, #0                       
+           0012a29c  str      r1, [r0, #0x14]              ; field+0x14 (this-class: desiredTarget)
+           0012a2a0  ldr      r1, [fp, #4]                 
+           0012a2a4  bl       #0x129c50                    ; CALL FrontEndCamera::StartTransition (direct)
+           0012a2a8  add      sp, fp, #8                   
+           0012a2ac  pop      {r8, fp}                     
+           0012a2b0  ldr      r7, [sp, #8]                 
+           0012a2b4  ldm      sp, {sp, pc}                 

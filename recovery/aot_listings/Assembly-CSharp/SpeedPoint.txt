@@ -1,0 +1,899 @@
+####################################################################################################
+# TYPE SpeedPoint  (instance size 0x1c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 forwardPoint                   SpeedPoint
+#   +0x14 backwardPoint                  SpeedPoint
+#   +0x18 branches                       SpeedPoint/SpeedBranchStruct[]
+#   vtable slots: 
+####################################################################################################
+== SpeedPoint::.ctor  token 0x06000570 @0x00114ef0 (84 bytes)
+   args: r0=this, 
+           00114ef0  mov      ip, sp                       
+           00114ef4  push     {r7, lr}                     
+           00114ef8  mov      r7, sp                       
+           00114efc  push     {r8, fp, ip, lr}             
+           00114f00  sub      sp, sp, #8                   
+           00114f04  mov      fp, sp                       
+           00114f08  str      r0, [fp]                     
+           00114f0c  ldr      r0, [pc]                     
+           00114f10  b        #0x114f18                    ; -> L_114f18
+           00114f14  .word    0x00e90eb0                   ; literal 15273648 / 
+L_114f18:  00114f18  ldr      r0, [pc, r0]                 ; GOT[1050] VTABLE SpeedPoint/SpeedBranchStruct[]
+           00114f1c  mov      r1, #0                       
+           00114f20  bl       #0x22a7c0                    ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           00114f24  mov      r1, r0                       
+           00114f28  ldr      r0, [fp]                     
+           00114f2c  str      r1, [r0, #0x18]              ; field+0x18 (this-class: branches)
+           00114f30  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           00114f34  add      sp, fp, #8                   
+           00114f38  pop      {r8, fp}                     
+           00114f3c  ldr      r7, [sp, #8]                 
+           00114f40  ldm      sp, {sp, pc}                 
+
+== SpeedPoint::ProjectOnSPLine  token 0x06000571 @0x00114f44 (968 bytes)
+   args: r0=this, otherPoint, pos, projPoint
+           00114f44  mov      ip, sp                       
+           00114f48  push     {r7, lr}                     
+           00114f4c  mov      r7, sp                       
+           00114f50  push     {r5, r6, r8, fp, ip, lr}     
+           00114f54  sub      sp, sp, #76, #30             
+           00114f58  mov      fp, sp                       
+           00114f5c  mov      r5, r0                       
+           00114f60  mov      r6, r1                       
+           00114f64  str      r2, [fp, #0x10c]             
+           00114f68  str      r3, [fp, #0x110]             
+           00114f6c  ldr      lr, [sp, #0x150]             
+           00114f70  str      lr, [fp, #0x114]             
+           00114f74  ldr      lr, [sp, #0x154]             
+           00114f78  str      lr, [fp, #0x118]             
+           00114f7c  mov      r0, #0                       
+           00114f80  str      r0, [fp, #0x18]              
+           00114f84  mov      r0, #0                       
+           00114f88  str      r0, [fp, #0x1c]              
+           00114f8c  mov      r0, #0                       
+           00114f90  str      r0, [fp, #0x20]              
+           00114f94  mov      r0, #0                       
+           00114f98  str      r0, [fp, #0x24]              
+           00114f9c  mov      r0, #0                       
+           00114fa0  str      r0, [fp, #0x28]              
+           00114fa4  mov      r0, #0                       
+           00114fa8  str      r0, [fp, #0x2c]              
+           00114fac  mov      r0, #0                       
+           00114fb0  str      r0, [fp, #0x34]              
+           00114fb4  mov      r0, #0                       
+           00114fb8  str      r0, [fp, #0x38]              
+           00114fbc  mov      r0, #0                       
+           00114fc0  str      r0, [fp, #0x3c]              
+           00114fc4  mov      r0, #0                       
+           00114fc8  str      r0, [fp, #0x40]              
+           00114fcc  mov      r0, #0                       
+           00114fd0  str      r0, [fp, #0x44]              
+           00114fd4  mov      r0, #0                       
+           00114fd8  str      r0, [fp, #0x48]              
+           00114fdc  mov      r0, r6                       
+           00114fe0  ldr      lr, [r6]                     
+           00114fe4  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00114fe8  mov      r2, r0                       
+           00114fec  add      r0, fp, #0x94                
+           00114ff0  mov      r1, r2                       
+           00114ff4  ldr      lr, [r2]                     
+           00114ff8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00114ffc  mov      r0, r5                       
+           00115000  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00115004  mov      r2, r0                       
+           00115008  add      r0, fp, #0xa0                
+           0011500c  mov      r1, r2                       
+           00115010  ldr      lr, [r2]                     
+           00115014  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115018  add      r0, fp, #0x18                
+           0011501c  ldr      r1, [fp, #0x94]              
+           00115020  ldr      r2, [fp, #0x98]              
+           00115024  ldr      r3, [fp, #0x9c]              
+           00115028  ldr      ip, [fp, #0xa0]              
+           0011502c  str      ip, [sp]                     
+           00115030  ldr      ip, [fp, #0xa4]              
+           00115034  str      ip, [sp, #4]                 
+           00115038  ldr      ip, [fp, #0xa8]              
+           0011503c  str      ip, [sp, #8]                 
+           00115040  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           00115044  mov      r0, r5                       
+           00115048  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0011504c  mov      r2, r0                       
+           00115050  add      r0, fp, #0xac                
+           00115054  mov      r1, r2                       
+           00115058  ldr      lr, [r2]                     
+           0011505c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115060  add      r0, fp, #0x24                
+           00115064  ldr      r1, [fp, #0x10c]             
+           00115068  ldr      r2, [fp, #0x110]             
+           0011506c  ldr      r3, [fp, #0x114]             
+           00115070  ldr      ip, [fp, #0xac]              
+           00115074  str      ip, [sp]                     
+           00115078  ldr      ip, [fp, #0xb0]              
+           0011507c  str      ip, [sp, #4]                 
+           00115080  ldr      ip, [fp, #0xb4]              
+           00115084  str      ip, [sp, #8]                 
+           00115088  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           0011508c  vldr     s4, [pc]                     ; float 0.0
+           00115090  b        #0x115098                    ; -> L_115098
+           00115094  .word    0x00000000                   ; literal 0 / 0
+L_115098:  00115098  vcvt.f64.f32 d2, s4                       
+           0011509c  vcvt.f32.f64 s0, d2                       
+           001150a0  vstr     s0, [fp, #0x1c]              
+           001150a4  vldr     s4, [pc]                     ; float 0.0
+           001150a8  b        #0x1150b0                    ; -> L_1150b0
+           001150ac  .word    0x00000000                   ; literal 0 / 0
+L_1150b0:  001150b0  vcvt.f64.f32 d2, s4                       
+           001150b4  vcvt.f32.f64 s0, d2                       
+           001150b8  vstr     s0, [fp, #0x28]              
+           001150bc  add      r1, fp, #0x18                
+           001150c0  add      r0, fp, #0xb8                
+           001150c4  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           001150c8  ldr      r0, [fp, #0x24]              
+           001150cc  str      r0, [fp, #0xc4]              
+           001150d0  ldr      r0, [fp, #0x28]              
+           001150d4  str      r0, [fp, #0xc8]              
+           001150d8  ldr      r0, [fp, #0x2c]              
+           001150dc  str      r0, [fp, #0xcc]              
+           001150e0  ldr      r0, [fp, #0xb8]              
+           001150e4  ldr      r1, [fp, #0xbc]              
+           001150e8  ldr      r2, [fp, #0xc0]              
+           001150ec  ldr      r3, [fp, #0xc4]              
+           001150f0  ldr      ip, [fp, #0xc8]              
+           001150f4  str      ip, [sp]                     
+           001150f8  ldr      ip, [fp, #0xcc]              
+           001150fc  str      ip, [sp, #4]                 
+           00115100  bl       #0x22aed0                    ; CALL UnityEngine.Vector3::Dot
+           00115104  vmov     s4, r0                       
+           00115108  vcvt.f64.f32 d2, s4                       
+           0011510c  vcvt.f32.f64 s0, d2                       
+           00115110  vstr     s0, [fp, #0x30]              
+           00115114  vldr     s0, [fp, #0x30]              
+           00115118  vcvt.f64.f32 d2, s0                       
+           0011511c  vldr     s6, [pc]                     ; float 0.0010000000474974513
+           00115120  b        #0x115128                    ; -> L_115128
+           00115124  .word    0x3a83126f                   ; literal 981668463 / 0.001
+L_115128:  00115128  vcvt.f64.f32 d3, s6                       
+           0011512c  vadd.f64 d2, d2, d3                   
+           00115130  vldr     s6, [pc]                     ; float 0.0
+           00115134  b        #0x11513c                    ; -> L_11513c
+           00115138  .word    0x00000000                   ; literal 0 / 0
+L_11513c:  0011513c  vcvt.f64.f32 d3, s6                       
+           00115140  vcmp.f64 d2, d3                       
+           00115144  vmrs     apsr_nzcv, fpscr             
+           00115148  bmi      #0x115190                    ; -> L_115190
+           0011514c  vldr     s0, [fp, #0x30]              
+           00115150  vcvt.f64.f32 d2, s0                       
+           00115154  vldr     s6, [pc]                     ; float 0.0010000000474974513
+           00115158  b        #0x115160                    ; -> L_115160
+           0011515c  .word    0x3a83126f                   ; literal 981668463 / 0.001
+L_115160:  00115160  vcvt.f64.f32 d3, s6                       
+           00115164  vsub.f64 d2, d2, d3                   
+           00115168  vstr     d2, [fp, #0x120]             
+           0011516c  add      r0, fp, #0x18                
+           00115170  bl       #0x22a970                    ; CALL UnityEngine.Vector3::get_magnitude
+           00115174  vmov     s4, r0                       
+           00115178  vcvt.f64.f32 d2, s4                       
+           0011517c  vldr     d3, [fp, #0x120]             
+           00115180  vcmp.f64 d2, d3                       
+           00115184  vmrs     apsr_nzcv, fpscr             
+           00115188  bvs      #0x1151bc                    ; -> L_1151bc
+           0011518c  bge      #0x1151bc                    ; -> L_1151bc
+L_115190:  00115190  add      r0, fp, #0xd0                
+           00115194  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           00115198  ldr      r0, [fp, #0x118]             
+           0011519c  ldr      r1, [fp, #0xd0]              
+           001151a0  str      r1, [r0]                     
+           001151a4  ldr      r1, [fp, #0xd4]              
+           001151a8  str      r1, [r0, #4]                 ; field+0x4 
+           001151ac  ldr      r1, [fp, #0xd8]              
+           001151b0  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001151b4  mov      r0, #0                       
+           001151b8  b        #0x1152fc                    ; -> L_1152fc
+L_1151bc:  001151bc  mov      r0, r5                       
+           001151c0  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           001151c4  mov      r2, r0                       
+           001151c8  add      r0, fp, #0x34                
+           001151cc  mov      r1, r2                       
+           001151d0  ldr      lr, [r2]                     
+           001151d4  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           001151d8  vldr     s0, [fp, #0x34]              
+           001151dc  vcvt.f64.f32 d2, s0                       
+           001151e0  vstr     d2, [fp, #0x128]             
+           001151e4  vldr     s4, [pc]                     ; float 0.0
+           001151e8  b        #0x1151f0                    ; -> L_1151f0
+           001151ec  .word    0x00000000                   ; literal 0 / 0
+L_1151f0:  001151f0  vcvt.f64.f32 d2, s4                       
+           001151f4  vstr     d2, [fp, #0x120]             
+           001151f8  mov      r0, r5                       
+           001151fc  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00115200  mov      r2, r0                       
+           00115204  add      r0, fp, #0x40                
+           00115208  mov      r1, r2                       
+           0011520c  ldr      lr, [r2]                     
+           00115210  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115214  vldr     d3, [fp, #0x120]             
+           00115218  vldr     d4, [fp, #0x128]             
+           0011521c  vldr     s0, [fp, #0x48]              
+           00115220  vcvt.f64.f32 d2, s0                       
+           00115224  mov      r0, #0                       
+           00115228  str      r0, [fp, #0x88]              
+           0011522c  mov      r0, #0                       
+           00115230  str      r0, [fp, #0x8c]              
+           00115234  mov      r0, #0                       
+           00115238  str      r0, [fp, #0x90]              
+           0011523c  add      r0, fp, #0x88                
+           00115240  vcvt.f32.f64 s0, d4                       
+           00115244  vstr     s0, [sp, #8]                 
+           00115248  ldr      r1, [sp, #8]                 
+           0011524c  vcvt.f32.f64 s0, d3                       
+           00115250  vstr     s0, [sp, #8]                 
+           00115254  ldr      r2, [sp, #8]                 
+           00115258  vcvt.f32.f64 s0, d2                       
+           0011525c  vstr     s0, [sp, #8]                 
+           00115260  ldr      r3, [sp, #8]                 
+           00115264  bl       #0x22b1f0                    ; CALL UnityEngine.Vector3::.ctor
+           00115268  ldr      r0, [fp, #0x88]              
+           0011526c  str      r0, [fp, #0xdc]              
+           00115270  ldr      r0, [fp, #0x8c]              
+           00115274  str      r0, [fp, #0xe0]              
+           00115278  ldr      r0, [fp, #0x90]              
+           0011527c  str      r0, [fp, #0xe4]              
+           00115280  add      r1, fp, #0x18                
+           00115284  add      r0, fp, #0xe8                
+           00115288  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           0011528c  vldr     s0, [fp, #0x30]              
+           00115290  vcvt.f64.f32 d2, s0                       
+           00115294  add      r0, fp, #0xf4                
+           00115298  ldr      r1, [fp, #0xe8]              
+           0011529c  ldr      r2, [fp, #0xec]              
+           001152a0  ldr      r3, [fp, #0xf0]              
+           001152a4  vcvt.f32.f64 s0, d2                       
+           001152a8  vstr     s0, [sp]                     
+           001152ac  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           001152b0  add      r0, fp, #64, #30             
+           001152b4  ldr      r1, [fp, #0xdc]              
+           001152b8  ldr      r2, [fp, #0xe0]              
+           001152bc  ldr      r3, [fp, #0xe4]              
+           001152c0  ldr      ip, [fp, #0xf4]              
+           001152c4  str      ip, [sp]                     
+           001152c8  ldr      ip, [fp, #0xf8]              
+           001152cc  str      ip, [sp, #4]                 
+           001152d0  ldr      ip, [fp, #0xfc]              
+           001152d4  str      ip, [sp, #8]                 
+           001152d8  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           001152dc  ldr      r0, [fp, #0x118]             
+           001152e0  ldr      r1, [fp, #0x100]             
+           001152e4  str      r1, [r0]                     
+           001152e8  ldr      r1, [fp, #0x104]             
+           001152ec  str      r1, [r0, #4]                 ; field+0x4 
+           001152f0  ldr      r1, [fp, #0x108]             
+           001152f4  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001152f8  mov      r0, #1                       
+L_1152fc:  001152fc  add      sp, fp, #76, #30             
+           00115300  pop      {r5, r6, r8, fp}             
+           00115304  ldr      r7, [sp, #8]                 
+           00115308  ldm      sp, {sp, pc}                 
+
+== SpeedPoint::GetSPLinePoint  token 0x06000572 @0x0011530c (1024 bytes)
+   args: r0=this, pos
+           0011530c  mov      ip, sp                       
+           00115310  push     {r7, lr}                     
+           00115314  mov      r7, sp                       
+           00115318  push     {r6, r8, fp, ip, lr}         
+           0011531c  sub      sp, sp, #0x104               
+           00115320  mov      fp, sp                       
+           00115324  str      r0, [fp, #0x10]              
+           00115328  mov      r6, r1                       
+           0011532c  str      r2, [fp, #0xec]              
+           00115330  str      r3, [fp, #0xf0]              
+           00115334  ldr      lr, [sp, #0x120]             
+           00115338  str      lr, [fp, #0xf4]              
+           0011533c  mov      r0, #0                       
+           00115340  str      r0, [fp, #0x18]              
+           00115344  mov      r0, #0                       
+           00115348  str      r0, [fp, #0x1c]              
+           0011534c  mov      r0, #0                       
+           00115350  str      r0, [fp, #0x20]              
+           00115354  mov      r0, #0                       
+           00115358  str      r0, [fp, #0x24]              
+           0011535c  mov      r0, #0                       
+           00115360  str      r0, [fp, #0x28]              
+           00115364  mov      r0, #0                       
+           00115368  str      r0, [fp, #0x2c]              
+           0011536c  mov      r0, #0                       
+           00115370  str      r0, [fp, #0x30]              
+           00115374  mov      r0, #0                       
+           00115378  str      r0, [fp, #0x34]              
+           0011537c  mov      r0, #0                       
+           00115380  str      r0, [fp, #0x38]              
+           00115384  mov      r0, #0                       
+           00115388  str      r0, [fp, #0x40]              
+           0011538c  mov      r0, #0                       
+           00115390  str      r0, [fp, #0x44]              
+           00115394  mov      r0, #0                       
+           00115398  str      r0, [fp, #0x48]              
+           0011539c  mov      r0, #0                       
+           001153a0  str      r0, [fp, #0x50]              
+           001153a4  mov      r0, #0                       
+           001153a8  str      r0, [fp, #0x54]              
+           001153ac  mov      r0, #0                       
+           001153b0  str      r0, [fp, #0x58]              
+           001153b4  mov      r0, #0                       
+           001153b8  str      r0, [fp, #0x5c]              
+           001153bc  mov      r0, #0                       
+           001153c0  str      r0, [fp, #0x60]              
+           001153c4  mov      r0, #0                       
+           001153c8  str      r0, [fp, #0x64]              
+           001153cc  vldr     s4, [pc]                     ; float 0.0
+           001153d0  b        #0x1153d8                    ; -> L_1153d8
+           001153d4  .word    0x00000000                   ; literal 0 / 0
+L_1153d8:  001153d8  vcvt.f64.f32 d2, s4                       
+           001153dc  vcvt.f32.f64 s0, d2                       
+           001153e0  vstr     s0, [fp, #0xf0]              
+           001153e4  vldr     s4, [pc]                     ; float 0.0
+           001153e8  b        #0x1153f0                    ; -> L_1153f0
+           001153ec  .word    0x00000000                   ; literal 0 / 0
+L_1153f0:  001153f0  vcvt.f64.f32 d2, s4                       
+           001153f4  mov      r0, r6                       
+           001153f8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           001153fc  mov      r2, r0                       
+           00115400  add      r0, fp, #0x18                
+           00115404  mov      r1, r2                       
+           00115408  ldr      lr, [r2]                     
+           0011540c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115410  vldr     s4, [pc]                     ; float 0.0
+           00115414  b        #0x11541c                    ; -> L_11541c
+           00115418  .word    0x00000000                   ; literal 0 / 0
+L_11541c:  0011541c  vcvt.f64.f32 d2, s4                       
+           00115420  vcvt.f32.f64 s0, d2                       
+           00115424  vstr     s0, [fp, #0x1c]              
+           00115428  mov      r0, r6                       
+           0011542c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00115430  mov      r2, r0                       
+           00115434  add      r0, fp, #0x80                
+           00115438  mov      r1, r2                       
+           0011543c  ldr      lr, [r2]                     
+           00115440  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115444  ldr      r0, [fp, #0xec]              
+           00115448  str      r0, [fp, #0x8c]              
+           0011544c  ldr      r0, [fp, #0xf0]              
+           00115450  str      r0, [fp, #0x90]              
+           00115454  ldr      r0, [fp, #0xf4]              
+           00115458  str      r0, [fp, #0x94]              
+           0011545c  add      r0, fp, #0x24                
+           00115460  ldr      r1, [fp, #0x80]              
+           00115464  ldr      r2, [fp, #0x84]              
+           00115468  ldr      r3, [fp, #0x88]              
+           0011546c  ldr      ip, [fp, #0x8c]              
+           00115470  str      ip, [sp]                     
+           00115474  ldr      ip, [fp, #0x90]              
+           00115478  str      ip, [sp, #4]                 
+           0011547c  ldr      ip, [fp, #0x94]              
+           00115480  str      ip, [sp, #8]                 
+           00115484  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           00115488  add      r0, fp, #0x24                
+           0011548c  bl       #0x22aba0                    ; CALL UnityEngine.Vector3::get_sqrMagnitude
+           00115490  vmov     s4, r0                       
+           00115494  vcvt.f64.f32 d2, s4                       
+           00115498  vcvt.f32.f64 s0, d2                       
+           0011549c  vstr     s0, [fp, #0x14]              
+           001154a0  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: forwardPoint)
+           001154a4  mov      r1, #0                       
+           001154a8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           001154ac  cmp      r0, #0                       
+           001154b0  beq      #0x1155bc                    ; -> L_1155bc
+           001154b4  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: forwardPoint)
+           001154b8  ldr      r0, [fp, #0xec]              
+           001154bc  str      r0, [fp, #0x98]              
+           001154c0  ldr      r0, [fp, #0xf0]              
+           001154c4  str      r0, [fp, #0x9c]              
+           001154c8  ldr      r0, [fp, #0xf4]              
+           001154cc  str      r0, [fp, #0xa0]              
+           001154d0  add      ip, fp, #0x30                
+           001154d4  mov      r0, r6                       
+           001154d8  str      r0, [fp, #0xf8]              
+           001154dc  ldr      r2, [fp, #0x98]              
+           001154e0  ldr      r3, [fp, #0x9c]              
+           001154e4  ldr      r0, [fp, #0xa0]              
+           001154e8  str      r0, [sp]                     
+           001154ec  ldr      r0, [fp, #0xf8]              
+           001154f0  str      ip, [sp, #4]                 
+           001154f4  bl       #0x114f44                    ; CALL SpeedPoint::ProjectOnSPLine (direct)
+           001154f8  cmp      r0, #0                       
+           001154fc  beq      #0x1155bc                    ; -> L_1155bc
+           00115500  ldr      r0, [fp, #0x30]              
+           00115504  str      r0, [fp, #0xa4]              
+           00115508  ldr      r0, [fp, #0x34]              
+           0011550c  str      r0, [fp, #0xa8]              
+           00115510  ldr      r0, [fp, #0x38]              
+           00115514  str      r0, [fp, #0xac]              
+           00115518  ldr      r0, [fp, #0xec]              
+           0011551c  str      r0, [fp, #0xb0]              
+           00115520  ldr      r0, [fp, #0xf0]              
+           00115524  str      r0, [fp, #0xb4]              
+           00115528  ldr      r0, [fp, #0xf4]              
+           0011552c  str      r0, [fp, #0xb8]              
+           00115530  add      r0, fp, #0x50                
+           00115534  ldr      r1, [fp, #0xa4]              
+           00115538  ldr      r2, [fp, #0xa8]              
+           0011553c  ldr      r3, [fp, #0xac]              
+           00115540  ldr      ip, [fp, #0xb0]              
+           00115544  str      ip, [sp]                     
+           00115548  ldr      ip, [fp, #0xb4]              
+           0011554c  str      ip, [sp, #4]                 
+           00115550  ldr      ip, [fp, #0xb8]              
+           00115554  str      ip, [sp, #8]                 
+           00115558  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           0011555c  add      r0, fp, #0x50                
+           00115560  bl       #0x22aba0                    ; CALL UnityEngine.Vector3::get_sqrMagnitude
+           00115564  vmov     s4, r0                       
+           00115568  vcvt.f64.f32 d2, s4                       
+           0011556c  vcvt.f32.f64 s0, d2                       
+           00115570  vstr     s0, [fp, #0x3c]              
+           00115574  vldr     s0, [fp, #0x3c]              
+           00115578  vcvt.f64.f32 d3, s0                       
+           0011557c  vldr     s0, [fp, #0x14]              
+           00115580  vcvt.f64.f32 d2, s0                       
+           00115584  vcmp.f64 d2, d3                       
+           00115588  vmrs     apsr_nzcv, fpscr             
+           0011558c  bvs      #0x1155bc                    ; -> L_1155bc
+           00115590  bmi      #0x1155bc                    ; -> L_1155bc
+           00115594  ldr      r0, [fp, #0x30]              
+           00115598  str      r0, [fp, #0x18]              
+           0011559c  ldr      r0, [fp, #0x34]              
+           001155a0  str      r0, [fp, #0x1c]              
+           001155a4  ldr      r0, [fp, #0x38]              
+           001155a8  str      r0, [fp, #0x20]              
+           001155ac  vldr     s0, [fp, #0x3c]              
+           001155b0  vcvt.f64.f32 d2, s0                       
+           001155b4  vcvt.f32.f64 s0, d2                       
+           001155b8  vstr     s0, [fp, #0x14]              
+L_1155bc:  001155bc  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: backwardPoint)
+           001155c0  mov      r1, #0                       
+           001155c4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           001155c8  cmp      r0, #0                       
+           001155cc  beq      #0x1156c8                    ; -> L_1156c8
+           001155d0  ldr      r1, [r6, #0x14]              ; field+0x14 (this-class: backwardPoint)
+           001155d4  ldr      r0, [fp, #0xec]              
+           001155d8  str      r0, [fp, #0xbc]              
+           001155dc  ldr      r0, [fp, #0xf0]              
+           001155e0  str      r0, [fp, #0xc0]              
+           001155e4  ldr      r0, [fp, #0xf4]              
+           001155e8  str      r0, [fp, #0xc4]              
+           001155ec  add      ip, fp, #0x40                
+           001155f0  mov      r0, r6                       
+           001155f4  str      r0, [fp, #0xf8]              
+           001155f8  ldr      r2, [fp, #0xbc]              
+           001155fc  ldr      r3, [fp, #0xc0]              
+           00115600  ldr      r0, [fp, #0xc4]              
+           00115604  str      r0, [sp]                     
+           00115608  ldr      r0, [fp, #0xf8]              
+           0011560c  str      ip, [sp, #4]                 
+           00115610  bl       #0x114f44                    ; CALL SpeedPoint::ProjectOnSPLine (direct)
+           00115614  cmp      r0, #0                       
+           00115618  beq      #0x1156c8                    ; -> L_1156c8
+           0011561c  ldr      r0, [fp, #0x40]              
+           00115620  str      r0, [fp, #0xc8]              
+           00115624  ldr      r0, [fp, #0x44]              
+           00115628  str      r0, [fp, #0xcc]              
+           0011562c  ldr      r0, [fp, #0x48]              
+           00115630  str      r0, [fp, #0xd0]              
+           00115634  ldr      r0, [fp, #0xec]              
+           00115638  str      r0, [fp, #0xd4]              
+           0011563c  ldr      r0, [fp, #0xf0]              
+           00115640  str      r0, [fp, #0xd8]              
+           00115644  ldr      r0, [fp, #0xf4]              
+           00115648  str      r0, [fp, #0xdc]              
+           0011564c  add      r0, fp, #0x5c                
+           00115650  ldr      r1, [fp, #0xc8]              
+           00115654  ldr      r2, [fp, #0xcc]              
+           00115658  ldr      r3, [fp, #0xd0]              
+           0011565c  ldr      ip, [fp, #0xd4]              
+           00115660  str      ip, [sp]                     
+           00115664  ldr      ip, [fp, #0xd8]              
+           00115668  str      ip, [sp, #4]                 
+           0011566c  ldr      ip, [fp, #0xdc]              
+           00115670  str      ip, [sp, #8]                 
+           00115674  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           00115678  add      r0, fp, #0x5c                
+           0011567c  bl       #0x22aba0                    ; CALL UnityEngine.Vector3::get_sqrMagnitude
+           00115680  vmov     s4, r0                       
+           00115684  vcvt.f64.f32 d2, s4                       
+           00115688  vcvt.f32.f64 s0, d2                       
+           0011568c  vstr     s0, [fp, #0x4c]              
+           00115690  vldr     s0, [fp, #0x4c]              
+           00115694  vcvt.f64.f32 d3, s0                       
+           00115698  vldr     s0, [fp, #0x14]              
+           0011569c  vcvt.f64.f32 d2, s0                       
+           001156a0  vcmp.f64 d2, d3                       
+           001156a4  vmrs     apsr_nzcv, fpscr             
+           001156a8  bvs      #0x1156c8                    ; -> L_1156c8
+           001156ac  bmi      #0x1156c8                    ; -> L_1156c8
+           001156b0  ldr      r0, [fp, #0x40]              
+           001156b4  str      r0, [fp, #0x18]              
+           001156b8  ldr      r0, [fp, #0x44]              
+           001156bc  str      r0, [fp, #0x1c]              
+           001156c0  ldr      r0, [fp, #0x48]              
+           001156c4  str      r0, [fp, #0x20]              
+L_1156c8:  001156c8  ldr      r0, [fp, #0x18]              
+           001156cc  str      r0, [fp, #0xe0]              
+           001156d0  ldr      r0, [fp, #0x1c]              
+           001156d4  str      r0, [fp, #0xe4]              
+           001156d8  ldr      r0, [fp, #0x20]              
+           001156dc  str      r0, [fp, #0xe8]              
+           001156e0  ldr      r0, [fp, #0x10]              
+           001156e4  ldr      r1, [fp, #0xe0]              
+           001156e8  str      r1, [r0]                     
+           001156ec  ldr      r1, [fp, #0xe4]              
+           001156f0  str      r1, [r0, #4]                 ; field+0x4 
+           001156f4  ldr      r1, [fp, #0xe8]              
+           001156f8  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001156fc  add      sp, fp, #0x104               
+           00115700  pop      {r6, r8, fp}                 
+           00115704  ldr      r7, [sp, #8]                 
+           00115708  ldm      sp, {sp, pc}                 
+
+== SpeedPoint::GetSPLine  token 0x06000573 @0x0011570c (188 bytes)
+   args: r0=this, 
+           0011570c  mov      ip, sp                       
+           00115710  push     {r7, lr}                     
+           00115714  mov      r7, sp                       
+           00115718  push     {r8, fp, ip, lr}             
+           0011571c  sub      sp, sp, #0x58                
+           00115720  mov      fp, sp                       
+           00115724  str      r0, [fp, #0x10]              
+           00115728  str      r1, [fp, #0x50]              
+           0011572c  ldr      r0, [fp, #0x50]              
+           00115730  ldr      r1, [r0, #0x10]              ; field+0x10 (this-class: forwardPoint)
+           00115734  mov      r0, r1                       
+           00115738  ldr      lr, [r1]                     
+           0011573c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00115740  mov      r2, r0                       
+           00115744  add      r0, fp, #0x2c                
+           00115748  mov      r1, r2                       
+           0011574c  ldr      lr, [r2]                     
+           00115750  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115754  ldr      r0, [fp, #0x50]              
+           00115758  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0011575c  mov      r2, r0                       
+           00115760  add      r0, fp, #0x38                
+           00115764  mov      r1, r2                       
+           00115768  ldr      lr, [r2]                     
+           0011576c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115770  add      r0, fp, #0x44                
+           00115774  ldr      r1, [fp, #0x2c]              
+           00115778  ldr      r2, [fp, #0x30]              
+           0011577c  ldr      r3, [fp, #0x34]              
+           00115780  ldr      ip, [fp, #0x38]              
+           00115784  str      ip, [sp]                     
+           00115788  ldr      ip, [fp, #0x3c]              
+           0011578c  str      ip, [sp, #4]                 
+           00115790  ldr      ip, [fp, #0x40]              
+           00115794  str      ip, [sp, #8]                 
+           00115798  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           0011579c  ldr      r0, [fp, #0x10]              
+           001157a0  ldr      r1, [fp, #0x44]              
+           001157a4  str      r1, [r0]                     
+           001157a8  ldr      r1, [fp, #0x48]              
+           001157ac  str      r1, [r0, #4]                 ; field+0x4 
+           001157b0  ldr      r1, [fp, #0x4c]              
+           001157b4  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001157b8  add      sp, fp, #0x58                
+           001157bc  pop      {r8, fp}                     
+           001157c0  ldr      r7, [sp, #8]                 
+           001157c4  ldm      sp, {sp, pc}                 
+
+== SpeedPoint::IsPointForward  token 0x06000574 @0x001157c8 (268 bytes)
+   args: r0=this, point
+           001157c8  mov      ip, sp                       
+           001157cc  push     {r7, lr}                     
+           001157d0  mov      r7, sp                       
+           001157d4  push     {r8, fp, ip, lr}             
+           001157d8  sub      sp, sp, #0x60                
+           001157dc  mov      fp, sp                       
+           001157e0  str      r0, [fp, #0x50]              
+           001157e4  str      r1, [fp, #0x54]              
+           001157e8  str      r2, [fp, #0x58]              
+           001157ec  str      r3, [fp, #0x5c]              
+           001157f0  mov      r0, #0                       
+           001157f4  str      r0, [fp, #0x14]              
+           001157f8  mov      r0, #0                       
+           001157fc  str      r0, [fp, #0x18]              
+           00115800  mov      r0, #0                       
+           00115804  str      r0, [fp, #0x1c]              
+           00115808  ldr      r0, [fp, #0x50]              
+           0011580c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00115810  mov      r2, r0                       
+           00115814  add      r0, fp, #0x2c                
+           00115818  mov      r1, r2                       
+           0011581c  ldr      lr, [r2]                     
+           00115820  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115824  add      r0, fp, #0x38                
+           00115828  ldr      r1, [fp, #0x54]              
+           0011582c  ldr      r2, [fp, #0x58]              
+           00115830  ldr      r3, [fp, #0x5c]              
+           00115834  ldr      ip, [fp, #0x2c]              
+           00115838  str      ip, [sp]                     
+           0011583c  ldr      ip, [fp, #0x30]              
+           00115840  str      ip, [sp, #4]                 
+           00115844  ldr      ip, [fp, #0x34]              
+           00115848  str      ip, [sp, #8]                 
+           0011584c  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           00115850  add      r0, fp, #0x14                
+           00115854  ldr      r1, [fp, #0x50]              
+           00115858  bl       #0x11570c                    ; CALL SpeedPoint::GetSPLine (direct)
+           0011585c  add      r1, fp, #0x14                
+           00115860  add      r0, fp, #0x44                
+           00115864  bl       #0x22a9c0                    ; CALL UnityEngine.Vector3::get_normalized
+           00115868  ldr      r0, [fp, #0x44]              
+           0011586c  ldr      r1, [fp, #0x48]              
+           00115870  ldr      r2, [fp, #0x4c]              
+           00115874  ldr      r3, [fp, #0x38]              
+           00115878  ldr      ip, [fp, #0x3c]              
+           0011587c  str      ip, [sp]                     
+           00115880  ldr      ip, [fp, #0x40]              
+           00115884  str      ip, [sp, #4]                 
+           00115888  bl       #0x22aed0                    ; CALL UnityEngine.Vector3::Dot
+           0011588c  vmov     s4, r0                       
+           00115890  vcvt.f64.f32 d2, s4                       
+           00115894  vcvt.f32.f64 s0, d2                       
+           00115898  vstr     s0, [fp, #0x10]              
+           0011589c  vldr     s0, [fp, #0x10]              
+           001158a0  vcvt.f64.f32 d2, s0                       
+           001158a4  vldr     s6, [pc]                     ; float 0.6000000238418579
+           001158a8  b        #0x1158b0                    ; -> L_1158b0
+           001158ac  .word    0x3f19999a                   ; literal 1058642330 / 0.6
+L_1158b0:  001158b0  vcvt.f64.f32 d3, s6                       
+           001158b4  vcmp.f64 d3, d2                       
+           001158b8  vmrs     apsr_nzcv, fpscr             
+           001158bc  mov      r0, #0                       
+           001158c0  movmi    r0, #1                       
+           001158c4  add      sp, fp, #0x60                
+           001158c8  pop      {r8, fp}                     
+           001158cc  ldr      r7, [sp, #8]                 
+           001158d0  ldm      sp, {sp, pc}                 
+
+== SpeedPoint::FindClosestSpeedPoint  token 0x06000575 @0x001158d4 (432 bytes) static
+   args: pos
+           001158d4  mov      ip, sp                       
+           001158d8  push     {r7, lr}                     
+           001158dc  mov      r7, sp                       
+           001158e0  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           001158e4  sub      sp, sp, #0x48                
+           001158e8  mov      fp, sp                       
+           001158ec  str      r0, [fp, #0x3c]              
+           001158f0  str      r1, [fp, #0x40]              
+           001158f4  str      r2, [fp, #0x44]              
+           001158f8  mov      r0, #0                       
+           001158fc  str      r0, [fp, #0x18]              
+           00115900  mov      r0, #0                       
+           00115904  str      r0, [fp, #0x1c]              
+           00115908  mov      r0, #0                       
+           0011590c  str      r0, [fp, #0x20]              
+           00115910  ldr      r0, [pc]                     
+           00115914  b        #0x11591c                    ; -> L_11591c
+           00115918  .word    0x00e904b0                   ; literal 15271088 / 
+L_11591c:  0011591c  ldr      r0, [pc, r0]                 ; GOT[1051] LDSTR 'SpeedPoint'
+           00115920  bl       #0x22dd40                    ; CALL UnityEngine.GameObject::FindGameObjectsWithTag
+           00115924  mov      r6, #0                       
+           00115928  vldr     s4, [pc]                     ; float 0.0
+           0011592c  b        #0x115934                    ; -> L_115934
+           00115930  .word    0x00000000                   ; literal 0 / 0
+L_115934:  00115934  vcvt.f64.f32 d2, s4                       
+           00115938  vcvt.f32.f64 s0, d2                       
+           0011593c  vstr     s0, [fp, #0x10]              
+           00115940  mov      r5, r0                       
+           00115944  mov      r4, #0                       
+           00115948  b        #0x115a1c                    ; -> L_115a1c
+L_11594c:  0011594c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           00115950  cmp      r0, r4                       
+           00115954  blls     #0x115a74                    ; THROW System.IndexOutOfRangeException (if ls)
+           00115958  lsl      r0, r4, #2                   
+           0011595c  add      r0, r5, r0                   
+           00115960  add      r0, r0, #0x10                
+           00115964  ldr      sl, [r0]                     
+           00115968  mov      r1, sl                       
+           0011596c  mov      r0, r1                       
+           00115970  ldr      lr, [r1]                     
+           00115974  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00115978  mov      r2, r0                       
+           0011597c  add      r0, fp, #0x30                
+           00115980  mov      r1, r2                       
+           00115984  ldr      lr, [r2]                     
+           00115988  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0011598c  add      r0, fp, #0x18                
+           00115990  ldr      r1, [fp, #0x30]              
+           00115994  ldr      r2, [fp, #0x34]              
+           00115998  ldr      r3, [fp, #0x38]              
+           0011599c  ldr      ip, [fp, #0x3c]              
+           001159a0  str      ip, [sp]                     
+           001159a4  ldr      ip, [fp, #0x40]              
+           001159a8  str      ip, [sp, #4]                 
+           001159ac  ldr      ip, [fp, #0x44]              
+           001159b0  str      ip, [sp, #8]                 
+           001159b4  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           001159b8  add      r0, fp, #0x18                
+           001159bc  bl       #0x22aba0                    ; CALL UnityEngine.Vector3::get_sqrMagnitude
+           001159c0  vmov     s4, r0                       
+           001159c4  vcvt.f64.f32 d2, s4                       
+           001159c8  vcvt.f32.f64 s0, d2                       
+           001159cc  vstr     s0, [fp, #0x14]              
+           001159d0  mov      r0, r6                       
+           001159d4  mov      r1, #0                       
+           001159d8  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           001159dc  cmp      r0, #0                       
+           001159e0  bne      #0x115a04                    ; -> L_115a04
+           001159e4  vldr     s0, [fp, #0x14]              
+           001159e8  vcvt.f64.f32 d2, s0                       
+           001159ec  vldr     s0, [fp, #0x10]              
+           001159f0  vcvt.f64.f32 d3, s0                       
+           001159f4  vcmp.f64 d2, d3                       
+           001159f8  vmrs     apsr_nzcv, fpscr             
+           001159fc  bvs      #0x115a18                    ; -> L_115a18
+           00115a00  bge      #0x115a18                    ; -> L_115a18
+L_115a04:  00115a04  mov      r6, sl                       
+           00115a08  vldr     s0, [fp, #0x14]              
+           00115a0c  vcvt.f64.f32 d2, s0                       
+           00115a10  vcvt.f32.f64 s0, d2                       
+           00115a14  vstr     s0, [fp, #0x10]              
+L_115a18:  00115a18  add      r4, r4, #1                   
+L_115a1c:  00115a1c  ldr      r0, [r5, #0xc]               ; field+0xc 
+           00115a20  cmp      r4, r0                       
+           00115a24  blt      #0x11594c                    ; -> L_11594c
+           00115a28  mov      r0, r6                       
+           00115a2c  mov      r1, #0                       
+           00115a30  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00115a34  cmp      r0, #0                       
+           00115a38  beq      #0x115a60                    ; -> L_115a60
+           00115a3c  ldr      r0, [pc]                     
+           00115a40  b        #0x115a48                    ; -> L_115a48
+           00115a44  .word    0x00e90388                   ; literal 15270792 / 
+L_115a48:  00115a48  ldr      r0, [pc, r0]                 ; GOT[1052] METHOD_RGCTX UnityEngine.GameObject::GetComponent<SpeedPoint>
+           00115a4c  ldr      lr, [r6]                     
+           00115a50  mov      r8, r0                       
+           00115a54  mov      r0, r6                       
+           00115a58  bl       #0x22e0a0                    ; CALL UnityEngine.GameObject::GetComponent<SpeedPoint>
+           00115a5c  b        #0x115a64                    ; -> L_115a64
+L_115a60:  00115a60  mov      r0, #0                       
+L_115a64:  00115a64  add      sp, fp, #0x48                
+           00115a68  pop      {r4, r5, r6, r8, sl, fp}     
+           00115a6c  ldr      r7, [sp, #8]                 
+           00115a70  ldm      sp, {sp, pc}                 
+           00115a74  mov      r1, lr                       
+           00115a78  ldr      r0, [pc]                     
+           00115a7c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00115a80  andeq    r0, r0, #0xf8                
+
+== SpeedPoint::OnDrawGizmos  token 0x06000576 @0x00115a84 (440 bytes)
+   args: r0=this, 
+           00115a84  mov      ip, sp                       
+           00115a88  push     {r7, lr}                     
+           00115a8c  mov      r7, sp                       
+           00115a90  push     {r8, sl, fp, ip, lr}         
+           00115a94  sub      sp, sp, #0x12c               
+           00115a98  mov      fp, sp                       
+           00115a9c  mov      sl, r0                       
+           00115aa0  add      r0, fp, #0xbc                
+           00115aa4  bl       #0x22da80                    ; CALL UnityEngine.Color::get_green
+           00115aa8  ldr      r0, [fp, #0xbc]              
+           00115aac  ldr      r1, [fp, #0xc0]              
+           00115ab0  ldr      r2, [fp, #0xc4]              
+           00115ab4  ldr      r3, [fp, #0xc8]              
+           00115ab8  bl       #0x22a890                    ; CALL UnityEngine.Gizmos::set_color
+           00115abc  mov      r0, sl                       
+           00115ac0  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00115ac4  mov      r2, r0                       
+           00115ac8  add      r0, fp, #0xcc                
+           00115acc  mov      r1, r2                       
+           00115ad0  ldr      lr, [r2]                     
+           00115ad4  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115ad8  vldr     s4, [pc]                     ; float 0.75
+           00115adc  b        #0x115ae4                    ; -> L_115ae4
+           00115ae0  .word    0x3f400000                   ; literal 1061158912 / 0.75
+L_115ae4:  00115ae4  vcvt.f64.f32 d2, s4                       
+           00115ae8  ldr      r0, [fp, #0xcc]              
+           00115aec  ldr      r1, [fp, #0xd0]              
+           00115af0  ldr      r2, [fp, #0xd4]              
+           00115af4  vcvt.f32.f64 s0, d2                       
+           00115af8  vstr     s0, [sp, #-8]                
+           00115afc  ldr      r3, [sp, #-8]                
+           00115b00  bl       #0x22daf0                    ; CALL UnityEngine.Gizmos::DrawSphere
+           00115b04  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: forwardPoint)
+           00115b08  mov      r1, #0                       
+           00115b0c  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00115b10  cmp      r0, #0                       
+           00115b14  beq      #0x115b98                    ; -> L_115b98
+           00115b18  add      r0, fp, #0xd8                
+           00115b1c  bl       #0x22da80                    ; CALL UnityEngine.Color::get_green
+           00115b20  ldr      r0, [fp, #0xd8]              
+           00115b24  ldr      r1, [fp, #0xdc]              
+           00115b28  ldr      r2, [fp, #0xe0]              
+           00115b2c  ldr      r3, [fp, #0xe4]              
+           00115b30  bl       #0x22a890                    ; CALL UnityEngine.Gizmos::set_color
+           00115b34  mov      r0, sl                       
+           00115b38  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00115b3c  mov      r2, r0                       
+           00115b40  add      r0, fp, #0xe8                
+           00115b44  mov      r1, r2                       
+           00115b48  ldr      lr, [r2]                     
+           00115b4c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115b50  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: forwardPoint)
+           00115b54  mov      r0, r1                       
+           00115b58  ldr      lr, [r1]                     
+           00115b5c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00115b60  mov      r2, r0                       
+           00115b64  add      r0, fp, #0xf4                
+           00115b68  mov      r1, r2                       
+           00115b6c  ldr      lr, [r2]                     
+           00115b70  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115b74  ldr      r0, [fp, #0xe8]              
+           00115b78  ldr      r1, [fp, #0xec]              
+           00115b7c  ldr      r2, [fp, #0xf0]              
+           00115b80  ldr      r3, [fp, #0xf4]              
+           00115b84  ldr      ip, [fp, #0xf8]              
+           00115b88  str      ip, [sp]                     
+           00115b8c  ldr      ip, [fp, #0xfc]              
+           00115b90  str      ip, [sp, #4]                 
+           00115b94  bl       #0x22a8a0                    ; CALL UnityEngine.Gizmos::DrawLine
+L_115b98:  00115b98  ldr      r0, [sl, #0x14]              ; field+0x14 (this-class: backwardPoint)
+           00115b9c  mov      r1, #0                       
+           00115ba0  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           00115ba4  cmp      r0, #0                       
+           00115ba8  beq      #0x115c2c                    ; -> L_115c2c
+           00115bac  add      r0, fp, #64, #30             
+           00115bb0  bl       #0x22da80                    ; CALL UnityEngine.Color::get_green
+           00115bb4  ldr      r0, [fp, #0x100]             
+           00115bb8  ldr      r1, [fp, #0x104]             
+           00115bbc  ldr      r2, [fp, #0x108]             
+           00115bc0  ldr      r3, [fp, #0x10c]             
+           00115bc4  bl       #0x22a890                    ; CALL UnityEngine.Gizmos::set_color
+           00115bc8  mov      r0, sl                       
+           00115bcc  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00115bd0  mov      r2, r0                       
+           00115bd4  add      r0, fp, #68, #30             
+           00115bd8  mov      r1, r2                       
+           00115bdc  ldr      lr, [r2]                     
+           00115be0  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115be4  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: backwardPoint)
+           00115be8  mov      r0, r1                       
+           00115bec  ldr      lr, [r1]                     
+           00115bf0  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00115bf4  mov      r2, r0                       
+           00115bf8  add      r0, fp, #0x11c               
+           00115bfc  mov      r1, r2                       
+           00115c00  ldr      lr, [r2]                     
+           00115c04  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00115c08  ldr      r0, [fp, #0x110]             
+           00115c0c  ldr      r1, [fp, #0x114]             
+           00115c10  ldr      r2, [fp, #0x118]             
+           00115c14  ldr      r3, [fp, #0x11c]             
+           00115c18  ldr      ip, [fp, #0x120]             
+           00115c1c  str      ip, [sp]                     
+           00115c20  ldr      ip, [fp, #0x124]             
+           00115c24  str      ip, [sp, #4]                 
+           00115c28  bl       #0x22a8a0                    ; CALL UnityEngine.Gizmos::DrawLine
+L_115c2c:  00115c2c  add      sp, fp, #0x12c               
+           00115c30  pop      {r8, sl, fp}                 
+           00115c34  ldr      r7, [sp, #8]                 
+           00115c38  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE SpeedPoint/SpeedBranchStruct  (instance size 0x10)
+#   +0x08 target                         SpeedPoint
+#   +0x0c weight                         float
+#   vtable slots: 
+####################################################################################################
+== SpeedPoint/SpeedBranchStruct::.ctor  token 0x06000577 @0x00115c3c (44 bytes)
+   args: r0=this, 
+           00115c3c  mov      ip, sp                       
+           00115c40  push     {r7, lr}                     
+           00115c44  mov      r7, sp                       
+           00115c48  push     {r8, fp, ip, lr}             
+           00115c4c  sub      sp, sp, #8                   
+           00115c50  mov      fp, sp                       
+           00115c54  str      r0, [fp]                     
+           00115c58  add      sp, fp, #8                   
+           00115c5c  pop      {r8, fp}                     
+           00115c60  ldr      r7, [sp, #8]                 
+           00115c64  ldm      sp, {sp, pc}                 

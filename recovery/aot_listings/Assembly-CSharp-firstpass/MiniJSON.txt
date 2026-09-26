@@ -1,0 +1,2190 @@
+####################################################################################################
+# TYPE MiniJSON  (instance size 0x8)
+#   static int TOKEN_NONE  = const 00000000
+#   static int TOKEN_CURLY_OPEN  = const 01000000
+#   static int TOKEN_CURLY_CLOSE  = const 02000000
+#   static int TOKEN_SQUARED_OPEN  = const 03000000
+#   static int TOKEN_SQUARED_CLOSE  = const 04000000
+#   static int TOKEN_COLON  = const 05000000
+#   static int TOKEN_COMMA  = const 06000000
+#   static int TOKEN_STRING  = const 07000000
+#   static int TOKEN_NUMBER  = const 08000000
+#   static int TOKEN_TRUE  = const 09000000
+#   static int TOKEN_FALSE  = const 0a000000
+#   static int TOKEN_NULL  = const 0b000000
+#   static int BUILDER_CAPACITY  = const d0070000
+#   static int lastErrorIndex
+#   static string lastDecode
+#   vtable slots: 
+####################################################################################################
+== MiniJSON::.ctor  token 0x0600031f @0x000344c4 (44 bytes)
+   args: r0=this, 
+           000344c4  mov      ip, sp                       
+           000344c8  push     {r7, lr}                     
+           000344cc  mov      r7, sp                       
+           000344d0  push     {r8, fp, ip, lr}             
+           000344d4  sub      sp, sp, #8                   
+           000344d8  mov      fp, sp                       
+           000344dc  str      r0, [fp]                     
+           000344e0  add      sp, fp, #8                   
+           000344e4  pop      {r8, fp}                     
+           000344e8  ldr      r7, [sp, #8]                 
+           000344ec  ldm      sp, {sp, pc}                 
+
+== MiniJSON::.cctor  token 0x06000320 @0x000344f0 (100 bytes) static
+   args: 
+           000344f0  mov      ip, sp                       
+           000344f4  push     {r7, lr}                     
+           000344f8  mov      r7, sp                       
+           000344fc  push     {r8, fp, ip, lr}             
+           00034500  mov      fp, sp                       
+           00034504  ldr      r0, [pc]                     
+           00034508  b        #0x34510                     ; -> L_34510
+           0003450c  .word    0x00f6875c                   ; literal 16156508 / 
+L_34510:   00034510  ldr      r0, [pc, r0]                 ; GOT[403] SFLDA MiniJSON::lastErrorIndex
+           00034514  mvn      r1, #0                       
+           00034518  str      r1, [r0]                     
+           0003451c  ldr      r0, [pc]                     
+           00034520  b        #0x34528                     ; -> L_34528
+           00034524  .word    0x00f68178                   ; literal 16155000 / 
+L_34528:   00034528  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           0003452c  ldr      r1, [r0]                     
+           00034530  ldr      r0, [pc]                     
+           00034534  b        #0x3453c                     ; -> L_3453c
+           00034538  .word    0x00f68734                   ; literal 16156468 / 
+L_3453c:   0003453c  ldr      r0, [pc, r0]                 ; GOT[404] SFLDA MiniJSON::lastDecode
+           00034540  str      r1, [r0]                     
+           00034544  add      sp, fp, #0                   
+           00034548  pop      {r8, fp}                     
+           0003454c  ldr      r7, [sp, #8]                 
+           00034550  ldm      sp, {sp, pc}                 
+
+== MiniJSON::jsonDecode  token 0x06000321 @0x00034554 (216 bytes) static
+   args: json
+           00034554  mov      ip, sp                       
+           00034558  push     {r7, lr}                     
+           0003455c  mov      r7, sp                       
+           00034560  push     {r8, sl, fp, ip, lr}         
+           00034564  sub      sp, sp, #0x14                
+           00034568  mov      fp, sp                       
+           0003456c  mov      sl, r0                       
+           00034570  mov      r0, #0                       
+           00034574  str      r0, [fp, #4]                 
+           00034578  mov      r0, #0                       
+           0003457c  strb     r0, [fp, #8]                 
+           00034580  ldr      r0, [pc]                     
+           00034584  b        #0x3458c                     ; -> L_3458c
+           00034588  .word    0x00f686e4                   ; literal 16156388 / 
+L_3458c:   0003458c  ldr      r0, [pc, r0]                 ; GOT[404] SFLDA MiniJSON::lastDecode
+           00034590  str      sl, [r0]                     
+           00034594  cmp      sl, #0                       
+           00034598  beq      #0x34618                     ; -> L_34618
+           0003459c  mov      r0, sl                       
+           000345a0  ldr      lr, [sl]                     
+           000345a4  bl       #0xbc3d0                     ; CALL System.String::ToCharArray
+           000345a8  str      r0, [fp]                     
+           000345ac  mov      r0, #0                       
+           000345b0  str      r0, [fp, #4]                 
+           000345b4  mov      r0, #1                       
+           000345b8  strb     r0, [fp, #8]                 
+           000345bc  add      r1, fp, #4                   
+           000345c0  add      r2, fp, #8                   
+           000345c4  ldr      r0, [fp]                     
+           000345c8  bl       #0xbc3e0                     ; CALL MiniJSON::parseValue
+           000345cc  str      r0, [fp, #0xc]               
+           000345d0  ldrb     r0, [fp, #8]                 
+           000345d4  cmp      r0, #0                       
+           000345d8  beq      #0x345f8                     ; -> L_345f8
+           000345dc  ldr      r0, [pc]                     
+           000345e0  b        #0x345e8                     ; -> L_345e8
+           000345e4  .word    0x00f68684                   ; literal 16156292 / 
+L_345e8:   000345e8  ldr      r0, [pc, r0]                 ; GOT[403] SFLDA MiniJSON::lastErrorIndex
+           000345ec  mvn      r1, #0                       
+           000345f0  str      r1, [r0]                     
+           000345f4  b        #0x34610                     ; -> L_34610
+L_345f8:   000345f8  ldr      r1, [fp, #4]                 
+           000345fc  ldr      r0, [pc]                     
+           00034600  b        #0x34608                     ; -> L_34608
+           00034604  .word    0x00f68664                   ; literal 16156260 / 
+L_34608:   00034608  ldr      r0, [pc, r0]                 ; GOT[403] SFLDA MiniJSON::lastErrorIndex
+           0003460c  str      r1, [r0]                     
+L_34610:   00034610  ldr      r0, [fp, #0xc]               
+           00034614  b        #0x3461c                     ; -> L_3461c
+L_34618:   00034618  mov      r0, #0                       
+L_3461c:   0003461c  add      sp, fp, #0x14                
+           00034620  pop      {r8, sl, fp}                 
+           00034624  ldr      r7, [sp, #8]                 
+           00034628  ldm      sp, {sp, pc}                 
+
+== MiniJSON::jsonEncode  token 0x06000322 @0x0003462c (132 bytes) static
+   args: json
+           0003462c  mov      ip, sp                       
+           00034630  push     {r7, lr}                     
+           00034634  mov      r7, sp                       
+           00034638  push     {r6, r8, sl, fp, ip, lr}     
+           0003463c  sub      sp, sp, #8                   
+           00034640  mov      fp, sp                       
+           00034644  mov      sl, r0                       
+           00034648  ldr      r0, [pc]                     
+           0003464c  b        #0x34654                     ; -> L_34654
+           00034650  .word    0x00f682c8                   ; literal 16155336 / 
+L_34654:   00034654  ldr      r0, [pc, r0]                 ; GOT[191] VTABLE System.Text.StringBuilder
+           00034658  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003465c  str      r0, [fp]                     
+           00034660  mov      r1, #0x7d0                   
+           00034664  bl       #0xbc3f0                     ; CALL System.Text.StringBuilder::.ctor
+           00034668  ldr      r0, [fp]                     
+           0003466c  mov      r6, r0                       
+           00034670  mov      r0, sl                       
+           00034674  mov      r1, r6                       
+           00034678  bl       #0xbc400                     ; CALL MiniJSON::serializeValue
+           0003467c  cmp      r0, #0                       
+           00034680  beq      #0x34698                     ; -> L_34698
+           00034684  mov      r0, r6                       
+           00034688  ldr      lr, [r6]                     
+           0003468c  bl       #0xba100                     ; CALL System.Text.StringBuilder::ToString
+           00034690  mov      sl, r0                       
+           00034694  b        #0x3469c                     ; -> L_3469c
+L_34698:   00034698  mov      sl, #0                       
+L_3469c:   0003469c  mov      r0, sl                       
+           000346a0  add      sp, fp, #8                   
+           000346a4  pop      {r6, r8, sl, fp}             
+           000346a8  ldr      r7, [sp, #8]                 
+           000346ac  ldm      sp, {sp, pc}                 
+
+== MiniJSON::lastDecodeSuccessful  token 0x06000323 @0x000346b0 (72 bytes) static
+   args: 
+           000346b0  mov      ip, sp                       
+           000346b4  push     {r7, lr}                     
+           000346b8  mov      r7, sp                       
+           000346bc  push     {r8, fp, ip, lr}             
+           000346c0  mov      fp, sp                       
+           000346c4  ldr      r0, [pc]                     
+           000346c8  b        #0x346d0                     ; -> L_346d0
+           000346cc  .word    0x00f6859c                   ; literal 16156060 / 
+L_346d0:   000346d0  ldr      r0, [pc, r0]                 ; GOT[403] SFLDA MiniJSON::lastErrorIndex
+           000346d4  ldr      r0, [r0]                     
+           000346d8  mvn      r1, #0                       
+           000346dc  cmp      r0, r1                       
+           000346e0  movne    r0, #0                       
+           000346e4  moveq    r0, #1                       
+           000346e8  add      sp, fp, #0                   
+           000346ec  pop      {r8, fp}                     
+           000346f0  ldr      r7, [sp, #8]                 
+           000346f4  ldm      sp, {sp, pc}                 
+
+== MiniJSON::getLastErrorIndex  token 0x06000324 @0x000346f8 (56 bytes) static
+   args: 
+           000346f8  mov      ip, sp                       
+           000346fc  push     {r7, lr}                     
+           00034700  mov      r7, sp                       
+           00034704  push     {r8, fp, ip, lr}             
+           00034708  mov      fp, sp                       
+           0003470c  ldr      r0, [pc]                     
+           00034710  b        #0x34718                     ; -> L_34718
+           00034714  .word    0x00f68554                   ; literal 16155988 / 
+L_34718:   00034718  ldr      r0, [pc, r0]                 ; GOT[403] SFLDA MiniJSON::lastErrorIndex
+           0003471c  ldr      r0, [r0]                     
+           00034720  add      sp, fp, #0                   
+           00034724  pop      {r8, fp}                     
+           00034728  ldr      r7, [sp, #8]                 
+           0003472c  ldm      sp, {sp, pc}                 
+
+== MiniJSON::getLastErrorSnippet  token 0x06000325 @0x00034730 (256 bytes) static
+   args: 
+           00034730  mov      ip, sp                       
+           00034734  push     {r7, lr}                     
+           00034738  mov      r7, sp                       
+           0003473c  push     {r6, r8, sl, fp, ip, lr}     
+           00034740  mov      fp, sp                       
+           00034744  ldr      r0, [pc]                     
+           00034748  b        #0x34750                     ; -> L_34750
+           0003474c  .word    0x00f6851c                   ; literal 16155932 / 
+L_34750:   00034750  ldr      r0, [pc, r0]                 ; GOT[403] SFLDA MiniJSON::lastErrorIndex
+           00034754  ldr      r0, [r0]                     
+           00034758  mvn      r1, #0                       
+           0003475c  cmp      r0, r1                       
+           00034760  bne      #0x3477c                     ; -> L_3477c
+           00034764  ldr      r0, [pc]                     
+           00034768  b        #0x34770                     ; -> L_34770
+           0003476c  .word    0x00f67f30                   ; literal 16154416 / 
+L_34770:   00034770  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           00034774  ldr      r0, [r0]                     
+           00034778  b        #0x34820                     ; -> L_34820
+L_3477c:   0003477c  ldr      r0, [pc]                     
+           00034780  b        #0x34788                     ; -> L_34788
+           00034784  .word    0x00f684e4                   ; literal 16155876 / 
+L_34788:   00034788  ldr      r0, [pc, r0]                 ; GOT[403] SFLDA MiniJSON::lastErrorIndex
+           0003478c  ldr      r0, [r0]                     
+           00034790  sub      sl, r0, #5                   
+           00034794  ldr      r0, [pc]                     
+           00034798  b        #0x347a0                     ; -> L_347a0
+           0003479c  .word    0x00f684cc                   ; literal 16155852 / 
+L_347a0:   000347a0  ldr      r0, [pc, r0]                 ; GOT[403] SFLDA MiniJSON::lastErrorIndex
+           000347a4  ldr      r0, [r0]                     
+           000347a8  add      r6, r0, #0xf                 
+           000347ac  cmp      sl, #0                       
+           000347b0  bge      #0x347b8                     ; -> L_347b8
+           000347b4  mov      sl, #0                       
+L_347b8:   000347b8  ldr      r0, [pc]                     
+           000347bc  b        #0x347c4                     ; -> L_347c4
+           000347c0  .word    0x00f684ac                   ; literal 16155820 / 
+L_347c4:   000347c4  ldr      r0, [pc, r0]                 ; GOT[404] SFLDA MiniJSON::lastDecode
+           000347c8  ldr      r0, [r0]                     
+           000347cc  ldr      r0, [r0, #8]                 ; field+0x8 
+           000347d0  cmp      r6, r0                       
+           000347d4  blt      #0x347f4                     ; -> L_347f4
+           000347d8  ldr      r0, [pc]                     
+           000347dc  b        #0x347e4                     ; -> L_347e4
+           000347e0  .word    0x00f6848c                   ; literal 16155788 / 
+L_347e4:   000347e4  ldr      r0, [pc, r0]                 ; GOT[404] SFLDA MiniJSON::lastDecode
+           000347e8  ldr      r0, [r0]                     
+           000347ec  ldr      r0, [r0, #8]                 ; field+0x8 
+           000347f0  sub      r6, r0, #1                   
+L_347f4:   000347f4  ldr      r0, [pc]                     
+           000347f8  b        #0x34800                     ; -> L_34800
+           000347fc  .word    0x00f68470                   ; literal 16155760 / 
+L_34800:   00034800  ldr      r0, [pc, r0]                 ; GOT[404] SFLDA MiniJSON::lastDecode
+           00034804  ldr      r3, [r0]                     
+           00034808  sub      r0, r6, sl                   
+           0003480c  add      r2, r0, #1                   
+           00034810  mov      r0, r3                       
+           00034814  mov      r1, sl                       
+           00034818  ldr      lr, [r3]                     
+           0003481c  bl       #0xbbcf0                     ; CALL System.String::Substring
+L_34820:   00034820  add      sp, fp, #0                   
+           00034824  pop      {r6, r8, sl, fp}             
+           00034828  ldr      r7, [sp, #8]                 
+           0003482c  ldm      sp, {sp, pc}                 
+
+== MiniJSON::parseObject  token 0x06000326 @0x00034830 (356 bytes) static
+   args: json, index
+           00034830  mov      ip, sp                       
+           00034834  push     {r7, lr}                     
+           00034838  mov      r7, sp                       
+           0003483c  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00034840  sub      sp, sp, #0x20                
+           00034844  mov      fp, sp                       
+           00034848  mov      r6, r0                       
+           0003484c  mov      sl, r1                       
+           00034850  mov      r0, #0                       
+           00034854  strb     r0, [fp, #5]                 
+           00034858  ldr      r0, [pc]                     
+           0003485c  b        #0x34864                     ; -> L_34864
+           00034860  .word    0x00f68410                   ; literal 16155664 / 
+L_34864:   00034864  ldr      r0, [pc, r0]                 ; GOT[405] VTABLE System.Collections.Hashtable
+           00034868  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0003486c  str      r0, [fp, #0x18]              
+           00034870  bl       #0xbc410                     ; CALL System.Collections.Hashtable::.ctor
+           00034874  ldr      r0, [fp, #0x18]              
+           00034878  str      r0, [fp]                     
+           0003487c  mov      r0, r6                       
+           00034880  mov      r1, sl                       
+           00034884  bl       #0xbc420                     ; CALL MiniJSON::nextToken
+           00034888  mov      r0, #0                       
+           0003488c  strb     r0, [fp, #4]                 
+           00034890  b        #0x34974                     ; -> L_34974
+L_34894:   00034894  ldr      r1, [sl]                     
+           00034898  mov      r0, r6                       
+           0003489c  bl       #0x35270                     ; CALL MiniJSON::lookAhead (direct)
+           000348a0  mov      r5, r0                       
+           000348a4  cmp      r0, #0                       
+           000348a8  bne      #0x348b4                     ; -> L_348b4
+           000348ac  mov      r0, #0                       
+           000348b0  b        #0x34984                     ; -> L_34984
+L_348b4:   000348b4  cmp      r5, #6                       
+           000348b8  bne      #0x348cc                     ; -> L_348cc
+           000348bc  mov      r0, r6                       
+           000348c0  mov      r1, sl                       
+           000348c4  bl       #0xbc420                     ; CALL MiniJSON::nextToken
+           000348c8  b        #0x34974                     ; -> L_34974
+L_348cc:   000348cc  cmp      r5, #2                       
+           000348d0  bne      #0x348e8                     ; -> L_348e8
+           000348d4  mov      r0, r6                       
+           000348d8  mov      r1, sl                       
+           000348dc  bl       #0xbc420                     ; CALL MiniJSON::nextToken
+           000348e0  ldr      r0, [fp]                     
+           000348e4  b        #0x34984                     ; -> L_34984
+L_348e8:   000348e8  mov      r0, r6                       
+           000348ec  mov      r1, sl                       
+           000348f0  bl       #0xbc430                     ; CALL MiniJSON::parseString
+           000348f4  mov      r4, r0                       
+           000348f8  cmp      r0, #0                       
+           000348fc  bne      #0x34908                     ; -> L_34908
+           00034900  mov      r0, #0                       
+           00034904  b        #0x34984                     ; -> L_34984
+L_34908:   00034908  mov      r0, r6                       
+           0003490c  mov      r1, sl                       
+           00034910  bl       #0xbc420                     ; CALL MiniJSON::nextToken
+           00034914  mov      r5, r0                       
+           00034918  cmp      r0, #5                       
+           0003491c  beq      #0x34928                     ; -> L_34928
+           00034920  mov      r0, #0                       
+           00034924  b        #0x34984                     ; -> L_34984
+L_34928:   00034928  mov      r0, #1                       
+           0003492c  strb     r0, [fp, #5]                 
+           00034930  add      r2, fp, #5                   
+           00034934  mov      r0, r6                       
+           00034938  mov      r1, sl                       
+           0003493c  bl       #0xbc3e0                     ; CALL MiniJSON::parseValue
+           00034940  str      r0, [fp, #8]                 
+           00034944  ldrb     r0, [fp, #5]                 
+           00034948  cmp      r0, #0                       
+           0003494c  bne      #0x34958                     ; -> L_34958
+           00034950  mov      r0, #0                       
+           00034954  b        #0x34984                     ; -> L_34984
+L_34958:   00034958  ldr      r0, [fp]                     
+           0003495c  mov      r1, r4                       
+           00034960  ldr      r2, [fp, #8]                 
+           00034964  ldr      r3, [fp]                     
+           00034968  ldr      r3, [r3]                     
+           0003496c  mov      lr, pc                       
+           00034970  ldr      pc, [r3, #0xb0]              ; VIRTUAL CALL slot +0xb0: System.Enum::System.IConvertible.ToInt16
+L_34974:   00034974  ldrb     r0, [fp, #4]                 
+           00034978  cmp      r0, #0                       
+           0003497c  beq      #0x34894                     ; -> L_34894
+           00034980  ldr      r0, [fp]                     
+L_34984:   00034984  add      sp, fp, #0x20                
+           00034988  pop      {r4, r5, r6, r8, sl, fp}     
+           0003498c  ldr      r7, [sp, #8]                 
+           00034990  ldm      sp, {sp, pc}                 
+
+== MiniJSON::parseArray  token 0x06000327 @0x00034994 (296 bytes) static
+   args: json, index
+           00034994  mov      ip, sp                       
+           00034998  push     {r7, lr}                     
+           0003499c  mov      r7, sp                       
+           000349a0  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000349a4  sub      sp, sp, #0x10                
+           000349a8  mov      fp, sp                       
+           000349ac  mov      r6, r0                       
+           000349b0  mov      sl, r1                       
+           000349b4  mov      r0, #0                       
+           000349b8  strb     r0, [fp, #5]                 
+           000349bc  ldr      r0, [pc]                     
+           000349c0  b        #0x349c8                     ; -> L_349c8
+           000349c4  .word    0x00f682b0                   ; literal 16155312 / 
+L_349c8:   000349c8  ldr      r0, [pc, r0]                 ; GOT[406] VTABLE System.Collections.ArrayList
+           000349cc  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000349d0  ldr      r1, [pc]                     
+           000349d4  b        #0x349dc                     ; -> L_349dc
+           000349d8  .word    0x00f682a0                   ; literal 16155296 / 
+L_349dc:   000349dc  ldr      r1, [pc, r1]                 ; GOT[407] SFLDA System.Collections.ArrayList::EmptyArray
+           000349e0  ldr      r1, [r1]                     
+           000349e4  str      r1, [r0, #0xc]               ; field+0xc 
+           000349e8  str      r0, [fp]                     
+           000349ec  mov      r0, r6                       
+           000349f0  mov      r1, sl                       
+           000349f4  bl       #0xbc420                     ; CALL MiniJSON::nextToken
+           000349f8  mov      r0, #0                       
+           000349fc  strb     r0, [fp, #4]                 
+           00034a00  b        #0x34a9c                     ; -> L_34a9c
+L_34a04:   00034a04  ldr      r1, [sl]                     
+           00034a08  mov      r0, r6                       
+           00034a0c  bl       #0x35270                     ; CALL MiniJSON::lookAhead (direct)
+           00034a10  mov      r5, r0                       
+           00034a14  cmp      r0, #0                       
+           00034a18  bne      #0x34a24                     ; -> L_34a24
+           00034a1c  mov      r0, #0                       
+           00034a20  b        #0x34aac                     ; -> L_34aac
+L_34a24:   00034a24  cmp      r5, #6                       
+           00034a28  bne      #0x34a3c                     ; -> L_34a3c
+           00034a2c  mov      r0, r6                       
+           00034a30  mov      r1, sl                       
+           00034a34  bl       #0xbc420                     ; CALL MiniJSON::nextToken
+           00034a38  b        #0x34a9c                     ; -> L_34a9c
+L_34a3c:   00034a3c  cmp      r5, #4                       
+           00034a40  bne      #0x34a54                     ; -> L_34a54
+           00034a44  mov      r0, r6                       
+           00034a48  mov      r1, sl                       
+           00034a4c  bl       #0xbc420                     ; CALL MiniJSON::nextToken
+           00034a50  b        #0x34aa8                     ; -> L_34aa8
+L_34a54:   00034a54  mov      r0, #1                       
+           00034a58  strb     r0, [fp, #5]                 
+           00034a5c  add      r2, fp, #5                   
+           00034a60  mov      r0, r6                       
+           00034a64  mov      r1, sl                       
+           00034a68  bl       #0xbc3e0                     ; CALL MiniJSON::parseValue
+           00034a6c  mov      r4, r0                       
+           00034a70  ldrb     r0, [fp, #5]                 
+           00034a74  cmp      r0, #0                       
+           00034a78  bne      #0x34a84                     ; -> L_34a84
+           00034a7c  mov      r0, #0                       
+           00034a80  b        #0x34aac                     ; -> L_34aac
+L_34a84:   00034a84  ldr      r0, [fp]                     
+           00034a88  mov      r1, r4                       
+           00034a8c  ldr      r2, [fp]                     
+           00034a90  ldr      r2, [r2]                     
+           00034a94  mov      lr, pc                       
+           00034a98  ldr      pc, [r2, #0xc4]              ; VIRTUAL CALL slot +0xc4: System.Enum::System.IConvertible.ToByte
+L_34a9c:   00034a9c  ldrb     r0, [fp, #4]                 
+           00034aa0  cmp      r0, #0                       
+           00034aa4  beq      #0x34a04                     ; -> L_34a04
+L_34aa8:   00034aa8  ldr      r0, [fp]                     
+L_34aac:   00034aac  add      sp, fp, #0x10                
+           00034ab0  pop      {r4, r5, r6, r8, sl, fp}     
+           00034ab4  ldr      r7, [sp, #8]                 
+           00034ab8  ldm      sp, {sp, pc}                 
+
+== MiniJSON::parseValue  token 0x06000328 @0x00034abc (380 bytes) static
+   args: json, index, success
+           00034abc  mov      ip, sp                       
+           00034ac0  push     {r7, lr}                     
+           00034ac4  mov      r7, sp                       
+           00034ac8  push     {r4, r5, r6, r8, fp, ip, lr} 
+           00034acc  sub      sp, sp, #0x1c                
+           00034ad0  mov      fp, sp                       
+           00034ad4  mov      r5, r0                       
+           00034ad8  mov      r6, r1                       
+           00034adc  str      r2, [fp, #4]                 
+           00034ae0  ldr      r1, [r6]                     
+           00034ae4  mov      r0, r5                       
+           00034ae8  bl       #0x35270                     ; CALL MiniJSON::lookAhead (direct)
+           00034aec  mov      r4, r0                       
+           00034af0  cmp      r4, #0xc                     
+           00034af4  bhs      #0x34c18                     ; -> L_34c18
+           00034af8  lsl      r1, r4, #2                   
+           00034afc  ldr      r0, [pc]                     
+           00034b00  b        #0x34b08                     ; -> L_34b08
+           00034b04  .word    0x00f68178                   ; literal 16155000 / 
+L_34b08:   00034b08  ldr      r0, [pc, r0]                 ; GOT[408] SWITCH switch table[12]
+           00034b0c  add      r0, r0, r1                   
+           00034b10  ldr      r0, [r0]                     
+           00034b14  mov      pc, r0                       
+           00034b18  mov      r0, r5                       
+           00034b1c  mov      r1, r6                       
+           00034b20  bl       #0xbc430                     ; CALL MiniJSON::parseString
+           00034b24  b        #0x34c28                     ; -> L_34c28
+           00034b28  mov      r0, r5                       
+           00034b2c  mov      r1, r6                       
+           00034b30  bl       #0xbc440                     ; CALL MiniJSON::parseNumber
+           00034b34  vmov     d2, r0, r1                   
+           00034b38  vstr     d2, [fp, #8]                 
+           00034b3c  ldr      r0, [pc]                     
+           00034b40  b        #0x34b48                     ; -> L_34b48
+           00034b44  .word    0x00f6813c                   ; literal 16154940 / 
+L_34b48:   00034b48  ldr      r0, [pc, r0]                 ; GOT[409] VTABLE System.Double
+           00034b4c  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00034b50  vldr     d2, [fp, #8]                 
+           00034b54  vstr     d2, [r0, #8]                 ; field+0x8 
+           00034b58  b        #0x34c28                     ; -> L_34c28
+           00034b5c  mov      r0, r5                       
+           00034b60  mov      r1, r6                       
+           00034b64  bl       #0xbc450                     ; CALL MiniJSON::parseObject
+           00034b68  b        #0x34c28                     ; -> L_34c28
+           00034b6c  mov      r0, r5                       
+           00034b70  mov      r1, r6                       
+           00034b74  bl       #0xbc460                     ; CALL MiniJSON::parseArray
+           00034b78  b        #0x34c28                     ; -> L_34c28
+           00034b7c  mov      r0, r5                       
+           00034b80  mov      r1, r6                       
+           00034b84  bl       #0xbc420                     ; CALL MiniJSON::nextToken
+           00034b88  ldr      r0, [pc]                     
+           00034b8c  b        #0x34b94                     ; -> L_34b94
+           00034b90  .word    0x00f680f4                   ; literal 16154868 / 
+L_34b94:   00034b94  ldr      r0, [pc, r0]                 ; GOT[410] LDSTR 'TRUE'
+           00034b98  bl       #0xbb460                     ; CALL System.Boolean::Parse
+           00034b9c  str      r0, [fp, #0x10]              
+           00034ba0  ldr      r0, [pc]                     
+           00034ba4  b        #0x34bac                     ; -> L_34bac
+           00034ba8  .word    0x00f67ac4                   ; literal 16153284 / 
+L_34bac:   00034bac  ldr      r0, [pc, r0]                 ; GOT[20] VTABLE System.Boolean
+           00034bb0  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00034bb4  ldr      r1, [fp, #0x10]              
+           00034bb8  strb     r1, [r0, #8]                 ; field+0x8 
+           00034bbc  b        #0x34c28                     ; -> L_34c28
+           00034bc0  mov      r0, r5                       
+           00034bc4  mov      r1, r6                       
+           00034bc8  bl       #0xbc420                     ; CALL MiniJSON::nextToken
+           00034bcc  ldr      r0, [pc]                     
+           00034bd0  b        #0x34bd8                     ; -> L_34bd8
+           00034bd4  .word    0x00f680b4                   ; literal 16154804 / 
+L_34bd8:   00034bd8  ldr      r0, [pc, r0]                 ; GOT[411] LDSTR 'FALSE'
+           00034bdc  bl       #0xbb460                     ; CALL System.Boolean::Parse
+           00034be0  str      r0, [fp, #0x10]              
+           00034be4  ldr      r0, [pc]                     
+           00034be8  b        #0x34bf0                     ; -> L_34bf0
+           00034bec  .word    0x00f67a80                   ; literal 16153216 / 
+L_34bf0:   00034bf0  ldr      r0, [pc, r0]                 ; GOT[20] VTABLE System.Boolean
+           00034bf4  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00034bf8  ldr      r1, [fp, #0x10]              
+           00034bfc  strb     r1, [r0, #8]                 ; field+0x8 
+           00034c00  b        #0x34c28                     ; -> L_34c28
+           00034c04  mov      r0, r5                       
+           00034c08  mov      r1, r6                       
+           00034c0c  bl       #0xbc420                     ; CALL MiniJSON::nextToken
+           00034c10  mov      r0, #0                       
+           00034c14  b        #0x34c28                     ; -> L_34c28
+L_34c18:   00034c18  ldr      r0, [fp, #4]                 
+           00034c1c  mov      r1, #0                       
+           00034c20  strb     r1, [r0]                     
+           00034c24  mov      r0, #0                       
+L_34c28:   00034c28  add      sp, fp, #0x1c                
+           00034c2c  pop      {r4, r5, r6, r8, fp}         
+           00034c30  ldr      r7, [sp, #8]                 
+           00034c34  ldm      sp, {sp, pc}                 
+
+== MiniJSON::parseString  token 0x06000329 @0x00034c38 (1092 bytes) static
+   args: json, index
+           00034c38  mov      ip, sp                       
+           00034c3c  push     {r7, lr}                     
+           00034c40  mov      r7, sp                       
+           00034c44  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00034c48  sub      sp, sp, #0x20                
+           00034c4c  mov      fp, sp                       
+           00034c50  mov      r6, r0                       
+           00034c54  str      r1, [fp, #0x10]              
+           00034c58  ldr      r0, [pc]                     
+           00034c5c  b        #0x34c64                     ; -> L_34c64
+           00034c60  .word    0x00f67a3c                   ; literal 16153148 / 
+L_34c64:   00034c64  ldr      r0, [pc, r0]                 ; GOT[32] SFLDA System.String::Empty
+           00034c68  ldr      sl, [r0]                     
+           00034c6c  mov      r0, r6                       
+           00034c70  ldr      r1, [fp, #0x10]              
+           00034c74  bl       #0xbc470                     ; CALL MiniJSON::eatWhitespace
+           00034c78  ldr      r1, [fp, #0x10]              
+           00034c7c  ldr      r0, [r1]                     
+           00034c80  mov      r2, r0                       
+           00034c84  str      r0, [fp, #0xc]               
+           00034c88  add      r2, r2, #1                   
+           00034c8c  str      r2, [r1]                     
+           00034c90  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00034c94  cmp      r1, r0                       
+           00034c98  blls     #0x3506c                     ; THROW System.IndexOutOfRangeException (if ls)
+           00034c9c  lsl      r0, r0, #1                   
+           00034ca0  add      r0, r6, r0                   
+           00034ca4  add      r0, r0, #0x10                
+           00034ca8  ldrh     r0, [r0]                     
+           00034cac  strh     r0, [fp, #8]                 
+           00034cb0  mov      r0, #0                       
+           00034cb4  strb     r0, [fp, #0xa]               
+           00034cb8  b        #0x35038                     ; -> L_35038
+L_34cbc:   00034cbc  ldr      r0, [fp, #0x10]              
+           00034cc0  ldr      r0, [r0]                     
+           00034cc4  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00034cc8  cmp      r0, r1                       
+           00034ccc  beq      #0x35044                     ; -> L_35044
+           00034cd0  ldr      r1, [fp, #0x10]              
+           00034cd4  ldr      r0, [r1]                     
+           00034cd8  mov      r2, r0                       
+           00034cdc  str      r0, [fp, #0xc]               
+           00034ce0  add      r2, r2, #1                   
+           00034ce4  str      r2, [r1]                     
+           00034ce8  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00034cec  cmp      r1, r0                       
+           00034cf0  blls     #0x3506c                     ; THROW System.IndexOutOfRangeException (if ls)
+           00034cf4  lsl      r0, r0, #1                   
+           00034cf8  add      r0, r6, r0                   
+           00034cfc  add      r0, r0, #0x10                
+           00034d00  ldrh     r0, [r0]                     
+           00034d04  strh     r0, [fp, #8]                 
+           00034d08  cmp      r0, #0x22                    
+           00034d0c  bne      #0x34d1c                     ; -> L_34d1c
+           00034d10  mov      r0, #1                       
+           00034d14  strb     r0, [fp, #0xa]               
+           00034d18  b        #0x35044                     ; -> L_35044
+L_34d1c:   00034d1c  ldrh     r0, [fp, #8]                 
+           00034d20  cmp      r0, #0x5c                    
+           00034d24  bne      #0x3500c                     ; -> L_3500c
+           00034d28  ldr      r0, [fp, #0x10]              
+           00034d2c  ldr      r0, [r0]                     
+           00034d30  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00034d34  cmp      r0, r1                       
+           00034d38  beq      #0x35044                     ; -> L_35044
+           00034d3c  ldr      r1, [fp, #0x10]              
+           00034d40  ldr      r0, [r1]                     
+           00034d44  mov      r2, r0                       
+           00034d48  str      r0, [fp, #0xc]               
+           00034d4c  add      r2, r2, #1                   
+           00034d50  str      r2, [r1]                     
+           00034d54  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00034d58  cmp      r1, r0                       
+           00034d5c  blls     #0x3506c                     ; THROW System.IndexOutOfRangeException (if ls)
+           00034d60  lsl      r0, r0, #1                   
+           00034d64  add      r0, r6, r0                   
+           00034d68  add      r0, r0, #0x10                
+           00034d6c  ldrh     r0, [r0]                     
+           00034d70  strh     r0, [fp, #8]                 
+           00034d74  cmp      r0, #0x22                    
+           00034d78  bne      #0x34dac                     ; -> L_34dac
+           00034d7c  ldr      r0, [pc]                     
+           00034d80  b        #0x34d88                     ; -> L_34d88
+           00034d84  .word    0x00f67d70                   ; literal 16153968 / 
+L_34d88:   00034d88  ldr      r0, [pc, r0]                 ; GOT[310] VTABLE System.Char
+           00034d8c  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00034d90  mov      r1, r0                       
+           00034d94  mov      r0, #0x22                    
+           00034d98  strh     r0, [r1, #8]                 ; field+0x8 
+           00034d9c  mov      r0, sl                       
+           00034da0  bl       #0xb9e60                     ; CALL System.String::Concat
+           00034da4  mov      sl, r0                       
+           00034da8  b        #0x35038                     ; -> L_35038
+L_34dac:   00034dac  ldrh     r0, [fp, #8]                 
+           00034db0  cmp      r0, #0x5c                    
+           00034db4  bne      #0x34de8                     ; -> L_34de8
+           00034db8  ldr      r0, [pc]                     
+           00034dbc  b        #0x34dc4                     ; -> L_34dc4
+           00034dc0  .word    0x00f67d34                   ; literal 16153908 / 
+L_34dc4:   00034dc4  ldr      r0, [pc, r0]                 ; GOT[310] VTABLE System.Char
+           00034dc8  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00034dcc  mov      r1, r0                       
+           00034dd0  mov      r0, #0x5c                    
+           00034dd4  strh     r0, [r1, #8]                 ; field+0x8 
+           00034dd8  mov      r0, sl                       
+           00034ddc  bl       #0xb9e60                     ; CALL System.String::Concat
+           00034de0  mov      sl, r0                       
+           00034de4  b        #0x35038                     ; -> L_35038
+L_34de8:   00034de8  ldrh     r0, [fp, #8]                 
+           00034dec  cmp      r0, #0x2f                    
+           00034df0  bne      #0x34e24                     ; -> L_34e24
+           00034df4  ldr      r0, [pc]                     
+           00034df8  b        #0x34e00                     ; -> L_34e00
+           00034dfc  .word    0x00f67cf8                   ; literal 16153848 / 
+L_34e00:   00034e00  ldr      r0, [pc, r0]                 ; GOT[310] VTABLE System.Char
+           00034e04  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00034e08  mov      r1, r0                       
+           00034e0c  mov      r0, #0x2f                    
+           00034e10  strh     r0, [r1, #8]                 ; field+0x8 
+           00034e14  mov      r0, sl                       
+           00034e18  bl       #0xb9e60                     ; CALL System.String::Concat
+           00034e1c  mov      sl, r0                       
+           00034e20  b        #0x35038                     ; -> L_35038
+L_34e24:   00034e24  ldrh     r0, [fp, #8]                 
+           00034e28  cmp      r0, #0x62                    
+           00034e2c  bne      #0x34e60                     ; -> L_34e60
+           00034e30  ldr      r0, [pc]                     
+           00034e34  b        #0x34e3c                     ; -> L_34e3c
+           00034e38  .word    0x00f67cbc                   ; literal 16153788 / 
+L_34e3c:   00034e3c  ldr      r0, [pc, r0]                 ; GOT[310] VTABLE System.Char
+           00034e40  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00034e44  mov      r1, r0                       
+           00034e48  mov      r0, #8                       
+           00034e4c  strh     r0, [r1, #8]                 ; field+0x8 
+           00034e50  mov      r0, sl                       
+           00034e54  bl       #0xb9e60                     ; CALL System.String::Concat
+           00034e58  mov      sl, r0                       
+           00034e5c  b        #0x35038                     ; -> L_35038
+L_34e60:   00034e60  ldrh     r0, [fp, #8]                 
+           00034e64  cmp      r0, #0x66                    
+           00034e68  bne      #0x34e9c                     ; -> L_34e9c
+           00034e6c  ldr      r0, [pc]                     
+           00034e70  b        #0x34e78                     ; -> L_34e78
+           00034e74  .word    0x00f67c80                   ; literal 16153728 / 
+L_34e78:   00034e78  ldr      r0, [pc, r0]                 ; GOT[310] VTABLE System.Char
+           00034e7c  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00034e80  mov      r1, r0                       
+           00034e84  mov      r0, #0xc                     
+           00034e88  strh     r0, [r1, #8]                 ; field+0x8 
+           00034e8c  mov      r0, sl                       
+           00034e90  bl       #0xb9e60                     ; CALL System.String::Concat
+           00034e94  mov      sl, r0                       
+           00034e98  b        #0x35038                     ; -> L_35038
+L_34e9c:   00034e9c  ldrh     r0, [fp, #8]                 
+           00034ea0  cmp      r0, #0x6e                    
+           00034ea4  bne      #0x34ed8                     ; -> L_34ed8
+           00034ea8  ldr      r0, [pc]                     
+           00034eac  b        #0x34eb4                     ; -> L_34eb4
+           00034eb0  .word    0x00f67c44                   ; literal 16153668 / 
+L_34eb4:   00034eb4  ldr      r0, [pc, r0]                 ; GOT[310] VTABLE System.Char
+           00034eb8  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00034ebc  mov      r1, r0                       
+           00034ec0  mov      r0, #0xa                     
+           00034ec4  strh     r0, [r1, #8]                 ; field+0x8 
+           00034ec8  mov      r0, sl                       
+           00034ecc  bl       #0xb9e60                     ; CALL System.String::Concat
+           00034ed0  mov      sl, r0                       
+           00034ed4  b        #0x35038                     ; -> L_35038
+L_34ed8:   00034ed8  ldrh     r0, [fp, #8]                 
+           00034edc  cmp      r0, #0x72                    
+           00034ee0  bne      #0x34f14                     ; -> L_34f14
+           00034ee4  ldr      r0, [pc]                     
+           00034ee8  b        #0x34ef0                     ; -> L_34ef0
+           00034eec  .word    0x00f67c08                   ; literal 16153608 / 
+L_34ef0:   00034ef0  ldr      r0, [pc, r0]                 ; GOT[310] VTABLE System.Char
+           00034ef4  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00034ef8  mov      r1, r0                       
+           00034efc  mov      r0, #0xd                     
+           00034f00  strh     r0, [r1, #8]                 ; field+0x8 
+           00034f04  mov      r0, sl                       
+           00034f08  bl       #0xb9e60                     ; CALL System.String::Concat
+           00034f0c  mov      sl, r0                       
+           00034f10  b        #0x35038                     ; -> L_35038
+L_34f14:   00034f14  ldrh     r0, [fp, #8]                 
+           00034f18  cmp      r0, #0x74                    
+           00034f1c  bne      #0x34f50                     ; -> L_34f50
+           00034f20  ldr      r0, [pc]                     
+           00034f24  b        #0x34f2c                     ; -> L_34f2c
+           00034f28  .word    0x00f67bcc                   ; literal 16153548 / 
+L_34f2c:   00034f2c  ldr      r0, [pc, r0]                 ; GOT[310] VTABLE System.Char
+           00034f30  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00034f34  mov      r1, r0                       
+           00034f38  mov      r0, #9                       
+           00034f3c  strh     r0, [r1, #8]                 ; field+0x8 
+           00034f40  mov      r0, sl                       
+           00034f44  bl       #0xb9e60                     ; CALL System.String::Concat
+           00034f48  mov      sl, r0                       
+           00034f4c  b        #0x35038                     ; -> L_35038
+L_34f50:   00034f50  ldrh     r0, [fp, #8]                 
+           00034f54  cmp      r0, #0x75                    
+           00034f58  bne      #0x35038                     ; -> L_35038
+           00034f5c  ldr      r0, [r6, #0xc]               ; field+0xc 
+           00034f60  ldr      r1, [fp, #0x10]              
+           00034f64  ldr      r1, [r1]                     
+           00034f68  sub      r5, r0, r1                   
+           00034f6c  mov      r0, r5                       
+           00034f70  cmp      r0, #4                       
+           00034f74  blt      #0x35044                     ; -> L_35044
+           00034f78  ldr      r0, [pc]                     
+           00034f7c  b        #0x34f84                     ; -> L_34f84
+           00034f80  .word    0x00f67a8c                   ; literal 16153228 / 
+L_34f84:   00034f84  ldr      r0, [pc, r0]                 ; GOT[252] VTABLE System.Char[]
+           00034f88  mov      r1, #4                       
+           00034f8c  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           00034f90  mov      r4, r0                       
+           00034f94  ldr      r0, [fp, #0x10]              
+           00034f98  ldr      r1, [r0]                     
+           00034f9c  mov      r0, r6                       
+           00034fa0  mov      r2, r4                       
+           00034fa4  mov      r3, #0                       
+           00034fa8  mov      ip, #4                       
+           00034fac  str      ip, [sp]                     
+           00034fb0  bl       #0xba3f0                     ; CALL System.Array::Copy
+           00034fb4  ldr      r0, [pc]                     
+           00034fb8  b        #0x34fc0                     ; -> L_34fc0
+           00034fbc  .word    0x00f67cd0                   ; literal 16153808 / 
+L_34fc0:   00034fc0  ldr      r0, [pc, r0]                 ; GOT[412] LDSTR '&#x'
+           00034fc4  str      r0, [fp, #0x18]              
+           00034fc8  mov      r0, #0                       
+           00034fcc  mov      r1, r4                       
+           00034fd0  bl       #0xbb320                     ; CALL System.String::.ctor
+           00034fd4  mov      r2, r0                       
+           00034fd8  ldr      r1, [fp, #0x18]              
+           00034fdc  ldr      r3, [pc]                     
+           00034fe0  b        #0x34fe8                     ; -> L_34fe8
+           00034fe4  .word    0x00f67948                   ; literal 16152904 / 
+L_34fe8:   00034fe8  ldr      r3, [pc, r3]                 ; GOT[196] LDSTR ';'
+           00034fec  mov      r0, sl                       
+           00034ff0  bl       #0xba0d0                     ; CALL System.String::Concat
+           00034ff4  mov      sl, r0                       
+           00034ff8  ldr      r0, [fp, #0x10]              
+           00034ffc  ldr      r1, [r0]                     
+           00035000  add      r1, r1, #4                   
+           00035004  str      r1, [r0]                     
+           00035008  b        #0x35038                     ; -> L_35038
+L_3500c:   0003500c  ldr      r0, [pc]                     
+           00035010  b        #0x35018                     ; -> L_35018
+           00035014  .word    0x00f67ae0                   ; literal 16153312 / 
+L_35018:   00035018  ldr      r0, [pc, r0]                 ; GOT[310] VTABLE System.Char
+           0003501c  bl       #0xb9710                     ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree_box
+           00035020  mov      r1, r0                       
+           00035024  ldrh     r0, [fp, #8]                 
+           00035028  strh     r0, [r1, #8]                 ; field+0x8 
+           0003502c  mov      r0, sl                       
+           00035030  bl       #0xb9e60                     ; CALL System.String::Concat
+           00035034  mov      sl, r0                       
+L_35038:   00035038  ldrb     r0, [fp, #0xa]               
+           0003503c  cmp      r0, #0                       
+           00035040  beq      #0x34cbc                     ; -> L_34cbc
+L_35044:   00035044  ldrb     r0, [fp, #0xa]               
+           00035048  cmp      r0, #0                       
+           0003504c  bne      #0x35058                     ; -> L_35058
+           00035050  mov      r0, #0                       
+           00035054  b        #0x3505c                     ; -> L_3505c
+L_35058:   00035058  mov      r0, sl                       
+L_3505c:   0003505c  add      sp, fp, #0x20                
+           00035060  pop      {r4, r5, r6, r8, sl, fp}     
+           00035064  ldr      r7, [sp, #8]                 
+           00035068  ldm      sp, {sp, pc}                 
+           0003506c  mov      r1, lr                       
+           00035070  ldr      r0, [pc]                     
+           00035074  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00035078  andeq    r0, r0, #0xf8                
+
+== MiniJSON::parseNumber  token 0x0600032a @0x0003507c (184 bytes) static
+   args: json, index
+           0003507c  mov      ip, sp                       
+           00035080  push     {r7, lr}                     
+           00035084  mov      r7, sp                       
+           00035088  push     {r6, r8, sl, fp, ip, lr}     
+           0003508c  sub      sp, sp, #0x18                
+           00035090  mov      fp, sp                       
+           00035094  mov      r6, r0                       
+           00035098  mov      sl, r1                       
+           0003509c  mov      r0, r6                       
+           000350a0  mov      r1, sl                       
+           000350a4  bl       #0xbc470                     ; CALL MiniJSON::eatWhitespace
+           000350a8  ldr      r1, [sl]                     
+           000350ac  mov      r0, r6                       
+           000350b0  bl       #0xbc480                     ; CALL MiniJSON::getLastIndexOfNumber
+           000350b4  str      r0, [fp, #8]                 
+           000350b8  ldr      r1, [sl]                     
+           000350bc  sub      r0, r0, r1                   
+           000350c0  add      r0, r0, #1                   
+           000350c4  str      r0, [fp, #0x10]              
+           000350c8  mov      r1, r0                       
+           000350cc  ldr      r0, [pc]                     
+           000350d0  b        #0x350d8                     ; -> L_350d8
+           000350d4  .word    0x00f67938                   ; literal 16152888 / 
+L_350d8:   000350d8  ldr      r0, [pc, r0]                 ; GOT[252] VTABLE System.Char[]
+           000350dc  bl       #0xb96f0                     ; CALL [INTERNAL_METHOD] mono_array_new_specific
+           000350e0  mov      r2, r0                       
+           000350e4  ldr      ip, [fp, #0x10]              
+           000350e8  ldr      r1, [sl]                     
+           000350ec  mov      r0, r6                       
+           000350f0  str      r2, [fp, #0xc]               
+           000350f4  mov      r3, #0                       
+           000350f8  str      ip, [sp]                     
+           000350fc  bl       #0xba3f0                     ; CALL System.Array::Copy
+           00035100  ldr      r0, [fp, #8]                 
+           00035104  ldr      r1, [fp, #0xc]               
+           00035108  add      r0, r0, #1                   
+           0003510c  str      r0, [sl]                     
+           00035110  mov      r0, #0                       
+           00035114  bl       #0xbb320                     ; CALL System.String::.ctor
+           00035118  bl       #0xb9660                     ; CALL System.Double::Parse
+           0003511c  vmov     d2, r0, r1                   
+           00035120  vmov     r0, r1, d2                   
+           00035124  add      sp, fp, #0x18                
+           00035128  pop      {r6, r8, sl, fp}             
+           0003512c  ldr      r7, [sp, #8]                 
+           00035130  ldm      sp, {sp, pc}                 
+
+== MiniJSON::getLastIndexOfNumber  token 0x0600032b @0x00035134 (152 bytes) static
+   args: json, index
+           00035134  mov      ip, sp                       
+           00035138  push     {r7, lr}                     
+           0003513c  mov      r7, sp                       
+           00035140  push     {r6, r8, sl, fp, ip, lr}     
+           00035144  mov      fp, sp                       
+           00035148  mov      r6, r0                       
+           0003514c  mov      sl, r1                       
+           00035150  b        #0x3519c                     ; -> L_3519c
+L_35154:   00035154  ldr      r2, [pc]                     
+           00035158  b        #0x35160                     ; -> L_35160
+           0003515c  .word    0x00f67b34                   ; literal 16153396 / 
+L_35160:   00035160  ldr      r2, [pc, r2]                 ; GOT[413] LDSTR '0123456789+-.eE'
+           00035164  ldr      r0, [r6, #0xc]               ; field+0xc 
+           00035168  cmp      r0, sl                       
+           0003516c  blls     #0x351bc                     ; THROW System.IndexOutOfRangeException (if ls)
+           00035170  lsl      r0, sl, #1                   
+           00035174  add      r0, r6, r0                   
+           00035178  add      r0, r0, #0x10                
+           0003517c  ldrh     r1, [r0]                     
+           00035180  mov      r0, r2                       
+           00035184  ldr      lr, [r2]                     
+           00035188  bl       #0xbc490                     ; CALL System.String::IndexOf
+           0003518c  mvn      r1, #0                       
+           00035190  cmp      r0, r1                       
+           00035194  beq      #0x351a8                     ; -> L_351a8
+           00035198  add      sl, sl, #1                   
+L_3519c:   0003519c  ldr      r0, [r6, #0xc]               ; field+0xc 
+           000351a0  cmp      sl, r0                       
+           000351a4  blt      #0x35154                     ; -> L_35154
+L_351a8:   000351a8  sub      r0, sl, #1                   
+           000351ac  add      sp, fp, #0                   
+           000351b0  pop      {r6, r8, sl, fp}             
+           000351b4  ldr      r7, [sp, #8]                 
+           000351b8  ldm      sp, {sp, pc}                 
+           000351bc  mov      r1, lr                       
+           000351c0  ldr      r0, [pc]                     
+           000351c4  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000351c8  andeq    r0, r0, #0xf8                
+
+== MiniJSON::eatWhitespace  token 0x0600032c @0x000351cc (164 bytes) static
+   args: json, index
+           000351cc  mov      ip, sp                       
+           000351d0  push     {r7, lr}                     
+           000351d4  mov      r7, sp                       
+           000351d8  push     {r6, r8, sl, fp, ip, lr}     
+           000351dc  mov      fp, sp                       
+           000351e0  mov      r6, r0                       
+           000351e4  mov      sl, r1                       
+           000351e8  b        #0x35240                     ; -> L_35240
+L_351ec:   000351ec  ldr      r2, [pc]                     
+           000351f0  b        #0x351f8                     ; -> L_351f8
+           000351f4  .word    0x00f67aa0                   ; literal 16153248 / 
+L_351f8:   000351f8  ldr      r2, [pc, r2]                 ; GOT[414] LDSTR ' \t\n\r'
+           000351fc  ldr      r0, [sl]                     
+           00035200  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00035204  cmp      r1, r0                       
+           00035208  blls     #0x35260                     ; THROW System.IndexOutOfRangeException (if ls)
+           0003520c  lsl      r0, r0, #1                   
+           00035210  add      r0, r6, r0                   
+           00035214  add      r0, r0, #0x10                
+           00035218  ldrh     r1, [r0]                     
+           0003521c  mov      r0, r2                       
+           00035220  ldr      lr, [r2]                     
+           00035224  bl       #0xbc490                     ; CALL System.String::IndexOf
+           00035228  mvn      r1, #0                       
+           0003522c  cmp      r0, r1                       
+           00035230  beq      #0x35250                     ; -> L_35250
+           00035234  ldr      r0, [sl]                     
+           00035238  add      r0, r0, #1                   
+           0003523c  str      r0, [sl]                     
+L_35240:   00035240  ldr      r0, [sl]                     
+           00035244  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00035248  cmp      r0, r1                       
+           0003524c  blt      #0x351ec                     ; -> L_351ec
+L_35250:   00035250  add      sp, fp, #0                   
+           00035254  pop      {r6, r8, sl, fp}             
+           00035258  ldr      r7, [sp, #8]                 
+           0003525c  ldm      sp, {sp, pc}                 
+           00035260  mov      r1, lr                       
+           00035264  ldr      r0, [pc]                     
+           00035268  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           0003526c  andeq    r0, r0, #0xf8                
+
+== MiniJSON::lookAhead  token 0x0600032d @0x00035270 (76 bytes) static
+   args: json, index
+           00035270  mov      ip, sp                       
+           00035274  push     {r7, lr}                     
+           00035278  mov      r7, sp                       
+           0003527c  push     {r8, fp, ip, lr}             
+           00035280  sub      sp, sp, #0x10                
+           00035284  mov      fp, sp                       
+           00035288  str      r0, [fp, #4]                 
+           0003528c  str      r1, [fp, #8]                 
+           00035290  mov      r0, #0                       
+           00035294  str      r0, [fp]                     
+           00035298  ldr      r0, [fp, #8]                 
+           0003529c  str      r0, [fp]                     
+           000352a0  ldr      r0, [fp, #4]                 
+           000352a4  mov      r1, fp                       
+           000352a8  bl       #0xbc420                     ; CALL MiniJSON::nextToken
+           000352ac  add      sp, fp, #0x10                
+           000352b0  pop      {r8, fp}                     
+           000352b4  ldr      r7, [sp, #8]                 
+           000352b8  ldm      sp, {sp, pc}                 
+
+== MiniJSON::nextToken  token 0x0600032e @0x000352bc (1048 bytes) static
+   args: json, index
+           000352bc  mov      ip, sp                       
+           000352c0  push     {r7, lr}                     
+           000352c4  mov      r7, sp                       
+           000352c8  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000352cc  sub      sp, sp, #0x10                
+           000352d0  mov      fp, sp                       
+           000352d4  mov      r6, r0                       
+           000352d8  mov      sl, r1                       
+           000352dc  mov      r0, r6                       
+           000352e0  mov      r1, sl                       
+           000352e4  bl       #0xbc470                     ; CALL MiniJSON::eatWhitespace
+           000352e8  ldr      r0, [sl]                     
+           000352ec  ldr      r1, [r6, #0xc]               ; field+0xc 
+           000352f0  cmp      r0, r1                       
+           000352f4  bne      #0x35300                     ; -> L_35300
+           000352f8  mov      r0, #0                       
+           000352fc  b        #0x356b4                     ; -> L_356b4
+L_35300:   00035300  ldr      r0, [sl]                     
+           00035304  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00035308  cmp      r1, r0                       
+           0003530c  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           00035310  lsl      r0, r0, #1                   
+           00035314  add      r0, r6, r0                   
+           00035318  add      r0, r0, #0x10                
+           0003531c  ldrh     r0, [r0]                     
+           00035320  strh     r0, [fp]                     
+           00035324  ldr      r1, [sl]                     
+           00035328  add      r1, r1, #1                   
+           0003532c  str      r1, [sl]                     
+           00035330  strh     r0, [fp, #2]                 
+           00035334  sub      r4, r0, #0x22                
+           00035338  cmp      r4, #0x19                    
+           0003533c  bhs      #0x35360                     ; -> L_35360
+           00035340  lsl      r1, r4, #2                   
+           00035344  ldr      r0, [pc]                     
+           00035348  b        #0x35350                     ; -> L_35350
+           0003534c  .word    0x00f6794c                   ; literal 16152908 / 
+L_35350:   00035350  ldr      r0, [pc, r0]                 ; GOT[415] SWITCH switch table[25]
+           00035354  add      r0, r0, r1                   
+           00035358  ldr      r0, [r0]                     
+           0003535c  mov      pc, r0                       
+L_35360:   00035360  ldrh     r0, [fp, #2]                 
+           00035364  sub      r0, r0, #0x5b                
+           00035368  str      r0, [fp, #4]                 
+           0003536c  cmp      r0, #3                       
+           00035370  bhs      #0x35398                     ; -> L_35398
+           00035374  ldr      r0, [fp, #4]                 
+           00035378  lsl      r1, r0, #2                   
+           0003537c  ldr      r0, [pc]                     
+           00035380  b        #0x35388                     ; -> L_35388
+           00035384  .word    0x00f67918                   ; literal 16152856 / 
+L_35388:   00035388  ldr      r0, [pc, r0]                 ; GOT[416] SWITCH switch table[3]
+           0003538c  add      r0, r0, r1                   
+           00035390  ldr      r0, [r0]                     
+           00035394  mov      pc, r0                       
+L_35398:   00035398  ldrh     r0, [fp, #2]                 
+           0003539c  sub      r0, r0, #0x7b                
+           000353a0  str      r0, [fp, #8]                 
+           000353a4  cmp      r0, #3                       
+           000353a8  bhs      #0x35410                     ; -> L_35410
+           000353ac  ldr      r0, [fp, #8]                 
+           000353b0  lsl      r1, r0, #2                   
+           000353b4  ldr      r0, [pc]                     
+           000353b8  b        #0x353c0                     ; -> L_353c0
+           000353bc  .word    0x00f678e4                   ; literal 16152804 / 
+L_353c0:   000353c0  ldr      r0, [pc, r0]                 ; GOT[417] SWITCH switch table[3]
+           000353c4  add      r0, r0, r1                   
+           000353c8  ldr      r0, [r0]                     
+           000353cc  mov      pc, r0                       
+           000353d0  mov      r0, #1                       
+           000353d4  b        #0x356b4                     ; -> L_356b4
+           000353d8  mov      r0, #2                       
+           000353dc  b        #0x356b4                     ; -> L_356b4
+           000353e0  mov      r0, #3                       
+           000353e4  b        #0x356b4                     ; -> L_356b4
+           000353e8  mov      r0, #4                       
+           000353ec  b        #0x356b4                     ; -> L_356b4
+           000353f0  mov      r0, #6                       
+           000353f4  b        #0x356b4                     ; -> L_356b4
+           000353f8  mov      r0, #7                       
+           000353fc  b        #0x356b4                     ; -> L_356b4
+           00035400  mov      r0, #8                       
+           00035404  b        #0x356b4                     ; -> L_356b4
+           00035408  mov      r0, #5                       
+           0003540c  b        #0x356b4                     ; -> L_356b4
+L_35410:   00035410  ldr      r0, [sl]                     
+           00035414  sub      r0, r0, #1                   
+           00035418  str      r0, [sl]                     
+           0003541c  ldr      r0, [r6, #0xc]               ; field+0xc 
+           00035420  ldr      r1, [sl]                     
+           00035424  sub      r5, r0, r1                   
+           00035428  mov      r0, r5                       
+           0003542c  cmp      r0, #5                       
+           00035430  blt      #0x35520                     ; -> L_35520
+           00035434  ldr      r0, [sl]                     
+           00035438  ldr      r1, [r6, #0xc]               ; field+0xc 
+           0003543c  cmp      r1, r0                       
+           00035440  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           00035444  lsl      r0, r0, #1                   
+           00035448  add      r0, r6, r0                   
+           0003544c  add      r0, r0, #0x10                
+           00035450  ldrh     r0, [r0]                     
+           00035454  cmp      r0, #0x66                    
+           00035458  bne      #0x35520                     ; -> L_35520
+           0003545c  ldr      r0, [sl]                     
+           00035460  add      r0, r0, #1                   
+           00035464  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00035468  cmp      r1, r0                       
+           0003546c  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           00035470  lsl      r0, r0, #1                   
+           00035474  add      r0, r6, r0                   
+           00035478  add      r0, r0, #0x10                
+           0003547c  ldrh     r0, [r0]                     
+           00035480  cmp      r0, #0x61                    
+           00035484  bne      #0x35520                     ; -> L_35520
+           00035488  ldr      r0, [sl]                     
+           0003548c  add      r0, r0, #2                   
+           00035490  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00035494  cmp      r1, r0                       
+           00035498  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           0003549c  lsl      r0, r0, #1                   
+           000354a0  add      r0, r6, r0                   
+           000354a4  add      r0, r0, #0x10                
+           000354a8  ldrh     r0, [r0]                     
+           000354ac  cmp      r0, #0x6c                    
+           000354b0  bne      #0x35520                     ; -> L_35520
+           000354b4  ldr      r0, [sl]                     
+           000354b8  add      r0, r0, #3                   
+           000354bc  ldr      r1, [r6, #0xc]               ; field+0xc 
+           000354c0  cmp      r1, r0                       
+           000354c4  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           000354c8  lsl      r0, r0, #1                   
+           000354cc  add      r0, r6, r0                   
+           000354d0  add      r0, r0, #0x10                
+           000354d4  ldrh     r0, [r0]                     
+           000354d8  cmp      r0, #0x73                    
+           000354dc  bne      #0x35520                     ; -> L_35520
+           000354e0  ldr      r0, [sl]                     
+           000354e4  add      r0, r0, #4                   
+           000354e8  ldr      r1, [r6, #0xc]               ; field+0xc 
+           000354ec  cmp      r1, r0                       
+           000354f0  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           000354f4  lsl      r0, r0, #1                   
+           000354f8  add      r0, r6, r0                   
+           000354fc  add      r0, r0, #0x10                
+           00035500  ldrh     r0, [r0]                     
+           00035504  cmp      r0, #0x65                    
+           00035508  bne      #0x35520                     ; -> L_35520
+           0003550c  ldr      r0, [sl]                     
+           00035510  add      r0, r0, #5                   
+           00035514  str      r0, [sl]                     
+           00035518  mov      r0, #0xa                     
+           0003551c  b        #0x356b4                     ; -> L_356b4
+L_35520:   00035520  cmp      r5, #4                       
+           00035524  blt      #0x355e8                     ; -> L_355e8
+           00035528  ldr      r0, [sl]                     
+           0003552c  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00035530  cmp      r1, r0                       
+           00035534  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           00035538  lsl      r0, r0, #1                   
+           0003553c  add      r0, r6, r0                   
+           00035540  add      r0, r0, #0x10                
+           00035544  ldrh     r0, [r0]                     
+           00035548  cmp      r0, #0x74                    
+           0003554c  bne      #0x355e8                     ; -> L_355e8
+           00035550  ldr      r0, [sl]                     
+           00035554  add      r0, r0, #1                   
+           00035558  ldr      r1, [r6, #0xc]               ; field+0xc 
+           0003555c  cmp      r1, r0                       
+           00035560  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           00035564  lsl      r0, r0, #1                   
+           00035568  add      r0, r6, r0                   
+           0003556c  add      r0, r0, #0x10                
+           00035570  ldrh     r0, [r0]                     
+           00035574  cmp      r0, #0x72                    
+           00035578  bne      #0x355e8                     ; -> L_355e8
+           0003557c  ldr      r0, [sl]                     
+           00035580  add      r0, r0, #2                   
+           00035584  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00035588  cmp      r1, r0                       
+           0003558c  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           00035590  lsl      r0, r0, #1                   
+           00035594  add      r0, r6, r0                   
+           00035598  add      r0, r0, #0x10                
+           0003559c  ldrh     r0, [r0]                     
+           000355a0  cmp      r0, #0x75                    
+           000355a4  bne      #0x355e8                     ; -> L_355e8
+           000355a8  ldr      r0, [sl]                     
+           000355ac  add      r0, r0, #3                   
+           000355b0  ldr      r1, [r6, #0xc]               ; field+0xc 
+           000355b4  cmp      r1, r0                       
+           000355b8  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           000355bc  lsl      r0, r0, #1                   
+           000355c0  add      r0, r6, r0                   
+           000355c4  add      r0, r0, #0x10                
+           000355c8  ldrh     r0, [r0]                     
+           000355cc  cmp      r0, #0x65                    
+           000355d0  bne      #0x355e8                     ; -> L_355e8
+           000355d4  ldr      r0, [sl]                     
+           000355d8  add      r0, r0, #4                   
+           000355dc  str      r0, [sl]                     
+           000355e0  mov      r0, #9                       
+           000355e4  b        #0x356b4                     ; -> L_356b4
+L_355e8:   000355e8  cmp      r5, #4                       
+           000355ec  blt      #0x356b0                     ; -> L_356b0
+           000355f0  ldr      r0, [sl]                     
+           000355f4  ldr      r1, [r6, #0xc]               ; field+0xc 
+           000355f8  cmp      r1, r0                       
+           000355fc  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           00035600  lsl      r0, r0, #1                   
+           00035604  add      r0, r6, r0                   
+           00035608  add      r0, r0, #0x10                
+           0003560c  ldrh     r0, [r0]                     
+           00035610  cmp      r0, #0x6e                    
+           00035614  bne      #0x356b0                     ; -> L_356b0
+           00035618  ldr      r0, [sl]                     
+           0003561c  add      r0, r0, #1                   
+           00035620  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00035624  cmp      r1, r0                       
+           00035628  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           0003562c  lsl      r0, r0, #1                   
+           00035630  add      r0, r6, r0                   
+           00035634  add      r0, r0, #0x10                
+           00035638  ldrh     r0, [r0]                     
+           0003563c  cmp      r0, #0x75                    
+           00035640  bne      #0x356b0                     ; -> L_356b0
+           00035644  ldr      r0, [sl]                     
+           00035648  add      r0, r0, #2                   
+           0003564c  ldr      r1, [r6, #0xc]               ; field+0xc 
+           00035650  cmp      r1, r0                       
+           00035654  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           00035658  lsl      r0, r0, #1                   
+           0003565c  add      r0, r6, r0                   
+           00035660  add      r0, r0, #0x10                
+           00035664  ldrh     r0, [r0]                     
+           00035668  cmp      r0, #0x6c                    
+           0003566c  bne      #0x356b0                     ; -> L_356b0
+           00035670  ldr      r0, [sl]                     
+           00035674  add      r0, r0, #3                   
+           00035678  ldr      r1, [r6, #0xc]               ; field+0xc 
+           0003567c  cmp      r1, r0                       
+           00035680  blls     #0x356c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           00035684  lsl      r0, r0, #1                   
+           00035688  add      r0, r6, r0                   
+           0003568c  add      r0, r0, #0x10                
+           00035690  ldrh     r0, [r0]                     
+           00035694  cmp      r0, #0x6c                    
+           00035698  bne      #0x356b0                     ; -> L_356b0
+           0003569c  ldr      r0, [sl]                     
+           000356a0  add      r0, r0, #4                   
+           000356a4  str      r0, [sl]                     
+           000356a8  mov      r0, #0xb                     
+           000356ac  b        #0x356b4                     ; -> L_356b4
+L_356b0:   000356b0  mov      r0, #0                       
+L_356b4:   000356b4  add      sp, fp, #0x10                
+           000356b8  pop      {r4, r5, r6, r8, sl, fp}     
+           000356bc  ldr      r7, [sp, #8]                 
+           000356c0  ldm      sp, {sp, pc}                 
+           000356c4  mov      r1, lr                       
+           000356c8  ldr      r0, [pc]                     
+           000356cc  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000356d0  andeq    r0, r0, #0xf8                
+
+== MiniJSON::serializeObjectOrArray  token 0x0600032f @0x000356d4 (340 bytes) static
+   args: objectOrArray, builder
+           000356d4  mov      ip, sp                       
+           000356d8  push     {r7, lr}                     
+           000356dc  mov      r7, sp                       
+           000356e0  push     {r4, r5, r6, r8, fp, ip, lr} 
+           000356e4  sub      sp, sp, #0xc                 
+           000356e8  mov      fp, sp                       
+           000356ec  mov      r6, r0                       
+           000356f0  str      r1, [fp]                     
+           000356f4  mov      r5, r6                       
+           000356f8  mov      r4, r6                       
+           000356fc  cmp      r6, #0                       
+           00035700  beq      #0x35730                     ; -> L_35730
+           00035704  ldr      r0, [r5]                     
+           00035708  ldr      r0, [r0]                     
+           0003570c  ldr      r0, [r0, #8]                 ; field+0x8 
+           00035710  ldr      r0, [r0, #4]                 ; field+0x4 
+           00035714  ldr      r1, [pc]                     
+           00035718  b        #0x35720                     ; -> L_35720
+           0003571c  .word    0x00f66f30                   ; literal 16150320 / 
+L_35720:   00035720  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           00035724  cmp      r0, r1                       
+           00035728  beq      #0x35730                     ; -> L_35730
+           0003572c  mov      r4, #0                       
+L_35730:   00035730  cmp      r4, #0                       
+           00035734  beq      #0x3577c                     ; -> L_3577c
+           00035738  mov      r5, r6                       
+           0003573c  cmp      r6, #0                       
+           00035740  beq      #0x3576c                     ; -> L_3576c
+           00035744  ldr      r0, [r5]                     
+           00035748  ldr      r0, [r0]                     
+           0003574c  ldr      r0, [r0, #8]                 ; field+0x8 
+           00035750  ldr      r0, [r0, #4]                 ; field+0x4 
+           00035754  ldr      r1, [pc]                     
+           00035758  b        #0x35760                     ; -> L_35760
+           0003575c  .word    0x00f66ef0                   ; literal 16150256 / 
+L_35760:   00035760  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           00035764  cmp      r0, r1                       
+           00035768  blne     #0x35818                     ; THROW System.InvalidCastException (if ne)
+L_3576c:   0003576c  mov      r0, r5                       
+           00035770  ldr      r1, [fp]                     
+           00035774  bl       #0xbc4a0                     ; CALL MiniJSON::serializeObject
+           00035778  b        #0x35808                     ; -> L_35808
+L_3577c:   0003577c  mov      r4, r6                       
+           00035780  mov      r5, r6                       
+           00035784  cmp      r6, #0                       
+           00035788  beq      #0x357b8                     ; -> L_357b8
+           0003578c  ldr      r0, [r4]                     
+           00035790  ldr      r0, [r0]                     
+           00035794  ldr      r0, [r0, #8]                 ; field+0x8 
+           00035798  ldr      r0, [r0, #4]                 ; field+0x4 
+           0003579c  ldr      r1, [pc]                     
+           000357a0  b        #0x357a8                     ; -> L_357a8
+           000357a4  .word    0x00f67364                   ; literal 16151396 / 
+L_357a8:   000357a8  ldr      r1, [pc, r1]                 ; GOT[315] CLASS System.Collections.ArrayList
+           000357ac  cmp      r0, r1                       
+           000357b0  beq      #0x357b8                     ; -> L_357b8
+           000357b4  mov      r5, #0                       
+L_357b8:   000357b8  cmp      r5, #0                       
+           000357bc  beq      #0x35804                     ; -> L_35804
+           000357c0  mov      r5, r6                       
+           000357c4  cmp      r6, #0                       
+           000357c8  beq      #0x357f4                     ; -> L_357f4
+           000357cc  ldr      r0, [r5]                     
+           000357d0  ldr      r0, [r0]                     
+           000357d4  ldr      r0, [r0, #8]                 ; field+0x8 
+           000357d8  ldr      r0, [r0, #4]                 ; field+0x4 
+           000357dc  ldr      r1, [pc]                     
+           000357e0  b        #0x357e8                     ; -> L_357e8
+           000357e4  .word    0x00f67324                   ; literal 16151332 / 
+L_357e8:   000357e8  ldr      r1, [pc, r1]                 ; GOT[315] CLASS System.Collections.ArrayList
+           000357ec  cmp      r0, r1                       
+           000357f0  blne     #0x35818                     ; THROW System.InvalidCastException (if ne)
+L_357f4:   000357f4  mov      r0, r5                       
+           000357f8  ldr      r1, [fp]                     
+           000357fc  bl       #0xbc4b0                     ; CALL MiniJSON::serializeArray
+           00035800  b        #0x35808                     ; -> L_35808
+L_35804:   00035804  mov      r0, #0                       
+L_35808:   00035808  add      sp, fp, #0xc                 
+           0003580c  pop      {r4, r5, r6, r8, fp}         
+           00035810  ldr      r7, [sp, #8]                 
+           00035814  ldm      sp, {sp, pc}                 
+           00035818  mov      r1, lr                       
+           0003581c  ldr      r0, [pc]                     
+           00035820  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00035824  andeq    r0, r0, #0xfd                
+
+== MiniJSON::serializeObject  token 0x06000330 @0x00035828 (396 bytes) static
+   args: anObject, builder
+           00035828  mov      ip, sp                       
+           0003582c  push     {r7, lr}                     
+           00035830  mov      r7, sp                       
+           00035834  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00035838  sub      sp, sp, #8                   
+           0003583c  mov      fp, sp                       
+           00035840  mov      r6, r0                       
+           00035844  mov      sl, r1                       
+           00035848  ldr      r1, [pc]                     
+           0003584c  b        #0x35854                     ; -> L_35854
+           00035850  .word    0x00f67454                   ; literal 16151636 / 
+L_35854:   00035854  ldr      r1, [pc, r1]                 ; GOT[418] LDSTR '{'
+           00035858  mov      r0, sl                       
+           0003585c  ldr      lr, [sl]                     
+           00035860  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00035864  mov      r0, r6                       
+           00035868  ldr      r1, [r6]                     
+           0003586c  mov      lr, pc                       
+           00035870  ldr      pc, [r1, #0x9c]              ; VIRTUAL CALL slot +0x9c: System.Enum::System.IConvertible.ToType
+           00035874  mov      r6, r0                       
+           00035878  mov      r0, #1                       
+           0003587c  strb     r0, [fp]                     
+           00035880  b        #0x35958                     ; -> L_35958
+L_35884:   00035884  mov      r0, r6                       
+           00035888  ldr      r1, [r6]                     
+           0003588c  ldr      r8, [pc]                     
+           00035890  b        #0x35898                     ; -> L_35898
+           00035894  .word    0x00f67414                   ; literal 16151572 / 
+L_35898:   00035898  ldr      r8, [pc, r8]                 ; GOT[419] METHODCONST System.Collections.IDictionaryEnumerator::get_Key
+           0003589c  add      lr, pc, #4                   
+           000358a0  ldr      pc, [r1, #-4]                ; INTERFACE CALL System.Collections.IDictionaryEnumerator::get_Key
+           000358a4  andeq    r0, r0, r0                   
+           000358a8  mov      r1, r0                       
+           000358ac  ldr      r1, [r1]                     
+           000358b0  mov      lr, pc                       
+           000358b4  ldr      pc, [r1, #0x24]              ; VIRTUAL CALL slot +0x24: System.Object::ToString | UnityEngine.Object::ToString
+           000358b8  mov      r5, r0                       
+           000358bc  mov      r0, r6                       
+           000358c0  ldr      r1, [r6]                     
+           000358c4  ldr      r8, [pc]                     
+           000358c8  b        #0x358d0                     ; -> L_358d0
+           000358cc  .word    0x00f673e0                   ; literal 16151520 / 
+L_358d0:   000358d0  ldr      r8, [pc, r8]                 ; GOT[420] METHODCONST System.Collections.IDictionaryEnumerator::get_Value
+           000358d4  add      lr, pc, #4                   
+           000358d8  ldr      pc, [r1, #-0x30]             ; INTERFACE CALL System.Collections.IDictionaryEnumerator::get_Value
+           000358dc  andeq    r0, r0, r0                   
+           000358e0  mov      r4, r0                       
+           000358e4  ldrb     r0, [fp]                     
+           000358e8  cmp      r0, #0                       
+           000358ec  bne      #0x3590c                     ; -> L_3590c
+           000358f0  ldr      r1, [pc]                     
+           000358f4  b        #0x358fc                     ; -> L_358fc
+           000358f8  .word    0x00f673b8                   ; literal 16151480 / 
+L_358fc:   000358fc  ldr      r1, [pc, r1]                 ; GOT[421] LDSTR ', '
+           00035900  mov      r0, sl                       
+           00035904  ldr      lr, [sl]                     
+           00035908  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+L_3590c:   0003590c  mov      r0, r5                       
+           00035910  mov      r1, sl                       
+           00035914  bl       #0xbc4c0                     ; CALL MiniJSON::serializeString
+           00035918  ldr      r1, [pc]                     
+           0003591c  b        #0x35924                     ; -> L_35924
+           00035920  .word    0x00f67004                   ; literal 16150532 / 
+L_35924:   00035924  ldr      r1, [pc, r1]                 ; GOT[194] LDSTR ':'
+           00035928  mov      r0, sl                       
+           0003592c  ldr      lr, [sl]                     
+           00035930  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00035934  mov      r0, r4                       
+           00035938  mov      r1, sl                       
+           0003593c  bl       #0xbc400                     ; CALL MiniJSON::serializeValue
+           00035940  cmp      r0, #0                       
+           00035944  bne      #0x35950                     ; -> L_35950
+           00035948  mov      r0, #0                       
+           0003594c  b        #0x359a4                     ; -> L_359a4
+L_35950:   00035950  mov      r0, #0                       
+           00035954  strb     r0, [fp]                     
+L_35958:   00035958  mov      r0, r6                       
+           0003595c  ldr      r1, [r6]                     
+           00035960  ldr      r8, [pc]                     
+           00035964  b        #0x3596c                     ; -> L_3596c
+           00035968  .word    0x00f66cec                   ; literal 16149740 / 
+L_3596c:   0003596c  ldr      r8, [pc, r8]                 ; GOT[14] METHODCONST System.Collections.IEnumerator::MoveNext
+           00035970  add      lr, pc, #4                   
+           00035974  ldr      pc, [r1, #-8]                ; INTERFACE CALL System.Collections.IEnumerator::MoveNext
+           00035978  andeq    r0, r0, r0                   
+           0003597c  cmp      r0, #0                       
+           00035980  bne      #0x35884                     ; -> L_35884
+           00035984  ldr      r1, [pc]                     
+           00035988  b        #0x35990                     ; -> L_35990
+           0003598c  .word    0x00f67328                   ; literal 16151336 / 
+L_35990:   00035990  ldr      r1, [pc, r1]                 ; GOT[422] LDSTR '}'
+           00035994  mov      r0, sl                       
+           00035998  ldr      lr, [sl]                     
+           0003599c  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           000359a0  mov      r0, #1                       
+L_359a4:   000359a4  add      sp, fp, #8                   
+           000359a8  pop      {r4, r5, r6, r8, sl, fp}     
+           000359ac  ldr      r7, [sp, #8]                 
+           000359b0  ldm      sp, {sp, pc}                 
+
+== MiniJSON::serializeDictionary  token 0x06000331 @0x000359b4 (560 bytes) static
+   args: dict, builder
+           000359b4  mov      ip, sp                       
+           000359b8  push     {r7, lr}                     
+           000359bc  mov      r7, sp                       
+           000359c0  push     {r6, r8, sl, fp, ip, lr}     
+           000359c4  sub      sp, sp, #0x58                
+           000359c8  mov      fp, sp                       
+           000359cc  mov      r6, r0                       
+           000359d0  mov      sl, r1                       
+           000359d4  mov      r0, #0                       
+           000359d8  str      r0, [fp, #4]                 
+           000359dc  mov      r0, #0                       
+           000359e0  str      r0, [fp, #8]                 
+           000359e4  mov      r0, #0                       
+           000359e8  str      r0, [fp, #0xc]               
+           000359ec  mov      r0, #0                       
+           000359f0  str      r0, [fp, #0x10]              
+           000359f4  mov      r0, #0                       
+           000359f8  str      r0, [fp, #0x14]              
+           000359fc  mov      r0, #0                       
+           00035a00  str      r0, [fp, #0x18]              
+           00035a04  mov      r0, #0                       
+           00035a08  str      r0, [fp, #0x1c]              
+           00035a0c  ldr      r1, [pc]                     
+           00035a10  b        #0x35a18                     ; -> L_35a18
+           00035a14  .word    0x00f67290                   ; literal 16151184 / 
+L_35a18:   00035a18  ldr      r1, [pc, r1]                 ; GOT[418] LDSTR '{'
+           00035a1c  mov      r0, sl                       
+           00035a20  ldr      lr, [sl]                     
+           00035a24  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00035a28  mov      r0, #1                       
+           00035a2c  strb     r0, [fp]                     
+           00035a30  add      r0, fp, #0xc                 
+           00035a34  mov      r1, r6                       
+           00035a38  ldr      lr, [r6]                     
+           00035a3c  bl       #0xba0b0                     ; CALL System.Collections.Generic.Dictionary`2<string,string>::GetEnumerator
+           00035a40  b        #0x35af0                     ; -> L_35af0
+L_35a44:   00035a44  add      r0, fp, #0xc                 
+           00035a48  ldr      r1, [pc]                     
+           00035a4c  b        #0x35a54                     ; -> L_35a54
+           00035a50  .word    0x00f66ecc                   ; literal 16150220 / 
+L_35a54:   00035a54  ldr      r1, [pc, r1]                 ; GOT[192] VTABLE System.Collections.Generic.Dictionary`2/Enumerator<string,string>
+           00035a58  add      r0, r0, #0xc                 
+           00035a5c  ldr      r1, [r0]                     
+           00035a60  str      r1, [fp, #4]                 
+           00035a64  ldr      r0, [r0, #4]                 ; field+0x4 
+           00035a68  str      r0, [fp, #8]                 
+           00035a6c  ldrb     r0, [fp]                     
+           00035a70  cmp      r0, #0                       
+           00035a74  bne      #0x35a94                     ; -> L_35a94
+           00035a78  ldr      r1, [pc]                     
+           00035a7c  b        #0x35a84                     ; -> L_35a84
+           00035a80  .word    0x00f67230                   ; literal 16151088 / 
+L_35a84:   00035a84  ldr      r1, [pc, r1]                 ; GOT[421] LDSTR ', '
+           00035a88  mov      r0, sl                       
+           00035a8c  ldr      lr, [sl]                     
+           00035a90  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+L_35a94:   00035a94  ldr      r0, [pc]                     
+           00035a98  b        #0x35aa0                     ; -> L_35aa0
+           00035a9c  .word    0x00f66e84                   ; literal 16150148 / 
+L_35aa0:   00035aa0  ldr      r0, [pc, r0]                 ; GOT[193] VTABLE System.Collections.Generic.KeyValuePair`2<string,string>
+           00035aa4  ldr      r0, [fp, #4]                 
+           00035aa8  mov      r1, sl                       
+           00035aac  bl       #0xbc4c0                     ; CALL MiniJSON::serializeString
+           00035ab0  ldr      r1, [pc]                     
+           00035ab4  b        #0x35abc                     ; -> L_35abc
+           00035ab8  .word    0x00f66e6c                   ; literal 16150124 / 
+L_35abc:   00035abc  ldr      r1, [pc, r1]                 ; GOT[194] LDSTR ':'
+           00035ac0  mov      r0, sl                       
+           00035ac4  ldr      lr, [sl]                     
+           00035ac8  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00035acc  ldr      r0, [pc]                     
+           00035ad0  b        #0x35ad8                     ; -> L_35ad8
+           00035ad4  .word    0x00f66e4c                   ; literal 16150092 / 
+L_35ad8:   00035ad8  ldr      r0, [pc, r0]                 ; GOT[193] VTABLE System.Collections.Generic.KeyValuePair`2<string,string>
+           00035adc  ldr      r0, [fp, #8]                 
+           00035ae0  mov      r1, sl                       
+           00035ae4  bl       #0xbc4c0                     ; CALL MiniJSON::serializeString
+           00035ae8  mov      r0, #0                       
+           00035aec  strb     r0, [fp]                     
+L_35af0:   00035af0  add      r0, fp, #0xc                 
+           00035af4  ldr      r8, [pc]                     
+           00035af8  b        #0x35b00                     ; -> L_35b00
+           00035afc  .word    0x00f66e20                   ; literal 16150048 / 
+L_35b00:   00035b00  ldr      r8, [pc, r8]                 ; GOT[192] VTABLE System.Collections.Generic.Dictionary`2/Enumerator<string,string>
+           00035b04  bl       #0xba0f0                     ; CALL System.Collections.Generic.Dictionary`2/Enumerator<string,string>::MoveNext
+           00035b08  cmp      r0, #0                       
+           00035b0c  bne      #0x35a44                     ; -> L_35a44
+           00035b10  bl       #0x35b18                     ; CALL 0x35b18
+           00035b14  b        #0x35bb4                     ; -> L_35bb4
+           00035b18  str      lr, [fp, #0x3c]              
+           00035b1c  ldr      r0, [fp, #0xc]               
+           00035b20  str      r0, [fp, #0x40]              
+           00035b24  ldr      r0, [fp, #0x10]              
+           00035b28  str      r0, [fp, #0x44]              
+           00035b2c  ldr      r0, [fp, #0x14]              
+           00035b30  str      r0, [fp, #0x48]              
+           00035b34  ldr      r0, [fp, #0x18]              
+           00035b38  str      r0, [fp, #0x4c]              
+           00035b3c  ldr      r0, [fp, #0x1c]              
+           00035b40  str      r0, [fp, #0x50]              
+           00035b44  ldr      r0, [pc]                     
+           00035b48  b        #0x35b50                     ; -> L_35b50
+           00035b4c  .word    0x00f66dd0                   ; literal 16149968 / 
+L_35b50:   00035b50  ldr      r0, [pc, r0]                 ; GOT[192] VTABLE System.Collections.Generic.Dictionary`2/Enumerator<string,string>
+           00035b54  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00035b58  mov      r1, r0                       
+           00035b5c  add      r0, r1, #8                   
+           00035b60  ldr      r2, [fp, #0x40]              
+           00035b64  str      r2, [r0]                     
+           00035b68  ldr      r2, [fp, #0x44]              
+           00035b6c  str      r2, [r0, #4]                 ; field+0x4 
+           00035b70  ldr      r2, [fp, #0x48]              
+           00035b74  str      r2, [r0, #8]                 ; field+0x8 
+           00035b78  ldr      r2, [fp, #0x4c]              
+           00035b7c  str      r2, [r0, #0xc]               ; field+0xc 
+           00035b80  ldr      r2, [fp, #0x50]              
+           00035b84  str      r2, [r0, #0x10]              ; field+0x10 
+           00035b88  mov      r0, r1                       
+           00035b8c  ldr      r1, [r1]                     
+           00035b90  ldr      r8, [pc]                     
+           00035b94  b        #0x35b9c                     ; -> L_35b9c
+           00035b98  .word    0x00f66ac8                   ; literal 16149192 / 
+L_35b9c:   00035b9c  ldr      r8, [pc, r8]                 ; GOT[17] METHODCONST System.IDisposable::Dispose
+           00035ba0  add      lr, pc, #4                   
+           00035ba4  ldr      pc, [r1, #-0x20]             ; INTERFACE CALL System.IDisposable::Dispose
+           00035ba8  andeq    r0, r0, r0                   
+           00035bac  ldr      ip, [fp, #0x3c]              
+           00035bb0  mov      pc, ip                       
+L_35bb4:   00035bb4  ldr      r1, [pc]                     
+           00035bb8  b        #0x35bc0                     ; -> L_35bc0
+           00035bbc  .word    0x00f670f8                   ; literal 16150776 / 
+L_35bc0:   00035bc0  ldr      r1, [pc, r1]                 ; GOT[422] LDSTR '}'
+           00035bc4  mov      r0, sl                       
+           00035bc8  ldr      lr, [sl]                     
+           00035bcc  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00035bd0  mov      r0, #1                       
+           00035bd4  add      sp, fp, #0x58                
+           00035bd8  pop      {r6, r8, sl, fp}             
+           00035bdc  ldr      r7, [sp, #8]                 
+           00035be0  ldm      sp, {sp, pc}                 
+
+== MiniJSON::serializeArray  token 0x06000332 @0x00035be4 (252 bytes) static
+   args: anArray, builder
+           00035be4  mov      ip, sp                       
+           00035be8  push     {r7, lr}                     
+           00035bec  mov      r7, sp                       
+           00035bf0  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           00035bf4  sub      sp, sp, #8                   
+           00035bf8  mov      fp, sp                       
+           00035bfc  mov      r6, r0                       
+           00035c00  mov      sl, r1                       
+           00035c04  ldr      r1, [pc]                     
+           00035c08  b        #0x35c10                     ; -> L_35c10
+           00035c0c  .word    0x00f670ac                   ; literal 16150700 / 
+L_35c10:   00035c10  ldr      r1, [pc, r1]                 ; GOT[423] LDSTR '['
+           00035c14  mov      r0, sl                       
+           00035c18  ldr      lr, [sl]                     
+           00035c1c  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00035c20  mov      r0, #1                       
+           00035c24  strb     r0, [fp]                     
+           00035c28  mov      r4, #0                       
+           00035c2c  b        #0x35c98                     ; -> L_35c98
+L_35c30:   00035c30  mov      r0, r6                       
+           00035c34  mov      r1, r4                       
+           00035c38  ldr      r2, [r6]                     
+           00035c3c  mov      lr, pc                       
+           00035c40  ldr      pc, [r2, #0xe8]              ; VIRTUAL CALL slot +0xe8: 
+           00035c44  mov      r5, r0                       
+           00035c48  ldrb     r0, [fp]                     
+           00035c4c  cmp      r0, #0                       
+           00035c50  bne      #0x35c70                     ; -> L_35c70
+           00035c54  ldr      r1, [pc]                     
+           00035c58  b        #0x35c60                     ; -> L_35c60
+           00035c5c  .word    0x00f67054                   ; literal 16150612 / 
+L_35c60:   00035c60  ldr      r1, [pc, r1]                 ; GOT[421] LDSTR ', '
+           00035c64  mov      r0, sl                       
+           00035c68  ldr      lr, [sl]                     
+           00035c6c  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+L_35c70:   00035c70  mov      r0, r5                       
+           00035c74  mov      r1, sl                       
+           00035c78  bl       #0xbc400                     ; CALL MiniJSON::serializeValue
+           00035c7c  cmp      r0, #0                       
+           00035c80  bne      #0x35c8c                     ; -> L_35c8c
+           00035c84  mov      r0, #0                       
+           00035c88  b        #0x35cd0                     ; -> L_35cd0
+L_35c8c:   00035c8c  mov      r0, #0                       
+           00035c90  strb     r0, [fp]                     
+           00035c94  add      r4, r4, #1                   
+L_35c98:   00035c98  mov      r0, r6                       
+           00035c9c  ldr      r1, [r6]                     
+           00035ca0  mov      lr, pc                       
+           00035ca4  ldr      pc, [r1, #0xe0]              ; VIRTUAL CALL slot +0xe0: 
+           00035ca8  cmp      r4, r0                       
+           00035cac  blt      #0x35c30                     ; -> L_35c30
+           00035cb0  ldr      r1, [pc]                     
+           00035cb4  b        #0x35cbc                     ; -> L_35cbc
+           00035cb8  .word    0x00f67004                   ; literal 16150532 / 
+L_35cbc:   00035cbc  ldr      r1, [pc, r1]                 ; GOT[424] LDSTR ']'
+           00035cc0  mov      r0, sl                       
+           00035cc4  ldr      lr, [sl]                     
+           00035cc8  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00035ccc  mov      r0, #1                       
+L_35cd0:   00035cd0  add      sp, fp, #8                   
+           00035cd4  pop      {r4, r5, r6, r8, sl, fp}     
+           00035cd8  ldr      r7, [sp, #8]                 
+           00035cdc  ldm      sp, {sp, pc}                 
+
+== MiniJSON::serializeValue  token 0x06000333 @0x00035ce0 (1532 bytes) static
+   args: value, builder
+           00035ce0  mov      ip, sp                       
+           00035ce4  push     {r7, lr}                     
+           00035ce8  mov      r7, sp                       
+           00035cec  push     {r4, r5, r6, r8, fp, ip, lr} 
+           00035cf0  sub      sp, sp, #0x4c                
+           00035cf4  mov      fp, sp                       
+           00035cf8  mov      r5, r0                       
+           00035cfc  mov      r6, r1                       
+           00035d00  cmp      r5, #0                       
+           00035d04  bne      #0x35d28                     ; -> L_35d28
+           00035d08  ldr      r1, [pc]                     
+           00035d0c  b        #0x35d14                     ; -> L_35d14
+           00035d10  .word    0x00f66fb0                   ; literal 16150448 / 
+L_35d14:   00035d14  ldr      r1, [pc, r1]                 ; GOT[425] LDSTR 'null'
+           00035d18  mov      r0, r6                       
+           00035d1c  ldr      lr, [r6]                     
+           00035d20  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00035d24  b        #0x362a8                     ; -> L_362a8
+L_35d28:   00035d28  ldr      r0, [r5]                     
+           00035d2c  ldr      r1, [r0, #0x10]              ; field+0x10 
+           00035d30  mov      r0, r1                       
+           00035d34  ldr      lr, [r1]                     
+           00035d38  bl       #0xbc4d0                     ; CALL System.Type::get_IsArray
+           00035d3c  cmp      r0, #0                       
+           00035d40  beq      #0x35e40                     ; -> L_35e40
+           00035d44  mov      r4, r5                       
+           00035d48  cmp      r5, #0                       
+           00035d4c  beq      #0x35de8                     ; -> L_35de8
+           00035d50  ldr      r0, [r4]                     
+           00035d54  str      r0, [fp, #0x18]              
+           00035d58  ldrh     r0, [r0, #0x18]              ; field+0x18 
+           00035d5c  ldr      r1, [pc]                     
+           00035d60  b        #0x35d68                     ; -> L_35d68
+           00035d64  .word    0x00f66f60                   ; literal 16150368 / 
+L_35d68:   00035d68  ldr      r1, [pc, r1]                 ; GOT[426] IID System.Collections.ICollection
+           00035d6c  cmp      r0, r1                       
+           00035d70  blo      #0x35db0                     ; -> L_35db0
+           00035d74  ldr      r0, [fp, #0x18]              
+           00035d78  ldr      r0, [r0, #0x14]              ; field+0x14 
+           00035d7c  ldr      r1, [pc]                     
+           00035d80  b        #0x35d88                     ; -> L_35d88
+           00035d84  .word    0x00f66f40                   ; literal 16150336 / 
+L_35d88:   00035d88  ldr      r1, [pc, r1]                 ; GOT[426] IID System.Collections.ICollection
+           00035d8c  asr      r2, r1, #3                   
+           00035d90  add      r0, r0, r2                   
+           00035d94  ldrb     r0, [r0]                     
+           00035d98  and      r2, r1, #7                   
+           00035d9c  mov      r1, #1                       
+           00035da0  lsl      r1, r1, r2                   
+           00035da4  and      r0, r0, r1                   
+           00035da8  cmp      r0, #0                       
+           00035dac  bne      #0x35de8                     ; -> L_35de8
+L_35db0:   00035db0  ldr      r0, [fp, #0x18]              
+           00035db4  ldr      r0, [r0]                     
+           00035db8  ldr      r1, [pc]                     
+           00035dbc  b        #0x35dc4                     ; -> L_35dc4
+           00035dc0  .word    0x00f6689c                   ; literal 16148636 / 
+L_35dc4:   00035dc4  ldr      r1, [pc, r1]                 ; GOT[16] CLASS System.Runtime.Remoting.Proxies.TransparentProxy
+           00035dc8  cmp      r0, r1                       
+           00035dcc  blne     #0x362cc                     ; THROW System.InvalidCastException (if ne)
+           00035dd0  ldr      r0, [r4, #0x10]              ; field+0x10 
+           00035dd4  cmp      r0, #0                       
+           00035dd8  bleq     #0x362cc                     ; THROW System.InvalidCastException (if eq)
+           00035ddc  mov      r0, #1                       
+           00035de0  str      r0, [fp, #0x1c]              
+           00035de4  b        #0x35df0                     ; -> L_35df0
+L_35de8:   00035de8  mov      r0, #0                       
+           00035dec  str      r0, [fp, #0x1c]              
+L_35df0:   00035df0  ldr      r0, [fp, #0x1c]              
+           00035df4  cmp      r0, #0                       
+           00035df8  beq      #0x35e0c                     ; -> L_35e0c
+           00035dfc  mov      r0, r5                       
+           00035e00  bl       #0xbc4e0                     ; CALL wrapper wrapper20(System.Collections.ICollection)
+           00035e04  cmp      r0, #0                       
+           00035e08  beq      #0x362bc                     ; -> L_362bc
+L_35e0c:   00035e0c  str      r5, [fp, #8]                 
+           00035e10  ldr      r0, [pc]                     
+           00035e14  b        #0x35e1c                     ; -> L_35e1c
+           00035e18  .word    0x00f66e5c                   ; literal 16150108 / 
+L_35e1c:   00035e1c  ldr      r0, [pc, r0]                 ; GOT[406] VTABLE System.Collections.ArrayList
+           00035e20  bl       #0xb96a0                     ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           00035e24  str      r0, [fp, #0x40]              
+           00035e28  ldr      r1, [fp, #8]                 
+           00035e2c  bl       #0xbc4f0                     ; CALL System.Collections.ArrayList::.ctor
+           00035e30  ldr      r0, [fp, #0x40]              
+           00035e34  mov      r1, r6                       
+           00035e38  bl       #0xbc4b0                     ; CALL MiniJSON::serializeArray
+           00035e3c  b        #0x362a8                     ; -> L_362a8
+L_35e40:   00035e40  mov      r4, r5                       
+           00035e44  str      r5, [fp, #0x20]              
+           00035e48  cmp      r5, #0                       
+           00035e4c  beq      #0x35e80                     ; -> L_35e80
+           00035e50  ldr      r0, [r4]                     
+           00035e54  ldr      r0, [r0]                     
+           00035e58  ldr      r0, [r0, #8]                 ; field+0x8 
+           00035e5c  ldr      r0, [r0, #4]                 ; field+0x4 
+           00035e60  ldr      r1, [pc]                     
+           00035e64  b        #0x35e6c                     ; -> L_35e6c
+           00035e68  .word    0x00f667c0                   ; literal 16148416 / 
+L_35e6c:   00035e6c  ldr      r1, [pc, r1]                 ; GOT[3] CLASS System.String
+           00035e70  cmp      r0, r1                       
+           00035e74  beq      #0x35e80                     ; -> L_35e80
+           00035e78  mov      r0, #0                       
+           00035e7c  str      r0, [fp, #0x20]              
+L_35e80:   00035e80  ldr      r0, [fp, #0x20]              
+           00035e84  cmp      r0, #0                       
+           00035e88  beq      #0x35ed0                     ; -> L_35ed0
+           00035e8c  mov      r4, r5                       
+           00035e90  cmp      r5, #0                       
+           00035e94  beq      #0x35ec0                     ; -> L_35ec0
+           00035e98  ldr      r0, [r4]                     
+           00035e9c  ldr      r0, [r0]                     
+           00035ea0  ldr      r0, [r0, #8]                 ; field+0x8 
+           00035ea4  ldr      r0, [r0, #4]                 ; field+0x4 
+           00035ea8  ldr      r1, [pc]                     
+           00035eac  b        #0x35eb4                     ; -> L_35eb4
+           00035eb0  .word    0x00f66778                   ; literal 16148344 / 
+L_35eb4:   00035eb4  ldr      r1, [pc, r1]                 ; GOT[3] CLASS System.String
+           00035eb8  cmp      r0, r1                       
+           00035ebc  blne     #0x362cc                     ; THROW System.InvalidCastException (if ne)
+L_35ec0:   00035ec0  mov      r0, r4                       
+           00035ec4  mov      r1, r6                       
+           00035ec8  bl       #0xbc4c0                     ; CALL MiniJSON::serializeString
+           00035ecc  b        #0x362a8                     ; -> L_362a8
+L_35ed0:   00035ed0  mov      r4, r5                       
+           00035ed4  str      r5, [fp, #0x24]              
+           00035ed8  cmp      r5, #0                       
+           00035edc  beq      #0x35f10                     ; -> L_35f10
+           00035ee0  ldr      r0, [r4]                     
+           00035ee4  ldr      r0, [r0]                     
+           00035ee8  ldr      r0, [r0, #8]                 ; field+0x8 
+           00035eec  ldr      r0, [r0, #8]                 ; field+0x8 
+           00035ef0  ldr      r1, [pc]                     
+           00035ef4  b        #0x35efc                     ; -> L_35efc
+           00035ef8  .word    0x00f66dd0                   ; literal 16149968 / 
+L_35efc:   00035efc  ldr      r1, [pc, r1]                 ; GOT[427] CLASS System.Char
+           00035f00  cmp      r0, r1                       
+           00035f04  beq      #0x35f10                     ; -> L_35f10
+           00035f08  mov      r0, #0                       
+           00035f0c  str      r0, [fp, #0x24]              
+L_35f10:   00035f10  ldr      r0, [fp, #0x24]              
+           00035f14  cmp      r0, #0                       
+           00035f18  beq      #0x35f60                     ; -> L_35f60
+           00035f1c  ldr      r0, [r5]                     
+           00035f20  ldrb     r1, [r0, #0x1a]              ; field+0x1a 
+           00035f24  cmp      r1, #0                       
+           00035f28  blne     #0x362cc                     ; THROW System.InvalidCastException (if ne)
+           00035f2c  ldr      r0, [r0]                     
+           00035f30  ldr      r0, [r0]                     
+           00035f34  ldr      r1, [pc]                     
+           00035f38  b        #0x35f40                     ; -> L_35f40
+           00035f3c  .word    0x00f66d8c                   ; literal 16149900 / 
+L_35f40:   00035f40  ldr      r1, [pc, r1]                 ; GOT[427] CLASS System.Char
+           00035f44  cmp      r0, r1                       
+           00035f48  blne     #0x362cc                     ; THROW System.InvalidCastException (if ne)
+           00035f4c  ldrh     r0, [r5, #8]                 ; field+0x8 
+           00035f50  bl       #0xbc500                     ; CALL System.Convert::ToString
+           00035f54  mov      r1, r6                       
+           00035f58  bl       #0xbc4c0                     ; CALL MiniJSON::serializeString
+           00035f5c  b        #0x362a8                     ; -> L_362a8
+L_35f60:   00035f60  mov      r4, r5                       
+           00035f64  str      r5, [fp, #0x28]              
+           00035f68  cmp      r5, #0                       
+           00035f6c  beq      #0x35fa0                     ; -> L_35fa0
+           00035f70  ldr      r0, [r4]                     
+           00035f74  ldr      r0, [r0]                     
+           00035f78  ldr      r0, [r0, #8]                 ; field+0x8 
+           00035f7c  ldr      r0, [r0, #4]                 ; field+0x4 
+           00035f80  ldr      r1, [pc]                     
+           00035f84  b        #0x35f8c                     ; -> L_35f8c
+           00035f88  .word    0x00f666c4                   ; literal 16148164 / 
+L_35f8c:   00035f8c  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           00035f90  cmp      r0, r1                       
+           00035f94  beq      #0x35fa0                     ; -> L_35fa0
+           00035f98  mov      r0, #0                       
+           00035f9c  str      r0, [fp, #0x28]              
+L_35fa0:   00035fa0  ldr      r0, [fp, #0x28]              
+           00035fa4  cmp      r0, #0                       
+           00035fa8  beq      #0x35ff0                     ; -> L_35ff0
+           00035fac  mov      r4, r5                       
+           00035fb0  cmp      r5, #0                       
+           00035fb4  beq      #0x35fe0                     ; -> L_35fe0
+           00035fb8  ldr      r0, [r4]                     
+           00035fbc  ldr      r0, [r0]                     
+           00035fc0  ldr      r0, [r0, #8]                 ; field+0x8 
+           00035fc4  ldr      r0, [r0, #4]                 ; field+0x4 
+           00035fc8  ldr      r1, [pc]                     
+           00035fcc  b        #0x35fd4                     ; -> L_35fd4
+           00035fd0  .word    0x00f6667c                   ; literal 16148092 / 
+L_35fd4:   00035fd4  ldr      r1, [pc, r1]                 ; GOT[12] CLASS System.Collections.Hashtable
+           00035fd8  cmp      r0, r1                       
+           00035fdc  blne     #0x362cc                     ; THROW System.InvalidCastException (if ne)
+L_35fe0:   00035fe0  mov      r0, r4                       
+           00035fe4  mov      r1, r6                       
+           00035fe8  bl       #0xbc4a0                     ; CALL MiniJSON::serializeObject
+           00035fec  b        #0x362a8                     ; -> L_362a8
+L_35ff0:   00035ff0  mov      r4, r5                       
+           00035ff4  str      r5, [fp, #0x2c]              
+           00035ff8  cmp      r5, #0                       
+           00035ffc  beq      #0x36030                     ; -> L_36030
+           00036000  ldr      r0, [r4]                     
+           00036004  ldr      r0, [r0]                     
+           00036008  ldr      r0, [r0, #8]                 ; field+0x8 
+           0003600c  ldr      r0, [r0, #4]                 ; field+0x4 
+           00036010  ldr      r1, [pc]                     
+           00036014  b        #0x3601c                     ; -> L_3601c
+           00036018  .word    0x00f66cb4                   ; literal 16149684 / 
+L_3601c:   0003601c  ldr      r1, [pc, r1]                 ; GOT[428] CLASS System.Collections.Generic.Dictionary`2<string,string>
+           00036020  cmp      r0, r1                       
+           00036024  beq      #0x36030                     ; -> L_36030
+           00036028  mov      r0, #0                       
+           0003602c  str      r0, [fp, #0x2c]              
+L_36030:   00036030  ldr      r0, [fp, #0x2c]              
+           00036034  cmp      r0, #0                       
+           00036038  beq      #0x36080                     ; -> L_36080
+           0003603c  mov      r4, r5                       
+           00036040  cmp      r5, #0                       
+           00036044  beq      #0x36070                     ; -> L_36070
+           00036048  ldr      r0, [r4]                     
+           0003604c  ldr      r0, [r0]                     
+           00036050  ldr      r0, [r0, #8]                 ; field+0x8 
+           00036054  ldr      r0, [r0, #4]                 ; field+0x4 
+           00036058  ldr      r1, [pc]                     
+           0003605c  b        #0x36064                     ; -> L_36064
+           00036060  .word    0x00f66c6c                   ; literal 16149612 / 
+L_36064:   00036064  ldr      r1, [pc, r1]                 ; GOT[428] CLASS System.Collections.Generic.Dictionary`2<string,string>
+           00036068  cmp      r0, r1                       
+           0003606c  blne     #0x362cc                     ; THROW System.InvalidCastException (if ne)
+L_36070:   00036070  mov      r0, r4                       
+           00036074  mov      r1, r6                       
+           00036078  bl       #0xbc510                     ; CALL MiniJSON::serializeDictionary
+           0003607c  b        #0x362a8                     ; -> L_362a8
+L_36080:   00036080  mov      r4, r5                       
+           00036084  str      r5, [fp, #0x30]              
+           00036088  cmp      r5, #0                       
+           0003608c  beq      #0x360c0                     ; -> L_360c0
+           00036090  ldr      r0, [r4]                     
+           00036094  ldr      r0, [r0]                     
+           00036098  ldr      r0, [r0, #8]                 ; field+0x8 
+           0003609c  ldr      r0, [r0, #4]                 ; field+0x4 
+           000360a0  ldr      r1, [pc]                     
+           000360a4  b        #0x360ac                     ; -> L_360ac
+           000360a8  .word    0x00f66a60                   ; literal 16149088 / 
+L_360ac:   000360ac  ldr      r1, [pc, r1]                 ; GOT[315] CLASS System.Collections.ArrayList
+           000360b0  cmp      r0, r1                       
+           000360b4  beq      #0x360c0                     ; -> L_360c0
+           000360b8  mov      r0, #0                       
+           000360bc  str      r0, [fp, #0x30]              
+L_360c0:   000360c0  ldr      r0, [fp, #0x30]              
+           000360c4  cmp      r0, #0                       
+           000360c8  beq      #0x36110                     ; -> L_36110
+           000360cc  mov      r4, r5                       
+           000360d0  cmp      r5, #0                       
+           000360d4  beq      #0x36100                     ; -> L_36100
+           000360d8  ldr      r0, [r4]                     
+           000360dc  ldr      r0, [r0]                     
+           000360e0  ldr      r0, [r0, #8]                 ; field+0x8 
+           000360e4  ldr      r0, [r0, #4]                 ; field+0x4 
+           000360e8  ldr      r1, [pc]                     
+           000360ec  b        #0x360f4                     ; -> L_360f4
+           000360f0  .word    0x00f66a18                   ; literal 16149016 / 
+L_360f4:   000360f4  ldr      r1, [pc, r1]                 ; GOT[315] CLASS System.Collections.ArrayList
+           000360f8  cmp      r0, r1                       
+           000360fc  blne     #0x362cc                     ; THROW System.InvalidCastException (if ne)
+L_36100:   00036100  mov      r0, r4                       
+           00036104  mov      r1, r6                       
+           00036108  bl       #0xbc4b0                     ; CALL MiniJSON::serializeArray
+           0003610c  b        #0x362a8                     ; -> L_362a8
+L_36110:   00036110  mov      r4, r5                       
+           00036114  str      r5, [fp, #0x34]              
+           00036118  cmp      r5, #0                       
+           0003611c  beq      #0x36150                     ; -> L_36150
+           00036120  ldr      r0, [r4]                     
+           00036124  ldr      r0, [r0]                     
+           00036128  ldr      r0, [r0, #8]                 ; field+0x8 
+           0003612c  ldr      r0, [r0, #8]                 ; field+0x8 
+           00036130  ldr      r1, [pc]                     
+           00036134  b        #0x3613c                     ; -> L_3613c
+           00036138  .word    0x00f664f8                   ; literal 16147704 / 
+L_3613c:   0003613c  ldr      r1, [pc, r1]                 ; GOT[5] CLASS System.Boolean
+           00036140  cmp      r0, r1                       
+           00036144  beq      #0x36150                     ; -> L_36150
+           00036148  mov      r0, #0                       
+           0003614c  str      r0, [fp, #0x34]              
+L_36150:   00036150  ldr      r0, [fp, #0x34]              
+           00036154  cmp      r0, #0                       
+           00036158  beq      #0x361b8                     ; -> L_361b8
+           0003615c  ldr      r0, [r5]                     
+           00036160  ldrb     r1, [r0, #0x1a]              ; field+0x1a 
+           00036164  cmp      r1, #0                       
+           00036168  blne     #0x362cc                     ; THROW System.InvalidCastException (if ne)
+           0003616c  ldr      r0, [r0]                     
+           00036170  ldr      r0, [r0]                     
+           00036174  ldr      r1, [pc]                     
+           00036178  b        #0x36180                     ; -> L_36180
+           0003617c  .word    0x00f664b4                   ; literal 16147636 / 
+L_36180:   00036180  ldr      r1, [pc, r1]                 ; GOT[5] CLASS System.Boolean
+           00036184  cmp      r0, r1                       
+           00036188  blne     #0x362cc                     ; THROW System.InvalidCastException (if ne)
+           0003618c  ldrb     r0, [r5, #8]                 ; field+0x8 
+           00036190  cmp      r0, #0                       
+           00036194  beq      #0x361b8                     ; -> L_361b8
+           00036198  ldr      r1, [pc]                     
+           0003619c  b        #0x361a4                     ; -> L_361a4
+           000361a0  .word    0x00f66b30                   ; literal 16149296 / 
+L_361a4:   000361a4  ldr      r1, [pc, r1]                 ; GOT[429] LDSTR 'true'
+           000361a8  mov      r0, r6                       
+           000361ac  ldr      lr, [r6]                     
+           000361b0  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           000361b4  b        #0x362a8                     ; -> L_362a8
+L_361b8:   000361b8  mov      r4, r5                       
+           000361bc  str      r5, [fp, #0x38]              
+           000361c0  cmp      r5, #0                       
+           000361c4  beq      #0x361f8                     ; -> L_361f8
+           000361c8  ldr      r0, [r4]                     
+           000361cc  ldr      r0, [r0]                     
+           000361d0  ldr      r0, [r0, #8]                 ; field+0x8 
+           000361d4  ldr      r0, [r0, #8]                 ; field+0x8 
+           000361d8  ldr      r1, [pc]                     
+           000361dc  b        #0x361e4                     ; -> L_361e4
+           000361e0  .word    0x00f66450                   ; literal 16147536 / 
+L_361e4:   000361e4  ldr      r1, [pc, r1]                 ; GOT[5] CLASS System.Boolean
+           000361e8  cmp      r0, r1                       
+           000361ec  beq      #0x361f8                     ; -> L_361f8
+           000361f0  mov      r0, #0                       
+           000361f4  str      r0, [fp, #0x38]              
+L_361f8:   000361f8  ldr      r0, [fp, #0x38]              
+           000361fc  cmp      r0, #0                       
+           00036200  beq      #0x36260                     ; -> L_36260
+           00036204  ldr      r0, [r5]                     
+           00036208  ldrb     r1, [r0, #0x1a]              ; field+0x1a 
+           0003620c  cmp      r1, #0                       
+           00036210  blne     #0x362cc                     ; THROW System.InvalidCastException (if ne)
+           00036214  ldr      r0, [r0]                     
+           00036218  ldr      r0, [r0]                     
+           0003621c  ldr      r1, [pc]                     
+           00036220  b        #0x36228                     ; -> L_36228
+           00036224  .word    0x00f6640c                   ; literal 16147468 / 
+L_36228:   00036228  ldr      r1, [pc, r1]                 ; GOT[5] CLASS System.Boolean
+           0003622c  cmp      r0, r1                       
+           00036230  blne     #0x362cc                     ; THROW System.InvalidCastException (if ne)
+           00036234  ldrb     r0, [r5, #8]                 ; field+0x8 
+           00036238  cmp      r0, #0                       
+           0003623c  bne      #0x36260                     ; -> L_36260
+           00036240  ldr      r1, [pc]                     
+           00036244  b        #0x3624c                     ; -> L_3624c
+           00036248  .word    0x00f66a8c                   ; literal 16149132 / 
+L_3624c:   0003624c  ldr      r1, [pc, r1]                 ; GOT[430] LDSTR 'false'
+           00036250  mov      r0, r6                       
+           00036254  ldr      lr, [r6]                     
+           00036258  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           0003625c  b        #0x362a8                     ; -> L_362a8
+L_36260:   00036260  ldr      r0, [r5]                     
+           00036264  ldr      r1, [r0, #0x10]              ; field+0x10 
+           00036268  mov      r0, r1                       
+           0003626c  ldr      lr, [r1]                     
+           00036270  bl       #0xbc520                     ; CALL System.Type::get_IsPrimitive
+           00036274  cmp      r0, #0                       
+           00036278  beq      #0x362a0                     ; -> L_362a0
+           0003627c  mov      r0, r5                       
+           00036280  bl       #0xbc530                     ; CALL System.Convert::ToDouble
+           00036284  vmov     d2, r0, r1                   
+           00036288  vstr     d2, [sp, #-8]                
+           0003628c  ldr      r0, [sp, #-8]                
+           00036290  ldr      r1, [sp, #-4]                
+           00036294  mov      r2, r6                       
+           00036298  bl       #0x36548                     ; CALL MiniJSON::serializeNumber (direct)
+           0003629c  b        #0x362a8                     ; -> L_362a8
+L_362a0:   000362a0  mov      r0, #0                       
+           000362a4  b        #0x362ac                     ; -> L_362ac
+L_362a8:   000362a8  mov      r0, #1                       
+L_362ac:   000362ac  add      sp, fp, #0x4c                
+           000362b0  pop      {r4, r5, r6, r8, fp}         
+           000362b4  ldr      r7, [sp, #8]                 
+           000362b8  ldm      sp, {sp, pc}                 
+L_362bc:   000362bc  mov      r0, #0xfd                    
+           000362c0  add      r0, r0, #0x2000000           
+           000362c4  bl       #0xbc540                     ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           000362c8  bl       #0xbaa80                     ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           000362cc  mov      r1, lr                       
+           000362d0  ldr      r0, [pc]                     
+           000362d4  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000362d8  andeq    r0, r0, #0xfd                
+
+== MiniJSON::serializeString  token 0x06000334 @0x000362dc (620 bytes) static
+   args: aString, builder
+           000362dc  mov      ip, sp                       
+           000362e0  push     {r7, lr}                     
+           000362e4  mov      r7, sp                       
+           000362e8  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000362ec  sub      sp, sp, #0x10                
+           000362f0  mov      fp, sp                       
+           000362f4  mov      r6, r0                       
+           000362f8  mov      sl, r1                       
+           000362fc  ldr      r1, [pc]                     
+           00036300  b        #0x36308                     ; -> L_36308
+           00036304  .word    0x00f669d4                   ; literal 16148948 / 
+L_36308:   00036308  ldr      r1, [pc, r1]                 ; GOT[431] LDSTR '"'
+           0003630c  mov      r0, sl                       
+           00036310  ldr      lr, [sl]                     
+           00036314  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00036318  mov      r0, r6                       
+           0003631c  ldr      lr, [r6]                     
+           00036320  bl       #0xbc3d0                     ; CALL System.String::ToCharArray
+           00036324  mov      r6, r0                       
+           00036328  mov      r4, #0                       
+           0003632c  b        #0x36500                     ; -> L_36500
+L_36330:   00036330  ldr      r0, [r6, #0xc]               ; field+0xc 
+           00036334  cmp      r0, r4                       
+           00036338  blls     #0x36538                     ; THROW System.IndexOutOfRangeException (if ls)
+           0003633c  lsl      r0, r4, #1                   
+           00036340  add      r0, r6, r0                   
+           00036344  add      r0, r0, #0x10                
+           00036348  ldrh     r0, [r0]                     
+           0003634c  strh     r0, [fp]                     
+           00036350  cmp      r0, #0x22                    
+           00036354  bne      #0x36378                     ; -> L_36378
+           00036358  ldr      r1, [pc]                     
+           0003635c  b        #0x36364                     ; -> L_36364
+           00036360  .word    0x00f6697c                   ; literal 16148860 / 
+L_36364:   00036364  ldr      r1, [pc, r1]                 ; GOT[432] LDSTR '\\"'
+           00036368  mov      r0, sl                       
+           0003636c  ldr      lr, [sl]                     
+           00036370  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00036374  b        #0x364fc                     ; -> L_364fc
+L_36378:   00036378  ldrh     r0, [fp]                     
+           0003637c  cmp      r0, #0x5c                    
+           00036380  bne      #0x363a4                     ; -> L_363a4
+           00036384  ldr      r1, [pc]                     
+           00036388  b        #0x36390                     ; -> L_36390
+           0003638c  .word    0x00f66954                   ; literal 16148820 / 
+L_36390:   00036390  ldr      r1, [pc, r1]                 ; GOT[433] LDSTR '\\\\'
+           00036394  mov      r0, sl                       
+           00036398  ldr      lr, [sl]                     
+           0003639c  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           000363a0  b        #0x364fc                     ; -> L_364fc
+L_363a4:   000363a4  ldrh     r0, [fp]                     
+           000363a8  cmp      r0, #8                       
+           000363ac  bne      #0x363d0                     ; -> L_363d0
+           000363b0  ldr      r1, [pc]                     
+           000363b4  b        #0x363bc                     ; -> L_363bc
+           000363b8  .word    0x00f6692c                   ; literal 16148780 / 
+L_363bc:   000363bc  ldr      r1, [pc, r1]                 ; GOT[434] LDSTR '\\b'
+           000363c0  mov      r0, sl                       
+           000363c4  ldr      lr, [sl]                     
+           000363c8  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           000363cc  b        #0x364fc                     ; -> L_364fc
+L_363d0:   000363d0  ldrh     r0, [fp]                     
+           000363d4  cmp      r0, #0xc                     
+           000363d8  bne      #0x363fc                     ; -> L_363fc
+           000363dc  ldr      r1, [pc]                     
+           000363e0  b        #0x363e8                     ; -> L_363e8
+           000363e4  .word    0x00f66904                   ; literal 16148740 / 
+L_363e8:   000363e8  ldr      r1, [pc, r1]                 ; GOT[435] LDSTR '\\f'
+           000363ec  mov      r0, sl                       
+           000363f0  ldr      lr, [sl]                     
+           000363f4  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           000363f8  b        #0x364fc                     ; -> L_364fc
+L_363fc:   000363fc  ldrh     r0, [fp]                     
+           00036400  cmp      r0, #0xa                     
+           00036404  bne      #0x36428                     ; -> L_36428
+           00036408  ldr      r1, [pc]                     
+           0003640c  b        #0x36414                     ; -> L_36414
+           00036410  .word    0x00f668dc                   ; literal 16148700 / 
+L_36414:   00036414  ldr      r1, [pc, r1]                 ; GOT[436] LDSTR '\\n'
+           00036418  mov      r0, sl                       
+           0003641c  ldr      lr, [sl]                     
+           00036420  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00036424  b        #0x364fc                     ; -> L_364fc
+L_36428:   00036428  ldrh     r0, [fp]                     
+           0003642c  cmp      r0, #0xd                     
+           00036430  bne      #0x36454                     ; -> L_36454
+           00036434  ldr      r1, [pc]                     
+           00036438  b        #0x36440                     ; -> L_36440
+           0003643c  .word    0x00f668b4                   ; literal 16148660 / 
+L_36440:   00036440  ldr      r1, [pc, r1]                 ; GOT[437] LDSTR '\\r'
+           00036444  mov      r0, sl                       
+           00036448  ldr      lr, [sl]                     
+           0003644c  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00036450  b        #0x364fc                     ; -> L_364fc
+L_36454:   00036454  ldrh     r0, [fp]                     
+           00036458  cmp      r0, #9                       
+           0003645c  bne      #0x36480                     ; -> L_36480
+           00036460  ldr      r1, [pc]                     
+           00036464  b        #0x3646c                     ; -> L_3646c
+           00036468  .word    0x00f6688c                   ; literal 16148620 / 
+L_3646c:   0003646c  ldr      r1, [pc, r1]                 ; GOT[438] LDSTR '\\t'
+           00036470  mov      r0, sl                       
+           00036474  ldr      lr, [sl]                     
+           00036478  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           0003647c  b        #0x364fc                     ; -> L_364fc
+L_36480:   00036480  ldrh     r5, [fp]                     
+           00036484  ldrh     r0, [fp]                     
+           00036488  cmp      r0, #0x20                    
+           0003648c  blt      #0x364ac                     ; -> L_364ac
+           00036490  cmp      r5, #0x7e                    
+           00036494  bgt      #0x364ac                     ; -> L_364ac
+           00036498  mov      r0, sl                       
+           0003649c  ldrh     r1, [fp]                     
+           000364a0  ldr      lr, [sl]                     
+           000364a4  bl       #0xbc550                     ; CALL System.Text.StringBuilder::Append
+           000364a8  b        #0x364fc                     ; -> L_364fc
+L_364ac:   000364ac  ldr      r0, [pc]                     
+           000364b0  b        #0x364b8                     ; -> L_364b8
+           000364b4  .word    0x00f66844                   ; literal 16148548 / 
+L_364b8:   000364b8  ldr      r0, [pc, r0]                 ; GOT[439] LDSTR '\\u'
+           000364bc  str      r0, [fp, #8]                 
+           000364c0  mov      r0, r5                       
+           000364c4  mov      r1, #0x10                    
+           000364c8  bl       #0xbc560                     ; CALL System.Convert::ToString
+           000364cc  mov      r3, r0                       
+           000364d0  mov      r1, #4                       
+           000364d4  mov      r2, #0x30                    
+           000364d8  ldr      lr, [r3]                     
+           000364dc  bl       #0xbaef0                     ; CALL System.String::PadLeft
+           000364e0  mov      r1, r0                       
+           000364e4  ldr      r0, [fp, #8]                 
+           000364e8  bl       #0xb9be0                     ; CALL System.String::Concat
+           000364ec  mov      r1, r0                       
+           000364f0  mov      r0, sl                       
+           000364f4  ldr      lr, [sl]                     
+           000364f8  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+L_364fc:   000364fc  add      r4, r4, #1                   
+L_36500:   00036500  ldr      r0, [r6, #0xc]               ; field+0xc 
+           00036504  cmp      r4, r0                       
+           00036508  blt      #0x36330                     ; -> L_36330
+           0003650c  ldr      r1, [pc]                     
+           00036510  b        #0x36518                     ; -> L_36518
+           00036514  .word    0x00f667c4                   ; literal 16148420 / 
+L_36518:   00036518  ldr      r1, [pc, r1]                 ; GOT[431] LDSTR '"'
+           0003651c  mov      r0, sl                       
+           00036520  ldr      lr, [sl]                     
+           00036524  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00036528  add      sp, fp, #0x10                
+           0003652c  pop      {r4, r5, r6, r8, sl, fp}     
+           00036530  ldr      r7, [sp, #8]                 
+           00036534  ldm      sp, {sp, pc}                 
+           00036538  mov      r1, lr                       
+           0003653c  ldr      r0, [pc]                     
+           00036540  bl       #0xb9690                     ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           00036544  andeq    r0, r0, #0xf8                
+
+== MiniJSON::serializeNumber  token 0x06000335 @0x00036548 (88 bytes) static
+   args: number, builder
+           00036548  mov      ip, sp                       
+           0003654c  push     {r7, lr}                     
+           00036550  mov      r7, sp                       
+           00036554  push     {r8, sl, fp, ip, lr}         
+           00036558  sub      sp, sp, #0x1c                
+           0003655c  mov      fp, sp                       
+           00036560  str      r0, [fp, #0x10]              
+           00036564  str      r1, [fp, #0x14]              
+           00036568  mov      sl, r2                       
+           0003656c  vldr     d2, [fp, #0x10]              
+           00036570  vstr     d2, [sp, #-8]                
+           00036574  ldr      r0, [sp, #-8]                
+           00036578  ldr      r1, [sp, #-4]                
+           0003657c  bl       #0xbc570                     ; CALL System.Convert::ToString
+           00036580  mov      r1, r0                       
+           00036584  mov      r0, sl                       
+           00036588  ldr      lr, [sl]                     
+           0003658c  bl       #0xba0e0                     ; CALL System.Text.StringBuilder::Append
+           00036590  add      sp, fp, #0x1c                
+           00036594  pop      {r8, sl, fp}                 
+           00036598  ldr      r7, [sp, #8]                 
+           0003659c  ldm      sp, {sp, pc}                 

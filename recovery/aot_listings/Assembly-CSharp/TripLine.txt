@@ -1,0 +1,111 @@
+####################################################################################################
+# TYPE TripLine  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   vtable slots: 
+####################################################################################################
+== TripLine::.ctor  token 0x060003e7 @0x000f94c8 (52 bytes)
+   args: r0=this, 
+           000f94c8  mov      ip, sp                       
+           000f94cc  push     {r7, lr}                     
+           000f94d0  mov      r7, sp                       
+           000f94d4  push     {r8, fp, ip, lr}             
+           000f94d8  sub      sp, sp, #8                   
+           000f94dc  mov      fp, sp                       
+           000f94e0  str      r0, [fp]                     
+           000f94e4  ldr      r0, [fp]                     
+           000f94e8  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000f94ec  add      sp, fp, #8                   
+           000f94f0  pop      {r8, fp}                     
+           000f94f4  ldr      r7, [sp, #8]                 
+           000f94f8  ldm      sp, {sp, pc}                 
+
+== TripLine::Start  token 0x060003e8 @0x000f94fc (44 bytes)
+   args: r0=this, 
+           000f94fc  mov      ip, sp                       
+           000f9500  push     {r7, lr}                     
+           000f9504  mov      r7, sp                       
+           000f9508  push     {r8, fp, ip, lr}             
+           000f950c  sub      sp, sp, #8                   
+           000f9510  mov      fp, sp                       
+           000f9514  str      r0, [fp]                     
+           000f9518  add      sp, fp, #8                   
+           000f951c  pop      {r8, fp}                     
+           000f9520  ldr      r7, [sp, #8]                 
+           000f9524  ldm      sp, {sp, pc}                 
+
+== TripLine::Update  token 0x060003e9 @0x000f9528 (44 bytes)
+   args: r0=this, 
+           000f9528  mov      ip, sp                       
+           000f952c  push     {r7, lr}                     
+           000f9530  mov      r7, sp                       
+           000f9534  push     {r8, fp, ip, lr}             
+           000f9538  sub      sp, sp, #8                   
+           000f953c  mov      fp, sp                       
+           000f9540  str      r0, [fp]                     
+           000f9544  add      sp, fp, #8                   
+           000f9548  pop      {r8, fp}                     
+           000f954c  ldr      r7, [sp, #8]                 
+           000f9550  ldm      sp, {sp, pc}                 
+
+== TripLine::OnTriggerEnter  token 0x060003ea @0x000f9554 (240 bytes)
+   args: r0=this, other
+           000f9554  mov      ip, sp                       
+           000f9558  push     {r7, lr}                     
+           000f955c  mov      r7, sp                       
+           000f9560  push     {r5, r8, sl, fp, ip, lr}     
+           000f9564  sub      sp, sp, #0x10                
+           000f9568  mov      fp, sp                       
+           000f956c  str      r0, [fp]                     
+           000f9570  mov      sl, r1                       
+           000f9574  mov      r0, sl                       
+           000f9578  ldr      lr, [sl]                     
+           000f957c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000f9580  mov      r1, r0                       
+           000f9584  ldr      lr, [r1]                     
+           000f9588  bl       #0x22ba40                    ; CALL UnityEngine.Transform::get_parent
+           000f958c  str      r0, [fp, #8]                 
+           000f9590  ldr      r0, [fp]                     
+           000f9594  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           000f9598  mov      r1, r0                       
+           000f959c  ldr      lr, [r1]                     
+           000f95a0  bl       #0x22ba40                    ; CALL UnityEngine.Transform::get_parent
+           000f95a4  mov      r1, r0                       
+           000f95a8  ldr      r0, [fp, #8]                 
+           000f95ac  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000f95b0  cmp      r0, #0                       
+           000f95b4  bne      #0xf9634                     ; -> L_f9634
+           000f95b8  mov      r0, sl                       
+           000f95bc  ldr      lr, [sl]                     
+           000f95c0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000f95c4  ldr      r1, [pc]                     
+           000f95c8  b        #0xf95d0                     ; -> L_f95d0
+           000f95cc  .word    0x00eab908                   ; literal 15382792 / 
+L_f95d0:   000f95d0  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           000f95d4  ldr      lr, [r0]                     
+           000f95d8  mov      r8, r1                       
+           000f95dc  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           000f95e0  mov      r5, r0                       
+           000f95e4  mov      r1, #0                       
+           000f95e8  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f95ec  cmp      r0, #0                       
+           000f95f0  beq      #0xf9634                     ; -> L_f9634
+           000f95f4  mov      r0, sl                       
+           000f95f8  ldr      lr, [sl]                     
+           000f95fc  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000f9600  str      r0, [fp, #0xc]               
+           000f9604  ldr      r0, [pc]                     
+           000f9608  b        #0xf9610                     ; -> L_f9610
+           000f960c  .word    0x00eab920                   ; literal 15382816 / 
+L_f9610:   000f9610  ldr      r0, [pc, r0]                 ; GOT[116] VTABLE WipeoutEffect
+           000f9614  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000f9618  ldr      r1, [fp, #0xc]               
+           000f961c  str      r0, [fp, #8]                 
+           000f9620  bl       #0xf9dcc                     ; CALL WipeoutEffect::.ctor (direct)
+           000f9624  ldr      r1, [fp, #8]                 
+           000f9628  mov      r0, r5                       
+           000f962c  ldr      lr, [r5]                     
+           000f9630  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+L_f9634:   000f9634  add      sp, fp, #0x10                
+           000f9638  pop      {r5, r8, sl, fp}             
+           000f963c  ldr      r7, [sp, #8]                 
+           000f9640  ldm      sp, {sp, pc}                 

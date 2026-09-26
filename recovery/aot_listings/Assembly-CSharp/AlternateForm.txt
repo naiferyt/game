@@ -1,0 +1,176 @@
+####################################################################################################
+# TYPE AlternateForm  (instance size 0x14)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 forms                          AlternateForm/FormData[]
+#   vtable slots: 
+####################################################################################################
+== AlternateForm::.ctor  token 0x06000208 @0x000e0e00 (52 bytes)
+   args: r0=this, 
+           000e0e00  mov      ip, sp                       
+           000e0e04  push     {r7, lr}                     
+           000e0e08  mov      r7, sp                       
+           000e0e0c  push     {r8, fp, ip, lr}             
+           000e0e10  sub      sp, sp, #8                   
+           000e0e14  mov      fp, sp                       
+           000e0e18  str      r0, [fp]                     
+           000e0e1c  ldr      r0, [fp]                     
+           000e0e20  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000e0e24  add      sp, fp, #8                   
+           000e0e28  pop      {r8, fp}                     
+           000e0e2c  ldr      r7, [sp, #8]                 
+           000e0e30  ldm      sp, {sp, pc}                 
+
+== AlternateForm::IndexOf  token 0x06000209 @0x000e0e34 (156 bytes)
+   args: r0=this, part
+           000e0e34  mov      ip, sp                       
+           000e0e38  push     {r7, lr}                     
+           000e0e3c  mov      r7, sp                       
+           000e0e40  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000e0e44  sub      sp, sp, #4                   
+           000e0e48  mov      fp, sp                       
+           000e0e4c  mov      r6, r0                       
+           000e0e50  mov      sl, r1                       
+           000e0e54  mov      r5, #0                       
+           000e0e58  b        #0xe0e9c                     ; -> L_e0e9c
+L_e0e5c:   000e0e5c  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: forms)
+           000e0e60  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e0e64  cmp      r1, r5                       
+           000e0e68  blls     #0xe0ec0                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e0e6c  lsl      r1, r5, #2                   
+           000e0e70  add      r0, r0, r1                   
+           000e0e74  add      r0, r0, #0x10                
+           000e0e78  ldr      r0, [r0]                     
+           000e0e7c  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e0e80  mov      r1, sl                       
+           000e0e84  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           000e0e88  cmp      r0, #0                       
+           000e0e8c  beq      #0xe0e98                     ; -> L_e0e98
+           000e0e90  mov      r0, r5                       
+           000e0e94  b        #0xe0eb0                     ; -> L_e0eb0
+L_e0e98:   000e0e98  add      r5, r5, #1                   
+L_e0e9c:   000e0e9c  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: forms)
+           000e0ea0  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e0ea4  cmp      r5, r0                       
+           000e0ea8  blt      #0xe0e5c                     ; -> L_e0e5c
+           000e0eac  mvn      r0, #0                       
+L_e0eb0:   000e0eb0  add      sp, fp, #4                   
+           000e0eb4  pop      {r5, r6, r8, sl, fp}         
+           000e0eb8  ldr      r7, [sp, #8]                 
+           000e0ebc  ldm      sp, {sp, pc}                 
+           000e0ec0  mov      r1, lr                       
+           000e0ec4  ldr      r0, [pc]                     
+           000e0ec8  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e0ecc  andeq    r0, r0, #0xf8                
+
+== AlternateForm::FindFirstWithForm  token 0x0600020a @0x000e0ed0 (180 bytes)
+   args: r0=this, form
+           000e0ed0  mov      ip, sp                       
+           000e0ed4  push     {r7, lr}                     
+           000e0ed8  mov      r7, sp                       
+           000e0edc  push     {r5, r6, r8, sl, fp, ip, lr} 
+           000e0ee0  sub      sp, sp, #4                   
+           000e0ee4  mov      fp, sp                       
+           000e0ee8  mov      r6, r0                       
+           000e0eec  mov      sl, r1                       
+           000e0ef0  mov      r5, #0                       
+           000e0ef4  b        #0xe0f50                     ; -> L_e0f50
+L_e0ef8:   000e0ef8  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: forms)
+           000e0efc  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e0f00  cmp      r1, r5                       
+           000e0f04  blls     #0xe0f74                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e0f08  lsl      r1, r5, #2                   
+           000e0f0c  add      r0, r0, r1                   
+           000e0f10  add      r0, r0, #0x10                
+           000e0f14  ldr      r0, [r0]                     
+           000e0f18  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e0f1c  cmp      r0, sl                       
+           000e0f20  bne      #0xe0f4c                     ; -> L_e0f4c
+           000e0f24  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: forms)
+           000e0f28  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e0f2c  cmp      r1, r5                       
+           000e0f30  blls     #0xe0f74                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e0f34  lsl      r1, r5, #2                   
+           000e0f38  add      r0, r0, r1                   
+           000e0f3c  add      r0, r0, #0x10                
+           000e0f40  ldr      r0, [r0]                     
+           000e0f44  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000e0f48  b        #0xe0f64                     ; -> L_e0f64
+L_e0f4c:   000e0f4c  add      r5, r5, #1                   
+L_e0f50:   000e0f50  ldr      r0, [r6, #0x10]              ; field+0x10 (this-class: forms)
+           000e0f54  ldr      r0, [r0, #0xc]               ; field+0xc 
+           000e0f58  cmp      r5, r0                       
+           000e0f5c  blt      #0xe0ef8                     ; -> L_e0ef8
+           000e0f60  mov      r0, #0                       
+L_e0f64:   000e0f64  add      sp, fp, #4                   
+           000e0f68  pop      {r5, r6, r8, sl, fp}         
+           000e0f6c  ldr      r7, [sp, #8]                 
+           000e0f70  ldm      sp, {sp, pc}                 
+           000e0f74  mov      r1, lr                       
+           000e0f78  ldr      r0, [pc]                     
+           000e0f7c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e0f80  andeq    r0, r0, #0xf8                
+
+== AlternateForm::GetBodyForm  token 0x0600020b @0x000e0f84 (140 bytes)
+   args: r0=this, part
+           000e0f84  mov      ip, sp                       
+           000e0f88  push     {r7, lr}                     
+           000e0f8c  mov      r7, sp                       
+           000e0f90  push     {r8, sl, fp, ip, lr}         
+           000e0f94  sub      sp, sp, #0xc                 
+           000e0f98  mov      fp, sp                       
+           000e0f9c  str      r0, [fp]                     
+           000e0fa0  mov      sl, r1                       
+           000e0fa4  ldr      r0, [fp]                     
+           000e0fa8  mov      r1, sl                       
+           000e0fac  bl       #0xe0e34                     ; CALL AlternateForm::IndexOf (direct)
+           000e0fb0  mov      sl, r0                       
+           000e0fb4  mvn      r1, #0                       
+           000e0fb8  cmp      r0, r1                       
+           000e0fbc  bne      #0xe0fc8                     ; -> L_e0fc8
+           000e0fc0  mov      r0, #0                       
+           000e0fc4  b        #0xe0ff0                     ; -> L_e0ff0
+L_e0fc8:   000e0fc8  ldr      r0, [fp]                     
+           000e0fcc  ldr      r0, [r0, #0x10]              ; field+0x10 (this-class: forms)
+           000e0fd0  ldr      r1, [r0, #0xc]               ; field+0xc 
+           000e0fd4  cmp      r1, sl                       
+           000e0fd8  blls     #0xe1000                     ; THROW System.IndexOutOfRangeException (if ls)
+           000e0fdc  lsl      r1, sl, #2                   
+           000e0fe0  add      r0, r0, r1                   
+           000e0fe4  add      r0, r0, #0x10                
+           000e0fe8  ldr      r0, [r0]                     
+           000e0fec  ldr      r0, [r0, #0xc]               ; field+0xc 
+L_e0ff0:   000e0ff0  add      sp, fp, #0xc                 
+           000e0ff4  pop      {r8, sl, fp}                 
+           000e0ff8  ldr      r7, [sp, #8]                 
+           000e0ffc  ldm      sp, {sp, pc}                 
+           000e1000  mov      r1, lr                       
+           000e1004  ldr      r0, [pc]                     
+           000e1008  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000e100c  andeq    r0, r0, #0xf8                
+
+####################################################################################################
+# TYPE AlternateForm/BodyForm  (instance size 0xc)
+#   static AlternateForm/BodyForm Normal  = const 00000000
+#   static AlternateForm/BodyForm MonsterTruck  = const 01000000
+#   static AlternateForm/BodyForm Bike  = const 02000000
+#   vtable slots: 
+####################################################################################################
+####################################################################################################
+# TYPE AlternateForm/FormData  (instance size 0x10)
+#   +0x08 part                           CartPart
+#   +0x0c form                           AlternateForm/BodyForm
+#   vtable slots: 
+####################################################################################################
+== AlternateForm/FormData::.ctor  token 0x0600020c @0x000e1010 (44 bytes)
+   args: r0=this, 
+           000e1010  mov      ip, sp                       
+           000e1014  push     {r7, lr}                     
+           000e1018  mov      r7, sp                       
+           000e101c  push     {r8, fp, ip, lr}             
+           000e1020  sub      sp, sp, #8                   
+           000e1024  mov      fp, sp                       
+           000e1028  str      r0, [fp]                     
+           000e102c  add      sp, fp, #8                   
+           000e1030  pop      {r8, fp}                     
+           000e1034  ldr      r7, [sp, #8]                 
+           000e1038  ldm      sp, {sp, pc}                 

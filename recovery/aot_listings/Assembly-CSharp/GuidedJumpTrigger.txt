@@ -1,0 +1,314 @@
+####################################################################################################
+# TYPE GuidedJumpTrigger  (instance size 0x18)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 jumpTarget                     UnityEngine.GameObject
+#   +0x14 jumpCurve                      UnityEngine.AnimationCurve
+#   vtable slots: 
+####################################################################################################
+== GuidedJumpTrigger::.ctor  token 0x060004e5 @0x0010b2d0 (52 bytes)
+   args: r0=this, 
+           0010b2d0  mov      ip, sp                       
+           0010b2d4  push     {r7, lr}                     
+           0010b2d8  mov      r7, sp                       
+           0010b2dc  push     {r8, fp, ip, lr}             
+           0010b2e0  sub      sp, sp, #8                   
+           0010b2e4  mov      fp, sp                       
+           0010b2e8  str      r0, [fp]                     
+           0010b2ec  ldr      r0, [fp]                     
+           0010b2f0  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           0010b2f4  add      sp, fp, #8                   
+           0010b2f8  pop      {r8, fp}                     
+           0010b2fc  ldr      r7, [sp, #8]                 
+           0010b300  ldm      sp, {sp, pc}                 
+
+== GuidedJumpTrigger::OnTriggerEnter  token 0x060004e6 @0x0010b304 (364 bytes)
+   args: r0=this, other
+           0010b304  mov      ip, sp                       
+           0010b308  push     {r7, lr}                     
+           0010b30c  mov      r7, sp                       
+           0010b310  push     {r5, r6, r8, sl, fp, ip, lr} 
+           0010b314  sub      sp, sp, #0x64                
+           0010b318  mov      fp, sp                       
+           0010b31c  mov      r6, r0                       
+           0010b320  mov      sl, r1                       
+           0010b324  mov      r0, sl                       
+           0010b328  ldr      lr, [sl]                     
+           0010b32c  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010b330  ldr      r1, [pc]                     
+           0010b334  b        #0x10b33c                    ; -> L_10b33c
+           0010b338  .word    0x00e99bc8                   ; literal 15309768 / 
+L_10b33c:  0010b33c  ldr      r1, [pc, r1]                 ; GOT[105] METHOD_RGCTX UnityEngine.GameObject::GetComponent<CarCollider>
+           0010b340  ldr      lr, [r0]                     
+           0010b344  mov      r8, r1                       
+           0010b348  bl       #0x22b100                    ; CALL UnityEngine.GameObject::GetComponent<CarCollider>
+           0010b34c  mov      r1, #0                       
+           0010b350  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010b354  cmp      r0, #0                       
+           0010b358  bne      #0x10b460                    ; -> L_10b460
+           0010b35c  mov      r0, sl                       
+           0010b360  ldr      lr, [sl]                     
+           0010b364  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010b368  ldr      r1, [pc]                     
+           0010b36c  b        #0x10b374                    ; -> L_10b374
+           0010b370  .word    0x00e99b64                   ; literal 15309668 / 
+L_10b374:  0010b374  ldr      r1, [pc, r1]                 ; GOT[94] METHOD_RGCTX UnityEngine.GameObject::GetComponent<EffectManager>
+           0010b378  ldr      lr, [r0]                     
+           0010b37c  mov      r8, r1                       
+           0010b380  bl       #0x22b020                    ; CALL UnityEngine.GameObject::GetComponent<EffectManager>
+           0010b384  mov      r5, r0                       
+           0010b388  mov      r1, #0                       
+           0010b38c  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           0010b390  cmp      r0, #0                       
+           0010b394  bne      #0x10b460                    ; -> L_10b460
+           0010b398  mov      r0, sl                       
+           0010b39c  ldr      lr, [sl]                     
+           0010b3a0  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           0010b3a4  str      r0, [fp, #0x58]              
+           0010b3a8  mov      r0, r6                       
+           0010b3ac  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0010b3b0  mov      r2, r0                       
+           0010b3b4  add      r0, fp, #0x34                
+           0010b3b8  mov      r1, r2                       
+           0010b3bc  ldr      lr, [r2]                     
+           0010b3c0  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0010b3c4  ldr      r1, [r6, #0x10]              ; field+0x10 (this-class: jumpTarget)
+           0010b3c8  mov      r0, r1                       
+           0010b3cc  ldr      lr, [r1]                     
+           0010b3d0  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           0010b3d4  mov      r2, r0                       
+           0010b3d8  add      r0, fp, #0x40                
+           0010b3dc  mov      r1, r2                       
+           0010b3e0  ldr      lr, [r2]                     
+           0010b3e4  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0010b3e8  ldr      r0, [r6, #0x14]              ; field+0x14 (this-class: jumpCurve)
+           0010b3ec  str      r0, [fp, #0x5c]              
+           0010b3f0  ldr      r0, [pc]                     
+           0010b3f4  b        #0x10b3fc                    ; -> L_10b3fc
+           0010b3f8  .word    0x00e9a6d8                   ; literal 15312600 / 
+L_10b3fc:  0010b3fc  ldr      r0, [pc, r0]                 ; GOT[861] VTABLE GuidedJumpEffect
+           0010b400  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           0010b404  ldr      r1, [fp, #0x58]              
+           0010b408  ldr      ip, [fp, #0x5c]              
+           0010b40c  str      r0, [fp, #0x50]              
+           0010b410  str      r0, [fp, #0x54]              
+           0010b414  ldr      r2, [fp, #0x34]              
+           0010b418  ldr      r3, [fp, #0x38]              
+           0010b41c  ldr      r0, [fp, #0x3c]              
+           0010b420  str      r0, [sp]                     
+           0010b424  ldr      r0, [fp, #0x40]              
+           0010b428  str      r0, [sp, #4]                 
+           0010b42c  ldr      r0, [fp, #0x44]              
+           0010b430  str      r0, [sp, #8]                 
+           0010b434  ldr      r0, [fp, #0x48]              
+           0010b438  str      r0, [sp, #0xc]               
+           0010b43c  ldr      r0, [fp, #0x54]              
+           0010b440  str      ip, [sp, #0x10]              
+           0010b444  bl       #0x22db30                    ; CALL GuidedJumpEffect::.ctor
+           0010b448  ldr      r0, [fp, #0x50]              
+           0010b44c  str      r0, [fp, #0x18]              
+           0010b450  mov      r0, r5                       
+           0010b454  ldr      r1, [fp, #0x18]              
+           0010b458  ldr      lr, [r5]                     
+           0010b45c  bl       #0x22b0e0                    ; CALL EffectManager::AddEffect
+L_10b460:  0010b460  add      sp, fp, #0x64                
+           0010b464  pop      {r5, r6, r8, sl, fp}         
+           0010b468  ldr      r7, [sp, #8]                 
+           0010b46c  ldm      sp, {sp, pc}                 
+
+== GuidedJumpTrigger::OnDrawGizmos  token 0x060004e7 @0x0010b470 (780 bytes)
+   args: r0=this, 
+           0010b470  mov      ip, sp                       
+           0010b474  push     {r7, lr}                     
+           0010b478  mov      r7, sp                       
+           0010b47c  push     {r8, sl, fp, ip, lr}         
+           0010b480  sub      sp, sp, #0x12c               
+           0010b484  mov      fp, sp                       
+           0010b488  mov      sl, r0                       
+           0010b48c  mov      r0, #0                       
+           0010b490  str      r0, [fp, #0x18]              
+           0010b494  mov      r0, #0                       
+           0010b498  str      r0, [fp, #0x1c]              
+           0010b49c  mov      r0, #0                       
+           0010b4a0  str      r0, [fp, #0x20]              
+           0010b4a4  mov      r0, #0                       
+           0010b4a8  str      r0, [fp, #0x30]              
+           0010b4ac  mov      r0, #0                       
+           0010b4b0  str      r0, [fp, #0x34]              
+           0010b4b4  mov      r0, #0                       
+           0010b4b8  str      r0, [fp, #0x38]              
+           0010b4bc  mov      r0, #0                       
+           0010b4c0  str      r0, [fp, #0x40]              
+           0010b4c4  mov      r0, #0                       
+           0010b4c8  str      r0, [fp, #0x44]              
+           0010b4cc  mov      r0, #0                       
+           0010b4d0  str      r0, [fp, #0x48]              
+           0010b4d4  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: jumpTarget)
+           0010b4d8  mov      r1, #0                       
+           0010b4dc  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           0010b4e0  cmp      r0, #0                       
+           0010b4e4  beq      #0x10b750                    ; -> L_10b750
+           0010b4e8  add      r0, fp, #0xc0                
+           0010b4ec  bl       #0x22bee0                    ; CALL UnityEngine.Color::get_blue
+           0010b4f0  ldr      r0, [fp, #0xc0]              
+           0010b4f4  ldr      r1, [fp, #0xc4]              
+           0010b4f8  ldr      r2, [fp, #0xc8]              
+           0010b4fc  ldr      r3, [fp, #0xcc]              
+           0010b500  bl       #0x22a890                    ; CALL UnityEngine.Gizmos::set_color
+           0010b504  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: jumpTarget)
+           0010b508  mov      r0, r1                       
+           0010b50c  ldr      lr, [r1]                     
+           0010b510  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           0010b514  mov      r2, r0                       
+           0010b518  add      r0, fp, #0xd0                
+           0010b51c  mov      r1, r2                       
+           0010b520  ldr      lr, [r2]                     
+           0010b524  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0010b528  mov      r0, sl                       
+           0010b52c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0010b530  mov      r2, r0                       
+           0010b534  add      r0, fp, #0xdc                
+           0010b538  mov      r1, r2                       
+           0010b53c  ldr      lr, [r2]                     
+           0010b540  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0010b544  add      r0, fp, #0x18                
+           0010b548  ldr      r1, [fp, #0xd0]              
+           0010b54c  ldr      r2, [fp, #0xd4]              
+           0010b550  ldr      r3, [fp, #0xd8]              
+           0010b554  ldr      ip, [fp, #0xdc]              
+           0010b558  str      ip, [sp]                     
+           0010b55c  ldr      ip, [fp, #0xe0]              
+           0010b560  str      ip, [sp, #4]                 
+           0010b564  ldr      ip, [fp, #0xe4]              
+           0010b568  str      ip, [sp, #8]                 
+           0010b56c  bl       #0x22a960                    ; CALL UnityEngine.Vector3::op_Subtraction
+           0010b570  vldr     s4, [pc]                     ; float 40.0
+           0010b574  b        #0x10b57c                    ; -> L_10b57c
+           0010b578  .word    0x42200000                   ; literal 1109393408 / 40
+L_10b57c:  0010b57c  vcvt.f64.f32 d2, s4                       
+           0010b580  vcvt.f32.f64 s0, d2                       
+           0010b584  vstr     s0, [fp, #0x24]              
+           0010b588  add      r0, fp, #0x18                
+           0010b58c  bl       #0x22a970                    ; CALL UnityEngine.Vector3::get_magnitude
+           0010b590  vmov     s4, r0                       
+           0010b594  vcvt.f64.f32 d2, s4                       
+           0010b598  vldr     s0, [fp, #0x24]              
+           0010b59c  vcvt.f64.f32 d3, s0                       
+           0010b5a0  vdiv.f64 d2, d2, d3                   
+           0010b5a4  vcvt.f32.f64 s0, d2                       
+           0010b5a8  vstr     s0, [fp, #0x28]              
+           0010b5ac  vldr     s0, [fp, #0x28]              
+           0010b5b0  vcvt.f64.f32 d2, s0                       
+           0010b5b4  vldr     s6, [pc]                     ; float 20.0
+           0010b5b8  b        #0x10b5c0                    ; -> L_10b5c0
+           0010b5bc  .word    0x41a00000                   ; literal 1101004800 / 20
+L_10b5c0:  0010b5c0  vcvt.f64.f32 d3, s6                       
+           0010b5c4  vdiv.f64 d2, d2, d3                   
+           0010b5c8  vcvt.f32.f64 s0, d2                       
+           0010b5cc  vstr     s0, [fp, #0x2c]              
+           0010b5d0  mov      r0, sl                       
+           0010b5d4  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0010b5d8  mov      r2, r0                       
+           0010b5dc  add      r0, fp, #0x30                
+           0010b5e0  mov      r1, r2                       
+           0010b5e4  ldr      lr, [r2]                     
+           0010b5e8  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0010b5ec  vldr     s0, [fp, #0x2c]              
+           0010b5f0  vcvt.f64.f32 d2, s0                       
+           0010b5f4  vcvt.f32.f64 s0, d2                       
+           0010b5f8  vstr     s0, [fp, #0x3c]              
+           0010b5fc  b        #0x10b734                    ; -> L_10b734
+L_10b600:  0010b600  mov      r0, sl                       
+           0010b604  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           0010b608  mov      r2, r0                       
+           0010b60c  add      r0, fp, #0xe8                
+           0010b610  mov      r1, r2                       
+           0010b614  ldr      lr, [r2]                     
+           0010b618  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0010b61c  ldr      r1, [sl, #0x10]              ; field+0x10 (this-class: jumpTarget)
+           0010b620  mov      r0, r1                       
+           0010b624  ldr      lr, [r1]                     
+           0010b628  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           0010b62c  mov      r2, r0                       
+           0010b630  add      r0, fp, #0xf4                
+           0010b634  mov      r1, r2                       
+           0010b638  ldr      lr, [r2]                     
+           0010b63c  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0010b640  vldr     s0, [fp, #0x3c]              
+           0010b644  vcvt.f64.f32 d2, s0                       
+           0010b648  add      r0, fp, #0x40                
+           0010b64c  ldr      r1, [fp, #0xe8]              
+           0010b650  ldr      r2, [fp, #0xec]              
+           0010b654  ldr      r3, [fp, #0xf0]              
+           0010b658  ldr      ip, [fp, #0xf4]              
+           0010b65c  str      ip, [sp]                     
+           0010b660  ldr      ip, [fp, #0xf8]              
+           0010b664  str      ip, [sp, #4]                 
+           0010b668  ldr      ip, [fp, #0xfc]              
+           0010b66c  str      ip, [sp, #8]                 
+           0010b670  vcvt.f32.f64 s0, d2                       
+           0010b674  vstr     s0, [sp, #0xc]               
+           0010b678  bl       #0x22afa0                    ; CALL UnityEngine.Vector3::Lerp
+           0010b67c  vldr     s0, [fp, #0x44]              
+           0010b680  vcvt.f64.f32 d2, s0                       
+           0010b684  vstr     d2, [fp, #0x120]             
+           0010b688  ldr      r2, [sl, #0x14]              ; field+0x14 (this-class: jumpCurve)
+           0010b68c  vldr     s0, [fp, #0x3c]              
+           0010b690  vcvt.f64.f32 d2, s0                       
+           0010b694  mov      r0, r2                       
+           0010b698  vcvt.f32.f64 s0, d2                       
+           0010b69c  vstr     s0, [sp, #8]                 
+           0010b6a0  ldr      r1, [sp, #8]                 
+           0010b6a4  ldr      lr, [r2]                     
+           0010b6a8  bl       #0x22baa0                    ; CALL UnityEngine.AnimationCurve::Evaluate
+           0010b6ac  vmov     s6, r0                       
+           0010b6b0  vcvt.f64.f32 d3, s6                       
+           0010b6b4  vldr     d2, [fp, #0x120]             
+           0010b6b8  vadd.f64 d2, d2, d3                   
+           0010b6bc  vcvt.f32.f64 s0, d2                       
+           0010b6c0  vstr     s0, [fp, #0x44]              
+           0010b6c4  ldr      r0, [fp, #0x40]              
+           0010b6c8  str      r0, [fp, #0x100]             
+           0010b6cc  ldr      r0, [fp, #0x44]              
+           0010b6d0  str      r0, [fp, #0x104]             
+           0010b6d4  ldr      r0, [fp, #0x48]              
+           0010b6d8  str      r0, [fp, #0x108]             
+           0010b6dc  ldr      r0, [fp, #0x30]              
+           0010b6e0  ldr      r1, [fp, #0x34]              
+           0010b6e4  ldr      r2, [fp, #0x38]              
+           0010b6e8  ldr      r3, [fp, #0x100]             
+           0010b6ec  ldr      ip, [fp, #0x104]             
+           0010b6f0  str      ip, [sp]                     
+           0010b6f4  ldr      ip, [fp, #0x108]             
+           0010b6f8  str      ip, [sp, #4]                 
+           0010b6fc  bl       #0x22a8a0                    ; CALL UnityEngine.Gizmos::DrawLine
+           0010b700  ldr      r0, [fp, #0x40]              
+           0010b704  str      r0, [fp, #0x30]              
+           0010b708  ldr      r0, [fp, #0x44]              
+           0010b70c  str      r0, [fp, #0x34]              
+           0010b710  ldr      r0, [fp, #0x48]              
+           0010b714  str      r0, [fp, #0x38]              
+           0010b718  vldr     s0, [fp, #0x3c]              
+           0010b71c  vcvt.f64.f32 d2, s0                       
+           0010b720  vldr     s0, [fp, #0x2c]              
+           0010b724  vcvt.f64.f32 d3, s0                       
+           0010b728  vadd.f64 d2, d2, d3                   
+           0010b72c  vcvt.f32.f64 s0, d2                       
+           0010b730  vstr     s0, [fp, #0x3c]              
+L_10b734:  0010b734  vldr     s0, [fp, #0x3c]              
+           0010b738  vcvt.f64.f32 d2, s0                       
+           0010b73c  vldr     s0, [fp, #0x28]              
+           0010b740  vcvt.f64.f32 d3, s0                       
+           0010b744  vcmp.f64 d2, d3                       
+           0010b748  vmrs     apsr_nzcv, fpscr             
+           0010b74c  bmi      #0x10b600                    ; -> L_10b600
+L_10b750:  0010b750  add      r0, fp, #0x10c               
+           0010b754  bl       #0x22da80                    ; CALL UnityEngine.Color::get_green
+           0010b758  ldr      r0, [fp, #0x10c]             
+           0010b75c  ldr      r1, [fp, #0x110]             
+           0010b760  ldr      r2, [fp, #0x114]             
+           0010b764  ldr      r3, [fp, #0x118]             
+           0010b768  bl       #0x22a890                    ; CALL UnityEngine.Gizmos::set_color
+           0010b76c  add      sp, fp, #0x12c               
+           0010b770  pop      {r8, sl, fp}                 
+           0010b774  ldr      r7, [sp, #8]                 
+           0010b778  ldm      sp, {sp, pc}                 

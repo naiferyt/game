@@ -1,0 +1,505 @@
+####################################################################################################
+# TYPE MissionCollection  (instance size 0x40)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 missionName                    LocalizedString
+#   +0x14 missionInstructions            LocalizedString
+#   +0x18 missionInstructionsWeb         LocalizedString
+#   +0x1c manager                        MissionManager
+#   +0x20 missionCollection              MissionCollection
+#   +0x24 hasArrow                       bool
+#   +0x28 arrowRotation                  float
+#   +0x2c arrowXOffset                   float
+#   +0x30 arrowYOffset                   float
+#   +0x34 missionList                    BaseMission[]
+#   +0x38 currentMission                 int
+#   +0x3c checkWhetherCurrentMissionIsCompleted bool
+#   vtable slots: 5:Signal, 6:Shutdown, 7:Update, 8:Init
+####################################################################################################
+== MissionCollection::.ctor  token 0x060002c1 @0x000eb474 (60 bytes)
+   args: r0=this, 
+           000eb474  mov      ip, sp                       
+           000eb478  push     {r7, lr}                     
+           000eb47c  mov      r7, sp                       
+           000eb480  push     {r8, fp, ip, lr}             
+           000eb484  sub      sp, sp, #8                   
+           000eb488  mov      fp, sp                       
+           000eb48c  str      r0, [fp]                     
+           000eb490  ldr      r0, [fp]                     
+           000eb494  mov      r1, #1                       
+           000eb498  strb     r1, [r0, #0x3c]              ; field+0x3c (this-class: checkWhetherCurrentMissionIsCompleted)
+           000eb49c  bl       #0x22ca40                    ; CALL BaseMission::.ctor
+           000eb4a0  add      sp, fp, #8                   
+           000eb4a4  pop      {r8, fp}                     
+           000eb4a8  ldr      r7, [sp, #8]                 
+           000eb4ac  ldm      sp, {sp, pc}                 
+
+== MissionCollection::Init  token 0x060002c2 @0x000eb4b0 (148 bytes)
+   args: r0=this, 
+           000eb4b0  mov      ip, sp                       
+           000eb4b4  push     {r7, lr}                     
+           000eb4b8  mov      r7, sp                       
+           000eb4bc  push     {r4, r5, r6, r8, sl, fp, ip, lr} 
+           000eb4c0  mov      fp, sp                       
+           000eb4c4  mov      sl, r0                       
+           000eb4c8  mov      r0, #0                       
+           000eb4cc  str      r0, [sl, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb4d0  ldr      r5, [sl, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb4d4  mov      r4, #0                       
+           000eb4d8  b        #0xeb518                     ; -> L_eb518
+L_eb4dc:   000eb4dc  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000eb4e0  cmp      r0, r4                       
+           000eb4e4  blls     #0xeb534                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eb4e8  lsl      r0, r4, #2                   
+           000eb4ec  add      r0, r5, r0                   
+           000eb4f0  add      r0, r0, #0x10                
+           000eb4f4  ldr      r6, [r0]                     
+           000eb4f8  ldr      r0, [sl, #0x1c]              ; field+0x1c (this-class: manager)
+           000eb4fc  str      r0, [r6, #0x1c]              ; field+0x1c (this-class: manager)
+           000eb500  str      sl, [r6, #0x20]              ; field+0x20 (this-class: missionCollection)
+           000eb504  mov      r0, r6                       
+           000eb508  ldr      r1, [r6]                     
+           000eb50c  mov      lr, pc                       
+           000eb510  ldr      pc, [r1, #0x44]              ; VIRTUAL CALL slot +0x44: BaseCarAIState::GetAIStateEnum | BaseEffect::Update | BaseMission::Init | BoatAnchorEffect::Update | BoosterEffect::Update | BrakeMission::Init | BuyPowerupMission::Init | CollectPowerupMission::Init ...(43)
+           000eb514  add      r4, r4, #1                   
+L_eb518:   000eb518  ldr      r0, [r5, #0xc]               ; field+0xc 
+           000eb51c  cmp      r4, r0                       
+           000eb520  blt      #0xeb4dc                     ; -> L_eb4dc
+           000eb524  add      sp, fp, #0                   
+           000eb528  pop      {r4, r5, r6, r8, sl, fp}     
+           000eb52c  ldr      r7, [sp, #8]                 
+           000eb530  ldm      sp, {sp, pc}                 
+           000eb534  mov      r1, lr                       
+           000eb538  ldr      r0, [pc]                     
+           000eb53c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000eb540  andeq    r0, r0, #0xf8                
+
+== MissionCollection::GetHasArrow  token 0x060002c3 @0x000eb544 (104 bytes)
+   args: r0=this, 
+           000eb544  mov      ip, sp                       
+           000eb548  push     {r7, lr}                     
+           000eb54c  mov      r7, sp                       
+           000eb550  push     {r8, fp, ip, lr}             
+           000eb554  sub      sp, sp, #8                   
+           000eb558  mov      fp, sp                       
+           000eb55c  str      r0, [fp]                     
+           000eb560  ldr      r1, [fp]                     
+           000eb564  ldr      r0, [r1, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb568  ldr      r1, [r1, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb56c  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000eb570  cmp      r2, r1                       
+           000eb574  blls     #0xeb59c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eb578  lsl      r1, r1, #2                   
+           000eb57c  add      r0, r0, r1                   
+           000eb580  add      r0, r0, #0x10                
+           000eb584  ldr      r0, [r0]                     
+           000eb588  ldrb     r0, [r0, #0x24]              ; field+0x24 (this-class: hasArrow)
+           000eb58c  add      sp, fp, #8                   
+           000eb590  pop      {r8, fp}                     
+           000eb594  ldr      r7, [sp, #8]                 
+           000eb598  ldm      sp, {sp, pc}                 
+           000eb59c  mov      r1, lr                       
+           000eb5a0  ldr      r0, [pc]                     
+           000eb5a4  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000eb5a8  andeq    r0, r0, #0xf8                
+
+== MissionCollection::Update  token 0x060002c4 @0x000eb5ac (368 bytes)
+   args: r0=this, 
+           000eb5ac  mov      ip, sp                       
+           000eb5b0  push     {r7, lr}                     
+           000eb5b4  mov      r7, sp                       
+           000eb5b8  push     {r8, sl, fp, ip, lr}         
+           000eb5bc  sub      sp, sp, #4                   
+           000eb5c0  mov      fp, sp                       
+           000eb5c4  mov      sl, r0                       
+           000eb5c8  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           000eb5cc  cmp      r0, #0                       
+           000eb5d0  bne      #0xeb6fc                     ; -> L_eb6fc
+           000eb5d4  ldr      r0, [sl, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb5d8  ldr      r1, [sl, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb5dc  ldr      r1, [r1, #0xc]               ; field+0xc 
+           000eb5e0  cmp      r0, r1                       
+           000eb5e4  bge      #0xeb6fc                     ; -> L_eb6fc
+           000eb5e8  ldr      r0, [sl, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb5ec  ldr      r1, [sl, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb5f0  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000eb5f4  cmp      r2, r1                       
+           000eb5f8  blls     #0xeb70c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eb5fc  lsl      r1, r1, #2                   
+           000eb600  add      r0, r0, r1                   
+           000eb604  add      r0, r0, #0x10                
+           000eb608  ldr      r0, [r0]                     
+           000eb60c  ldrb     r0, [r0, #0x24]              ; field+0x24 (this-class: hasArrow)
+           000eb610  strb     r0, [sl, #0x24]              ; field+0x24 (this-class: hasArrow)
+           000eb614  and      r0, r0, #0xff                
+           000eb618  cmp      r0, #0                       
+           000eb61c  beq      #0xeb6bc                     ; -> L_eb6bc
+           000eb620  ldr      r0, [sl, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb624  ldr      r1, [sl, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb628  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000eb62c  cmp      r2, r1                       
+           000eb630  blls     #0xeb70c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eb634  lsl      r1, r1, #2                   
+           000eb638  add      r0, r0, r1                   
+           000eb63c  add      r0, r0, #0x10                
+           000eb640  ldr      r0, [r0]                     
+           000eb644  vldr     s0, [r0, #0x28]              ; field+0x28 (this-class: arrowRotation)
+           000eb648  vcvt.f64.f32 d2, s0                       
+           000eb64c  vcvt.f32.f64 s0, d2                       
+           000eb650  vstr     s0, [sl, #0x28]              ; field+0x28 (this-class: arrowRotation)
+           000eb654  ldr      r0, [sl, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb658  ldr      r1, [sl, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb65c  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000eb660  cmp      r2, r1                       
+           000eb664  blls     #0xeb70c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eb668  lsl      r1, r1, #2                   
+           000eb66c  add      r0, r0, r1                   
+           000eb670  add      r0, r0, #0x10                
+           000eb674  ldr      r0, [r0]                     
+           000eb678  vldr     s0, [r0, #0x2c]              ; field+0x2c (this-class: arrowXOffset)
+           000eb67c  vcvt.f64.f32 d2, s0                       
+           000eb680  vcvt.f32.f64 s0, d2                       
+           000eb684  vstr     s0, [sl, #0x2c]              ; field+0x2c (this-class: arrowXOffset)
+           000eb688  ldr      r0, [sl, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb68c  ldr      r1, [sl, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb690  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000eb694  cmp      r2, r1                       
+           000eb698  blls     #0xeb70c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eb69c  lsl      r1, r1, #2                   
+           000eb6a0  add      r0, r0, r1                   
+           000eb6a4  add      r0, r0, #0x10                
+           000eb6a8  ldr      r0, [r0]                     
+           000eb6ac  vldr     s0, [r0, #0x30]              ; field+0x30 (this-class: arrowYOffset)
+           000eb6b0  vcvt.f64.f32 d2, s0                       
+           000eb6b4  vcvt.f32.f64 s0, d2                       
+           000eb6b8  vstr     s0, [sl, #0x30]              ; field+0x30 (this-class: arrowYOffset)
+L_eb6bc:   000eb6bc  ldrb     r0, [sl, #0x3c]              ; field+0x3c (this-class: checkWhetherCurrentMissionIsCompleted)
+           000eb6c0  cmp      r0, #0                       
+           000eb6c4  beq      #0xeb6fc                     ; -> L_eb6fc
+           000eb6c8  ldr      r0, [sl, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb6cc  ldr      r1, [sl, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb6d0  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000eb6d4  cmp      r2, r1                       
+           000eb6d8  blls     #0xeb70c                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eb6dc  lsl      r1, r1, #2                   
+           000eb6e0  add      r0, r0, r1                   
+           000eb6e4  add      r0, r0, #0x10                
+           000eb6e8  ldr      r1, [r0]                     
+           000eb6ec  mov      r0, r1                       
+           000eb6f0  ldr      r1, [r1]                     
+           000eb6f4  mov      lr, pc                       
+           000eb6f8  ldr      pc, [r1, #0x40]              ; VIRTUAL CALL slot +0x40: AchievementListener::IsAvailable | BaseCarAIState::Init | BaseEffect::Shutdown | BaseMission::Update | BoatAnchorEffect::Shutdown | BoosterEffect::Shutdown | BrakeMission::Update | BuyPowerupMission::Update ...(74)
+L_eb6fc:   000eb6fc  add      sp, fp, #4                   
+           000eb700  pop      {r8, sl, fp}                 
+           000eb704  ldr      r7, [sp, #8]                 
+           000eb708  ldm      sp, {sp, pc}                 
+           000eb70c  mov      r1, lr                       
+           000eb710  ldr      r0, [pc]                     
+           000eb714  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000eb718  andeq    r0, r0, #0xf8                
+
+== MissionCollection::Shutdown  token 0x060002c5 @0x000eb71c (44 bytes)
+   args: r0=this, 
+           000eb71c  mov      ip, sp                       
+           000eb720  push     {r7, lr}                     
+           000eb724  mov      r7, sp                       
+           000eb728  push     {r8, fp, ip, lr}             
+           000eb72c  sub      sp, sp, #8                   
+           000eb730  mov      fp, sp                       
+           000eb734  str      r0, [fp]                     
+           000eb738  add      sp, fp, #8                   
+           000eb73c  pop      {r8, fp}                     
+           000eb740  ldr      r7, [sp, #8]                 
+           000eb744  ldm      sp, {sp, pc}                 
+
+== MissionCollection::Signal  token 0x060002c6 @0x000eb748 (140 bytes)
+   args: r0=this, signal
+           000eb748  mov      ip, sp                       
+           000eb74c  push     {r7, lr}                     
+           000eb750  mov      r7, sp                       
+           000eb754  push     {r6, r8, fp, ip, lr}         
+           000eb758  sub      sp, sp, #0xc                 
+           000eb75c  mov      fp, sp                       
+           000eb760  mov      r6, r0                       
+           000eb764  str      r1, [fp]                     
+           000eb768  ldr      r0, [r6, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb76c  ldr      r1, [r6, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb770  ldr      r1, [r1, #0xc]               ; field+0xc 
+           000eb774  cmp      r0, r1                       
+           000eb778  bge      #0xeb7b4                     ; -> L_eb7b4
+           000eb77c  ldr      r0, [r6, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb780  ldr      r1, [r6, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb784  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000eb788  cmp      r2, r1                       
+           000eb78c  blls     #0xeb7c4                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eb790  lsl      r1, r1, #2                   
+           000eb794  add      r0, r0, r1                   
+           000eb798  add      r0, r0, #0x10                
+           000eb79c  ldr      r2, [r0]                     
+           000eb7a0  mov      r0, r2                       
+           000eb7a4  ldr      r1, [fp]                     
+           000eb7a8  ldr      r2, [r2]                     
+           000eb7ac  mov      lr, pc                       
+           000eb7b0  ldr      pc, [r2, #0x38]              ; VIRTUAL CALL slot +0x38: AchievementListener::Postrace | BaseCarAIState::FixedUpdate | BaseEffect::GetEffectSnapShot | BaseMission::Signal | BoatAnchorEffect::GetEffectSnapShot | BoosterEffect::GetEffectSnapShot | BrakeMission::Signal | BuyPowerupMission::Signal ...(79)
+L_eb7b4:   000eb7b4  add      sp, fp, #0xc                 
+           000eb7b8  pop      {r6, r8, fp}                 
+           000eb7bc  ldr      r7, [sp, #8]                 
+           000eb7c0  ldm      sp, {sp, pc}                 
+           000eb7c4  mov      r1, lr                       
+           000eb7c8  ldr      r0, [pc]                     
+           000eb7cc  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000eb7d0  andeq    r0, r0, #0xf8                
+
+== MissionCollection::Signal  token 0x060002c7 @0x000eb7d4 (516 bytes)
+   args: r0=this, signal, value
+           000eb7d4  mov      ip, sp                       
+           000eb7d8  push     {r7, lr}                     
+           000eb7dc  mov      r7, sp                       
+           000eb7e0  push     {r4, r5, r8, sl, fp, ip, lr} 
+           000eb7e4  sub      sp, sp, #0x14                
+           000eb7e8  mov      fp, sp                       
+           000eb7ec  mov      r5, r0                       
+           000eb7f0  str      r1, [fp]                     
+           000eb7f4  mov      sl, r2                       
+           000eb7f8  ldr      r0, [r5, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb7fc  ldr      r1, [r5, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb800  ldr      r1, [r1, #0xc]               ; field+0xc 
+           000eb804  cmp      r0, r1                       
+           000eb808  bge      #0xeb9a8                     ; -> L_eb9a8
+           000eb80c  ldr      r1, [pc]                     
+           000eb810  b        #0xeb818                     ; -> L_eb818
+           000eb814  .word    0x00eb9e08                   ; literal 15441416 / 
+L_eb818:   000eb818  ldr      r1, [pc, r1]                 ; GOT[560] LDSTR 'Mission Complete'
+           000eb81c  ldr      r0, [fp]                     
+           000eb820  bl       #0x22afb0                    ; CALL System.String::op_Equality
+           000eb824  cmp      r0, #0                       
+           000eb828  beq      #0xeb958                     ; -> L_eb958
+           000eb82c  mov      r4, sl                       
+           000eb830  cmp      sl, #0                       
+           000eb834  beq      #0xeb860                     ; -> L_eb860
+           000eb838  ldr      r0, [r4]                     
+           000eb83c  ldr      r0, [r0]                     
+           000eb840  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000eb844  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: missionInstructions)
+           000eb848  ldr      r1, [pc]                     
+           000eb84c  b        #0xeb854                     ; -> L_eb854
+           000eb850  .word    0x00eb9dd0                   ; literal 15441360 / 
+L_eb854:   000eb854  ldr      r1, [pc, r1]                 ; GOT[561] CLASS BaseMission
+           000eb858  cmp      r0, r1                       
+           000eb85c  blne     #0xeb9c8                     ; THROW System.InvalidCastException (if ne)
+L_eb860:   000eb860  ldr      r0, [r4, #0x10]              ; field+0x10 (this-class: missionName)
+           000eb864  ldr      r1, [r5, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb868  ldr      r2, [r5, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb86c  ldr      r3, [r1, #0xc]               ; field+0xc 
+           000eb870  cmp      r3, r2                       
+           000eb874  blls     #0xeb9b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eb878  lsl      r2, r2, #2                   
+           000eb87c  add      r1, r1, r2                   
+           000eb880  add      r1, r1, #0x10                
+           000eb884  ldr      r1, [r1]                     
+           000eb888  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: missionName)
+           000eb88c  cmp      r0, r1                       
+           000eb890  bne      #0xeb958                     ; -> L_eb958
+           000eb894  ldr      r0, [r5, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb898  add      r0, r0, #1                   
+           000eb89c  str      r0, [r5, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb8a0  ldr      r1, [r5, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb8a4  ldr      r1, [r1, #0xc]               ; field+0xc 
+           000eb8a8  cmp      r0, r1                       
+           000eb8ac  blt      #0xeb8c8                     ; -> L_eb8c8
+           000eb8b0  ldr      r2, [r5, #0x1c]              ; field+0x1c (this-class: manager)
+           000eb8b4  mov      r0, r2                       
+           000eb8b8  mov      r1, r5                       
+           000eb8bc  ldr      lr, [r2]                     
+           000eb8c0  bl       #0x22ca50                    ; CALL MissionManager::CompleteMission
+           000eb8c4  b        #0xeb9a8                     ; -> L_eb9a8
+L_eb8c8:   000eb8c8  ldr      r0, [pc]                     
+           000eb8cc  b        #0xeb8d4                     ; -> L_eb8d4
+           000eb8d0  .word    0x00eb9d54                   ; literal 15441236 / 
+L_eb8d4:   000eb8d4  ldr      r0, [pc, r0]                 ; GOT[562] LDSTR 'Going to the next mission... '
+           000eb8d8  ldr      r1, [r5, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb8dc  ldr      r2, [r5, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb8e0  ldr      r3, [r1, #0xc]               ; field+0xc 
+           000eb8e4  cmp      r3, r2                       
+           000eb8e8  blls     #0xeb9b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eb8ec  lsl      r2, r2, #2                   
+           000eb8f0  add      r1, r1, r2                   
+           000eb8f4  add      r1, r1, #0x10                
+           000eb8f8  ldr      r1, [r1]                     
+           000eb8fc  ldr      r1, [r1, #0x10]              ; field+0x10 (this-class: missionName)
+           000eb900  bl       #0x22a8c0                    ; CALL System.String::Concat
+           000eb904  bl       #0x22a8d0                    ; CALL UnityEngine.Debug::Log
+           000eb908  mov      r0, #0                       
+           000eb90c  strb     r0, [r5, #0x3c]              ; field+0x3c (this-class: checkWhetherCurrentMissionIsCompleted)
+           000eb910  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000eb914  mov      r1, #0                       
+           000eb918  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000eb91c  cmp      r0, #0                       
+           000eb920  beq      #0xeb9a8                     ; -> L_eb9a8
+           000eb924  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000eb928  str      r0, [fp, #8]                 
+           000eb92c  bl       #0x22b250                    ; CALL HUDLogic::get_Instance
+           000eb930  mov      r2, r0                       
+           000eb934  mov      r1, #0                       
+           000eb938  ldr      lr, [r2]                     
+           000eb93c  bl       #0x22ca70                    ; CALL HUDLogic::SignalMissionComplete
+           000eb940  mov      r1, r0                       
+           000eb944  ldr      r2, [fp, #8]                 
+           000eb948  mov      r0, r2                       
+           000eb94c  ldr      lr, [r2]                     
+           000eb950  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000eb954  b        #0xeb9a8                     ; -> L_eb9a8
+L_eb958:   000eb958  ldr      r0, [r5, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb95c  ldr      r1, [r5, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb960  ldr      r1, [r1, #0xc]               ; field+0xc 
+           000eb964  cmp      r0, r1                       
+           000eb968  bge      #0xeb9a8                     ; -> L_eb9a8
+           000eb96c  ldr      r0, [r5, #0x34]              ; field+0x34 (this-class: missionList)
+           000eb970  ldr      r1, [r5, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eb974  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000eb978  cmp      r2, r1                       
+           000eb97c  blls     #0xeb9b8                     ; THROW System.IndexOutOfRangeException (if ls)
+           000eb980  lsl      r1, r1, #2                   
+           000eb984  add      r0, r0, r1                   
+           000eb988  add      r0, r0, #0x10                
+           000eb98c  ldr      r3, [r0]                     
+           000eb990  mov      r0, r3                       
+           000eb994  ldr      r1, [fp]                     
+           000eb998  mov      r2, sl                       
+           000eb99c  ldr      r3, [r3]                     
+           000eb9a0  mov      lr, pc                       
+           000eb9a4  ldr      pc, [r3, #0x34]              ; VIRTUAL CALL slot +0x34: AchievementListener::Reward | AchievementWindowPublisher::SetContent | BaseCarAIState::Shutdown | BaseEffect::FixedUpdate | BaseMission::Signal | BasePickup::GetTriggeredEffect | BoosterPickup::GetTriggeredEffect | Car_Script::Main ...(63)
+L_eb9a8:   000eb9a8  add      sp, fp, #0x14                
+           000eb9ac  pop      {r4, r5, r8, sl, fp}         
+           000eb9b0  ldr      r7, [sp, #8]                 
+           000eb9b4  ldm      sp, {sp, pc}                 
+           000eb9b8  mov      r1, lr                       
+           000eb9bc  ldr      r0, [pc]                     
+           000eb9c0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000eb9c4  andeq    r0, r0, #0xf8                
+           000eb9c8  mov      r1, lr                       
+           000eb9cc  ldr      r0, [pc]                     
+           000eb9d0  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000eb9d4  andeq    r0, r0, #0xfd                
+
+== MissionCollection::getCheckCurrentMission  token 0x060002c8 @0x000eb9d8 (52 bytes)
+   args: r0=this, 
+           000eb9d8  mov      ip, sp                       
+           000eb9dc  push     {r7, lr}                     
+           000eb9e0  mov      r7, sp                       
+           000eb9e4  push     {r8, fp, ip, lr}             
+           000eb9e8  sub      sp, sp, #8                   
+           000eb9ec  mov      fp, sp                       
+           000eb9f0  str      r0, [fp]                     
+           000eb9f4  ldr      r0, [fp]                     
+           000eb9f8  ldrb     r0, [r0, #0x3c]              ; field+0x3c (this-class: checkWhetherCurrentMissionIsCompleted)
+           000eb9fc  add      sp, fp, #8                   
+           000eba00  pop      {r8, fp}                     
+           000eba04  ldr      r7, [sp, #8]                 
+           000eba08  ldm      sp, {sp, pc}                 
+
+== MissionCollection::setCheckCurrentMission  token 0x060002c9 @0x000eba0c (60 bytes)
+   args: r0=this, newValue
+           000eba0c  mov      ip, sp                       
+           000eba10  push     {r7, lr}                     
+           000eba14  mov      r7, sp                       
+           000eba18  push     {r8, fp, ip, lr}             
+           000eba1c  sub      sp, sp, #8                   
+           000eba20  mov      fp, sp                       
+           000eba24  str      r0, [fp]                     
+           000eba28  strb     r1, [fp, #4]                 
+           000eba2c  ldrb     r1, [fp, #4]                 
+           000eba30  ldr      r0, [fp]                     
+           000eba34  strb     r1, [r0, #0x3c]              ; field+0x3c (this-class: checkWhetherCurrentMissionIsCompleted)
+           000eba38  add      sp, fp, #8                   
+           000eba3c  pop      {r8, fp}                     
+           000eba40  ldr      r7, [sp, #8]                 
+           000eba44  ldm      sp, {sp, pc}                 
+
+== MissionCollection::GetAreThereAnyMissionsLeft  token 0x060002ca @0x000eba48 (72 bytes)
+   args: r0=this, 
+           000eba48  mov      ip, sp                       
+           000eba4c  push     {r7, lr}                     
+           000eba50  mov      r7, sp                       
+           000eba54  push     {r8, fp, ip, lr}             
+           000eba58  sub      sp, sp, #8                   
+           000eba5c  mov      fp, sp                       
+           000eba60  str      r0, [fp]                     
+           000eba64  ldr      r1, [fp]                     
+           000eba68  ldr      r0, [r1, #0x38]              ; field+0x38 (this-class: currentMission)
+           000eba6c  ldr      r1, [r1, #0x34]              ; field+0x34 (this-class: missionList)
+           000eba70  ldr      r1, [r1, #0xc]               ; field+0xc 
+           000eba74  cmp      r0, r1                       
+           000eba78  mov      r0, #0                       
+           000eba7c  movlt    r0, #1                       
+           000eba80  add      sp, fp, #8                   
+           000eba84  pop      {r8, fp}                     
+           000eba88  ldr      r7, [sp, #8]                 
+           000eba8c  ldm      sp, {sp, pc}                 
+
+== MissionCollection::GetTaskDisplay  token 0x060002cb @0x000eba90 (148 bytes)
+   args: r0=this, 
+           000eba90  mov      ip, sp                       
+           000eba94  push     {r7, lr}                     
+           000eba98  mov      r7, sp                       
+           000eba9c  push     {r8, sl, fp, ip, lr}         
+           000ebaa0  sub      sp, sp, #4                   
+           000ebaa4  mov      fp, sp                       
+           000ebaa8  mov      sl, r0                       
+           000ebaac  ldr      r0, [sl, #0x38]              ; field+0x38 (this-class: currentMission)
+           000ebab0  ldr      r1, [sl, #0x34]              ; field+0x34 (this-class: missionList)
+           000ebab4  ldr      r1, [r1, #0xc]               ; field+0xc 
+           000ebab8  cmp      r0, r1                       
+           000ebabc  blt      #0xebad4                     ; -> L_ebad4
+           000ebac0  ldr      r0, [pc]                     
+           000ebac4  b        #0xebacc                     ; -> L_ebacc
+           000ebac8  .word    0x00eb9b60                   ; literal 15440736 / 
+L_ebacc:   000ebacc  ldr      r0, [pc, r0]                 ; GOT[563] LDSTR 'The currentMission is too high!'
+           000ebad0  b        #0xebb04                     ; -> L_ebb04
+L_ebad4:   000ebad4  ldr      r0, [sl, #0x34]              ; field+0x34 (this-class: missionList)
+           000ebad8  ldr      r1, [sl, #0x38]              ; field+0x38 (this-class: currentMission)
+           000ebadc  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000ebae0  cmp      r2, r1                       
+           000ebae4  blls     #0xebb14                     ; THROW System.IndexOutOfRangeException (if ls)
+           000ebae8  lsl      r1, r1, #2                   
+           000ebaec  add      r0, r0, r1                   
+           000ebaf0  add      r0, r0, #0x10                
+           000ebaf4  ldr      r1, [r0]                     
+           000ebaf8  mov      r0, r1                       
+           000ebafc  ldr      lr, [r1]                     
+           000ebb00  bl       #0x22ca80                    ; CALL BaseMission::GetTaskDisplay
+L_ebb04:   000ebb04  add      sp, fp, #4                   
+           000ebb08  pop      {r8, sl, fp}                 
+           000ebb0c  ldr      r7, [sp, #8]                 
+           000ebb10  ldm      sp, {sp, pc}                 
+           000ebb14  mov      r1, lr                       
+           000ebb18  ldr      r0, [pc]                     
+           000ebb1c  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ebb20  andeq    r0, r0, #0xf8                
+
+== MissionCollection::GetCurrentMission  token 0x060002cc @0x000ebb24 (100 bytes)
+   args: r0=this, 
+           000ebb24  mov      ip, sp                       
+           000ebb28  push     {r7, lr}                     
+           000ebb2c  mov      r7, sp                       
+           000ebb30  push     {r8, fp, ip, lr}             
+           000ebb34  sub      sp, sp, #8                   
+           000ebb38  mov      fp, sp                       
+           000ebb3c  str      r0, [fp]                     
+           000ebb40  ldr      r1, [fp]                     
+           000ebb44  ldr      r0, [r1, #0x34]              ; field+0x34 (this-class: missionList)
+           000ebb48  ldr      r1, [r1, #0x38]              ; field+0x38 (this-class: currentMission)
+           000ebb4c  ldr      r2, [r0, #0xc]               ; field+0xc 
+           000ebb50  cmp      r2, r1                       
+           000ebb54  blls     #0xebb78                     ; THROW System.IndexOutOfRangeException (if ls)
+           000ebb58  lsl      r1, r1, #2                   
+           000ebb5c  add      r0, r0, r1                   
+           000ebb60  add      r0, r0, #0x10                
+           000ebb64  ldr      r0, [r0]                     
+           000ebb68  add      sp, fp, #8                   
+           000ebb6c  pop      {r8, fp}                     
+           000ebb70  ldr      r7, [sp, #8]                 
+           000ebb74  ldm      sp, {sp, pc}                 
+           000ebb78  mov      r1, lr                       
+           000ebb7c  ldr      r0, [pc]                     
+           000ebb80  bl       #0x22a810                    ; CALL [INTERNAL_METHOD] mono_arch_throw_corlib_exception
+           000ebb84  andeq    r0, r0, #0xf8                

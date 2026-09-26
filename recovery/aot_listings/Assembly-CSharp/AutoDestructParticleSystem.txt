@@ -1,0 +1,79 @@
+####################################################################################################
+# TYPE AutoDestructParticleSystem  (instance size 0x10)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   vtable slots: 
+####################################################################################################
+== AutoDestructParticleSystem::.ctor  token 0x06000341 @0x000f0500 (52 bytes)
+   args: r0=this, 
+           000f0500  mov      ip, sp                       
+           000f0504  push     {r7, lr}                     
+           000f0508  mov      r7, sp                       
+           000f050c  push     {r8, fp, ip, lr}             
+           000f0510  sub      sp, sp, #8                   
+           000f0514  mov      fp, sp                       
+           000f0518  str      r0, [fp]                     
+           000f051c  ldr      r0, [fp]                     
+           000f0520  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000f0524  add      sp, fp, #8                   
+           000f0528  pop      {r8, fp}                     
+           000f052c  ldr      r7, [sp, #8]                 
+           000f0530  ldm      sp, {sp, pc}                 
+
+== AutoDestructParticleSystem::Start  token 0x06000342 @0x000f0534 (44 bytes)
+   args: r0=this, 
+           000f0534  mov      ip, sp                       
+           000f0538  push     {r7, lr}                     
+           000f053c  mov      r7, sp                       
+           000f0540  push     {r8, fp, ip, lr}             
+           000f0544  sub      sp, sp, #8                   
+           000f0548  mov      fp, sp                       
+           000f054c  str      r0, [fp]                     
+           000f0550  add      sp, fp, #8                   
+           000f0554  pop      {r8, fp}                     
+           000f0558  ldr      r7, [sp, #8]                 
+           000f055c  ldm      sp, {sp, pc}                 
+
+== AutoDestructParticleSystem::Update  token 0x06000343 @0x000f0560 (44 bytes)
+   args: r0=this, 
+           000f0560  mov      ip, sp                       
+           000f0564  push     {r7, lr}                     
+           000f0568  mov      r7, sp                       
+           000f056c  push     {r8, fp, ip, lr}             
+           000f0570  sub      sp, sp, #8                   
+           000f0574  mov      fp, sp                       
+           000f0578  str      r0, [fp]                     
+           000f057c  add      sp, fp, #8                   
+           000f0580  pop      {r8, fp}                     
+           000f0584  ldr      r7, [sp, #8]                 
+           000f0588  ldm      sp, {sp, pc}                 
+
+== AutoDestructParticleSystem::LateUpdate  token 0x06000344 @0x000f058c (112 bytes)
+   args: r0=this, 
+           000f058c  mov      ip, sp                       
+           000f0590  push     {r7, lr}                     
+           000f0594  mov      r7, sp                       
+           000f0598  push     {r8, sl, fp, ip, lr}         
+           000f059c  sub      sp, sp, #0xc                 
+           000f05a0  mov      fp, sp                       
+           000f05a4  mov      sl, r0                       
+           000f05a8  mov      r0, sl                       
+           000f05ac  bl       #0x22cf30                    ; CALL UnityEngine.Component::get_particleSystem
+           000f05b0  mov      r1, #0                       
+           000f05b4  bl       #0x22aa90                    ; CALL UnityEngine.Object::op_Inequality
+           000f05b8  cmp      r0, #0                       
+           000f05bc  beq      #0xf05ec                     ; -> L_f05ec
+           000f05c0  mov      r0, sl                       
+           000f05c4  bl       #0x22cf30                    ; CALL UnityEngine.Component::get_particleSystem
+           000f05c8  mov      r2, r0                       
+           000f05cc  mov      r1, #1                       
+           000f05d0  ldr      lr, [r2]                     
+           000f05d4  bl       #0x22cf40                    ; CALL UnityEngine.ParticleSystem::IsAlive
+           000f05d8  cmp      r0, #0                       
+           000f05dc  bne      #0xf05ec                     ; -> L_f05ec
+           000f05e0  mov      r0, sl                       
+           000f05e4  bl       #0x22ab60                    ; CALL UnityEngine.Component::get_gameObject
+           000f05e8  bl       #0x22ad60                    ; CALL UnityEngine.Object::Destroy
+L_f05ec:   000f05ec  add      sp, fp, #0xc                 
+           000f05f0  pop      {r8, sl, fp}                 
+           000f05f4  ldr      r7, [sp, #8]                 
+           000f05f8  ldm      sp, {sp, pc}                 

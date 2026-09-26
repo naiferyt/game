@@ -1,0 +1,439 @@
+####################################################################################################
+# TYPE ShadowBlob  (instance size 0x1c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 blobPrefab                     UnityEngine.GameObject
+#   +0x14 blobInstance                   UnityEngine.GameObject
+#   +0x18 triFoot                        TriFoot
+#   static int groundLayerMask  = const 00010000
+#   static int collideLayerMask  = const 00040000
+#   vtable slots: 
+####################################################################################################
+== ShadowBlob::.ctor  token 0x0600047a @0x001034d0 (52 bytes)
+   args: r0=this, 
+           001034d0  mov      ip, sp                       
+           001034d4  push     {r7, lr}                     
+           001034d8  mov      r7, sp                       
+           001034dc  push     {r8, fp, ip, lr}             
+           001034e0  sub      sp, sp, #8                   
+           001034e4  mov      fp, sp                       
+           001034e8  str      r0, [fp]                     
+           001034ec  ldr      r0, [fp]                     
+           001034f0  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           001034f4  add      sp, fp, #8                   
+           001034f8  pop      {r8, fp}                     
+           001034fc  ldr      r7, [sp, #8]                 
+           00103500  ldm      sp, {sp, pc}                 
+
+== ShadowBlob::get_ShadowPosition  token 0x0600047b @0x00103504 (180 bytes)
+   args: r0=this, 
+           00103504  mov      ip, sp                       
+           00103508  push     {r7, lr}                     
+           0010350c  mov      r7, sp                       
+           00103510  push     {r8, fp, ip, lr}             
+           00103514  sub      sp, sp, #0x30                
+           00103518  mov      fp, sp                       
+           0010351c  str      r0, [fp]                     
+           00103520  str      r1, [fp, #0x28]              
+           00103524  ldr      r0, [fp, #0x28]              
+           00103528  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: blobInstance)
+           0010352c  mov      r1, #0                       
+           00103530  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           00103534  cmp      r0, #0                       
+           00103538  beq      #0x103564                    ; -> L_103564
+           0010353c  add      r0, fp, #0x10                
+           00103540  bl       #0x22ae30                    ; CALL UnityEngine.Vector3::get_zero
+           00103544  ldr      r0, [fp]                     
+           00103548  ldr      r1, [fp, #0x10]              
+           0010354c  str      r1, [r0]                     
+           00103550  ldr      r1, [fp, #0x14]              
+           00103554  str      r1, [r0, #4]                 ; field+0x4 
+           00103558  ldr      r1, [fp, #0x18]              
+           0010355c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00103560  b        #0x1035a8                    ; -> L_1035a8
+L_103564:  00103564  ldr      r0, [fp, #0x28]              
+           00103568  ldr      r1, [r0, #0x14]              ; field+0x14 (this-class: blobInstance)
+           0010356c  mov      r0, r1                       
+           00103570  ldr      lr, [r1]                     
+           00103574  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00103578  mov      r2, r0                       
+           0010357c  add      r0, fp, #0x1c                
+           00103580  mov      r1, r2                       
+           00103584  ldr      lr, [r2]                     
+           00103588  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           0010358c  ldr      r0, [fp]                     
+           00103590  ldr      r1, [fp, #0x1c]              
+           00103594  str      r1, [r0]                     
+           00103598  ldr      r1, [fp, #0x20]              
+           0010359c  str      r1, [r0, #4]                 ; field+0x4 
+           001035a0  ldr      r1, [fp, #0x24]              
+           001035a4  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+L_1035a8:  001035a8  add      sp, fp, #0x30                
+           001035ac  pop      {r8, fp}                     
+           001035b0  ldr      r7, [sp, #8]                 
+           001035b4  ldm      sp, {sp, pc}                 
+
+== ShadowBlob::Start  token 0x0600047c @0x001035b8 (124 bytes)
+   args: r0=this, 
+           001035b8  mov      ip, sp                       
+           001035bc  push     {r7, lr}                     
+           001035c0  mov      r7, sp                       
+           001035c4  push     {r5, r8, sl, fp, ip, lr}     
+           001035c8  sub      sp, sp, #8                   
+           001035cc  mov      fp, sp                       
+           001035d0  mov      sl, r0                       
+           001035d4  str      sl, [fp]                     
+           001035d8  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: blobPrefab)
+           001035dc  bl       #0x22ad70                    ; CALL UnityEngine.Object::Instantiate
+           001035e0  mov      sl, r0                       
+           001035e4  mov      r5, sl                       
+           001035e8  cmp      sl, #0                       
+           001035ec  beq      #0x10361c                    ; -> L_10361c
+           001035f0  ldr      r0, [sl]                     
+           001035f4  ldr      r0, [r0]                     
+           001035f8  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           001035fc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00103600  ldr      r1, [pc]                     
+           00103604  b        #0x10360c                    ; -> L_10360c
+           00103608  .word    0x00ea1940                   ; literal 15341888 / 
+L_10360c:  0010360c  ldr      r1, [pc, r1]                 ; GOT[123] CLASS UnityEngine.GameObject
+           00103610  cmp      r0, r1                       
+           00103614  beq      #0x10361c                    ; -> L_10361c
+           00103618  mov      r5, #0                       
+L_10361c:  0010361c  ldr      r0, [fp]                     
+           00103620  str      r5, [r0, #0x14]              ; field+0x14 (this-class: blobInstance)
+           00103624  add      sp, fp, #8                   
+           00103628  pop      {r5, r8, sl, fp}             
+           0010362c  ldr      r7, [sp, #8]                 
+           00103630  ldm      sp, {sp, pc}                 
+
+== ShadowBlob::OnEnable  token 0x0600047d @0x00103634 (88 bytes)
+   args: r0=this, 
+           00103634  mov      ip, sp                       
+           00103638  push     {r7, lr}                     
+           0010363c  mov      r7, sp                       
+           00103640  push     {r8, fp, ip, lr}             
+           00103644  sub      sp, sp, #8                   
+           00103648  mov      fp, sp                       
+           0010364c  str      r0, [fp]                     
+           00103650  ldr      r0, [fp]                     
+           00103654  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: blobInstance)
+           00103658  bl       #0x22b210                    ; CALL UnityEngine.Object::op_Implicit
+           0010365c  cmp      r0, #0                       
+           00103660  beq      #0x10367c                    ; -> L_10367c
+           00103664  ldr      r0, [fp]                     
+           00103668  ldr      r2, [r0, #0x14]              ; field+0x14 (this-class: blobInstance)
+           0010366c  mov      r0, r2                       
+           00103670  mov      r1, #1                       
+           00103674  ldr      lr, [r2]                     
+           00103678  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+L_10367c:  0010367c  add      sp, fp, #8                   
+           00103680  pop      {r8, fp}                     
+           00103684  ldr      r7, [sp, #8]                 
+           00103688  ldm      sp, {sp, pc}                 
+
+== ShadowBlob::OnDisable  token 0x0600047e @0x0010368c (88 bytes)
+   args: r0=this, 
+           0010368c  mov      ip, sp                       
+           00103690  push     {r7, lr}                     
+           00103694  mov      r7, sp                       
+           00103698  push     {r8, fp, ip, lr}             
+           0010369c  sub      sp, sp, #8                   
+           001036a0  mov      fp, sp                       
+           001036a4  str      r0, [fp]                     
+           001036a8  ldr      r0, [fp]                     
+           001036ac  ldr      r0, [r0, #0x14]              ; field+0x14 (this-class: blobInstance)
+           001036b0  bl       #0x22b210                    ; CALL UnityEngine.Object::op_Implicit
+           001036b4  cmp      r0, #0                       
+           001036b8  beq      #0x1036d4                    ; -> L_1036d4
+           001036bc  ldr      r0, [fp]                     
+           001036c0  ldr      r2, [r0, #0x14]              ; field+0x14 (this-class: blobInstance)
+           001036c4  mov      r0, r2                       
+           001036c8  mov      r1, #0                       
+           001036cc  ldr      lr, [r2]                     
+           001036d0  bl       #0x22b2f0                    ; CALL UnityEngine.GameObject::SetActive
+L_1036d4:  001036d4  add      sp, fp, #8                   
+           001036d8  pop      {r8, fp}                     
+           001036dc  ldr      r7, [sp, #8]                 
+           001036e0  ldm      sp, {sp, pc}                 
+
+== ShadowBlob::Update  token 0x0600047f @0x001036e4 (1116 bytes)
+   args: r0=this, 
+           001036e4  mov      ip, sp                       
+           001036e8  push     {r7, lr}                     
+           001036ec  mov      r7, sp                       
+           001036f0  push     {r8, sl, fp, ip, lr}         
+           001036f4  sub      sp, sp, #0x1b4               
+           001036f8  mov      fp, sp                       
+           001036fc  mov      sl, r0                       
+           00103700  add      r0, fp, #0x18                
+           00103704  mov      r1, #0                       
+           00103708  mov      r2, #0x2c                    
+           0010370c  bl       #0x22a990                    ; CALL System.String::memset
+           00103710  mov      r0, #0                       
+           00103714  str      r0, [fp, #0x44]              
+           00103718  mov      r0, #0                       
+           0010371c  str      r0, [fp, #0x48]              
+           00103720  mov      r0, #0                       
+           00103724  str      r0, [fp, #0x4c]              
+           00103728  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: triFoot)
+           0010372c  mov      r1, #0                       
+           00103730  bl       #0x22a7d0                    ; CALL UnityEngine.Object::op_Equality
+           00103734  cmp      r0, #0                       
+           00103738  beq      #0x103978                    ; -> L_103978
+           0010373c  ldr      r8, [pc]                     
+           00103740  b        #0x103748                    ; -> L_103748
+           00103744  .word    0x00ea1ac0                   ; literal 15342272 / 
+L_103748:  00103748  ldr      r8, [pc, r8]                 ; GOT[298] METHOD_RGCTX UnityEngine.Component::GetComponent<TriFoot>
+           0010374c  mov      r0, sl                       
+           00103750  bl       #0x22bc60                    ; CALL UnityEngine.Component::GetComponent<TriFoot>
+           00103754  str      r0, [sl, #0x18]              ; field+0x18 (this-class: triFoot)
+           00103758  mov      r0, sl                       
+           0010375c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00103760  mov      r2, r0                       
+           00103764  add      r0, fp, #0xd8                
+           00103768  mov      r1, r2                       
+           0010376c  ldr      lr, [r2]                     
+           00103770  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00103774  add      r0, fp, #0xe4                
+           00103778  bl       #0x22b3e0                    ; CALL UnityEngine.Vector3::get_up
+           0010377c  vldr     s4, [pc]                     ; float 5.0
+           00103780  b        #0x103788                    ; -> L_103788
+           00103784  .word    0x40a00000                   ; literal 1084227584 / 5
+L_103788:  00103788  vcvt.f64.f32 d2, s4                       
+           0010378c  add      r0, fp, #0xf0                
+           00103790  ldr      r1, [fp, #0xe4]              
+           00103794  ldr      r2, [fp, #0xe8]              
+           00103798  ldr      r3, [fp, #0xec]              
+           0010379c  vcvt.f32.f64 s0, d2                       
+           001037a0  vstr     s0, [sp]                     
+           001037a4  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           001037a8  add      r0, fp, #0xfc                
+           001037ac  ldr      r1, [fp, #0xd8]              
+           001037b0  ldr      r2, [fp, #0xdc]              
+           001037b4  ldr      r3, [fp, #0xe0]              
+           001037b8  ldr      ip, [fp, #0xf0]              
+           001037bc  str      ip, [sp]                     
+           001037c0  ldr      ip, [fp, #0xf4]              
+           001037c4  str      ip, [sp, #4]                 
+           001037c8  ldr      ip, [fp, #0xf8]              
+           001037cc  str      ip, [sp, #8]                 
+           001037d0  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           001037d4  add      r0, fp, #0x108               
+           001037d8  bl       #0x22aa00                    ; CALL UnityEngine.Vector3::get_down
+           001037dc  add      ip, fp, #0x18                
+           001037e0  vldr     s4, [pc]                     ; float inf
+           001037e4  b        #0x1037ec                    ; -> L_1037ec
+           001037e8  .word    0x7f800000                   ; literal 2139095040 / 
+L_1037ec:  001037ec  vcvt.f64.f32 d2, s4                       
+           001037f0  ldr      r0, [fp, #0xfc]              
+           001037f4  str      r0, [fp, #0x1a8]             
+           001037f8  ldr      r1, [fp, #0x100]             
+           001037fc  ldr      r2, [fp, #0x104]             
+           00103800  ldr      r3, [fp, #0x108]             
+           00103804  ldr      r0, [fp, #0x10c]             
+           00103808  str      r0, [sp]                     
+           0010380c  ldr      r0, [fp, #0x110]             
+           00103810  str      r0, [sp, #4]                 
+           00103814  ldr      r0, [fp, #0x1a8]             
+           00103818  str      ip, [sp, #8]                 
+           0010381c  vcvt.f32.f64 s0, d2                       
+           00103820  vstr     s0, [sp, #0xc]               
+           00103824  mov      ip, #80, #28                 
+           00103828  str      ip, [sp, #0x10]              
+           0010382c  bl       #0x22bb30                    ; CALL UnityEngine.Physics::Raycast
+           00103830  cmp      r0, #0                       
+           00103834  beq      #0x103954                    ; -> L_103954
+           00103838  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: blobInstance)
+           0010383c  mov      r0, r1                       
+           00103840  ldr      lr, [r1]                     
+           00103844  bl       #0x22d490                    ; CALL UnityEngine.GameObject::get_renderer
+           00103848  mov      r2, r0                       
+           0010384c  mov      r1, #1                       
+           00103850  ldr      lr, [r2]                     
+           00103854  bl       #0x22d7e0                    ; CALL UnityEngine.Renderer::set_enabled
+           00103858  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: blobInstance)
+           0010385c  mov      r0, r1                       
+           00103860  ldr      lr, [r1]                     
+           00103864  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00103868  str      r0, [fp, #0x1a8]             
+           0010386c  add      r0, fp, #0x18                
+           00103870  ldr      r1, [r0]                     
+           00103874  str      r1, [fp, #0x114]             
+           00103878  ldr      r1, [r0, #4]                 ; field+0x4 
+           0010387c  str      r1, [fp, #0x118]             
+           00103880  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00103884  str      r0, [fp, #0x11c]             
+           00103888  add      r0, fp, #72, #30             
+           0010388c  bl       #0x22b3e0                    ; CALL UnityEngine.Vector3::get_up
+           00103890  vldr     s4, [pc]                     ; float 0.10000000149011612
+           00103894  b        #0x10389c                    ; -> L_10389c
+           00103898  .word    0x3dcccccd                   ; literal 1036831949 / 0.1
+L_10389c:  0010389c  vcvt.f64.f32 d2, s4                       
+           001038a0  add      r0, fp, #0x12c               
+           001038a4  ldr      r1, [fp, #0x120]             
+           001038a8  ldr      r2, [fp, #0x124]             
+           001038ac  ldr      r3, [fp, #0x128]             
+           001038b0  vcvt.f32.f64 s0, d2                       
+           001038b4  vstr     s0, [sp]                     
+           001038b8  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           001038bc  add      r0, fp, #0x138               
+           001038c0  ldr      r1, [fp, #0x114]             
+           001038c4  ldr      r2, [fp, #0x118]             
+           001038c8  ldr      r3, [fp, #0x11c]             
+           001038cc  ldr      ip, [fp, #0x12c]             
+           001038d0  str      ip, [sp]                     
+           001038d4  ldr      ip, [fp, #0x130]             
+           001038d8  str      ip, [sp, #4]                 
+           001038dc  ldr      ip, [fp, #0x134]             
+           001038e0  str      ip, [sp, #8]                 
+           001038e4  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           001038e8  ldr      ip, [fp, #0x1a8]             
+           001038ec  mov      r0, ip                       
+           001038f0  ldr      r1, [fp, #0x138]             
+           001038f4  ldr      r2, [fp, #0x13c]             
+           001038f8  ldr      r3, [fp, #0x140]             
+           001038fc  ldr      lr, [ip]                     
+           00103900  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           00103904  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: blobInstance)
+           00103908  mov      r0, r1                       
+           0010390c  ldr      lr, [r1]                     
+           00103910  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00103914  mov      ip, r0                       
+           00103918  add      r0, fp, #0x18                
+           0010391c  add      r0, r0, #0xc                 
+           00103920  ldr      r1, [r0]                     
+           00103924  str      r1, [fp, #0x144]             
+           00103928  ldr      r1, [r0, #4]                 ; field+0x4 
+           0010392c  str      r1, [fp, #0x148]             
+           00103930  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           00103934  str      r0, [fp, #0x14c]             
+           00103938  mov      r0, ip                       
+           0010393c  ldr      r1, [fp, #0x144]             
+           00103940  ldr      r2, [fp, #0x148]             
+           00103944  ldr      r3, [fp, #0x14c]             
+           00103948  ldr      lr, [ip]                     
+           0010394c  bl       #0x22d7f0                    ; CALL UnityEngine.Transform::set_up
+           00103950  b        #0x103b30                    ; -> L_103b30
+L_103954:  00103954  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: blobInstance)
+           00103958  mov      r0, r1                       
+           0010395c  ldr      lr, [r1]                     
+           00103960  bl       #0x22d490                    ; CALL UnityEngine.GameObject::get_renderer
+           00103964  mov      r2, r0                       
+           00103968  mov      r1, #0                       
+           0010396c  ldr      lr, [r2]                     
+           00103970  bl       #0x22d7e0                    ; CALL UnityEngine.Renderer::set_enabled
+           00103974  b        #0x103b30                    ; -> L_103b30
+L_103978:  00103978  mov      r0, sl                       
+           0010397c  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00103980  mov      r2, r0                       
+           00103984  add      r0, fp, #0x44                
+           00103988  mov      r1, r2                       
+           0010398c  ldr      lr, [r2]                     
+           00103990  bl       #0x22aa60                    ; CALL UnityEngine.Transform::get_position
+           00103994  ldr      r0, [sl, #0x18]              ; field+0x18 (this-class: triFoot)
+           00103998  add      r0, r0, #0x18                
+           0010399c  vldr     s0, [r0, #4]                 ; field+0x4 
+           001039a0  vcvt.f64.f32 d2, s0                       
+           001039a4  vcvt.f32.f64 s0, d2                       
+           001039a8  vstr     s0, [fp, #0x48]              
+           001039ac  ldr      r0, [fp, #0x44]              
+           001039b0  str      r0, [fp, #0x150]             
+           001039b4  ldr      r0, [fp, #0x48]              
+           001039b8  str      r0, [fp, #0x154]             
+           001039bc  ldr      r0, [fp, #0x4c]              
+           001039c0  str      r0, [fp, #0x158]             
+           001039c4  mov      r0, sl                       
+           001039c8  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           001039cc  mov      r2, r0                       
+           001039d0  add      r0, fp, #0x15c               
+           001039d4  mov      r1, r2                       
+           001039d8  ldr      lr, [r2]                     
+           001039dc  bl       #0x22d800                    ; CALL UnityEngine.Transform::get_up
+           001039e0  vldr     s4, [pc]                     ; float 0.25
+           001039e4  b        #0x1039ec                    ; -> L_1039ec
+           001039e8  .word    0x3e800000                   ; literal 1048576000 / 0.25
+L_1039ec:  001039ec  vcvt.f64.f32 d2, s4                       
+           001039f0  add      r0, fp, #0x168               
+           001039f4  ldr      r1, [fp, #0x15c]             
+           001039f8  ldr      r2, [fp, #0x160]             
+           001039fc  ldr      r3, [fp, #0x164]             
+           00103a00  vcvt.f32.f64 s0, d2                       
+           00103a04  vstr     s0, [sp]                     
+           00103a08  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           00103a0c  add      r0, fp, #0x44                
+           00103a10  ldr      r1, [fp, #0x150]             
+           00103a14  ldr      r2, [fp, #0x154]             
+           00103a18  ldr      r3, [fp, #0x158]             
+           00103a1c  ldr      ip, [fp, #0x168]             
+           00103a20  str      ip, [sp]                     
+           00103a24  ldr      ip, [fp, #0x16c]             
+           00103a28  str      ip, [sp, #4]                 
+           00103a2c  ldr      ip, [fp, #0x170]             
+           00103a30  str      ip, [sp, #8]                 
+           00103a34  bl       #0x22a9f0                    ; CALL UnityEngine.Vector3::op_Addition
+           00103a38  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: blobInstance)
+           00103a3c  mov      r0, r1                       
+           00103a40  ldr      lr, [r1]                     
+           00103a44  bl       #0x22d490                    ; CALL UnityEngine.GameObject::get_renderer
+           00103a48  mov      r2, r0                       
+           00103a4c  mov      r1, #1                       
+           00103a50  ldr      lr, [r2]                     
+           00103a54  bl       #0x22d7e0                    ; CALL UnityEngine.Renderer::set_enabled
+           00103a58  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: blobInstance)
+           00103a5c  mov      r0, r1                       
+           00103a60  ldr      lr, [r1]                     
+           00103a64  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00103a68  mov      ip, r0                       
+           00103a6c  ldr      r0, [fp, #0x44]              
+           00103a70  str      r0, [fp, #0x174]             
+           00103a74  ldr      r0, [fp, #0x48]              
+           00103a78  str      r0, [fp, #0x178]             
+           00103a7c  ldr      r0, [fp, #0x4c]              
+           00103a80  str      r0, [fp, #0x17c]             
+           00103a84  mov      r0, ip                       
+           00103a88  ldr      r1, [fp, #0x174]             
+           00103a8c  ldr      r2, [fp, #0x178]             
+           00103a90  ldr      r3, [fp, #0x17c]             
+           00103a94  ldr      lr, [ip]                     
+           00103a98  bl       #0x22b0b0                    ; CALL UnityEngine.Transform::set_position
+           00103a9c  ldr      r1, [sl, #0x14]              ; field+0x14 (this-class: blobInstance)
+           00103aa0  mov      r0, r1                       
+           00103aa4  ldr      lr, [r1]                     
+           00103aa8  bl       #0x22ae10                    ; CALL UnityEngine.GameObject::get_transform
+           00103aac  str      r0, [fp, #0x1ac]             
+           00103ab0  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: triFoot)
+           00103ab4  add      r0, fp, #96, #30             
+           00103ab8  mov      r1, r2                       
+           00103abc  ldr      lr, [r2]                     
+           00103ac0  bl       #0x119f50                    ; CALL TriFoot::get_forward (direct)
+           00103ac4  ldr      r2, [sl, #0x18]              ; field+0x18 (this-class: triFoot)
+           00103ac8  add      r0, fp, #0x18c               
+           00103acc  mov      r1, r2                       
+           00103ad0  ldr      lr, [r2]                     
+           00103ad4  bl       #0x11a2d0                    ; CALL TriFoot::get_up (direct)
+           00103ad8  add      r0, fp, #0x198               
+           00103adc  ldr      r1, [fp, #0x180]             
+           00103ae0  ldr      r2, [fp, #0x184]             
+           00103ae4  ldr      r3, [fp, #0x188]             
+           00103ae8  ldr      ip, [fp, #0x18c]             
+           00103aec  str      ip, [sp]                     
+           00103af0  ldr      ip, [fp, #0x190]             
+           00103af4  str      ip, [sp, #4]                 
+           00103af8  ldr      ip, [fp, #0x194]             
+           00103afc  str      ip, [sp, #8]                 
+           00103b00  bl       #0x22bdb0                    ; CALL UnityEngine.Quaternion::LookRotation
+           00103b04  ldr      ip, [fp, #0x1ac]             
+           00103b08  mov      r0, ip                       
+           00103b0c  str      r0, [fp, #0x1a8]             
+           00103b10  ldr      r1, [fp, #0x198]             
+           00103b14  ldr      r2, [fp, #0x19c]             
+           00103b18  ldr      r3, [fp, #0x1a0]             
+           00103b1c  ldr      r0, [fp, #0x1a4]             
+           00103b20  str      r0, [sp]                     
+           00103b24  ldr      r0, [fp, #0x1a8]             
+           00103b28  ldr      lr, [ip]                     
+           00103b2c  bl       #0x22b190                    ; CALL UnityEngine.Transform::set_rotation
+L_103b30:  00103b30  add      sp, fp, #0x1b4               
+           00103b34  pop      {r8, sl, fp}                 
+           00103b38  ldr      r7, [sp, #8]                 
+           00103b3c  ldm      sp, {sp, pc}                 

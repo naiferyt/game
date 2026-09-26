@@ -1,0 +1,297 @@
+####################################################################################################
+# TYPE RotatorAI  (instance size 0x2c)
+#   +0x08 m_UnityRuntimeReferenceData    UnityEngine.ReferenceData
+#   +0x10 rotationSpeed                  UnityEngine.Vector3
+#   +0x1c rotator                        UnityEngine.Quaternion
+#   vtable slots: 
+####################################################################################################
+== RotatorAI::.ctor  token 0x0600009d @0x000ced58 (96 bytes)
+   args: r0=this, 
+           000ced58  mov      ip, sp                       
+           000ced5c  push     {r7, lr}                     
+           000ced60  mov      r7, sp                       
+           000ced64  push     {r8, fp, ip, lr}             
+           000ced68  sub      sp, sp, #0x18                
+           000ced6c  mov      fp, sp                       
+           000ced70  str      r0, [fp, #0x10]              
+           000ced74  mov      r0, fp                       
+           000ced78  bl       #0x22b050                    ; CALL UnityEngine.Quaternion::get_identity
+           000ced7c  ldr      r0, [fp, #0x10]              
+           000ced80  add      r1, r0, #0x1c                
+           000ced84  ldr      r2, [fp]                     
+           000ced88  str      r2, [r1]                     
+           000ced8c  ldr      r2, [fp, #4]                 
+           000ced90  str      r2, [r1, #4]                 ; field+0x4 
+           000ced94  ldr      r2, [fp, #8]                 
+           000ced98  str      r2, [r1, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000ced9c  ldr      r2, [fp, #0xc]               
+           000ceda0  str      r2, [r1, #0xc]               ; field+0xc 
+           000ceda4  bl       #0x22a7b0                    ; CALL UnityEngine.MonoBehaviour::.ctor
+           000ceda8  add      sp, fp, #0x18                
+           000cedac  pop      {r8, fp}                     
+           000cedb0  ldr      r7, [sp, #8]                 
+           000cedb4  ldm      sp, {sp, pc}                 
+
+== RotatorAI::RotateCoroutine  token 0x0600009e @0x000cedb8 (72 bytes)
+   args: r0=this, 
+           000cedb8  mov      ip, sp                       
+           000cedbc  push     {r7, lr}                     
+           000cedc0  mov      r7, sp                       
+           000cedc4  push     {r8, fp, ip, lr}             
+           000cedc8  sub      sp, sp, #8                   
+           000cedcc  mov      fp, sp                       
+           000cedd0  str      r0, [fp]                     
+           000cedd4  ldr      r0, [pc]                     
+           000cedd8  b        #0xcede0                     ; -> L_cede0
+           000ceddc  .word    0x00ed61cc                   ; literal 15557068 / 
+L_cede0:   000cede0  ldr      r0, [pc, r0]                 ; GOT[147] VTABLE RotatorAI/<RotateCoroutine>c__Iterator4
+           000cede4  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000cede8  ldr      r1, [fp]                     
+           000cedec  str      r1, [r0, #0xc]               ; field+0xc 
+           000cedf0  add      sp, fp, #8                   
+           000cedf4  pop      {r8, fp}                     
+           000cedf8  ldr      r7, [sp, #8]                 
+           000cedfc  ldm      sp, {sp, pc}                 
+
+== RotatorAI::Start  token 0x0600009f @0x000cee00 (204 bytes)
+   args: r0=this, 
+           000cee00  mov      ip, sp                       
+           000cee04  push     {r7, lr}                     
+           000cee08  mov      r7, sp                       
+           000cee0c  push     {r8, sl, fp, ip, lr}         
+           000cee10  sub      sp, sp, #0x34                
+           000cee14  mov      fp, sp                       
+           000cee18  mov      sl, r0                       
+           000cee1c  add      r0, sl, #0x10                
+           000cee20  ldr      r1, [r0]                     
+           000cee24  str      r1, [fp, #8]                 
+           000cee28  ldr      r1, [r0, #4]                 ; field+0x4 
+           000cee2c  str      r1, [fp, #0xc]               
+           000cee30  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000cee34  str      r0, [fp, #0x10]              
+           000cee38  bl       #0x22b540                    ; CALL UnityEngine.Time::get_fixedDeltaTime
+           000cee3c  vmov     s4, r0                       
+           000cee40  vcvt.f64.f32 d2, s4                       
+           000cee44  add      r0, fp, #0x14                
+           000cee48  ldr      r1, [fp, #8]                 
+           000cee4c  ldr      r2, [fp, #0xc]               
+           000cee50  ldr      r3, [fp, #0x10]              
+           000cee54  vcvt.f32.f64 s0, d2                       
+           000cee58  vstr     s0, [sp]                     
+           000cee5c  bl       #0x22a9e0                    ; CALL UnityEngine.Vector3::op_Multiply
+           000cee60  add      r0, fp, #0x20                
+           000cee64  ldr      r1, [fp, #0x14]              
+           000cee68  ldr      r2, [fp, #0x18]              
+           000cee6c  ldr      r3, [fp, #0x1c]              
+           000cee70  bl       #0x22b550                    ; CALL UnityEngine.Quaternion::Euler
+           000cee74  add      r0, sl, #0x1c                
+           000cee78  ldr      r1, [fp, #0x20]              
+           000cee7c  str      r1, [r0]                     
+           000cee80  ldr      r1, [fp, #0x24]              
+           000cee84  str      r1, [r0, #4]                 ; field+0x4 
+           000cee88  ldr      r1, [fp, #0x28]              
+           000cee8c  str      r1, [r0, #8]                 ; field+0x8 (this-class: m_UnityRuntimeReferenceData)
+           000cee90  ldr      r1, [fp, #0x2c]              
+           000cee94  str      r1, [r0, #0xc]               ; field+0xc 
+           000cee98  ldr      r0, [pc]                     
+           000cee9c  b        #0xceea4                     ; -> L_ceea4
+           000ceea0  .word    0x00ed6108                   ; literal 15556872 / 
+L_ceea4:   000ceea4  ldr      r0, [pc, r0]                 ; GOT[147] VTABLE RotatorAI/<RotateCoroutine>c__Iterator4
+           000ceea8  bl       #0x22a820                    ; CALL [INTERNAL_METHOD] mono_object_new_fast
+           000ceeac  mov      r1, r0                       
+           000ceeb0  str      sl, [r1, #0xc]               ; field+0xc 
+           000ceeb4  mov      r0, sl                       
+           000ceeb8  bl       #0x22ade0                    ; CALL UnityEngine.MonoBehaviour::StartCoroutine
+           000ceebc  add      sp, fp, #0x34                
+           000ceec0  pop      {r8, sl, fp}                 
+           000ceec4  ldr      r7, [sp, #8]                 
+           000ceec8  ldm      sp, {sp, pc}                 
+
+####################################################################################################
+# TYPE RotatorAI/<RotateCoroutine>c__Iterator4  (instance size 0x14)
+#   +0x08 $current                       object
+#   +0x0c <>f__this                      RotatorAI
+#   +0x10 $PC                            int
+#   vtable slots: 9:Reset, 10:Dispose, 11:MoveNext, 12:System.Collections.IEnumerator.get_Current, 13:System.Collections.Generic.IEnumerator<object>.get_Current
+####################################################################################################
+== RotatorAI/<RotateCoroutine>c__Iterator4::.ctor  token 0x060007e5 @0x00141970 (44 bytes)
+   args: r0=this, 
+           00141970  mov      ip, sp                       
+           00141974  push     {r7, lr}                     
+           00141978  mov      r7, sp                       
+           0014197c  push     {r8, fp, ip, lr}             
+           00141980  sub      sp, sp, #8                   
+           00141984  mov      fp, sp                       
+           00141988  str      r0, [fp]                     
+           0014198c  add      sp, fp, #8                   
+           00141990  pop      {r8, fp}                     
+           00141994  ldr      r7, [sp, #8]                 
+           00141998  ldm      sp, {sp, pc}                 
+
+== RotatorAI/<RotateCoroutine>c__Iterator4::System.Collections.Generic.IEnumerator<object>.get_Current  token 0x060007e6 @0x0014199c (52 bytes)
+   args: r0=this, 
+           0014199c  mov      ip, sp                       
+           001419a0  push     {r7, lr}                     
+           001419a4  mov      r7, sp                       
+           001419a8  push     {r8, fp, ip, lr}             
+           001419ac  sub      sp, sp, #8                   
+           001419b0  mov      fp, sp                       
+           001419b4  str      r0, [fp]                     
+           001419b8  ldr      r0, [fp]                     
+           001419bc  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           001419c0  add      sp, fp, #8                   
+           001419c4  pop      {r8, fp}                     
+           001419c8  ldr      r7, [sp, #8]                 
+           001419cc  ldm      sp, {sp, pc}                 
+
+== RotatorAI/<RotateCoroutine>c__Iterator4::System.Collections.IEnumerator.get_Current  token 0x060007e7 @0x001419d0 (52 bytes)
+   args: r0=this, 
+           001419d0  mov      ip, sp                       
+           001419d4  push     {r7, lr}                     
+           001419d8  mov      r7, sp                       
+           001419dc  push     {r8, fp, ip, lr}             
+           001419e0  sub      sp, sp, #8                   
+           001419e4  mov      fp, sp                       
+           001419e8  str      r0, [fp]                     
+           001419ec  ldr      r0, [fp]                     
+           001419f0  ldr      r0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           001419f4  add      sp, fp, #8                   
+           001419f8  pop      {r8, fp}                     
+           001419fc  ldr      r7, [sp, #8]                 
+           00141a00  ldm      sp, {sp, pc}                 
+
+== RotatorAI/<RotateCoroutine>c__Iterator4::MoveNext  token 0x060007e8 @0x00141a04 (388 bytes)
+   args: r0=this, 
+           00141a04  mov      ip, sp                       
+           00141a08  push     {r7, lr}                     
+           00141a0c  mov      r7, sp                       
+           00141a10  push     {r8, sl, fp, ip, lr}         
+           00141a14  sub      sp, sp, #0x84                
+           00141a18  mov      fp, sp                       
+           00141a1c  mov      sl, r0                       
+           00141a20  ldr      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00141a24  mvn      r1, #0                       
+           00141a28  str      r1, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00141a2c  str      r0, [fp, #0x3c]              
+           00141a30  cmp      r0, #2                       
+           00141a34  bhs      #0x141b6c                    ; -> L_141b6c
+           00141a38  ldr      r0, [fp, #0x3c]              
+           00141a3c  lsl      r1, r0, #2                   
+           00141a40  ldr      r0, [pc]                     
+           00141a44  b        #0x141a4c                    ; -> L_141a4c
+           00141a48  .word    0x00e64dbc                   ; literal 15093180 / 
+L_141a4c:  00141a4c  ldr      r0, [pc, r0]                 ; GOT[1706] SWITCH switch table[2]
+           00141a50  add      r0, r0, r1                   
+           00141a54  ldr      r0, [r0]                     
+           00141a58  bl       #0x10e858                    ; CALL RaceManager::get_isPaused (direct)
+           00141a5c  cmp      r0, #0                       
+           00141a60  bne      #0x141b1c                    ; -> L_141b1c
+           00141a64  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00141a68  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00141a6c  str      r0, [fp, #0x74]              
+           00141a70  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00141a74  bl       #0x22aa50                    ; CALL UnityEngine.Component::get_transform
+           00141a78  mov      r2, r0                       
+           00141a7c  add      r0, fp, #0x40                
+           00141a80  mov      r1, r2                       
+           00141a84  ldr      lr, [r2]                     
+           00141a88  bl       #0x22aa70                    ; CALL UnityEngine.Transform::get_rotation
+           00141a8c  ldr      r0, [sl, #0xc]               ; field+0xc (this-class: <>f__this)
+           00141a90  add      r0, r0, #0x1c                
+           00141a94  ldr      r1, [r0]                     
+           00141a98  str      r1, [fp, #0x50]              
+           00141a9c  ldr      r1, [r0, #4]                 ; field+0x4 
+           00141aa0  str      r1, [fp, #0x54]              
+           00141aa4  ldr      r1, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00141aa8  str      r1, [fp, #0x58]              
+           00141aac  ldr      r0, [r0, #0xc]               ; field+0xc (this-class: <>f__this)
+           00141ab0  str      r0, [fp, #0x5c]              
+           00141ab4  add      r0, fp, #0x60                
+           00141ab8  ldr      r1, [fp, #0x40]              
+           00141abc  ldr      r2, [fp, #0x44]              
+           00141ac0  ldr      r3, [fp, #0x48]              
+           00141ac4  ldr      ip, [fp, #0x4c]              
+           00141ac8  str      ip, [sp]                     
+           00141acc  ldr      ip, [fp, #0x50]              
+           00141ad0  str      ip, [sp, #4]                 
+           00141ad4  ldr      ip, [fp, #0x54]              
+           00141ad8  str      ip, [sp, #8]                 
+           00141adc  ldr      ip, [fp, #0x58]              
+           00141ae0  str      ip, [sp, #0xc]               
+           00141ae4  ldr      ip, [fp, #0x5c]              
+           00141ae8  str      ip, [sp, #0x10]              
+           00141aec  bl       #0x22f460                    ; CALL UnityEngine.Quaternion::op_Multiply
+           00141af0  ldr      ip, [fp, #0x74]              
+           00141af4  mov      r0, ip                       
+           00141af8  str      r0, [fp, #0x70]              
+           00141afc  ldr      r1, [fp, #0x60]              
+           00141b00  ldr      r2, [fp, #0x64]              
+           00141b04  ldr      r3, [fp, #0x68]              
+           00141b08  ldr      r0, [fp, #0x6c]              
+           00141b0c  str      r0, [sp]                     
+           00141b10  ldr      r0, [fp, #0x70]              
+           00141b14  ldr      lr, [ip]                     
+           00141b18  bl       #0x22b190                    ; CALL UnityEngine.Transform::set_rotation
+L_141b1c:  00141b1c  bl       #0x22b540                    ; CALL UnityEngine.Time::get_fixedDeltaTime
+           00141b20  vmov     s4, r0                       
+           00141b24  vcvt.f64.f32 d2, s4                       
+           00141b28  vstr     d2, [fp, #0x78]              
+           00141b2c  ldr      r0, [pc]                     
+           00141b30  b        #0x141b38                    ; -> L_141b38
+           00141b34  .word    0x00e64cc0                   ; literal 15092928 / 
+L_141b38:  00141b38  ldr      r0, [pc, r0]                 ; GOT[1702] VTABLE UnityEngine.WaitForSeconds
+           00141b3c  bl       #0x22a840                    ; CALL [INTERNAL_METHOD] mono_object_new_ptrfree
+           00141b40  vldr     d2, [fp, #0x78]              
+           00141b44  vcvt.f32.f64 s0, d2                       
+           00141b48  vstr     s0, [fp, #0x38]              
+           00141b4c  vldr     s0, [fp, #0x38]              
+           00141b50  vcvt.f64.f32 d2, s0                       
+           00141b54  vcvt.f32.f64 s0, d2                       
+           00141b58  vstr     s0, [r0, #8]                 ; field+0x8 (this-class: $current)
+           00141b5c  str      r0, [sl, #8]                 ; field+0x8 (this-class: $current)
+           00141b60  mov      r0, #1                       
+           00141b64  str      r0, [sl, #0x10]              ; field+0x10 (this-class: $PC)
+           00141b68  b        #0x141b74                    ; -> L_141b74
+L_141b6c:  00141b6c  mov      r0, #0                       
+           00141b70  b        #0x141b78                    ; -> L_141b78
+L_141b74:  00141b74  mov      r0, #1                       
+L_141b78:  00141b78  add      sp, fp, #0x84                
+           00141b7c  pop      {r8, sl, fp}                 
+           00141b80  ldr      r7, [sp, #8]                 
+           00141b84  ldm      sp, {sp, pc}                 
+
+== RotatorAI/<RotateCoroutine>c__Iterator4::Dispose  token 0x060007e9 @0x00141b88 (56 bytes)
+   args: r0=this, 
+           00141b88  mov      ip, sp                       
+           00141b8c  push     {r7, lr}                     
+           00141b90  mov      r7, sp                       
+           00141b94  push     {r8, fp, ip, lr}             
+           00141b98  sub      sp, sp, #8                   
+           00141b9c  mov      fp, sp                       
+           00141ba0  str      r0, [fp]                     
+           00141ba4  ldr      r0, [fp]                     
+           00141ba8  mvn      r1, #0                       
+           00141bac  str      r1, [r0, #0x10]              ; field+0x10 (this-class: $PC)
+           00141bb0  add      sp, fp, #8                   
+           00141bb4  pop      {r8, fp}                     
+           00141bb8  ldr      r7, [sp, #8]                 
+           00141bbc  ldm      sp, {sp, pc}                 
+
+== RotatorAI/<RotateCoroutine>c__Iterator4::Reset  token 0x060007ea @0x00141bc0 (64 bytes)
+   args: r0=this, 
+           00141bc0  mov      ip, sp                       
+           00141bc4  push     {r7, lr}                     
+           00141bc8  mov      r7, sp                       
+           00141bcc  push     {r8, fp, ip, lr}             
+           00141bd0  sub      sp, sp, #8                   
+           00141bd4  mov      fp, sp                       
+           00141bd8  str      r0, [fp]                     
+           00141bdc  mov      r0, #0x49                    
+           00141be0  add      r0, r0, #0x100               
+           00141be4  add      r0, r0, #0x2000000           
+           00141be8  bl       #0x22f450                    ; CALL [INTERNAL_METHOD] mono_create_corlib_exception_0
+           00141bec  bl       #0x22bf10                    ; CALL [INTERNAL_METHOD] mono_arch_throw_exception
+           00141bf0  add      sp, fp, #8                   
+           00141bf4  pop      {r8, fp}                     
+           00141bf8  ldr      r7, [sp, #8]                 
+           00141bfc  ldm      sp, {sp, pc}                 
