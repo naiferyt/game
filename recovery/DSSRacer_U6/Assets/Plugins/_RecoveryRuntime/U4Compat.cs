@@ -40,6 +40,15 @@ public static class U4Compat
 #endif
 	}
 
+	public static T FindObjectOfType<T>() where T : Object
+	{
+#if UNITY_2023_1_OR_NEWER
+		return Object.FindAnyObjectByType<T>();
+#else
+		return Object.FindObjectOfType<T>();
+#endif
+	}
+
 	// UnityEngine.WWW (removed): the few original download loops only need isDone / error / text.
 	public sealed class WebRequest
 	{
