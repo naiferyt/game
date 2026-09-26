@@ -74,12 +74,53 @@ Volumen inicial: 476 métodos pendientes, ~123 KB de ARM. Resultado: **494 recup
   - No ejercitado: cambiar a un personaje gratuito/comprado y comprobar que persiste entre ejecuciones (hacen falta monedas; se revisará con la tienda local de piezas, Etapa 4). El menú de dificultad no forma parte del flujo PLAY (cada circuito fija su dificultad).
 - [x] 2.9 Cierre: catálogo regenerado, `RECOVERY_PROGRESS.md` y `SINCRONIZAR_A_LOCAL.md` al día.
 
-### Etapa 3 — Carrera mínima  ·  Etapa 4 — Sistemas completos
+### Etapa 3 — Carrera mínima (en curso, desde 2026-09-26)
+Objetivo: tras "Go!", **parrilla → cámara de presentación → cuenta atrás → conducir con teclado → checkpoints y vueltas →
+meta → resultados → reintentar / volver al menú**, con HUD y pausa. La IA rival (rutas grabadas, estados) es de la Etapa 4:
+aquí los rivales aparecen en la parrilla y se tolera que no conduzcan (o lo hagan en modo "gimped" si ya funciona).
+Volumen: **467 métodos pendientes, ~161 KB de ARM** ([catálogo](recovery/catalog/METHOD_CATALOG.md#etapa-3--carrera-mínima-conducir-vueltas-meta-resultados)).
+Pendientes no-traducción: [PENDIENTES_POR_ETAPA §Etapa 3](recovery/catalog/PENDIENTES_POR_ETAPA.md) (3.1–3.9).
+Mismo ciclo por bloque: traducir → `compile_check.py` → Unity con `PlayModeRunner` → documentar → commit.
+
+| Bloque | Clases | Métodos · ARM |
+|---|---|---|
+| Gestión de carrera | `RaceManager`, `CarProgress`, `RaceResults`, `DebugTrackStrapper`, `ObjectTrackDistanceLogic` | 102 · 29,8 KB |
+| Pista | `WaypointLogic`, `SpeedPoint`, `ResetTrigger`, `TerrainEffectTrigger`, `CausticsManager`, `Vector3x.Berp` | 36 · 18,3 KB |
+| Cámaras | `PreRaceCamera`, `FollowCamera`, `CameraWobble` | 17 · 9,5 KB |
+| Vehículo | `CarCollider`, `TriFoot`, `SpringConnection`, `AnimationTire`, `ShadowBlob`, `CarMetrics`, `CatchupNotify` | 109 · 44,2 KB |
+| Control PC | `PlayerKeyboardControl`, `PlayerControlLinker`, `DriftButton`, `ReverseButton` | 22 · 3,9 KB |
+| HUD | `HUDLogic`, `BlipTrackPublisher`, `DriftScalePublisher` | 123 · 33,3 KB |
+| Pausa / resultados | `PausePublisher`, `RaceResultsPublisher`, `PlaySummaryPublisher` | 58 · 22,0 KB |
+
+- [ ] 3.1 **Arranque de la carrera**: `RaceManager` (`InitRace` → `Init`: coches en la parrilla desde `RaceSettings.AICarts` y el kart del jugador, orden de salida, eventos `raceInitFinishedEvent`/`raceEndEvent`, `PreraceCountdown`, `PreLaunchCoroutine`), `CarProgress`, `RaceResults`, `ObjectTrackDistanceLogic`, y `DebugTrackStrapper` (abre una pista directamente con el kart por defecto: acelera todas las pruebas siguientes).
+  Criterio: tras "Go!" los 6 karts aparecen en la parrilla sin excepciones; abrir `Kick Butt Track 1` directamente también arranca la carrera.
+- [ ] 3.2 **Pista**: `WaypointLogic` (precálculos, distancia a lo largo de la pista, muros), `SpeedPoint`, `ResetTrigger`, `TerrainEffectTrigger`, `CausticsManager` (agua animada de Fish Hooks, pendiente 3.1), `Vector3x.Berp`. `ProgressTriggerLogic` ya estaba recuperado (Etapa 0).
+- [ ] 3.3 **Cámaras**: `PreRaceCamera` (recorrido de presentación), `FollowCamera` (persecución, cámara de choque), `CameraWobble`.
+  Criterio: presentación de la pista → cámara detrás del kart del jugador.
+- [ ] 3.4 **Vehículo**: `CarCollider` (movimiento propio con `CAR_GRAVITY=10`, aceleración, giro, derrape y power-slide, colisión con suelo por raycast a `Ground`, muros/límites, calado, sentido contrario, recolocación en pista), `TriFoot` (orientación sobre el terreno con tres raycasts), `SpringConnection` (suspensión de la carrocería), `AnimationTire`, `ShadowBlob`, `CarMetrics`, `CatchupNotify`. Validación de física PhysX 2.8 → moderno (pendientes 3.2, 3.3, 3.8).
+- [ ] 3.5 **Control de PC**: `PlayerKeyboardControl` (acciones originales Accelerate, Break, TurnLeft, TurnRight, Drift, UsePowerup, BuyPowerup, Pause; teclas por defecto del ARM, pendiente 3.5), `PlayerControlLinker`, `DriftButton`, `ReverseButton`. Banco de pruebas: teclas simuladas en `RecoveryTestInput` (solo tooling) para conducir en `PlayModeRunner`.
+- [ ] 3.6 **HUD**: `HUDLogic` (cuenta atrás, posición, vuelta, flechas, avisos de sentido contrario, botón de pausa, notificaciones), `BlipTrackPublisher` (mapa de posiciones), `DriftScalePublisher` (medidor de derrape).
+- [ ] 3.7 **Pausa, resultados y resumen**: `PausePublisher` (continuar / reiniciar / salir), `RaceResultsPublisher` (clasificación, monedas, reintentar, terminar), `PlaySummaryPublisher` (resumen previo cuando la pista tiene opciones de carrera). Vuelta al garaje por `ScreenFader`.
+- [ ] 3.8 **Métodos de la Etapa 4 que la carrera ya ejecuta** (38: `EffectManager`, `PowerupHolder`, `GimpedCarAI`, `CarAI.ClearStates`, `SoundLibrary.PlaySoundOnPlayer`, `MissionManager.Signal`, `AchievementListener.HasAchieved`…): se dejan pendientes salvo que bloqueen la carrera; los que bloqueen se adelantan y se anotan aquí.
+- [ ] 3.9 **Validación en Unity 6.6** (capturas en `recovery/reports/stage3/`):
+  - TEST 5 · parrilla: jugador + 5 rivales colocados en las posiciones de salida, sobre el suelo.
+  - TEST 6 · presentación y cuenta atrás (3-2-1-GO) con el HUD.
+  - TEST 7 · conducción con teclado: acelerar, frenar/marcha atrás, girar, derrapar y power-slide.
+  - TEST 8 · física: suelo, rampas, muros, saltos; `dirt_road2` de Bus Jumper; sin atravesar el terreno.
+  - TEST 9 · checkpoints (`ProgressTriggerLogic`), aviso de sentido contrario y recolocación (`ResetTrigger`).
+  - TEST 10 · vueltas: el contador avanza y el HUD muestra vuelta y posición.
+  - TEST 11 · meta → pantalla de resultados.
+  - TEST 12 · pausa: continuar, reiniciar y salir al menú.
+  - TEST 13 · resultados → reintentar y → volver al garaje; el guardado registra el mejor puesto ("Highest Place <pista>").
+  - Revisión visual: una pista de cada mundo (Kick Buttowski, Phineas and Ferb, Fish Hooks) + Bus Jumper; lightmaps, light probes (pendiente 3.4) y agua de Fish Hooks.
+- [ ] 3.10 Cierre: catálogo regenerado, `RECOVERY_PROGRESS.md` y `SINCRONIZAR_A_LOCAL.md` al día, commit "Etapa 3 completa".
+
+### Etapa 4 — Sistemas completos
 - [ ] (pendiente)
 
 ## Catálogo de trabajo pendiente
-- [recovery/catalog/METHOD_CATALOG.md](recovery/catalog/METHOD_CATALOG.md): los 4477 métodos del juego con su etapa (y [CSV](recovery/catalog/METHOD_CATALOG.csv) con token y dirección ARM). Estado tras la Etapa 2: Etapa 1 = 713 recuperados, 0 pendientes; Etapa 2 = 494 recuperados, 0 pendientes; pendientes Etapa 3 = 419 (+73 ya recuperados), Etapa 4 = 1327 (+148); 269 sin uso detectado, 155 sin uso (incluye `Dialog`, `LEDScroller` y `UghScrollView`, que ningún asset ni código instancia), 19 de depuración, 8 para Android, 664 eliminados.
-- El catálogo cuenta como recuperados los iteradores/lambdas cuyo token cita el C#, y los constructores triviales (≤52 bytes: solo llaman al constructor base) de las clases traducidas; los métodos listados bajo una cabecera `// ELIMINADO` cuentan como eliminados.
+- [recovery/catalog/METHOD_CATALOG.md](recovery/catalog/METHOD_CATALOG.md): los 4477 métodos del juego con su etapa (y [CSV](recovery/catalog/METHOD_CATALOG.csv) con token y dirección ARM). Estado tras la Etapa 2: Etapa 1 = 713 recuperados, 0 pendientes; Etapa 2 = 494 recuperados, 0 pendientes; pendientes Etapa 3 = 467 (+25 ya recuperados), Etapa 4 = 1357 (+118); 269 sin uso detectado, 155 sin uso (incluye `Dialog`, `LEDScroller` y `UghScrollView`, que ningún asset ni código instancia), 19 de depuración, 8 para Android, 664 eliminados.
+- El catálogo cuenta como recuperados los iteradores/lambdas cuyo token cita el C#, y los constructores triviales (≤52 bytes: solo llaman al constructor base) de las clases traducidas (salvo los de clases generadas de iteradores/lambdas: antes contaban como recuperados iteradores de `RaceManager` sin traducir; corregido al empezar la Etapa 3); los métodos listados bajo una cabecera `// ELIMINADO` cuentan como eliminados.
 - [recovery/catalog/PENDIENTES_POR_ETAPA.md](recovery/catalog/PENDIENTES_POR_ETAPA.md): pendientes que no son traducción (agua animada, guardado local, aspecto de pantalla, física, partículas, light probes…).
 - Regenerar tras cada avance: `python forensics/scripts/method_catalog.py && python forensics/scripts/catalog_md.py`.
 

@@ -226,7 +226,8 @@ def main():
     # translate, so they count as recovered once their class has been translated.
     translated_types = set((m['assembly'], m['top']) for m in methods if (m['assembly'], m['token']) in recovered)
     for m in methods:
-        if m['name'] in ('.ctor', '.cctor') and m['bytes'] <= 52 and (m['assembly'], m['top']) in translated_types:
+        # (not for compiler-generated iterator/closure classes: their trivial .ctor would mark the whole class recovered)
+        if m['name'] in ('.ctor', '.cctor') and m['bytes'] <= 52 and (m['assembly'], m['top']) in translated_types                 and not re.search(r'/<.*>c__(Iterator|AnonStorey)', m['type']):
             recovered.add((m['assembly'], m['token']))
     gen_types = collections.defaultdict(list)
     for m in methods:

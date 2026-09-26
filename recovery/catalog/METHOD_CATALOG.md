@@ -19,8 +19,8 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 |---|---:|---:|---:|---:|
 | Etapa 1 — Arranque → Menú principal | 0 | 0 KB | 713 | 0 |
 | Etapa 2 — Menú → selección → carga de la carrera | 0 | 0 KB | 494 | 11 |
-| Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados) | 419 | 153 KB | 73 | 7 |
-| Etapa 4 — Sistemas completos | 1327 | 260 KB | 148 | 69 |
+| Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados) | 467 | 161 KB | 25 | 7 |
+| Etapa 4 — Sistemas completos | 1357 | 265 KB | 118 | 69 |
 | Port Android (después de la Fase 4) | 8 | 1 KB | 0 | 0 |
 | Opcional — herramientas de depuración del equipo original | 19 | 3 KB | 0 | 0 |
 | Sin uso detectado (no se traducen salvo que aparezcan en el log) | 269 | 78 KB | 0 | 0 |
@@ -381,14 +381,14 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `DebugTrackStrapper` | `.ctor` (268), `Start` (364) |
 | `ObjectTrackDistanceLogic` | `.ctor` (52), `CalculateTrackDistance` (120), `OnDisable` (144), `OnEnable` (144), `Start` (44), `Update` (44) |
 | `RaceManager` | ✅ `.cctor` (36), `.ctor` (60), `<CalculateCarPositions>m__12` (216), `<EndRace>m__14` (352), `<EndRace>m__15` (92), `<Init>m__13` (96), `AdvanceCarLap` (2164), `CalculateCarPositionPump` (72), `CalculateCarPositions` (1640), `CleanupRace` (340), `DoFinishLineEffect` (92), `EliminateCar` (88), `EndRace` (2372), `GetCarInPosition` (152), `GetCarIsActive` (140), `GetCarLap` (92), `GetCarLastProgressTrigger` (132), `GetCarLastTrackDistance` (184), `GetCarPosition` (120), `GetOrderedCarList` (208), `GetPlayerCar` (44), `Init` (5264), `InitRace` (136) ⚠Etapa 2, `IsPlayerCar` (60), `PauseRace` (596), `PlayAmbientNoise` (316), `PlayRandomAnimation` (332), `PostRaceCountdown` (88), `PreLaunchCoroutine` (72), `PreraceCountdown` (72), `RaceOutCoroutine` (64), `RaceRewind` (1788), `RecordSnapshot` (1484), `SetCarProgressTrigger` (92), `SpawnCoins` (56), `SpawnCoins` (488), `StartMusic` (684), `StartRaceRewind` (76), ✅ `add_raceInitFinishedEvent` (160), ✅ `get_Exists` (64), ✅ `get_Instance` (460), `get_allCars` (84), `get_elapsedTime` (316), ✅ `get_isPaused` (72) ⚠Etapa 1, `get_lastWaypoint` (84), `get_leadCar` (44), `get_totalNumLaps` (44), `get_totalTrackLength` (120), ✅ `remove_raceInitFinishedEvent` (160) |
-| `RaceManager/<CalculateCarPositionPump>c__Iterator41` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (204), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<DoFinishLineEffect>c__Iterator43` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1484), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<EliminateCar>c__Iterator46` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1180), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<PostRaceCountdown>c__Iterator44` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1404), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<PreLaunchCoroutine>c__Iterator45` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (328), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<PreraceCountdown>c__Iterator42` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (688), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<RaceOutCoroutine>c__Iterator40` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (480), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<StartRaceRewind>c__Iterator47` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (204), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<CalculateCarPositionPump>c__Iterator41` | `.ctor` (44), `Dispose` (56), `MoveNext` (204), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<DoFinishLineEffect>c__Iterator43` | `.ctor` (44), `Dispose` (56), `MoveNext` (1484), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<EliminateCar>c__Iterator46` | `.ctor` (44), `Dispose` (56), `MoveNext` (1180), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<PostRaceCountdown>c__Iterator44` | `.ctor` (44), `Dispose` (56), `MoveNext` (1404), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<PreLaunchCoroutine>c__Iterator45` | `.ctor` (44), `Dispose` (56), `MoveNext` (328), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<PreraceCountdown>c__Iterator42` | `.ctor` (44), `Dispose` (56), `MoveNext` (688), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<RaceOutCoroutine>c__Iterator40` | `.ctor` (44), `Dispose` (56), `MoveNext` (480), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<StartRaceRewind>c__Iterator47` | `.ctor` (44), `Dispose` (56), `MoveNext` (204), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `RaceResults` | `.ctor` (60) |
 
 ### Pista: waypoints, vueltas, respawn, superficies — 38 métodos, 18.3 KB ARM
@@ -615,13 +615,13 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | Clase | Métodos (bytes ARM) |
 |---|---|
 | `CartCustomizerPublisher` | `.ctor` (196), `BuyPart` (892), `CameraWaitAndRefresh` (88), `CloseLockedMenu` (156), `EquipPart` (748), `GetPaintMenuIsOut` (52), `InitialWaitForLoadCoroutine` (72), ✅ `IsTemporaryInSlot` (288) ⚠Etapa 2, `OnBikeToggleChanged` (56), `OnBodyToggleChanged` (56), `OnDisable` (88), `OnScoopToggleChanged` (56), `OnSpoilerToggleChanged` (56), `OnThrusterToggleChanged` (56), `OnTrikeToggleChanged` (56), `OnTruckToggleChanged` (56), `OnWheelToggleChanged` (56), `OpenBuyPaint` (804), `OpenPaintIsLocked` (304), `PopulatePaintMenu` (1056), `PressedAction` (184), `PressedBikeForm` (76), `PressedBodySlot` (76), `PressedBuyPaint` (1280), `PressedClosePaint` (208), `PressedDownArrow` (644), `PressedLeftArrow` (516), `PressedOkPaint` (208), `PressedPaint` (264), `PressedRightArrow` (696), `PressedScoopSlot` (76), `PressedSpoilerSlot` (76), `PressedThrusterSlot` (76), `PressedTrikeForm` (76), `PressedTruckForm` (76), `PressedUpArrow` (644), `PressedWheelsSlot` (76), `Refresh` (172) ⚠Etapa 1, `RefreshDisplay` (2552), `RefreshFormToggles` (552), `RefreshNavBlips` (1700), `RefreshStatBars` (1380), `RefreshToggles` (372), `ResetPaintInSlot` (244), `ResetPreviewSlot` (160), `SetCameraToSlot` (472), `SetStatBar` (1064), `SetToSpecificPart` (456), `SetViewingPaintIndex` (504), `SlideBodyFormBox` (88), `Start` (72), `SwitchFormType` (468), `SwitchSlot` (952), `Update` (1896), `get_CurrentSlot` (52) |
-| `CartCustomizerPublisher/<CameraWaitAndRefresh>c__Iterator50` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (220), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `CartCustomizerPublisher/<InitialWaitForLoadCoroutine>c__Iterator52` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (360), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `CartCustomizerPublisher/<PressedDownArrow>c__AnonStorey9F` | ✅ `.ctor` (44), ✅ `<>m__22` (84) |
-| `CartCustomizerPublisher/<PressedUpArrow>c__AnonStorey9E` | ✅ `.ctor` (44), ✅ `<>m__21` (84) |
-| `CartCustomizerPublisher/<SetCameraToSlot>c__AnonStorey9D` | ✅ `.ctor` (44), ✅ `<>m__20` (136) |
-| `CartCustomizerPublisher/<SlideBodyFormBox>c__Iterator51` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (984), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
-| `CartCustomizerPublisher/<Start>c__Iterator53` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (2932), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `CartCustomizerPublisher/<CameraWaitAndRefresh>c__Iterator50` | `.ctor` (44), `Dispose` (56), `MoveNext` (220), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `CartCustomizerPublisher/<InitialWaitForLoadCoroutine>c__Iterator52` | `.ctor` (44), `Dispose` (56), `MoveNext` (360), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `CartCustomizerPublisher/<PressedDownArrow>c__AnonStorey9F` | `.ctor` (44), `<>m__22` (84) |
+| `CartCustomizerPublisher/<PressedUpArrow>c__AnonStorey9E` | `.ctor` (44), `<>m__21` (84) |
+| `CartCustomizerPublisher/<SetCameraToSlot>c__AnonStorey9D` | `.ctor` (44), `<>m__20` (136) |
+| `CartCustomizerPublisher/<SlideBodyFormBox>c__Iterator51` | `.ctor` (44), `Dispose` (56), `MoveNext` (984), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `CartCustomizerPublisher/<Start>c__Iterator53` | `.ctor` (44), `Dispose` (56), `MoveNext` (2932), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `PaintSlotPublisher` | `.ctor` (52), `OnDestroy` (80), `PressedPaintButton` (144), `SetPaint` (1148), `Start` (140) |
 
 ### Audio (música, SFX, voces) — 120 métodos, 17.3 KB ARM
