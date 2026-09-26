@@ -106,6 +106,7 @@ En la Etapa 1 además: notificaciones locales de iOS del bono diario, aviso de c
 - En esta máquina Unity necesita `DOTNET_gcServer=0` y `DOTNET_GCHeapHardLimit` para que sus compiladores .NET arranquen (memoria comprometible libre ~5 GB).
 
 - **Etapa 1 · `ShiftUIPublisher.Start`**: llama a `UpdateCharacterIcon(PlayerInstance.GetCartSlot(character).partInSlot.UIName.baseText)`; hasta recuperar `PlayerInstance.Bootstrap` y `CartPartList` (Etapa 2, piezas del kart) la ranura es nula y se registra **una** `NullReferenceException` al entrar al garaje (el icono de personaje de la palanca no se actualiza; el resto funciona).
+- **Etapa 1 · `Fader SpriteAtlas.mat` aparece modificado tras jugar en el editor**: `ScreenFader` (original) cambia la opacidad del material compartido; en el editor Unity lo guarda en el `.mat`. Es inofensivo (en un build no persiste); descartar ese cambio con `git checkout` antes de hacer commit.
 - **Etapa 1 → 2 · PLAY no abre "Circuit Select"** hasta recuperar `PreviewCart.StartDriveout`/`IsLoading` (Etapa 2).
 - **Etapa 1 · `Trying to save, but there is a null value?`** (×2) al pulsar PLAY: aviso del propio `DataUtility.Save` original con un valor aún nulo (probablemente la ranura del kart, Etapa 2); revisar en la Etapa 2.
 - **Etapa 1 · `FrontEndLogic.NeedMoreCoins`** eliminado con la tienda: el aviso informativo "Need More Tokens" que mostraba ese mismo popup (sin compra) tampoco aparece; revisar en la Etapa 4 (compra de piezas) si hace falta un aviso local.
