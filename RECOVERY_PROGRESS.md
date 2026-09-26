@@ -28,7 +28,7 @@ Estrategia y decisiones: [RECOVERY_REPORT.md](RECOVERY_REPORT.md) §11–§12. E
   - Capturas de las 16 escenas: `recovery/reports/stage0/screens/`
 - [x] **Etapa 0 completa**
 
-### Etapa 1 — Boot → Menú (traducción completa; falta validarla en Unity)
+### Etapa 1 — Boot → Menú ✅ (traducida y validada en Unity 6.6 local, 2026-09-26)
 - [x] 1.1 Banco de pruebas: `PlayModeRunner` (Play Mode desatendido con log de `RecoveryPending`, errores, cambios de escena, capturas y clics simulados vía `RecoveryTestInput`) · `forensics/scripts/mcs_check/compile_check.sh` (compila el C# contra el `UnityEngine.dll` original de Unity 4.3 + un shim de las API de Unity 6: detecta errores sin abrir Unity)
 - [x] 1.2 Núcleo: `Script`, `SingletonScript<T>`, `EnsureGlobals`, `DataUtility` + `CloudSaveData`/`LocalOptionsData`/`LifetimeMetrics` con guardado local (`LocalSaveStore`, mismas claves y codificación que JCloud), `Localize`/`MiniJSON`/`DictionaryToString`/`LocalizedString`
 - [x] 1.3 Arranque: `CloudStrap` → `FrontEndTest` (`SceneManager`), `LocalizeCloudStrap`, `RotatorAI`, puente `OnLevelWasLoaded` (U4Compat)
@@ -37,7 +37,14 @@ Estrategia y decisiones: [RECOVERY_REPORT.md](RECOVERY_REPORT.md) §11–§12. E
 - [x] 1.6 Menú: `FrontEndLogic` (menús, transiciones, bono diario con reloj local), `FrontEndCamera(Target)`, `FadeHelper`, `ScreenFade`, `ScreenFader`, `Mathfx`, `ShiftUIPublisher`, `PlayMenuPublisher`, `ShiftContentsOn*Down`, `CameraShake`, `LiftControlAI`
 - [x] 1.7 Ajustes y créditos: `SettingsMenuPublisher`, `VolumeSlider`, `CreditsPublisher`, `ConfirmationPublisher`, `InputBlocker`, `DailyBonusPublisher`, `GenericPopupPublisher`, `PopoverPublisher` (botones de servicios eliminados ocultos)
 - [x] 1.8 Cierre: `PreFrontEndHoop`, `ScreenTimeoutController`, `QualityControl`, `LowEndInhibitor` (calidad fija PC), `AnimatedTexture`, `ExternalPersistentArchive`, `AudioManager`/`AudioCrumb`/`AudioSourcex`; fontanería mínima de etapas posteriores que el arranque lee (`AchievementManager.Instance/Awake/Start/AllAchievements`, accesores de `TrackUnlockHelper`)
-- [ ] 1.9 **Validación en Unity** (no se puede ejecutar en la nube): abrir con `recovery/AbrirUnity.bat` y lanzar `forensics/scripts/run_play.sh "Assets/Scenes/CloudStrap.unity" 15 boot` (o el menú del editor); revisar `recovery/logs/playrun_boot.log` y las capturas
+- [x] 1.9 **Validación en Unity 6.6 (PC local)** con `PlayModeRunner` y clics simulados por nombre de objeto:
+  - Arranque: `CloudStrap` → `FrontEndTest` en ~1,3 s; guardado local operativo (idioma, claves, métricas; "Times Loaded" incrementa).
+  - Menú principal visible: logo, PLAY, engranaje (captura `recovery/reports/stage1/`).
+  - **Ajustes**: la cámara va al monitor, aparece la palanca original (trofeo, personalización, bandera, personaje, ajustes) y el panel SETTINGS con volumen de música y efectos, "Reset Data" y "Credits". **Créditos**: pantalla original completa (Gravity/Graveck, v1.3.0).
+  - **PLAY**: retira el menú, guarda y mueve la cámara (el monitor pasa al mapa). El menú "Circuit Select" no llega a mostrarse porque el flujo original espera a `PreviewCart.StartDriveout` (salida del kart del garaje, **Etapa 2**).
+  - Errores: solo la `NullReferenceException` conocida de `ShiftUIPublisher.Start` y el ruido interno del editor (`SearchDatabase`).
+  - Corrección aplicada: `Main Body` de `SettingsMenu` venía inactivo y lo activaba el Age Gate al acertar (`AgeGatePopup.TestAnswer` → `enabler.SetActive(true)`); con el gate ELIMINADO se aplica ese resultado en el prefab (sin él, Ajustes se abría vacío).
+  - Banco de pruebas: la pantalla virtual en batch mide 640×480; los clics por coordenadas fallaban en elementos anclados a esquinas → nuevos clics `obj:<nombre>` y volcado de estado `-runDump` (campos por reflexión y renderers de un objeto).
 
 Resultado esperado de la validación: logo → garaje con el menú Play (Play / Settings / Info); Settings abre ajustes (volumen, créditos, borrar datos); Play gira la palanca y pide el menú "Circuit Select" (su contenido es de la Etapa 2). Sin kart, sin música ni efectos (Etapa 2/4). Solo avisos `[RecoveryPending]` de sistemas de etapas posteriores, más la excepción conocida de `ShiftUIPublisher.Start` (ver KNOWN ISSUES).
 
@@ -99,6 +106,8 @@ En la Etapa 1 además: notificaciones locales de iOS del bono diario, aviso de c
 - En esta máquina Unity necesita `DOTNET_gcServer=0` y `DOTNET_GCHeapHardLimit` para que sus compiladores .NET arranquen (memoria comprometible libre ~5 GB).
 
 - **Etapa 1 · `ShiftUIPublisher.Start`**: llama a `UpdateCharacterIcon(PlayerInstance.GetCartSlot(character).partInSlot.UIName.baseText)`; hasta recuperar `PlayerInstance.Bootstrap` y `CartPartList` (Etapa 2, piezas del kart) la ranura es nula y se registra **una** `NullReferenceException` al entrar al garaje (el icono de personaje de la palanca no se actualiza; el resto funciona).
+- **Etapa 1 → 2 · PLAY no abre "Circuit Select"** hasta recuperar `PreviewCart.StartDriveout`/`IsLoading` (Etapa 2).
+- **Etapa 1 · `Trying to save, but there is a null value?`** (×2) al pulsar PLAY: aviso del propio `DataUtility.Save` original con un valor aún nulo (probablemente la ranura del kart, Etapa 2); revisar en la Etapa 2.
 - **Etapa 1 · `FrontEndLogic.NeedMoreCoins`** eliminado con la tienda: el aviso informativo "Need More Tokens" que mostraba ese mismo popup (sin compra) tampoco aparece; revisar en la Etapa 4 (compra de piezas) si hace falta un aviso local.
 - **Etapa 1 · comportamientos originales conservados tal cual**: `FadeHelper.IsFading(Transform)` solo termina si la jerarquía tiene algún `Renderer` (los menús siempre lo tienen); `Dialog.Awake` arrancaba su corrutina `Start` además de la que lanza Unity; `Mathfx.Parameter` interpola la primera mitad con `(0.5 - value) * 2`; `AudioCrumb.Play` aplica el volumen de efectos dos veces; `FrontEndCamera.SetCameraTargetByIndex` acepta `index == Length`.
 - **Etapa 1 · puente `OnLevelWasLoaded`**: Unity 6 ya no envía ese mensaje; `U4Compat` envía `OnLevelWasLoadedU6` a todos los GameObjects tras cada carga no aditiva (los tres receptores originales se renombraron para no recibirlo dos veces). Validar el orden respecto a `Start` en la prueba en Unity.

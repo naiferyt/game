@@ -88,6 +88,15 @@ def main():
             for fid in removed:
                 text = re.sub(r'^  - 114: \{fileID: %s\}\n' % fid, '', text, flags=re.M)
                 report.append(dict(file=rel, action='removed AgeGatePopup component', fileID=fid))
+            # The Age Gate, when answered correctly, did enabler.SetActive(true) (AgeGatePopup.TestAnswer,
+            # token 0x060005e3); enabler = 'Main Body' (fileID 103859, inactive in the original prefab).
+            # With the gate removed, apply that outcome directly or Settings opens empty.
+            D = docs(text)
+            if '103859' in D:
+                c, a, b = D['103859']; seg = text[a:b]
+                if 'm_Name: Main Body' in seg and 'm_IsActive: 0' in seg:
+                    text = text[:a] + seg.replace('m_IsActive: 0', 'm_IsActive: 1', 1) + text[b:]
+                    report.append(dict(file=rel, object='Main Body', action='activated', why='ELIMINADO Age Gate: resultado de acertarlo'))
         if text != orig:
             open(f, 'w', encoding='utf8', newline='\n').write(text)
     # 4) build settings: drop MoreDisney
