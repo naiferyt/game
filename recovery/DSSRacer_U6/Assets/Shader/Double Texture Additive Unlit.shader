@@ -1,3 +1,4 @@
+// RECUPERADO: original ShaderLab text from the build (fixed-function), unchanged.
 Shader "Additive Unlit Double Texture" {
 Properties {
  _Color ("Main Color", Color) = (1,1,1,1)

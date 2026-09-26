@@ -1,3 +1,4 @@
+// RECUPERADO: original ShaderLab text from the build (fixed-function), unchanged.
 Shader "iPhone/Transparent And Color Unlit" {
 Properties {
  _Color ("Main Color", Color) = (1,1,1,1)
