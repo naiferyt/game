@@ -241,7 +241,7 @@ for idx in range(start, min(end, len(lines))):
         last_cmp = ('%s & %s' % (operand(a[0]), operand(a[1])), '0')
         continue
     # --- branches and calls
-    if op.startswith('b') and not op.startswith('bl') and op not in ('bic',):
+    if re.fullmatch(r'b(eq|ne|lt|le|gt|ge|mi|pl|hi|ls|hs|lo|vs|vc|al)?', op):
         tgt = re.search(r'-> (L_\w+)', comment)
         tgt = tgt.group(1) if tgt else a[0] if a else '?'
         c = op[1:]
@@ -251,7 +251,7 @@ for idx in range(start, min(end, len(lines))):
             x, y = last_cmp or ('?', '?')
             emit('   if (%s %s %s) goto %s' % (x, COND.get(c, c), y, tgt))
         continue
-    if op.startswith('bl'):
+    if re.fullmatch(r'bl(eq|ne|lt|le|gt|ge|mi|pl|hi|ls|hs|lo|vs|vc)?|blx', op):
         name = re.search(r'CALL (.*?)(?: \(direct\))?$', comment)
         name = name.group(1).strip() if name else ('THROW' if 'THROW' in comment else a[0])
         if 'THROW' in comment:
