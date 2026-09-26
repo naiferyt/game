@@ -163,7 +163,9 @@ def process_scene(scene_path, guid2mesh, report):
                 loc = [loc[k + d] for k in range(0, len(loc), 3) for d in (0, 2, 1)]
             sub_lists.append(loc)
         attrs = {}
-        pos_w = np.array([cm.attr_cache(0)[i] for i in order]) if hasattr(cm, 'attr_cache') else None
+        if not order:   # subset without triangles: drew nothing in the original either
+            edits.append((mfid, 'nomesh', None)); edits.append((rfid, 'subset', None))
+            report['empty_subset'] += 1; continue
         if not hasattr(cm, '_attrs'): cm._attrs = {ci: cm.attr(ci) for ci in range(6)}
         P = np.array([cm._attrs[0][i] for i in order], dtype=np.float64)
         Pl = (Minv @ np.c_[P, np.ones(len(P))].T).T[:, :3]
@@ -217,7 +219,9 @@ def process_scene(scene_path, guid2mesh, report):
     # apply edits (bottom-up so offsets stay valid)
     for fid, kind, g in sorted(edits, key=lambda e: D[e[0]][1], reverse=True):
         a, b = D[fid][1], D[fid][2]; seg = text[a:b]
-        if kind == 'mesh':
+        if kind == 'nomesh':
+            seg = re.sub(r'm_Mesh: \{fileID: -?\d+, guid: \w+, type: \d\}', 'm_Mesh: {fileID: 0}', seg, count=1)
+        elif kind == 'mesh':
             seg = re.sub(r'm_Mesh: \{fileID: -?\d+, guid: \w+, type: \d\}', 'm_Mesh: {fileID: 4300000, guid: %s, type: 2}' % g, seg, count=1)
         else:
             seg = re.sub(r'm_SubsetIndices: ?[0-9a-f]*', 'm_SubsetIndices: ', seg, count=1)
