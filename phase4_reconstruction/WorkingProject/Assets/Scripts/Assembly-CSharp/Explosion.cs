@@ -1,0 +1,19 @@
+using System.Collections;
+using UnityEngine;
+
+public class Explosion : MonoBehaviour
+{
+	private void Start()
+	{
+	}
+
+	private void Update()
+	{
+	}
+
+	[System.Diagnostics.DebuggerHidden]
+	private IEnumerator ExplosionDeath()
+	{
+		return default(IEnumerator);
+	}
+}

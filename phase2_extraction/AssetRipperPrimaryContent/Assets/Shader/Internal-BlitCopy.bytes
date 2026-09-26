@@ -1,0 +1,53 @@
+Shader "Hidden/BlitCopy" {
+Properties {
+ _MainTex ("", any) = "" {}
+}
+SubShader { 
+ Pass {
+  ZTest Always
+  ZWrite Off
+  Cull Off
+  Fog { Mode Off }
+Program "vp" {
+SubProgram "gles " {
+"!!GLES
+
+
+#ifdef VERTEX
+
+varying highp vec2 xlv_TEXCOORD0;
+uniform highp mat4 glstate_matrix_mvp;
+attribute vec4 _glesMultiTexCoord0;
+attribute vec4 _glesVertex;
+void main ()
+{
+  gl_Position = (glstate_matrix_mvp * _glesVertex);
+  xlv_TEXCOORD0 = _glesMultiTexCoord0.xy;
+}
+
+
+
+#endif
+#ifdef FRAGMENT
+
+varying highp vec2 xlv_TEXCOORD0;
+uniform sampler2D _MainTex;
+void main ()
+{
+  gl_FragData[0] = texture2D (_MainTex, xlv_TEXCOORD0);
+}
+
+
+
+#endif"
+}
+}
+Program "fp" {
+SubProgram "gles " {
+"!!GLES"
+}
+}
+ }
+}
+Fallback Off
+}

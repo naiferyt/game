@@ -1,0 +1,49 @@
+using UnityEngine;
+
+public class CartPart : MonoBehaviour
+{
+	public LocalizedString UIName;
+
+	public int cost;
+
+	public UnlocalizedString bundlePath;
+
+	public UnlocalizedString resourcePath;
+
+	public CartSlot.Slots cartSlot;
+
+	public AlternateForm alternateForms;
+
+	public CartAttributes cartAttributeMods;
+
+	public PaintJob[] validPaintJobs;
+
+	public bool IsLocked
+	{
+		get
+		{
+			return default(bool);
+		}
+	}
+
+	public bool AreAllAlternateFormsLocked
+	{
+		get
+		{
+			return default(bool);
+		}
+	}
+
+	public AlternateForm.BodyForm bodyFormType
+	{
+		get
+		{
+			return default(AlternateForm.BodyForm);
+		}
+	}
+
+	public CartPart GetAlternatePartOfForm(AlternateForm.BodyForm form)
+	{
+		return default(CartPart);
+	}
+}

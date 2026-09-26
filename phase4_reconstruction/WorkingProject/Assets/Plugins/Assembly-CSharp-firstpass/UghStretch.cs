@@ -1,0 +1,77 @@
+using System.Runtime.CompilerServices;
+using UnityEngine;
+
+[RequireComponent(typeof(UghSprite), typeof(UghSprite))]
+public class UghStretch : MonoBehaviour
+{
+	public enum StretchType
+	{
+		AnchorToPoint = 0,
+		PointToPoint = 1
+	}
+
+	public delegate void MPDirtyAlignHandler(UghStretch theStretcher);
+
+	public bool stretchX;
+
+	public bool stretchY;
+
+	public UghSprite stretchToPoint1;
+
+	public UghSprite.Anchor point1Anchor;
+
+	public Vector3 point1AnchorOffset;
+
+	public UghSprite stretchToPoint2;
+
+	public UghSprite.Anchor point2Anchor;
+
+	public Vector3 point2AnchorOffset;
+
+	private Vector3 cachedPreStretchSize;
+
+	private bool isDirty;
+
+	public bool IsDirty
+	{
+		get
+		{
+			return default(bool);
+		}
+		set
+		{
+		}
+	}
+
+	public static event MPDirtyAlignHandler HandleMPDirtyAlign
+	{
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		add
+		{
+		}
+		[MethodImpl(MethodImplOptions.Synchronized)]
+		remove
+		{
+		}
+	}
+
+	private void DoSignalDirtyAlign()
+	{
+	}
+
+	private void OnDrawGizmos()
+	{
+	}
+
+	private void Start()
+	{
+	}
+
+	public void Align()
+	{
+	}
+
+	private void Update()
+	{
+	}
+}
