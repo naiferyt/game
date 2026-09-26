@@ -66,16 +66,17 @@ public abstract class BaseEffect
 		}
 	}
 
+	// RECUPERADO-AOT BaseEffect::get_IsMultiLevel token 0x0600034b @0x000f0744
+	// RECUPERADO-AOT BaseEffect::set_IsMultiLevel token 0x0600034c @0x000f0778
 	public bool IsMultiLevel
 	{
 		get
 		{
-			RecoveryPending.Hit("BaseEffect.get_IsMultiLevel");
-			return default(bool);
+			return isMultiLevel;
 		}
 		set
 		{
-			RecoveryPending.Hit("BaseEffect.set_IsMultiLevel");
+			isMultiLevel = value;
 		}
 	}
 

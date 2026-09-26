@@ -35,10 +35,10 @@ public class MissionManager : MonoBehaviour
 		}
 	}
 
+	// RECUPERADO-AOT MissionManager::GetHasStartedFirstMission token 0x060002ce @0x000ebc4c
 	public bool GetHasStartedFirstMission()
 	{
-		RecoveryPending.Hit("MissionManager.GetHasStartedFirstMission");
-		return default(bool);
+		return hasStartedFirstMission;
 	}
 
 	[DebuggerHidden]
