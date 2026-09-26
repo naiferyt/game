@@ -77,28 +77,47 @@ public class RaceManager : MonoBehaviour
 
 	public static RaceManager Instance
 	{
+		// RECUPERADO-AOT RaceManager.get_Instance token 0x0600052d @0x0010e64c
 		get
 		{
-			RecoveryPending.Hit("RaceManager.get_Instance");
-			return default(RaceManager);
+			if (s_Instance == null)
+			{
+				// ADAPTADO-U6: Object.FindObjectOfType -> U4Compat (FindAnyObjectByType)
+				s_Instance = U4Compat.FindObjectOfType(typeof(RaceManager)) as RaceManager;
+				if (s_Instance == null)
+				{
+					GameObject go = new GameObject("+RaceManager");
+					// ADAPTADO-U6: AddComponent("RaceManager") (string overload removed) -> AddComponent<RaceManager>()
+					s_Instance = go.AddComponent<RaceManager>();
+					if (s_Instance == null)
+					{
+						UnityEngine.Debug.LogError("Could not create an instance of RaceManager!");
+					}
+				}
+			}
+			return s_Instance;
 		}
 	}
 
 	public static bool Exists
 	{
+		// RECUPERADO-AOT RaceManager.get_Exists token 0x0600052e @0x0010e818
 		get
 		{
-			RecoveryPending.Hit("RaceManager.get_Exists");
-			return default(bool);
+			return s_Instance != null;
 		}
 	}
 
 	public static bool isPaused
 	{
+		// RECUPERADO-AOT RaceManager.get_isPaused token 0x0600052f @0x0010e858
 		get
 		{
-			RecoveryPending.Hit("RaceManager.get_isPaused");
-			return default(bool);
+			if (!Exists)
+			{
+				return false;
+			}
+			return Instance.isPausedState;
 		}
 	}
 
