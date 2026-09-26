@@ -52,29 +52,33 @@ Métodos de etapas posteriores que el arranque llama y siguen pendientes (devuel
 
 Herramientas nuevas: `forensics/scripts/armsym.py` (evaluador simbólico de código ARM de coma flotante), `U4Compat` (`FindObjectOfType(s)`, `WebRequest`, puente `OnLevelWasLoaded`), `LocalSaveStore`.
 
-### Etapa 2 — Menú → selección → carga de la carrera (en curso, desde 2026-09-26)
-Objetivo: desde el garaje, **PLAY → circuito → pista → dificultad → `Loading` → escena de pista cargada** con el kart del jugador
+### Etapa 2 — Menú → selección → carga de la carrera ✅ (traducida y validada en Unity 6.6 local, 2026-09-26)
+Objetivo: desde el garaje, **PLAY → circuito → pista → `Loading` → escena de pista cargada** con el kart del jugador
 construido; y **personaje** elegible en el menú CharacterSelect, con el kart y el personaje visibles en el garaje.
-Volumen: 476 métodos pendientes, ~123 KB de ARM ([catálogo](recovery/catalog/METHOD_CATALOG.md#etapa-2--menú--selección--carga-de-la-carrera)).
-Orden de trabajo (cada bloque: traducir → `compile_check.py` → prueba en Unity con `PlayModeRunner` → documentar → commit):
+Volumen inicial: 476 métodos pendientes, ~123 KB de ARM. Resultado: **494 recuperados, 0 pendientes** en la Etapa 2
+([catálogo](recovery/catalog/METHOD_CATALOG.md#etapa-2--menú--selección--carga-de-la-carrera)).
 
-- [ ] 2.1 **Datos del kart**: `CartSlot` (tablas estáticas: nombres, objetos destino, ranuras obligatorias, cámara del customizador), `CartPart`, `AlternateForm`, `PaintJob`, `CartAttributes`, `CartPartList` (mapas por ranura, piezas por defecto, consultas de coste; `LoadPartCosts` lee **solo la caché local** cifrada, la descarga está ELIMINADA), `CharacterConfigData` (config por defecto local), `PlayerInstance` (`Instance`, `Awake/Start`, `Bootstrap`, `GetCartSlot`, `MatchAlternateForms`).
-  Criterio: desaparece la `NullReferenceException` de `ShiftUIPublisher.Start` y los avisos `Trying to save, but there is a null value?`; el icono de personaje de la palanca se actualiza.
-- [ ] 2.2 **Streaming (ruta RESOURCE)**: `StreamManager` (+ `Asset`, `AssetCluster`, `LoadAsset`), confirmando en el ARM que iOS usaba `Resources` (`PrependRootFileLocation`); la rama AssetBundle se conserva compilada y sin uso (ADAPTADO-U6).
-- [ ] 2.3 **Texturas compuestas del kart**: `MultilayerTexture`, `StreamedMultilayerTexture`, `CompositeTextureUtil` (+ `AsyncTextureProcessor`), `CompositeProfile`, `CartPrimaryTextureProfile`, `SourceFactory`. Si la vista previa necesita los 8 `MultilayerTextureBundleDef` que AssetRipper no leyó, se extraen con UnityPy (pendiente 2.5 de [PENDIENTES_POR_ETAPA](recovery/catalog/PENDIENTES_POR_ETAPA.md)).
-- [ ] 2.4 **Kart y personaje en el garaje**: `PlayerInstance.ConstructCart/GetConstructedCart/ReleaseCart`, `PreviewCart` (piezas, pinturas, transparencias, `IsLoading`, `StartDriveout`/`DriveOutCoroutine`), `CharacterPreview` (personaje, animaciones idle).
-  Criterio: el kart por defecto aparece en el garaje; PLAY hace salir el kart y abre "Circuit Select".
-- [ ] 2.5 **Selección**: `SelectCircuitPublisher` (banners, trofeos, Tutorial, Pranksgiving con interruptor local D2), `UnlockedCircuitPublisher`, `TrackSelectPublisher` (miniaturas, medallas), `DifficultyMenuPublisher`, resto de `TrackUnlockHelper` (`IsCircuitUnlocked`, medallas, `TestForUltraHard`…), `CharacterSelectPublisher` + `CharacterButtonPublisher` (logos localizados, barras de atributos).
-- [ ] 2.6 **Carga de la carrera**: `RaceSettings` (`GetCircuit`, `DetermineAICars`, `GatherRequiredAssets`, `StartBundleLoads`, `Launch`), `LoadingPublisher` (espera de assets, del kart y de la escena; texto de misión; botón Go), `LoadSpin`. Escena `Loading` → pista con `SceneManager` (ADAPTADO-U6).
-- [ ] 2.7 **Métodos de Etapas 3/4 que este flujo ya ejecuta** (`RaceManager.InitRace`, `AnimationDriver`, `AchievementManager.ChooseActiveListeners/ClearActiveListeners`, `CharacterVOController.PlayCharacterSelect`, `ParticleLibrary.GetPrefab/Instance`, `CartCustomizerPublisher.IsTemporaryInSlot`): se dejan pendientes salvo que bloqueen el flujo; si bloquean, se adelantan.
-- [ ] 2.8 **Validación en Unity 6.6** (TEST 3 y 4): escenario desatendido `CloudStrap` → PLAY → circuito 1 → pista 1 → dificultad → `Loading` → pista, con capturas en cada menú; CharacterSelect cambia de personaje y el garaje lo muestra; guardado local conserva kart y personaje entre ejecuciones. Resultado esperado al terminar: la pista se carga con el kart del jugador en la parrilla, **sin conducir aún** (Etapa 3).
-- [ ] 2.9 Cierre: catálogo regenerado, `RECOVERY_PROGRESS.md` y `SINCRONIZAR_A_LOCAL.md` al día, commit "Etapa 2 completa".
+- [x] 2.1 **Datos del kart**: `CartSlot`, `CartPart`, `AlternateForm`, `PaintJob`, `CartAttributes`, `CartPartList` (`LoadPartCosts` lee **solo la caché local** cifrada; descarga ELIMINADA), `CharacterConfigData`, `PlayerInstance` (`Bootstrap`, `GetCartSlot`, `MatchAlternateForms`, `ReleaseCart`). Desaparece la `NullReferenceException` de `ShiftUIPublisher.Start`; el icono de personaje de la palanca se actualiza.
+- [x] 2.2 **Streaming (ruta RESOURCE)**: `StreamManager` (+ `Asset`, `AssetCluster`, `LoadAsset`, `RequestAsset`, `Cleanup`…); la rama AssetBundle (`WWW`) se conserva y solo se usa con `DataUtility.forceWebPlayer`.
+- [x] 2.3 **Texturas compuestas del kart**: `MultilayerTexture`, `StreamedMultilayerTexture`, `CompositeTextureUtil` (+ `AsyncTextureProcessor`), `CompositeProfile`, `CartPrimaryTextureProfile`, `SourceFactory`. No hicieron falta los 8 `MultilayerTextureBundleDef` (la ruta RESOURCE no los usa).
+- [x] 2.4 **Kart y personaje**: `PreviewCart` (piezas, pinturas, transparencias, carga, salida del garaje `DriveOutCoroutine`), `CharacterPreview`, `ParticleLibrary`, y `PlayerInstance.ConstructCart` (kart de carrera "LocalPlayer": raíz = ruedas con `CarCollider`/`PowerupHolder`/`PlayerControlLinker`, carrocería, piezas en sus `<Ranura>Slot`, atributos sumados, pinturas compuestas en un material `Mobile/Diffuse`, piloto sentado con `AnimationDriver`).
+- [x] 2.5 **Selección**: `SelectCircuitPublisher` (banners, trofeos, candados, Tutorial, Pranksgiving con interruptor local D2 `RecoverySwitches.PranksgivingEnabled`), `UnlockedCircuitPublisher`, `TrackSelectPublisher`, `DifficultyMenuPublisher`, `TrackUnlockHelper` completo, `CharacterSelectPublisher` + `CharacterButtonPublisher` (logos de serie, estados Using/Owned/Buy/Locked, monedas).
+- [x] 2.6 **Carga de la carrera**: `RaceSettings` (IA aleatoria sin repetir ni al jugador, exclusión Agente P ↔ Phineas/Ferb, assets `Cart Assets/AI Carts/<Nombre>_AI`), `LoadingPublisher` (misiones, escena con `SceneManager.LoadSceneAsync` — ADAPTADO-U6, espera de piezas, construcción del kart, botón Go), `LoadSpin`.
+- [x] 2.7 **Métodos de Etapas 3/4 adelantados** porque el flujo los ejecuta: `AnimationDriver` (completo), `AchievementManager` (completo: elección de 3 misiones por carrera, ventanas de logro; Game Center/analítica ELIMINADOS), `CharacterVOController` + `GetVOController`, `CartCustomizerPublisher.IsTemporaryInSlot`, accesores de `RaceManager.raceInitFinishedEvent`. Queda pendiente, a propósito, `RaceManager.InitRace` (Etapa 3: arranque de la carrera tras pulsar Go).
+- [x] 2.8 **Validación en Unity 6.6 (PC local)** — capturas en `recovery/reports/stage2/`:
+  - PLAY → el kart sale del garaje → "Circuit Select" (Newbie/Pro/Master, candados, trofeos, Pranksgiving con el pavo) → "Newbie" → "Track Select" (Kick Butt!, Doof's Tower, Freshwater High con miniaturas y medallas en silueta) → pista 1 → salida del kart (`DriveOutCoroutine`) → escena `Loading` → `Kick Butt Track 1` cargada (~1,4 s).
+  - "LocalPlayer" construido en la pista: ruedas, carrocería, interior, luz y piloto; 5 rivales IA elegidos; pantalla de carga con "Go!".
+  - Go → fundido → `RaceSettings.Launch` (elimina el `DebugTrackStrapper`) → `RaceManager.InitRace` (**pendiente, Etapa 3**): la pantalla queda en negro, que es el final esperado de esta etapa.
+  - Garaje → Personaje → flechas: Dipper (logo Gravity Falls), Ferb (logo Phineas and Ferb), coste 3500; "Buy" sin monedas → ruta "necesita monedas" (tienda eliminada).
+  - Sin excepciones del juego (solo el ruido interno del editor `SearchDatabase`).
+  - No ejercitado: cambiar a un personaje gratuito/comprado y comprobar que persiste entre ejecuciones (hacen falta monedas; se revisará con la tienda local de piezas, Etapa 4). El menú de dificultad no forma parte del flujo PLAY (cada circuito fija su dificultad).
+- [x] 2.9 Cierre: catálogo regenerado, `RECOVERY_PROGRESS.md` y `SINCRONIZAR_A_LOCAL.md` al día.
 
 ### Etapa 3 — Carrera mínima  ·  Etapa 4 — Sistemas completos
 - [ ] (pendiente)
 
 ## Catálogo de trabajo pendiente
-- [recovery/catalog/METHOD_CATALOG.md](recovery/catalog/METHOD_CATALOG.md): los 4477 métodos del juego con su etapa (y [CSV](recovery/catalog/METHOD_CATALOG.csv) con token y dirección ARM). Estado tras la Etapa 1: Etapa 1 = 713 recuperados, 0 pendientes; pendientes Etapa 2 = 476 (+18 ya recuperados), Etapa 3 = 436 (+56), Etapa 4 = 1382 (+93); 269 sin uso detectado, 155 sin uso (incluye `Dialog`, `LEDScroller` y `UghScrollView`, que ningún asset ni código instancia), 19 de depuración, 8 para Android, 664 eliminados.
+- [recovery/catalog/METHOD_CATALOG.md](recovery/catalog/METHOD_CATALOG.md): los 4477 métodos del juego con su etapa (y [CSV](recovery/catalog/METHOD_CATALOG.csv) con token y dirección ARM). Estado tras la Etapa 2: Etapa 1 = 713 recuperados, 0 pendientes; Etapa 2 = 494 recuperados, 0 pendientes; pendientes Etapa 3 = 419 (+73 ya recuperados), Etapa 4 = 1327 (+148); 269 sin uso detectado, 155 sin uso (incluye `Dialog`, `LEDScroller` y `UghScrollView`, que ningún asset ni código instancia), 19 de depuración, 8 para Android, 664 eliminados.
 - El catálogo cuenta como recuperados los iteradores/lambdas cuyo token cita el C#, y los constructores triviales (≤52 bytes: solo llaman al constructor base) de las clases traducidas; los métodos listados bajo una cabecera `// ELIMINADO` cuentan como eliminados.
 - [recovery/catalog/PENDIENTES_POR_ETAPA.md](recovery/catalog/PENDIENTES_POR_ETAPA.md): pendientes que no son traducción (agua animada, guardado local, aspecto de pantalla, física, partículas, light probes…).
 - Regenerar tras cada avance: `python forensics/scripts/method_catalog.py && python forensics/scripts/catalog_md.py`.
@@ -88,6 +92,7 @@ Orden de trabajo (cada bloque: traducir → `compile_check.py` → prueba en Uni
 | Matriz de colisión de capas | RECUPERADO | `PhysicsManager` en `mainData` |
 | `ProgressTriggerLogic.CanTriggerForCar/OnTriggerEnter`, `DrawArea3D..ctor` | RECUPERADO-AOT | listados en `recovery/aot_listings/` |
 | Etapa 1: 713 métodos (arranque, framework Ugh, localización, guardado, menús, ajustes, popups) | RECUPERADO-AOT | cabecera `// RECUPERADO-AOT <Clase>::<Método> token … @…` en cada método |
+| Etapa 2: 494 métodos (datos y construcción del kart, streaming, texturas compuestas, menús de selección, carga de la carrera) | RECUPERADO-AOT | ídem |
 | Clave AES de `ExternalPersistentArchive` (32 bytes) | RECUPERADO | datos estáticos `<PrivateImplementationDetails>.$$field-0` de `Assembly-CSharp-firstpass.dll` |
 | Tabla de triángulos de `UghSlideToggle` | RECUPERADO | datos estáticos del DLL |
 
@@ -105,6 +110,8 @@ Orden de trabajo (cada bloque: traducir → `compile_check.py` → prueba en Uni
 | `U4Compat`: `FindObjectOfType(s)` → `FindAnyObjectByType/FindObjectsByType`, `WWW` → `UnityWebRequest`, `OnLevelWasLoaded` → mensaje `OnLevelWasLoadedU6` enviado desde `SceneManager.sceneLoaded` | ADAPTADO-U6 | API eliminadas u obsoletas |
 | `Application.LoadLevel` → `SceneManager.LoadScene`; `.camera/.renderer/.collider/.audio` → `GetComponent<T>()`; `DestroyObject` → `Destroy`; ramas `Application.isWebPlayer` retiradas (siempre falso) | ADAPTADO-U6 | API eliminadas |
 | `LowEndInhibitor`: la inhibición por modelo de iPhone no se aplica en PC | ADAPTADO-U6 | calidad fija para PC (§11.2) |
+| Interruptor de Pranksgiving: `RecoverySwitches.PranksgivingEnabled` (PlayerPrefs `DSSR_Pranksgiving`, activado por defecto) | RECONSTRUIDO | el original lo leía de `pranksgiving.txt` remoto (decisión D2) |
+| `Application.LoadLevelAsync` → `SceneManager.LoadSceneAsync`; `Transform.FindChild` → `Find` | ADAPTADO-U6 | API eliminadas |
 | `MiniJSON`: números con cultura invariante | ADAPTADO-U6 | evita fallos con separador decimal "," en Windows |
 | 16 shaders built-in → equivalentes Unity 6 (`Legacy Shaders/...`) | ADAPTADO-U6 | mismos shaders de Unity, renombrados |
 
@@ -123,13 +130,17 @@ En la Etapa 1 además: notificaciones locales de iOS del bono diario, aviso de c
 - Unity inyecta paquetes por defecto (compras/analytics) al abrir un proyecto "antiguo": el manifest se limitó a módulos integrados.
 - En esta máquina Unity necesita `DOTNET_gcServer=0` y `DOTNET_GCHeapHardLimit` para que sus compiladores .NET arranquen (memoria comprometible libre ~5 GB).
 
-- **Etapa 1 · `ShiftUIPublisher.Start`**: llama a `UpdateCharacterIcon(PlayerInstance.GetCartSlot(character).partInSlot.UIName.baseText)`; hasta recuperar `PlayerInstance.Bootstrap` y `CartPartList` (Etapa 2, piezas del kart) la ranura es nula y se registra **una** `NullReferenceException` al entrar al garaje (el icono de personaje de la palanca no se actualiza; el resto funciona).
-- **Etapa 1 · `Fader SpriteAtlas.mat` aparece modificado tras jugar en el editor**: `ScreenFader` (original) cambia la opacidad del material compartido; en el editor Unity lo guarda en el `.mat`. Es inofensivo (en un build no persiste); descartar ese cambio con `git checkout` antes de hacer commit.
-- **Etapa 1 → 2 · PLAY no abre "Circuit Select"** hasta recuperar `PreviewCart.StartDriveout`/`IsLoading` (Etapa 2).
-- **Etapa 1 · `Trying to save, but there is a null value?`** (×2) al pulsar PLAY: aviso del propio `DataUtility.Save` original con un valor aún nulo (probablemente la ranura del kart, Etapa 2); revisar en la Etapa 2.
+- ~~Etapa 1 · `ShiftUIPublisher.Start` NullReferenceException~~ y ~~PLAY no abre "Circuit Select"~~: **resueltos en la Etapa 2**.
+- **Materiales/clips compartidos modificados tras jugar en el editor**: `Fader SpriteAtlas.mat` (`ScreenFader`), `Mobile Cart Part.mat` (pulso de transparencia de `PreviewCart.UpdateColorShift`) y a veces `AnimationClip/crash_idle.anim` (`wrapMode` cambiado en tiempo de ejecución). El código original modifica assets compartidos y el editor los guarda. Inofensivo en un build: descartarlos con `git checkout` antes de cada commit.
+- **Etapa 1 · `Trying to save, but there is a null value?`**: con la Etapa 2 aparece solo **una** vez, al crear el guardado nuevo durante `PlayerInstance.Bootstrap` (comportamiento del `DataUtility.Save` original).
 - **Etapa 1 · `FrontEndLogic.NeedMoreCoins`** eliminado con la tienda: el aviso informativo "Need More Tokens" que mostraba ese mismo popup (sin compra) tampoco aparece; revisar en la Etapa 4 (compra de piezas) si hace falta un aviso local.
 - **Etapa 1 · comportamientos originales conservados tal cual**: `FadeHelper.IsFading(Transform)` solo termina si la jerarquía tiene algún `Renderer` (los menús siempre lo tienen); `Dialog.Awake` arrancaba su corrutina `Start` además de la que lanza Unity; `Mathfx.Parameter` interpola la primera mitad con `(0.5 - value) * 2`; `AudioCrumb.Play` aplica el volumen de efectos dos veces; `FrontEndCamera.SetCameraTargetByIndex` acepta `index == Length`.
 - **Etapa 1 · puente `OnLevelWasLoaded`**: Unity 6 ya no envía ese mensaje; `U4Compat` envía `OnLevelWasLoadedU6` a todos los GameObjects tras cada carga no aditiva (los tres receptores originales se renombraron para no recibirlo dos veces). Validar el orden respecto a `Start` en la prueba en Unity.
+- **Etapa 2 · avisos "Mesh object at version 8 / AnimationClip at version 4, below the supported minimum"**: los 678 `.asset` de malla y 231 clips exportados conservan la versión serializada de Unity 4; Unity los actualiza en memoria al cargarlos (funcionan). Opcional: `AssetDatabase.ForceReserializeAssets` para silenciarlo (cambia miles de archivos; se decidirá antes del build).
+- **Etapa 2 · `PlayerInstance.ReleaseCart`**: se omite la rama original `partInSlot.guiText != null` (`Component.guiText`, API eliminada; en el juego nunca es cierta).
+- **Etapa 2 · `CharacterConfigData`**: traducido, pero ningún prefab/escena lo contiene. `GetCharacterCost` no lo necesita (lee `CartPartList`); `GetCharacterMessage` sí (error "Scene requires a CharacterConfigData!" + excepción), pero solo se llama para un personaje sin pieza en `CartPartList`, que no existe en los datos. Igual que en el original.
+- **Etapa 2 · medallas y misiones**: `AchievementListener.HasAchieved` y los `IsAvailable` de las misiones son de la Etapa 4; mientras tanto las medallas salen en silueta y la pantalla de carga no muestra misiones (se ve el logo grande, que el original muestra cuando no hay misiones activas).
+- **Etapa 2 · comportamientos originales conservados**: `LoadingPublisher.Start` crea la corrutina `SetupMissionText` sin arrancarla (la arranca `LoadingProcess`); `WaitForLevelLoad` muestra el progreso de las piezas, no el de la escena; `AnimationDriver.CrossFadeToNewAnimation` deja `inCoroutine` activo si el clip actual es en bucle; `CharacterVOController.PickClip` omite el último paso del barajado.
 - **Etapa 1 · `UghSprite`** reutiliza la malla existente sin `Clear()` antes de reasignar vértices, como el original; si Unity 6 protesta por tamaños de índices, añadir `Clear()` (ADAPTADO-U6).
 
 ## STILL UNKNOWN

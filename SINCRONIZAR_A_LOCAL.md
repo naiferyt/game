@@ -10,9 +10,10 @@ la sección nueva se añade arriba del [registro](#registro-de-cambios-por-etapa
 |---|---|
 | Rama de trabajo en la nube | `claude/optimistic-archimedes-kmux3s` |
 | Tu rama local de partida | `mi-proyecto` (commit `a6604d9`, lo que subiste desde tu PC) |
-| Último bloque sincronizable | **Etapa 1 — Boot → Menú** (commits `a96ac2b` … `9c02b40`, más el commit que añade este documento) |
+| Último bloque sincronizable | **Etapa 2 — Menú → selección → carga de la carrera** (hecha directamente en tu copia local, rama `main`: commits `3468d93` … commit "Etapa 2 completa") |
+| Etapa 1 | commits `a96ac2b` … `9c02b40` (nube) + validación local `3440f48` |
 | Archivos cambiados desde `mi-proyecto` | 79 (72 del proyecto Unity, 3 herramientas, 4 de documentación/catálogo) + este documento y `forensics/scripts/sync_manifest.py` |
-| Pendiente en tu PC | abrir en Unity y hacer la prueba de arranque ([paso 4](#4-probar-en-unity)) |
+| Pendiente en tu PC | nada que copiar: la Etapa 2 ya está en tu carpeta. Opcional: `git push origin main` para subirla a GitHub |
 
 ## 1. Antes de empezar
 
@@ -85,6 +86,95 @@ git push origin mi-proyecto
 y dime "ya subí los logs". Si prefieres, pega en el chat el contenido de `playrun_boot.log` y los errores de la Console.
 
 ## Registro de cambios por etapa
+
+### Etapa 2 — Menú → selección → carga de la carrera
+
+**Hecha en tu PC** (sesión local de Claude Code sobre `C:\Users\STEEP\Documents\game work`, rama `main`), así que **no hay nada
+que sincronizar**: los archivos ya están en tu carpeta. Si quieres llevarla a la rama de la nube o a GitHub, basta con `git push origin main`.
+
+Qué cambió (detalle completo en `RECOVERY_PROGRESS.md`, sección *Etapa 2*):
+- **Código traducido del ARM original** (`RECUPERADO-AOT`): datos del kart (`CartSlot`, `CartPart`, `CartPartList`, `PlayerInstance`…),
+  streaming por `Resources` (`StreamManager`), texturas compuestas del kart, vista previa del kart y del personaje en el garaje
+  (`PreviewCart`, `CharacterPreview`), menús de circuito/pista/dificultad/personaje, pantalla de carga (`RaceSettings`,
+  `LoadingPublisher`, `LoadSpin`), construcción del kart de carrera (`PlayerInstance.ConstructCart`), y adelantados de etapas
+  posteriores que este flujo usa (`AnimationDriver`, `AchievementManager`, `CharacterVOController`, `ParticleLibrary`).
+- **Archivo nuevo del proyecto Unity**: `_Recovery/Runtime/RecoverySwitches.cs` (+ `.meta`): interruptor local de Pranksgiving
+  (`PlayerPrefs` `DSSR_Pranksgiving`, activado por defecto; decisión D2).
+- **No se tocaron** escenas, prefabs ni materiales: solo scripts. (Tras jugar en el editor, Unity puede marcar como modificados
+  `Fader SpriteAtlas.mat`, `Mobile Cart Part.mat` y `crash_idle.anim`: descártalos con `git checkout -- <archivo>`; ver *KNOWN ISSUES*.)
+- **Pruebas**: capturas en `recovery/reports/stage2/`.
+
+Prueba del flujo completo (Unity cerrado, desde Git Bash):
+```bash
+bash forensics/scripts/run_play.sh "Assets/Scenes/CloudStrap.unity" 45 s2go "0.50,0.18@8;obj:Circuit 1 banner@12;obj:Panel 1 Snapshot@16;obj:Go Button@32" "14,17,20,30,36,44" 400 "obj:LocalPlayer"
+```
+Resultado esperado: PLAY → el kart sale del garaje → circuitos → pistas → `Loading` → `Kick Butt Track 1` con el kart "LocalPlayer";
+tras "Go!" la pantalla queda en negro porque `RaceManager.InitRace` es de la Etapa 3.
+
+#### Inventario de archivos de la Etapa 2
+
+Generado con `python forensics/scripts/sync_manifest.py 9686467e ca1d059f`. A estos se suma el commit "Etapa 2 completa"
+(`RECOVERY_PROGRESS.md`, este documento, `recovery/catalog/METHOD_CATALOG.csv/.md` y las 6 capturas de `recovery/reports/stage2/`).
+
+Rango: `9686467e..ca1d059f` (37 archivos).
+
+##### Proyecto Unity (necesario para probar en Unity) — 36
+
+| Estado | Archivo |
+|---|---|
+| nuevo | `recovery/DSSRacer_U6/Assets/_Recovery/Runtime/RecoverySwitches.cs` |
+| nuevo | `recovery/DSSRacer_U6/Assets/_Recovery/Runtime/RecoverySwitches.cs.meta` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/AchievementManager.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/AlternateForm.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/AnimationDriver.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CartAttributes.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CartCustomizerPublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CartPart.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CartPartList.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CartPrimaryTextureProfile.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CartSlot.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CharacterButtonPublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CharacterConfigData.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CharacterPreview.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CharacterSelectPublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CharacterVOController.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CharacterVOControllerGameObjectExtender.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CompositeProfile.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CompositeTextureUtil.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/DifficultyMenuPublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/LoadSpin.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/LoadingPublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/MultilayerTexture.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/PaintJob.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/ParticleLibrary.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/PlayerInstance.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/PreviewCart.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/RaceManager.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/RaceSettings.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SelectCircuitPublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SourceFactory.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/StreamManager.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/StreamedMultilayerTexture.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/TrackSelectPublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/TrackUnlockHelper.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/UnlockedCircuitPublisher.cs` |
+
+##### Documentación y catálogo — 1
+
+| Estado | Archivo |
+|---|---|
+| modificado | `RECOVERY_PROGRESS.md` |
+
+##### Por commit
+
+- **3468d938 Stage 2 plan; 2.1 kart data model translated (slots, parts, part list, player instance)** — `RECOVERY_PROGRESS.md`, `AlternateForm.cs`, `CartAttributes.cs`, `CartPart.cs`, `CartPartList.cs`, `CartSlot.cs`, `CharacterConfigData.cs`, `PaintJob.cs`, `PlayerInstance.cs`
+- **d25d350a Stage 2.2-2.3: StreamManager (Resources route) and kart texture compositing** — `CartPrimaryTextureProfile.cs`, `CompositeProfile.cs`, `CompositeTextureUtil.cs`, `MultilayerTexture.cs`, `SourceFactory.cs`, `StreamManager.cs`, `StreamedMultilayerTexture.cs`
+- **75c1f39c Stage 2.4: garage kart and character preview (PreviewCart, CharacterPreview)** — `CharacterPreview.cs`, `ParticleLibrary.cs`, `PreviewCart.cs`
+- **33850f63 Stage 2.5 (part 1): circuit, track and difficulty menus; progression helper** — `DifficultyMenuPublisher.cs`, `SelectCircuitPublisher.cs`, `TrackSelectPublisher.cs`, `TrackUnlockHelper.cs`, `RecoverySwitches.cs`, `RecoverySwitches.cs.meta`
+- **453be55f Stage 2.6: race settings, Loading screen and spinner** — `LoadSpin.cs`, `LoadingPublisher.cs`, `RaceSettings.cs`
+- **76332c85 Stage 2.4/2.7: race kart construction, AnimationDriver, AchievementManager** — `AchievementManager.cs`, `AnimationDriver.cs`, `PlayerInstance.cs`
+- **69b4d481 Stage 2.5/2.7: character select, unlocked-circuit window, voice lines** — `CartCustomizerPublisher.cs`, `CharacterButtonPublisher.cs`, `CharacterSelectPublisher.cs`, `CharacterVOController.cs`, `CharacterVOControllerGameObjectExtender.cs`, `RaceManager.cs`, `UnlockedCircuitPublisher.cs`
+- **ca1d059f Stage 2: CharacterSelectPublisher viewingIndex initializer (-1)** — `CharacterSelectPublisher.cs`
 
 ### Etapa 1 — Boot → Menú
 

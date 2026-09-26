@@ -18,9 +18,9 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | Etapa | Pendientes | ARM pendiente | Recuperados | Llamados antes de su etapa |
 |---|---:|---:|---:|---:|
 | Etapa 1 — Arranque → Menú principal | 0 | 0 KB | 713 | 0 |
-| Etapa 2 — Menú → selección → carga de la carrera | 476 | 123 KB | 18 | 11 |
-| Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados) | 436 | 157 KB | 56 | 7 |
-| Etapa 4 — Sistemas completos | 1382 | 271 KB | 93 | 69 |
+| Etapa 2 — Menú → selección → carga de la carrera | 0 | 0 KB | 494 | 11 |
+| Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados) | 419 | 153 KB | 73 | 7 |
+| Etapa 4 — Sistemas completos | 1327 | 260 KB | 148 | 69 |
 | Port Android (después de la Fase 4) | 8 | 1 KB | 0 | 0 |
 | Opcional — herramientas de depuración del equipo original | 19 | 3 KB | 0 | 0 |
 | Sin uso detectado (no se traducen salvo que aparezcan en el log) | 269 | 78 KB | 0 | 0 |
@@ -32,16 +32,9 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 ## Etapa 1 — Arranque → Menú principal
 
-**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (22) — deben tolerar quedar pendientes o adelantarse:
+**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (9) — deben tolerar quedar pendientes o adelantarse:
 
-- Etapa 2 · `CharacterPreview`: `Refresh`
-- Etapa 2 · `PlayerInstance`: `Bootstrap`, `GetCartSlot`
-- Etapa 2 · `PreviewCart`: `GenerateCartPreview`, `StartDriveout`, `get_IsLoading`
-- Etapa 2 · `StreamManager`: `Cleanup`, `PrependRootFileLocation`
-- Etapa 2 · `TrackUnlockHelper`: `IsCircuitUnlocked`, `RelockEverything`
-- Etapa 3 · `AnimationDriver`: `Play`
 - Etapa 4 · `AchievementListener`: `Fail`
-- Etapa 4 · `AchievementManager`: `Fail`, `InitFrontEndAchievements`
 - Etapa 4 · `BaseEffect`: `InitComboLookup`
 - Etapa 4 · `CartCustomizerPublisher`: `Refresh`
 - Etapa 4 · `MusicPlayer`: `PlayMusic`, `UpdateVolume`, `get_Instance`
@@ -196,122 +189,116 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 ## Etapa 2 — Menú → selección → carga de la carrera
 
-**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (12) — deben tolerar quedar pendientes o adelantarse:
+**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (1) — deben tolerar quedar pendientes o adelantarse:
 
-- Etapa 3 · `AnimationDriver`: `.cctor`, `.ctor`, `SetAnimationTarget`, `Update`
 - Etapa 3 · `RaceManager`: `InitRace`
-- Etapa 4 · `AchievementManager`: `ChooseActiveListeners`, `ClearActiveListeners`
-- Etapa 4 · `CartCustomizerPublisher`: `IsTemporaryInSlot`
-- Etapa 4 · `CharacterVOController`: `PlayCharacterSelect`
-- Etapa 4 · `CharacterVOControllerGameObjectExtender`: `GetVOController`
-- Etapa 4 · `ParticleLibrary`: `GetPrefab`, `get_Instance`
 
 ### Construcción del kart y vista previa — 231 métodos, 67.4 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `AlternateForm` | `.ctor` (52), `FindFirstWithForm` (180), `GetBodyForm` (140), `IndexOf` (156) |
-| `AlternateForm/FormData` | `.ctor` (44) |
-| `CartAttributes` | `.ctor` (404), `CompareAcceleration` (104), `CompareHandlingRating` (104), `ComparePowerSlide` (104), `CompareSpeed` (104), `GetAccelerationRating` (212), `GetHandlingRating` (296), `GetPowerSlideRating` (276), `GetSpeedRating` (212), `get_MaxAttributes` (388), `get_MinAttributes` (388), `op_Addition` (512), `op_Subtraction` (512) |
-| `CartPart` | `.ctor` (52), `GetAlternatePartOfForm` (212), `get_AreAllAlternateFormsLocked` (180), `get_IsLocked` (112), `get_bodyFormType` (200) |
-| `CartPartList` | `.ctor` (52), `CartPartListExists` (136), `GetAllPaintJobs` (44), `GetAllParts` (44), `GetDefaultParts` (44), `GetInstance` (168), `GetMostExpensiveAffordablePart` (212), `GetMostExpensiveUnlockableAffordablePart` (1060), `GetNextPurchasablePartForSlot` (164), `GetPaintJob` (160), `GetPart` (300), `GetSlotPaintJobList` (80), `GetSlotPartList` (80), `LoadPartCosts` (1612), `ModifyPartCostsCoroutine` (72), `OnDisable` (276), `OnEnable` (276), `OnExternalArchiveRead` (64), `Start` (1700) |
-| `CartPartList/<LoadPartCosts>c__AnonStorey90` | `.ctor` (44), `<>m__2` (72), `<>m__3` (72) |
-| `CartPartList/<ModifyPartCostsCoroutine>c__Iterator1F` | `.ctor` (44), `Dispose` (56), `MoveNext` (260), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `CartPrimaryTextureProfile` | `.ctor` (52), `Awake` (156), `get_profile` (124) |
-| `CartSlot` | `.cctor` (3364), `.ctor` (60), `GetCustomizerCameraPosition` (168), `GetCustomizerCameraTarget` (168), `GetIsSlotRequired` (108), `GetSlotName` (112), `GetSlotTargetGameObjectName` (112), `get_name` (116), `get_required` (112), `get_targetGameObjectName` (116) |
-| `CharacterConfigData` | `.ctor` (52), `GetCharacterCost` (84), `GetCharacterIsSyncable` (48), `GetCharacterMessage` (340), `GetCharacterUnlockString` (132), `LoadDefaultConfig` (168), `LoadWebConfig` (72), `OnDisable` (276), `OnEnable` (276), `OnExternalArchiveRead` (64), `ProcXML` (1348), `Start` (100), `get_Instance` (176) |
-| `CharacterConfigData/<LoadWebConfig>c__Iterator1D` | `.ctor` (44), `Dispose` (56), `MoveNext` (260), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `CharacterConfigData/ConfigData` | `.ctor` (44) |
-| `CharacterPreview` | `.ctor` (104), `Blackout` (428), `Hide` (276), `OnDestroy` (100), `PlayRandomIdleAnimation` (780), `Refresh` (88) ⚠Etapa 1, `SetCharacter` (576), `Unhide` (284), `Update` (2176) |
-| `CharacterPreview/PreviewPart` | `.ctor` (44) |
-| `CompositeProfile` | `.ctor` (52), `FindSlotByName` (172), `SetSlotSource` (176) |
-| `CompositeProfile/CompositeSlot` | `.ctor` (44) |
-| `CompositeProfile/CompositeSource` | `.ctor` (44) |
-| `CompositeTextureUtil` | `AlphaBlendColor32` (544), `BlitPixels` (1148), `BlitToCachedTexture` (656), `ColorMultiply` (328), `GenerateCompositeTexture` (520), `MergeLayers` (536) |
-| `CompositeTextureUtil/AsyncTextureProcessor` | `.ctor` (44), `GenerateCompositeTextureAsync` (88) |
-| `CompositeTextureUtil/AsyncTextureProcessor/<GenerateCompositeTextureAsync>c__Iterator1E` | `.ctor` (44), `Dispose` (56), `MoveNext` (748), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `MultilayerTexture` | `.ctor` (44), `ComposeTexture` (320), `FindLayerByName` (152), `SetLayerColor` (88), `SetLayerTexture` (84) |
-| `MultilayerTexture/Layer` | `.ctor` (104) |
-| `PaintJob` | `.ctor` (52), `GetTexture` (108) |
-| `PlayerInstance` | `.cctor` (36), `.ctor` (268), `Awake` (56), `Bootstrap` (1764) ⚠Etapa 1, `ConstructCart` (56), `GetCartSlot` (100) ⚠Etapa 1, `GetConstructedCart` (112), `MatchAlternateForms` (484), `ReleaseCart` (324), `Start` (88), `get_Instance` (256) |
-| `PlayerInstance/<ConstructCart>c__Iterator20` | `.ctor` (44), `Dispose` (268), `MoveNext` (5672), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PreviewCart` | `.ctor` (244), `<CharacterVisibility>m__25` (68), `AddPaint` (460), `AddPart` (512), `ApplyPaints` (72), `CharacterVisibility` (420), `CheckLoadingCoroutine` (72), `ClearnTransparencies` (188), `ComposeCart` (72), `DriveOutCoroutine` (72), `GenerateCartPreview` (404) ⚠Etapa 1, `GetPartTransform` (616), `OnDestroy` (700), `RemovePaint` (304), `RemovePart` (292), `SetPartVisibility` (176), `SetSlotTransparent` (272), `ShowLoadingObject` (248), `StartDriveout` (376) ⚠Etapa 1, `Update` (432), `UpdateCachedPaint` (72), `UpdateColorShift` (72), `UpdateRenderers` (72), `get_CachedPaint` (52), `get_IsLoading` (128) ⚠Etapa 1, `get_IsUpdating` (160), `set_CachedPaint` (60) |
-| `PreviewCart/<AddPaint>c__AnonStoreyA3` | `.ctor` (44), `<>m__28` (84) |
-| `PreviewCart/<AddPart>c__AnonStoreyA1` | `.ctor` (44), `<>m__26` (84) |
-| `PreviewCart/<ApplyPaints>c__Iterator66` | `.ctor` (44), `<>m__2A` (80), `Dispose` (424), `MoveNext` (2512), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PreviewCart/<CheckLoadingCoroutine>c__Iterator6A` | `.ctor` (44), `Dispose` (56), `MoveNext` (1572), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PreviewCart/<ComposeCart>c__Iterator69` | `.ctor` (44), `Dispose` (472), `MoveNext` (2820), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PreviewCart/<DriveOutCoroutine>c__Iterator6C` | `.ctor` (44), `Dispose` (56), `MoveNext` (2828), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PreviewCart/<RemovePaint>c__AnonStoreyA4` | `.ctor` (44), `<>m__29` (104) |
-| `PreviewCart/<RemovePart>c__AnonStoreyA2` | `.ctor` (44), `<>m__27` (84) |
-| `PreviewCart/<UpdateCachedPaint>c__Iterator6B` | `.ctor` (44), `<>m__2B` (80), `Dispose` (268), `MoveNext` (2136), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PreviewCart/<UpdateColorShift>c__Iterator68` | `.ctor` (44), `Dispose` (56), `MoveNext` (816), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PreviewCart/<UpdateRenderers>c__Iterator67` | `.ctor` (44), `Dispose` (268), `MoveNext` (1100), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PreviewCart/PreviewPaint` | `.ctor` (44) |
-| `PreviewCart/PreviewPart` | `.ctor` (44) |
-| `SourceFactory` | `.ctor` (56), `GetSource` (140), `GetUsedList` (52), `Init` (556), `RecycleSources` (188), `SetPriority` (608) |
-| `StreamedMultilayerTexture` | `.ctor` (44), `IsLoaded` (88), `PrepareMultilayerTexture` (1164), `ReleaseAssets` (172), `RequestAssets` (108) |
-| `StreamedMultilayerTexture/Layer` | `.ctor` (44) |
+| `AlternateForm` | ✅ `.ctor` (52), ✅ `FindFirstWithForm` (180), ✅ `GetBodyForm` (140), ✅ `IndexOf` (156) |
+| `AlternateForm/FormData` | ✅ `.ctor` (44) |
+| `CartAttributes` | ✅ `.ctor` (404), ✅ `CompareAcceleration` (104), ✅ `CompareHandlingRating` (104), ✅ `ComparePowerSlide` (104), ✅ `CompareSpeed` (104), ✅ `GetAccelerationRating` (212), ✅ `GetHandlingRating` (296), ✅ `GetPowerSlideRating` (276), ✅ `GetSpeedRating` (212), ✅ `get_MaxAttributes` (388), ✅ `get_MinAttributes` (388), ✅ `op_Addition` (512), ✅ `op_Subtraction` (512) |
+| `CartPart` | ✅ `.ctor` (52), ✅ `GetAlternatePartOfForm` (212), ✅ `get_AreAllAlternateFormsLocked` (180), ✅ `get_IsLocked` (112), ✅ `get_bodyFormType` (200) |
+| `CartPartList` | ✅ `.ctor` (52), ✅ `CartPartListExists` (136), ✅ `GetAllPaintJobs` (44), ✅ `GetAllParts` (44), ✅ `GetDefaultParts` (44), ✅ `GetInstance` (168), ✅ `GetMostExpensiveAffordablePart` (212), ✅ `GetMostExpensiveUnlockableAffordablePart` (1060), ✅ `GetNextPurchasablePartForSlot` (164), ✅ `GetPaintJob` (160), ✅ `GetPart` (300), ✅ `GetSlotPaintJobList` (80), ✅ `GetSlotPartList` (80), ✅ `LoadPartCosts` (1612), ✅ `ModifyPartCostsCoroutine` (72), ✅ `OnDisable` (276), ✅ `OnEnable` (276), ✅ `OnExternalArchiveRead` (64), ✅ `Start` (1700) |
+| `CartPartList/<LoadPartCosts>c__AnonStorey90` | ✅ `.ctor` (44), ✅ `<>m__2` (72), ✅ `<>m__3` (72) |
+| `CartPartList/<ModifyPartCostsCoroutine>c__Iterator1F` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (260), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `CartPrimaryTextureProfile` | ✅ `.ctor` (52), ✅ `Awake` (156), ✅ `get_profile` (124) |
+| `CartSlot` | ✅ `.cctor` (3364), ✅ `.ctor` (60), ✅ `GetCustomizerCameraPosition` (168), ✅ `GetCustomizerCameraTarget` (168), ✅ `GetIsSlotRequired` (108), ✅ `GetSlotName` (112), ✅ `GetSlotTargetGameObjectName` (112), ✅ `get_name` (116), ✅ `get_required` (112), ✅ `get_targetGameObjectName` (116) |
+| `CharacterConfigData` | ✅ `.ctor` (52), ✅ `GetCharacterCost` (84), ✅ `GetCharacterIsSyncable` (48), ✅ `GetCharacterMessage` (340), ✅ `GetCharacterUnlockString` (132), ✅ `LoadDefaultConfig` (168), ✅ `LoadWebConfig` (72), ✅ `OnDisable` (276), ✅ `OnEnable` (276), ✅ `OnExternalArchiveRead` (64), ✅ `ProcXML` (1348), ✅ `Start` (100), ✅ `get_Instance` (176) |
+| `CharacterConfigData/<LoadWebConfig>c__Iterator1D` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (260), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `CharacterConfigData/ConfigData` | ✅ `.ctor` (44) |
+| `CharacterPreview` | ✅ `.ctor` (104), ✅ `Blackout` (428), ✅ `Hide` (276), ✅ `OnDestroy` (100), ✅ `PlayRandomIdleAnimation` (780), ✅ `Refresh` (88) ⚠Etapa 1, ✅ `SetCharacter` (576), ✅ `Unhide` (284), ✅ `Update` (2176) |
+| `CharacterPreview/PreviewPart` | ✅ `.ctor` (44) |
+| `CompositeProfile` | ✅ `.ctor` (52), ✅ `FindSlotByName` (172), ✅ `SetSlotSource` (176) |
+| `CompositeProfile/CompositeSlot` | ✅ `.ctor` (44) |
+| `CompositeProfile/CompositeSource` | ✅ `.ctor` (44) |
+| `CompositeTextureUtil` | ✅ `AlphaBlendColor32` (544), ✅ `BlitPixels` (1148), ✅ `BlitToCachedTexture` (656), ✅ `ColorMultiply` (328), ✅ `GenerateCompositeTexture` (520), ✅ `MergeLayers` (536) |
+| `CompositeTextureUtil/AsyncTextureProcessor` | ✅ `.ctor` (44), ✅ `GenerateCompositeTextureAsync` (88) |
+| `CompositeTextureUtil/AsyncTextureProcessor/<GenerateCompositeTextureAsync>c__Iterator1E` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (748), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `MultilayerTexture` | ✅ `.ctor` (44), ✅ `ComposeTexture` (320), ✅ `FindLayerByName` (152), ✅ `SetLayerColor` (88), ✅ `SetLayerTexture` (84) |
+| `MultilayerTexture/Layer` | ✅ `.ctor` (104) |
+| `PaintJob` | ✅ `.ctor` (52), ✅ `GetTexture` (108) |
+| `PlayerInstance` | ✅ `.cctor` (36), ✅ `.ctor` (268), ✅ `Awake` (56), ✅ `Bootstrap` (1764) ⚠Etapa 1, ✅ `ConstructCart` (56), ✅ `GetCartSlot` (100) ⚠Etapa 1, ✅ `GetConstructedCart` (112), ✅ `MatchAlternateForms` (484), ✅ `ReleaseCart` (324), ✅ `Start` (88), ✅ `get_Instance` (256) |
+| `PlayerInstance/<ConstructCart>c__Iterator20` | ✅ `.ctor` (44), ✅ `Dispose` (268), ✅ `MoveNext` (5672), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `PreviewCart` | ✅ `.ctor` (244), ✅ `<CharacterVisibility>m__25` (68), ✅ `AddPaint` (460), ✅ `AddPart` (512), ✅ `ApplyPaints` (72), ✅ `CharacterVisibility` (420), ✅ `CheckLoadingCoroutine` (72), ✅ `ClearnTransparencies` (188), ✅ `ComposeCart` (72), ✅ `DriveOutCoroutine` (72), ✅ `GenerateCartPreview` (404) ⚠Etapa 1, ✅ `GetPartTransform` (616), ✅ `OnDestroy` (700), ✅ `RemovePaint` (304), ✅ `RemovePart` (292), ✅ `SetPartVisibility` (176), ✅ `SetSlotTransparent` (272), ✅ `ShowLoadingObject` (248), ✅ `StartDriveout` (376) ⚠Etapa 1, ✅ `Update` (432), ✅ `UpdateCachedPaint` (72), ✅ `UpdateColorShift` (72), ✅ `UpdateRenderers` (72), ✅ `get_CachedPaint` (52), ✅ `get_IsLoading` (128) ⚠Etapa 1, ✅ `get_IsUpdating` (160), ✅ `set_CachedPaint` (60) |
+| `PreviewCart/<AddPaint>c__AnonStoreyA3` | ✅ `.ctor` (44), ✅ `<>m__28` (84) |
+| `PreviewCart/<AddPart>c__AnonStoreyA1` | ✅ `.ctor` (44), ✅ `<>m__26` (84) |
+| `PreviewCart/<ApplyPaints>c__Iterator66` | ✅ `.ctor` (44), ✅ `<>m__2A` (80), ✅ `Dispose` (424), ✅ `MoveNext` (2512), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `PreviewCart/<CheckLoadingCoroutine>c__Iterator6A` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1572), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `PreviewCart/<ComposeCart>c__Iterator69` | ✅ `.ctor` (44), ✅ `Dispose` (472), ✅ `MoveNext` (2820), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `PreviewCart/<DriveOutCoroutine>c__Iterator6C` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (2828), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `PreviewCart/<RemovePaint>c__AnonStoreyA4` | ✅ `.ctor` (44), ✅ `<>m__29` (104) |
+| `PreviewCart/<RemovePart>c__AnonStoreyA2` | ✅ `.ctor` (44), ✅ `<>m__27` (84) |
+| `PreviewCart/<UpdateCachedPaint>c__Iterator6B` | ✅ `.ctor` (44), ✅ `<>m__2B` (80), ✅ `Dispose` (268), ✅ `MoveNext` (2136), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `PreviewCart/<UpdateColorShift>c__Iterator68` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (816), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `PreviewCart/<UpdateRenderers>c__Iterator67` | ✅ `.ctor` (44), ✅ `Dispose` (268), ✅ `MoveNext` (1100), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `PreviewCart/PreviewPaint` | ✅ `.ctor` (44) |
+| `PreviewCart/PreviewPart` | ✅ `.ctor` (44) |
+| `SourceFactory` | ✅ `.ctor` (56), ✅ `GetSource` (140), ✅ `GetUsedList` (52), ✅ `Init` (556), ✅ `RecycleSources` (188), ✅ `SetPriority` (608) |
+| `StreamedMultilayerTexture` | ✅ `.ctor` (44), ✅ `IsLoaded` (88), ✅ `PrepareMultilayerTexture` (1164), ✅ `ReleaseAssets` (172), ✅ `RequestAssets` (108) |
+| `StreamedMultilayerTexture/Layer` | ✅ `.ctor` (44) |
 
 ### Selección de circuito/pista/personaje — 141 métodos, 35.0 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `CharacterButtonPublisher` | `.ctor` (52), `OnPressedButton` (132) |
-| `CharacterSelectPublisher` | `.ctor` (60), `<Start>m__23` (80), `Awake` (108), `IsTemporary` (288), `LoadInLocalizedAssets` (88), `OnDestroy` (192), `PressedAction` (804), `PressedLeftArrow` (112), `PressedRightArrow` (112), `RefreshCharacter` (136), `RefreshDisplay` (1680), `RefreshStatBars` (52), `SetCharacter` (1068), `SetStatBar` (896), `Start` (348), `Update` (392), `UpdateLogo` (1528) |
-| `CharacterSelectPublisher/<LoadInLocalizedAssets>c__Iterator54` | `.ctor` (44), `Dispose` (268), `MoveNext` (940), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `CharacterSelectPublisher/Logo` | `.ctor` (44) |
-| `DifficultyMenuPublisher` | `.ctor` (52), `CalculateCompletion` (252), `PushedEasy` (100), `PushedHard` (180), `PushedMedium` (180), `ShowPopover` (144), `Start` (836) |
-| `SelectCircuitPublisher` | `.ctor` (268), `AnimateIn` (72), `DetermineTrophies` (828), `LoadCircuitTextures` (72), `OnDisable` (48), `OnEnable` (520), `PressedCircuitButton1` (248), `PressedCircuitButton2` (300), `PressedCircuitButton3` (300), `PressedPranksgiving` (228), `PressedTutorial` (244), `ShowPopupDialog` (184), `Start` (72), `StartTutLoad` (64) |
-| `SelectCircuitPublisher/<AnimateIn>c__Iterator6F` | `.ctor` (44), `Dispose` (56), `MoveNext` (768), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `SelectCircuitPublisher/<LoadCircuitTextures>c__Iterator6D` | `.ctor` (44), `Dispose` (56), `MoveNext` (1740), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `SelectCircuitPublisher/<Start>c__Iterator6E` | `.ctor` (44), `<>m__2C` (80), `<>m__2D` (80), `<>m__2E` (80), `<>m__2F` (80), `<>m__30` (80), `Dispose` (56), `MoveNext` (2708), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `SelectCircuitPublisher/<StartTutLoad>c__Iterator70` | `.ctor` (44), `Dispose` (56), `MoveNext` (188), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `SelectCircuitPublisher/CircuitBanner` | `.ctor` (44) |
-| `SelectCircuitPublisher/TrophyAssets` | `.ctor` (44) |
-| `TrackSelectPublisher` | `.ctor` (268), `DetermineTrophies` (1620), `FixedUpdate` (536), `GetTrackIconsList` (148), `PressedBackButton` (84), `PressedTrackButton1` (200), `PressedTrackButton2` (200), `PressedTrackButton3` (200), `RaceOrSummary` (136), `Refresh` (324), `Start` (384), `UpdateTrackSnapshots` (1356) |
-| `TrackSelectPublisher/TrackIcon` | `.ctor` (44) |
-| `TrackUnlockHelper` | ✅ `.ctor` (52), `CheckForPreraceSetupUnlock` (336), `GetCircuitMedalCount` (448), `GetCircuitTracks` (372), `GetHasEnoughMedals` (92), `GetHighestTrackPlace` (396), `GetTrackMedalCount` (420), `IsCircuitUnlocked` (332) ⚠Etapa 1, `RelockEverything` (336) ⚠Etapa 1, `Start` (72), `TestForUltraHard` (188), `UnlockAllEverything` (336), ✅ `get_CanPranksgiving` (52), ✅ `get_DebugUnlock` (52), ✅ `set_DebugUnlock` (76) ⚠Etapa 1 |
+| `CharacterButtonPublisher` | ✅ `.ctor` (52), ✅ `OnPressedButton` (132) |
+| `CharacterSelectPublisher` | ✅ `.ctor` (60), ✅ `<Start>m__23` (80), ✅ `Awake` (108), ✅ `IsTemporary` (288), ✅ `LoadInLocalizedAssets` (88), ✅ `OnDestroy` (192), ✅ `PressedAction` (804), ✅ `PressedLeftArrow` (112), ✅ `PressedRightArrow` (112), ✅ `RefreshCharacter` (136), ✅ `RefreshDisplay` (1680), ✅ `RefreshStatBars` (52), ✅ `SetCharacter` (1068), ✅ `SetStatBar` (896), ✅ `Start` (348), ✅ `Update` (392), ✅ `UpdateLogo` (1528) |
+| `CharacterSelectPublisher/<LoadInLocalizedAssets>c__Iterator54` | ✅ `.ctor` (44), ✅ `Dispose` (268), ✅ `MoveNext` (940), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `CharacterSelectPublisher/Logo` | ✅ `.ctor` (44) |
+| `DifficultyMenuPublisher` | ✅ `.ctor` (52), ✅ `CalculateCompletion` (252), ✅ `PushedEasy` (100), ✅ `PushedHard` (180), ✅ `PushedMedium` (180), ✅ `ShowPopover` (144), ✅ `Start` (836) |
+| `SelectCircuitPublisher` | ✅ `.ctor` (268), ✅ `AnimateIn` (72), ✅ `DetermineTrophies` (828), ✅ `LoadCircuitTextures` (72), ✅ `OnDisable` (48), ✅ `OnEnable` (520), ✅ `PressedCircuitButton1` (248), ✅ `PressedCircuitButton2` (300), ✅ `PressedCircuitButton3` (300), ✅ `PressedPranksgiving` (228), ✅ `PressedTutorial` (244), ✅ `ShowPopupDialog` (184), ✅ `Start` (72), ✅ `StartTutLoad` (64) |
+| `SelectCircuitPublisher/<AnimateIn>c__Iterator6F` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (768), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `SelectCircuitPublisher/<LoadCircuitTextures>c__Iterator6D` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1740), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `SelectCircuitPublisher/<Start>c__Iterator6E` | ✅ `.ctor` (44), ✅ `<>m__2C` (80), ✅ `<>m__2D` (80), ✅ `<>m__2E` (80), ✅ `<>m__2F` (80), ✅ `<>m__30` (80), ✅ `Dispose` (56), ✅ `MoveNext` (2708), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `SelectCircuitPublisher/<StartTutLoad>c__Iterator70` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (188), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `SelectCircuitPublisher/CircuitBanner` | ✅ `.ctor` (44) |
+| `SelectCircuitPublisher/TrophyAssets` | ✅ `.ctor` (44) |
+| `TrackSelectPublisher` | ✅ `.ctor` (268), ✅ `DetermineTrophies` (1620), ✅ `FixedUpdate` (536), ✅ `GetTrackIconsList` (148), ✅ `PressedBackButton` (84), ✅ `PressedTrackButton1` (200), ✅ `PressedTrackButton2` (200), ✅ `PressedTrackButton3` (200), ✅ `RaceOrSummary` (136), ✅ `Refresh` (324), ✅ `Start` (384), ✅ `UpdateTrackSnapshots` (1356) |
+| `TrackSelectPublisher/TrackIcon` | ✅ `.ctor` (44) |
+| `TrackUnlockHelper` | ✅ `.ctor` (52), ✅ `CheckForPreraceSetupUnlock` (336), ✅ `GetCircuitMedalCount` (448), ✅ `GetCircuitTracks` (372), ✅ `GetHasEnoughMedals` (92), ✅ `GetHighestTrackPlace` (396), ✅ `GetTrackMedalCount` (420), ✅ `IsCircuitUnlocked` (332) ⚠Etapa 1, ✅ `RelockEverything` (336) ⚠Etapa 1, ✅ `Start` (72), ✅ `TestForUltraHard` (188), ✅ `UnlockAllEverything` (336), ✅ `get_CanPranksgiving` (52), ✅ `get_DebugUnlock` (52), ✅ `set_DebugUnlock` (76) ⚠Etapa 1 |
 | `TrackUnlockHelper/<GetCircuitMedalCount>c__AnonStorey98` | ✅ `.ctor` (44), ✅ `<>m__19` (76) |
 | `TrackUnlockHelper/<GetCircuitTracks>c__AnonStorey9A` | ✅ `.ctor` (44), ✅ `<>m__1B` (76) |
 | `TrackUnlockHelper/<GetTrackMedalCount>c__AnonStorey99` | ✅ `.ctor` (44), ✅ `<>m__1A` (84) |
 | `TrackUnlockHelper/<Start>c__Iterator49` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (664), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `TrackUnlockHelper/CircuitTracks` | ✅ `.ctor` (44) |
 | `TrackUnlockHelper/TrackMedals` | ✅ `.ctor` (44) |
-| `UnlockedCircuitPublisher` | `.ctor` (76), `LoadCircuitTextures` (72), `SetContent` (224), `ShowCircuitBanner` (476), `Start` (72), `Update` (68), `get_Circuit` (52), `set_Circuit` (60) |
-| `UnlockedCircuitPublisher/<LoadCircuitTextures>c__Iterator75` | `.ctor` (44), `Dispose` (56), `MoveNext` (1772), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UnlockedCircuitPublisher/<Start>c__Iterator74` | `.ctor` (44), `Dispose` (56), `MoveNext` (196), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UnlockedCircuitPublisher/CircuitBanner` | `.ctor` (44) |
+| `UnlockedCircuitPublisher` | ✅ `.ctor` (76), ✅ `LoadCircuitTextures` (72), ✅ `SetContent` (224), ✅ `ShowCircuitBanner` (476), ✅ `Start` (72), ✅ `Update` (68), ✅ `get_Circuit` (52), ✅ `set_Circuit` (60) |
+| `UnlockedCircuitPublisher/<LoadCircuitTextures>c__Iterator75` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1772), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `UnlockedCircuitPublisher/<Start>c__Iterator74` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (196), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `UnlockedCircuitPublisher/CircuitBanner` | ✅ `.ctor` (44) |
 
 ### Carga de carrera (RaceSettings/StreamManager/Loading) — 122 métodos, 22.0 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `LoadSpin` | `.ctor` (52), `FadeHelper` (108), `FadeOut` (80), `FadeOut` (88), `Start` (72) |
-| `LoadSpin/<FadeHelper>c__Iterator2D` | `.ctor` (44), `Dispose` (56), `MoveNext` (712), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LoadSpin/<Start>c__Iterator2C` | `.ctor` (44), `Dispose` (56), `MoveNext` (392), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LoadingPublisher` | `.ctor` (52), `FadeAndDestroyCoroutine` (72), `LoadingProcess` (72), `PressedGoButton` (228), `SetAssetCluster` (60), `SetupMissionText` (72), `Start` (648), `Update` (44), `WaitForAssetBundles` (72), `WaitForCartConstruction` (72), `WaitForLevelLoad` (72) |
-| `LoadingPublisher/<FadeAndDestroyCoroutine>c__Iterator63` | `.ctor` (44), `Dispose` (56), `MoveNext` (256), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LoadingPublisher/<LoadingProcess>c__Iterator62` | `.ctor` (44), `Dispose` (56), `MoveNext` (904), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LoadingPublisher/<SetupMissionText>c__Iterator61` | `.ctor` (44), `Dispose` (56), `MoveNext` (1376), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LoadingPublisher/<WaitForAssetBundles>c__Iterator5E` | `.ctor` (44), `Dispose` (56), `MoveNext` (560), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LoadingPublisher/<WaitForCartConstruction>c__Iterator5F` | `.ctor` (44), `Dispose` (56), `MoveNext` (252), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LoadingPublisher/<WaitForLevelLoad>c__Iterator60` | `.ctor` (44), `Dispose` (56), `MoveNext` (468), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceSettings` | `.cctor` (116), `.ctor` (780), `<DetermineAICars>m__17` (128), `<DetermineAICars>m__18` (100), `Awake` (56), `CleanupCoroutine` (64), `DetermineAICars` (1196), `GatherRequiredAssets` (728), `GetCircuit` (668), `Launch` (284), `StartBundleLoads` (216), `get_AICarts` (52), `get_RaceType` (52), `set_RaceType` (60) |
-| `RaceSettings/<CleanupCoroutine>c__Iterator48` | `.ctor` (44), `Dispose` (56), `MoveNext` (164), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceSettings/<DetermineAICars>c__AnonStorey97` | `.ctor` (44), `<>m__16` (96) |
-| `RaceSettings/AICartSettings` | `.ctor` (44) |
-| `StreamManager` | `.cctor` (36), `.ctor` (88), `Awake` (56), `Cleanup` (780) ⚠Etapa 1, `DebugDump` (1756), `FlushAll` (412), `LoadAsset` (80), `PreloadAsset` (216), `PrependRootFileLocation` (192) ⚠Etapa 1, `ReleaseAsset` (156), `RequestAsset` (288), `Start` (88), `get_Instance` (256), `get_isAvailable` (64) |
-| `StreamManager/<LoadAsset>c__Iterator32` | `.ctor` (44), `Dispose` (56), `MoveNext` (584), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `StreamManager/Asset` | `.ctor` (44), `Unload` (216), `get_isDone` (104), `get_isInUse` (64), `get_mainAsset` (128), `get_progress` (200) |
-| `StreamManager/AssetCluster` | `.ctor` (100), `AddAsset` (124), `GetAsset` (356), `GetMainObjectOfAsset` (132), `Load` (296), `Preload` (252), `Release` (316), `get_isDone` (356), `get_progress` (444) |
+| `LoadSpin` | ✅ `.ctor` (52), ✅ `FadeHelper` (108), ✅ `FadeOut` (80), ✅ `FadeOut` (88), ✅ `Start` (72) |
+| `LoadSpin/<FadeHelper>c__Iterator2D` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (712), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `LoadSpin/<Start>c__Iterator2C` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (392), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `LoadingPublisher` | ✅ `.ctor` (52), ✅ `FadeAndDestroyCoroutine` (72), ✅ `LoadingProcess` (72), ✅ `PressedGoButton` (228), ✅ `SetAssetCluster` (60), ✅ `SetupMissionText` (72), ✅ `Start` (648), ✅ `Update` (44), ✅ `WaitForAssetBundles` (72), ✅ `WaitForCartConstruction` (72), ✅ `WaitForLevelLoad` (72) |
+| `LoadingPublisher/<FadeAndDestroyCoroutine>c__Iterator63` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (256), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `LoadingPublisher/<LoadingProcess>c__Iterator62` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (904), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `LoadingPublisher/<SetupMissionText>c__Iterator61` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1376), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `LoadingPublisher/<WaitForAssetBundles>c__Iterator5E` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (560), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `LoadingPublisher/<WaitForCartConstruction>c__Iterator5F` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (252), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `LoadingPublisher/<WaitForLevelLoad>c__Iterator60` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (468), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceSettings` | ✅ `.cctor` (116), ✅ `.ctor` (780), ✅ `<DetermineAICars>m__17` (128), ✅ `<DetermineAICars>m__18` (100), ✅ `Awake` (56), ✅ `CleanupCoroutine` (64), ✅ `DetermineAICars` (1196), ✅ `GatherRequiredAssets` (728), ✅ `GetCircuit` (668), ✅ `Launch` (284), ✅ `StartBundleLoads` (216), ✅ `get_AICarts` (52), ✅ `get_RaceType` (52), ✅ `set_RaceType` (60) |
+| `RaceSettings/<CleanupCoroutine>c__Iterator48` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (164), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceSettings/<DetermineAICars>c__AnonStorey97` | ✅ `.ctor` (44), ✅ `<>m__16` (96) |
+| `RaceSettings/AICartSettings` | ✅ `.ctor` (44) |
+| `StreamManager` | ✅ `.cctor` (36), ✅ `.ctor` (88), ✅ `Awake` (56), ✅ `Cleanup` (780) ⚠Etapa 1, ✅ `DebugDump` (1756), ✅ `FlushAll` (412), ✅ `LoadAsset` (80), ✅ `PreloadAsset` (216), ✅ `PrependRootFileLocation` (192) ⚠Etapa 1, ✅ `ReleaseAsset` (156), ✅ `RequestAsset` (288), ✅ `Start` (88), ✅ `get_Instance` (256), ✅ `get_isAvailable` (64) |
+| `StreamManager/<LoadAsset>c__Iterator32` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (584), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `StreamManager/Asset` | ✅ `.ctor` (44), ✅ `Unload` (216), ✅ `get_isDone` (104), ✅ `get_isInUse` (64), ✅ `get_mainAsset` (128), ✅ `get_progress` (200) |
+| `StreamManager/AssetCluster` | ✅ `.ctor` (100), ✅ `AddAsset` (124), ✅ `GetAsset` (356), ✅ `GetMainObjectOfAsset` (132), ✅ `Load` (296), ✅ `Preload` (252), ✅ `Release` (316), ✅ `get_isDone` (356), ✅ `get_progress` (444) |
 
 
 ---
 
 ## Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados)
 
-**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (40) — deben tolerar quedar pendientes o adelantarse:
+**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (38) — deben tolerar quedar pendientes o adelantarse:
 
 - Etapa 4 · `AchievementListener`: `HasAchieved`
 - Etapa 4 · `BaseEffect`: `.cctor`, `GetEffectInstance`, `isBeneficial`
@@ -320,7 +307,6 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 - Etapa 4 · `CarAIPathManager`: `.cctor`
 - Etapa 4 · `CarAIPathRecorder`: `FinishRecording`, `StartRecording`
 - Etapa 4 · `CarSnapShot`: `.ctor`, `AddEffectToPowerUpholder`, `AddToEffectList`
-- Etapa 4 · `CharacterVOController`: `PlayCelebrate`, `PlayPout`
 - Etapa 4 · `EffectManager`: `AddEffect`, `GetEffect`, `GetEffectCount`, `HasEffect`, `RemoveAllEffects`, `RemoveEffect`
 - Etapa 4 · `GimpedCarAI`: `.ctor`, `FixedUpdate`, `GetGimpedSnapShot`, `SetToClosestPathHead`, `Start`, `Update`
 - Etapa 4 · `MissionDialogPublisher`: `SetRollState`
@@ -369,8 +355,8 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `AnimationDriver` | `.cctor` (516) ⚠Etapa 2, `.ctor` (76) ⚠Etapa 2, `Blend` (224), `CrossFadeToNewAnimation` (104), `Lean` (400), `Play` (320) ⚠Etapa 1, `SetAnimationTarget` (1136) ⚠Etapa 2, `Update` (344) ⚠Etapa 2, `get_Item` (72) |
-| `AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B` | `.ctor` (44), `Dispose` (56), `MoveNext` (660), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `AnimationDriver` | ✅ `.cctor` (516) ⚠Etapa 2, ✅ `.ctor` (76) ⚠Etapa 2, ✅ `Blend` (224), ✅ `CrossFadeToNewAnimation` (104), ✅ `Lean` (400), ✅ `Play` (320) ⚠Etapa 1, ✅ `SetAnimationTarget` (1136) ⚠Etapa 2, ✅ `Update` (344) ⚠Etapa 2, ✅ `get_Item` (72) |
+| `AnimationDriver/<CrossFadeToNewAnimation>c__Iterator1B` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (660), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `AnimationTire` | `.ctor` (52), `Start` (144), `Update` (984) |
 | `CarCollider` | `.ctor` (268), `ApplyAcceleration` (372), `ApplyDrift` (252), `ApplyTurning` (640), `CarUpdatePump` (72), `CheckForCatchUp` (508), `CheckForStall` (584), `DecrementInputBlock` (60), `DoAcceleration` (948), `DoGimpedMovement` (296), `DoGroundCollision` (2880), `DoMovement` (4984), `DoPowerSlideCheck` (1560), `DoResetCarOnTrack` (84), `DoResetCarOnTrack` (884), `DoRoadBoundaries` (2308), `DoTireDrag` (340), `DoWrongWayCheck` (548), `FixedUpdate` (176), `GetAccel` (108), `GetActualAcceleration` (432), `GetActualCollisionMass` (124), `GetActualCollisionRestitution` (124), `GetActualHandling` (176), `GetActualMaxSpeed` (432), `GetVelocity` (108), `IncrementInputBlock` (60), `InputBlocked` (64), `IsShielded` (108), `OnDisable` (144), `OnDrawGizmos` (880), `OnEnable` (252), `PauseSounds` (152), `PlayRandomCollisionSound` (164), `RaceInitFinished` (60), `SetEngineSoundState` (220), `SetupAudioStuff` (168), `Start` (1016), `TransformVelocity` (164), `Update` (844), `get_EffectMgr` (52), `get_EngineAudioSource` (52), `get_PowerSlideTimer` (64), `get_isCarLocked` (100), `get_isDrifting` (52), `get_isInAir` (120), `get_isPowerSlideQueued` (52), `set_isCarLocked` (60) |
 | `CarCollider/<CarUpdatePump>c__Iterator1C` | `.ctor` (44), `Dispose` (56), `MoveNext` (428), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
@@ -394,7 +380,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `CarProgress` | `.ctor` (88), `GetProgressCopy` (140) |
 | `DebugTrackStrapper` | `.ctor` (268), `Start` (364) |
 | `ObjectTrackDistanceLogic` | `.ctor` (52), `CalculateTrackDistance` (120), `OnDisable` (144), `OnEnable` (144), `Start` (44), `Update` (44) |
-| `RaceManager` | ✅ `.cctor` (36), `.ctor` (60), `<CalculateCarPositions>m__12` (216), `<EndRace>m__14` (352), `<EndRace>m__15` (92), `<Init>m__13` (96), `AdvanceCarLap` (2164), `CalculateCarPositionPump` (72), `CalculateCarPositions` (1640), `CleanupRace` (340), `DoFinishLineEffect` (92), `EliminateCar` (88), `EndRace` (2372), `GetCarInPosition` (152), `GetCarIsActive` (140), `GetCarLap` (92), `GetCarLastProgressTrigger` (132), `GetCarLastTrackDistance` (184), `GetCarPosition` (120), `GetOrderedCarList` (208), `GetPlayerCar` (44), `Init` (5264), `InitRace` (136) ⚠Etapa 2, `IsPlayerCar` (60), `PauseRace` (596), `PlayAmbientNoise` (316), `PlayRandomAnimation` (332), `PostRaceCountdown` (88), `PreLaunchCoroutine` (72), `PreraceCountdown` (72), `RaceOutCoroutine` (64), `RaceRewind` (1788), `RecordSnapshot` (1484), `SetCarProgressTrigger` (92), `SpawnCoins` (56), `SpawnCoins` (488), `StartMusic` (684), `StartRaceRewind` (76), `add_raceInitFinishedEvent` (160), ✅ `get_Exists` (64), ✅ `get_Instance` (460), `get_allCars` (84), `get_elapsedTime` (316), ✅ `get_isPaused` (72) ⚠Etapa 1, `get_lastWaypoint` (84), `get_leadCar` (44), `get_totalNumLaps` (44), `get_totalTrackLength` (120), `remove_raceInitFinishedEvent` (160) |
+| `RaceManager` | ✅ `.cctor` (36), `.ctor` (60), `<CalculateCarPositions>m__12` (216), `<EndRace>m__14` (352), `<EndRace>m__15` (92), `<Init>m__13` (96), `AdvanceCarLap` (2164), `CalculateCarPositionPump` (72), `CalculateCarPositions` (1640), `CleanupRace` (340), `DoFinishLineEffect` (92), `EliminateCar` (88), `EndRace` (2372), `GetCarInPosition` (152), `GetCarIsActive` (140), `GetCarLap` (92), `GetCarLastProgressTrigger` (132), `GetCarLastTrackDistance` (184), `GetCarPosition` (120), `GetOrderedCarList` (208), `GetPlayerCar` (44), `Init` (5264), `InitRace` (136) ⚠Etapa 2, `IsPlayerCar` (60), `PauseRace` (596), `PlayAmbientNoise` (316), `PlayRandomAnimation` (332), `PostRaceCountdown` (88), `PreLaunchCoroutine` (72), `PreraceCountdown` (72), `RaceOutCoroutine` (64), `RaceRewind` (1788), `RecordSnapshot` (1484), `SetCarProgressTrigger` (92), `SpawnCoins` (56), `SpawnCoins` (488), `StartMusic` (684), `StartRaceRewind` (76), ✅ `add_raceInitFinishedEvent` (160), ✅ `get_Exists` (64), ✅ `get_Instance` (460), `get_allCars` (84), `get_elapsedTime` (316), ✅ `get_isPaused` (72) ⚠Etapa 1, `get_lastWaypoint` (84), `get_leadCar` (44), `get_totalNumLaps` (44), `get_totalTrackLength` (120), ✅ `remove_raceInitFinishedEvent` (160) |
 | `RaceManager/<CalculateCarPositionPump>c__Iterator41` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (204), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `RaceManager/<DoFinishLineEffect>c__Iterator43` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1484), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `RaceManager/<EliminateCar>c__Iterator46` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1180), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
@@ -477,8 +463,8 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `MineNotifyPublisher/<Lifetime>c__Iterator83` | `.ctor` (44), `Dispose` (56), `MoveNext` (460), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `MinePickup` | `.ctor` (52), `GetTriggeredEffect` (132) |
 | `MineSpreaderAI` | `.ctor` (168), `Explode` (324), `LaunchUpdate` (264), `SetOwner` (60), `SpreadMines` (628), `Start` (924), `Update` (148) |
-| `ParticleLibrary` | `.cctor` (36), `.ctor` (52), `Awake` (56), `GetPrefab` (388) ⚠Etapa 2, `Start` (88), `Update` (44), `get_Instance` (248) ⚠Etapa 2 |
-| `ParticleLibrary/ParticlePrefab` | `.ctor` (44) |
+| `ParticleLibrary` | ✅ `.cctor` (36), ✅ `.ctor` (52), ✅ `Awake` (56), ✅ `GetPrefab` (388) ⚠Etapa 2, ✅ `Start` (88), ✅ `Update` (44), ✅ `get_Instance` (248) ⚠Etapa 2 |
+| `ParticleLibrary/ParticlePrefab` | ✅ `.ctor` (44) |
 | `ParticleReducer` | `.ctor` (52), `Start` (572) |
 | `ParticleReducer/<Start>c__AnonStorey93` | `.ctor` (44), `<>m__E` (76) |
 | `ParticleReducer/PlatformProfile` | `.ctor` (44) |
@@ -530,7 +516,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 |---|---|
 | `AchievementCategoryPublisher` | `.ctor` (52), `OnPressedCoins` (108), `OnPressedPowerups` (108), `OnPressedStunts` (108), `OnPressedTracks` (108), `Start` (1020) |
 | `AchievementListener` | `.ctor` (52), `Achieve` (240), `Activate` (56), `Fail` (76) ⚠Etapa 1, `FilterCategory` (52), `GetUnlockName` (100), `HasAchieved` (80) ⚠Etapa 3, `get_State` (52) |
-| `AchievementManager` | ✅ `.cctor` (36), ✅ `.ctor` (52), `Achieve` (976), ✅ `Awake` (56), `ChooseActiveListeners` (1212) ⚠Etapa 2, `ClearActiveListeners` (172) ⚠Etapa 2, `Fail` (120) ⚠Etapa 1, `InitFrontEndAchievements` (468) ⚠Etapa 1, `OnDisable` (332), `OnEnable` (332), `OnRaceEnd` (160), `OnRaceInit` (160), ✅ `Start` (88), ✅ `get_AllAchievements` (180), ✅ `get_Instance` (176) ⚠Etapa 1 |
+| `AchievementManager` | ✅ `.cctor` (36), ✅ `.ctor` (52), ✅ `Achieve` (976), ✅ `Awake` (56), ✅ `ChooseActiveListeners` (1212) ⚠Etapa 2, ✅ `ClearActiveListeners` (172) ⚠Etapa 2, ✅ `Fail` (120) ⚠Etapa 1, ✅ `InitFrontEndAchievements` (468) ⚠Etapa 1, ✅ `OnDisable` (332), ✅ `OnEnable` (332), ✅ `OnRaceEnd` (160), ✅ `OnRaceInit` (160), ✅ `Start` (88), ✅ `get_AllAchievements` (180), ✅ `get_Instance` (176) ⚠Etapa 1 |
 | `AchievementPanelPublisher` | `.ctor` (52), `Refresh` (924), `get_Achievement` (52), `set_Achievement` (64) |
 | `AchievementUI` | `.ctor` (52), `AnimatePanelInCoroutine` (96), `AnimatePanelOutCoroutine` (96), `BuildFilteredList` (488), `GetCurrentSurface` (68), `OnPressedBack` (84), `OnPressedNext` (80), `OnPressedPrev` (80), `SetPage` (1016), `Start` (372), `SwapSurface` (72) |
 | `AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D` | `.ctor` (44), `Dispose` (56), `MoveNext` (1500), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
@@ -628,14 +614,14 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `CartCustomizerPublisher` | `.ctor` (196), `BuyPart` (892), `CameraWaitAndRefresh` (88), `CloseLockedMenu` (156), `EquipPart` (748), `GetPaintMenuIsOut` (52), `InitialWaitForLoadCoroutine` (72), `IsTemporaryInSlot` (288) ⚠Etapa 2, `OnBikeToggleChanged` (56), `OnBodyToggleChanged` (56), `OnDisable` (88), `OnScoopToggleChanged` (56), `OnSpoilerToggleChanged` (56), `OnThrusterToggleChanged` (56), `OnTrikeToggleChanged` (56), `OnTruckToggleChanged` (56), `OnWheelToggleChanged` (56), `OpenBuyPaint` (804), `OpenPaintIsLocked` (304), `PopulatePaintMenu` (1056), `PressedAction` (184), `PressedBikeForm` (76), `PressedBodySlot` (76), `PressedBuyPaint` (1280), `PressedClosePaint` (208), `PressedDownArrow` (644), `PressedLeftArrow` (516), `PressedOkPaint` (208), `PressedPaint` (264), `PressedRightArrow` (696), `PressedScoopSlot` (76), `PressedSpoilerSlot` (76), `PressedThrusterSlot` (76), `PressedTrikeForm` (76), `PressedTruckForm` (76), `PressedUpArrow` (644), `PressedWheelsSlot` (76), `Refresh` (172) ⚠Etapa 1, `RefreshDisplay` (2552), `RefreshFormToggles` (552), `RefreshNavBlips` (1700), `RefreshStatBars` (1380), `RefreshToggles` (372), `ResetPaintInSlot` (244), `ResetPreviewSlot` (160), `SetCameraToSlot` (472), `SetStatBar` (1064), `SetToSpecificPart` (456), `SetViewingPaintIndex` (504), `SlideBodyFormBox` (88), `Start` (72), `SwitchFormType` (468), `SwitchSlot` (952), `Update` (1896), `get_CurrentSlot` (52) |
-| `CartCustomizerPublisher/<CameraWaitAndRefresh>c__Iterator50` | `.ctor` (44), `Dispose` (56), `MoveNext` (220), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `CartCustomizerPublisher/<InitialWaitForLoadCoroutine>c__Iterator52` | `.ctor` (44), `Dispose` (56), `MoveNext` (360), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `CartCustomizerPublisher/<PressedDownArrow>c__AnonStorey9F` | `.ctor` (44), `<>m__22` (84) |
-| `CartCustomizerPublisher/<PressedUpArrow>c__AnonStorey9E` | `.ctor` (44), `<>m__21` (84) |
-| `CartCustomizerPublisher/<SetCameraToSlot>c__AnonStorey9D` | `.ctor` (44), `<>m__20` (136) |
-| `CartCustomizerPublisher/<SlideBodyFormBox>c__Iterator51` | `.ctor` (44), `Dispose` (56), `MoveNext` (984), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `CartCustomizerPublisher/<Start>c__Iterator53` | `.ctor` (44), `Dispose` (56), `MoveNext` (2932), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `CartCustomizerPublisher` | `.ctor` (196), `BuyPart` (892), `CameraWaitAndRefresh` (88), `CloseLockedMenu` (156), `EquipPart` (748), `GetPaintMenuIsOut` (52), `InitialWaitForLoadCoroutine` (72), ✅ `IsTemporaryInSlot` (288) ⚠Etapa 2, `OnBikeToggleChanged` (56), `OnBodyToggleChanged` (56), `OnDisable` (88), `OnScoopToggleChanged` (56), `OnSpoilerToggleChanged` (56), `OnThrusterToggleChanged` (56), `OnTrikeToggleChanged` (56), `OnTruckToggleChanged` (56), `OnWheelToggleChanged` (56), `OpenBuyPaint` (804), `OpenPaintIsLocked` (304), `PopulatePaintMenu` (1056), `PressedAction` (184), `PressedBikeForm` (76), `PressedBodySlot` (76), `PressedBuyPaint` (1280), `PressedClosePaint` (208), `PressedDownArrow` (644), `PressedLeftArrow` (516), `PressedOkPaint` (208), `PressedPaint` (264), `PressedRightArrow` (696), `PressedScoopSlot` (76), `PressedSpoilerSlot` (76), `PressedThrusterSlot` (76), `PressedTrikeForm` (76), `PressedTruckForm` (76), `PressedUpArrow` (644), `PressedWheelsSlot` (76), `Refresh` (172) ⚠Etapa 1, `RefreshDisplay` (2552), `RefreshFormToggles` (552), `RefreshNavBlips` (1700), `RefreshStatBars` (1380), `RefreshToggles` (372), `ResetPaintInSlot` (244), `ResetPreviewSlot` (160), `SetCameraToSlot` (472), `SetStatBar` (1064), `SetToSpecificPart` (456), `SetViewingPaintIndex` (504), `SlideBodyFormBox` (88), `Start` (72), `SwitchFormType` (468), `SwitchSlot` (952), `Update` (1896), `get_CurrentSlot` (52) |
+| `CartCustomizerPublisher/<CameraWaitAndRefresh>c__Iterator50` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (220), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `CartCustomizerPublisher/<InitialWaitForLoadCoroutine>c__Iterator52` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (360), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `CartCustomizerPublisher/<PressedDownArrow>c__AnonStorey9F` | ✅ `.ctor` (44), ✅ `<>m__22` (84) |
+| `CartCustomizerPublisher/<PressedUpArrow>c__AnonStorey9E` | ✅ `.ctor` (44), ✅ `<>m__21` (84) |
+| `CartCustomizerPublisher/<SetCameraToSlot>c__AnonStorey9D` | ✅ `.ctor` (44), ✅ `<>m__20` (136) |
+| `CartCustomizerPublisher/<SlideBodyFormBox>c__Iterator51` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (984), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `CartCustomizerPublisher/<Start>c__Iterator53` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (2932), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `PaintSlotPublisher` | `.ctor` (52), `OnDestroy` (80), `PressedPaintButton` (144), `SetPaint` (1148), `Start` (140) |
 
 ### Audio (música, SFX, voces) — 120 métodos, 17.3 KB ARM
@@ -643,8 +629,8 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | Clase | Métodos (bytes ARM) |
 |---|---|
 | `AudioManager` | ✅ `.cctor` (36), ✅ `.ctor` (84), ✅ `OnDisable` (68), ✅ `OnEnable` (68), ✅ `get_SoundEffectsVolume` (144) ⚠Etapa 1, ✅ `get_instance` (248) ⚠Etapa 1, ✅ `set_SoundEffectsVolume` (108) |
-| `CharacterVOController` | `.ctor` (196), `PickClip` (336), `PlayCelebrate` (72) ⚠Etapa 3, `PlayCharacterSelect` (72) ⚠Etapa 2, `PlayClip` (156), `PlayPout` (72) ⚠Etapa 3 |
-| `CharacterVOControllerGameObjectExtender` | `GetVOController` (132) ⚠Etapa 2 |
+| `CharacterVOController` | ✅ `.ctor` (196), ✅ `PickClip` (336), ✅ `PlayCelebrate` (72) ⚠Etapa 3, ✅ `PlayCharacterSelect` (72) ⚠Etapa 2, ✅ `PlayClip` (156), ✅ `PlayPout` (72) ⚠Etapa 3 |
+| `CharacterVOControllerGameObjectExtender` | ✅ `GetVOController` (132) ⚠Etapa 2 |
 | `ClipReference` | `.ctor` (44) |
 | `MusicPlayer` | `.cctor` (36), `.ctor` (52), `Awake` (56), `HijackMusicPlayerForSoundStings` (276) ⚠Etapa 3, `PlayMusic` (72) ⚠Etapa 1, `PlayMusic` (288) ⚠Etapa 1, `RestoreVolumeAfterSound` (72), `Start` (104), `StopMusic` (92), `Update` (152), `UpdateVolume` (100) ⚠Etapa 1, `get_Exists` (64), `get_Instance` (248) ⚠Etapa 1 |
 | `MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25` | `.ctor` (44), `Dispose` (56), `MoveNext` (172), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
