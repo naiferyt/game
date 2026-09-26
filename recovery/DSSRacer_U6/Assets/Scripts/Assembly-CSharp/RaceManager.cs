@@ -1211,9 +1211,71 @@ public class RaceManager : MonoBehaviour
 		return obj == Instance.playerCar;
 	}
 
+	// RECUPERADO-AOT RaceManager::RecordSnapshot token 0x06000553 @0x00112a34
+	// Taken when the player starts the last lap: position, progress, effects, powerups, metrics, AI path and
+	// money of every kart, so the results screen can offer to rewind that lap (RaceRewind).
 	public void RecordSnapshot()
 	{
-		RecoveryPending.Hit("RaceManager.RecordSnapshot");
+		UnityEngine.Debug.Log("Recording Snapshot");
+		DataUtility.Instance.CleanupAllSnapShots();
+		SnapShotInfo snapShotInfo = new SnapShotInfo();
+		foreach (GameObject car in carList)
+		{
+			CarSnapShot carSnapShot = new CarSnapShot();
+			carSnapShot.position = car.transform.position;
+			carSnapShot.rotation = car.transform.rotation;
+			carSnapShot.name = car.name;
+			carSnapShot.prog = carProgressMap[car].GetProgressCopy();
+			EffectManager component = car.GetComponent<EffectManager>();
+			PowerupHolder component2 = car.GetComponent<PowerupHolder>();
+			CarMetrics carMetrics = null;
+			GimpedCarAI component3 = car.GetComponent<GimpedCarAI>();
+			int playerMoney = -1;
+			if (IsPlayerCar(car))
+			{
+				carMetrics = car.GetComponent<CarMetrics>();
+				playerMoney = DataUtility.Instance.cloudData.playerMoney;
+			}
+			else if (component3 != null)
+			{
+				component3.GetGimpedSnapShot(out carSnapShot.gimpedPathIndex, out carSnapShot.gimpedPointIndex);
+			}
+			if (component != null)
+			{
+				for (int i = 0; i < component.GetEffectCount(typeof(BaseEffect)); i++)
+				{
+					carSnapShot.AddToEffectList(component.GetEffect(i).GetEffectSnapShot());
+				}
+			}
+			if (component2 != null)
+			{
+				for (int j = 0; j < component2.numEffects; j++)
+				{
+					carSnapShot.AddEffectToPowerUpholder(component2[j].GetEffectSnapShot());
+				}
+			}
+			if (carMetrics != null)
+			{
+				CarMetrics.CleanupCopiedMetrics();
+				carSnapShot.metrics = carMetrics.CopyMetrics();
+				carSnapShot.metrics.enabled = false;
+			}
+			if (playerMoney > -1)
+			{
+				carSnapShot.playerMoney = playerMoney;
+			}
+			snapShotInfo.AddCarSnap(carSnapShot);
+		}
+		if (rewindRaceTime > 0f)
+		{
+			snapShotInfo.raceTime = rewindRaceTime;
+		}
+		else
+		{
+			snapShotInfo.raceTime = elapsedTime;
+		}
+		UnityEngine.Debug.Log("SnapShot Race Time: " + snapShotInfo.raceTime);
+		DataUtility.Instance.AddSnapshot(snapShotInfo);
 	}
 
 	// RECUPERADO-AOT RaceManager::GetCarIsActive token 0x06000554 @0x00113000
@@ -1231,8 +1293,96 @@ public class RaceManager : MonoBehaviour
 		return carProgress.isActive;
 	}
 
+	// RECUPERADO-AOT RaceManager::RaceRewind token 0x06000555 @0x0011308c
+	// Runs in the reloaded race scene (StartRaceRewind): takes the rewind time and coins from the previous
+	// RaceResults, then puts every kart back where RecordSnapshot left it at the start of the last lap.
 	public void RaceRewind(int lapNum)
 	{
-		RecoveryPending.Hit("RaceManager.RaceRewind");
+		RaceResults raceResults = U4Compat.FindObjectOfType(typeof(RaceResults)) as RaceResults;
+		if (raceResults != null)
+		{
+			rewindRaceTime = raceResults.raceRewindTime;
+			rewindCoinsToSpawn = raceResults.rewindCoinsToSpawn;
+			UnityEngine.Object.Destroy(raceResults.gameObject);
+		}
+		if (rewindCoinsToSpawn > 0)
+		{
+			SpawnCoins(rewindCoinsToSpawn);
+		}
+		SnapShotInfo snapshot = DataUtility.Instance.GetSnapshot(lapNum);
+		snapshot.DebugDump();
+		foreach (GameObject car in carList)
+		{
+			for (int i = 0; i < snapshot.carSnaps.Count; i++)
+			{
+				CarSnapShot carSnapShot = snapshot.carSnaps[i];
+				if (!(carSnapShot.name == car.name))
+				{
+					continue;
+				}
+				car.transform.position = carSnapShot.position;
+				car.transform.rotation = carSnapShot.rotation;
+				CarCollider component = car.GetComponent<CarCollider>();
+				if (component != null && component.isInAir)
+				{
+					component.DoResetCarOnTrack(false);
+				}
+				carProgressMap[car] = carSnapShot.prog;
+				car.SetActive(carProgressMap[car].isActive);
+				if (car == playerCar)
+				{
+					carProgressMap[car].lapCount--;
+				}
+				EffectManager component2 = car.GetComponent<EffectManager>();
+				if ((bool)component2)
+				{
+					for (int j = 0; j < carSnapShot.effectList.Count; j++)
+					{
+						component2.AddEffect(carSnapShot.effectList[j]);
+					}
+				}
+				PowerupHolder component3 = car.GetComponent<PowerupHolder>();
+				if ((bool)component3)
+				{
+					for (int k = 0; k < carSnapShot.powerupHolder.Count; k++)
+					{
+						component3.AddEffect(BaseEffect.GetEffectInstance(carSnapShot.powerupHolder[k].effectType, car));
+					}
+				}
+				if (car.GetComponent<CarMetrics>() != null)
+				{
+					carSnapShot.metrics.CloneToObject(car);
+				}
+				GimpedCarAI component4 = car.GetComponent<GimpedCarAI>();
+				if (component4 != null)
+				{
+					if (carSnapShot.gimpedPathIndex != -1 && carSnapShot.gimpedPointIndex != -1)
+					{
+						component4.SetGimpedSnapShot(carSnapShot.gimpedPathIndex, carSnapShot.gimpedPointIndex);
+					}
+					else
+					{
+						UnityEngine.Debug.LogWarning("GimpedAI indices were not saved properly");
+					}
+				}
+				else
+				{
+					UnityEngine.Debug.Log("No GimpedCarAI!!!");
+				}
+				snapshot.carSnaps.Remove(snapshot.carSnaps[i]);
+				// Karts that had already finished before the snapshot finish again.
+				if (carProgressMap[car].finalPlace != 0)
+				{
+					AdvanceCarLap(car);
+					finishCounter++;
+				}
+				break;
+			}
+		}
+		RaceManager raceManager = U4Compat.FindObjectOfType(typeof(RaceManager)) as RaceManager;
+		if (raceManager != null)
+		{
+			rewindRaceTime = snapshot.raceTime;
+		}
 	}
 }
