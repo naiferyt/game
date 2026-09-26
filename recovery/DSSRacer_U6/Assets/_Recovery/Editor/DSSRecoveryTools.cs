@@ -74,7 +74,13 @@ namespace DSSRecovery
 				if (set) { L("lightmap encoding (Standalone) = Low/dLDR via " + m.Name); break; }
 			}
 			if (!set) L("WARNING: could not set lightmap encoding quality (no suitable API found)");
+			// original PhysicsManager: RaycastsHitTriggers = 1, all 32 layers collide (read from mainData)
+			Physics.queriesHitTriggers = true;
+			for (int a = 0; a < 32; a++) for (int b = 0; b < 32; b++) Physics.IgnoreLayerCollision(a, b, false);
+			var dm = AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/DynamicsManager.asset").FirstOrDefault();
+			if (dm != null) EditorUtility.SetDirty(dm);
 			AssetDatabase.SaveAssets();
+			L("physics: queriesHitTriggers=" + Physics.queriesHitTriggers + " gravity=" + Physics.gravity + " fixedDeltaTime=" + Time.fixedDeltaTime);
 			L("colorSpace=" + PlayerSettings.colorSpace + " backend=" + PlayerSettings.GetScriptingBackend(NamedBuildTarget.Standalone));
 			Flush("stage0_project_settings.log");
 		}
@@ -368,7 +374,7 @@ namespace DSSRecovery
 				if (m == null || m.shader == null || m.shader.name == "Hidden/InternalErrorShader" || !m.shader.isSupported)
 				{ badMaterials++; details.Add("bad material: " + p + " shader=" + (m != null && m.shader != null ? m.shader.name : "null")); }
 			}
-			var groundReport = new List<string>();
+			var groundReport = new List<string>(); var groundDetails = new List<string>();
 			int groundChecks = 0, groundMiss = 0;
 			foreach (var sceneRef in EditorBuildSettings.scenes)
 			{
@@ -393,11 +399,19 @@ namespace DSSRecovery
 				{
 					groundChecks++;
 					RaycastHit hit;
-					if (!Physics.Raycast(t.position + Vector3.up * 3f, Vector3.down, out hit, 60f, 1 << 8, QueryTriggerInteraction.Ignore))
-					{ miss++; groundMiss++; if (miss <= 5) details.Add("no Ground under " + sceneRef.path + " :: " + t.name + " @" + t.position); }
+					if (!Physics.Raycast(t.position + Vector3.up * 3f, Vector3.down, out hit, 60f, 1 << 8, QueryTriggerInteraction.Collide)) // original: RaycastsHitTriggers=1 (ground can be a trigger)
+					{
+						miss++; groundMiss++;
+						RaycastHit any; string below;
+						if (Physics.Raycast(t.position + Vector3.up * 3f, Vector3.down, out any, 400f, ~0, QueryTriggerInteraction.Collide))
+							below = "first hit '" + any.collider.name + "' layer " + LayerMask.LayerToName(any.collider.gameObject.layer) + " at -" + (any.distance - 3f).ToString("0.0") + "m";
+						else below = "nothing within 400m";
+						groundDetails.Add("no Ground under " + Path.GetFileNameWithoutExtension(sceneRef.path) + " :: " + t.name + " @" + t.position + " -> " + below);
+					}
 				}
 				groundReport.Add(Path.GetFileNameWithoutExtension(sceneRef.path) + ": " + (probes.Count - miss) + "/" + probes.Count + " waypoints/pole positions have Ground (layer 8) below");
 			}
+			L("physics: queriesHitTriggers=" + Physics.queriesHitTriggers + ", Ground-Cars ignored=" + Physics.GetIgnoreLayerCollision(8, 9) + ", Cars-Collide ignored=" + Physics.GetIgnoreLayerCollision(9, 10) + ", fixedDeltaTime=" + Time.fixedDeltaTime);
 			L("missing scripts: " + missingScripts);
 			L("materials with missing/unsupported shader: " + badMaterials);
 			L("renderers with empty/missing mesh: " + emptyMeshes);
@@ -405,9 +419,59 @@ namespace DSSRecovery
 			L("skinned meshes with bad bone weights: " + badSkins);
 			L("ground probes: " + (groundChecks - groundMiss) + "/" + groundChecks);
 			foreach (var s in groundReport) L("  " + s);
-			L("--- details (first 200)");
-			foreach (var d in details.Take(200)) L("  " + d);
+			foreach (var cat in new[] { "missing script", "bad material", "no mesh", "empty mesh", "collider without", "bad skinned" })
+			{
+				var items = details.Where(d => d.StartsWith(cat)).ToList();
+				if (items.Count == 0) continue;
+				L("--- " + cat + " (" + items.Count + ")");
+				foreach (var d in items.Take(60)) L("  " + d);
+			}
+			L("--- ground probe misses (" + groundDetails.Count + ")");
+			foreach (var d in groundDetails) L("  " + d);
 			Flush("stage0_validation.log");
+		}
+
+		// ------------------------------------------------------------------ screenshots (needs a graphics device: run WITHOUT -nographics)
+		[MenuItem("DSS Recovery/Stage 0/Screenshots")]
+		public static void Screenshots()
+		{
+			string dir = Path.Combine(LogDir, "screens"); Directory.CreateDirectory(dir);
+			foreach (var sceneRef in EditorBuildSettings.scenes)
+			{
+				var scene = EditorSceneManager.OpenScene(sceneRef.path, OpenSceneMode.Single);
+				string sn = Path.GetFileNameWithoutExtension(sceneRef.path).Replace(' ', '_');
+				foreach (var restorer in UnityEngine.Object.FindObjectsByType<LegacyLightmapRestorer>(FindObjectsInactive.Include)) restorer.Apply();
+				var cams = UnityEngine.Object.FindObjectsByType<Camera>(FindObjectsSortMode.None).Where(c => c.enabled && c.gameObject.activeInHierarchy).OrderBy(c => c.depth).ToList();
+				// composite of all scene cameras in depth order (as the game renders them)
+				if (cams.Count > 0) Shot(cams, Path.Combine(dir, sn + "__cameras.png"));
+				// gameplay-like view from behind the grid for tracks
+				var pole = scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<Transform>(true)).FirstOrDefault(tt => tt.name == "Pole Position 1");
+				var first = UnityEngine.Object.FindObjectsByType<WaypointLogic>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(w => w.isFirst) ;
+				if (pole != null)
+				{
+					var go = new GameObject("__shotcam"); var cam = go.AddComponent<Camera>();
+					Vector3 fwd = first != null ? (first.transform.position - pole.position) : pole.forward; fwd.y = 0; if (fwd.sqrMagnitude < 0.01f) fwd = pole.forward; fwd.Normalize();
+					go.transform.position = pole.position - fwd * 8f + Vector3.up * 3f; go.transform.rotation = Quaternion.LookRotation(fwd * 10f - Vector3.up * 1.5f);
+					cam.fieldOfView = 60; cam.farClipPlane = 2000; cam.clearFlags = CameraClearFlags.Skybox;
+					var ugh = cams.Where(c => c.orthographic).ToList();   // keep the 2D UI (UghCamera) on top, like the game
+					var list = new List<Camera> { cam }; list.AddRange(ugh);
+					Shot(list, Path.Combine(dir, sn + "__grid.png"));
+					UnityEngine.Object.DestroyImmediate(go);
+				}
+				L("screens for " + sn + " (" + cams.Count + " cameras)");
+			}
+			Flush("stage0_screens.log");
+		}
+
+		static void Shot(List<Camera> cams, string file)
+		{
+			var rt = new RenderTexture(1280, 720, 24);
+			foreach (var c in cams) { var old = c.targetTexture; c.targetTexture = rt; c.Render(); c.targetTexture = old; }
+			RenderTexture.active = rt;
+			var tex = new Texture2D(1280, 720, TextureFormat.RGB24, false); tex.ReadPixels(new Rect(0, 0, 1280, 720), 0, 0); tex.Apply();
+			RenderTexture.active = null;
+			File.WriteAllBytes(file, tex.EncodeToPNG());
+			UnityEngine.Object.DestroyImmediate(tex); rt.Release(); UnityEngine.Object.DestroyImmediate(rt);
 		}
 
 		static void CheckGeometry(GameObject root, string where, List<string> details, ref int emptyMeshes, ref int badColliders, ref int badSkins)
@@ -415,6 +479,8 @@ namespace DSSRecovery
 			foreach (var mf in root.GetComponentsInChildren<MeshFilter>(true))
 			{
 				if (mf.GetComponent<MeshRenderer>() == null || !mf.GetComponent<MeshRenderer>().enabled) continue;
+				// UghSprite / UghSlideToggle build their mesh at runtime (verified in the ARM: new Mesh, set_vertices, MeshFilter.set_sharedMesh)
+				if (mf.sharedMesh == null && (mf.GetComponent("UghSprite") != null || mf.GetComponent("UghSlideToggle") != null)) continue;
 				if (mf.sharedMesh == null) { emptyMeshes++; details.Add("no mesh: " + where + " :: " + mf.name); }
 				else if (mf.sharedMesh.vertexCount == 0 && !mf.sharedMesh.name.StartsWith("Down_Ramp") && !mf.sharedMesh.name.StartsWith("Half_Circle") && !mf.sharedMesh.name.StartsWith("Hiway_Curve"))
 				{ emptyMeshes++; details.Add("empty mesh: " + where + " :: " + mf.name + " (" + mf.sharedMesh.name + ")"); }
