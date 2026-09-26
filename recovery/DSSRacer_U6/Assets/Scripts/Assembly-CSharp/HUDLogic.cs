@@ -83,47 +83,62 @@ public class HUDLogic : UghPublisher
 
 	private static HUDLogic s_Instance;
 
+	// RECUPERADO-AOT HUDLogic::get_CatchUpNeeded token 0x06000754 @0x00139a38
+	// RECUPERADO-AOT HUDLogic::set_CatchUpNeeded token 0x06000755 @0x00139a6c
 	public bool CatchUpNeeded
 	{
 		get
 		{
-			RecoveryPending.Hit("HUDLogic.get_CatchUpNeeded");
-			return default(bool);
+			return catchUpNeeded;
 		}
 		set
 		{
-			RecoveryPending.Hit("HUDLogic.set_CatchUpNeeded");
+			catchUpNeeded = value;
 		}
 	}
 
+	// RECUPERADO-AOT HUDLogic::get_WrongWay token 0x06000756 @0x00139aa8
+	// RECUPERADO-AOT HUDLogic::set_WrongWay token 0x06000757 @0x00139adc
 	public bool WrongWay
 	{
 		get
 		{
-			RecoveryPending.Hit("HUDLogic.get_WrongWay");
-			return default(bool);
+			return wrongWay;
 		}
 		set
 		{
-			RecoveryPending.Hit("HUDLogic.set_WrongWay");
+			wrongWay = value;
 		}
 	}
 
+	// RECUPERADO-AOT HUDLogic::get_Instance token 0x06000759 @0x00139ba0
+	// ADAPTADO-U6: Object.FindObjectOfType -> U4Compat.
 	public static HUDLogic Instance
 	{
 		get
 		{
-			RecoveryPending.Hit("HUDLogic.get_Instance");
-			return default(HUDLogic);
+			if (s_Instance == null)
+			{
+				s_Instance = U4Compat.FindObjectOfType(typeof(HUDLogic)) as HUDLogic;
+				if (s_Instance == null)
+				{
+					UnityEngine.Debug.LogError("There must be a HUDLogic object in this scene!");
+				}
+			}
+			return s_Instance;
 		}
 	}
 
+	// RECUPERADO-AOT HUDLogic::get_playerCar token 0x0600075a @0x00139ca4
 	public static GameObject playerCar
 	{
 		get
 		{
-			RecoveryPending.Hit("HUDLogic.get_playerCar");
-			return default(GameObject);
+			if (Instance == null)
+			{
+				return null;
+			}
+			return Instance.playerObject;
 		}
 	}
 
