@@ -3,6 +3,11 @@
 // Real signatures: Unity 6000.6 scripting reference. Add members here only as the recovered code needs them.
 namespace UnityEngine.iOS
 {
+	public static class Device
+	{
+		public static DeviceGeneration generation { get { return DeviceGeneration.Unknown; } }
+	}
+
 	public enum DeviceGeneration { Unknown = 0, iPhone = 1, iPhone3G = 2, iPhone3GS = 3, iPodTouch1Gen = 4, iPodTouch2Gen = 5, iPodTouch3Gen = 6, iPad1Gen = 7, iPhone4 = 8, iPodTouch4Gen = 9, iPad2Gen = 10, iPhone4S = 11, iPad3Gen = 12, iPhone5 = 13, iPodTouch5Gen = 14, iPadMini1Gen = 15, iPad4Gen = 16, iPhone5C = 17, iPhone5S = 18, iPadAir1 = 19, iPadMini2Gen = 20, iPhoneUnknown = 10001, iPadUnknown = 10002, iPodTouchUnknown = 10003 }
 }
 
@@ -34,4 +39,13 @@ namespace UnityEngine.SceneManagement
 namespace UnityEngine.Events
 {
 	public delegate void UnityAction<T0, T1>(T0 arg0, T1 arg1);
+}
+
+namespace UnityEngine
+{
+	// AssetBundle.LoadAll (Unity 4) was renamed LoadAllAssets; an extension method stands in for the instance method.
+	public static class U6ShimAssetBundleExtensions
+	{
+		public static Object[] LoadAllAssets(this AssetBundle bundle) { return null; }
+	}
 }
