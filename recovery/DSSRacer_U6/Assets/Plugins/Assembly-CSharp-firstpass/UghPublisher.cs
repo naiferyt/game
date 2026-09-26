@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
+// Menu screen controller base: name -> object tables for the screen's transforms, texts, buttons, toggles and
+// sliders (filled from the serialized reference arrays), and button presses dispatched by function name.
+// Source listing: recovery/aot_listings/Assembly-CSharp-firstpass/UghPublisher.txt
 public class UghPublisher : Script
 {
 	public class TransformsDictionary
@@ -10,16 +14,21 @@ public class UghPublisher : Script
 
 		public Transform this[string name]
 		{
+			// RECUPERADO-AOT UghPublisher.TransformsDictionary.get_Item token 0x06000446 @0x00043a7c
 			get
 			{
-				RecoveryPending.Hit("UghPublisher.TransformsDictionary.get_Item");
-				return default(Transform);
+				return nameToTransform[name];
 			}
 		}
 
+		// RECUPERADO-AOT UghPublisher.TransformsDictionary..ctor token 0x06000445 @0x000439c0
 		public TransformsDictionary(TransformReference[] refs)
 		{
-			RecoveryPending.Hit("UghPublisher.TransformsDictionary..ctor");
+			nameToTransform = new Dictionary<string, Transform>(refs.Length);
+			foreach (TransformReference reference in refs)
+			{
+				nameToTransform[reference.name] = reference.reference;
+			}
 		}
 	}
 
@@ -37,16 +46,21 @@ public class UghPublisher : Script
 
 		public UghText this[string name]
 		{
+			// RECUPERADO-AOT UghPublisher.UghTextsDictionary.get_Item token 0x06000449 @0x00043bac
 			get
 			{
-				RecoveryPending.Hit("UghPublisher.UghTextsDictionary.get_Item");
-				return default(UghText);
+				return nameToUghText[name];
 			}
 		}
 
+		// RECUPERADO-AOT UghPublisher.UghTextsDictionary..ctor token 0x06000448 @0x00043af0
 		public UghTextsDictionary(UghTextReference[] refs)
 		{
-			RecoveryPending.Hit("UghPublisher.UghTextsDictionary..ctor");
+			nameToUghText = new Dictionary<string, UghText>(refs.Length);
+			foreach (UghTextReference reference in refs)
+			{
+				nameToUghText[reference.name] = reference.reference;
+			}
 		}
 	}
 
@@ -64,16 +78,21 @@ public class UghPublisher : Script
 
 		public LEDScroller this[string name]
 		{
+			// RECUPERADO-AOT UghPublisher.LEDScrollersDictionary.get_Item token 0x0600044c @0x00043cdc
 			get
 			{
-				RecoveryPending.Hit("UghPublisher.LEDScrollersDictionary.get_Item");
-				return default(LEDScroller);
+				return nameToLEDScroller[name];
 			}
 		}
 
+		// RECUPERADO-AOT UghPublisher.LEDScrollersDictionary..ctor token 0x0600044b @0x00043c20
 		public LEDScrollersDictionary(LEDScrollerReference[] refs)
 		{
-			RecoveryPending.Hit("UghPublisher.LEDScrollersDictionary..ctor");
+			nameToLEDScroller = new Dictionary<string, LEDScroller>(refs.Length);
+			foreach (LEDScrollerReference reference in refs)
+			{
+				nameToLEDScroller[reference.name] = reference.reference;
+			}
 		}
 	}
 
@@ -91,16 +110,21 @@ public class UghPublisher : Script
 
 		public UghButton this[string name]
 		{
+			// RECUPERADO-AOT UghPublisher.UghButtonsDictionary.get_Item token 0x0600044f @0x00043e0c
 			get
 			{
-				RecoveryPending.Hit("UghPublisher.UghButtonsDictionary.get_Item");
-				return default(UghButton);
+				return nameToUghButton[name];
 			}
 		}
 
+		// RECUPERADO-AOT UghPublisher.UghButtonsDictionary..ctor token 0x0600044e @0x00043d50
 		public UghButtonsDictionary(UghButtonReference[] refs)
 		{
-			RecoveryPending.Hit("UghPublisher.UghButtonsDictionary..ctor");
+			nameToUghButton = new Dictionary<string, UghButton>(refs.Length);
+			foreach (UghButtonReference reference in refs)
+			{
+				nameToUghButton[reference.name] = reference.reference;
+			}
 		}
 	}
 
@@ -120,16 +144,21 @@ public class UghPublisher : Script
 
 		public UghSlideToggle this[string name]
 		{
+			// RECUPERADO-AOT UghPublisher.UghSlideToggleDictionary.get_Item token 0x06000452 @0x00043f3c
 			get
 			{
-				RecoveryPending.Hit("UghPublisher.UghSlideToggleDictionary.get_Item");
-				return default(UghSlideToggle);
+				return nameToUghSlideToggle[name];
 			}
 		}
 
+		// RECUPERADO-AOT UghPublisher.UghSlideToggleDictionary..ctor token 0x06000451 @0x00043e80
 		public UghSlideToggleDictionary(UghSlideToggleReference[] refs)
 		{
-			RecoveryPending.Hit("UghPublisher.UghSlideToggleDictionary..ctor");
+			nameToUghSlideToggle = new Dictionary<string, UghSlideToggle>(refs.Length);
+			foreach (UghSlideToggleReference reference in refs)
+			{
+				nameToUghSlideToggle[reference.name] = reference.reference;
+			}
 		}
 	}
 
@@ -147,16 +176,21 @@ public class UghPublisher : Script
 
 		public UghSlider this[string name]
 		{
+			// RECUPERADO-AOT UghPublisher.UghSliderDictionary.get_Item token 0x06000455 @0x0004406c
 			get
 			{
-				RecoveryPending.Hit("UghPublisher.UghSliderDictionary.get_Item");
-				return default(UghSlider);
+				return nameToUghSlider[name];
 			}
 		}
 
+		// RECUPERADO-AOT UghPublisher.UghSliderDictionary..ctor token 0x06000454 @0x00043fb0
 		public UghSliderDictionary(UghSliderReference[] refs)
 		{
-			RecoveryPending.Hit("UghPublisher.UghSliderDictionary..ctor");
+			nameToUghSlider = new Dictionary<string, UghSlider>(refs.Length);
+			foreach (UghSliderReference reference in refs)
+			{
+				nameToUghSlider[reference.name] = reference.reference;
+			}
 		}
 	}
 
@@ -196,77 +230,91 @@ public class UghPublisher : Script
 
 	public TransformsDictionary transforms
 	{
+		// RECUPERADO-AOT UghPublisher.get_transforms token 0x0600043b @0x00043550
 		get
 		{
-			RecoveryPending.Hit("UghPublisher.get_transforms");
-			return default(TransformsDictionary);
+			return transformsDictionary;
 		}
 	}
 
 	public UghTextsDictionary ughTexts
 	{
+		// RECUPERADO-AOT UghPublisher.get_ughTexts token 0x0600043c @0x00043584
 		get
 		{
-			RecoveryPending.Hit("UghPublisher.get_ughTexts");
-			return default(UghTextsDictionary);
+			return ughTextsDictionary;
 		}
 	}
 
 	public LEDScrollersDictionary ledScrollers
 	{
+		// RECUPERADO-AOT UghPublisher.get_ledScrollers token 0x0600043d @0x000435b8
 		get
 		{
-			RecoveryPending.Hit("UghPublisher.get_ledScrollers");
-			return default(LEDScrollersDictionary);
+			return ledScrollersDictionary;
 		}
 	}
 
 	public UghButtonsDictionary ughButtons
 	{
+		// RECUPERADO-AOT UghPublisher.get_ughButtons token 0x0600043e @0x000435ec
 		get
 		{
-			RecoveryPending.Hit("UghPublisher.get_ughButtons");
-			return default(UghButtonsDictionary);
+			return ughButtonsDictionary;
 		}
 	}
 
 	public UghSlideToggleDictionary ughSlideToggles
 	{
+		// RECUPERADO-AOT UghPublisher.get_ughSlideToggles token 0x06000440 @0x00043668
 		get
 		{
-			RecoveryPending.Hit("UghPublisher.get_ughSlideToggles");
-			return default(UghSlideToggleDictionary);
+			return ughSlideTogglesDictionary;
 		}
 	}
 
 	public UghSliderDictionary ughSliders
 	{
+		// RECUPERADO-AOT UghPublisher.get_ughSliders token 0x06000441 @0x0004369c
 		get
 		{
-			RecoveryPending.Hit("UghPublisher.get_ughSliders");
-			return default(UghSliderDictionary);
+			return ughSlidersDictionary;
 		}
 	}
 
+	// RECUPERADO-AOT UghPublisher.GetButton token 0x0600043f @0x00043620
 	public UghButton GetButton(string name)
 	{
-		RecoveryPending.Hit("UghPublisher.GetButton");
-		return default(UghButton);
+		return ughButtonsDictionary[name];
 	}
 
+	// RECUPERADO-AOT UghPublisher.Awake token 0x06000442 @0x000436d0
 	protected void Awake()
 	{
-		RecoveryPending.Hit("UghPublisher.Awake");
+		transformsDictionary = new TransformsDictionary(transformReferences);
+		ughTextsDictionary = new UghTextsDictionary(ughTextReferences);
+		ledScrollersDictionary = new LEDScrollersDictionary(ledScrollerReferences);
+		ughButtonsDictionary = new UghButtonsDictionary(ughButtonReferences);
+		ughSlideTogglesDictionary = new UghSlideToggleDictionary(ughSlideToggleReferences);
+		ughSlidersDictionary = new UghSliderDictionary(ughSliderReferences);
 	}
 
+	// RECUPERADO-AOT UghPublisher.OnButtonPressed token 0x06000443 @0x0004381c
 	public void OnButtonPressed(UghButton button)
 	{
-		RecoveryPending.Hit("UghPublisher.OnButtonPressed");
+		foreach (UghButtonReference reference in ughButtonReferences)
+		{
+			if (reference.reference == button)
+			{
+				Invoke(reference.functionName, 0f);
+			}
+		}
 	}
 
+	// RECUPERADO-AOT UghPublisher.GetSprite token 0x06000444 @0x000438d4
+	// RECUPERADO-AOT UghPublisher.<GetSprite>c__AnonStorey2A.<>m__8 token 0x06000611 @0x0005e8c0
 	public UghSprite GetSprite(string name)
 	{
-		RecoveryPending.Hit("UghPublisher.GetSprite");
-		return default(UghSprite);
+		return ughSprites.Where((UghSprite us) => us.gameObject.name == name).FirstOrDefault();
 	}
 }

@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
-using System.Diagnostics;
 using UnityEngine;
 
+// On/off button with separate normal / pressed / on / on-pressed prototypes.
+// Source listing: recovery/aot_listings/Assembly-CSharp-firstpass/UghToggle.txt
 [RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
 public class UghToggle : UghControl
 {
@@ -24,65 +25,112 @@ public class UghToggle : UghControl
 
 	public bool State
 	{
+		// RECUPERADO-AOT UghToggle.get_State token 0x060003d7 @0x0003e5a4
 		get
 		{
-			RecoveryPending.Hit("UghToggle.get_State");
-			return default(bool);
+			return state;
 		}
+		// RECUPERADO-AOT UghToggle.set_State token 0x060003d8 @0x0003e5d8
 		set
 		{
-			RecoveryPending.Hit("UghToggle.set_State");
+			state = value;
+			UpdateMeshForCurrentState();
+			SendOnChanged();
 		}
 	}
 
 	public bool HighlightState
 	{
+		// RECUPERADO-AOT UghToggle.get_HighlightState token 0x060003d9 @0x0003e620
 		get
 		{
-			RecoveryPending.Hit("UghToggle.get_HighlightState");
-			return default(bool);
+			return state;
 		}
+		// RECUPERADO-AOT UghToggle.set_HighlightState token 0x060003da @0x0003e654
 		set
 		{
-			RecoveryPending.Hit("UghToggle.set_HighlightState");
+			state = value;
+			UpdateMeshForCurrentState();
 		}
 	}
 
-	[DebuggerHidden]
+	// RECUPERADO-AOT UghToggle.OnUghInputDown token 0x060003db @0x0003e694
+	// (body: <OnUghInputDown>c__Iterator25.MoveNext token 0x060005f4 @0x0005da40)
 	public override IEnumerator OnUghInputDown()
 	{
-		RecoveryPending.Hit("UghToggle.OnUghInputDown");
+		if (isLegalControl)
+		{
+			pressed = true;
+			UpdateMeshForCurrentState();
+			if (OnDown != null)
+			{
+				wasDown = true;
+				OnDown(this, true);
+			}
+		}
 		yield break;
 	}
 
+	// RECUPERADO-AOT UghToggle.OnUghInputUp token 0x060003dc @0x0003e6dc
 	public override void OnUghInputUp()
 	{
-		RecoveryPending.Hit("UghToggle.OnUghInputUp");
+		pressed = false;
+		UpdateMeshForCurrentState();
+		if (OnDown != null && wasDown)
+		{
+			wasDown = false;
+			OnDown(this, false);
+		}
 	}
 
+	// RECUPERADO-AOT UghToggle.OnUghInputUpAsButton token 0x060003dd @0x0003e750
 	public override void OnUghInputUpAsButton()
 	{
-		RecoveryPending.Hit("UghToggle.OnUghInputUpAsButton");
+		if (!isLegalControl)
+		{
+			return;
+		}
+		pressed = false;
+		State = !state;
+		if (OnDown != null && wasDown)
+		{
+			wasDown = false;
+			OnDown(this, false);
+		}
 	}
 
+	// RECUPERADO-AOT UghToggle.GetUghSpritePrototypeForCurrentState token 0x060003de @0x0003e7e4
 	private UghSpritePrototype GetUghSpritePrototypeForCurrentState()
 	{
-		RecoveryPending.Hit("UghToggle.GetUghSpritePrototypeForCurrentState");
-		return default(UghSpritePrototype);
+		if (state)
+		{
+			return pressed ? onPressed : on;
+		}
+		return pressed ? normalPressed : normal;
 	}
 
+	// RECUPERADO-AOT UghToggle.UpdateMeshForCurrentState token 0x060003df @0x0003e850
 	private void UpdateMeshForCurrentState()
 	{
-		RecoveryPending.Hit("UghToggle.UpdateMeshForCurrentState");
+		UpdateMeshWithSpritePrototype(GetUghSpritePrototypeForCurrentState());
 	}
 
+	// RECUPERADO-AOT UghToggle.SendOnChanged token 0x060003e0 @0x0003e898
 	private void SendOnChanged()
 	{
-		RecoveryPending.Hit("UghToggle.SendOnChanged");
+		if (OnChanged != null)
+		{
+			OnChanged(this);
+		}
 	}
 
+	// RECUPERADO-AOT UghToggle.OnMouseExit token 0x060003e1 @0x0003e8e4
 	private void OnMouseExit()
 	{
-		RecoveryPending.Hit("UghToggle.OnMouseExit");
+		if (OnDown != null && wasDown)
+		{
+			wasDown = false;
+			OnDown(this, false);
+		}
 	}
 }
