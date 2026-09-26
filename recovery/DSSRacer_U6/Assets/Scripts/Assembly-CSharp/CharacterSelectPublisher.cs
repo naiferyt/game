@@ -26,7 +26,8 @@ public class CharacterSelectPublisher : UghPublisher
 
 	public Material blackoutMatrial;
 
-	private int viewingIndex;
+	// RECUPERADO-AOT CharacterSelectPublisher::.ctor token 0x0600062b @0x00126de8 (field initializer)
+	private int viewingIndex = -1;
 
 	private CartPart previousPart;
 
