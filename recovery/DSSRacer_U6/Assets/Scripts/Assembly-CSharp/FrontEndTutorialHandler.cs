@@ -31,14 +31,15 @@ public class FrontEndTutorialHandler : MonoBehaviour
 
 	public bool ActiveTutorial
 	{
+		// RECUPERADO-AOT FrontEndTutorialHandler::get_ActiveTutorial token 0x06000678 @0x0012bd9c
 		get
 		{
-			RecoveryPending.Hit("FrontEndTutorialHandler.get_ActiveTutorial");
-			return default(bool);
+			return activeTutorial;
 		}
+		// RECUPERADO-AOT FrontEndTutorialHandler::set_ActiveTutorial token 0x06000679 @0x0012bdd0
 		set
 		{
-			RecoveryPending.Hit("FrontEndTutorialHandler.set_ActiveTutorial");
+			activeTutorial = value;
 		}
 	}
 
