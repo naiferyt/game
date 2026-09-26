@@ -35,9 +35,9 @@ era demasiado pesimista: con las tablas AOT que ya he decodificado, la lectura d
 | ilspycmd / ILSpy | ⚠️ no en PATH, **descargado localmente**: `tools/ilspycmd_10.1.1.8388`, `tools/ILSpy_10.1.1.8388_x64` | Sirve, pero el IL está vacío: solo da esqueletos (ya generados en `phase3_code/ILSpyProjects`). |
 | Il2CppDumper / Il2CppInspector | ❌ | **No necesarios**: no es IL2CPP. |
 | AssetRipper | ⚠️ no en PATH, **descargado**: `tools/AssetRipper_1.3.14_win_x64` | Export ya hecho en `phase2_extraction/`. |
-| Python | ✅ 3.14 en `%LOCALAPPDATA%\Python\bin\python.exe` (el `python` del PATH es el alias de Microsoft Store, no funciona) | numpy, pillow. **Sin UnityPy, sin capstone.** |
+| Python | ✅ 3.14 en `%LOCALAPPDATA%\Python\bin\python.exe` (el `python` del PATH es el alias de Microsoft Store, no funciona) | numpy, pillow. **capstone 5.0.9** (paquete `capstone`; el módulo reporta `5.0.7`) y **UnityPy 1.25.3** instalados el 2026-09-26 con tu aprobación (D1, D4). |
 | Unity Hub / Editor | ✅ **Unity 6000.6.3f1** en `C:\Program Files\Unity\Hub\Editor\6000.6.3f1` (instalado el 2026-09-26 a las 04:07, durante la Fase 1; en la primera comprobación aún no estaba). Módulos: Windows Standalone (Mono) y WebGL. **Sin módulo Android** (se añadirá en el port). | El Unity 6000.5.3f1 que usó el intento previo ya no está. |
-| Disassembler ARM (capstone / Ghidra / IDA) | ❌ | Necesario para la ruta recomendada (ver §11). |
+| Disassembler ARM | ✅ capstone (verificado sobre `ProgressTriggerLogic..ctor`: su `bl 0x22a7b0` es la entrada PLT de `MonoBehaviour::.ctor`) | Ghidra/IDA no hacen falta por ahora. |
 | Internet | ✅ (pypi, github, unity.com responden) | No he instalado nada: requiere tu aprobación. |
 
 ---
@@ -214,6 +214,23 @@ Sistema de vueltas original = cadena de `ProgressTriggerLogic` (checkpoints secu
 
 ---
 
+### 7.4 Diagnóstico: por qué los mapas se veían rotos y sin suelo al abrir el export en Unity 6
+Síntoma reportado por el usuario al abrir el proyecto previo en Unity 6 y darle Play: geometría deformada "de maneras inimaginables", sin suelo, todo caía. Causas **verificadas** en el export de AssetRipper ([`static_batching_per_scene.txt`](forensics/output/static_batching_per_scene.txt)):
+
+| # | Causa | Evidencia | Efecto en Unity 6 |
+|---|---|---|---|
+| 1 | **Static batching de Unity 4 sin deshacer.** Al compilar el juego, Unity 4 fusionó la geometría estática en mallas `Combined Mesh (root: scene)` con los vértices **en coordenadas de mundo**; cada renderer solo dibuja su trozo, indicado por `m_SubsetIndices`. | 83–249 renderers por pista (p. ej. Phineas Track 1: 207 de 298) y 18 en el garaje del menú apuntan a mallas combinadas con `m_SubsetIndices`. AssetRipper tenía `EnableStaticMeshSeparation: True`, pero no la aplicó al formato Unity 4. | Unity 6 no aplica el subconjunto de Unity 4: cada objeto dibuja **todo** el trozo combinado, y encima transformado otra vez por su propia posición, rotación y escala → **mapa deformado y duplicado**. |
+| 2 | **Mallas comprimidas de Unity 4.** El build guardó muchas mallas con compresión (`m_MeshCompression` 1–2), con la geometría solo en `m_CompressedMesh` (bits empaquetados). | **368 de 690** mallas tienen `m_VertexCount: 0` y el buffer de índices vacío. Incluye **todas** las mallas de colisión de la carretera muestreadas en Phineas Track 1 (`4-Lane_Street_003`, `wall1`, `2_Lane_End_Cap_001`…). | `MeshCollider` sin triángulos → **no hay suelo** y todo cae. Los objetos visibles con esas mallas desaparecen. |
+| 3 | **Matriz de colisión de capas corrupta** en `ProjectSettings/DynamicsManager.asset`. | Original (`mainData`, leído con `sfile.py`): `0xFFFFFFFF` en las 32 capas (todas colisionan). AssetRipper escribió `ffffff/f` (error de signo al codificar el hex): `/` no es hexadecimal. | Riesgo de que capas como `Cars`↔`Ground` no colisionen. |
+| 4 | Lógica vacía en el proyecto previo | `CarCollider` (gravedad propia `CAR_GRAVITY=10`, contacto con suelo vía `TriFoot`) estaba vacío | Los karts solo tenían la gravedad de PhysX y ningún control. |
+| 5 | Lightmaps, partículas legacy y shaders dummy | §7.2, §11.3 | Pistas planas o sin iluminación, sin efectos, materiales incorrectos. |
+
+**Se puede reparar sin inventar nada:**
+- (1) Separar el static batching: por cada renderer, extraer sus submeshes de la malla combinada, volver a pasar los vértices a espacio local con la inversa de la matriz del objeto (que está en la escena) y crear una malla propia por objeto. La geometría es la original; solo se redistribuye. Hay que confirmar el espacio de las UV2 de lightmap, porque los renderers combinados conservan su propio `m_LightmapTilingOffset`.
+- (2) Descomprimir las mallas con UnityPy desde los `.assets` **originales**. Verificado: en `sharedassets12.assets` (Phineas Track 1) se decodifican **69/69 mallas con geometría**; `4-Lane_Street_003` da 28 vértices y 48 índices, exactamente lo que declara su submesh en el export. Después se reescriben como mallas normales conservando GUID y fileID.
+- (3) Restaurar la matriz original `0xFFFFFFFF`×32.
+- Además, un **validador de geometría** antes de pulsar Play: 0 renderers apuntando a `Combined Mesh`, 0 `MeshCollider` sin triángulos, y un raycast hacia abajo desde **cada waypoint y cada posición de parrilla** (que están sobre la pista por definición) que debe impactar un collider de la capa `Ground`.
+
 ## 8. Sistemas del juego: evidencia, estado y confianza
 
 Tamaños = bytes de ARM original por clase (`native_bytes_per_class.txt`). Confianza = de poder restaurar el comportamiento **original**.
@@ -334,6 +351,9 @@ Todo verificado contra los DLL de tu instalación (`6000.6.3f1\Editor\Data\Manag
 | 16 | Calidad | `QualityControl` por `iPhone.generation` | No existe | Nivel fijo en PC (el más alto que usaba el original). | ADAPTADO-U6 |
 | 17 | Pantalla | Landscape iPhone/iPad | PC 16:9 y otras | La UI `Ugh*` ancla con `UghAlign`/`UghStretch`; verificar en 16:9 y 16:10. | RECUPERADO / riesgo |
 | 18 | Backend | Mono Full-AOT (ARMv7) | Mono x64 (PC); IL2CPP ARM64 (Android) | Desarrollo en Mono. IL2CPP solo en el port Android. | — |
+| 19 | **Static batching Unity 4** (§7.4) | `Combined Mesh` + `m_SubsetIndices` | No se aplica | Separación por objeto a espacio local con la geometría original. | ADAPTADO-U6 |
+| 20 | **Mallas comprimidas** (§7.4) | `m_CompressedMesh`, 368 mallas | Vertex buffer vacío en el export | Descompresión con UnityPy desde los `.assets` originales y reescritura sin compresión (mismo GUID y fileID). | RECUPERADO |
+| 21 | **Matriz de capas** (§7.4) | `0xFFFFFFFF`×32 | Export corrupto (`ffffff/f`) | Restaurar el valor original leído de `mainData`. | RECUPERADO |
 
 ### 11.4 Estructura del proyecto y del código
 ```
@@ -409,37 +429,46 @@ Cada sistema sigue el ciclo: traducir → compilar → ejecutar → leer el log 
 ## 12. Cómo arrancamos la Fase 4
 
 ### 12.1 Etapa 0, en orden (cada paso con su commit)
-1. **Herramienta ARM**: instalar `capstone` (pip, ~5 MB) y construir `forensics/scripts/aotlift`. Primer entregable: listado anotado de una clase pequeña (p. ej. `ProgressTriggerLogic`) y su C# traducido, como prueba de calidad **antes** de escalar.
-2. **Inventario para la conversión** (Python, sobre el export, antes de abrir Unity): extraer a JSON los parámetros de las 91 partículas legacy y los datos de lightmaps (texturas + índice/offset por renderer) de las 11 pistas y del resto de escenas.
-3. **Crear `recovery/DSSRacer_U6`**: copia nueva del export de AssetRipper (no del `WorkingProject` previo).
+1. **Herramienta ARM**: construir `forensics/scripts/aotlift` (capstone ya está instalado). Primer entregable: listado anotado de una clase pequeña (`ProgressTriggerLogic`) y su C# traducido, como prueba de calidad **antes** de escalar.
+2. **Reparación de geometría** (Python + UnityPy, sobre copias, antes de abrir Unity; §7.4):
+   - descomprimir las 368 mallas comprimidas desde los `.assets` originales, conservando GUID y fileID;
+   - separar el static batching de Unity 4 (renderers con `m_SubsetIndices` → una malla local propia por objeto), comprobando el espacio de las UV2 de lightmap;
+   - restaurar la matriz de colisión de capas original (`0xFFFFFFFF`×32).
+3. **Inventario para la conversión**: extraer a JSON los parámetros de las 91 partículas legacy y los datos de lightmaps (texturas + índice/offset por renderer) de todas las escenas.
+4. **Crear `recovery/DSSRacer_U6`**: copia nueva del export de AssetRipper (no del `WorkingProject` previo), con la geometría ya reparada.
    - Retirar del YAML los componentes que Unity 6 no admite (`GUILayer`, legacy particles, ya inventariadas).
    - Colocar los scripts: esqueleto original con cuerpos `RecoveryPending`.
    - Quitar las clases de servicios iOS.
-4. **Ajustes del proyecto**:
+5. **Ajustes del proyecto**:
    - Built-in, Gamma, Input *Both*, Mono x64, lightmaps en Low Quality;
    - capas y tags originales, timestep 0,0167, InputManager original;
    - orden de escenas del build original, sin `MoreDisney`.
-5. **Primera apertura en Unity 6.6** (batchmode): importar y compilar hasta 0 errores. Hay que confirmar que Unity Hub tiene la sesión/licencia activa; si no, la tendrás que activar tú.
-6. **Herramientas de editor** en `_Recovery/Editor`:
+6. **Primera apertura en Unity 6.6** (batchmode): importar y compilar hasta 0 errores. Hay que confirmar que Unity Hub tiene la sesión/licencia activa; si no, la tendrás que activar tú.
+7. **Herramientas de editor** en `_Recovery/Editor`:
    - remapeo de shaders built-in y restauración de los 4 custom;
    - conversor de partículas;
    - `LegacyLightmapRestorer`;
-   - limpieza de servicios (`EnsureGlobals`, `SettingsMenu`, `BuyCoinsPrefab`, `Age Gate`).
-7. **Validador**: 0 missing scripts, 0 materiales con shader de error, informe de objetos tocados. Crear `RECOVERY_PROGRESS.md`. **Commit "Etapa 0 completa".**
-8. Pasar a la **Etapa 1**: ejecutar `CloudStrap` en el editor, leer qué métodos pide `RecoveryPending` y empezar a traducirlos.
+   - limpieza de servicios (`EnsureGlobals`, `SettingsMenu`, `BuyCoinsPrefab`, `Age Gate`, enlaces legales y web de Disney);
+   - interruptor local de Pranksgiving.
+8. **Validadores**. **No se pulsa Play en una pista hasta que pasen**:
+   - estructura: 0 missing scripts, 0 materiales con shader de error;
+   - geometría: 0 renderers apuntando a `Combined Mesh`, 0 `MeshCollider` sin triángulos, y el raycast hacia abajo desde cada waypoint y cada posición de parrilla debe impactar la capa `Ground` en las 11 pistas;
+   - capturas de cada pista desde las cámaras originales, para compararlas visualmente.
+   Crear `RECOVERY_PROGRESS.md`. **Commit "Etapa 0 completa".**
+9. Pasar a la **Etapa 1**: ejecutar `CloudStrap` en el editor, leer qué métodos pide `RecoveryPending` y empezar a traducirlos.
 
-### 12.2 Decisiones pendientes para arrancar
-| # | Decisión | Mi recomendación |
+### 12.2 Decisiones (tomadas por el usuario el 2026-09-26)
+| # | Decisión | Resultado |
 |---|---|---|
-| D1 | Instalar `capstone` (pip, ~5 MB). Es imprescindible para la ruta C. | Sí |
-| D2 | Pranksgiving (antes activada por URL remota) | Interruptor local **activado por defecto**, para que el contenido sea jugable (desviación documentada) |
-| D3 | Enlaces legales y web de Disney en Ajustes | Eliminarlos junto con el Age Gate |
-| D4 | `UnityPy` (pip, ~10 MB) para leer datos crudos que AssetRipper no pudo (8 `MultilayerTextureBundleDef`) | Sí, cuando lleguemos al customizador (Etapa 4) |
-| D5 | Identidad git `STEEP <vidalesnaifer9@gmail.com>` | Mantener, salvo que prefieras otra |
+| D1 | Instalar `capstone` | ✅ Instalado (5.0.9) y verificado |
+| D2 | Pranksgiving (antes activada por URL remota) | ✅ Interruptor local, **activado por defecto** (desviación documentada) |
+| D3 | Enlaces legales y web de Disney en Ajustes | ✅ Se eliminan, junto con el Age Gate |
+| D4 | Instalar `UnityPy` | ✅ Instalado (1.25.3). Se adelanta a la Etapa 0: hace falta para descomprimir las mallas |
+| D5 | Identidad git `STEEP <vidalesnaifer9@gmail.com>` | ✅ Se mantiene |
 
 ---
 
 ## Anexo — Reproducibilidad
-Scripts en `forensics/scripts/` (Python 3, sin dependencias externas):
-`hdr.py` (versiones/integridad), `climeta.py` (lector de metadata .NET), `macho.py` (Mach-O), `aotglobals.py`/`aotinspect.py` (tablas AOT), `mapcheck.py` (mapeo método→ARM), `blscan.py` (destinos de BL), `aotdec.py` (PLT→nombres), `gotdec.py` (GOT/literales), `usheap.py` (literales), `scene.py`/`fields.py`/`tracks.py` (escenas YAML), `classsize.py` (volumen por clase).
+Scripts en `forensics/scripts/` (Python 3; los de la Fase 1 sin dependencias externas):
+`hdr.py` (versiones/integridad), `climeta.py` (lector de metadata .NET), `macho.py` (Mach-O), `aotglobals.py`/`aotinspect.py` (tablas AOT), `mapcheck.py` (mapeo método→ARM), `blscan.py` (destinos de BL), `aotdec.py` (PLT→nombres), `gotdec.py` (GOT/literales), `usheap.py` (literales), `scene.py`/`fields.py`/`tracks.py` (escenas YAML), `classsize.py` (volumen por clase), `u6_api_check.py` (APIs presentes en Unity 6.6), `sfile.py` (lector de objetos crudos Unity 4), `batching.py`/`colmesh.py` (static batching y mallas de colisión, §7.4).
 Salidas en `forensics/output/`. Nota: `macho.pkl`/`aotmods.pkl`/`methodmap.pkl` se regeneran ejecutando `macho.py → aotglobals.py → mapcheck.py` en ese orden.
