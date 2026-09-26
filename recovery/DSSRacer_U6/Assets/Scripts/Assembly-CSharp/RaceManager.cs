@@ -175,19 +175,10 @@ public class RaceManager : MonoBehaviour
 		}
 	}
 
-	public static event RaceInitHandler raceInitFinishedEvent
-	{
-		[MethodImpl(MethodImplOptions.Synchronized)]
-		add
-		{
-			RecoveryPending.Hit("RaceManager.add_raceInitFinishedEvent");
-		}
-		[MethodImpl(MethodImplOptions.Synchronized)]
-		remove
-		{
-			RecoveryPending.Hit("RaceManager.remove_raceInitFinishedEvent");
-		}
-	}
+	// RECUPERADO-AOT RaceManager::add_raceInitFinishedEvent token 0x0600052b @0x0010e50c
+	// RECUPERADO-AOT RaceManager::remove_raceInitFinishedEvent token 0x0600052c @0x0010e5ac
+	// (compiler-generated field-like event accessors: Delegate.Combine / Delegate.Remove)
+	public static event RaceInitHandler raceInitFinishedEvent;
 
 	[DebuggerHidden]
 	private IEnumerator RaceOutCoroutine()

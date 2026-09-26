@@ -290,10 +290,18 @@ public class CartCustomizerPublisher : UghPublisher
 		RecoveryPending.Hit("CartCustomizerPublisher.SetViewingPaintIndex");
 	}
 
+	// RECUPERADO-AOT CartCustomizerPublisher::IsTemporaryInSlot token 0x06000616 @0x00125758
+	// True while the customizer previews, in that slot, a part other than the one the player owns there.
+	// ADAPTADO-U6: FindObjectOfType -> U4Compat.
 	public static bool IsTemporaryInSlot(CartSlot.Slots slot)
 	{
-		RecoveryPending.Hit("CartCustomizerPublisher.IsTemporaryInSlot");
-		return default(bool);
+		CartCustomizerPublisher cartCustomizerPublisher = (CartCustomizerPublisher)U4Compat.FindObjectOfType(typeof(CartCustomizerPublisher));
+		if (cartCustomizerPublisher == null || cartCustomizerPublisher.currentSlot != slot || cartCustomizerPublisher.viewingIndex == -1)
+		{
+			return false;
+		}
+		CartPart cartPart = cartCustomizerPublisher.partList[cartCustomizerPublisher.viewingIndex];
+		return cartPart.UIName.baseText != cartCustomizerPublisher.previousPart.UIName.baseText;
 	}
 
 	private void OnBodyToggleChanged(UghToggle toggle)
