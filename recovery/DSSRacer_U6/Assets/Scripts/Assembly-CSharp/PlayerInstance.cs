@@ -140,11 +140,169 @@ public class PlayerInstance : MonoBehaviour
 		return constructedCart;
 	}
 
+	// RECUPERADO-AOT PlayerInstance::ConstructCart token 0x06000249 @0x000e5898
+	// (iterator <ConstructCart>c__Iterator20 MoveNext token 0x06000890 @0x00145e40)
+	// Builds the race kart "LocalPlayer" from the preloaded assets: the wheels prefab is the root (with
+	// CarCollider/PowerupHolder/PlayerControlLinker), the body is parented to it, the other parts go to their
+	// "<Slot>Slot" attach points, the attributes are summed, the paint layers are composited into one material
+	// and the character is seated with an AnimationDriver. Spread over several frames.
+	// ADAPTADO-U6: Transform.FindChild -> Find.
 	[DebuggerHidden]
 	public static IEnumerator ConstructCart()
 	{
-		RecoveryPending.Hit("PlayerInstance.ConstructCart");
-		yield break;
+		if (constructedCart != null)
+		{
+			ReleaseCart();
+		}
+		yield return null;
+		PlayerInstance pi = Instance;
+		CartSlot bodySlot = pi.cartSlots[0];
+		if (bodySlot.partInSlot == null || bodySlot.partInSlot.bundlePath.baseText.Length == 0)
+		{
+			UnityEngine.Debug.LogError("Player cart does not have a body!  Aborting cart build.");
+			yield break;
+		}
+		StreamManager.Asset bodyAsset = StreamManager.RequestAsset(bodySlot.partInSlot.UIName.baseText, string.Empty, StreamManager.StreamType.UNKNOWN);
+		if (!bodyAsset.isDone)
+		{
+			UnityEngine.Debug.LogError("Body asset is not finished loading! Aborting car build.");
+			yield break;
+		}
+		GameObject bodyPrefabPart = (GameObject)bodyAsset.mainAsset;
+		CartSlot wheelSlot = pi.cartSlots[2];
+		if (wheelSlot.partInSlot == null || wheelSlot.partInSlot.bundlePath.baseText.Length == 0)
+		{
+			UnityEngine.Debug.LogError("Player cart does not have wheels!  Aborting cart build.");
+			yield break;
+		}
+		StreamManager.Asset wheelAsset = StreamManager.RequestAsset(wheelSlot.partInSlot.UIName.baseText, string.Empty, StreamManager.StreamType.UNKNOWN);
+		if (!wheelAsset.isDone)
+		{
+			UnityEngine.Debug.LogError("Wheel asset is not finished loading!  Aborting cart build!");
+			yield break;
+		}
+		GameObject wheelPrefabPart = (GameObject)wheelAsset.mainAsset;
+		yield return null;
+		GameObject cart = (GameObject)UnityEngine.Object.Instantiate(wheelPrefabPart);
+		cart.name = new UnlocalizedString("LocalPlayer").baseText;
+		CarCollider cc = cart.AddComponent(typeof(CarCollider)) as CarCollider;
+		cart.AddComponent(typeof(PowerupHolder));
+		cart.AddComponent(typeof(PlayerControlLinker));
+		yield return null;
+		GameObject cartBody = (GameObject)UnityEngine.Object.Instantiate(bodyPrefabPart);
+		cartBody.transform.parent = cart.transform;
+		CartAttributes attributes = bodySlot.partInSlot.cartAttributeMods + wheelSlot.partInSlot.cartAttributeMods;
+		attributes.engineSoundString = bodySlot.partInSlot.cartAttributeMods.engineSoundString;
+		yield return null;
+		SpringConnection shocks = cart.GetComponent<SpringConnection>();
+		if (shocks != null)
+		{
+			shocks.connection = cartBody;
+		}
+		yield return null;
+		CartSlot[] cartSlots = pi.cartSlots;
+		foreach (CartSlot slot in cartSlots)
+		{
+			if (slot.slot == CartSlot.Slots.body || slot.slot == CartSlot.Slots.wheels || slot.slot == CartSlot.Slots.character)
+			{
+				continue;
+			}
+			if (slot.partInSlot != null)
+			{
+				if (slot.partInSlot.bundlePath.baseText != null && slot.partInSlot.bundlePath.baseText.Length > 0)
+				{
+					Transform targetParentTransform = cartBody.transform.Find(CartSlot.TargetGameObjectName[(int)slot.slot]);
+					if (targetParentTransform == null)
+					{
+						UnityEngine.Debug.LogWarning("Could not find part attach point '" + CartSlot.TargetGameObjectName[(int)slot.slot] + "'");
+					}
+					else
+					{
+						StreamManager.Asset partAsset = StreamManager.RequestAsset(slot.partInSlot.UIName.baseText, string.Empty, StreamManager.StreamType.UNKNOWN);
+						if (partAsset.isDone)
+						{
+							GameObject partPrefab = (GameObject)partAsset.mainAsset;
+							GameObject part = (GameObject)UnityEngine.Object.Instantiate(partPrefab, targetParentTransform.position, targetParentTransform.rotation);
+							part.transform.parent = targetParentTransform;
+						}
+						else
+						{
+							UnityEngine.Debug.LogWarning("Part '" + slot.partInSlot.UIName.baseText + "' was not finished loading--skipping attach.");
+						}
+					}
+				}
+				attributes += slot.partInSlot.cartAttributeMods;
+			}
+			else if (CartSlot.SlotRequired[(int)slot.slot])
+			{
+				UnityEngine.Debug.LogError("Slot '" + CartSlot.SlotNames[(int)slot.slot] + "' is empty, but is required");
+			}
+			yield return null;
+		}
+		cc.attributes = attributes;
+		List<Texture2D> temporaryTextures = new List<Texture2D>();
+		CompositeProfile profile = CartPrimaryTextureProfile.profile;
+		CartSlot[] cartSlots2 = pi.cartSlots;
+		foreach (CartSlot slot2 in cartSlots2)
+		{
+			if (slot2.slotPaint == null)
+			{
+				continue;
+			}
+			Texture2D newTex = slot2.slotPaint.GetTexture();
+			if (newTex != null)
+			{
+				temporaryTextures.Add(newTex);
+				profile.SetSlotSource(slot2.slot.ToString(), newTex, new Rect(0f, 0f, newTex.width, newTex.height));
+			}
+			yield return null;
+		}
+		if (temporaryTextures.Count > 0)
+		{
+			if (pi.multilayerMaterial == null)
+			{
+				pi.multilayerMaterial = new Material(Shader.Find("Mobile/Diffuse"));
+			}
+			else
+			{
+				UnityEngine.Object.Destroy(pi.multilayerMaterial.mainTexture);
+			}
+			CompositeTextureUtil.AsyncTextureProcessor textureProc = new CompositeTextureUtil.AsyncTextureProcessor();
+			yield return s_Instance.StartCoroutine(textureProc.GenerateCompositeTextureAsync(profile));
+			pi.multilayerMaterial.mainTexture = textureProc.newTexture;
+			Renderer[] renderers = cart.GetComponentsInChildren<Renderer>();
+			Renderer[] array = renderers;
+			foreach (Renderer renderer in array)
+			{
+				if (renderer.gameObject.name != "ExhaustParticle" && !renderer.gameObject.name.Contains("Shadow Blob"))
+				{
+					renderer.material = pi.multilayerMaterial;
+					yield return null;
+				}
+			}
+			foreach (Texture2D tex in temporaryTextures)
+			{
+				UnityEngine.Object.Destroy(tex);
+				yield return null;
+			}
+		}
+		CartSlot characterSlot = pi.cartSlots[5];
+		if (characterSlot.partInSlot != null)
+		{
+			Transform characterTransform = cartBody.transform.Find(CartSlot.TargetGameObjectName[(int)characterSlot.slot]);
+			StreamManager.Asset partAsset2 = StreamManager.RequestAsset(characterSlot.partInSlot.UIName.baseText, string.Empty, StreamManager.StreamType.UNKNOWN);
+			if (partAsset2.isDone)
+			{
+				GameObject partPrefab2 = (GameObject)partAsset2.mainAsset;
+				GameObject part2 = (GameObject)UnityEngine.Object.Instantiate(partPrefab2);
+				part2.transform.parent = characterTransform;
+				part2.transform.localPosition = Vector3.zero;
+				part2.transform.localRotation = Quaternion.identity;
+				AnimationDriver ad = cart.AddComponent<AnimationDriver>();
+				ad.SetAnimationTarget(part2);
+			}
+		}
+		constructedCart = cart;
 	}
 
 	// RECUPERADO-AOT PlayerInstance::MatchAlternateForms token 0x0600024a @0x000e58d0
