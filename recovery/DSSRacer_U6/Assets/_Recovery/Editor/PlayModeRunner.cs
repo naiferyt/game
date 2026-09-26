@@ -24,6 +24,8 @@ namespace DSSRecovery
 		static readonly List<float> s_ShotTimes = new List<float>();
 		static readonly List<KeyValuePair<float, Vector2>> s_Clicks = new List<KeyValuePair<float, Vector2>>();
 		static readonly List<KeyValuePair<float, string>> s_ObjClicks = new List<KeyValuePair<float, string>>();
+		// simulated keys: "key:<KeyCode>@<from>-<to>" holds the key between the two times (stage 3)
+		static readonly List<KeyValuePair<float, KeyValuePair<KeyCode, bool>>> s_Keys = new List<KeyValuePair<float, KeyValuePair<KeyCode, bool>>>();
 
 		static PlayModeRunner()
 		{
@@ -64,17 +66,26 @@ namespace DSSRecovery
 			Log.Length = 0;
 			s_Start = EditorApplication.timeSinceStartup;
 			EditorApplication.update -= Tick; EditorApplication.update += Tick;
-			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear();
+			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear(); s_Keys.Clear();
 			foreach (var p in SessionState.GetString(K + "shots", "").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
 				s_ShotTimes.Add(float.Parse(p, System.Globalization.CultureInfo.InvariantCulture));
 			foreach (var c in SessionState.GetString(K + "clicks", "").Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
 			{
 				var at = c.Split('@'); if (at.Length != 2) continue;
+				if (at[0].StartsWith("key:"))
+				{
+					var k = (KeyCode)Enum.Parse(typeof(KeyCode), at[0].Substring(4));
+					var ft = at[1].Split('-');
+					s_Keys.Add(new KeyValuePair<float, KeyValuePair<KeyCode, bool>>(float.Parse(ft[0], System.Globalization.CultureInfo.InvariantCulture), new KeyValuePair<KeyCode, bool>(k, true)));
+					s_Keys.Add(new KeyValuePair<float, KeyValuePair<KeyCode, bool>>(float.Parse(ft[1], System.Globalization.CultureInfo.InvariantCulture), new KeyValuePair<KeyCode, bool>(k, false)));
+					continue;
+				}
 				if (at[0].StartsWith("obj:")) { s_ObjClicks.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), at[0].Substring(4))); continue; }
 				var xy = at[0].Split(','); if (xy.Length != 2) continue;
 				s_Clicks.Add(new KeyValuePair<float, Vector2>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture),
 					new Vector2(float.Parse(xy[0], System.Globalization.CultureInfo.InvariantCulture), float.Parse(xy[1], System.Globalization.CultureInfo.InvariantCulture))));
 			}
+			s_Keys.Sort((a, b) => a.Key.CompareTo(b.Key));
 			Application.logMessageReceived -= OnLog; Application.logMessageReceived += OnLog;
 			SceneManager.activeSceneChanged -= OnScene; SceneManager.activeSceneChanged += OnScene;
 			EditorApplication.update -= Tick; EditorApplication.update += Tick;
@@ -107,6 +118,12 @@ namespace DSSRecovery
 				Vector2 n; string how;
 				if (ScreenPosOf(name, out n, out how)) { Log.AppendLine(string.Format("[{0:0.00}] [click] obj '{1}' -> {2} ({3})", t, name, n, how)); RecoveryTestInput.Click(n); }
 				else Log.AppendLine(string.Format("[{0:0.00}] [click] obj '{1}' NOT FOUND (active)", t, name));
+			}
+			while (s_Keys.Count > 0 && t >= s_Keys[0].Key)
+			{
+				var kv = s_Keys[0].Value; s_Keys.RemoveAt(0);
+				RecoveryTestInput.SetKey(kv.Key, kv.Value);
+				Log.AppendLine(string.Format("[{0:0.00}] [key] {1} {2}", t, kv.Key, kv.Value ? "down" : "up"));
 			}
 			while (s_ShotTimes.Count > 0 && t >= s_ShotTimes[0])
 			{
@@ -145,6 +162,8 @@ namespace DSSRecovery
 				File.WriteAllBytes(f, tex.EncodeToPNG());
 				UnityEngine.Object.DestroyImmediate(tex); rt.Release();
 				Log.AppendLine(string.Format("[{0:0.00}] [shot] {1} ({2} cameras: {3})", t, Path.GetFileName(f), cams.Count, string.Join(", ", cams.Select(c => c.name).ToArray())));
+				var player = GameObject.FindGameObjectWithTag("Player");
+				if (player != null) Log.AppendLine(string.Format("[{0:0.00}] [player] {1} pos {2} fwd {3}", t, player.name, player.transform.position, player.transform.forward));
 			}
 			catch (Exception e) { Log.AppendLine("[shot failed] " + e.Message); }
 		}
