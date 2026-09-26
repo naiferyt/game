@@ -17,13 +17,13 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 | Etapa | Pendientes | ARM pendiente | Recuperados | Llamados antes de su etapa |
 |---|---:|---:|---:|---:|
-| Etapa 1 — Arranque → Menú principal | 860 | 214 KB | 0 | 0 |
-| Etapa 2 — Menú → selección → carga de la carrera | 494 | 124 KB | 0 | 11 |
-| Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados) | 506 | 169 KB | 2 | 7 |
-| Etapa 4 — Sistemas completos | 1419 | 277 KB | 1 | 69 |
+| Etapa 1 — Arranque → Menú principal | 145 | 39 KB | 713 | 0 |
+| Etapa 2 — Menú → selección → carga de la carrera | 476 | 123 KB | 18 | 11 |
+| Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados) | 436 | 157 KB | 56 | 7 |
+| Etapa 4 — Sistemas completos | 1382 | 271 KB | 93 | 69 |
 | Port Android (después de la Fase 4) | 8 | 1 KB | 0 | 0 |
 | Opcional — herramientas de depuración del equipo original | 19 | 3 KB | 0 | 0 |
-| Sin uso detectado (no se traducen salvo que aparezcan en el log) | 335 | 87 KB | 0 | 0 |
+| Sin uso detectado (no se traducen salvo que aparezcan en el log) | 269 | 78 KB | 0 | 0 |
 | Sin uso (scripts UnityScript sin referencias) | 10 | 10 KB | 0 | 0 |
 | Eliminados (servicios iOS/externos) | 0 | 0 KB | 0 | 0 |
 | Sin código nativo (abstract / extern) | 0 | 0 KB | 0 | 0 |
@@ -32,68 +32,68 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 ## Etapa 1 — Arranque → Menú principal
 
-**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (30) — deben tolerar quedar pendientes o adelantarse:
+**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (22) — deben tolerar quedar pendientes o adelantarse:
 
 - Etapa 2 · `CharacterPreview`: `Refresh`
 - Etapa 2 · `PlayerInstance`: `Bootstrap`, `GetCartSlot`
 - Etapa 2 · `PreviewCart`: `GenerateCartPreview`, `StartDriveout`, `get_IsLoading`
 - Etapa 2 · `StreamManager`: `Cleanup`, `PrependRootFileLocation`
-- Etapa 2 · `TrackUnlockHelper`: `IsCircuitUnlocked`, `RelockEverything`, `set_DebugUnlock`
+- Etapa 2 · `TrackUnlockHelper`: `IsCircuitUnlocked`, `RelockEverything`
 - Etapa 3 · `AnimationDriver`: `Play`
-- Etapa 3 · `RaceManager`: `get_isPaused`
 - Etapa 4 · `AchievementListener`: `Fail`
-- Etapa 4 · `AchievementManager`: `Fail`, `InitFrontEndAchievements`, `get_Instance`
-- Etapa 4 · `AudioManager`: `get_SoundEffectsVolume`, `get_instance`
+- Etapa 4 · `AchievementManager`: `Fail`, `InitFrontEndAchievements`
 - Etapa 4 · `BaseEffect`: `InitComboLookup`
 - Etapa 4 · `CartCustomizerPublisher`: `Refresh`
-- Etapa 4 · `LifetimeMetrics`: `.cctor`, `Load`, `Save`
 - Etapa 4 · `MusicPlayer`: `PlayMusic`, `UpdateVolume`, `get_Instance`
 - Etapa 4 · `SoundLibrary`: `ButtonClickPlay`, `PlayRandomWhoosh`
 
-### Framework UI propio (Ugh) — 414 métodos, 114.3 KB ARM
+### Framework UI propio (Ugh) — 430 métodos, 116.7 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `ConfirmationPublisher` | `.ctor` (52), `Close` (72), `DestroyThis` (72), `PressedNo` (88), `PressedYes` (88), `Start` (48), `Update` (44) |
-| `ConfirmationPublisher/<Close>c__Iterator55` | `.ctor` (44), `Dispose` (56), `MoveNext` (264), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `ConfirmationPublisher/<DestroyThis>c__Iterator56` | `.ctor` (44), `Dispose` (56), `MoveNext` (340), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `ConfirmationPublisher` | ✅ `.ctor` (52), ✅ `Close` (72), ✅ `DestroyThis` (72), ✅ `PressedNo` (88), ✅ `PressedYes` (88), ✅ `Start` (48), ✅ `Update` (44) |
+| `ConfirmationPublisher/<Close>c__Iterator55` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (264), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `ConfirmationPublisher/<DestroyThis>c__Iterator56` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (340), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `Dialog` | `.ctor` (260), `Activate` (92), `ActivateHelper` (72), `Awake` (80), `Deactivate` (92), `DeactivateHelper` (72), `DoWindow` (48), `OnActivateUpdate` (664), `OnActivated` (64), `OnActivating` (44), `OnDeactivateUpdate` (44), `OnDeactivated` (64), `OnDeactivating` (44), `OnDraw` (308), `OnDrawUnderlay` (44), `OnGUI` (44), `OnStart` (296), `RenderGUI` (2176), `Start` (72), `get_On` (52) |
 | `Dialog/<ActivateHelper>c__Iterator3` | `.ctor` (44), `Dispose` (56), `MoveNext` (596), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `Dialog/<DeactivateHelper>c__Iterator4` | `.ctor` (44), `Dispose` (56), `MoveNext` (584), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `Dialog/<Start>c__Iterator2` | `.ctor` (44), `Dispose` (56), `MoveNext` (268), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `GenericPopupPublisher` | `.ctor` (52), `DestroyThis` (72), `PressedBacking` (104), `SetText` (100), `Start` (48), `Update` (44) |
-| `GenericPopupPublisher/<DestroyThis>c__Iterator5D` | `.ctor` (44), `Dispose` (56), `MoveNext` (340), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `GenericPopupPublisher` | ✅ `.ctor` (52), ✅ `DestroyThis` (72), ✅ `PressedBacking` (104), ✅ `SetText` (100), ✅ `Start` (48), ✅ `Update` (44) |
+| `GenericPopupPublisher/<DestroyThis>c__Iterator5D` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (340), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `InputBlocker` | ✅ `.ctor` (52), ✅ `FadeOut` (80), ✅ `FadeOutHelper` (72), ✅ `Start` (72) |
+| `InputBlocker/<FadeOutHelper>c__Iterator2B` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (832), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `InputBlocker/<Start>c__Iterator2A` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (832), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `LEDScroller` | `.ctor` (184), `AddText` (120), `CheckForNewText` (240), `ClearText` (64), `OnDisable` (256), `OnEnable` (256), `OnFlash` (80), `OnFlashHelper` (72), `OnNewTextCheck` (104), `OnResetScroller` (112), `OnScroll` (80), `OnScrollHelper` (72), `OnStaticText` (264), `RemoveText` (116), `ReplaceText` (172), `SetUpNewStringForDisplayHelper` (308), `Start` (108), `TextStringCount` (64), `Update` (340), `add_HandleNewTextCheck` (160), `get_CurrentString` (52), `get_EndofSentence` (52), `remove_HandleNewTextCheck` (160), `set_CurrentString` (60), `set_EndofSentence` (60) |
 | `LEDScroller/<OnFlashHelper>c__Iterator27` | `.ctor` (44), `Dispose` (56), `MoveNext` (504), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `LEDScroller/<OnScrollHelper>c__Iterator26` | `.ctor` (44), `Dispose` (56), `MoveNext` (764), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `LEDScroller/TextString` | `.ctor` (80), `get_Flash` (52), `get_Scroll` (52), `get_Text` (52), `set_Flash` (60), `set_Scroll` (60), `set_Text` (60) |
-| `PopoverPublisher` | `.ctor` (268), `FixedUpdate` (824), `PressedBacking` (80), `SetText` (100), `Start` (224) |
-| `ShiftContentsOnButtonDown` | `.ctor` (220), `OnDisable` (272), `OnDownHandler` (1236), `OnEnable` (272) |
-| `ShiftContentsOnToggleDown` | `.ctor` (220), `OnDisable` (272), `OnDownHandler` (1216), `OnEnable` (272) |
-| `UghAlign` | `.ctor` (84), `Align` (1732), `AlignToScreen` (540), `AlignToSprite` (560), `OnDisable` (152), `OnDrawGizmos` (80), `OnEnable` (312), `OnMPDirtyAlign` (84), `Start` (52), `Update` (68), `get_IsDirty` (52), `set_IsDirty` (60) |
-| `UghButton` | `.ctor` (52), `OnMouseEnter` (100), `OnMouseExit` (120), `OnUghInputDown` (72), `OnUghInputUp` (120), `OnUghInputUpAsButton` (204) |
-| `UghButton/<OnUghInputDown>c__Iterator1B` | `.ctor` (44), `Dispose` (56), `MoveNext` (200), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghButtonDisablable` | `.ctor` (52), `OnUghInputDown` (72), `OnUghInputUpAsButton` (92), `SetLock` (100), `Start` (56), `ToggleLock` (104) |
-| `UghButtonDisablable/<OnUghInputDown>c__Iterator1C` | `.ctor` (44), `Dispose` (56), `MoveNext` (160), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghCamera` | `.cctor` (76), `.ctor` (228), `OnLevelWasLoaded` (88), `Reset` (52), `ResetCamera` (400), `ResetCameraPosition` (224), `ScreenAnchorToPosition` (2324), `Start` (60), `Update` (72), `get_Aspect` (168), `get_CameraPixelSize` (192), `get_Instance` (552), `get_ScreenExtents` (132), `get_ScreenSize` (240) |
-| `UghControl` | `.cctor` (36), `.ctor` (60), `AutoSizeCollider` (528), `OnDrawGizmos` (108), `OnUghInputDown` (64), `OnUghInputDrag` (44), `OnUghInputUp` (44), `OnUghInputUpAsButton` (44), `OnUghInputUpLate` (44), `Reset` (188), `get_HotFingerID` (52), `get_isLegalControl` (152), `set_HotFingerID` (60) |
-| `UghControl/<OnUghInputDown>c__Iterator1A` | `.ctor` (44), `Dispose` (56), `MoveNext` (68), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghHeldButton` | `.ctor` (52), `OnButtonDown` (44), `OnButtonHeld` (44), `OnButtonUp` (44), `SetButtonVisualState` (128), `Update` (592), `get_isDown` (52), `set_isDown` (64) |
-| `UghInput` | `.ctor` (104), `<TouchBeginEvent>m__6` (228), `<TouchEndedEvent>m__7` (228), `Awake` (80), `InputToWorldPoint` (144), `LateUpdate` (696), `Touch` (44), `TouchBeginEvent` (724), `TouchCanceledEvent` (252), `TouchEndedEvent` (1280), `TouchPersistEvent` (416), `get_InputPosition` (176), `get_InputPositionInWorldSpace` (144), `get_Instance` (516), `get_IsInputDown` (88), `get_UseTouchInput` (44) |
-| `UghPublisher` | `.ctor` (52), `Awake` (332), `GetButton` (72), `GetSprite` (236), `OnButtonPressed` (184), `get_ledScrollers` (52), `get_transforms` (52), `get_ughButtons` (52), `get_ughSlideToggles` (52), `get_ughSliders` (52), `get_ughTexts` (52) |
-| `UghPublisher/<GetSprite>c__AnonStorey2A` | `.ctor` (44), `<>m__8` (84) |
-| `UghPublisher/LEDScrollerReference` | `.ctor` (44) |
-| `UghPublisher/LEDScrollersDictionary` | `.ctor` (188), `get_Item` (72) |
-| `UghPublisher/TransformReference` | `.ctor` (44) |
-| `UghPublisher/TransformsDictionary` | `.ctor` (188), `get_Item` (72) |
-| `UghPublisher/UghButtonReference` | `.ctor` (44) |
-| `UghPublisher/UghButtonsDictionary` | `.ctor` (188), `get_Item` (72) |
-| `UghPublisher/UghSlideToggleDictionary` | `.ctor` (188), `get_Item` (72) |
-| `UghPublisher/UghSlideToggleReference` | `.ctor` (44) |
-| `UghPublisher/UghSliderDictionary` | `.ctor` (188), `get_Item` (72) |
-| `UghPublisher/UghSliderReference` | `.ctor` (44) |
-| `UghPublisher/UghTextReference` | `.ctor` (44) |
-| `UghPublisher/UghTextsDictionary` | `.ctor` (188), `get_Item` (72) |
+| `PopoverPublisher` | ✅ `.ctor` (268), ✅ `FixedUpdate` (824), ✅ `PressedBacking` (80), ✅ `SetText` (100), ✅ `Start` (224) |
+| `ShiftContentsOnButtonDown` | ✅ `.ctor` (220), ✅ `OnDisable` (272), ✅ `OnDownHandler` (1236), ✅ `OnEnable` (272) |
+| `ShiftContentsOnToggleDown` | ✅ `.ctor` (220), ✅ `OnDisable` (272), ✅ `OnDownHandler` (1216), ✅ `OnEnable` (272) |
+| `UghAlign` | ✅ `.ctor` (84), ✅ `Align` (1732), ✅ `AlignToScreen` (540), ✅ `AlignToSprite` (560), ✅ `OnDisable` (152), ✅ `OnDrawGizmos` (80), ✅ `OnEnable` (312), ✅ `OnMPDirtyAlign` (84), ✅ `Start` (52), ✅ `Update` (68), ✅ `get_IsDirty` (52), ✅ `set_IsDirty` (60) |
+| `UghButton` | ✅ `.ctor` (52), ✅ `OnMouseEnter` (100), ✅ `OnMouseExit` (120), ✅ `OnUghInputDown` (72), ✅ `OnUghInputUp` (120), ✅ `OnUghInputUpAsButton` (204) |
+| `UghButton/<OnUghInputDown>c__Iterator1B` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (200), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `UghButtonDisablable` | ✅ `.ctor` (52), ✅ `OnUghInputDown` (72), ✅ `OnUghInputUpAsButton` (92), ✅ `SetLock` (100), ✅ `Start` (56), ✅ `ToggleLock` (104) |
+| `UghButtonDisablable/<OnUghInputDown>c__Iterator1C` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (160), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `UghCamera` | ✅ `.cctor` (76), ✅ `.ctor` (228), ✅ `OnLevelWasLoaded` (88), ✅ `Reset` (52), ✅ `ResetCamera` (400), ✅ `ResetCameraPosition` (224), ✅ `ScreenAnchorToPosition` (2324), ✅ `Start` (60), ✅ `Update` (72), ✅ `get_Aspect` (168), ✅ `get_CameraPixelSize` (192), ✅ `get_Instance` (552), ✅ `get_ScreenExtents` (132), ✅ `get_ScreenSize` (240) |
+| `UghControl` | ✅ `.cctor` (36), ✅ `.ctor` (60), ✅ `AutoSizeCollider` (528), ✅ `OnDrawGizmos` (108), ✅ `OnUghInputDown` (64), ✅ `OnUghInputDrag` (44), ✅ `OnUghInputUp` (44), ✅ `OnUghInputUpAsButton` (44), ✅ `OnUghInputUpLate` (44), ✅ `Reset` (188), ✅ `get_HotFingerID` (52), ✅ `get_isLegalControl` (152), ✅ `set_HotFingerID` (60) |
+| `UghControl/<OnUghInputDown>c__Iterator1A` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (68), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `UghHeldButton` | ✅ `.ctor` (52), ✅ `OnButtonDown` (44), ✅ `OnButtonHeld` (44), ✅ `OnButtonUp` (44), ✅ `SetButtonVisualState` (128), ✅ `Update` (592), ✅ `get_isDown` (52), ✅ `set_isDown` (64) |
+| `UghInput` | ✅ `.ctor` (104), ✅ `<TouchBeginEvent>m__6` (228), ✅ `<TouchEndedEvent>m__7` (228), ✅ `Awake` (80), ✅ `InputToWorldPoint` (144), ✅ `LateUpdate` (696), ✅ `Touch` (44), ✅ `TouchBeginEvent` (724), ✅ `TouchCanceledEvent` (252), ✅ `TouchEndedEvent` (1280), ✅ `TouchPersistEvent` (416), ✅ `get_InputPosition` (176), ✅ `get_InputPositionInWorldSpace` (144), ✅ `get_Instance` (516), ✅ `get_IsInputDown` (88), ✅ `get_UseTouchInput` (44) |
+| `UghPublisher` | ✅ `.ctor` (52), ✅ `Awake` (332), ✅ `GetButton` (72), ✅ `GetSprite` (236), ✅ `OnButtonPressed` (184), ✅ `get_ledScrollers` (52), ✅ `get_transforms` (52), ✅ `get_ughButtons` (52), ✅ `get_ughSlideToggles` (52), ✅ `get_ughSliders` (52), ✅ `get_ughTexts` (52) |
+| `UghPublisher/<GetSprite>c__AnonStorey2A` | ✅ `.ctor` (44), ✅ `<>m__8` (84) |
+| `UghPublisher/LEDScrollerReference` | ✅ `.ctor` (44) |
+| `UghPublisher/LEDScrollersDictionary` | ✅ `.ctor` (188), ✅ `get_Item` (72) |
+| `UghPublisher/TransformReference` | ✅ `.ctor` (44) |
+| `UghPublisher/TransformsDictionary` | ✅ `.ctor` (188), ✅ `get_Item` (72) |
+| `UghPublisher/UghButtonReference` | ✅ `.ctor` (44) |
+| `UghPublisher/UghButtonsDictionary` | ✅ `.ctor` (188), ✅ `get_Item` (72) |
+| `UghPublisher/UghSlideToggleDictionary` | ✅ `.ctor` (188), ✅ `get_Item` (72) |
+| `UghPublisher/UghSlideToggleReference` | ✅ `.ctor` (44) |
+| `UghPublisher/UghSliderDictionary` | ✅ `.ctor` (188), ✅ `get_Item` (72) |
+| `UghPublisher/UghSliderReference` | ✅ `.ctor` (44) |
+| `UghPublisher/UghTextReference` | ✅ `.ctor` (44) |
+| `UghPublisher/UghTextsDictionary` | ✅ `.ctor` (188), ✅ `get_Item` (72) |
 | `UghScrollView` | `.ctor` (188), `Awake` (208), `ForceSnapScrolling` (140), `HandleExplicitScrolling` (72), `HandleSnapScrolling` (72), `HandleVelocityScrolling` (72), `OnScrollPositionChanged` (940), `OnUghInputDown` (72), `ScrollToPosition` (536), `SnapScroll` (140), `SnapScrollByShift` (556), `SnapScrollToIndex` (1540), `UpdateRealDeltaTime` (132), `add_ScrollSnapped` (148), `add_ScrollSoftSnapped` (148), `get_HorizontalContents` (52), `get_ScrollPosition` (108), `get_SnapSpacing` (108), `get_VerticalContents` (52), `get_ViewSize` (108), `remove_ScrollSnapped` (148), `remove_ScrollSoftSnapped` (148), `set_HorizontalContents` (64), `set_ScrollPosition` (188), `set_SnapSpacing` (88), `set_VerticalContents` (64), `set_ViewSize` (88) |
 | `UghScrollView/<ForceSnapScrolling>c__Iterator21` | `.ctor` (44), `Dispose` (56), `MoveNext` (264), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `UghScrollView/<HandleExplicitScrolling>c__Iterator1E` | `.ctor` (44), `Dispose` (56), `MoveNext` (4524), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
@@ -101,117 +101,117 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `UghScrollView/<HandleVelocityScrolling>c__Iterator1F` | `.ctor` (44), `Dispose` (56), `MoveNext` (4908), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `UghScrollView/<OnUghInputDown>c__Iterator1D` | `.ctor` (44), `Dispose` (56), `MoveNext` (1536), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `UghScrollView/<SnapScroll>c__Iterator22` | `.ctor` (44), `Dispose` (56), `MoveNext` (3024), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghSlideToggle` | `.ctor` (76), `AutoSizeCollider` (44), `Awake` (84), `LocalPositionForInput` (488), `OnUghInputDown` (72), `OnUghInputUp` (56), `OnUghInputUpAsButton` (56), `SendOnChanged` (76), `Update` (64), `UpdateMeshWithSpritePrototype` (2936), `UpdateRealDeltaTime` (132), `get_State` (52), `set_State` (160) |
-| `UghSlideToggle/<OnUghInputDown>c__Iterator23` | `.ctor` (44), `Dispose` (56), `MoveNext` (2464), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghSlider` | `.ctor` (76), `Awake` (104), `LocalPositionForInput` (488), `OnUghInputDown` (72), `OnUghInputUp` (64), `OnUghInputUpAsButton` (64), `UpdatePosition` (484), `get_Current` (100), `get_CurrentNormalized` (64), `set_Current` (116), `set_CurrentNormalized` (128) |
-| `UghSlider/<OnUghInputDown>c__Iterator24` | `.ctor` (44), `Dispose` (56), `MoveNext` (672), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghSprite` | `.ctor` (60), `AnchorToTextAnchor` (176), `GetLocalCenter` (372), `GetLocalOrigin` (184), `GetOffsetForAnchor` (1564), `GetParentPublisher` (160), `GetUVArray` (1540), `MeshColumnCount` (156), `MeshRowCount` (156), `MeshVertexCount` (72), `OnDisable` (184), `OnDrawGizmos` (116), `OnEnable` (80), `TextAnchorToAnchor` (176), `UpdateMesh` (116), `UpdateMeshWithSpritePrototype` (19888), `get_Offset` (108), `get_Prototype` (52), `set_Prototype` (112) |
-| `UghSpritePrototype` | `.ctor` (316), `CreateSprite` (380), `OnEnable` (52), `UpdatePrototype` (1220) |
-| `UghStretch` | `.ctor` (60), `Align` (2096), `DoSignalDirtyAlign` (108), `OnDrawGizmos` (52), `Start` (52), `Update` (68), `add_HandleMPDirtyAlign` (160), `get_IsDirty` (52), `remove_HandleMPDirtyAlign` (160), `set_IsDirty` (60) |
-| `UghText` | `.ctor` (244), `AutoInheritText` (44), `ForceUpdate` (144), `GetParentPublisher` (160), `OnDrawGizmos` (64), `SetTextMeshAndWordWrap` (1996), `Start` (52), `UpdateDropShadow` (904), `get_Text` (68), `set_Text` (68) |
-| `UghToggle` | `.ctor` (52), `GetUghSpritePrototypeForCurrentState` (108), `OnMouseExit` (100), `OnUghInputDown` (72), `OnUghInputUp` (116), `OnUghInputUpAsButton` (148), `SendOnChanged` (76), `UpdateMeshForCurrentState` (72), `get_HighlightState` (52), `get_State` (52), `set_HighlightState` (64), `set_State` (72) |
-| `UghToggle/<OnUghInputDown>c__Iterator25` | `.ctor` (44), `Dispose` (56), `MoveNext` (160), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `UghTriangle` | `.ctor` (512), `.ctor` (140), `AddToMeshList` (648), `MakeQuad` (1032) |
+| `UghSlideToggle` | ✅ `.ctor` (76), ✅ `AutoSizeCollider` (44), ✅ `Awake` (84), ✅ `LocalPositionForInput` (488), ✅ `OnUghInputDown` (72), ✅ `OnUghInputUp` (56), ✅ `OnUghInputUpAsButton` (56), ✅ `SendOnChanged` (76), ✅ `Update` (64), ✅ `UpdateMeshWithSpritePrototype` (2936), ✅ `UpdateRealDeltaTime` (132), ✅ `get_State` (52), ✅ `set_State` (160) |
+| `UghSlideToggle/<OnUghInputDown>c__Iterator23` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (2464), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `UghSlider` | ✅ `.ctor` (76), ✅ `Awake` (104), ✅ `LocalPositionForInput` (488), ✅ `OnUghInputDown` (72), ✅ `OnUghInputUp` (64), ✅ `OnUghInputUpAsButton` (64), ✅ `UpdatePosition` (484), ✅ `get_Current` (100), ✅ `get_CurrentNormalized` (64), ✅ `set_Current` (116), ✅ `set_CurrentNormalized` (128) |
+| `UghSlider/<OnUghInputDown>c__Iterator24` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (672), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `UghSprite` | ✅ `.ctor` (60), ✅ `AnchorToTextAnchor` (176), ✅ `GetLocalCenter` (372), ✅ `GetLocalOrigin` (184), ✅ `GetOffsetForAnchor` (1564), ✅ `GetParentPublisher` (160), ✅ `GetUVArray` (1540), ✅ `MeshColumnCount` (156), ✅ `MeshRowCount` (156), ✅ `MeshVertexCount` (72), ✅ `OnDisable` (184), ✅ `OnDrawGizmos` (116), ✅ `OnEnable` (80), ✅ `TextAnchorToAnchor` (176), ✅ `UpdateMesh` (116), ✅ `UpdateMeshWithSpritePrototype` (19888), ✅ `get_Offset` (108), ✅ `get_Prototype` (52), ✅ `set_Prototype` (112) |
+| `UghSpritePrototype` | ✅ `.ctor` (316), ✅ `CreateSprite` (380), ✅ `OnEnable` (52), ✅ `UpdatePrototype` (1220) |
+| `UghStretch` | ✅ `.ctor` (60), ✅ `Align` (2096), ✅ `DoSignalDirtyAlign` (108), ✅ `OnDrawGizmos` (52), ✅ `Start` (52), ✅ `Update` (68), ✅ `add_HandleMPDirtyAlign` (160), ✅ `get_IsDirty` (52), ✅ `remove_HandleMPDirtyAlign` (160), ✅ `set_IsDirty` (60) |
+| `UghText` | ✅ `.ctor` (244), ✅ `AutoInheritText` (44), ✅ `ForceUpdate` (144), ✅ `GetParentPublisher` (160), ✅ `OnDrawGizmos` (64), ✅ `SetTextMeshAndWordWrap` (1996), ✅ `Start` (52), ✅ `UpdateDropShadow` (904), ✅ `get_Text` (68), ✅ `set_Text` (68) |
+| `UghToggle` | ✅ `.ctor` (52), ✅ `GetUghSpritePrototypeForCurrentState` (108), ✅ `OnMouseExit` (100), ✅ `OnUghInputDown` (72), ✅ `OnUghInputUp` (116), ✅ `OnUghInputUpAsButton` (148), ✅ `SendOnChanged` (76), ✅ `UpdateMeshForCurrentState` (72), ✅ `get_HighlightState` (52), ✅ `get_State` (52), ✅ `set_HighlightState` (64), ✅ `set_State` (72) |
+| `UghToggle/<OnUghInputDown>c__Iterator25` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (160), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `UghTriangle` | ✅ `.ctor` (512), ✅ `.ctor` (140), ✅ `AddToMeshList` (648), ✅ `MakeQuad` (1032) |
 
-### Menú principal / garaje — 138 métodos, 32.1 KB ARM
+### Menú principal / garaje — 149 métodos, 33.0 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `CameraShake` | `.ctor` (124), `Start` (64), `TurnOffShake` (108), `TurnOnShake` (188), `TurnOnStationaryShake` (316), `Update` (2000), `get_IsShaking` (52), `get_IsStationary` (52), `set_IsStationary` (60) |
-| `CreditsPublisher` | `.ctor` (52), `PressedBackButton` (64), `PressedCustomerSupport` (68), `PressedLinkButton` (68), `PressedPrivacyButton` (68), `PressedTermsOfUseButton` (68), `Start` (44), `Update` (44) |
-| `FrontEndCamera` | `.ctor` (236), `FixedUpdate` (504), `ForceCameraTarget` (68), `SetCameraTarget` (128), `SetCameraTargetByIndex` (148), `Start` (108), `StartTransition` (684), `get_isTransitioning` (80) |
-| `FrontEndCameraTarget` | `.ctor` (52), `OnDrawGizmos` (316) |
-| `FrontEndLogic` | `.cctor` (60), `.ctor` (60), `CheckForDailyBonus` (1200), `CheckMenuTransitionOK` (88), `GetInstance` (168), `GiveDailyBonus` (948), `HideMenu` (112), `HideMenuHelper` (72), `NeedMoreCoins` (992), `OnApplicationPause` (96), `PlayRandomWhoosh` (116), `PopupDailyBonusNote` (460), `RequestMenuChange` (268), `Start` (1280), `StartMenuTransition` (72), `Update` (360), `get_CurrentMenu` (52) |
-| `FrontEndLogic/<CheckMenuTransitionOK>c__Iterator59` | `.ctor` (44), `Dispose` (56), `MoveNext` (484), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `FrontEndLogic/<HideMenuHelper>c__Iterator58` | `.ctor` (44), `Dispose` (56), `MoveNext` (308), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `FrontEndLogic/<RequestMenuChange>c__AnonStoreyA0` | `.ctor` (44), `<>m__24` (68) |
-| `FrontEndLogic/MenuStruct` | `.ctor` (44) |
-| `LiftControlAI` | `.ctor` (124), `FixedUpdate` (372), `SetTransition` (208), `Start` (104) |
-| `PlayMenuPublisher` | `.ctor` (52), `PressedInfo` (148), `PressedMoreDisney` (80), `PressedPlayButton` (164), `PressedSettings` (128), `Start` (364), `StartTutLoad` (64), `StartTutorial` (264), `Update` (128) |
-| `PlayMenuPublisher/<StartTutLoad>c__Iterator65` | `.ctor` (44), `Dispose` (56), `MoveNext` (188), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `SettingsMenuPublisher` | `.ctor` (52), `CheckResetConfirm` (72), `OnAppPurchaseToggleChanged` (260), `OnDebugCoinPressed` (72), `OnDebugUnlockPressed` (52), `OnMusicVolumeChanged` (124), `OnSFXVolumeChanged` (92), `PressedBuyCoins` (76), `PressedCredits` (64), `PressedGameCenter` (92), `PressedMoreDisney` (80), `PressedResetData` (80), `Start` (1656), `UnlockAll` (316), `Update` (196) |
-| `SettingsMenuPublisher/<CheckResetConfirm>c__Iterator71` | `.ctor` (44), `Dispose` (56), `MoveNext` (796), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `ShiftUIPublisher` | `.ctor` (108), `Awake` (3040), `Hide` (464), `PlayRandomShiftSound` (108), `PressedCartCustomizer` (96), `PressedCharacter` (96), `PressedMoreCoins` (88), `PressedMoreDisney` (100), `PressedOptions` (96), `PressedPlayButton` (96), `PressedTrophy` (96), `SetStickPosition` (292), `ShiftSurfaceCoroutine` (180), `Show` (464), `Start` (476), `SwitchSlot` (1092), `Update` (436), `UpdateCharacterIcon` (488), `add_ChangedShifterSlot` (160), `remove_ChangedShifterSlot` (160) |
-| `ShiftUIPublisher/<ShiftSurfaceCoroutine>c__Iterator72` | `.ctor` (44), `Dispose` (56), `MoveNext` (656), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `ShiftUIPublisher/Icon` | `.ctor` (44) |
-| `ShiftUIPublisher/ShiftKeyframe` | `.ctor` (80) |
-| `ShiftUIPublisher/ShifterPosition` | `.ctor` (112), `Lerp` (340) |
-| `ShiftUIPublisher/ShifterSlot` | `.ctor` (72) |
-| `VolumeSlider` | `.ctor` (256), `MouseLogic` (84), `OnMouseDown` (160), `OnMouseUp` (56), `TouchLogic` (684), `Update` (776), `get_percent` (180), `set_percent` (360) |
+| `CameraShake` | ✅ `.ctor` (124), ✅ `Start` (64), ✅ `TurnOffShake` (108), ✅ `TurnOnShake` (188), ✅ `TurnOnStationaryShake` (316), ✅ `Update` (2000), ✅ `get_IsShaking` (52), ✅ `get_IsStationary` (52), ✅ `set_IsStationary` (60) |
+| `CreditsPublisher` | ✅ `.ctor` (52), ✅ `PressedBackButton` (64), ✅ `PressedCustomerSupport` (68), ✅ `PressedLinkButton` (68), ✅ `PressedPrivacyButton` (68), ✅ `PressedTermsOfUseButton` (68), ✅ `Start` (44), ✅ `Update` (44) |
+| `DailyBonusPublisher` | ✅ `.ctor` (52), ✅ `DestroyThis` (72), ✅ `OnPressed` (80), ✅ `Start` (48), ✅ `Update` (44) |
+| `DailyBonusPublisher/<DestroyThis>c__Iterator57` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (340), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `FrontEndCamera` | ✅ `.ctor` (236), ✅ `FixedUpdate` (504), ✅ `ForceCameraTarget` (68), ✅ `SetCameraTarget` (128), ✅ `SetCameraTargetByIndex` (148), ✅ `Start` (108), ✅ `StartTransition` (684), ✅ `get_isTransitioning` (80) |
+| `FrontEndCameraTarget` | ✅ `.ctor` (52), ✅ `OnDrawGizmos` (316) |
+| `FrontEndLogic` | ✅ `.cctor` (60), ✅ `.ctor` (60), ✅ `CheckForDailyBonus` (1200), ✅ `CheckMenuTransitionOK` (88), ✅ `GetInstance` (168), ✅ `GiveDailyBonus` (948), ✅ `HideMenu` (112), ✅ `HideMenuHelper` (72), ✅ `NeedMoreCoins` (992), ✅ `OnApplicationPause` (96), ✅ `PlayRandomWhoosh` (116), ✅ `PopupDailyBonusNote` (460), ✅ `RequestMenuChange` (268), ✅ `Start` (1280), ✅ `StartMenuTransition` (72), ✅ `Update` (360), ✅ `get_CurrentMenu` (52) |
+| `FrontEndLogic/<CheckMenuTransitionOK>c__Iterator59` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (484), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `FrontEndLogic/<HideMenuHelper>c__Iterator58` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (308), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `FrontEndLogic/<RequestMenuChange>c__AnonStoreyA0` | ✅ `.ctor` (44), ✅ `<>m__24` (68) |
+| `FrontEndLogic/MenuStruct` | ✅ `.ctor` (44) |
+| `LiftControlAI` | ✅ `.ctor` (124), ✅ `FixedUpdate` (372), ✅ `SetTransition` (208), ✅ `Start` (104) |
+| `PlayMenuPublisher` | ✅ `.ctor` (52), ✅ `PressedInfo` (148), ✅ `PressedMoreDisney` (80), ✅ `PressedPlayButton` (164), ✅ `PressedSettings` (128), ✅ `Start` (364), ✅ `StartTutLoad` (64), ✅ `StartTutorial` (264), ✅ `Update` (128) |
+| `PlayMenuPublisher/<StartTutLoad>c__Iterator65` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (188), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `SettingsMenuPublisher` | ✅ `.ctor` (52), ✅ `CheckResetConfirm` (72), ✅ `OnAppPurchaseToggleChanged` (260), ✅ `OnDebugCoinPressed` (72), ✅ `OnDebugUnlockPressed` (52), ✅ `OnMusicVolumeChanged` (124), ✅ `OnSFXVolumeChanged` (92), ✅ `PressedBuyCoins` (76), ✅ `PressedCredits` (64), ✅ `PressedGameCenter` (92), ✅ `PressedMoreDisney` (80), ✅ `PressedResetData` (80), ✅ `Start` (1656), ✅ `UnlockAll` (316), ✅ `Update` (196) |
+| `SettingsMenuPublisher/<CheckResetConfirm>c__Iterator71` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (796), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `ShiftUIPublisher` | ✅ `.ctor` (108), ✅ `Awake` (3040), ✅ `Hide` (464), ✅ `PlayRandomShiftSound` (108), ✅ `PressedCartCustomizer` (96), ✅ `PressedCharacter` (96), ✅ `PressedMoreCoins` (88), ✅ `PressedMoreDisney` (100), ✅ `PressedOptions` (96), ✅ `PressedPlayButton` (96), ✅ `PressedTrophy` (96), ✅ `SetStickPosition` (292), ✅ `ShiftSurfaceCoroutine` (180), ✅ `Show` (464), ✅ `Start` (476), ✅ `SwitchSlot` (1092), ✅ `Update` (436), ✅ `UpdateCharacterIcon` (488), ✅ `add_ChangedShifterSlot` (160), ✅ `remove_ChangedShifterSlot` (160) |
+| `ShiftUIPublisher/<ShiftSurfaceCoroutine>c__Iterator72` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (656), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `ShiftUIPublisher/Icon` | ✅ `.ctor` (44) |
+| `ShiftUIPublisher/ShiftKeyframe` | ✅ `.ctor` (80) |
+| `ShiftUIPublisher/ShifterPosition` | ✅ `.ctor` (112), ✅ `Lerp` (340) |
+| `ShiftUIPublisher/ShifterSlot` | ✅ `.ctor` (72) |
+| `VolumeSlider` | ✅ `.ctor` (256), ✅ `MouseLogic` (84), ✅ `OnMouseDown` (160), ✅ `OnMouseUp` (56), ✅ `TouchLogic` (684), ✅ `Update` (776), ✅ `get_percent` (180), ✅ `set_percent` (360) |
 
 ### Arranque y globales — 133 métodos, 27.4 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `CloudStrap` | `.ctor` (52), `ContinueToFrontEnd` (276), `Start` (268) |
-| `EnsureGlobals` | `.ctor` (52), `Awake` (296) |
-| `FadeHelper` | `.cctor` (36), `.ctor` (148), `<CleanNullEntries>m__8` (76), `<CleanNullEntries>m__9` (76), `CleanNullEntries` (392), `Fade` (244), `Fade` (164), `Fade` (460), `Fade` (1604), `FadeRecursively` (1388), `Fader` (124), `GetAllChildren` (708), `IsFading` (1552), `IsFading` (236), `SetOpacity` (464), `SetOpacity` (632), `SetOpacityRecursively` (1380), `get_Instance` (256) |
-| `FadeHelper/<Fade>c__AnonStorey92` | `.ctor` (44), `<>m__6` (88), `<>m__7` (88) |
-| `FadeHelper/<Fader>c__Iterator29` | `.ctor` (44), `<>m__A` (92), `<>m__B` (88), `<>m__C` (92), `<>m__D` (92), `Dispose` (56), `MoveNext` (4580), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `FadeHelper/<IsFading>c__AnonStorey91` | `.ctor` (44), `<>m__5` (88) |
-| `LocalizeCloudStrap` | `.ctor` (52), `Awake` (404), `Start` (44), `Update` (44) |
-| `LowEndInhibitor` | `.ctor` (160), `Start` (204) |
-| `PreFrontEndHoop` | `.ctor` (52), `Start` (64) |
-| `PreFrontEndHoop/<Start>c__Iterator86` | `.ctor` (44), `Dispose` (56), `MoveNext` (404), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `QualityControl` | `Apply` (116), `get_DoDummiedPlayerCollision` (48), `get_DoFullAI` (48), `get_DoFullTriFoot` (48), `get_DoPerFrameCollision` (48), `get_DoPhysicsAt30fps` (48), `get_IsGameHardcore` (40) |
-| `RotatorAI` | `.ctor` (96), `RotateCoroutine` (72), `Start` (204) |
-| `RotatorAI/<RotateCoroutine>c__Iterator4` | `.ctor` (44), `Dispose` (56), `MoveNext` (388), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `ScreenFade` | `.cctor` (36), `.ctor` (52), `Fade` (88), `Fade` (96), `FadeHelper` (124), `LoadLevelWithFade` (72), `LoadSceneHelper` (80), `Start` (124), `get_FadedAmount` (64), `get_Instance` (248), `get_IsFaded` (100), `get_IsFading` (52), `set_FadedAmount` (384), `set_IsFaded` (172) |
-| `ScreenFade/<FadeHelper>c__Iterator28` | `.ctor` (44), `Dispose` (56), `MoveNext` (836), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `ScreenFade/<LoadSceneHelper>c__Iterator29` | `.ctor` (44), `Dispose` (56), `MoveNext` (168), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `ScreenFader` | `.cctor` (36), `.ctor` (84), `CreateScreenFader` (296), `FadeIn` (96), `FadeInHelper` (72), `FadeOut` (96), `FadeOutHelper` (72), `LoadLevel` (108), `LoadLevel` (84), `OnLevelWasLoaded` (88), `Start` (684), `Update` (132), `get_Instance` (248) |
-| `ScreenFader/<FadeInHelper>c__Iterator8C` | `.ctor` (44), `Dispose` (56), `MoveNext` (592), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `ScreenFader/<FadeOutHelper>c__Iterator8D` | `.ctor` (44), `Dispose` (56), `MoveNext` (524), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `ScreenTimeoutController` | `.cctor` (36), `.ctor` (52), `AllowSleep` (84), `OnDestroy` (48), `SupressSleep` (152), `Update` (320) |
-| `SingletonScript` | `.ctor` (44) |
-| `SingletonScript`1` | `.ctor` (52), `Existed` (68), `Exists_VERY_EXPENSIVE` (88), `ForceReload` (84), `OnLevelWasLoaded` (92), `SingletonCreated` (44), `get_i` (356) |
+| `CloudStrap` | ✅ `.ctor` (52), ✅ `ContinueToFrontEnd` (276), ✅ `Start` (268) |
+| `EnsureGlobals` | ✅ `.ctor` (52), ✅ `Awake` (296) |
+| `FadeHelper` | ✅ `.cctor` (36), ✅ `.ctor` (148), ✅ `<CleanNullEntries>m__8` (76), ✅ `<CleanNullEntries>m__9` (76), ✅ `CleanNullEntries` (392), ✅ `Fade` (244), ✅ `Fade` (164), ✅ `Fade` (460), ✅ `Fade` (1604), ✅ `FadeRecursively` (1388), ✅ `Fader` (124), ✅ `GetAllChildren` (708), ✅ `IsFading` (1552), ✅ `IsFading` (236), ✅ `SetOpacity` (464), ✅ `SetOpacity` (632), ✅ `SetOpacityRecursively` (1380), ✅ `get_Instance` (256) |
+| `FadeHelper/<Fade>c__AnonStorey92` | ✅ `.ctor` (44), ✅ `<>m__6` (88), ✅ `<>m__7` (88) |
+| `FadeHelper/<Fader>c__Iterator29` | ✅ `.ctor` (44), ✅ `<>m__A` (92), ✅ `<>m__B` (88), ✅ `<>m__C` (92), ✅ `<>m__D` (92), ✅ `Dispose` (56), ✅ `MoveNext` (4580), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `FadeHelper/<IsFading>c__AnonStorey91` | ✅ `.ctor` (44), ✅ `<>m__5` (88) |
+| `LocalizeCloudStrap` | ✅ `.ctor` (52), ✅ `Awake` (404), ✅ `Start` (44), ✅ `Update` (44) |
+| `LowEndInhibitor` | ✅ `.ctor` (160), ✅ `Start` (204) |
+| `PreFrontEndHoop` | ✅ `.ctor` (52), ✅ `Start` (64) |
+| `PreFrontEndHoop/<Start>c__Iterator86` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (404), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `QualityControl` | ✅ `Apply` (116), ✅ `get_DoDummiedPlayerCollision` (48), ✅ `get_DoFullAI` (48), ✅ `get_DoFullTriFoot` (48), ✅ `get_DoPerFrameCollision` (48), ✅ `get_DoPhysicsAt30fps` (48), ✅ `get_IsGameHardcore` (40) |
+| `RotatorAI` | ✅ `.ctor` (96), ✅ `RotateCoroutine` (72), ✅ `Start` (204) |
+| `RotatorAI/<RotateCoroutine>c__Iterator4` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (388), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `ScreenFade` | ✅ `.cctor` (36), ✅ `.ctor` (52), ✅ `Fade` (88), ✅ `Fade` (96), ✅ `FadeHelper` (124), ✅ `LoadLevelWithFade` (72), ✅ `LoadSceneHelper` (80), ✅ `Start` (124), ✅ `get_FadedAmount` (64), ✅ `get_Instance` (248), ✅ `get_IsFaded` (100), ✅ `get_IsFading` (52), ✅ `set_FadedAmount` (384), ✅ `set_IsFaded` (172) |
+| `ScreenFade/<FadeHelper>c__Iterator28` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (836), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `ScreenFade/<LoadSceneHelper>c__Iterator29` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (168), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `ScreenFader` | ✅ `.cctor` (36), ✅ `.ctor` (84), ✅ `CreateScreenFader` (296), ✅ `FadeIn` (96), ✅ `FadeInHelper` (72), ✅ `FadeOut` (96), ✅ `FadeOutHelper` (72), ✅ `LoadLevel` (108), ✅ `LoadLevel` (84), ✅ `OnLevelWasLoaded` (88), ✅ `Start` (684), ✅ `Update` (132), ✅ `get_Instance` (248) |
+| `ScreenFader/<FadeInHelper>c__Iterator8C` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (592), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `ScreenFader/<FadeOutHelper>c__Iterator8D` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (524), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `ScreenTimeoutController` | ✅ `.cctor` (36), ✅ `.ctor` (52), ✅ `AllowSleep` (84), ✅ `OnDestroy` (48), ✅ `SupressSleep` (152), ✅ `Update` (320) |
+| `SingletonScript` | ✅ `.ctor` (44) |
+| `SingletonScript`1` | ✅ `.ctor` (52), ✅ `Existed` (68), ✅ `Exists_VERY_EXPENSIVE` (88), ✅ `ForceReload` (84), ✅ `OnLevelWasLoaded` (92), ✅ `SingletonCreated` (44), ✅ `get_i` (356) |
 
-### Guardado local y datos globales — 88 métodos, 20.4 KB ARM
+### Guardado local y datos globales — 59 métodos, 15.2 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `CloudSaveData` | `.ctor` (112), `get_CurrentCloudSaveDataVersion` (40) |
-| `DataUtility` | `.cctor` (36), `.ctor` (204), `<ProductListRecieved>m__4` (220), `AddPlayerMoney` (96), `AddPlayerMoney` (128), `AddSnapshot` (152), `Awake` (88), `BuyItem` (236), `CleanupAllSnapShots` (656), `CleanupSnapShots` (552), `DoActualPurchase` (140), `FinalizePurchase` (104), `FinalizeStore` (80), `GetSnapshot` (168), `IsCurrentPaint` (280), `IsUnlocked` (144), `JCloudDataDidChangeExternally` (96), `Load` (2752), `OnApplicationPause` (124), `OnApplicationQuit` (72), `OnDisable` (844), `OnEnable` (820), `PrependBundlePath` (220), `ProductListRecieved` (876), `ProductListRequestFailed` (88), `PurchaseCoinsFromStoreKit` (216), `PurchaseFailed` (100), `PurchaseSuccessful` (96), `Relock` (152), `Save` (1348), `SetCartPaint` (340), `SetCartPart` (340), `SetupItemsForPurchase` (180), `Start` (160), `StartStorePurchase` (72), `Unlock` (216), `gcDisplayReportedAchievement` (92), `gcPlayerAuthenticateFailed` (76), `gcPlayerAuthenticated` (68), `gcReportAchievementFailed` (76), `get_CurSettings` (52), `get_Exists` (64), `get_Instance` (256), `get_PopupDone` (52), `get_playerCoins` (56), `iCloudDataChanged` (56), `set_CurSettings` (92), `set_PopupDone` (60) |
-| `DataUtility/<FinalizePurchase>c__Iterator22` | `.ctor` (44), `Dispose` (56), `MoveNext` (1600), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `DataUtility/<StartStorePurchase>c__Iterator21` | `.ctor` (44), `Dispose` (56), `MoveNext` (532), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `ExternalPersistentArchive` | `.cctor` (120), `.ctor` (92), `Decode` (632), `DecryptLocal` (360), `Encode` (560), `ExternalPersistanceCoroutine` (72), `LoadFromWebCoroutine` (88), `Serialize` (216), `Start` (88), `get_TextData` (52), `set_TextData` (64) |
-| `ExternalPersistentArchive/<ExternalPersistanceCoroutine>c__Iterator6` | `.ctor` (44), `Dispose` (56), `MoveNext` (704), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `ExternalPersistentArchive/<LoadFromWebCoroutine>c__Iterator5` | `.ctor` (44), `Dispose` (56), `MoveNext` (500), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LocalOptionsData` | `.ctor` (120), `Load` (288), `Save` (204) |
+| `CloudSaveData` | ✅ `.ctor` (112), ✅ `get_CurrentCloudSaveDataVersion` (40) |
+| `DataUtility` | ✅ `.cctor` (36), ✅ `AddPlayerMoney` (96), ✅ `AddPlayerMoney` (128), ✅ `AddSnapshot` (152), ✅ `Awake` (88), ✅ `BuyItem` (236), ✅ `CleanupAllSnapShots` (656), ✅ `CleanupSnapShots` (552), ✅ `DoActualPurchase` (140), ✅ `GetSnapshot` (168), ✅ `IsCurrentPaint` (280), ✅ `IsUnlocked` (144), ✅ `Load` (2752), ✅ `OnApplicationPause` (124), ✅ `OnApplicationQuit` (72), ✅ `OnDisable` (844), ✅ `OnEnable` (820), ✅ `PrependBundlePath` (220), ✅ `Relock` (152), ✅ `Save` (1348), ✅ `SetCartPaint` (340), ✅ `SetCartPart` (340), ✅ `Start` (160), ✅ `Unlock` (216), ✅ `get_CurSettings` (52), ✅ `get_Exists` (64), ✅ `get_Instance` (256), ✅ `get_PopupDone` (52), ✅ `get_playerCoins` (56), ✅ `set_CurSettings` (92), ✅ `set_PopupDone` (60) |
+| `ExternalPersistentArchive` | ✅ `.cctor` (120), ✅ `.ctor` (92), ✅ `Decode` (632), ✅ `DecryptLocal` (360), ✅ `Encode` (560), ✅ `ExternalPersistanceCoroutine` (72), ✅ `LoadFromWebCoroutine` (88), ✅ `Serialize` (216), ✅ `Start` (88), ✅ `get_TextData` (52), ✅ `set_TextData` (64) |
+| `ExternalPersistentArchive/<ExternalPersistanceCoroutine>c__Iterator6` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (704), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `ExternalPersistentArchive/<LoadFromWebCoroutine>c__Iterator5` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (500), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `LocalOptionsData` | ✅ `.ctor` (120), ✅ `Load` (288), ✅ `Save` (204) |
 
 ### Utilidades compartidas — 39 métodos, 12.0 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `AnimatedTexture` | `.ctor` (148), `Start` (376), `Update` (44) |
-| `AnimatedTexture/<UpdateTexture>c__Iterator1A` | `.ctor` (44), `Dispose` (56), `MoveNext` (688), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `AudioCrumb` | `Play` (240) |
-| `AudioSourcex` | `PlayClipAtPosition` (532) |
-| `DictionaryToString` | `Parse` (760), `ToString` (728) |
-| `EdgePixels` | `DeepCopy` (128) |
-| `MiniJSON` | `.cctor` (100), `eatWhitespace` (164), `getLastIndexOfNumber` (152), `jsonDecode` (216), `jsonEncode` (132), `lookAhead` (76), `nextToken` (1048), `parseArray` (296), `parseNumber` (184), `parseObject` (356), `parseString` (1092), `parseValue` (380), `serializeArray` (252), `serializeDictionary` (560), `serializeNumber` (88), `serializeObject` (396), `serializeString` (620), `serializeValue` (1532) |
-| `Rangef` | `.ctor` (96), `.ctor` (88), `Clamp` (132), `Lerp` (132) |
-| `Script` | `.ctor` (52), `Instantiate` (168), `Instantiate` (80) |
+| `AnimatedTexture` | ✅ `.ctor` (148), ✅ `Start` (376), ✅ `Update` (44) |
+| `AnimatedTexture/<UpdateTexture>c__Iterator1A` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (688), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `AudioCrumb` | ✅ `Play` (240) |
+| `AudioSourcex` | ✅ `PlayClipAtPosition` (532) |
+| `DictionaryToString` | ✅ `Parse` (760), ✅ `ToString` (728) |
+| `EdgePixels` | ✅ `DeepCopy` (128) |
+| `MiniJSON` | ✅ `.cctor` (100), ✅ `eatWhitespace` (164), ✅ `getLastIndexOfNumber` (152), ✅ `jsonDecode` (216), ✅ `jsonEncode` (132), ✅ `lookAhead` (76), ✅ `nextToken` (1048), ✅ `parseArray` (296), ✅ `parseNumber` (184), ✅ `parseObject` (356), ✅ `parseString` (1092), ✅ `parseValue` (380), ✅ `serializeArray` (252), ✅ `serializeDictionary` (560), ✅ `serializeNumber` (88), ✅ `serializeObject` (396), ✅ `serializeString` (620), ✅ `serializeValue` (1532) |
+| `Rangef` | ✅ `.ctor` (96), ✅ `.ctor` (88), ✅ `Clamp` (132), ✅ `Lerp` (132) |
+| `Script` | ✅ `.ctor` (52), ✅ `Instantiate` (168), ✅ `Instantiate` (80) |
 
 ### Localización — 48 métodos, 7.4 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `LanguageAsset` | `.ctor` (96) |
-| `Localize` | `.cctor` (36), `.ctor` (72), `<Awake>m__4` (80), `Awake` (316), `Get` (580), `GetBaseURL` (140), `GetDynamicKeys` (1036), `GetURL` (308), `LoadDefaultLanguage` (140), `LoadKeys` (376), `LoadLanguage` (436), `LoadLanguageAsset` (288), `UseLocalizedLanguage` (76), `UseLocalizedLanguageHelper` (88), `WebLoadingHelper` (72) |
-| `Localize/<UseLocalizedLanguageHelper>c__Iterator9` | `.ctor` (44), `Dispose` (56), `MoveNext` (768), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `Localize/<WebLoadingHelper>c__Iterator8` | `.ctor` (44), `Dispose` (56), `MoveNext` (268), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LocalizedAssetSwapper` | `.ctor` (52), `Start` (72) |
-| `LocalizedAssetSwapper/<Start>c__Iterator3F` | `.ctor` (44), `Dispose` (56), `MoveNext` (704), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LocalizedString` | `.ctor` (72), `.ctor` (84), `ToString` (64), `get_Text` (56) |
-| `UnlocalizedString` | `.ctor` (72), `.ctor` (84), `ToString` (52), `UnlocalizedStringMarker` (48), `get_Text` (52), `op_Addition` (60), `op_Implicit` (80), `op_Implicit` (52) |
+| `LanguageAsset` | ✅ `.ctor` (96) |
+| `Localize` | ✅ `.cctor` (36), ✅ `.ctor` (72), ✅ `<Awake>m__4` (80), ✅ `Awake` (316), ✅ `Get` (580), ✅ `GetBaseURL` (140), ✅ `GetDynamicKeys` (1036), ✅ `GetURL` (308), ✅ `LoadDefaultLanguage` (140), ✅ `LoadKeys` (376), ✅ `LoadLanguage` (436), ✅ `LoadLanguageAsset` (288), ✅ `UseLocalizedLanguage` (76), ✅ `UseLocalizedLanguageHelper` (88), ✅ `WebLoadingHelper` (72) |
+| `Localize/<UseLocalizedLanguageHelper>c__Iterator9` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (768), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `Localize/<WebLoadingHelper>c__Iterator8` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (268), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `LocalizedAssetSwapper` | ✅ `.ctor` (52), ✅ `Start` (72) |
+| `LocalizedAssetSwapper/<Start>c__Iterator3F` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (704), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `LocalizedString` | ✅ `.ctor` (72), ✅ `.ctor` (84), ✅ `ToString` (64), ✅ `get_Text` (56) |
+| `UnlocalizedString` | ✅ `.ctor` (72), ✅ `.ctor` (84), ✅ `ToString` (52), ✅ `UnlocalizedStringMarker` (48), ✅ `get_Text` (52), ✅ `op_Addition` (60), ✅ `op_Implicit` (80), ✅ `op_Implicit` (52) |
 
 
 ---
 
 ## Etapa 2 — Menú → selección → carga de la carrera
 
-**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (15) — deben tolerar quedar pendientes o adelantarse:
+**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (12) — deben tolerar quedar pendientes o adelantarse:
 
 - Etapa 3 · `AnimationDriver`: `.cctor`, `.ctor`, `SetAnimationTarget`, `Update`
 - Etapa 3 · `RaceManager`: `InitRace`
@@ -219,7 +219,6 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 - Etapa 4 · `CartCustomizerPublisher`: `IsTemporaryInSlot`
 - Etapa 4 · `CharacterVOController`: `PlayCharacterSelect`
 - Etapa 4 · `CharacterVOControllerGameObjectExtender`: `GetVOController`
-- Etapa 4 · `LifetimeMetrics`: `Signal`, `get_Item`
 - Etapa 4 · `ParticleLibrary`: `GetPrefab`, `get_Instance`
 
 ### Construcción del kart y vista previa — 231 métodos, 67.4 KB ARM
@@ -287,13 +286,13 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `SelectCircuitPublisher/TrophyAssets` | `.ctor` (44) |
 | `TrackSelectPublisher` | `.ctor` (268), `DetermineTrophies` (1620), `FixedUpdate` (536), `GetTrackIconsList` (148), `PressedBackButton` (84), `PressedTrackButton1` (200), `PressedTrackButton2` (200), `PressedTrackButton3` (200), `RaceOrSummary` (136), `Refresh` (324), `Start` (384), `UpdateTrackSnapshots` (1356) |
 | `TrackSelectPublisher/TrackIcon` | `.ctor` (44) |
-| `TrackUnlockHelper` | `.ctor` (52), `CheckForPreraceSetupUnlock` (336), `GetCircuitMedalCount` (448), `GetCircuitTracks` (372), `GetHasEnoughMedals` (92), `GetHighestTrackPlace` (396), `GetTrackMedalCount` (420), `IsCircuitUnlocked` (332) ⚠Etapa 1, `RelockEverything` (336) ⚠Etapa 1, `Start` (72), `TestForUltraHard` (188), `UnlockAllEverything` (336), `get_CanPranksgiving` (52), `get_DebugUnlock` (52), `set_DebugUnlock` (76) ⚠Etapa 1 |
-| `TrackUnlockHelper/<GetCircuitMedalCount>c__AnonStorey98` | `.ctor` (44), `<>m__19` (76) |
-| `TrackUnlockHelper/<GetCircuitTracks>c__AnonStorey9A` | `.ctor` (44), `<>m__1B` (76) |
-| `TrackUnlockHelper/<GetTrackMedalCount>c__AnonStorey99` | `.ctor` (44), `<>m__1A` (84) |
-| `TrackUnlockHelper/<Start>c__Iterator49` | `.ctor` (44), `Dispose` (56), `MoveNext` (664), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `TrackUnlockHelper/CircuitTracks` | `.ctor` (44) |
-| `TrackUnlockHelper/TrackMedals` | `.ctor` (44) |
+| `TrackUnlockHelper` | ✅ `.ctor` (52), `CheckForPreraceSetupUnlock` (336), `GetCircuitMedalCount` (448), `GetCircuitTracks` (372), `GetHasEnoughMedals` (92), `GetHighestTrackPlace` (396), `GetTrackMedalCount` (420), `IsCircuitUnlocked` (332) ⚠Etapa 1, `RelockEverything` (336) ⚠Etapa 1, `Start` (72), `TestForUltraHard` (188), `UnlockAllEverything` (336), ✅ `get_CanPranksgiving` (52), ✅ `get_DebugUnlock` (52), ✅ `set_DebugUnlock` (76) ⚠Etapa 1 |
+| `TrackUnlockHelper/<GetCircuitMedalCount>c__AnonStorey98` | ✅ `.ctor` (44), ✅ `<>m__19` (76) |
+| `TrackUnlockHelper/<GetCircuitTracks>c__AnonStorey9A` | ✅ `.ctor` (44), ✅ `<>m__1B` (76) |
+| `TrackUnlockHelper/<GetTrackMedalCount>c__AnonStorey99` | ✅ `.ctor` (44), ✅ `<>m__1A` (84) |
+| `TrackUnlockHelper/<Start>c__Iterator49` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (664), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `TrackUnlockHelper/CircuitTracks` | ✅ `.ctor` (44) |
+| `TrackUnlockHelper/TrackMedals` | ✅ `.ctor` (44) |
 | `UnlockedCircuitPublisher` | `.ctor` (76), `LoadCircuitTextures` (72), `SetContent` (224), `ShowCircuitBanner` (476), `Start` (72), `Update` (68), `get_Circuit` (52), `set_Circuit` (60) |
 | `UnlockedCircuitPublisher/<LoadCircuitTextures>c__Iterator75` | `.ctor` (44), `Dispose` (56), `MoveNext` (1772), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `UnlockedCircuitPublisher/<Start>c__Iterator74` | `.ctor` (44), `Dispose` (56), `MoveNext` (196), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
@@ -327,7 +326,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 ## Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados)
 
-**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (42) — deben tolerar quedar pendientes o adelantarse:
+**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (40) — deben tolerar quedar pendientes o adelantarse:
 
 - Etapa 4 · `AchievementListener`: `HasAchieved`
 - Etapa 4 · `BaseEffect`: `.cctor`, `GetEffectInstance`, `isBeneficial`
@@ -339,7 +338,6 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 - Etapa 4 · `CharacterVOController`: `PlayCelebrate`, `PlayPout`
 - Etapa 4 · `EffectManager`: `AddEffect`, `GetEffect`, `GetEffectCount`, `HasEffect`, `RemoveAllEffects`, `RemoveEffect`
 - Etapa 4 · `GimpedCarAI`: `.ctor`, `FixedUpdate`, `GetGimpedSnapShot`, `SetToClosestPathHead`, `Start`, `Update`
-- Etapa 4 · `LifetimeMetrics`: `ContainsKey`, `SetMetric`
 - Etapa 4 · `MissionDialogPublisher`: `SetRollState`
 - Etapa 4 · `MissionManager`: `Signal`
 - Etapa 4 · `MusicPlayer`: `HijackMusicPlayerForSoundStings`
@@ -382,7 +380,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `RaceResultsPublisher/<FillRank>c__AnonStoreyA6` | `.ctor` (44), `<>m__35` (76) |
 | `RaceResultsPublisher/CharacterIcon` | `.ctor` (44) |
 
-### Vehículo: física, input PC, animación — 162 métodos, 54.4 KB ARM
+### Vehículo: física, input PC, animación — 146 métodos, 52.0 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
@@ -395,9 +393,6 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `CatchupNotify` | `.ctor` (52), `DeathCount` (72), `Start` (80) |
 | `CatchupNotify/<DeathCount>c__Iterator76` | `.ctor` (44), `Dispose` (56), `MoveNext` (216), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `DriftButton` | `.ctor` (52), `ApplyDrift` (140), `OnButtonDown` (56), `OnButtonHeld` (56), `OnButtonUp` (56) |
-| `InputBlocker` | `.ctor` (52), `FadeOut` (80), `FadeOutHelper` (72), `Start` (72) |
-| `InputBlocker/<FadeOutHelper>c__Iterator2B` | `.ctor` (44), `Dispose` (56), `MoveNext` (832), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `InputBlocker/<Start>c__Iterator2A` | `.ctor` (44), `Dispose` (56), `MoveNext` (832), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `PlayerControlLinker` | `.ctor` (52), `Start` (140) |
 | `PlayerKeyboardControl` | `.cctor` (92), `.ctor` (52), `Awake` (848), `FixedUpdate` (624), `GetKey` (144), `GetKeyDown` (144), `Update` (400) |
 | `PlayerKeyboardControl/KeyEventBinding` | `.ctor` (44), `Key` (316), `KeyDown` (316) |
@@ -414,15 +409,15 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `CarProgress` | `.ctor` (88), `GetProgressCopy` (140) |
 | `DebugTrackStrapper` | `.ctor` (268), `Start` (364) |
 | `ObjectTrackDistanceLogic` | `.ctor` (52), `CalculateTrackDistance` (120), `OnDisable` (144), `OnEnable` (144), `Start` (44), `Update` (44) |
-| `RaceManager` | `.cctor` (36), `.ctor` (60), `<CalculateCarPositions>m__12` (216), `<EndRace>m__14` (352), `<EndRace>m__15` (92), `<Init>m__13` (96), `AdvanceCarLap` (2164), `CalculateCarPositionPump` (72), `CalculateCarPositions` (1640), `CleanupRace` (340), `DoFinishLineEffect` (92), `EliminateCar` (88), `EndRace` (2372), `GetCarInPosition` (152), `GetCarIsActive` (140), `GetCarLap` (92), `GetCarLastProgressTrigger` (132), `GetCarLastTrackDistance` (184), `GetCarPosition` (120), `GetOrderedCarList` (208), `GetPlayerCar` (44), `Init` (5264), `InitRace` (136) ⚠Etapa 2, `IsPlayerCar` (60), `PauseRace` (596), `PlayAmbientNoise` (316), `PlayRandomAnimation` (332), `PostRaceCountdown` (88), `PreLaunchCoroutine` (72), `PreraceCountdown` (72), `RaceOutCoroutine` (64), `RaceRewind` (1788), `RecordSnapshot` (1484), `SetCarProgressTrigger` (92), `SpawnCoins` (56), `SpawnCoins` (488), `StartMusic` (684), `StartRaceRewind` (76), `add_raceInitFinishedEvent` (160), `get_Exists` (64), `get_Instance` (460), `get_allCars` (84), `get_elapsedTime` (316), `get_isPaused` (72) ⚠Etapa 1, `get_lastWaypoint` (84), `get_leadCar` (44), `get_totalNumLaps` (44), `get_totalTrackLength` (120), `remove_raceInitFinishedEvent` (160) |
-| `RaceManager/<CalculateCarPositionPump>c__Iterator41` | `.ctor` (44), `Dispose` (56), `MoveNext` (204), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<DoFinishLineEffect>c__Iterator43` | `.ctor` (44), `Dispose` (56), `MoveNext` (1484), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<EliminateCar>c__Iterator46` | `.ctor` (44), `Dispose` (56), `MoveNext` (1180), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<PostRaceCountdown>c__Iterator44` | `.ctor` (44), `Dispose` (56), `MoveNext` (1404), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<PreLaunchCoroutine>c__Iterator45` | `.ctor` (44), `Dispose` (56), `MoveNext` (328), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<PreraceCountdown>c__Iterator42` | `.ctor` (44), `Dispose` (56), `MoveNext` (688), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<RaceOutCoroutine>c__Iterator40` | `.ctor` (44), `Dispose` (56), `MoveNext` (480), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `RaceManager/<StartRaceRewind>c__Iterator47` | `.ctor` (44), `Dispose` (56), `MoveNext` (204), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager` | ✅ `.cctor` (36), `.ctor` (60), `<CalculateCarPositions>m__12` (216), `<EndRace>m__14` (352), `<EndRace>m__15` (92), `<Init>m__13` (96), `AdvanceCarLap` (2164), `CalculateCarPositionPump` (72), `CalculateCarPositions` (1640), `CleanupRace` (340), `DoFinishLineEffect` (92), `EliminateCar` (88), `EndRace` (2372), `GetCarInPosition` (152), `GetCarIsActive` (140), `GetCarLap` (92), `GetCarLastProgressTrigger` (132), `GetCarLastTrackDistance` (184), `GetCarPosition` (120), `GetOrderedCarList` (208), `GetPlayerCar` (44), `Init` (5264), `InitRace` (136) ⚠Etapa 2, `IsPlayerCar` (60), `PauseRace` (596), `PlayAmbientNoise` (316), `PlayRandomAnimation` (332), `PostRaceCountdown` (88), `PreLaunchCoroutine` (72), `PreraceCountdown` (72), `RaceOutCoroutine` (64), `RaceRewind` (1788), `RecordSnapshot` (1484), `SetCarProgressTrigger` (92), `SpawnCoins` (56), `SpawnCoins` (488), `StartMusic` (684), `StartRaceRewind` (76), `add_raceInitFinishedEvent` (160), ✅ `get_Exists` (64), ✅ `get_Instance` (460), `get_allCars` (84), `get_elapsedTime` (316), ✅ `get_isPaused` (72) ⚠Etapa 1, `get_lastWaypoint` (84), `get_leadCar` (44), `get_totalNumLaps` (44), `get_totalTrackLength` (120), `remove_raceInitFinishedEvent` (160) |
+| `RaceManager/<CalculateCarPositionPump>c__Iterator41` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (204), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<DoFinishLineEffect>c__Iterator43` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1484), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<EliminateCar>c__Iterator46` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1180), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<PostRaceCountdown>c__Iterator44` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (1404), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<PreLaunchCoroutine>c__Iterator45` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (328), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<PreraceCountdown>c__Iterator42` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (688), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<RaceOutCoroutine>c__Iterator40` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (480), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `RaceManager/<StartRaceRewind>c__Iterator47` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (204), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `RaceResults` | `.ctor` (60) |
 
 ### Pista: waypoints, vueltas, respawn, superficies — 38 métodos, 18.3 KB ARM
@@ -431,7 +426,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 |---|---|
 | `CausticsManager` | `.ctor` (268), `Start` (560), `UpdateCausticsCoroutine` (72) |
 | `CausticsManager/<UpdateCausticsCoroutine>c__Iterator28` | `.ctor` (44), `Dispose` (56), `MoveNext` (392), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `ProgressTriggerLogic` | `.ctor` (52), ✅ `CanTriggerForCar` (208), ✅ `OnTriggerEnter` (212) |
+| `ProgressTriggerLogic` | ✅ `.ctor` (52), ✅ `CanTriggerForCar` (208), ✅ `OnTriggerEnter` (212) |
 | `ResetTrigger` | `.ctor` (52), `OnTriggerEnter` (260) |
 | `SpeedPoint` | `.ctor` (84), `FindClosestSpeedPoint` (432), `GetSPLine` (188), `GetSPLinePoint` (1024), `IsPointForward` (268), `OnDrawGizmos` (440), `ProjectOnSPLine` (968) |
 | `SpeedPoint/SpeedBranchStruct` | `.ctor` (44) |
@@ -450,7 +445,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `Mathfx` | `Berp` (460) |
+| `Mathfx` | ✅ `Berp` (460) |
 | `Vector3x` | `Berp` (440) |
 
 
@@ -550,7 +545,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 |---|---|
 | `AchievementCategoryPublisher` | `.ctor` (52), `OnPressedCoins` (108), `OnPressedPowerups` (108), `OnPressedStunts` (108), `OnPressedTracks` (108), `Start` (1020) |
 | `AchievementListener` | `.ctor` (52), `Achieve` (240), `Activate` (56), `Fail` (76) ⚠Etapa 1, `FilterCategory` (52), `GetUnlockName` (100), `HasAchieved` (80) ⚠Etapa 3, `get_State` (52) |
-| `AchievementManager` | `.cctor` (36), `.ctor` (52), `Achieve` (976), `Awake` (56), `ChooseActiveListeners` (1212) ⚠Etapa 2, `ClearActiveListeners` (172) ⚠Etapa 2, `Fail` (120) ⚠Etapa 1, `InitFrontEndAchievements` (468) ⚠Etapa 1, `OnDisable` (332), `OnEnable` (332), `OnRaceEnd` (160), `OnRaceInit` (160), `Start` (88), `get_AllAchievements` (180), `get_Instance` (176) ⚠Etapa 1 |
+| `AchievementManager` | ✅ `.cctor` (36), ✅ `.ctor` (52), `Achieve` (976), ✅ `Awake` (56), `ChooseActiveListeners` (1212) ⚠Etapa 2, `ClearActiveListeners` (172) ⚠Etapa 2, `Fail` (120) ⚠Etapa 1, `InitFrontEndAchievements` (468) ⚠Etapa 1, `OnDisable` (332), `OnEnable` (332), `OnRaceEnd` (160), `OnRaceInit` (160), ✅ `Start` (88), ✅ `get_AllAchievements` (180), ✅ `get_Instance` (176) ⚠Etapa 1 |
 | `AchievementPanelPublisher` | `.ctor` (52), `Refresh` (924), `get_Achievement` (52), `set_Achievement` (64) |
 | `AchievementUI` | `.ctor` (52), `AnimatePanelInCoroutine` (96), `AnimatePanelOutCoroutine` (96), `BuildFilteredList` (488), `GetCurrentSurface` (68), `OnPressedBack` (84), `OnPressedNext` (80), `OnPressedPrev` (80), `SetPage` (1016), `Start` (372), `SwapSurface` (72) |
 | `AchievementUI/<AnimatePanelInCoroutine>c__Iterator4D` | `.ctor` (44), `Dispose` (56), `MoveNext` (1500), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
@@ -662,7 +657,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `AudioManager` | `.cctor` (36), `.ctor` (84), `OnDisable` (68), `OnEnable` (68), `get_SoundEffectsVolume` (144) ⚠Etapa 1, `get_instance` (248) ⚠Etapa 1, `set_SoundEffectsVolume` (108) |
+| `AudioManager` | ✅ `.cctor` (36), ✅ `.ctor` (84), ✅ `OnDisable` (68), ✅ `OnEnable` (68), ✅ `get_SoundEffectsVolume` (144) ⚠Etapa 1, ✅ `get_instance` (248) ⚠Etapa 1, ✅ `set_SoundEffectsVolume` (108) |
 | `CharacterVOController` | `.ctor` (196), `PickClip` (336), `PlayCelebrate` (72) ⚠Etapa 3, `PlayCharacterSelect` (72) ⚠Etapa 2, `PlayClip` (156), `PlayPout` (72) ⚠Etapa 3 |
 | `CharacterVOControllerGameObjectExtender` | `GetVOController` (132) ⚠Etapa 2 |
 | `ClipReference` | `.ctor` (44) |
@@ -685,6 +680,26 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `SoundSequencer` | `.ctor` (124), `Awake` (180), `DetermineSoundsToPlay` (512), `GetNewSourceAndPlay` (256), `PauseSounds` (364), `Recycle` (72), `RequestPlay` (180) ⚠Etapa 3, `RequestPlayLoop` (108), `SearchUsedList` (500), `SetPriority` (88), `StopLoopingSound` (388), `StopSounds` (352), `UnpauseSounds` (364), `Update` (124), `get_isPaused` (52) |
 | `SoundSequencer/<Recycle>c__Iterator26` | `.ctor` (44), `Dispose` (56), `MoveNext` (220), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 
+### Utilidades compartidas — 84 métodos, 14.0 KB ARM
+
+| Clase | Métodos (bytes ARM) |
+|---|---|
+| `AnimatedTexture` | ✅ `UpdateTexture` (72) |
+| `AudioCrumb` | ✅ `.ctor` (96) |
+| `AudioSourcex` | ✅ `.ctor` (44), ✅ `PlayClipAtTransform` (568), ✅ `PlayClipAtTransform` (112), ✅ `PlayCrumbAtTransform` (84) |
+| `DrawArea3D` | ✅ `.ctor` (180) |
+| `EdgePixels` | ✅ `.ctor` (44), ✅ `get_xSum` (76), ✅ `get_ySum` (76) |
+| `Mathfx` | ✅ `.ctor` (44), ✅ `Bounce` (688), ✅ `ClampAngle` (284), ✅ `Coserp` (240), ✅ `DragBounce` (256), ✅ `Exponential` (196), ✅ `Exponential` (160), ✅ `Hermite` (196), ✅ `Lerp` (124), ✅ `Parameter` (340), ✅ `Sinerp` (212) |
+| `MiniJSON` | ✅ `.ctor` (44), ✅ `getLastErrorIndex` (56), ✅ `getLastErrorSnippet` (256), ✅ `lastDecodeSuccessful` (72), ✅ `serializeObjectOrArray` (340) |
+| `PIDVectorController` | `.ctor` (432), `.ctor` (360), `CalculateOutput` (692) |
+| `ParticleSystemDestroy` | `.ctor` (52), `Start` (72) |
+| `ParticleSystemDestroy/<Start>c__Iterator27` | `.ctor` (44), `Dispose` (56), `MoveNext` (492), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `Rangef` | ✅ `InverseLerp` (132), ✅ `get_Range` (76), ✅ `get_random` (108) |
+| `Script` | ✅ `<ConvertObjectArray`1>m__3` (68), ✅ `AddAnimation` (124), ✅ `AddAnimation` (120), ✅ `AddComponent` (112), ✅ `AddComponentTo` (96), ✅ `AddComponentTo` (116), ✅ `AddDelayed` (96), ✅ `AnimationHelper` (152), ✅ `ConvertObjectArray` (116), ✅ `CreateLoop` (88), ✅ `CreateLoop` (84), ✅ `CreateLoop` (204), ✅ `DelayedHelper` (116), ✅ `FindNameRecursive` (120), ✅ `FindNameRecursive` (772), ✅ `GetComponentFrom` (96), ✅ `GetComponentFrom` (96), ✅ `GetComponentUpwards` (80), ✅ `GetComponentUpwardsFrom` (140), ✅ `GetComponentUpwardsFrom` (84), ✅ `GetComponentsFrom` (96), ✅ `GetComponentsInChildrenFrom` (96), ✅ `GetComponentsInChildrenFrom` (96), ✅ `InstantiateIfNotPresent` (320), ✅ `InstantiateIfNotPresent` (260), ✅ `SendMessageToGameObjects` (56), ✅ `SendMessageToGameObjects` (232), ✅ `SendMessageToObjectsOfType` (72), ✅ `SendMessageToObjectsOfType` (196) |
+| `Script/<AnimationHelper>c__Iterator0` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (420), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `Script/<DelayedHelper>c__Iterator1` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (216), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `Vector3x` | `Coserp` (440), `Hermite` (440), `Sinerp` (440) |
+
 ### Tutorial — 56 métodos, 12.7 KB ARM
 
 | Clase | Métodos (bytes ARM) |
@@ -705,29 +720,16 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `Coin` | `.ctor` (52), `OnTriggerEnter` (628), `Start` (288) |
 | `CoinPoint` | `.ctor` (100), `OnDrawGizmos` (1508), `ProperCoinNum` (212), `SpawnCircleHelper` (4180), `SpawnCoins` (100), `SpawnTrailHelper` (1600), `get_ShapeType` (52), `set_ShapeType` (60) |
 
-### Progresión, bono diario, rewind — 44 métodos, 7.1 KB ARM
+### Progresión, bono diario, rewind — 33 métodos, 6.2 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
 | `CarSnapShot` | `.ctor` (172) ⚠Etapa 3, `AddEffectToPowerUpholder` (72) ⚠Etapa 3, `AddToEffectList` (72) ⚠Etapa 3 |
-| `DailyBonusPublisher` | `.ctor` (52), `DestroyThis` (72), `OnPressed` (80), `Start` (48), `Update` (44) |
-| `DailyBonusPublisher/<DestroyThis>c__Iterator57` | `.ctor` (44), `Dispose` (56), `MoveNext` (340), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `LifetimeMetrics` | `.cctor` (36) ⚠Etapa 1, `.ctor` (44), `ContainsKey` (84) ⚠Etapa 3, `DebugDump` (676), `Load` (756) ⚠Etapa 1, `Save` (616) ⚠Etapa 1, `SetMetric` (260) ⚠Etapa 3, `Signal` (324) ⚠Etapa 2, `Signal` (80) ⚠Etapa 2, `get_Item` (172) ⚠Etapa 2 |
+| `LifetimeMetrics` | ✅ `.cctor` (36) ⚠Etapa 1, ✅ `.ctor` (44), ✅ `ContainsKey` (84) ⚠Etapa 3, ✅ `DebugDump` (676), ✅ `Load` (756) ⚠Etapa 1, ✅ `Save` (616) ⚠Etapa 1, ✅ `SetMetric` (260) ⚠Etapa 3, ✅ `Signal` (324) ⚠Etapa 2, ✅ `Signal` (80) ⚠Etapa 2, ✅ `get_Item` (172) ⚠Etapa 2 |
 | `RewindDialogPublisher` | `.ctor` (52), `DestroyThis` (72), `FinalizedRewind` (132), `MoneyCheck` (84), `NeedMoreCoins` (168), `PressedBuy` (404), `PressedExit` (100), `Start` (396), `get_RewindCost` (40) |
 | `RewindDialogPublisher/<DestroyThis>c__Iterator8B` | `.ctor` (44), `Dispose` (56), `MoveNext` (340), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `RewindLapSlotPublisher` | `.ctor` (52), `PressedRewind` (108) |
 | `SnapShotInfo` | `.ctor` (100), `AddCarSnap` (72) ⚠Etapa 3, `DebugDump` (620) |
-
-### Utilidades compartidas — 18 métodos, 4.4 KB ARM
-
-| Clase | Métodos (bytes ARM) |
-|---|---|
-| `DrawArea3D` | ✅ `.ctor` (180) |
-| `Mathfx` | `Coserp` (240), `Hermite` (196), `Sinerp` (212) |
-| `PIDVectorController` | `.ctor` (432), `.ctor` (360), `CalculateOutput` (692) |
-| `ParticleSystemDestroy` | `.ctor` (52), `Start` (72) |
-| `ParticleSystemDestroy/<Start>c__Iterator27` | `.ctor` (44), `Dispose` (56), `MoveNext` (492), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `Vector3x` | `Coserp` (440), `Hermite` (440), `Sinerp` (440) |
 
 
 ---
@@ -762,29 +764,24 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 ## Sin uso detectado (no se traducen salvo que aparezcan en el log)
 
-### Utilidades compartidas — 335 métodos, 87.5 KB ARM
+### Utilidades compartidas — 269 métodos, 77.9 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
 | `<PrivateImplementationDetails>` | `.ctor` (44) |
 | `ActiveObjectListSwtich` | `.ctor` (52), `Fire` (276), `OnTriggerEnter` (80), `Start` (68) |
-| `AnimatedTexture` | `UpdateTexture` (72) |
-| `AudioCrumb` | `.ctor` (96) |
-| `AudioSourcex` | `.ctor` (44), `PlayClipAtTransform` (568), `PlayClipAtTransform` (112), `PlayCrumbAtTransform` (84) |
 | `AutoDestructParticleSystem` | `.ctor` (52), `LateUpdate` (112), `Start` (44), `Update` (44) |
 | `BillboardRemover` | `.ctor` (52), `RemoveBillboards` (72), `Start` (128), `Update` (44) |
 | `BillboardRemover/<RemoveBillboards>c__Iterator35` | `.ctor` (44), `Dispose` (56), `MoveNext` (536), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `ByteStream` | `.ctor` (136), `.ctor` (140), `Serialize` (148), `Serialize` (124), `Serialize` (124), `Serialize` (124), `Serialize` (136), `Serialize` (136), `Serialize` (292), `Serialize` (368), `Serialize` (124), `Serialize` (336), `get_Bytes` (68) |
 | `DrawArea` | `.ctor` (472), `DrawDiamond` (980), `DrawLine` (236), `DrawRect` (836), `Point` (740) |
 | `DrawArea3D` | `Point` (576) |
-| `EdgePixels` | `.ctor` (44), `get_xSum` (76), `get_ySum` (76) |
 | `EnumerableScript` | `.ctor` (44) |
 | `EnumerableScript`1` | `.cctor` (92), `.ctor` (52), `All` (68), `GetEnumerator` (152), `OnDisable` (180), `Start` (180) |
 | `FractalNoise` | `.ctor` (172), `.ctor` (132), `.ctor` (428), `BrownianMotion` (712), `HybridMultifractal` (828), `PrecalculateNOoise` (44), `RidgedMultifractal` (728) |
 | `FractalNoiseParams` | `.ctor` (212) |
 | `GUIx` | `.cctor` (292), `.ctor` (44), `AutoScaleText` (160), `AutoScaleText` (1964), `BeginGroupShadow` (140), `BeginGroupShadow` (940), `ButtonShadow` (152), `ButtonShadow` (136), `ButtonShadow` (184), `ButtonShadow` (140), `ButtonShadow` (176), `ButtonShadow` (924), `EndGroupShadow` (40), `LabelShadow` (192), `LabelShadow` (216), `LabelShadow` (140), `LabelShadow` (176), `LabelShadow` (204), `LabelShadow` (208), `LabelShadow` (156), `LabelShadow` (752), `RepeatButtonShadow` (156), `RepeatButtonShadow` (144), `RepeatButtonShadow` (184), `RepeatButtonShadow` (140), `RepeatButtonShadow` (924), `ScreenScale` (304), `ScreenScaleBig` (304), `TextRect` (164), `TextRect` (160), `TextRect` (2124), `TextRectShadow` (188), `TextRectShadow` (184), `TextRectShadow` (140), `TextRectShadow` (192), `TextRectShadow` (752), `ToggleShadow` (168), `ToggleShadow` (152), `ToggleShadow` (156), `ToggleShadow` (1720), `get_screenMargin` (296) |
 | `Inputx` | `.ctor` (44), `InputDown` (192), `InputDownStart` (180), `InputPosition` (256), `InputUp` (204) |
-| `Mathfx` | `.ctor` (44), `Bounce` (688), `ClampAngle` (284), `DragBounce` (256), `Exponential` (196), `Exponential` (160), `Lerp` (124), `Parameter` (340) |
 | `Matrix4x4x` | `.ctor` (44), `AdjustToIPhone` (208), `AdjustToIPhone` (1132), `AdjustToIPhone` (448), `CropMatrix` (1592), `Rotate` (108), `RotateAtOrigin` (980), `Scale` (208), `ScaleAtOrigin` (964), `Translate` (208) |
 | `Messenger` | `.cctor` (76), `AddListener` (272), `Broadcast` (72), `Broadcast` (216), `RemoveListener` (284) |
 | `MessengerInternal` | `.cctor` (116), `CreateBroadcastSignatureException` (108), `OnBroadcasting` (184), `OnListenerAdding` (360), `OnListenerRemoved` (124), `OnListenerRemoving` (484) |
@@ -793,21 +790,16 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `Messenger`1` | `.cctor` (96), `AddListener` (212), `Broadcast` (104), `Broadcast` (200), `RemoveListener` (220) |
 | `Messenger`2` | `.cctor` (96), `AddListener` (212), `Broadcast` (112), `Broadcast` (208), `RemoveListener` (220) |
 | `Messenger`3` | `.cctor` (96), `AddListener` (212), `Broadcast` (124), `Broadcast` (220), `RemoveListener` (220) |
-| `MiniJSON` | `.ctor` (44), `getLastErrorIndex` (56), `getLastErrorSnippet` (256), `lastDecodeSuccessful` (72), `serializeObjectOrArray` (340) |
 | `MiniJsonExtensions` | `arrayListFromJson` (112), `hashtableFromJson` (112), `toJson` (52), `toJson` (52) |
 | `ObjectGroupList` | `.ctor` (68), `Awake` (56), `get_CurrentState` (52), `set_CurrentState` (348) |
 | `PIDController` | `.ctor` (236), `.ctor` (168), `CalculateOutput` (268), `SetPoint` (68) |
 | `PIDVectorController` | `SetPoint` (88) |
 | `Perlin` | `.cctor` (120), `.ctor` (44), `Noise` (1544), `Noise` (2964), `NoiseNormalized` (180), `fade` (168), `grad` (324), `grad2` (328), `lerp` (104) |
 | `Quaternionx` | `.ctor` (44), `QuaternionToMatrix4x4` (1260) |
-| `Rangef` | `InverseLerp` (132), `get_Range` (76), `get_random` (108) |
 | `Rectx` | `.ctor` (44), `AddScreenMargin` (412), `DoesContain` (436), `GetBottomLeft` (280), `GetCenter` (356), `WillFitIn` (244) |
 | `RewbieShimmer` | `.ctor` (52), `Shimmer` (72), `Update` (672) |
 | `RewbieShimmer/<Shimmer>c__Iterator2F` | `.ctor` (44), `Dispose` (56), `MoveNext` (252), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `Screenx` | `.cctor` (84), `.ctor` (44), `ScaleGUI` (444), `ScaleGUIToHeight` (408), `ScaleGUIToWidth` (408), `TouchToScreenCords` (124), `TouchToiPadScreenCoords` (412), `get_aspectRatio` (92), `get_baseAspectRatio` (112), `get_bottomCenter` (204), `get_bottomLeft` (184), `get_bottomRight` (184), `get_center` (248), `get_middleCenter` (92), `get_middleLeft` (204), `get_middleRight` (204), `get_scale` (308), `get_scaleWithCutoff` (312), `get_topCenter` (200), `get_topLeft` (176), `get_topRight` (176) |
-| `Script` | `<ConvertObjectArray`1>m__3` (68), `AddAnimation` (124), `AddAnimation` (120), `AddComponent` (112), `AddComponentTo` (96), `AddComponentTo` (116), `AddDelayed` (96), `AnimationHelper` (152), `ConvertObjectArray` (116), `CreateLoop` (88), `CreateLoop` (84), `CreateLoop` (204), `DelayedHelper` (116), `FindNameRecursive` (120), `FindNameRecursive` (772), `GetComponentFrom` (96), `GetComponentFrom` (96), `GetComponentUpwards` (80), `GetComponentUpwardsFrom` (140), `GetComponentUpwardsFrom` (84), `GetComponentsFrom` (96), `GetComponentsInChildrenFrom` (96), `GetComponentsInChildrenFrom` (96), `InstantiateIfNotPresent` (320), `InstantiateIfNotPresent` (260), `SendMessageToGameObjects` (56), `SendMessageToGameObjects` (232), `SendMessageToObjectsOfType` (72), `SendMessageToObjectsOfType` (196) |
-| `Script/<AnimationHelper>c__Iterator0` | `.ctor` (44), `Dispose` (56), `MoveNext` (420), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `Script/<DelayedHelper>c__Iterator1` | `.ctor` (44), `Dispose` (56), `MoveNext` (216), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `SmoothFollower` | `.ctor` (196), `.ctor` (192), `GetPosition` (108), `GetVelocity` (108), `Update` (884), `Update` (316) |
 | `SmoothRandom` | `.ctor` (44), `Get` (300), `Get` (248), `GetVector3` (744) |
 | `TransformGizmo` | `.ctor` (52), `OnDrawGizmosSelected` (536) |
@@ -905,6 +897,14 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `iCloudGUIManager` | `.ctor` (72), `OnGUI` (5304) |
 | `iCloudManager` | `.ctor` (52), `Awake` (108), `add_documentStoreUpdatedEvent` (160), `add_entitlementsMissingEvent` (160), `add_keyValueStoreDidChangeEvent` (160), `documentStoreUpdated` (124), `entitlementsMissing` (108), `keyValueStoreDidChange` (124), `remove_documentStoreUpdatedEvent` (160), `remove_entitlementsMissingEvent` (160), `remove_keyValueStoreDidChangeEvent` (160) |
 | `iCloudManager/iCloudDocument` | `.ctor` (252), `ToString` (128), `fromJSON` (740) |
+
+### Guardado local y datos globales — 29 métodos, 5.2 KB ARM
+
+| Clase | Métodos (bytes ARM) |
+|---|---|
+| `DataUtility` | `.ctor` (204), `<ProductListRecieved>m__4` (220), `FinalizePurchase` (104), `FinalizeStore` (80), `JCloudDataDidChangeExternally` (96), `ProductListRecieved` (876), `ProductListRequestFailed` (88), `PurchaseCoinsFromStoreKit` (216), `PurchaseFailed` (100), `PurchaseSuccessful` (96), `SetupItemsForPurchase` (180), `StartStorePurchase` (72), `gcDisplayReportedAchievement` (92), `gcPlayerAuthenticateFailed` (76), `gcPlayerAuthenticated` (68), `gcReportAchievementFailed` (76), `iCloudDataChanged` (56) |
+| `DataUtility/<FinalizePurchase>c__Iterator22` | `.ctor` (44), `Dispose` (56), `MoveNext` (1600), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `DataUtility/<StartStorePurchase>c__Iterator21` | `.ctor` (44), `Dispose` (56), `MoveNext` (532), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 
 
 ---

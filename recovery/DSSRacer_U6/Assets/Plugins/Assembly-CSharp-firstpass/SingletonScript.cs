@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Empty non-generic companion type of SingletonScript<T>.
+// RECUPERADO-AOT SingletonScript..ctor token 0x0600025e @0x0002d9d8 (empty body)
 public class SingletonScript
 {
 }

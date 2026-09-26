@@ -23,17 +23,17 @@ RULES = [
     (r'^(TouchTurnTrack|PlayerAccelControl)$', 'Input táctil/inclinación (Android)', 'ANDROID'),
     # ---- Etapa 1
     (r'^(CloudStrap|LocalizeCloudStrap|EnsureGlobals|SingletonScript|PreFrontEndHoop|ScreenFader|ScreenFade|FadeHelper|RotatorAI|ScreenTimeoutController|QualityControl|LowEndInhibitor|PlatformProfile)', 'Arranque y globales', 1),
-    (r'^(Ugh|LEDScroller|TransformReference|TransformsDictionary|TextString|ShiftContentsOn|Dialog$|PopoverPublisher|GenericPopupPublisher|ConfirmationPublisher)', 'Framework UI propio (Ugh)', 1),
+    (r'^(Ugh|LEDScroller|TransformReference|TransformsDictionary|TextString|ShiftContentsOn|Dialog$|PopoverPublisher|GenericPopupPublisher|ConfirmationPublisher|InputBlocker$)', 'Framework UI propio (Ugh)', 1),
     (r'^(Localize|LocalizedString|UnlocalizedString|LanguageAsset|LocalizedAssetSwapper)', 'Localización', 1),
     (r'^(DataUtility|CloudSaveData|LocalOptionsData|ExternalPersistentArchive|LocalFileManager|CloudFileManager|DocumentLock)', 'Guardado local y datos globales', 1),
-    (r'^(FrontEndLogic|FrontEndCamera|FrontEndCameraTarget|ShiftUIPublisher|Shifter|ShiftKeyframe|PlayMenuPublisher|SettingsMenuPublisher|VolumeSlider|CreditsPublisher|MenuStruct|CameraShake|LiftControlAI)', 'Menú principal / garaje', 1),
+    (r'^(FrontEndLogic|FrontEndCamera|FrontEndCameraTarget|ShiftUIPublisher|Shifter|ShiftKeyframe|PlayMenuPublisher|SettingsMenuPublisher|VolumeSlider|CreditsPublisher|MenuStruct|CameraShake|LiftControlAI|DailyBonusPublisher$)', 'Menú principal / garaje', 1),
     # ---- Etapa 2
     (r'^(SelectCircuitPublisher|TrackSelectPublisher|CharacterSelectPublisher|CharacterButtonPublisher|DifficultyMenuPublisher|CircuitBanner|CircuitTracks|TrackIcon|TrackMedals|TrophyAssets|UnlockedCircuitPublisher|CharacterIcon|Icon$|Logo$|TrackUnlockHelper)', 'Selección de circuito/pista/personaje', 2),
     (r'^(PreviewCart|PreviewPart|PreviewPaint|CharacterPreview|PlayerInstance|CartPartList|CartSlot|CartPart|CartAttributes|PaintJob|MultilayerTexture|StreamedMultilayerTexture|Composite|SourceFactory|Layer$|AsyncTextureProcessor|CartPrimaryTextureProfile|FormData|AlternateForm|CharacterConfigData|ConfigData)', 'Construcción del kart y vista previa', 2),
     (r'^(RaceSettings|AICartSettings|StreamManager|Asset$|AssetCluster|LoadingPublisher|LoadSpin)', 'Carga de carrera (RaceSettings/StreamManager/Loading)', 2),
     # ---- Etapa 3
     (r'^(RaceManager|CarProgress|RaceResults|DebugTrackStrapper|ObjectTrackDistanceLogic)$', 'Gestión de carrera', 3),
-    (r'^(CarCollider|TriFoot|SpringConnection|CarMetrics|AnimationTire|ShadowBlob|AnimationDriver|PlayerKeyboardControl|KeyEventBinding|PlayerControlLinker|InputBlocker|DriftButton|ReverseButton|CatchupNotify)$', 'Vehículo: física, input PC, animación', 3),
+    (r'^(CarCollider|TriFoot|SpringConnection|CarMetrics|AnimationTire|ShadowBlob|AnimationDriver|PlayerKeyboardControl|KeyEventBinding|PlayerControlLinker|DriftButton|ReverseButton|CatchupNotify)$', 'Vehículo: física, input PC, animación', 3),
     (r'^(WaypointLogic|SpeedPoint|SpeedBranchStruct|ProgressTriggerLogic|ResetTrigger|TerrainEffectTrigger|CausticsManager)$', 'Pista: waypoints, vueltas, respawn, superficies', 3),
     (r'^(FollowCamera|PreRaceCamera|CameraWobble)$', 'Cámaras de carrera', 3),
     (r'^(HUDLogic|PausePublisher|DriftScalePublisher|RaceResultsPublisher|PlaySummaryPublisher|BlipTrackPublisher|ArrowTarget)$', 'HUD, pausa y resultados', 3),
@@ -45,7 +45,7 @@ RULES = [
     (r'^(Sound|ClipReference|ClipHashDictionary|HashClipDictionary|MusicPlayer|CharacterVOController|AudioManager)', 'Audio (música, SFX, voces)', 4),
     (r'^(FrontEndTutorial|TutorialLauncherPublisher|TutorialSettings)', 'Tutorial', 4),
     (r'^(CartCustomizerPublisher|PaintSlotPublisher)$', 'Personalización del kart', 4),
-    (r'^(DailyBonusPublisher|LifetimeMetrics|SnapShotInfo|CarSnapShot|Rewind\w*Publisher)$', 'Progresión, bono diario, rewind', 4),
+    (r'^(LifetimeMetrics|SnapShotInfo|CarSnapShot|Rewind\w*Publisher)$', 'Progresión, bono diario, rewind', 4),
 ]
 
 UNITY_MESSAGES = {'Awake', 'Start', 'Update', 'LateUpdate', 'FixedUpdate', 'OnEnable', 'OnDisable', 'OnDestroy', 'OnGUI',
@@ -205,16 +205,46 @@ def main():
         for x in seen:
             reach.setdefault(x, st)
     # recovered already?
+    # A method counts as recovered when a C# comment cites its token: the "// RECUPERADO-AOT X token T" header, or the
+    # "(iterator ... MoveNext token T)" / "(predicate ... token T)" notes that name the compiler-generated methods whose
+    # bodies were folded into a translated method. A generated iterator/closure class counts as recovered as a whole
+    # once any of its methods is cited (its ctor, get_Current, Dispose and Reset have no logic of their own).
+    # Methods listed under an "// ELIMINADO" header as "//   - <signature>" were removed from the C# class on purpose.
     recovered = set()
+    removed = set()   # (assembly, top type, method name)
     for f in glob.glob(os.path.join(PROJ, '**', '*.cs'), recursive=True):
         asm = 'Assembly-CSharp-firstpass' if os.sep + 'Plugins' + os.sep in f else 'Assembly-CSharp'
-        for m in re.finditer(r'// RECUPERADO-AOT (\S+) token (0x[0-9a-f]+)', open(f, encoding='utf8').read()): recovered.add((asm, m.group(2)))
+        text = open(f, encoding='utf8').read()
+        if 'RECUPERADO-AOT' in text:
+            for line in text.split('\n'):
+                if '//' in line and 'token' in line.split('//', 1)[1]:
+                    for m in re.finditer(r'\b(0x06[0-9a-f]{6})\b', line.split('//', 1)[1]): recovered.add((asm, m.group(1)))
+        cls = os.path.basename(f)[:-3]
+        for m in re.finditer(r'^\s*//   - (?:[\w<>\[\],. ]+ )?(\w+)\s*\(', text, re.M): removed.add((asm, cls, m.group(1)))
+    # Constructors of at most 52 bytes only chain to the base constructor (static ones are empty): nothing to
+    # translate, so they count as recovered once their class has been translated.
+    translated_types = set((m['assembly'], m['top']) for m in methods if (m['assembly'], m['token']) in recovered)
+    for m in methods:
+        if m['name'] in ('.ctor', '.cctor') and m['bytes'] <= 52 and (m['assembly'], m['top']) in translated_types:
+            recovered.add((m['assembly'], m['token']))
+    gen_types = collections.defaultdict(list)
+    for m in methods:
+        if re.search(r'/<.*>c__(Iterator|AnonStorey)', m['type']): gen_types[(m['assembly'], m['type'])].append(m)
+    for key, ms in gen_types.items():
+        if any((x['assembly'], x['token']) in recovered for x in ms):
+            for x in ms: recovered.add((x['assembly'], x['token']))
+        owner = re.match(r'.*/<(\w+)>c__(?:Iterator|AnonStorey)', key[1])
+        if owner and (key[0], key[1].split('/')[0], owner.group(1)) in removed:
+            for x in ms: removed.add((x['assembly'], x['top'], x['name']))
+    for m in methods:   # lambdas <Owner>m__N of a removed method
+        lam = re.match(r'<(\w+)>m__', m['name'])
+        if lam and (m['assembly'], m['top'], lam.group(1)) in removed: removed.add((m['assembly'], m['top'], m['name']))
     rows = []
     for m in methods:
         sysname, sst = system_of(m['top'])
         need = reach.get(id(m))
         if m['nocode']: status, stage = 'SIN CÓDIGO (abstract/extern)', '-'
-        elif sst == 'ELIMINADO': status, stage = 'ELIMINADO', 'ELIMINADO'
+        elif sst == 'ELIMINADO' or (m['assembly'], m['top'], m['name']) in removed: status, stage = 'ELIMINADO', 'ELIMINADO'
         elif (m['assembly'], m['token']) in recovered: status, stage = 'RECUPERADO-AOT', str(sst if isinstance(sst, int) else (need or 4))
         else:
             status = 'PENDIENTE'
