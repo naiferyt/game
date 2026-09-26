@@ -31,6 +31,11 @@ Estrategia y decisiones: [RECOVERY_REPORT.md](RECOVERY_REPORT.md) §11–§12. E
 ### Etapa 1 — Boot → Menú  ·  Etapa 2 — Menú → Carrera  ·  Etapa 3 — Carrera mínima  ·  Etapa 4 — Sistemas completos
 - [ ] (pendiente)
 
+## Catálogo de trabajo pendiente
+- [recovery/catalog/METHOD_CATALOG.md](recovery/catalog/METHOD_CATALOG.md): los 4477 métodos del juego con su etapa (y [CSV](recovery/catalog/METHOD_CATALOG.csv) con token y dirección ARM). Pendientes: Etapa 1 = 860 (214 KB ARM), Etapa 2 = 494 (124 KB), Etapa 3 = 506 (169 KB), Etapa 4 = 1419 (277 KB); 335 sin uso detectado, 19 de depuración, 8 para Android.
+- [recovery/catalog/PENDIENTES_POR_ETAPA.md](recovery/catalog/PENDIENTES_POR_ETAPA.md): pendientes que no son traducción (agua animada, guardado local, aspecto de pantalla, física, partículas, light probes…).
+- Regenerar tras cada avance: `python forensics/scripts/method_catalog.py && python forensics/scripts/catalog_md.py`.
+
 ## RECOVERED FROM ORIGINAL
 | Elemento | Etiqueta | Evidencia |
 |---|---|---|
