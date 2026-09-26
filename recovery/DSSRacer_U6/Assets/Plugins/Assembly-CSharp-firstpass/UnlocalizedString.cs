@@ -1,56 +1,60 @@
 using System;
 
+// A literal string that is deliberately NOT translated (same shape as LocalizedString).
+// Source listing: recovery/aot_listings/Assembly-CSharp-firstpass/UnlocalizedString.txt
 [Serializable]
 public class UnlocalizedString
 {
-	public string baseText;
+	public string baseText = string.Empty;
 
 	public string Text
 	{
+		// RECUPERADO-AOT UnlocalizedString.get_Text token 0x06000221 @0x0002ad80
 		get
 		{
-			RecoveryPending.Hit("UnlocalizedString.get_Text");
-			return default(string);
+			return baseText;
 		}
 	}
 
+	// RECUPERADO-AOT UnlocalizedString..ctor token 0x0600021e @0x0002acb4
 	public UnlocalizedString()
 	{
-		RecoveryPending.Hit("UnlocalizedString..ctor");
 	}
 
+	// RECUPERADO-AOT UnlocalizedString..ctor token 0x0600021f @0x0002acfc
 	public UnlocalizedString(string text)
 	{
-		RecoveryPending.Hit("UnlocalizedString..ctor");
+		baseText = text;
 	}
 
+	// RECUPERADO-AOT UnlocalizedString.UnlocalizedStringMarker token 0x06000220 @0x0002ad50
 	public static string UnlocalizedStringMarker(string text)
 	{
-		RecoveryPending.Hit("UnlocalizedString.UnlocalizedStringMarker");
-		return default(string);
+		return text;
 	}
 
+	// RECUPERADO-AOT UnlocalizedString.ToString token 0x06000222 @0x0002adb4
 	public override string ToString()
 	{
-		RecoveryPending.Hit("UnlocalizedString.ToString");
-		return default(string);
+		return baseText;
 	}
 
+	// RECUPERADO-AOT UnlocalizedString.op_Implicit token 0x06000223 @0x0002ade8
 	public static implicit operator UnlocalizedString(string text)
 	{
-		RecoveryPending.Hit("UnlocalizedString.op_Conversion");
-		return default(UnlocalizedString);
+		return new UnlocalizedString(text);
 	}
 
+	// RECUPERADO-AOT UnlocalizedString.op_Implicit token 0x06000224 @0x0002ae38
 	public static implicit operator string(UnlocalizedString unloc)
 	{
-		RecoveryPending.Hit("UnlocalizedString.op_Conversion");
-		return default(string);
+		return unloc.baseText;
 	}
 
+	// RECUPERADO-AOT UnlocalizedString.op_Addition token 0x06000225 @0x0002ae6c
+	// (the original assigns rather than concatenates; kept as compiled)
 	public static string operator +(UnlocalizedString a, string b)
 	{
-		RecoveryPending.Hit("UnlocalizedString.op_+");
-		return default(string);
+		return a.baseText = b;
 	}
 }
