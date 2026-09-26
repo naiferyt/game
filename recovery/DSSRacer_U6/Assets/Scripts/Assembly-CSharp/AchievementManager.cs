@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AchievementManager : MonoBehaviour
@@ -29,30 +30,46 @@ public class AchievementManager : MonoBehaviour
 
 	public static AchievementManager Instance
 	{
+		// RECUPERADO-AOT AchievementManager::get_Instance token 0x060000ba @0x000cfa54
+		// ADAPTADO-U6: FindObjectOfType -> U4Compat.
 		get
 		{
-			RecoveryPending.Hit("AchievementManager.get_Instance");
-			return default(AchievementManager);
+			AchievementManager achievementManager = (AchievementManager)U4Compat.FindObjectOfType(typeof(AchievementManager));
+			if (achievementManager == null)
+			{
+				Debug.LogError("Scene requires an AchievementManager!");
+			}
+			return achievementManager;
 		}
 	}
 
 	public AchievementListener[] AllAchievements
 	{
+		// RECUPERADO-AOT AchievementManager::get_AllAchievements token 0x060000bb @0x000cfb04
 		get
 		{
-			RecoveryPending.Hit("AchievementManager.get_AllAchievements");
-			return default(AchievementListener[]);
+			List<AchievementListener> list = new List<AchievementListener>();
+			list.AddRange(linearAchievements);
+			list.AddRange(randomAchievements);
+			list.AddRange(frontEndAchievements);
+			return list.ToArray();
 		}
 	}
 
+	// RECUPERADO-AOT AchievementManager::Awake token 0x060000bc @0x000cfbb8
 	private void Awake()
 	{
-		RecoveryPending.Hit("AchievementManager.Awake");
+		UnityEngine.Object.DontDestroyOnLoad(base.gameObject);
 	}
 
+	// RECUPERADO-AOT AchievementManager::Start token 0x060000bd @0x000cfbf0
+	// ADAPTADO-U6: FindObjectsOfType -> U4Compat.
 	private void Start()
 	{
-		RecoveryPending.Hit("AchievementManager.Start");
+		if (U4Compat.FindObjectsOfType(typeof(AchievementManager)).Length > 1)
+		{
+			UnityEngine.Object.Destroy(base.gameObject);
+		}
 	}
 
 	private void OnEnable()

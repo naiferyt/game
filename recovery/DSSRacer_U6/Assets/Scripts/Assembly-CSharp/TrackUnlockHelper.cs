@@ -29,23 +29,28 @@ public class TrackUnlockHelper : MonoBehaviour
 
 	public bool DebugUnlock
 	{
+		// RECUPERADO-AOT TrackUnlockHelper::get_DebugUnlock token 0x06000585 @0x00118b38
 		get
 		{
-			RecoveryPending.Hit("TrackUnlockHelper.get_DebugUnlock");
-			return default(bool);
+			return debugUnlock;
 		}
+		// RECUPERADO-AOT TrackUnlockHelper::set_DebugUnlock token 0x06000586 @0x00118b6c
 		set
 		{
-			RecoveryPending.Hit("TrackUnlockHelper.set_DebugUnlock");
+			debugUnlock = value;
+			if (debugUnlock)
+			{
+				UnlockAllEverything();
+			}
 		}
 	}
 
 	public bool CanPranksgiving
 	{
+		// RECUPERADO-AOT TrackUnlockHelper::get_CanPranksgiving token 0x06000588 @0x00118c00
 		get
 		{
-			RecoveryPending.Hit("TrackUnlockHelper.get_CanPranksgiving");
-			return default(bool);
+			return canPranksgiving;
 		}
 	}
 
