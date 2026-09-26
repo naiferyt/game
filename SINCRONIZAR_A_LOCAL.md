@@ -9,11 +9,12 @@ la sección nueva se añade arriba del [registro](#registro-de-cambios-por-etapa
 | | |
 |---|---|
 | Rama de trabajo en la nube | `claude/optimistic-archimedes-kmux3s` |
-| Tu rama local de partida | `mi-proyecto` (commit `a6604d9`, lo que subiste desde tu PC) |
-| Último bloque sincronizable | **Etapa 2 — Menú → selección → carga de la carrera** (hecha directamente en tu copia local, rama `main`: commits `3468d93` … commit "Etapa 2 completa") |
+| Tu rama local | `main` en `C:\Users\STEEP\Documents\game work` desde la Etapa 2 (la Etapa 1 partió de `mi-proyecto`, commit `a6604d9`) |
+| Último bloque sincronizable | **Etapa 3 — bloques 3.6 (resto), 3.7 y 3.8 hechos en la nube** (commits `3caf4f8` … `e56e8c0` + documentación). Los bloques 3.1–3.6 los hiciste en local y subiste hasta `44c3b88` |
+| Etapa 2 | hecha directamente en tu copia local, rama `main`: commits `3468d93` … commit "Etapa 2 completa" |
 | Etapa 1 | commits `a96ac2b` … `9c02b40` (nube) + validación local `3440f48` |
-| Archivos cambiados desde `mi-proyecto` | 79 (72 del proyecto Unity, 3 herramientas, 4 de documentación/catálogo) + este documento y `forensics/scripts/sync_manifest.py` |
-| Pendiente en tu PC | nada que copiar: la Etapa 2 ya está en tu carpeta. Opcional: `git push origin main` para subirla a GitHub |
+| Archivos que trae esta sincronización | 12 desde `44c3b88` (9 del proyecto Unity, 3 herramientas) + la documentación y el catálogo; ver el [inventario](#inventario-de-archivos-de-la-etapa-3-nube) |
+| Pendiente en tu PC | **traer 3 commits de código + 1 de documentación** con los pasos de la [sección de la Etapa 3](#etapa-3--bloques-36-resto-37-y-38-nube) y hacer las pruebas 3.9 en Unity |
 
 ## 1. Antes de empezar
 
@@ -86,6 +87,84 @@ git push origin mi-proyecto
 y dime "ya subí los logs". Si prefieres, pega en el chat el contenido de `playrun_boot.log` y los errores de la Console.
 
 ## Registro de cambios por etapa
+
+### Etapa 3 — bloques 3.6 (resto), 3.7 y 3.8 (nube)
+
+Continúa donde lo dejó tu sesión local (`44c3b88`, "Stage 3.6: HUD logic and publishers prep"). Solo cambian **scripts**:
+no se tocan escenas, prefabs ni materiales.
+
+Qué cambió (detalle en `RECOVERY_PROGRESS.md`, sección *Etapa 3*):
+- **3.6 HUD (resto)**: `DriftScalePublisher` (medidor de derrape y aviso de power-slide) y `BlipTrackPublisher` (mapa lateral de posiciones).
+- **3.7 Pausa, resultados y resumen**:
+  - `PausePublisher`: continuar, reiniciar y salir; lista de misiones o logo de tutorial.
+  - `PlaySummaryPublisher`: modo y dificultad antes de correr.
+  - `FrontEndTutorialHandler.ActiveTutorial`.
+  - `RaceResultsPublisher`: clasificación con tiempos e iconos, recuento animado de monedas, Done / Retry / Rewind, récord "Highest Place".
+- **3.8**: rebobinado de la última vuelta (`RaceManager.RecordSnapshot`/`RaceRewind`, `CarSnapShot`, `SnapShotInfo`).
+  `HUDLogic.SignalMissionStart/Complete` quedan para la Etapa 4, como decidiste.
+- **Herramientas**: `compile_check.sh` ignora ahora los errores de APIs que solo existen en Unity 6 (`u6_only_errors.txt`), para
+  que la comprobación con el `UnityEngine.dll` 4.3 siga sirviendo con tu código de 3.1–3.6.
+
+Traer los cambios a tu PC (Unity cerrado; en tu copia trabajas en `main`):
+```bash
+cd "/c/Users/STEEP/Documents/game work"
+git status                                   # sin cambios pendientes (si los hay: commit o git stash)
+git fetch origin
+git checkout main
+git merge --ff-only origin/claude/optimistic-archimedes-kmux3s
+git log -1 --oneline                         # debe ser el último commit de la nube
+git diff --stat origin/claude/optimistic-archimedes-kmux3s   # no debe mostrar nada
+```
+
+Pruebas en Unity (bloque 3.9, lista completa en `RECOVERY_PROGRESS.md`):
+1. Abre el proyecto con `recovery/AbrirUnity.bat`: la Console no debe mostrar `error CS…`.
+2. Carrera directa (Unity cerrado, desde Git Bash), acelerando con W entre los segundos 12 y 40:
+   ```bash
+   bash forensics/scripts/run_play.sh "Assets/Scenes/Tracks/Kick Butt Track 1.unity" 45 s3race "key:W@12-40" "10,20,30,44"
+   ```
+3. A mano, en el editor: abre `Kick Butt Track 1` y pulsa Play. Completa la carrera y comprueba:
+   - **Pausa** (Escape): continuar, reiniciar y salir.
+   - **Resultados**: las filas aparecen una a una, suben las monedas y funcionan **Retry** y **Done** (vuelve al garaje).
+4. Esperado en el log: avisos `[RecoveryPending]` de sistemas de la Etapa 4 (IA, power-ups, misiones, `RewindDialogPublisher` si pulsas Rewind).
+   No son errores. Cualquier `Exception` sí lo es: pásamela.
+
+Devolver resultados: `git add -f recovery/logs/playrun_s3race.log recovery/logs/unity_play_s3race.log recovery/logs/screens`,
+commit y `git push origin main:claude/optimistic-archimedes-kmux3s` (o pega el log en el chat).
+
+#### Inventario de archivos de la Etapa 3 (nube)
+
+Generado con `python forensics/scripts/sync_manifest.py 44c3b88 e56e8c0`. A estos se suma el commit de documentación
+(`RECOVERY_PROGRESS.md`, este documento y `recovery/catalog/METHOD_CATALOG.csv/.md` regenerados).
+
+Rango: `44c3b88..e56e8c0` (12 archivos).
+
+##### Proyecto Unity (necesario para probar en Unity) — 9
+
+| Estado | Archivo |
+|---|---|
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/BlipTrackPublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CarSnapShot.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/DriftScalePublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/FrontEndTutorialHandler.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/PausePublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/PlaySummaryPublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/RaceManager.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/RaceResultsPublisher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SnapShotInfo.cs` |
+
+##### Herramientas de análisis (no las usa Unity) — 3
+
+| Estado | Archivo |
+|---|---|
+| nuevo | `forensics/scripts/mcs_check/u6_only_errors.txt` |
+| modificado | `forensics/scripts/mcs_check/U6Shim.cs` |
+| modificado | `forensics/scripts/mcs_check/compile_check.sh` |
+
+##### Por commit
+
+- **3caf4f8 Stage 3.6: drift meter and position track (DriftScalePublisher, BlipTrackPublisher)** — `U6Shim.cs`, `compile_check.sh`, `u6_only_errors.txt`, `BlipTrackPublisher.cs`, `DriftScalePublisher.cs`
+- **a273cf9 Stage 3.7: pause, results and play summary (PausePublisher, RaceResultsPublisher, PlaySummaryPublisher)** — `FrontEndTutorialHandler.cs`, `PausePublisher.cs`, `PlaySummaryPublisher.cs`, `RaceResultsPublisher.cs`
+- **e56e8c0 Stage 3.8: last-lap snapshot and race rewind (RaceManager.RecordSnapshot/RaceRewind, CarSnapShot, SnapShotInfo)** — `CarSnapShot.cs`, `RaceManager.cs`, `SnapShotInfo.cs`
 
 ### Etapa 2 — Menú → selección → carga de la carrera
 
