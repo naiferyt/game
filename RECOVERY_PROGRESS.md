@@ -52,7 +52,25 @@ Métodos de etapas posteriores que el arranque llama y siguen pendientes (devuel
 
 Herramientas nuevas: `forensics/scripts/armsym.py` (evaluador simbólico de código ARM de coma flotante), `U4Compat` (`FindObjectOfType(s)`, `WebRequest`, puente `OnLevelWasLoaded`), `LocalSaveStore`.
 
-### Etapa 2 — Menú → Carrera  ·  Etapa 3 — Carrera mínima  ·  Etapa 4 — Sistemas completos
+### Etapa 2 — Menú → selección → carga de la carrera (en curso, desde 2026-09-26)
+Objetivo: desde el garaje, **PLAY → circuito → pista → dificultad → `Loading` → escena de pista cargada** con el kart del jugador
+construido; y **personaje** elegible en el menú CharacterSelect, con el kart y el personaje visibles en el garaje.
+Volumen: 476 métodos pendientes, ~123 KB de ARM ([catálogo](recovery/catalog/METHOD_CATALOG.md#etapa-2--menú--selección--carga-de-la-carrera)).
+Orden de trabajo (cada bloque: traducir → `compile_check.py` → prueba en Unity con `PlayModeRunner` → documentar → commit):
+
+- [ ] 2.1 **Datos del kart**: `CartSlot` (tablas estáticas: nombres, objetos destino, ranuras obligatorias, cámara del customizador), `CartPart`, `AlternateForm`, `PaintJob`, `CartAttributes`, `CartPartList` (mapas por ranura, piezas por defecto, consultas de coste; `LoadPartCosts` lee **solo la caché local** cifrada, la descarga está ELIMINADA), `CharacterConfigData` (config por defecto local), `PlayerInstance` (`Instance`, `Awake/Start`, `Bootstrap`, `GetCartSlot`, `MatchAlternateForms`).
+  Criterio: desaparece la `NullReferenceException` de `ShiftUIPublisher.Start` y los avisos `Trying to save, but there is a null value?`; el icono de personaje de la palanca se actualiza.
+- [ ] 2.2 **Streaming (ruta RESOURCE)**: `StreamManager` (+ `Asset`, `AssetCluster`, `LoadAsset`), confirmando en el ARM que iOS usaba `Resources` (`PrependRootFileLocation`); la rama AssetBundle se conserva compilada y sin uso (ADAPTADO-U6).
+- [ ] 2.3 **Texturas compuestas del kart**: `MultilayerTexture`, `StreamedMultilayerTexture`, `CompositeTextureUtil` (+ `AsyncTextureProcessor`), `CompositeProfile`, `CartPrimaryTextureProfile`, `SourceFactory`. Si la vista previa necesita los 8 `MultilayerTextureBundleDef` que AssetRipper no leyó, se extraen con UnityPy (pendiente 2.5 de [PENDIENTES_POR_ETAPA](recovery/catalog/PENDIENTES_POR_ETAPA.md)).
+- [ ] 2.4 **Kart y personaje en el garaje**: `PlayerInstance.ConstructCart/GetConstructedCart/ReleaseCart`, `PreviewCart` (piezas, pinturas, transparencias, `IsLoading`, `StartDriveout`/`DriveOutCoroutine`), `CharacterPreview` (personaje, animaciones idle).
+  Criterio: el kart por defecto aparece en el garaje; PLAY hace salir el kart y abre "Circuit Select".
+- [ ] 2.5 **Selección**: `SelectCircuitPublisher` (banners, trofeos, Tutorial, Pranksgiving con interruptor local D2), `UnlockedCircuitPublisher`, `TrackSelectPublisher` (miniaturas, medallas), `DifficultyMenuPublisher`, resto de `TrackUnlockHelper` (`IsCircuitUnlocked`, medallas, `TestForUltraHard`…), `CharacterSelectPublisher` + `CharacterButtonPublisher` (logos localizados, barras de atributos).
+- [ ] 2.6 **Carga de la carrera**: `RaceSettings` (`GetCircuit`, `DetermineAICars`, `GatherRequiredAssets`, `StartBundleLoads`, `Launch`), `LoadingPublisher` (espera de assets, del kart y de la escena; texto de misión; botón Go), `LoadSpin`. Escena `Loading` → pista con `SceneManager` (ADAPTADO-U6).
+- [ ] 2.7 **Métodos de Etapas 3/4 que este flujo ya ejecuta** (`RaceManager.InitRace`, `AnimationDriver`, `AchievementManager.ChooseActiveListeners/ClearActiveListeners`, `CharacterVOController.PlayCharacterSelect`, `ParticleLibrary.GetPrefab/Instance`, `CartCustomizerPublisher.IsTemporaryInSlot`): se dejan pendientes salvo que bloqueen el flujo; si bloquean, se adelantan.
+- [ ] 2.8 **Validación en Unity 6.6** (TEST 3 y 4): escenario desatendido `CloudStrap` → PLAY → circuito 1 → pista 1 → dificultad → `Loading` → pista, con capturas en cada menú; CharacterSelect cambia de personaje y el garaje lo muestra; guardado local conserva kart y personaje entre ejecuciones. Resultado esperado al terminar: la pista se carga con el kart del jugador en la parrilla, **sin conducir aún** (Etapa 3).
+- [ ] 2.9 Cierre: catálogo regenerado, `RECOVERY_PROGRESS.md` y `SINCRONIZAR_A_LOCAL.md` al día, commit "Etapa 2 completa".
+
+### Etapa 3 — Carrera mínima  ·  Etapa 4 — Sistemas completos
 - [ ] (pendiente)
 
 ## Catálogo de trabajo pendiente
