@@ -153,8 +153,49 @@ Mismo ciclo por bloque: traducir → `compile_check.py` → Unity con `PlayModeR
     - **Pausa por foco**: al perder el foco la ventana, `HUDLogic.OnApplicationPause` abre la pausa (original).
 - [x] 3.10 Cierre: catálogo regenerado, `RECOVERY_PROGRESS.md`, `PENDIENTES_POR_ETAPA.md` y `SINCRONIZAR_A_LOCAL.md` al día, commit "Etapa 3 completa".
 
-### Etapa 4 — Sistemas completos
-- [ ] (pendiente)
+### Etapa 4 — Sistemas completos (en curso, desde 2026-09-26)
+Objetivo: **el juego completo y jugable en PC dentro de Unity 6.6**. Incluye:
+- rivales que corren;
+- power-ups, obstáculos y monedas en pista;
+- música, efectos y voces;
+- misiones y logros;
+- personalización y tienda local de piezas;
+- tutorial, modo Elimination y rebobinado;
+- pendientes visuales de la Etapa 3 y 60 fps estables.
+
+Al cerrarla, el juego está "listo en PC" y se genera un ejecutable de Windows. Después vienen Android y URP (§11.7 de `RECOVERY_REPORT.md`).
+Volumen: **1262 métodos pendientes, ~241 KB de ARM**, más los 15 de misiones del HUD aplazados de la Etapa 3 ([catálogo](recovery/catalog/METHOD_CATALOG.md)).
+Mismo ciclo por bloque: traducir → `compile_check.py` → Unity con `PlayModeRunner` → documentar → commit.
+
+| Bloque | Clases principales | Métodos · ARM |
+|---|---|---|
+| 4.1 PC a 60 fps | arranque de la plataforma PC | — |
+| 4.2 Audio | `SoundLibrary`, `SoundSequencer`, `SoundPackageManager`, `MusicPlayer`, `SoundLibraryAddendum` | 102 · 15,2 KB |
+| 4.3 IA de rivales | `GimpedCarAI`, `CarAI`, `CarAIPathManager`, `CarAIPersonality`, estados `Drive*`/`UsePowerup*`, `PathMoverAI`, `SphereMoverAI` | 136 · 41,9 KB |
+| 4.4 Power-ups y obstáculos | `PowerupHolder`, `PickupSpawner`, pickups, efectos restantes (mina, misil, escudo, embestida, teletransporte, combos, tarta), `RocketAI`, `MineAI`, `UFOLogic`, `Crab`, barriles, `PieLauncher`… | 386 · 77,2 KB |
+| 4.5 Monedas en pista | `CoinPoint`, `Coin` | 11 · 8,6 KB |
+| 4.6 Misiones y logros | `MissionManager`, misiones, `AchievementListener` y sus 30 variantes, `AchievementUI`/ventanas, `HUDLogic.SignalMission*` (de la Etapa 3) | 471 · 56,8 KB |
+| 4.7 Personalización y tienda | `CartCustomizerPublisher`, `PaintSlotPublisher` | 89 · 30,2 KB |
+| 4.8 Tutorial, rebobinado y utilidades | `FrontEndTutorialPublisher`/`Handler`, `TutorialLauncherPublisher`, `RewindDialogPublisher`, `PIDVectorController`, `ParticleSystemDestroy` | 82 · 17,1 KB |
+| 4.9 Pendientes visuales | agua de Fish Hooks (3.1), light probes (3.4), lightmaps (3.6), `[RequireComponent]` (3.7), `Plane_003` (3.8), partículas convertidas (4.1) | — |
+| 4.10 Validación completa en PC | una carrera por pista (10 + tutorial), Elimination, misiones, tienda, guardado | — |
+| 4.11 Cierre y ejecutable de Windows | build de PC, documentación, commit "Etapa 4 completa" | — |
+
+- [ ] 4.0 **Correcciones de etapas anteriores** (detectadas al revisar las capturas, 2026-09-26). Van antes que el resto:
+  - **Karts y personajes oscuros en carrera** (pendiente 3.4, no resuelto). `RaceManager.Init` destruye todas las luces de la pista, como el original, y los objetos móviles se iluminaban con las light probes horneadas de Unity 4, que Unity 6 no carga. Los datos originales están en cada `Scenes/Tracks/<pista>/LightProbes.asset`: 510 posiciones con sus coeficientes SH y la tetraedrización. Solución: aplicarlos en ejecución a karts, pilotos y objetos dinámicos (RECUPERADO los datos, ADAPTADO-U6 el muestreo).
+  - **Interfaz a cualquier resolución y aspecto** (PC 16:9, 16:10, 21:9, 4:3; móvil 19,5:9). La cámara Ugh usa 9,6 unidades de alto; `UghAlign.AlignToScreen` calcula el ancho con `Screen.width / 100` (fiel al ARM, pensado para las resoluciones de iOS). Hay que medirlo en un ejecutable de Windows a varias resoluciones y adaptar el anclaje (ADAPTADO-U6). Además el `PlayModeRunner` capturaba a 1280×720 con la pantalla del editor a 640×480, así que sus capturas no son fiables para la interfaz: se corrige para capturar al tamaño real.
+  - **Recuadros con "Mi…" y chulos amarillos** en el borde derecho del HUD. Son los tres avisos de logro/misión de `HUDLogic` ("Achievement Notification 1–3"): deben quedar fuera de pantalla y entrar deslizándose al conseguir un logro. Asoman por el mismo problema de anclaje.
+- [ ] 4.1 **PC a 60 fps**: el original (iOS) corría a 30 fps de pantalla con física a 60 Hz (`Fixed Timestep` 0,0167, `DoPhysicsAt30fps` = falso). En PC se fija `Application.targetFrameRate = 60` con vSync desactivado (ADAPTADO-U6, plataforma PC). El `PlayModeRunner` registra los fps medios entre capturas para vigilar el rendimiento.
+- [ ] 4.2 **Audio**: bibliotecas y paquetes de sonido, secuenciador por kart (motor, frenos, choques), música por pista con los "stings" de victoria/derrota, volúmenes de `LocalOptionsData`, voces de personaje.
+- [ ] 4.3 **IA de rivales**: rutas grabadas (`CarAIPathManager`, 15–36 por pista), modo "gimped" (`GimpedCarAI`), estados y personalidades por dificultad, recogida y uso de power-ups. Pendiente PENDIENTES 4.5.
+- [ ] 4.4 **Power-ups y obstáculos**: recogida (cajas, `PickupSpawner`), reserva de 2 y combos (`PowerupHolder`), los efectos que faltan y sus proyectiles/IA, obstáculos de pista (barriles, cangrejos, OVNI, tartas, láser, cojín, chorros, trampolines, teletransporte).
+- [ ] 4.5 **Monedas en pista**: aparición y recogida (`CoinPoint.SpawnCoins`, `Coin`); "Coins" en resultados.
+- [ ] 4.6 **Misiones y logros**: misiones por carrera (girar, frenar, derrapar, recoger/usar/combinar/comprar power-ups, pausar, terminar la vuelta), logros internos y medallas de pista, ventanas y notificaciones. Sin Game Center (ELIMINADO).
+- [ ] 4.7 **Personalización y tienda local**: piezas y pinturas por ranura, compra con monedas (costes de la caché local `PartCosts.epa`), sets y formas alternativas; aviso local de "faltan monedas" si hace falta (ver KNOWN ISSUES).
+- [ ] 4.8 **Tutorial, rebobinado, Elimination y utilidades**: tutorial del menú y de la pista, diálogo "Redo Lap", modo Elimination.
+- [ ] 4.9 **Pendientes visuales** de la Etapa 3 y 4.1, con comparación contra el original.
+- [ ] 4.10 **Validación en Unity 6.6**: todas las pistas de principio a fin, rivales, power-ups, audio, misiones, tienda, guardado y rendimiento (60 fps).
+- [ ] 4.11 **Cierre**: build de Windows (`.exe`) probado fuera del editor, catálogo, `RECOVERY_PROGRESS.md`, `SINCRONIZAR_A_LOCAL.md`, commit "Etapa 4 completa".
 
 ## Catálogo de trabajo pendiente
 - [recovery/catalog/METHOD_CATALOG.md](recovery/catalog/METHOD_CATALOG.md): los 4477 métodos del juego con su etapa (y [CSV](recovery/catalog/METHOD_CATALOG.csv) con token y dirección ARM). Estado tras la Etapa 2: Etapa 1 = 713 recuperados, 0 pendientes; Etapa 2 = 494 recuperados, 0 pendientes; pendientes Etapa 3 = 467 (+25 ya recuperados), Etapa 4 = 1357 (+118); 269 sin uso detectado, 155 sin uso (incluye `Dialog`, `LEDScroller` y `UghScrollView`, que ningún asset ni código instancia), 19 de depuración, 8 para Android, 664 eliminados. Estado tras 3.8: Etapa 3 = 477 recuperados, 15 pendientes (misiones del HUD, aplazadas); Etapa 4 = 1342 pendientes (+137 ya recuperados); 265 sin uso detectado.

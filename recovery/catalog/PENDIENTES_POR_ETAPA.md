@@ -59,7 +59,8 @@ Etiquetas: RECUPERADO · RECUPERADO-AOT · ADAPTADO-U6 · RECONSTRUIDO · ELIMIN
   - 3.9 `DebugTrackStrapper` traducido. Necesita la sesión arrancada (`DataUtility`), como en el original: en pruebas se usa `load:<pista>` del `PlayModeRunner` tras `CloudStrap`.
 - **Parciales:**
   - 3.1 `CausticsManager` traducido; el agua anima, pero Fish Hooks se ve muy claro: comparar el brillo con el original.
-  - 3.4 y 3.6: los karts y las pistas se ven correctos en las capturas; queda la comparación fina con el original (light probes y brillo de lightmaps).
+  - 3.4 **no resuelto**: en carrera los karts y personajes se ven oscuros (sin luces de pista ni light probes); pasa al bloque 4.0.
+  - 3.6: las pistas se ven bien; queda comparar el brillo de los lightmaps con el original.
 - **Sin revisar:** 3.7 y 3.8. Pasan a la revisión visual de la Etapa 4.
 - **Nuevos, fieles al original** (ver `RECOVERY_PROGRESS.md` §3.9): doble carga de la vía de depuración y avisos NaN del medidor de derrape.
 ---
