@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Base of the in-game achievements: state machine, reward (coins + unlocks) and "achieved" flag kept as an unlock.
+// Source listing: recovery/aot_listings/Assembly-CSharp/AchievementListener.txt
 public abstract class AchievementListener : MonoBehaviour
 {
 	public enum AchievementState
@@ -46,10 +48,10 @@ public abstract class AchievementListener : MonoBehaviour
 
 	public AchievementState State
 	{
+		// RECUPERADO-AOT AchievementListener::get_State token 0x060000ad @0x000cf76c
 		get
 		{
-			RecoveryPending.Hit("AchievementListener.get_State");
-			return default(AchievementState);
+			return state;
 		}
 	}
 
@@ -61,36 +63,52 @@ public abstract class AchievementListener : MonoBehaviour
 
 	public abstract void Reward();
 
+	// RECUPERADO-AOT AchievementListener::FilterCategory token 0x060000b2 @0x000cf7a0
 	public AchievementFilterCategory FilterCategory()
 	{
-		RecoveryPending.Hit("AchievementListener.FilterCategory");
-		return default(AchievementFilterCategory);
+		return categoryFilter;
 	}
 
+	// RECUPERADO-AOT AchievementListener::Activate token 0x060000b3 @0x000cf7d4
 	protected void Activate()
 	{
-		RecoveryPending.Hit("AchievementListener.Activate");
+		state = AchievementState.ACTIVE;
 	}
 
+	// RECUPERADO-AOT AchievementListener::Achieve token 0x060000b4 @0x000cf80c
 	protected void Achieve()
 	{
-		RecoveryPending.Hit("AchievementListener.Achieve");
+		state = AchievementState.PASS;
+		AchievementManager.Instance.Achieve(this);
+		if (rewardCoins > 0)
+		{
+			DataUtility.Instance.AddPlayerMoney(rewardCoins);
+		}
+		if (rewardUnlocks != null && rewardUnlocks.Length > 0)
+		{
+			for (int i = 0; i < rewardUnlocks.Length; i++)
+			{
+				DataUtility.Instance.Unlock(rewardUnlocks[i]);
+			}
+		}
 	}
 
+	// RECUPERADO-AOT AchievementListener::Fail token 0x060000b5 @0x000cf8fc
 	protected void Fail()
 	{
-		RecoveryPending.Hit("AchievementListener.Fail");
+		state = AchievementState.FAIL;
+		AchievementManager.Instance.Fail(this);
 	}
 
+	// RECUPERADO-AOT AchievementListener::GetUnlockName token 0x060000b6 @0x000cf948
 	public string GetUnlockName()
 	{
-		RecoveryPending.Hit("AchievementListener.GetUnlockName");
-		return default(string);
+		return GetType().ToString() + " " + UIName;
 	}
 
+	// RECUPERADO-AOT AchievementListener::HasAchieved token 0x060000b7 @0x000cf9ac
 	public bool HasAchieved()
 	{
-		RecoveryPending.Hit("AchievementListener.HasAchieved");
-		return default(bool);
+		return DataUtility.Instance.IsUnlocked(GetUnlockName());
 	}
 }
