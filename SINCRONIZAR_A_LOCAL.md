@@ -10,10 +10,10 @@ la sección nueva se añade arriba del [registro](#registro-de-cambios-por-etapa
 |---|---|
 | Rama de trabajo en la nube | `claude/optimistic-archimedes-kmux3s` |
 | Tu rama local | `main` en `C:\Users\STEEP\Documents\game work` desde la Etapa 2 (la Etapa 1 partió de `mi-proyecto`, commit `a6604d9`) |
-| Último bloque sincronizable | **Etapa 3 completa** (3.9 validación en Unity y 3.10 cierre, hechos en local en `main`: commit "Etapa 3 completa") |
+| Último bloque sincronizable | **Etapa 4 completa** (4.4–4.11 hechos en local en `main`: commit "Etapa 4 completa"; 4.0–4.4 parciales vinieron de la nube hasta `8e2df83`) |
 | Etapa 2 | hecha directamente en tu copia local, rama `main`: commits `3468d93` … commit "Etapa 2 completa" |
 | Etapa 1 | commits `a96ac2b` … `9c02b40` (nube) + validación local `3440f48` |
-| Archivos que trae esta sincronización | los de la [sección de cierre de la Etapa 3](#etapa-3--cierre-39-y-310-local): 11 scripts adelantados de la Etapa 4, 1 herramienta de pruebas, 1 de análisis, capturas y documentación |
+| Archivos que trae esta sincronización | los de la [sección de cierre de la Etapa 4](#etapa-4--cierre-44411-local): scripts de la Etapa 4, arreglos de fuente, partículas y física, herramientas de pruebas y documentación |
 | Pendiente en tu PC | **subir** `main` a la nube (el push lo bloquea el entorno de Claude; hazlo tú: ver la sección de cierre) |
 
 ## 1. Antes de empezar
@@ -87,6 +87,161 @@ git push origin mi-proyecto
 y dime "ya subí los logs". Si prefieres, pega en el chat el contenido de `playrun_boot.log` y los errores de la Console.
 
 ## Registro de cambios por etapa
+
+### Etapa 4 — cierre: 4.4–4.11 (local)
+
+Hecho en tu copia local, rama `main`, sobre `8e2df83` (lo que vino de la nube). **Etapa 4 completa**: detalle en `RECOVERY_PROGRESS.md` §4.
+
+- Traducción terminada: power-ups y obstáculos (4.4), monedas (4.5), misiones y logros (4.6), personalizador (4.7), tutorial y rebobinado (4.8). Catálogo: Etapa 4 con 1480 recuperados y **0 pendientes**.
+- Pendientes visuales (4.9): materiales de las 91 partículas (salían magenta), texto gigante del personalizador, agua de Fish Hooks comparada con el original.
+- Validación (4.10): las 10 pistas + tutorial por el menú normal, Elimination, Pranksgiving, menús, pausa, resultados, tienda; 0 `RecoveryPending`.
+- Arreglos pedidos en la validación: textos dentro de sus recuadros (fuente bitmap) y kart que se atascaba en la rampa de Kick Butt 1 y en los bordillos/láser de Doof's Tower (`CarCollider`).
+- Ejecutable de Windows (4.11) compilado y probado a 1920×1080.
+
+Para subirlo a la nube, en tu terminal:
+
+```
+git push origin main:claude/optimistic-archimedes-kmux3s
+git push origin main:mi-proyecto
+```
+
+#### Inventario del cierre (rutas de `Assets/` relativas a `recovery/DSSRacer_U6/`)
+
+##### Scripts del juego (Assets/Scripts, Assets/Plugins) — 64
+
+| Estado | Archivo |
+|---|---|
+| modificado | `Assets/Scripts/Assembly-CSharp/AchievementCategoryPublisher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/AchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/AchievementPanelPublisher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/AchievementUI.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/AchievementWindowPublisher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/BarrelSpawner.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/BaseMission.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/BrakeMission.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/BuyPowerupMission.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/CarCollider.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/CartCustomizerPublisher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/CheckPowerupUseAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/Coin.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/CoinBalanceAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/CoinPoint.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/CollectPowerupMission.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/CombinePowerupMission.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/CompleteAllMissionsAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/Crab.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/CrossFinishLineBackwardsAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/DriftMission.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/EquipPaintJobAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/EquipPartSetAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/FinishTheLapMission.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/FirstPlaceAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/FrontEndTutorialHandler.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/FrontEndTutorialPublisher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/GetHitByTrackHazardAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/HUDLogic.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/HitMaxSpeedAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/InRaceAquirePickupListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/LastPlaceAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/LifetimeInAirAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/LifetimeOpponentHitsAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/LifetimePowerupCollectionAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/MakePlaceAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/MaxCrashSpeedAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/MetaMissionGroupAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/MineNotifyPublisher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/MissionCollection.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/MissionDialogPublisher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/MissionManager.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/PaintSlotPublisher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/ParticleSystemDestroy.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/PauseMission.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/PickupCoinsPerRaceAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/PieAttack.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/PieLauncher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/PieSplat.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/PlaceWithNoPowerupsAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/PowerSlideBoostAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/PowerupHitInAirAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/RewindDialogPublisher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/RewindLapSlotPublisher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/SpendCoinsOverLifetimeAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/TimeInAirAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/TurnMission.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/TutorialLauncherPublisher.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/UFOLogic.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/UnlockAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/UseAPowerupAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/UsePowerupAgainstOpponentAchievementListener.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/UsePowerupMission.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/WhoopieCushion.cs` |
+
+##### Prefabs, escenas, fuentes y datos (Assets) — 35
+
+| Estado | Archivo |
+|---|---|
+| modificado | `Assets/Font/CCUpUpAndAway.asset` |
+| modificado | `Assets/GameObject/Anchor` |
+| modificado | `Assets/GameObject/Barrel` |
+| modificado | `Assets/GameObject/Booster` |
+| modificado | `Assets/GameObject/BubbleJetUP.prefab` |
+| modificado | `Assets/GameObject/CartCustomizerMenu.prefab` |
+| modificado | `Assets/GameObject/DoubleBoost.prefab` |
+| modificado | `Assets/GameObject/Drift.prefab` |
+| modificado | `Assets/GameObject/Exhaust` |
+| modificado | `Assets/GameObject/Exhaust.prefab` |
+| modificado | `Assets/GameObject/Explosion.prefab` |
+| modificado | `Assets/GameObject/HitOtherCart.prefab` |
+| modificado | `Assets/GameObject/Magnet` |
+| modificado | `Assets/GameObject/Mine` |
+| modificado | `Assets/GameObject/MineSpreader.prefab` |
+| modificado | `Assets/GameObject/Pick` |
+| modificado | `Assets/GameObject/Pick` |
+| modificado | `Assets/GameObject/Poof.prefab` |
+| modificado | `Assets/GameObject/Pyrotechnics` |
+| modificado | `Assets/GameObject/Rocket` |
+| modificado | `Assets/GameObject/Rocket.prefab` |
+| modificado | `Assets/GameObject/RocketFire.prefab` |
+| modificado | `Assets/GameObject/Shield` |
+| modificado | `Assets/GameObject/ShieldPickup.prefab` |
+| modificado | `Assets/GameObject/ShockedEngine.prefab` |
+| modificado | `Assets/GameObject/Spinout.prefab` |
+| modificado | `Assets/GameObject/hit` |
+| modificado | `Assets/Scenes/Tracks/Fish` |
+| modificado | `Assets/Scenes/Tracks/Fish` |
+| modificado | `Assets/Scenes/Tracks/Fish` |
+| modificado | `Assets/Scenes/Tracks/Kick` |
+| modificado | `Assets/Scenes/Tracks/Kick` |
+| modificado | `Assets/_Recovery/Data/legacy_particles.json` |
+| modificado | `Assets/_Recovery/Data/legacy_particles_u6.json` |
+| nuevo | `Assets/_Recovery/Resources/LegacyLightProbes/Tutorial` |
+
+##### Herramientas de pruebas (Assets/_Recovery/Editor) — 3
+
+| Estado | Archivo |
+|---|---|
+| nuevo | `Assets/_Recovery/Editor/FontProbe.cs` |
+| nuevo | `Assets/_Recovery/Editor/FontProbe.cs.meta` |
+| modificado | `Assets/_Recovery/Editor/PlayModeRunner.cs` |
+
+##### Herramientas de análisis (forensics/scripts) — 3
+
+| Estado | Archivo |
+|---|---|
+| modificado | `forensics/scripts/extract_legacy.py` |
+| nuevo | `forensics/scripts/fix_particle_materials.py` |
+| nuevo | `forensics/scripts/lab.sh` |
+
+##### Otros — 2
+
+| Estado | Archivo |
+|---|---|
+| nuevo | `.clinerules/dssracer.md` |
+| nuevo | `AGENTS.md` |
+
+##### Documentación y catálogo
+
+`RECOVERY_PROGRESS.md`, `SINCRONIZAR_A_LOCAL.md`, `recovery/catalog/METHOD_CATALOG.csv`, `recovery/catalog/METHOD_CATALOG.md`, `recovery/catalog/PENDIENTES_POR_ETAPA.md`.
 
 ### Etapa 3 — cierre: 3.9 y 3.10 (local)
 

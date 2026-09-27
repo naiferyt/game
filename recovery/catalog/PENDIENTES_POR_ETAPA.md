@@ -76,6 +76,17 @@ Etiquetas: RECUPERADO · RECUPERADO-AOT · ADAPTADO-U6 · RECONSTRUIDO · ELIMIN
 | 4.5 | **IA**: rutas grabadas (15–36 por pista), personalidades y estados. | `CarAIPathManager` serializado | Validar que los rivales siguen las rutas grabadas. |
 | 4.6 | **Tutorial, misiones, Elimination, rewind** | enums y escenas | Traducir y probar cada modo. |
 
+**Estado al cerrar la Etapa 4 (2026-09-27):**
+- **Resueltos:**
+  - 4.1 partículas: además de la conversión, sus materiales se habían perdido (magenta); restaurados en las 91 con `forensics/scripts/fix_particle_materials.py`.
+  - 4.2 audio probado en editor y ejecutable (música, motor, efectos, público).
+  - 4.3 logros internos sin Game Center; 4.4 bono diario sin notificaciones.
+  - 4.5 IA: los rivales siguen sus rutas grabadas en las 10 pistas.
+  - 4.6 tutorial (pasos del garaje y de Tutorial Track), misiones, Elimination y rebobinado probados.
+  - Pendientes de la Etapa 3 que quedaban: 3.1 agua de Fish Hooks y 3.6 lightmaps coinciden con las miniaturas originales; 3.7 `[RequireComponent]` revisado; 3.8 `Plane_003` sin anomalías visibles.
+- **Nuevos, corregidos en la validación:** textos una ascendente más abajo (fuente bitmap de Unity 4) y kart frenado por solapes iniciales y triggers en el barrido de `CarCollider` (ver `RECOVERY_PROGRESS.md` §4.10).
+- **Conservados del original:** radio de barrido del kart = diámetro (golpe breve al pisar la rampa de Kick Butt 1; choca con muros a 1,2 unidades), pausa al perder el foco.
+
 ---
 
 ## Después de la Fase 4

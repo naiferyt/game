@@ -153,7 +153,7 @@ Mismo ciclo por bloque: traducir → `compile_check.py` → Unity con `PlayModeR
     - **Pausa por foco**: al perder el foco la ventana, `HUDLogic.OnApplicationPause` abre la pausa (original).
 - [x] 3.10 Cierre: catálogo regenerado, `RECOVERY_PROGRESS.md`, `PENDIENTES_POR_ETAPA.md` y `SINCRONIZAR_A_LOCAL.md` al día, commit "Etapa 3 completa".
 
-### Etapa 4 — Sistemas completos (en curso, desde 2026-09-26)
+### Etapa 4 — Sistemas completos ✅ (completada 2026-09-27)
 Objetivo: **el juego completo y jugable en PC dentro de Unity 6.6**. Incluye:
 - rivales que corren;
 - power-ups, obstáculos y monedas en pista;
@@ -181,7 +181,7 @@ Mismo ciclo por bloque: traducir → `compile_check.py` → Unity con `PlayModeR
 | 4.10 Validación completa en PC | una carrera por pista (10 + tutorial), Elimination, misiones, tienda, guardado | — |
 | 4.11 Cierre y ejecutable de Windows | build de PC, documentación, commit "Etapa 4 completa" | — |
 
-- [ ] 4.0 **Correcciones de etapas anteriores** (detectadas al revisar las capturas, 2026-09-26). Van antes que el resto:
+- [x] 4.0 **Correcciones de etapas anteriores** (detectadas al revisar las capturas, 2026-09-26). Van antes que el resto:
   - **Karts y personajes oscuros en carrera** (pendiente 3.4, no resuelto). `RaceManager.Init` destruye todas las luces de la pista, como el original, y los objetos móviles se iluminaban con las light probes horneadas de Unity 4, que Unity 6 no carga. Los datos originales están en cada `Scenes/Tracks/<pista>/LightProbes.asset`: 510 posiciones con sus coeficientes SH y la tetraedrización. Solución: aplicarlos en ejecución a karts, pilotos y objetos dinámicos (RECUPERADO los datos, ADAPTADO-U6 el muestreo).
   - **Interfaz a cualquier resolución y aspecto** (PC 16:9, 16:10, 21:9, 4:3; móvil 19,5:9). La cámara Ugh usa 9,6 unidades de alto; `UghAlign.AlignToScreen` calcula el ancho con `Screen.width / 100` (fiel al ARM, pensado para las resoluciones de iOS). Hay que medirlo en un ejecutable de Windows a varias resoluciones y adaptar el anclaje (ADAPTADO-U6). Además el `PlayModeRunner` capturaba a 1280×720 con la pantalla del editor a 640×480, así que sus capturas no son fiables para la interfaz: se corrige para capturar al tamaño real.
   - **Recuadros con "Mi…" y chulos amarillos** en el borde derecho del HUD. Son los tres avisos de logro/misión de `HUDLogic` ("Achievement Notification 1–3"): deben quedar fuera de pantalla y entrar deslizándose al conseguir un logro. Asoman por el mismo problema de anclaje.
@@ -189,24 +189,34 @@ Mismo ciclo por bloque: traducir → `compile_check.py` → Unity con `PlayModeR
   - ✅ Iluminación: `LegacyLightProbes` (Runtime) aplica las probes originales. Las exporta `forensics/scripts/lightprobes_export.py` a `Resources/LegacyLightProbes/<escena>.bytes`, para 11 escenas más Tutorial Track, que comparte las de Kick Butt 1. Interpola con los tetraedros originales. Probado en Unity: karts y pilotos con color y luz en Kick Butt 1.
   - ✅ Interfaz: el anclaje real (`UghAlign.Align` → `ScreenAnchorToPosition`) sigue al aspecto de la cámara. Los recuadros "Mi…" eran un artefacto de las capturas del runner, ya corregido (captura al aspecto real). Nuevo en `UghCamera.Update`: recolocar la interfaz si cambia el tamaño de la ventana (ADAPTADO-U6).
   - ✅ Probado en el ejecutable de Windows a 16:9, 16:10, 4:3, 21:9 y 19,5:9: menús centrados y HUD en las esquinas.
-  - ⏳ Falta probar el cambio de tamaño en caliente (orden `res:` ya añadida al arnés) y el Tutorial con sus probes.
+  - ✅ Tutorial Track con las probes de Kick Butt 1 (karts iluminados).
   - **Ejecutable de Windows** adelantado de 4.11 para las pruebas:
     - `DSSRecovery.BuildTools.BuildWindows` y `forensics/scripts/build_windows.sh` generan `recovery/build/Windows/DSSRacer.exe` (290 MB, ~1 min; carpeta fuera de git).
     - `forensics/scripts/run_player.sh` lo lanza con el arnés `RecoveryPlayerTest`: solo se activa con `-recoveryTest`, admite pulsaciones, teclas, piloto automático, capturas, fps, fuentes de audio sonando y cambio de resolución.
     - Para compilar para Windows hubo que sustituir `UnityEngine.iOS.DeviceGeneration` (solo existe en editor e iOS) por el enum local `U4iPhoneGeneration`, con los mismos valores.
-- [ ] 4.1 **PC a 60 fps**: el original (iOS) corría a 30 fps de pantalla con física a 60 Hz (`Fixed Timestep` 0,0167, `DoPhysicsAt30fps` = falso). En PC se fija `Application.targetFrameRate = 60` con vSync desactivado (ADAPTADO-U6, plataforma PC). El `PlayModeRunner` registra los fps medios entre capturas para vigilar el rendimiento.
+- [x] 4.1 **PC a 60 fps**: el original (iOS) corría a 30 fps de pantalla con física a 60 Hz (`Fixed Timestep` 0,0167, `DoPhysicsAt30fps` = falso). En PC se fija `Application.targetFrameRate = 60` con vSync desactivado (ADAPTADO-U6, plataforma PC). El `PlayModeRunner` registra los fps medios entre capturas para vigilar el rendimiento.
   **Avance:** ✅ `PcFrameRate` (Runtime): 60 fps sin vSync. Medido 58–60 fps en el editor y en el ejecutable, en menús y en carrera.
-- [ ] 4.2 **Audio**: bibliotecas y paquetes de sonido, secuenciador por kart (motor, frenos, choques), música por pista con los "stings" de victoria/derrota, volúmenes de `LocalOptionsData`, voces de personaje.
-  **Avance:** traducidos `SoundLibrary`, `SoundSequencer` y `MusicPlayer` completos (compilan; **sin probar aún en Unity**). Faltan `SoundPackageManager` (sin uso en escenas ni código, ya decodificado), `SoundLibraryAddendum` y las clases de datos de paquetes.
-- [ ] 4.3 **IA de rivales**: rutas grabadas (`CarAIPathManager`, 15–36 por pista), modo "gimped" (`GimpedCarAI`), estados y personalidades por dificultad, recogida y uso de power-ups. Pendiente PENDIENTES 4.5.
-- [ ] 4.4 **Power-ups y obstáculos**: recogida (cajas, `PickupSpawner`), reserva de 2 y combos (`PowerupHolder`), los efectos que faltan y sus proyectiles/IA, obstáculos de pista (barriles, cangrejos, OVNI, tartas, láser, cojín, chorros, trampolines, teletransporte).
-- [ ] 4.5 **Monedas en pista**: aparición y recogida (`CoinPoint.SpawnCoins`, `Coin`); "Coins" en resultados.
-- [ ] 4.6 **Misiones y logros**: misiones por carrera (girar, frenar, derrapar, recoger/usar/combinar/comprar power-ups, pausar, terminar la vuelta), logros internos y medallas de pista, ventanas y notificaciones. Sin Game Center (ELIMINADO).
-- [ ] 4.7 **Personalización y tienda local**: piezas y pinturas por ranura, compra con monedas (costes de la caché local `PartCosts.epa`), sets y formas alternativas; aviso local de "faltan monedas" si hace falta (ver KNOWN ISSUES).
-- [ ] 4.8 **Tutorial, rebobinado, Elimination y utilidades**: tutorial del menú y de la pista, diálogo "Redo Lap", modo Elimination.
-- [ ] 4.9 **Pendientes visuales** de la Etapa 3 y 4.1, con comparación contra el original.
-- [ ] 4.10 **Validación en Unity 6.6**: todas las pistas de principio a fin, rivales, power-ups, audio, misiones, tienda, guardado y rendimiento (60 fps).
-- [ ] 4.11 **Cierre**: build de Windows (`.exe`) probado fuera del editor, catálogo, `RECOVERY_PROGRESS.md`, `SINCRONIZAR_A_LOCAL.md`, commit "Etapa 4 completa".
+- [x] 4.2 **Audio**: `SoundLibrary`, `SoundSequencer`, `MusicPlayer`, `SoundLibraryAddendum`, `SoundPackageManager` y las clases de datos de paquetes (commits `c08d9b3`, `2ff6b78`). Probado en el editor y en el ejecutable: música de menú y de pista, motor, turbo, choques, power-ups, público y "stings" (el arnés del ejecutable lista las fuentes que suenan).
+- [x] 4.3 **IA de rivales**: `CarAI` y sus estados, `CarAIPersonality`, `CarAIPathManager`, `GimpedCarAI` (rutas grabadas), `PIDVectorController`, `PathMoverAI`, `SphereMoverAI`, `ForwardForceAI`, `CarAIPathRecorder` (commits `fb4110a`, `b9b9a43`, `05e7763`). Los rivales corren las 10 pistas, usan power-ups y ganan en Medium/Hard al piloto automático de pruebas.
+- [x] 4.4 **Power-ups y obstáculos**: `PowerupHolder`, pickups y `PickupSpawner`, todos los efectos (mina, misil, escudo, embestida, teletransporte, combos, tarta, ancla, disparo aleatorio, cohete, imán), `RocketAI`, `MineAI`, `MineSpreaderAI`, y los obstáculos de pista: barriles, cangrejo, OVNI, tartas, láser, cojín, chorros, trampolines, pirotecnia, baloncesto, dron, pavo (commits `3a76420` … `972dd30`).
+- [x] 4.5 **Monedas en pista**: `CoinPoint` (anillos y relleno aleatorio) y `Coin`; "Coins" y total en resultados.
+- [x] 4.6 **Misiones y logros**: `MissionManager`, `BaseMission` y las 9 misiones, `MissionCollection`, banners de misión del HUD (`HUDLogic.SignalMission*`, aplazados de la Etapa 3), `AchievementListener` y sus 30 variantes, `AchievementUI`, ventanas y paneles de logros (commits `972dd30`, `9077992`). Sin Game Center (ELIMINADO). Probado: ventanas de logro al arrancar ("Catch Some Air" +100), pestaña de misiones, progreso de misiones (Tracks/Coins/Stunts/Misc.), misiones en la pausa.
+- [x] 4.7 **Personalización y tienda local**: `CartCustomizerPublisher` (54 métodos) y `PaintSlotPublisher` (commit `1d9f308`). Probado: ranuras, flechas, compra con monedas (1450 → 1200), equipar, menú de pinturas. La analítica GDMO de compra/equipado queda ELIMINADA.
+- [x] 4.8 **Tutorial, rebobinado, Elimination y utilidades**: `FrontEndTutorialHandler`/`Publisher`, `TutorialLauncherPublisher`, `RewindDialogPublisher`, `RewindLapSlotPublisher`, `ParticleSystemDestroy` (commit `9077992`). Probado: consejos del tutorial en garaje, menú previo y resultados; Tutorial Track encadena sus pasos (espacio → B → escudo/combos → Shift); Elimination a 5 vueltas elimina al último de cada vuelta.
+- [x] 4.9 **Pendientes visuales** (comparados con las miniaturas originales de `Texture2D/Level Previews SpriteAtlas.png`, que son capturas del juego):
+  - **Partículas magenta** (4.1): el extractor de la Etapa 0 (`extract_legacy.py`) leía la línea `- {fileID: …}` del material como una clave, así que las **91** partículas convertidas no tenían material. `forensics/scripts/fix_particle_materials.py` repara los datos y los renderers de 25 prefabs y 5 escenas; nuevo volcado `badmat` del arnés: 0 renderers sin material en carrera.
+  - **Agua de Fish Hooks** (3.1): el color y el brillo de Freshwater High, Hokey Poke y Fishtankia coinciden con sus miniaturas originales (cáusticos cian aditivos). Sin cambios.
+  - **`[RequireComponent]`** (3.7): los únicos Rigidbody no cinemáticos son el barril y los balones de baloncesto (físicos a propósito); los 2 MeshRenderer que Unity añadió a TextMesh del personalizador pintaban un "Action" gigante: se añaden deshabilitados en el prefab (el original no tenía renderer, era invisible).
+  - **`Plane_003`** (3.8) y lightmaps (3.6): Danville River y el resto de pistas se ven como sus miniaturas; nada anómalo.
+- [x] 4.10 **Validación en Unity 6.6** (logs `recovery/logs/playrun_v4*.log`):
+  - Carreras completas por el menú normal en las **10 pistas + tutorial**, con un guardado de prueba que desbloquea Pro/Master (el real se restaura tras cada prueba). Llegan a resultados Kick Butt 1, Doof's Tower (326 s), Fishtankia, Pranksgiving y Elimination; el resto se corta a los 260 s en la 3.ª vuelta, sin errores. **0 `RecoveryPending`** y 0 excepciones de juego en todas.
+  - Menús: garaje, personalizador, logros, personaje, ajustes, selección de circuito, menú previo (dificultad y tipo de carrera), pausa, resultados.
+  - Rendimiento: 58–60 fps en editor y ejecutable.
+  - **Correcciones de la validación** (a petición del usuario, 2026-09-27):
+    - **Textos fuera de sus recuadros**: la fuente bitmap `CCUpUpAndAway` (451 TextMesh) guarda los glifos medidos desde la línea superior (Unity 4); Unity 5+ los lee desde la línea base y dibujaba todo una ascendente más abajo. `m_Ascent: 0` deja la línea base donde la ponía Unity 4 (ADAPTADO-U6, medido con `_Recovery/Editor/FontProbe.cs`: "!" entre −0,30 y −4,90 frente a −0,275/−4,975 del original).
+    - **Kart que se atasca en la rampa de Kick Butt 1 y en los bordillos de Doof's Tower**: `CarCollider.DoMovement` barre una esfera de radio `bounds.size.x` (2,4, original). En Unity 4 los barridos de PhysX 2.8 no devolvían los colliders ya solapados al empezar ni los triggers; Unity 6 devuelve ambos (solapes con `point` = 0, y triggers por `queriesHitTriggers`). El código original tomaba la normal como `posición − point`, así que frenaba el kart cada frame. ADAPTADO-U6: se ignoran solapes iniciales y triggers. Medido con la nueva traza `trace@t1-t2`: la rampa ya no se sube a 17 sino a ~25 y el salto llega en la mitad de tiempo; el láser del robot (trigger) ya no para el kart de 45 a 5. Queda un único golpe al pisar la rampa (el bloque Collide bajo la pendiente choca con la esfera de 2,4): es geometría y código originales.
+- [x] 4.11 **Cierre**: ejecutable de Windows (`bash forensics/scripts/build_windows.sh`, 291 MB) probado con `run_player.sh` a 1920×1080 (carrera, audio, 60 fps, interfaz); catálogo regenerado (Etapa 4: **1480 recuperados, 0 pendientes**); `RECOVERY_PROGRESS.md`, `PENDIENTES_POR_ETAPA.md`, `SINCRONIZAR_A_LOCAL.md`; commit "Etapa 4 completa".
+- [x] **Etapa 4 completa**: el juego es jugable de principio a fin en PC (editor y ejecutable de Windows). Siguiente: Android (y URP opcional), §11.7 de `RECOVERY_REPORT.md`.
 
 ## Catálogo de trabajo pendiente
 - [recovery/catalog/METHOD_CATALOG.md](recovery/catalog/METHOD_CATALOG.md): los 4477 métodos del juego con su etapa (y [CSV](recovery/catalog/METHOD_CATALOG.csv) con token y dirección ARM). Estado tras la Etapa 2: Etapa 1 = 713 recuperados, 0 pendientes; Etapa 2 = 494 recuperados, 0 pendientes; pendientes Etapa 3 = 467 (+25 ya recuperados), Etapa 4 = 1357 (+118); 269 sin uso detectado, 155 sin uso (incluye `Dialog`, `LEDScroller` y `UghScrollView`, que ningún asset ni código instancia), 19 de depuración, 8 para Android, 664 eliminados. Estado tras 3.8: Etapa 3 = 477 recuperados, 15 pendientes (misiones del HUD, aplazadas); Etapa 4 = 1342 pendientes (+137 ya recuperados); 265 sin uso detectado.
@@ -245,6 +255,10 @@ Mismo ciclo por bloque: traducir → `compile_check.py` → Unity con `PlayModeR
 | `Application.LoadLevelAsync` → `SceneManager.LoadSceneAsync`; `Transform.FindChild` → `Find` | ADAPTADO-U6 | API eliminadas |
 | `MiniJSON`: números con cultura invariante | ADAPTADO-U6 | evita fallos con separador decimal "," en Windows |
 | 16 shaders built-in → equivalentes Unity 6 (`Legacy Shaders/...`) | ADAPTADO-U6 | mismos shaders de Unity, renombrados |
+| Fuente bitmap `CCUpUpAndAway`: `m_Ascent` 48,75 → 0 | ADAPTADO-U6 | Unity 5+ mide los glifos desde la línea base y Unity 4 desde la línea superior; sin el cambio todos los textos bajaban una ascendente |
+| `CarCollider.DoMovement`: el barrido ignora solapes iniciales y triggers | ADAPTADO-U6 | PhysX 2.8 no los devolvía; en Unity 6 frenaban el kart en rampas, bordillos y el láser |
+| Materiales de las 91 partículas convertidas | RECUPERADO | la guid de cada `ParticleRenderer` original, perdida por un fallo del extractor de la Etapa 0 |
+| MeshRenderer deshabilitados en 2 TextMesh de `CartCustomizerMenu` | ADAPTADO-U6 | Unity 6 exige el renderer; el original no lo tenía y el texto era invisible |
 
 ## ELIMINATED (decisión del usuario, 2026-09-26)
 StoreKit, Game Center, iCloud/JCloud/GravCloud/P31, Burstly, GDMO/Tapalytics, MoreGames/More Disney, Email, Age Gate, enlaces legales/web de Disney.
@@ -253,10 +267,13 @@ En la Etapa 1 además: notificaciones locales de iOS del bono diario, aviso de c
 
 ## KNOWN ISSUES
 - `dirt_road2` (Kick Butt Track 2 / Bus Jumper) era un MeshCollider cóncavo *trigger*: PhysX 2.8 lo admitía y los raycasts de suelo lo detectaban; Unity 5+ no soporta triggers cóncavos. Pasa a collider normal (ADAPTADO-U6). Sin ello, la parrilla de salida no tenía suelo.
-- Unity añadió 23 componentes por `[RequireComponent]` del código original (SoundSequencer en 20 prefabs de ruedas, 1 Rigidbody en un botón, 2 MeshRenderer en TextMesh).
-- Fish Hooks se ve muy luminosa en las capturas del editor (posible efecto de cáusticos sin animar): revisar en ejecución.
+- Unity añadió 23 componentes por `[RequireComponent]` del código original (SoundSequencer en 20 prefabs de ruedas, 1 Rigidbody en un botón, 2 MeshRenderer en TextMesh). Revisado en 4.9: los 2 MeshRenderer del personalizador se dejan deshabilitados en el prefab (el original no los tenía); el resto no altera nada.
+- Fish Hooks se ve muy luminosa: comparado en 4.9 con las miniaturas originales del juego, el brillo y el color coinciden (cáusticos aditivos).
 - `Plane_003` (Phineas Track 2): la malla separada mide 200×200, su collider 2×2 (sin explicar; original).
-- Parámetros de partículas convertidas son aproximación (fuerzas, damping, `tangentVelocity`): revisar visualmente.
+- Parámetros de partículas convertidas son aproximación (fuerzas, damping, `tangentVelocity`). Sus materiales se habían perdido en la Etapa 0 (salían magenta): restaurados en 4.9 con `fix_particle_materials.py`.
+- **Etapa 4 · radio de colisión del kart**: `CarCollider.DoMovement` barre una esfera de radio `bounds.size.x` (el diámetro, 2,4): el kart choca con muros y bordillos a 1,2 unidades de tocarlos y da un golpe al pisar la rampa de Kick Butt 1. Es el código original (confirmado en el ARM); se conserva.
+- **Etapa 4 · pausa al perder el foco** en el ejecutable (`HUDLogic.OnApplicationPause`, original).
+- **Etapa 4 · "There are no audio listeners in the scene"** durante la escena `Loading` (no tiene cámara con AudioListener, como en el original).
 - 151 mallas de UI sin nombre tienen AABB desactualizado desde el original (no afecta).
 - Unity inyecta paquetes por defecto (compras/analytics) al abrir un proyecto "antiguo": el manifest se limitó a módulos integrados.
 - En esta máquina Unity necesita `DOTNET_gcServer=0` y `DOTNET_GCHeapHardLimit` para que sus compiladores .NET arranquen (memoria comprometible libre ~5 GB).
