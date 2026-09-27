@@ -5,12 +5,12 @@ using UnityEngine;
 public class LowEndInhibitor : MonoBehaviour
 {
 	// RECUPERADO-AOT LowEndInhibitor::.ctor token 0x0600043c @0x000ffc80 (field initializer: generations 7, 3, 6)
-	public UnityEngine.iOS.DeviceGeneration[] inhibitPlatforms = new UnityEngine.iOS.DeviceGeneration[3]
+	public U4iPhoneGeneration[] inhibitPlatforms = new U4iPhoneGeneration[3]
 	{
-		(UnityEngine.iOS.DeviceGeneration)7,
-		(UnityEngine.iOS.DeviceGeneration)3,
-		(UnityEngine.iOS.DeviceGeneration)6
-	}; // ADAPTADO-U6: iPhoneGeneration -> iOS.DeviceGeneration (mismos valores)
+		(U4iPhoneGeneration)7,
+		(U4iPhoneGeneration)3,
+		(U4iPhoneGeneration)6
+	}; // ADAPTADO-U6: iPhoneGeneration -> U4iPhoneGeneration (mismos valores)
 
 	public GameObject[] destroyList;
 

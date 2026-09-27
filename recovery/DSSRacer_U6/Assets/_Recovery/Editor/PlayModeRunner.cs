@@ -30,6 +30,9 @@ namespace DSSRecovery
 		static readonly List<Vector2> s_AutoRanges = new List<Vector2>();
 		static bool s_AutoOn;
 		static string s_LastButtons = "";
+		// average frame rate between screenshots (stage 4.1)
+		static int s_FpsFrame = -1;
+		static float s_FpsTime;
 		// scene loads: "load:<scene name>@t" loads a scene directly (e.g. a track, whose DebugTrackStrapper then sets up a race)
 		static readonly List<KeyValuePair<float, string>> s_Loads = new List<KeyValuePair<float, string>>();
 
@@ -72,7 +75,7 @@ namespace DSSRecovery
 			Log.Length = 0;
 			s_Start = EditorApplication.timeSinceStartup;
 			EditorApplication.update -= Tick; EditorApplication.update += Tick;
-			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear(); s_Keys.Clear(); s_AutoRanges.Clear(); s_AutoOn = false; s_Loads.Clear(); s_LastButtons = "";
+			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear(); s_Keys.Clear(); s_AutoRanges.Clear(); s_AutoOn = false; s_Loads.Clear(); s_FpsFrame = -1; s_LastButtons = "";
 			foreach (var p in SessionState.GetString(K + "shots", "").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
 				s_ShotTimes.Add(float.Parse(p, System.Globalization.CultureInfo.InvariantCulture));
 			foreach (var c in SessionState.GetString(K + "clicks", "").Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
@@ -227,10 +230,12 @@ namespace DSSRecovery
 			try
 			{
 				var cams = UnityEngine.Object.FindObjectsByType<Camera>(FindObjectsSortMode.None).Where(c => c.enabled && c.gameObject.activeInHierarchy).OrderBy(c => c.depth).ToList();
-				var rt = new RenderTexture(1280, 720, 24);
+				// same aspect as the real screen (the Ugh UI is laid out for Screen.width/height); 2x for detail
+				int w = Screen.width * 2, h = Screen.height * 2;
+				var rt = new RenderTexture(w, h, 24);
 				foreach (var c in cams) { var o = c.targetTexture; c.targetTexture = rt; c.Render(); c.targetTexture = o; }
 				RenderTexture.active = rt;
-				var tex = new Texture2D(1280, 720, TextureFormat.RGB24, false); tex.ReadPixels(new Rect(0, 0, 1280, 720), 0, 0); tex.Apply();
+				var tex = new Texture2D(w, h, TextureFormat.RGB24, false); tex.ReadPixels(new Rect(0, 0, w, h), 0, 0); tex.Apply();
 				RenderTexture.active = null;
 				string dir = Path.Combine(LogDir, "screens"); Directory.CreateDirectory(dir);
 				string f = Path.Combine(dir, string.Format("playrun_{0}_{1:00.0}s.png", SessionState.GetString(K + "name", "run"), t));
@@ -240,6 +245,8 @@ namespace DSSRecovery
 				var player = GameObject.FindGameObjectWithTag("Player");
 				if (player != null) try { Log.AppendLine(string.Format("[{0:0.00}] [player] {1} pos {2} fwd {3} lap {4} place {5}", t, player.name, player.transform.position, player.transform.forward, RaceManager.GetCarLap(player), RaceManager.GetCarPosition(player))); } catch (Exception) { Log.AppendLine("[player] " + player.name + " pos " + player.transform.position); }
 				LogButtons(t);
+				if (s_FpsFrame >= 0 && t > s_FpsTime) Log.AppendLine(string.Format("[{0:0.00}] [fps] {1:0.0} (target {2}, vSync {3})", t, (Time.frameCount - s_FpsFrame) / (t - s_FpsTime), Application.targetFrameRate, QualitySettings.vSyncCount));
+				s_FpsFrame = Time.frameCount; s_FpsTime = t;
 			}
 			catch (Exception e) { Log.AppendLine("[shot failed] " + e.Message); }
 		}

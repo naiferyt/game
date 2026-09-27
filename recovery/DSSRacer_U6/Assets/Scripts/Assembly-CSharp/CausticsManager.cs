@@ -12,11 +12,11 @@ public class CausticsManager : MonoBehaviour
 	public Vector4 causticsVector = new Vector4(3f, -0.3f, -0.9f, 1.5f);
 
 	// RECUPERADO-AOT CausticsManager::Start token 0x06000404 @0x000fb6ac
-	// ADAPTADO-U6: iPhone.generation -> iOS.Device.generation (same values: 3 iPhone 3GS, 6 iPod touch 3G,
+	// ADAPTADO-U6: iPhone.generation -> U4Compat.IPhoneGeneration (same values: 3 iPhone 3GS, 6 iPod touch 3G,
 	//     7 iPad 1); FindObjectsOfType -> U4Compat. On PC the animated branch is always taken.
 	private void Start()
 	{
-		if (Application.platform == RuntimePlatform.IPhonePlayer && (UnityEngine.iOS.Device.generation == (UnityEngine.iOS.DeviceGeneration)3 || UnityEngine.iOS.Device.generation == (UnityEngine.iOS.DeviceGeneration)7 || UnityEngine.iOS.Device.generation == (UnityEngine.iOS.DeviceGeneration)6))
+		if (Application.platform == RuntimePlatform.IPhonePlayer && (U4Compat.IPhoneGeneration == (U4iPhoneGeneration)3 || U4Compat.IPhoneGeneration == (U4iPhoneGeneration)7 || U4Compat.IPhoneGeneration == (U4iPhoneGeneration)6))
 		{
 			Shader shader = Shader.Find("Mobile/Unlit (Supports Lightmap)");
 			Object[] array = U4Compat.FindObjectsOfType(typeof(Renderer));

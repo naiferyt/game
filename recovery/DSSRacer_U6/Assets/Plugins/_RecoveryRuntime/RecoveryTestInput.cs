@@ -7,6 +7,21 @@ using UnityEngine;
 
 public static class RecoveryTestInput
 {
+	// Set by RecoveryPlayerTest when a built player runs with -recoveryTest (stage 4 test harness); editor always on.
+	public static bool PlayerTestEnabled;
+
+	static bool Active
+	{
+		get
+		{
+#if UNITY_EDITOR
+			return true;
+#else
+			return PlayerTestEnabled;
+#endif
+		}
+	}
+
 	static int s_Frames;
 	static Vector2 s_Pos;
 
@@ -20,9 +35,7 @@ public static class RecoveryTestInput
 	public static bool Pressed(out Vector3 screenPos)
 	{
 		screenPos = new Vector3(s_Pos.x * Screen.width, s_Pos.y * Screen.height, 0f);
-#if UNITY_EDITOR
-		if (s_Frames > 0) { s_Frames--; return true; }
-#endif
+		if (Active && s_Frames > 0) { s_Frames--; return true; }
 		return false;
 	}
 
@@ -39,22 +52,15 @@ public static class RecoveryTestInput
 	// true while a simulated key is held
 	public static bool Key(KeyCode key)
 	{
-#if UNITY_EDITOR
-		return s_Held.Contains(key);
-#else
-		return false;
-#endif
+		return Active && s_Held.Contains(key);
 	}
 
 	// true during the first frame in which a newly held simulated key is queried
 	public static bool KeyDown(KeyCode key)
 	{
-#if UNITY_EDITOR
+		if (!Active) return false;
 		if (s_PendingDown.Remove(key)) { s_DownFrame[key] = Time.frameCount; return true; }
 		int f;
 		return s_DownFrame.TryGetValue(key, out f) && f == Time.frameCount;
-#else
-		return false;
-#endif
 	}
 }

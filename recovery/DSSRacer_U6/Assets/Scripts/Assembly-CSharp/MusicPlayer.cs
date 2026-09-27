@@ -38,50 +38,107 @@ public class MusicPlayer : MonoBehaviour
 		}
 	}
 
+	// RECUPERADO-AOT MusicPlayer::Start token 0x060002fa @0x000ed370
+	// ADAPTADO-U6 (whole class): Component.audio -> GetComponent<AudioSource>().
 	private void Start()
 	{
-		RecoveryPending.Hit("MusicPlayer.Start");
+		UpdateVolume();
+		GetComponent<AudioSource>().maxDistance = float.MaxValue;
 	}
 
+	// RECUPERADO-AOT MusicPlayer::Awake token 0x060002fb @0x000ed3d8
 	private void Awake()
 	{
-		RecoveryPending.Hit("MusicPlayer.Awake");
+		Object.DontDestroyOnLoad(base.gameObject);
 	}
 
+	// RECUPERADO-AOT MusicPlayer::Update token 0x060002fc @0x000ed410
+	// The music pauses with the race.
 	private void Update()
 	{
-		RecoveryPending.Hit("MusicPlayer.Update");
+		if (RaceManager.isPaused && !paused)
+		{
+			paused = true;
+			GetComponent<AudioSource>().Pause();
+		}
+		else if (paused && !RaceManager.isPaused)
+		{
+			paused = false;
+			GetComponent<AudioSource>().Play();
+		}
 	}
 
+	// RECUPERADO-AOT MusicPlayer::PlayMusic token 0x060002fd @0x000ed4a8
 	public void PlayMusic()
 	{
-		RecoveryPending.Hit("MusicPlayer.PlayMusic");
+		PlayMusic(string.Empty);
 	}
 
+	// RECUPERADO-AOT MusicPlayer::PlayMusic token 0x060002fe @0x000ed4f0
+	// Loops the clip named like the level ("bgMusicDefault" when no name is given).
 	public void PlayMusic(string levelName)
 	{
-		RecoveryPending.Hit("MusicPlayer.PlayMusic");
+		AudioSource component = GetComponent<AudioSource>();
+		if (component.isPlaying)
+		{
+			component.Stop();
+		}
+		AudioClip clip = SoundLibrary.GetClip("bgMusicDefault");
+		if (levelName != string.Empty)
+		{
+			clip = SoundLibrary.GetClip(levelName);
+		}
+		if (clip == null)
+		{
+			UnityEngine.Debug.LogWarning("Wrong Clip name for music, passed in levelName was: " + levelName);
+			return;
+		}
+		component.clip = clip;
+		component.loop = true;
+		component.Play();
 	}
 
+	// RECUPERADO-AOT MusicPlayer::StopMusic token 0x060002ff @0x000ed610
 	public void StopMusic()
 	{
-		RecoveryPending.Hit("MusicPlayer.StopMusic");
+		if (GetComponent<AudioSource>().isPlaying)
+		{
+			GetComponent<AudioSource>().Stop();
+		}
 	}
 
+	// RECUPERADO-AOT MusicPlayer::UpdateVolume token 0x06000300 @0x000ed66c
 	public void UpdateVolume()
 	{
-		RecoveryPending.Hit("MusicPlayer.UpdateVolume");
+		GetComponent<AudioSource>().volume = DataUtility.Instance.localOptions.musicVolumeLevel;
 	}
 
+	// RECUPERADO-AOT MusicPlayer::HijackMusicPlayerForSoundStings token 0x06000301 @0x000ed6d0
+	// Plays a sting (race win/lose...) on the music source at the effects volume, then restores the music volume.
 	public void HijackMusicPlayerForSoundStings(string stingName, bool loop)
 	{
-		RecoveryPending.Hit("MusicPlayer.HijackMusicPlayerForSoundStings");
+		AudioSource component = GetComponent<AudioSource>();
+		if (component.isPlaying)
+		{
+			component.Stop();
+		}
+		component.clip = SoundLibrary.GetClip(stingName);
+		component.loop = loop;
+		component.volume = DataUtility.Instance.localOptions.sfxVolumeLevel;
+		component.Play();
+		StartCoroutine(RestoreVolumeAfterSound());
 	}
 
+	// RECUPERADO-AOT MusicPlayer::RestoreVolumeAfterSound token 0x06000302 @0x000ed7e4
+	// RECUPERADO-AOT MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25::MoveNext token 0x060008ae @0x0014854c
 	[DebuggerHidden]
 	private IEnumerator RestoreVolumeAfterSound()
 	{
-		RecoveryPending.Hit("MusicPlayer.RestoreVolumeAfterSound");
-		yield break;
+		do
+		{
+			yield return null;
+		}
+		while (GetComponent<AudioSource>().isPlaying);
+		UpdateVolume();
 	}
 }

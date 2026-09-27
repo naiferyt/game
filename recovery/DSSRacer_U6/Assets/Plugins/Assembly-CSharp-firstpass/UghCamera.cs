@@ -146,11 +146,28 @@ public class UghCamera : MonoBehaviour
 	}
 
 	// RECUPERADO-AOT UghCamera.Update token 0x06000427 @0x00041e38
+	// ADAPTADO-U6 (PC, stage 4.0): the original only re-laid the UI out when the device rotated. On PC the window
+	// can be resized or switched to another resolution/fullscreen at any time, so a change of the camera's pixel
+	// size also resets the camera and marks every aligned/stretched element dirty (they re-anchor on their next
+	// Update, as they do at start).
 	private void Update()
 	{
 		if (Screen.orientation != cachedScreenOrientation)
 		{
 			ResetCamera();
+		}
+		Camera cam = GetComponent<Camera>();
+		if (Application.isPlaying && (cam.pixelWidth != cachedCameraPixelSize.x || cam.pixelHeight != cachedCameraPixelSize.y))
+		{
+			ResetCamera();
+			foreach (UghStretch stretch in UnityEngine.Object.FindObjectsByType<UghStretch>(FindObjectsSortMode.None))
+			{
+				stretch.IsDirty = true;
+			}
+			foreach (UghAlign align in UnityEngine.Object.FindObjectsByType<UghAlign>(FindObjectsSortMode.None))
+			{
+				align.IsDirty = true;
+			}
 		}
 	}
 

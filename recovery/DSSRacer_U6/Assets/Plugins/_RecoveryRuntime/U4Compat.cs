@@ -9,8 +9,30 @@ using Object = UnityEngine.Object;
 using UnityEngine.SceneManagement;
 #endif
 
+// Stage 4 (ADAPTADO-U6): Unity 4's iPhoneGeneration values, kept as a local enum because UnityEngine.iOS only
+// exists in the editor and in iOS players (Windows/Android builds failed with CS0234). Same integer values, so
+// serialized fields keep their data.
+public enum U4iPhoneGeneration
+{
+	Unknown = 0, iPhone = 1, iPhone3G = 2, iPhone3GS = 3, iPodTouch1Gen = 4, iPodTouch2Gen = 5, iPodTouch3Gen = 6,
+	iPad1Gen = 7, iPhone4 = 8, iPodTouch4Gen = 9, iPad2Gen = 10, iPhone4S = 11, iPad3Gen = 12, iPhone5 = 13,
+	iPodTouch5Gen = 14, iPadMini1Gen = 15, iPad4Gen = 16
+}
+
 public static class U4Compat
 {
+	// iPhone.generation: the device generation on iOS, Unknown elsewhere.
+	public static U4iPhoneGeneration IPhoneGeneration
+	{
+		get
+		{
+#if UNITY_IOS
+			return (U4iPhoneGeneration)(int)UnityEngine.iOS.Device.generation;
+#else
+			return U4iPhoneGeneration.Unknown;
+#endif
+		}
+	}
 	// Object.FindObjectsOfType(Type): all loaded, active objects of a type.
 	public static Object[] FindObjectsOfType(Type type)
 	{

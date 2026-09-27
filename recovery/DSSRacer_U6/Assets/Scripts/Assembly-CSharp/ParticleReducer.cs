@@ -6,7 +6,7 @@ public class ParticleReducer : MonoBehaviour
 	[Serializable]
 	public class PlatformProfile
 	{
-		public UnityEngine.iOS.DeviceGeneration generation; // ADAPTADO-U6: iPhoneGeneration -> iOS.DeviceGeneration (mismos valores)
+		public U4iPhoneGeneration generation; // ADAPTADO-U6: iPhoneGeneration -> U4iPhoneGeneration (mismos valores)
 
 		public float minEmission;
 
