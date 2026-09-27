@@ -1,7 +1,10 @@
 // ADAPTADO-U6: hand port of the original GLES program of "Mobile/Unlit Under The Sea (Supports Lightmap)"
 // (source text: forensics/output/shaders_original/Underwater Unlit.shader.txt). Same math:
 //   rgb = albedo * (2 * lightmap)  [dLDR, as the original]  + caustic(worldXZ + v.xy)*0.005 + caustic(worldXZ + v.zw)*0.008
-//   a   = albedo.a
+// ADAPTADO-U6 (2026-09-27): the lightmap goes through DecodeLightmap. Unity 6 re-encodes lightmaps per platform (RGBM on
+// PC), so the raw texel x2 of the GLES program made Fish Hooks ~2.7x too bright. The Unity 4 lightmaps are now stored as
+// HDR EXR (DSSRecovery.LightmapHdrConverter) that decode to exactly the original 2 * dLDR texel, for this and every
+// built-in shader.
 // _CausticVector is animated at runtime by CausticsManager (original script).
 Shader "Mobile/Unlit Under The Sea (Supports Lightmap)" {
 Properties {
@@ -52,7 +55,7 @@ SubShader {
     fixed3 caustic = tex2D(_CausticTex, (i.wpos.xz + _CausticVector.xy) * 0.005).rgb
                    + tex2D(_CausticTex, (i.wpos.xz + _CausticVector.zw) * 0.008).rgb;
   #ifdef LIGHTMAP_ON
-    fixed3 rgb = c.rgb * (2.0 * UNITY_SAMPLE_TEX2D(unity_Lightmap, i.lmuv).rgb);
+    fixed3 rgb = c.rgb * DecodeLightmap(UNITY_SAMPLE_TEX2D(unity_Lightmap, i.lmuv));
   #else
     fixed3 rgb = c.rgb * i.vlight;
   #endif

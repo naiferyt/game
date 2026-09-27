@@ -92,6 +92,11 @@ namespace DSSRecovery
 					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), "#hide#" + at[0].Substring(9)));
 					continue;
 				}
+				if (at[0].StartsWith("quality:"))
+				{
+					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), "#quality#" + at[0].Substring(8)));
+					continue;
+				}
 				if (at[0] == "spawnanims")
 				{
 					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), "#spawnanims#"));
@@ -187,6 +192,12 @@ namespace DSSRecovery
 			{
 				string what = s_Loads[0].Value;
 				if (what == "#close#") { CloseUps(t); s_Loads.RemoveAt(0); continue; }
+				if (what.StartsWith("#quality#"))
+				{
+					QualitySettings.SetQualityLevel(int.Parse(what.Substring(9)), true);
+					Log.AppendLine(string.Format("[{0:0.00}] [quality] {1} ({2}) skinWeights {3}", t, QualitySettings.GetQualityLevel(), QualitySettings.names[QualitySettings.GetQualityLevel()], QualitySettings.skinWeights));
+					s_Loads.RemoveAt(0); continue;
+				}
 				if (what == "#spawnai#") { SpawnAllAi(t); s_Loads.RemoveAt(0); continue; }
 				if (what == "#spawnanims#") { SpawnAllAi(t, true); s_Loads.RemoveAt(0); continue; }
 				if (what.StartsWith("#hide#"))
@@ -344,7 +355,7 @@ namespace DSSRecovery
 		{
 			var player = GameObject.FindGameObjectWithTag("Player");
 			if (player == null) return;
-			string[] clipKinds = everyClip ? new[] { "driving", "turnLeft", "turnRight", "cheering", "handsUp", "fist", "wave", "idle", "sitting" } : new[] { "driving" };
+			string[] clipKinds = everyClip ? new[] { "driving", "turnLeft", "turnRight", "cheering", "handsUp", "fist", "wave", "idle", "sitting", "DefaultTake", "blendL1", "blendR05", "blendR1" } : new[] { "driving" };
 			int row = 0;
 			foreach (var prefab in Resources.LoadAll<GameObject>("cart assets/ai carts").Concat(everyClip ? Resources.LoadAll<GameObject>("cart assets/characters") : new GameObject[0]))
 			{
@@ -355,8 +366,19 @@ namespace DSSRecovery
 					foreach (var mb in go.GetComponentsInChildren<MonoBehaviour>(true)) if (mb.GetType().Assembly.GetName().Name == "Assembly-CSharp") mb.enabled = false;
 					foreach (var a in go.GetComponentsInChildren<Animation>(true))
 					{
-						var clip = a.Cast<AnimationState>().Select(s => s.name).FirstOrDefault(n => n.EndsWith("_" + clipKinds[col], StringComparison.OrdinalIgnoreCase));
-						if (clip != null) { a[clip].wrapMode = WrapMode.Loop; a.Play(clip); }
+						var names = a.Cast<AnimationState>().Select(s => s.name).ToList();
+						string kind = clipKinds[col];
+						System.Func<string, string> find = k => names.FirstOrDefault(n => n.EndsWith("_" + k, StringComparison.OrdinalIgnoreCase));
+						string clip = null;
+						if (kind == "DefaultTake") { clip = names.FirstOrDefault(n => n == "Default Take"); if (clip != null) { a[clip].wrapMode = WrapMode.Loop; a.Play(clip); } }
+						else if (kind.StartsWith("blend"))
+						{
+							// as AnimationDriver in a race: "driving" looping plus a turn clip blended in (ClampForever)
+							clip = find("driving"); string turn = find(kind[5] == 'L' ? "turnLeft" : "turnRight");
+							if (clip != null) { a[clip].wrapMode = WrapMode.Loop; a.Play(clip); }
+							if (turn != null) { a[turn].wrapMode = WrapMode.ClampForever; a.Blend(turn, kind.EndsWith("05") ? 0.5f : 1f); }
+						}
+						else { clip = find(kind); if (clip != null) { a[clip].wrapMode = WrapMode.Loop; a.Play(clip); } }
 						if (!everyClip) Log.AppendLine(string.Format("[{0:0.00}] [spawn] {1} anim {2} clips {3}", t, go.name, clip ?? "-", string.Join(",", a.Cast<AnimationState>().Select(s => s.name).ToArray())));
 					}
 					s_Spawned.Add(go.transform);
@@ -420,6 +442,19 @@ namespace DSSRecovery
 						Log.AppendLine(string.Format("[dump] text '{0}' on '{1}' pos {2} lossyScale {3} charSize {4} size {5} renderer {6}",
 							(tm.text ?? "").Replace("\n", "\\n"), tm.transform.parent != null ? tm.transform.parent.name + "/" + tm.name : tm.name,
 							tm.transform.position, tm.transform.lossyScale, tm.characterSize, r != null ? r.bounds.size.ToString() : "-", r != null && r.enabled));
+					}
+					continue;
+				}
+				if (tn == "lm")
+				{
+					// lightmaps in use and a sample of lightmapped renderers per shader
+					var lms = LightmapSettings.lightmaps;
+					Log.AppendLine(string.Format("[dump] lm mode {0} count {1} first {2}", LightmapSettings.lightmapsMode, lms.Length, lms.Length > 0 && lms[0].lightmapColor != null ? lms[0].lightmapColor.name + " " + lms[0].lightmapColor.format : "-"));
+					foreach (var g in UnityEngine.Object.FindObjectsByType<Renderer>(FindObjectsSortMode.None).Where(r => r.sharedMaterial != null).GroupBy(r => r.sharedMaterial.shader.name))
+					{
+						var list = g.ToList();
+						Log.AppendLine(string.Format("[dump] lm shader '{0}': {1} renderers, {2} lightmapped (index {3}), keywords {4}", g.Key, list.Count, list.Count(r => r.lightmapIndex >= 0 && r.lightmapIndex < 65534),
+							string.Join("/", list.Select(r => r.lightmapIndex).Distinct().Take(5).Select(x => x.ToString()).ToArray()), string.Join(" ", list[0].sharedMaterial.shaderKeywords)));
 					}
 					continue;
 				}

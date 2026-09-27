@@ -135,6 +135,9 @@ def skin_block(h):
     out = ['  m_Skin:']
     for w, b in zip(h.m_BoneWeights, h.m_BoneIndices):
         w = list(w) + [0] * (4 - len(w)); b = list(b) + [0] * (4 - len(b))
+        # UnityPy writes the implied 4th weight as 1 - (sum of the raw 5-bit values), e.g. -27; it is (31 - sum) / 31
+        # (Stage 4 fix, see fix_skin_weights.py)
+        if w[3] < 0: w[3] = max(0.0, 1.0 - w[0] - w[1] - w[2])
         out.append('  - weight[0]: %s' % fmt(w[0]))
         for k in (1, 2, 3): out.append('    weight[%d]: %s' % (k, fmt(w[k])))
         for k in range(4): out.append('    boneIndex[%d]: %d' % (k, b[k]))
