@@ -899,6 +899,11 @@ public class CarCollider : MonoBehaviour
 		vector.Normalize();
 		velocity -= vector * Vector3.Dot(velocity, vector);
 		Vector3 vector2 = trackPoint + wallOffsetForPoint - vector * (wallDistanceAtPoint - GetComponent<Collider>().bounds.size.x);
+		// ADAPTADO-U6 (2026-09-27): never write a non-finite position (see WaypointLogic.SegmentRatio).
+		if (float.IsNaN(vector2.x) || float.IsInfinity(vector2.x) || float.IsNaN(vector2.z) || float.IsInfinity(vector2.z))
+		{
+			return;
+		}
 		base.transform.position = new Vector3(vector2.x, base.transform.position.y, vector2.z);
 		PlayRandomCollisionSound();
 		if (cameraShake != null && RaceManager.IsPlayerCar(base.gameObject))

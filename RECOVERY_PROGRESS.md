@@ -218,12 +218,192 @@ Mismo ciclo por bloque: traducir → `compile_check.py` → Unity con `PlayModeR
     - **Cambios pedidos por el usuario sobre el original** (2026-09-27, etiqueta `MODIFICADO` en el código; no son fieles al ARM):
       - `CarCollider.DoMovement`: con el kart en el suelo se ignoran los contactos con objetos a menos de 0,5 por encima de su base (como un escalón). Quita el golpe de la rampa de Kick Butt 1: ahora se sube a 54–56 sin frenar.
       - `GimpedCarAI.DoRoadBoundaries`: el bot no se empuja contra el muro si está en el aire o si el siguiente punto de su propia ruta grabada queda más allá de ese mismo muro. El waypoint más cercano se busca en 3D: sobre el foso del salto de Kick Butt 1 era el de la carretera 15 unidades más abajo (bot clavado en el aire hasta 13 s) y en el ramal (`split_road`) de Dirt Devils era el de la carretera principal (bot clavado el resto de la carrera). Batería de las 10 pistas con traza de bots (`aitrace@t1-t2`, analizador de atascos): ningún bot clavado. Siguen 1–2 caídas por carrera en el foso de Kick Butt 1 (bots que llegan lentos al salto) y tras la rampa de z≈−120 de Dirt Devils (su línea grabada sale del puente); el juego los recoloca con sus `ResetTrigger`, lógica original.
+      - **Cierre del juego en Bus Jumper** (ejecutable, 2026-09-27): los waypoints 92 y 93 de Kick Butt Track 2 están en el mismo punto (también dos "Waypoint 3" en Kick Butt Track 3 y un tramo de 1 cm en Fish Hooks Track 2, datos originales). `WaypointLogic.GetWallOffsetForPoint`/`GetWallDistanceAtPoint` dividen por la longitud del tramo: 0/0 = NaN; `DoRoadBoundaries` ponía el kart en NaN, `GimpedCarAI.DoCarCollisions` lo contagiaba a todos los bots (`x < NaN` cuenta como choque) y Unity 6 se cerraba. ADAPTADO-U6: tramos de menos de 5 cm usan proporción 0 (`WaypointLogic.SegmentRatio`), los muros nunca escriben posiciones no finitas y los choques entre bots ignoran un kart no finito. Reproducido en el ejecutable (2 de 2 pruebas) y verificado después sin cierres. Herramientas: `DSSRecovery.WaypointCheck`, vigilante NaN y acciones `barrel@t`/`wipeout@t` en los dos arneses.
+      - **Rivales más humanos** (`MODIFICADO`, `RivalTuning`, interruptor `DSSR_CompetitiveRivals`, activado): tiempo de reacción de 0–0,45 s y empuje de salida distinto por bot, nivel −3 %…+5 %, línea propia desplazada hasta ±2 m de la ruta grabada (no en el aire ni en saltos), ritmo +10 % detrás del jugador y −6 % muy por delante, Easy 39 → 42,5. El frenado al 50 % del original para bots 200 m por delante se conserva, pero ya no actúa hasta que el bot y el jugador han pasado su primer punto de control: en la salida frenaba por error a los bots de las primeras filas durante 5–10 s. Kick Butt 1: bots en meta entre 122 y 127 s y el piloto automático 5.º (126 s).
       - **Voces**: en Unity 4 los 75 clips de voz eran 2D (propiedad del clip, `m_3D = false`; son los únicos 2D del juego); Unity 6 los reproducía en 3D desde el kart y casi no se oían. ADAPTADO-U6: `CharacterVOController.PlayClip` pone la fuente en 2D. Crash (personaje por defecto) y Soos no tienen voces en los datos originales; los bots nunca hablaron (sus prefabs no llevan `CharacterVOController`).
     - **Fallos vistos por el usuario en el ejecutable** (capturas, 2026-09-27):
       - **Personajes rotos** (Randy convertido en un amasijo rojo y negro gigante, triángulos turquesa en Perry, "lanza" blanca en Kick): el 4.º peso de hueso de 5 mallas (`head_003` = Randy, `Perry`, `kick`, `Phineas`, `gunther`; 296 vértices) valía ≈ −27. En las mallas comprimidas de Unity 4 ese peso no se guarda y vale (31 − suma)/31; el decodificador de UnityPy de la Etapa 0 escribía 1 − suma de los valores de 5 bits. El editor usa el nivel de calidad "Fastest" (1 hueso por vértice) y no se veía; el ejecutable usa "Fantastic" (4 huesos). RECUPERADO: `forensics/scripts/fix_skin_weights.py` repara las mallas y `repair_meshes.py` queda corregido. Verificado con la calidad 5 en el editor (`quality:5@t` del arnés).
       - **Iluminación de Fish Hooks muy brillante** y, en general, lightmaps distintos al original: Unity 6 reimportaba los PNG de lightmap de Unity 4 (dLDR) como RGBM tratando el PNG como luz final en espacio lineal: `DecodeLightmap` devolvía `png^(1/2,2)` en vez del original `2 × png` (zonas muy iluminadas hasta un 45 % más oscuras en todas las pistas), y el shader portado del agua, que leía el texel crudo × 2, salía ~2,7 veces más claro. ADAPTADO-U6: los 48 lightmaps pasan a EXR HDR con `(2 × png)^2,2` (`DSSRecovery.LightmapHdrConverter` + `forensics/scripts/lightmaps_to_exr.sh`, conservando los GUID) y el shader del agua usa `DecodeLightmap`. Medido: 0,727 frente al original 0,725 (Fish Hooks) y 1,116 frente a 1,108 (Kick Butt); la arena de Freshwater High y la tierra de Kick Butt recuperan el tono de las miniaturas originales.
 - [x] 4.11 **Cierre**: ejecutable de Windows (`bash forensics/scripts/build_windows.sh`, 291 MB) probado con `run_player.sh` a 1920×1080 (carrera, audio, 60 fps, interfaz); catálogo regenerado (Etapa 4: **1480 recuperados, 0 pendientes**); `RECOVERY_PROGRESS.md`, `PENDIENTES_POR_ETAPA.md`, `SINCRONIZAR_A_LOCAL.md`; commit "Etapa 4 completa".
 - [x] **Etapa 4 completa**: el juego es jugable de principio a fin en PC (editor y ejecutable de Windows). Siguiente: Android (y URP opcional), §11.7 de `RECOVERY_REPORT.md`.
+
+### Etapa 5 — Remaster (Clásico / Remaster) ⏳ (planificada 2026-09-27)
+Objetivo: **un salto visual y de sensación de juego que se vea actual sin perder el estilo original**, seleccionable en el menú de ajustes junto al modo **Clásico**, que sigue siendo la recuperación fiel.
+
+**Decisiones del usuario (2026-09-27):**
+- Opción **"Clásico / Remaster"** en el juego. El modo Clásico se ve y se juega igual que al cerrar la Etapa 4.
+- Dirección visual **C (mixta)**: cel shading con contorno en **personajes**; sombreado estilizado suave, sin contornos fuertes, en **pistas y karts**. La referencia es el aspecto de las series de TV (Phineas and Ferb, Gravity Falls, Kick Buttowski, Fish Hooks), no el realismo.
+- Migración a **URP** (permitida por AGENTS.md §1 después de la Etapa 4). Se hace **antes del port a Android**, para no portar y probar dos veces.
+
+**Reglas de la etapa** (se suman a las de AGENTS.md):
+- **Nada del modo Clásico cambia.** Cada fase se cierra con capturas comparadas contra la línea base de la Etapa 4 (R0.1) en modo Clásico.
+- Código y assets nuevos en `Assets/_Remaster/` (`Runtime/`, `Editor/`, `Shaders/`, `Materials/`, `Volumes/`). El código original solo se toca para llamar al Remaster, con la etiqueta nueva `// REMASTER: ...` y siempre detrás de `RemasterSettings.IsRemaster` (u otro interruptor), para que el modo Clásico siga el camino original.
+- Los ajustes nuevos van en `RecoverySwitches`/PlayerPrefs, **nunca** en `DSSRacer_save.txt` (el formato del guardado original no cambia).
+- Los assets originales (texturas, lightmaps, mallas, clips) no se sobrescriben: el Remaster usa copias o variantes (texturas HD, lightmaps nuevos, clips nuevos).
+- Presupuesto de rendimiento: PC Remaster Ultra a 60 fps estables a 1920×1080 (y 120 fps si se desbloquea); Android Remaster Medio a 60 fps en gama media (objetivo a fijar en R4); modo Clásico igual o mejor que en Built-in.
+
+| Fase | Contenido | Resultado |
+|---|---|---|
+| R0 Base URP | migración a URP con el modo Clásico idéntico, interruptor Clásico/Remaster, espacio de color | nada cambia a la vista; base lista |
+| R1 Vertical slice | Kick Butt 1 + 3 personajes + sus karts con el look completo | referencia visual aprobada por el usuario |
+| R2 Producción | el look en las 10 escenas de pista, los 12+ personajes, karts, piezas, menús y garaje | Remaster completo |
+| R3 Vida y sensación | animación procedural, efectos, cámara, mini-turbos y resto del manejo Remaster | juego "vivo" |
+| R4 Calidad y rendimiento | niveles de calidad PC/Android, perfilado, cierre y ejecutable | etapa cerrada |
+
+#### R0 — Base URP (el modo Clásico no cambia)
+- [ ] R0.1 **Línea base.** Antes de tocar nada, capturas de referencia en Built-in: las 10 pistas + tutorial (salida, mitad de vuelta, meta), menú, garaje, resultados y cinco personajes a calidad 5 (`quality:5@t`), en editor y ejecutable a 1920×1080. Se guardan en `recovery/baseline_etapa4/` (fuera de git si pesan; su lista y comandos sí en git). Nuevo `forensics/scripts/image_diff.py`: diferencia por píxel (media, percentil 99 y máscara de zonas distintas) entre dos capturas. Criterio de igualdad del modo Clásico: media < 1/255 y p99 < 4/255, salvo partículas y animaciones con aleatoriedad (se comparan a ojo).
+- [ ] R0.2 **Espacio de color (decisión técnica).** El proyecto es Gamma (REPORT §11.3 fila 2). URP funciona en Gamma, pero el postproceso HDR, el bloom y el STP están pensados para Linear, y el espacio de color no se puede cambiar en ejecución. Prueba en una rama: (a) Gamma para los dos modos; (b) Linear, con los sombreadores del modo Clásico haciendo su cálculo en espacio gamma (se convierte el texel y el color a gamma, se aplica la fórmula original y se vuelve a lineal) para dar el mismo resultado. Se mide con `image_diff.py`. **Preferida: (b) Linear**, si el modo Clásico cumple el criterio de R0.1. Documentar la decisión aquí y en REPORT §11.3.
+- [ ] R0.3 **Paquete y assets de URP.** Instalar `com.unity.render-pipelines.universal` (versión de 6000.6.3f1). Crear en `_Remaster/Settings/`:
+  - `DSS_URP_Classic` (Forward, sin HDR, sin postproceso, sin sombras en tiempo real, MSAA como el Built-in actual);
+  - `DSS_URP_Remaster` (Forward+, HDR, postproceso, sombras suaves del sol, SSAO como Renderer Feature, decals);
+  - sus renderers. Cada nivel de calidad apunta a uno de los dos assets (`QualitySettings.renderPipeline`): así el cambio de modo es un cambio de nivel de calidad en ejecución.
+- [ ] R0.4 **Sombreadores del modo Clásico en URP** (HLSL, carpeta `_Remaster/Shaders/Classic/`), un equivalente exacto por cada sombreador en uso (inventario de materiales, 2026-09-27):
+  - `Mobile/Unlit (Supports Lightmap)` (122 materiales): textura × `DecodeLightmap` como en Built-in (los EXR de 4.9 se mantienen);
+  - `Mobile/Diffuse` (33: personajes) y `Legacy/Diffuse`, `Transparent/Diffuse`, `Transparent/Cutout`…: Lambert + SH por `LightProbeUsage.CustomProvided` (lo usa `LegacyLightProbes`; comprobar que URP lee `unity_SHAr…` del `MaterialPropertyBlock`);
+  - partículas `Mobile/Particles/*` (Additive, Alpha Blended, Multiply, VertexLit Blended): mismo blending;
+  - `Unlit/Texture`, `Unlit/Transparent`, `GUI/Text Shader` (TextMesh y fuente bitmap con `m_Ascent: 0`);
+  - los 4 propios: "Additive Unlit Double Texture", "iPhone/Transparent And Color Unlit", "iPhone/Transparent Color Shift Unlit" (fixed-function, sin equivalente en URP: se reescriben con la misma combinación de texturas) y "Mobile/Unlit Under The Sea" (cáusticos de Fish Hooks, `CausticsManager`).
+  Todos llevan la palabra clave global `DSS_REMASTER`: sin ella, el camino es el del modo Clásico; con ella, el del Remaster (R1). Herramienta de editor `DSSRemaster.MaterialRemapper`: cambia cada material a su sombreador URP conservando texturas y colores. Es idempotente y deja un informe de materiales sin mapear (ninguno debe quedar rosa).
+- [ ] R0.5 **Cámaras.** La UI Ugh usa cámaras apiladas por profundidad (`UghCamera`, 9,6 unidades de alto). En URP pasan a una cámara **Base** (pista) y cámaras **Overlay** (UI Ugh, HUD, "TV Screen Fuzz") en su stack. Comprobar el orden, la limpieza de fondo, `UghCamera.Update` al cambiar de ventana, las transiciones de fundido y la cámara de vista previa del garaje (`PreviewCart`, `CharacterPreview`).
+- [ ] R0.6 **Sistemas heredados.** Verificar en URP: `LegacyLightmapRestorer` (índice y offset de lightmap), `LegacyLightProbes`, `ShadowBlob`, las 91 partículas convertidas, el agua de Fish Hooks, `Halo`, el `Plane_003` de 3.8 y la fuente bitmap (`DSSRecovery.FontProbe.Run`).
+- [ ] R0.7 **Interruptor Clásico/Remaster.**
+  - `RemasterSettings` (Runtime): lee `DSSR_GraphicsMode` de PlayerPrefs. Aplica el nivel de calidad, activa o desactiva la palabra clave `DSS_REMASTER`, el Volume global y los componentes Remaster, y lanza el evento `ModeChanged`.
+  - Opción en el menú de ajustes original (`SettingsMenuPublisher`, `// REMASTER:`), con un botón Ugh con el mismo estilo que los demás.
+  - Hasta que exista R1, el modo Remaster es igual que el Clásico.
+  - Acción nueva del arnés, `gfx:classic@t` / `gfx:remaster@t`, en `run_play.sh` y `run_player.sh`.
+- [ ] R0.8 **Validación y cierre.** Batería de la línea base en modo Clásico con URP y `image_diff.py` en editor y ejecutable. Una carrera completa en Kick Butt 1 (receta de AGENTS.md §4.1). 60 fps. Cambio de modo en caliente en menú y en carrera, sin errores. Actualizar AGENTS.md (URP, etiqueta `// REMASTER:`, acción `gfx:`) y REPORT §11.3/§11.7. Commit "Stage 5 R0: URP base, Classic identical".
+
+#### R1 — Vertical slice (Kick Butt 1, 3 personajes y sus karts)
+Se elige **Kick Butt 1** porque tiene la receta de pruebas más completa. Los personajes son **Kick** (Kick Buttowski), **Phineas** (Phineas and Ferb) y **Mabel** (Gravity Falls): tres series y tres siluetas distintas. Ninguna decisión de R1 se extiende a otras pistas hasta que el usuario apruebe las capturas.
+- [ ] R1.1 **Guía de estilo.** Página `recovery/remaster/STYLE_GUIDE.md`:
+  - capturas de las series de referencia (solo como referencia local, no se publican);
+  - paleta por serie;
+  - número de bandas del cel shading (2 + transición suave);
+  - grosor y color del contorno (color oscuro del propio material, no negro puro);
+  - intensidad del brillo;
+  - qué se considera "romper el estilo" (texturas realistas, ruido fotográfico, desaturación, reflejos de espejo).
+- [ ] R1.2 **Sombreador de personajes** `DSS/Remaster/Toon Character`:
+  - cel shading con rampa (textura 1D editable por serie) sobre la luz del sol y el SH de las probes;
+  - sombras recibidas del sol suavizadas en la rampa;
+  - luz de borde (rim) según el color del cielo;
+  - brillo especular tipo cartoon (mancha dura) en pelo y ojos;
+  - **contorno** por malla invertida en un segundo pase (grosor constante en pantalla, reducido por distancia y con máscara por color de vértice o textura para labios, ojos y dedos);
+  - soporte de 4 huesos por vértice (las mallas de 4.x ya están reparadas).
+- [ ] R1.3 **Sombreador de karts** `DSS/Remaster/Stylized Kart`:
+  - difuso suave en 2 tonos;
+  - "pintura" con reflejo matcap (textura de esfera estilizada por pista);
+  - partes metálicas y cromo con un matcap aparte;
+  - oclusión de contacto bajo el kart;
+  - compatible con las texturas de pintura de `CartPrimaryTextureProfile` y `PaintSlotPublisher` (personalización).
+- [ ] R1.4 **Sombreador de pista** `DSS/Remaster/Stylized Environment` (variante de R0.4 con `DSS_REMASTER`):
+  - lightmap nuevo (R1.5), con un ajuste de contraste y saturación por pista;
+  - sombras del sol en tiempo real solo de objetos dinámicos (karts, pilotos, power-ups) sobre el suelo;
+  - niebla de altura con color por pista;
+  - viento por color de vértice en vegetación y banderas;
+  - variante de agua estilizada si la pista la tiene.
+- [ ] R1.5 **Iluminación de Kick Butt 1.**
+  - **Nuevo horneado en Unity 6** (GPU Lightmapper) con las luces originales de la escena, que siguen en el YAML aunque `RaceManager.Init` las destruya. Más resolución de texel, rebotes y AO horneada.
+  - Los lightmaps nuevos se guardan como un **Lighting Data Asset aparte**. `LegacyLightmapRestorer` los aplica en modo Remaster y los EXR originales en modo Clásico (es un componente propio, solo cambia la lista de texturas e índices).
+  - Luz direccional "sol" creada por el Remaster **después** de `RaceManager.Init` (el original destruye las luces de la pista: se respeta y se crea la nueva a continuación), solo para sombras y luz directa en personajes y karts.
+  - **Adaptive Probe Volumes** horneados en la pista para objetos dinámicos. Con el modo Remaster activo, `LegacyLightProbes` cede el control (`LightProbeUsage.BlendProbes`).
+  - Cielo: skybox pintado o degradado con nubes animadas, con el color de la paleta de la serie.
+- [ ] R1.6 **Postproceso** (Volume global `KickButt1_Remaster`):
+  - tonemapping Neutral (el ACES apaga los colores de dibujo animado);
+  - gradación de color con LUT hecha a mano por pista;
+  - bloom con umbral alto (solo turbos, monedas, luces y efectos);
+  - SSAO suave, viñeta muy suave y SMAA.
+  - Sin desenfoque de movimiento general (el radial va con el turbo en R3).
+- [ ] R1.7 **Contornos del entorno (opcional, se decide en R1).** Si al aprobar las capturas pistas y karts se ven "despegados" de los personajes, se prueba un contorno fino por detección de bordes en pantalla (profundidad y normales) solo en siluetas grandes. La opción C lo excluye por defecto.
+- [ ] R1.8 **Revisión con el usuario.**
+  - Capturas pareadas Clásico/Remaster (misma posición y hora) en salida, curva, salto, meta y garaje, en editor y ejecutable.
+  - Un vídeo corto de una vuelta (grabación del ejecutable).
+  - El usuario aprueba o pide cambios. **Hasta la aprobación no empieza R2.** El look aprobado se congela como `STYLE_GUIDE.md` v1 (valores de rampa, contorno, LUT y bloom).
+
+#### R2 — Producción (todo el juego)
+- [ ] R2.1 **Herramientas para producir en serie.**
+  - `DSSRemaster.TrackRemasterWizard`: crea el Volume, el sol, el APV, el cielo y los ajustes de horneado de una pista a partir de un preset.
+  - `DSSRemaster.CharacterRemasterWizard`: asigna el sombreador toon, la rampa por serie y la máscara de contorno a un prefab de personaje.
+  - Validador por lotes: materiales sin mapear, texturas sin variante HD, pistas sin lightmap Remaster y objetos rosas.
+- [ ] R2.2 **Las 10 escenas de pista**, una por bloque con su commit: Kick Butt 2–3, Phineas 1–3, Fish Hooks 1–3 (agua estilizada: refracción falsa, espuma en orillas, cáusticos reutilizando `CausticsManager`) y Tutorial Track. Cada una con su horneado, APV, cielo, LUT y capturas pareadas.
+- [ ] R2.3 **Todos los personajes** (Phineas, Ferb, Perry, Dipper, Mabel, Soos, Kick, Gunther, Brad, Bea, Oscar, Milo, Randy, Crash…; lista exacta sacada de los prefabs en R2.1), con rampa por serie. Revisión a calidad 5 para vigilar los pesos de hueso.
+- [ ] R2.4 **Karts y piezas de personalización**: todos los chasis, ruedas y piezas (`CartPartList`), con las pinturas del garaje comprobadas con `PaintSlotPublisher`.
+- [ ] R2.5 **Power-ups, obstáculos y monedas**: materiales con emisivo HDR (bloom), sin cambiar su tamaño ni su colisión.
+- [ ] R2.6 **Interfaz HD.**
+  - Atlas Ugh reescalados ×2/×4 (con escalado por IA y limpieza a mano, sin cambiar el diseño). Se guardan como variantes que el modo Remaster carga, y las coordenadas UV del atlas se conservan.
+  - Fuente bitmap en alta resolución si la escala lo exige (manteniendo `m_Ascent: 0`).
+  - Menú, garaje y resultados con fondo desenfocado (profundidad de campo) y la iluminación nueva en el escaparate del garaje.
+- [ ] R2.7 **Validación.** Batería completa: una carrera por pista en modo Remaster y otra en Clásico, Elimination, tutorial, garaje y tienda. Capturas pareadas de todo. Revisión de objetos rosas y karts oscuros.
+
+#### R3 — Vida y sensación (animación, efectos, cámara, manejo)
+Todo lo de R3 funciona **solo en modo Remaster**. En modo Clásico se desactiva por completo y la física de `CarCollider` y el control original quedan intactos.
+- [ ] R3.1 **Animación procedural de personajes.** Componente `RemasterDriverPose` en `LateUpdate`, **encima** de la `Animation` legacy. Sin convertir los 231 clips a Mecanim, porque Animation Rigging exige Animator. Añade:
+  - inclinación del tronco y la cabeza en las curvas (según el giro y el derrape de `CarCollider`);
+  - mirada hacia la curva y hacia el rival más cercano;
+  - retraso y resorte en pelo y accesorios (cadenas de huesos si las hay);
+  - manos que siguen el volante (IK de dos huesos analítico);
+  - "respiración" en la parrilla de salida.
+  Cada efecto con su peso y su tope, para no deformar las animaciones originales.
+- [ ] R3.2 **Animación del kart.**
+  - Aplastar y estirar al aterrizar y al chocar, sobre `SpringConnection` (visual, sin tocar la colisión).
+  - Ruedas delanteras que giran con la dirección y "rebotan" con la suspensión.
+  - Llamaradas del tubo de escape con el turbo.
+  - Vibración del motor al ralentí.
+- [ ] R3.3 **Reacciones y celebraciones.** Mezclas (crossfade) entre los clips existentes, con reacción al recibir un golpe (se reutilizan `crash_*`/`kick_*` y similares) y celebración al adelantar o ganar. Si hacen falta clips nuevos, se crean en Blender sobre el mismo esqueleto (`dipper_blender/` sirve de prueba) y se documentan como RECONSTRUIDO.
+- [ ] R3.4 **Efectos visuales.**
+  - Chispas de derrape de color según el nivel del mini-turbo (R3.6).
+  - Estelas de turbo (`TrailRenderer`) y humo o polvo según el terreno (reutilizando `TerrainEffectTrigger`).
+  - Chispas al rozar un muro.
+  - Marcas de derrape como decals que se desvanecen.
+  - Partículas suaves (soft particles) con flipbooks y emisivo HDR.
+  - Explosiones y power-ups rehechos con el mismo tamaño de colisión.
+  - Se usan `ParticleSystem` (no VFX Graph, que en Android exige compute).
+- [ ] R3.5 **Cámara y sensación de velocidad.**
+  - FOV dinámico según la velocidad y con el turbo.
+  - Vibración de cámara al chocar y aterrizar.
+  - Líneas de velocidad en pantalla y desenfoque radial con el turbo.
+  - Microparón (40–60 ms) al recibir un golpe.
+  - Vibración del mando con el Input System (turbo, choque, derrape y mini-turbo).
+  - Opción para reducir los efectos de cámara (accesibilidad y mareo).
+- [ ] R3.6 **Manejo Remaster** (`// REMASTER:` sobre el derrape y power-slide originales; el modo Clásico no cambia):
+  - mini-turbo de 3 niveles (azul, naranja, morado) según el tiempo de derrape;
+  - turbo de salida si se acelera en el momento justo de la cuenta atrás;
+  - acrobacia en los saltos (botón en el aire) que da un turbo corto al aterrizar;
+  - rebufo detrás de otro kart.
+  Los rivales usan las mismas mecánicas con probabilidad según la dificultad (`CarAIPersonality`), para que el equilibrio no se rompa. Validar con carreras de piloto automático en las 10 pistas: tiempos, puestos y que los bots no queden clavados (`aitrace@`).
+- [ ] R3.7 **Audio del Remaster.**
+  - Sonidos para los mini-turbos, las acrobacias y el rebufo (nuevos, RECONSTRUIDO).
+  - Mezclador con atenuación de la música cuando habla un personaje.
+  - Reverberación ligera en túneles (zonas de audio).
+  - Los clips originales no se modifican.
+
+#### R4 — Calidad, rendimiento y cierre
+- [ ] R4.1 **Niveles de calidad:**
+  - **Clásico** (URP Clásico);
+  - **Remaster Bajo** (sin SSAO, sombras cortas, contorno solo en el jugador);
+  - **Remaster Medio** (objetivo Android);
+  - **Remaster Alto** y **Ultra** (PC: sombras suaves de 4 cascadas, SSAO completo, lightmaps a resolución completa, STP/SMAA).
+  Menú de ajustes con resolución, pantalla completa o ventana, VSync, límite de fps (30/60/120/sin límite; `PcFrameRate` pasa a leerlo) y el nivel.
+- [ ] R4.2 **Perfilado.** Profiler y Frame Debugger en las pistas más pesadas (Fish Hooks por el agua; Phineas por la geometría). Presupuesto de draw calls con SRP Batcher y GPU Resident Drawer. Resolución dinámica y STP para Android.
+- [ ] R4.3 **Preparación para Android.** Build Profiles de Unity 6 separados para PC y Android. Vulkan con GLES3 de respaldo. Texturas ASTC en el Remaster y variantes HD solo en PC si el tamaño lo exige. El port en sí sigue en REPORT §11.7, con URP ya incluido.
+- [ ] R4.4 **Validación final.** Batería completa en los dos modos y todos los niveles de calidad (editor y ejecutable):
+  - capturas pareadas;
+  - fps medidos por pista;
+  - cambio de modo en caliente;
+  - carrera completa;
+  - guardado intacto (copia de `DSSRacer_save.txt` restaurada, AGENTS.md §4).
+- [ ] R4.5 **Cierre.**
+  - Ejecutable de Windows.
+  - Documentación: este apartado, REPORT, `PENDIENTES_POR_ETAPA.md`, `SINCRONIZAR_A_LOCAL.md` y AGENTS.md.
+  - Catálogo regenerado (el Remaster no cambia los recuentos de ARM).
+  - Commit "Etapa 5 completa".
+
+**Riesgos conocidos de la etapa:**
+- **Espacio de color** (R0.2): si ni Gamma ni Linear permiten a la vez un modo Clásico idéntico y un Remaster con HDR, se prioriza el modo Clásico y el postproceso del Remaster se ajusta a Gamma.
+- **Contorno por malla invertida** en mallas con normales partidas: puede abrir huecos. Se corrige con normales suavizadas guardadas en un canal UV (herramienta en R2.1).
+- **Luces destruidas por `RaceManager.Init`**: el sol del Remaster se crea después, nunca se evita esa destrucción (es lógica original).
+- **Nuevo horneado de lightmaps**: puede cambiar el aspecto de zonas que el artista original retocó a mano en los PNG. Se compara con las miniaturas originales (`Level Previews SpriteAtlas.png`) y, si hace falta, se mezcla con el lightmap original.
+- **Manejo Remaster** (R3.6): cambia el equilibrio de las carreras. Por eso va solo en modo Remaster y con validación por pista.
+- **Propiedad intelectual**: personajes y pistas son de Disney. El Remaster es para preservación y uso personal: no se publica ni se monetiza.
 
 ## Catálogo de trabajo pendiente
 - [recovery/catalog/METHOD_CATALOG.md](recovery/catalog/METHOD_CATALOG.md): los 4477 métodos del juego con su etapa (y [CSV](recovery/catalog/METHOD_CATALOG.csv) con token y dirección ARM). Estado tras la Etapa 2: Etapa 1 = 713 recuperados, 0 pendientes; Etapa 2 = 494 recuperados, 0 pendientes; pendientes Etapa 3 = 467 (+25 ya recuperados), Etapa 4 = 1357 (+118); 269 sin uso detectado, 155 sin uso (incluye `Dialog`, `LEDScroller` y `UghScrollView`, que ningún asset ni código instancia), 19 de depuración, 8 para Android, 664 eliminados. Estado tras 3.8: Etapa 3 = 477 recuperados, 15 pendientes (misiones del HUD, aplazadas); Etapa 4 = 1342 pendientes (+137 ya recuperados); 265 sin uso detectado.

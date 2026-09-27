@@ -85,7 +85,7 @@ public class RecoveryPlayerTest : MonoBehaviour
 				string[] ft = at[1].Split('-');
 				autoRanges.Add(new Vector2(F(ft[0]), F(ft[1])));
 			}
-			else if (at[0].StartsWith("res:"))
+			else if (at[0].StartsWith("res:") || at[0] == "barrel" || at[0] == "wipeout")
 			{
 				events.Add(new KeyValuePair<float, string>(F(at[1]), at[0]));
 			}
@@ -142,6 +142,10 @@ public class RecoveryPlayerTest : MonoBehaviour
 				Screen.SetResolution(int.Parse(wh[0]), int.Parse(wh[1]), false);
 				Line("[res] " + e.Substring(4));
 			}
+			else if (e == "barrel" || e == "wipeout")
+			{
+				HitPlayer(e, t);
+			}
 			else if (e.StartsWith("keydown:"))
 			{
 				RecoveryTestInput.SetKey((KeyCode)Enum.Parse(typeof(KeyCode), e.Substring(8)), true);
@@ -156,12 +160,84 @@ public class RecoveryPlayerTest : MonoBehaviour
 			}
 		}
 		AutoPilot(t);
+		NanWatch(t);
 		if (t >= seconds)
 		{
 			Line("[run] end");
 			File.WriteAllText(Path.Combine(outDir, testName + ".log"), log.ToString());
 			Application.Quit();
 			enabled = false;
+		}
+	}
+
+	// test-only: an exploding barrel dropped 6 units in front of the player, or a wipeout applied directly
+	private void HitPlayer(string what, float t)
+	{
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		if (player == null)
+		{
+			return;
+		}
+		CarCollider cc = player.GetComponent<CarCollider>();
+		bool jump = cc != null && cc.EffectMgr != null && cc.EffectMgr.HasEffect(typeof(GuidedJumpEffect));
+		if (what == "wipeout" && cc != null && cc.EffectMgr != null)
+		{
+			WipeoutEffect w = new WipeoutEffect(player);
+			w.power = 50;
+			w.time = 1.5f;
+			cc.EffectMgr.AddEffect(w);
+		}
+		if (what == "barrel")
+		{
+			BarrelSpawner spawner = UnityEngine.Object.FindAnyObjectByType<BarrelSpawner>();
+			BarrelLauncher launcher = UnityEngine.Object.FindAnyObjectByType<BarrelLauncher>();
+			GameObject prefab = spawner != null ? spawner.barrelPrefab : (launcher != null ? launcher.barrelPrefab : null);
+			if (prefab != null)
+			{
+				UnityEngine.Object.Instantiate(prefab, player.transform.position + player.transform.forward * 6f + Vector3.up, prefab.transform.rotation);
+			}
+		}
+		Line("[" + what + "] player at " + player.transform.position + " inJump " + jump);
+	}
+
+	// every frame: the first non-finite kart / camera value is logged and written to disk at once (a crash loses the rest)
+	private readonly HashSet<string> nanReported = new HashSet<string>();
+
+	private static bool Bad(float f)
+	{
+		return float.IsNaN(f) || float.IsInfinity(f);
+	}
+
+	private static bool Bad(Vector3 v)
+	{
+		return Bad(v.x) || Bad(v.y) || Bad(v.z);
+	}
+
+	private static bool Bad(Quaternion q)
+	{
+		return Bad(q.x) || Bad(q.y) || Bad(q.z) || Bad(q.w);
+	}
+
+	private void NanWatch(float t)
+	{
+		foreach (CarCollider cc in UnityEngine.Object.FindObjectsByType<CarCollider>(FindObjectsSortMode.None))
+		{
+			GimpedCarAI ai = cc.GetComponent<GimpedCarAI>();
+			string bad = Bad(cc.transform.position) ? "position" : Bad(cc.transform.rotation) ? "rotation" : Bad(cc.GetVelocity()) ? "velocity" : (ai != null && ai.enabled && Bad(ai.LinearVelocity)) ? "aiSpeed" : null;
+			if (bad != null && nanReported.Add(cc.name + bad))
+			{
+				string fx = cc.EffectMgr != null ? string.Join("+", new[] { typeof(GuidedJumpEffect), typeof(FlipEffect), typeof(WipeoutEffect), typeof(TeleportEffect), typeof(BoosterEffect), typeof(SkidEffect), typeof(SlowdownEffect), typeof(ShockedEffect) }.Where(ty => cc.EffectMgr.HasEffect(ty)).Select(ty => ty.Name).ToArray()) : "";
+				Line("[NAN] " + cc.name + " bad " + bad + " pos " + cc.transform.position + " rot " + cc.transform.rotation + " vel " + cc.GetVelocity() + " aiSpeed " + (ai != null ? ai.LinearVelocity.ToString(CultureInfo.InvariantCulture) : "-") + " fx " + fx + " air " + cc.isInAir);
+				File.WriteAllText(Path.Combine(outDir, testName + ".log"), log.ToString());
+			}
+		}
+		foreach (Camera cam in Camera.allCameras)
+		{
+			if ((Bad(cam.transform.position) || Bad(cam.transform.rotation)) && nanReported.Add("cam " + cam.name))
+			{
+				Line("[NAN] camera " + cam.name + " pos " + cam.transform.position + " rot " + cam.transform.rotation);
+				File.WriteAllText(Path.Combine(outDir, testName + ".log"), log.ToString());
+			}
 		}
 	}
 

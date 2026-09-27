@@ -48,6 +48,9 @@ public class GimpedCarAI : MonoBehaviour
 
 	public float aggressionIndex = 1f;
 
+	// MODIFICADO (petición del usuario, 2026-09-27): per-rival profile (launch, skill, line, pace); see RivalTuning.
+	private RivalTuning tuning;
+
 	public float LinearVelocity
 	{
 		// RECUPERADO-AOT GimpedCarAI::get_LinearVelocity token 0x06000053 @0x000c720c
@@ -161,6 +164,11 @@ public class GimpedCarAI : MonoBehaviour
 			bumpVelocity -= vector * Vector3.Dot(bumpVelocity, vector);
 			Vector3 position = trackPoint + wallOffsetForPoint - vector * (wallDistanceAtPoint - GetComponent<Collider>().bounds.size.x);
 			position.y = base.transform.position.y;
+			// ADAPTADO-U6 (2026-09-27): never write a non-finite position (see WaypointLogic.SegmentRatio).
+			if (float.IsNaN(position.x) || float.IsInfinity(position.x) || float.IsNaN(position.z) || float.IsInfinity(position.z))
+			{
+				return;
+			}
 			base.transform.position = position;
 		}
 	}
@@ -184,6 +192,12 @@ public class GimpedCarAI : MonoBehaviour
 				continue;
 			}
 			Vector3 vector = gameObject.transform.position - base.transform.position;
+			// ADAPTADO-U6 (2026-09-27): a kart with a non-finite position is skipped ("x < NaN" is false in the original
+			// test, so it counted as a hit and spread the NaN to every rival).
+			if (float.IsNaN(vector.sqrMagnitude) || float.IsInfinity(vector.sqrMagnitude))
+			{
+				continue;
+			}
 			if (x < vector.sqrMagnitude)
 			{
 				continue;
@@ -267,6 +281,10 @@ public class GimpedCarAI : MonoBehaviour
 	{
 		carCollider = base.gameObject.GetComponent<CarCollider>();
 		shadowBlob = base.gameObject.GetComponent<ShadowBlob>();
+		if (RivalTuning.Enabled && !RaceManager.IsPlayerCar(base.gameObject))
+		{
+			tuning = new RivalTuning();
+		}
 		if (currentPath == null && currentPathIndex <= 0)
 		{
 			SetNewPath();
@@ -333,6 +351,16 @@ public class GimpedCarAI : MonoBehaviour
 		bumpVelocity -= bumpVelocity * Time.deltaTime;
 		float actualAcceleration = carCollider.GetActualAcceleration();
 		float actualMaxSpeed = carCollider.GetActualMaxSpeed();
+		// MODIFICADO (petición del usuario): reaction time at the start, and per-rival / catch-up pace (RivalTuning).
+		if (tuning != null)
+		{
+			if (!tuning.Launched())
+			{
+				return;
+			}
+			actualAcceleration *= tuning.AccelerationFactor(base.gameObject);
+			actualMaxSpeed *= tuning.MaxSpeedFactor(base.gameObject);
+		}
 		if (flag2)
 		{
 			if (flag)
@@ -356,7 +384,19 @@ public class GimpedCarAI : MonoBehaviour
 		{
 			linearVelocity -= linearVelocity * Time.deltaTime;
 		}
-		pid.SetPoint(targetPos);
+		// MODIFICADO (petición del usuario): each rival drives its own line, offset sideways from the recorded one
+		// (never in the air or on a guided jump, where the recorded line is the only safe one).
+		Vector3 setPoint = targetPos;
+		if (tuning != null && !flag2 && !IsInAir)
+		{
+			Vector3 dir = targetPos - lastPos;
+			dir.y = 0f;
+			if (dir.sqrMagnitude > 0.01f)
+			{
+				setPoint += Vector3.Cross(Vector3.up, dir.normalized) * tuning.LaneOffset();
+			}
+		}
+		pid.SetPoint(setPoint);
 		Vector3 vector = pid.CalculateOutput(Time.deltaTime, base.transform.position);
 		vector = vector.normalized * linearVelocity;
 		vector += bumpVelocity;

@@ -12,4 +12,13 @@ public static class RecoverySwitches
 	{
 		get { return PlayerPrefs.GetInt(PranksgivingKey, 1) != 0; }
 	}
+
+	// MODIFICADO (petición del usuario, 2026-09-27): more human rivals (RivalTuning, used by GimpedCarAI). On by default;
+	// PlayerPrefs "DSSR_CompetitiveRivals" = 0 restores the original rival driving exactly.
+	public const string CompetitiveRivalsKey = "DSSR_CompetitiveRivals";
+
+	public static bool CompetitiveRivals
+	{
+		get { return PlayerPrefs.GetInt(CompetitiveRivalsKey, 1) != 0; }
+	}
 }

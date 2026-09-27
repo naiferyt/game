@@ -60,6 +60,20 @@ public class WaypointLogic : MonoBehaviour
 		return true;
 	}
 
+	// ADAPTADO-U6 (2026-09-27): the original divides by the segment length; a few waypoints of the original data share
+	// the same position (Kick Butt Track 2 "Waypoint 92"/"93", Kick Butt Track 3 two "Waypoint 3", Fish Hooks Track 2
+	// "Waypoint 2nxtra2"/"3", 1 cm) and gave 0/0 = NaN: a kart near them got a NaN position from the road walls, spread it
+	// to the others through the kart-to-kart checks and Unity 6 crashed (Bus Jumper). Segments under 5 cm use ratio 0.
+	private static float SegmentRatio(Vector3 part, Vector3 segment)
+	{
+		float length = segment.magnitude;
+		if (length < 0.05f)
+		{
+			return 0f;
+		}
+		return part.magnitude / length;
+	}
+
 	// RECUPERADO-AOT WaypointLogic::GetTrackPoint token 0x0600057b @0x00115fc4
 	// Closest of: this waypoint, the projection on the next segment, the projection on the previous one.
 	public Vector3 GetTrackPoint(Vector3 pos)
@@ -101,7 +115,7 @@ public class WaypointLogic : MonoBehaviour
 			}
 			Vector3 vector = projPoint - base.transform.position;
 			Vector3 vector2 = forwardPoint.transform.position - base.transform.position;
-			return (forwardPoint.waypointWallDist - waypointWallDist) * (vector.magnitude / vector2.magnitude) + waypointWallDist;
+			return (forwardPoint.waypointWallDist - waypointWallDist) * SegmentRatio(vector, vector2) + waypointWallDist;
 		}
 		if (backwardPoint != null && ProjectOnWPLine(backwardPoint, pos, out projPoint))
 		{
@@ -111,7 +125,7 @@ public class WaypointLogic : MonoBehaviour
 			}
 			Vector3 vector3 = projPoint - backwardPoint.transform.position;
 			Vector3 vector4 = base.transform.position - backwardPoint.transform.position;
-			return (waypointWallDist - backwardPoint.waypointWallDist) * (vector3.magnitude / vector4.magnitude) + backwardPoint.waypointWallDist;
+			return (waypointWallDist - backwardPoint.waypointWallDist) * SegmentRatio(vector3, vector4) + backwardPoint.waypointWallDist;
 		}
 		return waypointWallDist;
 	}
@@ -126,14 +140,14 @@ public class WaypointLogic : MonoBehaviour
 			Vector3 vector = forwardPoint.transform.position - base.transform.position;
 			Vector3 vector2 = -Vector3.Cross(Vector3.up, vector.normalized);
 			Vector3 vector3 = projPoint - base.transform.position;
-			return vector2 * ((forwardPoint.waypointWallOffset - waypointWallOffset) * (vector3.magnitude / vector.magnitude) + waypointWallOffset);
+			return vector2 * ((forwardPoint.waypointWallOffset - waypointWallOffset) * SegmentRatio(vector3, vector) + waypointWallOffset);
 		}
 		if (backwardPoint != null && ProjectOnWPLine(backwardPoint, pos, out projPoint))
 		{
 			Vector3 vector4 = base.transform.position - backwardPoint.transform.position;
 			Vector3 vector5 = -Vector3.Cross(Vector3.up, vector4.normalized);
 			Vector3 vector6 = projPoint - backwardPoint.transform.position;
-			return vector5 * ((waypointWallOffset - backwardPoint.waypointWallOffset) * (vector6.magnitude / vector4.magnitude) + backwardPoint.waypointWallOffset);
+			return vector5 * ((waypointWallOffset - backwardPoint.waypointWallOffset) * SegmentRatio(vector6, vector4) + backwardPoint.waypointWallOffset);
 		}
 		return Vector3.zero;
 	}

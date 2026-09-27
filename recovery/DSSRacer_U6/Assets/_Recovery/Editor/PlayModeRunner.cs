@@ -81,7 +81,7 @@ namespace DSSRecovery
 			Log.Length = 0;
 			s_Start = EditorApplication.timeSinceStartup;
 			EditorApplication.update -= Tick; EditorApplication.update += Tick;
-			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear(); s_Keys.Clear(); s_AutoRanges.Clear(); s_AutoOn = false; s_TraceRanges.Clear(); s_NextTrace = 0f; s_Spawned.Clear(); s_AiTraceRanges.Clear(); s_NextAiTrace = 0f; s_Loads.Clear(); s_FpsFrame = -1; s_LastButtons = "";
+			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear(); s_Keys.Clear(); s_AutoRanges.Clear(); s_AutoOn = false; s_TraceRanges.Clear(); s_NextTrace = 0f; s_Spawned.Clear(); s_NanReported.Clear(); s_AiTraceRanges.Clear(); s_NextAiTrace = 0f; s_Loads.Clear(); s_FpsFrame = -1; s_LastButtons = "";
 			foreach (var p in SessionState.GetString(K + "shots", "").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
 				s_ShotTimes.Add(float.Parse(p, System.Globalization.CultureInfo.InvariantCulture));
 			foreach (var c in SessionState.GetString(K + "clicks", "").Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
@@ -95,6 +95,11 @@ namespace DSSRecovery
 				if (at[0].StartsWith("quality:"))
 				{
 					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), "#quality#" + at[0].Substring(8)));
+					continue;
+				}
+				if (at[0] == "barrel" || at[0] == "wipeout")
+				{
+					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), "#" + at[0] + "#"));
 					continue;
 				}
 				if (at[0] == "spawnanims")
@@ -198,6 +203,26 @@ namespace DSSRecovery
 					Log.AppendLine(string.Format("[{0:0.00}] [quality] {1} ({2}) skinWeights {3}", t, QualitySettings.GetQualityLevel(), QualitySettings.names[QualitySettings.GetQualityLevel()], QualitySettings.skinWeights));
 					s_Loads.RemoveAt(0); continue;
 				}
+				if (what == "#barrel#" || what == "#wipeout#")
+				{
+					// test-only: an exploding barrel dropped 6 units in front of the player, or a wipeout applied directly
+					var player = GameObject.FindGameObjectWithTag("Player");
+					if (player != null)
+					{
+						var cc = player.GetComponent<CarCollider>();
+						bool jump = cc != null && cc.EffectMgr != null && cc.EffectMgr.HasEffect(typeof(GuidedJumpEffect));
+						if (what == "#wipeout#" && cc != null) { var w = new WipeoutEffect(player); w.power = 50; w.time = 1.5f; cc.EffectMgr.AddEffect(w); }
+						if (what == "#barrel#")
+						{
+							var spawner = UnityEngine.Object.FindAnyObjectByType<BarrelSpawner>();
+							var launcher = UnityEngine.Object.FindAnyObjectByType<BarrelLauncher>();
+							var prefab = spawner != null ? spawner.barrelPrefab : launcher != null ? launcher.barrelPrefab : null;
+							if (prefab != null) UnityEngine.Object.Instantiate(prefab, player.transform.position + player.transform.forward * 6f + Vector3.up, prefab.transform.rotation);
+						}
+						Log.AppendLine(string.Format("[{0:0.00}] [{1}] player at {2} inJump {3} air {4}", t, what.Trim('#'), player.transform.position, jump, cc != null && cc.isInAir));
+					}
+					s_Loads.RemoveAt(0); continue;
+				}
 				if (what == "#spawnai#") { SpawnAllAi(t); s_Loads.RemoveAt(0); continue; }
 				if (what == "#spawnanims#") { SpawnAllAi(t, true); s_Loads.RemoveAt(0); continue; }
 				if (what.StartsWith("#hide#"))
@@ -218,11 +243,30 @@ namespace DSSRecovery
 			AutoPilot(t);
 			Trace(t);
 			AiTrace(t);
+			NanWatch(t);
 			while (s_ShotTimes.Count > 0 && t >= s_ShotTimes[0])
 			{
 				Shot(t); s_ShotTimes.RemoveAt(0);
 			}
 			if (t >= SessionState.GetFloat(K + "seconds", 10f)) Finish();
+		}
+
+		// every tick: the first non-finite position / rotation / speed of any kart is logged with its effects (Bus Jumper crash hunt)
+		static readonly HashSet<string> s_NanReported = new HashSet<string>();
+		static bool Bad(float f) { return float.IsNaN(f) || float.IsInfinity(f); }
+		static bool Bad(Vector3 v) { return Bad(v.x) || Bad(v.y) || Bad(v.z); }
+		static void NanWatch(float t)
+		{
+			foreach (var cc in UnityEngine.Object.FindObjectsByType<CarCollider>(FindObjectsSortMode.None))
+			{
+				var ai = cc.GetComponent<GimpedCarAI>();
+				Vector3 v = cc.GetVelocity(); var q = cc.transform.rotation;
+				string what = Bad(cc.transform.position) ? "position" : (Bad(q.x) || Bad(q.y) || Bad(q.z) || Bad(q.w)) ? "rotation" : Bad(v) ? "velocity" : (ai != null && ai.enabled && Bad(ai.LinearVelocity)) ? "ai speed" : null;
+				if (what == null || s_NanReported.Contains(cc.name + what)) continue;
+				s_NanReported.Add(cc.name + what);
+				string fx = cc.EffectMgr != null ? string.Join("+", new[] { typeof(GuidedJumpEffect), typeof(FlipEffect), typeof(WipeoutEffect), typeof(TeleportEffect), typeof(BoosterEffect), typeof(SkidEffect), typeof(ShockedEffect), typeof(SlowdownEffect) }.Where(ty => cc.EffectMgr.HasEffect(ty)).Select(ty => ty.Name).ToArray()) : "";
+				Log.AppendLine(string.Format("[{0:0.00}] [NAN] {1} bad {2}: pos {3} rot {4} vel {5} aiSpeed {6} fx {7} player {8}", t, cc.name, what, cc.transform.position, q, v, ai != null ? ai.LinearVelocity.ToString() : "-", fx, RaceManager.IsPlayerCar(cc.gameObject)));
+			}
 		}
 
 		static void AiTrace(float t)
@@ -234,7 +278,9 @@ namespace DSSRecovery
 				var cc = ai.GetComponent<CarCollider>();
 				bool jump = cc != null && cc.EffectMgr != null && cc.EffectMgr.HasEffect(typeof(GuidedJumpEffect));
 				string fx = cc != null && cc.EffectMgr != null ? string.Join("+", new[] { typeof(GuidedJumpEffect), typeof(FlipEffect), typeof(WipeoutEffect), typeof(TeleportEffect) }.Where(ty => cc.EffectMgr.HasEffect(ty)).Select(ty => ty.Name.Replace("Effect", "")).ToArray()) : "";
-				Log.AppendLine(string.Format("[{0:0.00}] [ai] {1} pos {2} v {3:0.0} air {4} fx {5} lap {6}", t, ai.name, ai.transform.position.ToString("F1"), ai.LinearVelocity, ai.IsInAir ? 1 : 0, fx, RaceManager.GetCarLap(ai.gameObject)));
+				bool air = false;
+				try { air = ai.IsInAir; } catch (Exception) { continue; }   // before the rival's Start
+				Log.AppendLine(string.Format("[{0:0.00}] [ai] {1} pos {2} v {3:0.0} air {4} fx {5} lap {6}", t, ai.name, ai.transform.position.ToString("F1"), ai.LinearVelocity, air ? 1 : 0, fx, RaceManager.GetCarLap(ai.gameObject)));
 			}
 		}
 
@@ -443,6 +489,23 @@ namespace DSSRecovery
 							(tm.text ?? "").Replace("\n", "\\n"), tm.transform.parent != null ? tm.transform.parent.name + "/" + tm.name : tm.name,
 							tm.transform.position, tm.transform.lossyScale, tm.characterSize, r != null ? r.bounds.size.ToString() : "-", r != null && r.enabled));
 					}
+					continue;
+				}
+				if (tn == "wpcheck")
+				{
+					// waypoint segments of (near) zero length: GetWallOffsetForPoint / GetWallDistanceAtPoint divide by it
+					int n = 0;
+					foreach (var w in UnityEngine.Object.FindObjectsByType<WaypointLogic>(FindObjectsSortMode.None))
+					{
+						n++;
+						foreach (var o in new[] { w.forwardPoint, w.backwardPoint })
+						{
+							if (o == null) continue;
+							float d = (o.transform.position - w.transform.position).magnitude;
+							if (d < 0.05f) Log.AppendLine(string.Format("[dump] wpcheck ZERO segment '{0}' -> '{1}' length {2} at {3} walls {4}", PathOf(w.transform), PathOf(o.transform), d, w.transform.position, w.projectsWalls));
+						}
+					}
+					Log.AppendLine("[dump] wpcheck waypoints " + n);
 					continue;
 				}
 				if (tn == "lm")

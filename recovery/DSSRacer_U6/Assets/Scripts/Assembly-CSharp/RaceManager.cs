@@ -492,6 +492,14 @@ public class RaceManager : MonoBehaviour
 			{
 				continue;
 			}
+			// MODIFICADO (petición del usuario, 2026-09-27; with RivalTuning on): no slowdown until both karts have a
+			// progress trigger. At the start the front-row rivals reach their first trigger before the player, their
+			// race distance jumps to about one lap while the player's is still 0, and the original slowed them to 50%
+			// for 5-10 s right off the grid.
+			if (RivalTuning.Enabled && (carProgressMap[car].lastProgressTrigger == null || carProgressMap[playerCar].lastProgressTrigger == null))
+			{
+				continue;
+			}
 			float num3 = carProgressMap[car].lastDistance - lastDistance;
 			if ((raceDifficulty != RaceDifficultyLevel.EASY && raceDifficulty != RaceDifficultyLevel.MEDIUM) || !(num3 >= 200f))
 			{
