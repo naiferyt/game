@@ -430,3 +430,79 @@ Rango: `a6604d9..9c02b40` (79 archivos).
 - **7df6e27 Stage 1: closing pieces (PreFrontEndHoop, sleep timeout, fixed quality, boot plumbing)** — `AchievementManager.cs`, `AnimatedTexture.cs`, `LowEndInhibitor.cs`, `PreFrontEndHoop.cs`, `QualityControl.cs`, `ScreenTimeoutController.cs`, `TrackUnlockHelper.cs`
 - **3d2aeb5 Stage 1: ExternalPersistentArchive, audio helpers; catalog counts generated code** — `method_catalog.py`, `AudioCrumb.cs`, `AudioManager.cs`, `AudioSourcex.cs`, `ExternalPersistentArchive.cs`, `SingletonScript.cs`, `METHOD_CATALOG.csv`, `METHOD_CATALOG.md`
 - **9c02b40 Stage 1: progress report, catalog and tooling notes** — `RECOVERY_PROGRESS.md`, `armsym.py`, `method_catalog.py`, `METHOD_CATALOG.csv`, `METHOD_CATALOG.md`
+
+### Etapa 4 (sesión nube, desde c08d9b3) — sin probar en Unity
+
+Compila con `python3 forensics/scripts/compile_check.py` (0 errores). Archivos tocados:
+
+| estado | archivo |
+|---|---|
+| modificado | `RECOVERY_PROGRESS.md` |
+| nuevo | `forensics/scripts/cloud_refs.sh` |
+| nuevo | `forensics/scripts/cloud_u6_only.txt` |
+| modificado | `forensics/scripts/compile_check.py` |
+| eliminado | `forensics/scripts/mcs_check/U6Shim.cs` |
+| eliminado | `forensics/scripts/mcs_check/compile_check.sh` |
+| eliminado | `forensics/scripts/mcs_check/u6_only_errors.txt` |
+| modificado | `recovery/DSSRacer_U6/Assets/Plugins/Assembly-CSharp-firstpass/PIDVectorController.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/BarrelLauncher.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/BaseCarAIState.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/BasePickup.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/BasketBall.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/BoatAnchorEffect.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/BoosterPickup.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/BreakableObject.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/BubbleJet.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CarAI.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CarAIPath.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CarAIPathManager.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CarAIPathRecorder.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/CarAIPersonality.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/ClipReference.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/DriveAvoidTerrainAIState.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/DriveHitBeneficialAIState.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/DrivePickupAIState.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/DriveWaypointsCarAIState.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/ExplodingBarrel.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/Explosion.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/ForwardForceAI.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/GimpedCarAI.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/LaserLogic.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/MineAI.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/MineEffect.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/MinePickup.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/MineSpreaderAI.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/ParticleReducer.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/PathMoverAI.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/PickupSpawner.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/PieHitEffect.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/PowerupHolder.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/PowerupMagnet.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/PyroTechnics.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/RandomShotEffect.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/RocketAI.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/RocketEffect.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/RocketPickup.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/RocketRideEffect.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/RocketRideRemover.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/ShieldEffect.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/ShieldPickup.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/ShotDroneAI.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SmashEffect.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SoundLibraryAddendum.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SoundPackage.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SoundPackageLoadReference.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SoundPackageManager.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SoundPackageReference.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SphereMoverAI.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SphereMoverCollider.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SpreadMineEffect.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/SpringTrigger.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/TeleportEffect.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/TeleportTrigger.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/TripLine.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/TripLineEffect.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/TurkeyGooShooter.cs` |
+| modificado | `recovery/DSSRacer_U6/Assets/Scripts/Assembly-CSharp/UsePowerupAIState.cs` |
+| modificado | `recovery/catalog/METHOD_CATALOG.csv` |
+| modificado | `recovery/catalog/METHOD_CATALOG.md` |
