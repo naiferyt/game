@@ -260,6 +260,18 @@ namespace DSSRecovery
 			Log.AppendLine("[dump] DontDestroyOnLoad roots: " + string.Join(", ", ddol.ToArray()));
 			foreach (var tn in SessionState.GetString(K + "dump", "").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
 			{
+				if (tn == "texts")
+				{
+					// every visible TextMesh: text, world position and scale (to find stray / oversized labels)
+					foreach (var tm in UnityEngine.Object.FindObjectsByType<TextMesh>(FindObjectsSortMode.None).Where(t => t.gameObject.activeInHierarchy))
+					{
+						var r = tm.GetComponent<Renderer>();
+						Log.AppendLine(string.Format("[dump] text '{0}' on '{1}' pos {2} lossyScale {3} charSize {4} size {5} renderer {6}",
+							(tm.text ?? "").Replace("\n", "\\n"), tm.transform.parent != null ? tm.transform.parent.name + "/" + tm.name : tm.name,
+							tm.transform.position, tm.transform.lossyScale, tm.characterSize, r != null ? r.bounds.size.ToString() : "-", r != null && r.enabled));
+					}
+					continue;
+				}
 				if (tn.StartsWith("obj:"))
 				{
 					var root = UnityEngine.Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(x => x.name == tn.Substring(4));
