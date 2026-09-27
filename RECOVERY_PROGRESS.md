@@ -29,7 +29,7 @@ Estrategia y decisiones: [RECOVERY_REPORT.md](RECOVERY_REPORT.md) §11–§12. E
 - [x] **Etapa 0 completa**
 
 ### Etapa 1 — Boot → Menú ✅ (traducida y validada en Unity 6.6 local, 2026-09-26)
-- [x] 1.1 Banco de pruebas: `PlayModeRunner` (Play Mode desatendido con log de `RecoveryPending`, errores, cambios de escena, capturas y clics simulados vía `RecoveryTestInput`) · `forensics/scripts/mcs_check/compile_check.sh` (compila el C# contra el `UnityEngine.dll` original de Unity 4.3 + un shim de las API de Unity 6: detecta errores sin abrir Unity)
+- [x] 1.1 Banco de pruebas: `PlayModeRunner` (Play Mode desatendido con log de `RecoveryPending`, errores, cambios de escena, capturas y clics simulados vía `RecoveryTestInput`) · comprobación de compilación sin abrir Unity: `forensics/scripts/compile_check.py`, con Roslyn contra los ensamblados de Unity 6.6 del PC. En la nube el mismo script usa Roslyn y las referencias de Unity 2021.3.33 de NuGet, preparadas por `cloud_refs.sh` (Unity no se puede descargar desde la nube). El antiguo `mcs_check`, contra el `UnityEngine.dll` de Unity 4.3, se retiró el 2026-09-27.
 - [x] 1.2 Núcleo: `Script`, `SingletonScript<T>`, `EnsureGlobals`, `DataUtility` + `CloudSaveData`/`LocalOptionsData`/`LifetimeMetrics` con guardado local (`LocalSaveStore`, mismas claves y codificación que JCloud), `Localize`/`MiniJSON`/`DictionaryToString`/`LocalizedString`
 - [x] 1.3 Arranque: `CloudStrap` → `FrontEndTest` (`SceneManager`), `LocalizeCloudStrap`, `RotatorAI`, puente `OnLevelWasLoaded` (U4Compat)
 - [x] 1.4 UI visible: `UghCamera`, `UghSprite`/`UghSpritePrototype` (mallas nine-slice), `UghText`, `UghAlign`, `UghStretch`
