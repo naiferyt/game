@@ -10,11 +10,11 @@ la sección nueva se añade arriba del [registro](#registro-de-cambios-por-etapa
 |---|---|
 | Rama de trabajo en la nube | `claude/optimistic-archimedes-kmux3s` |
 | Tu rama local | `main` en `C:\Users\STEEP\Documents\game work` desde la Etapa 2 (la Etapa 1 partió de `mi-proyecto`, commit `a6604d9`) |
-| Último bloque sincronizable | **Etapa 3 — bloques 3.6 (resto), 3.7 y 3.8 hechos en la nube** (commits `3caf4f8` … `e56e8c0` + documentación). Los bloques 3.1–3.6 los hiciste en local y subiste hasta `44c3b88` |
+| Último bloque sincronizable | **Etapa 3 completa** (3.9 validación en Unity y 3.10 cierre, hechos en local en `main`: commit "Etapa 3 completa") |
 | Etapa 2 | hecha directamente en tu copia local, rama `main`: commits `3468d93` … commit "Etapa 2 completa" |
 | Etapa 1 | commits `a96ac2b` … `9c02b40` (nube) + validación local `3440f48` |
-| Archivos que trae esta sincronización | 12 desde `44c3b88` (9 del proyecto Unity, 3 herramientas) + la documentación y el catálogo; ver el [inventario](#inventario-de-archivos-de-la-etapa-3-nube) |
-| Pendiente en tu PC | **traer 3 commits de código + 1 de documentación** con los pasos de la [sección de la Etapa 3](#etapa-3--bloques-36-resto-37-y-38-nube) y hacer las pruebas 3.9 en Unity |
+| Archivos que trae esta sincronización | los de la [sección de cierre de la Etapa 3](#etapa-3--cierre-39-y-310-local): 11 scripts adelantados de la Etapa 4, 1 herramienta de pruebas, 1 de análisis, capturas y documentación |
+| Pendiente en tu PC | **subir** `main` a la nube (el push lo bloquea el entorno de Claude; hazlo tú: ver la sección de cierre) |
 
 ## 1. Antes de empezar
 
@@ -87,6 +87,53 @@ git push origin mi-proyecto
 y dime "ya subí los logs". Si prefieres, pega en el chat el contenido de `playrun_boot.log` y los errores de la Console.
 
 ## Registro de cambios por etapa
+
+### Etapa 3 — cierre: 3.9 y 3.10 (local)
+
+Hecho en tu copia local, rama `main`, sobre `5bcd939` (lo que vino de la nube).
+
+**Validación 3.9 en Unity 6.6 superada: TEST 5–13 y revisión visual de las cuatro pistas**, con capturas en `recovery/reports/stage3/`. Detalle y observaciones en `RECOVERY_PROGRESS.md` §3.9.
+
+La validación destapó métodos de la Etapa 4 que bloqueaban la carrera, y se adelantaron:
+- sistema de efectos (turbos, zonas de wipeout/frenado, descargas, choques y saltos guiados de rampa);
+- `MusicPlayer.Instance`/`Exists`, sin los que la meta daba `NullReferenceException`;
+- `MissionManager.GetHasStartedFirstMission`.
+
+Para subirlo a la nube (el entorno de Claude no tiene permiso de push), en tu terminal:
+
+```
+git push origin main:claude/optimistic-archimedes-kmux3s
+git push origin main:mi-proyecto
+```
+
+#### Inventario del cierre
+
+##### Proyecto Unity — 12 (+ `MissionManager.cs`, que ya iba en `44c3b88`)
+
+| Estado | Archivo |
+|---|---|
+| modificado | `Assets/Scripts/Assembly-CSharp/BaseEffect.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/EffectManager.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/BoosterEffect.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/SlowdownEffect.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/WipeoutEffect.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/ShockedEffect.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/SkidEffect.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/FlipEffect.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/GuidedJumpEffect.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/GuidedJumpTrigger.cs` |
+| modificado | `Assets/Scripts/Assembly-CSharp/MusicPlayer.cs` |
+| modificado | `Assets/_Recovery/Editor/PlayModeRunner.cs` (tooling de pruebas: `auto`, `key`, `load`, `hidetype`, registro del jugador y botones) |
+
+##### Herramientas de análisis — 1
+
+| Estado | Archivo |
+|---|---|
+| nuevo | `forensics/scripts/switch_tables.py` (destinos de las tablas `switch` del binario AOT) |
+
+##### Documentación, catálogo y capturas
+
+`RECOVERY_PROGRESS.md`, `SINCRONIZAR_A_LOCAL.md`, `recovery/catalog/METHOD_CATALOG.csv`, `recovery/catalog/METHOD_CATALOG.md`, `recovery/catalog/PENDIENTES_POR_ETAPA.md`, `recovery/reports/stage3/*.png` (14 capturas).
 
 ### Etapa 3 — bloques 3.6 (resto), 3.7 y 3.8 (nube)
 

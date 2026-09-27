@@ -26,6 +26,12 @@ namespace DSSRecovery
 		static readonly List<KeyValuePair<float, string>> s_ObjClicks = new List<KeyValuePair<float, string>>();
 		// simulated keys: "key:<KeyCode>@<from>-<to>" holds the key between the two times (stage 3)
 		static readonly List<KeyValuePair<float, KeyValuePair<KeyCode, bool>>> s_Keys = new List<KeyValuePair<float, KeyValuePair<KeyCode, bool>>>();
+		// autopilot: "auto@<from>-<to>" holds W and steers the player's kart toward the waypoint ahead (stage 3 tests)
+		static readonly List<Vector2> s_AutoRanges = new List<Vector2>();
+		static bool s_AutoOn;
+		static string s_LastButtons = "";
+		// scene loads: "load:<scene name>@t" loads a scene directly (e.g. a track, whose DebugTrackStrapper then sets up a race)
+		static readonly List<KeyValuePair<float, string>> s_Loads = new List<KeyValuePair<float, string>>();
 
 		static PlayModeRunner()
 		{
@@ -66,12 +72,28 @@ namespace DSSRecovery
 			Log.Length = 0;
 			s_Start = EditorApplication.timeSinceStartup;
 			EditorApplication.update -= Tick; EditorApplication.update += Tick;
-			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear(); s_Keys.Clear();
+			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear(); s_Keys.Clear(); s_AutoRanges.Clear(); s_AutoOn = false; s_Loads.Clear(); s_LastButtons = "";
 			foreach (var p in SessionState.GetString(K + "shots", "").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
 				s_ShotTimes.Add(float.Parse(p, System.Globalization.CultureInfo.InvariantCulture));
 			foreach (var c in SessionState.GetString(K + "clicks", "").Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
 			{
 				var at = c.Split('@'); if (at.Length != 2) continue;
+				if (at[0].StartsWith("hidetype:"))
+				{
+					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), "#hide#" + at[0].Substring(9)));
+					continue;
+				}
+				if (at[0].StartsWith("load:"))
+				{
+					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), at[0].Substring(5)));
+					continue;
+				}
+				if (at[0] == "auto")
+				{
+					var ft = at[1].Split('-');
+					s_AutoRanges.Add(new Vector2(float.Parse(ft[0], System.Globalization.CultureInfo.InvariantCulture), float.Parse(ft[1], System.Globalization.CultureInfo.InvariantCulture)));
+					continue;
+				}
 				if (at[0].StartsWith("key:"))
 				{
 					var k = (KeyCode)Enum.Parse(typeof(KeyCode), at[0].Substring(4));
@@ -125,11 +147,64 @@ namespace DSSRecovery
 				RecoveryTestInput.SetKey(kv.Key, kv.Value);
 				Log.AppendLine(string.Format("[{0:0.00}] [key] {1} {2}", t, kv.Key, kv.Value ? "down" : "up"));
 			}
+			while (s_Loads.Count > 0 && t >= s_Loads[0].Key)
+			{
+				string what = s_Loads[0].Value;
+				if (what.StartsWith("#hide#"))
+				{
+					// test-only: hides every active instance of a component type (e.g. an overlay covering the screenshots)
+					var type = AppDomain.CurrentDomain.GetAssemblies().Select(a => a.GetType(what.Substring(6))).FirstOrDefault(x => x != null);
+					int n = 0;
+					if (type != null) foreach (var o in UnityEngine.Object.FindObjectsByType(type, FindObjectsSortMode.None)) { ((Component)o).gameObject.SetActive(false); n++; }
+					Log.AppendLine(string.Format("[{0:0.00}] [hide] {1} x{2}", t, what.Substring(6), n));
+				}
+				else
+				{
+					Log.AppendLine(string.Format("[{0:0.00}] [load] {1}", t, what));
+					SceneManager.LoadScene(what);
+				}
+				s_Loads.RemoveAt(0);
+			}
+			AutoPilot(t);
 			while (s_ShotTimes.Count > 0 && t >= s_ShotTimes[0])
 			{
 				Shot(t); s_ShotTimes.RemoveAt(0);
 			}
 			if (t >= SessionState.GetFloat(K + "seconds", 10f)) Finish();
+		}
+
+		static void AutoPilot(float t)
+		{
+			bool on = s_AutoRanges.Any(r => t >= r.x && t < r.y);
+			if (on != s_AutoOn)
+			{
+				s_AutoOn = on;
+				RecoveryTestInput.SetKey(KeyCode.W, on);
+				if (!on) { RecoveryTestInput.SetKey(KeyCode.A, false); RecoveryTestInput.SetKey(KeyCode.D, false); }
+				Log.AppendLine(string.Format("[{0:0.00}] [auto] {1}", t, on ? "on" : "off"));
+			}
+			if (!on) return;
+			var player = GameObject.FindGameObjectWithTag("Player");
+			if (player == null) return;
+			Vector3 pos = player.transform.position;
+			WaypointLogic next = WaypointLogic.FindNextWaypoint(pos);
+			if (next == null) return;
+			Vector3 target = next.transform.position;
+			if (next.forwardPoint != null && (target - pos).magnitude < 12f) target = next.forwardPoint.transform.position;
+			Vector3 to = target - pos; to.y = 0f;
+			Vector3 fwd = player.transform.forward; fwd.y = 0f;
+			float angle = Vector3.SignedAngle(fwd, to, Vector3.up);
+			RecoveryTestInput.SetKey(KeyCode.D, angle > 4f);
+			RecoveryTestInput.SetKey(KeyCode.A, angle < -4f);
+		}
+
+		static void LogButtons(float t)
+		{
+			var names = UnityEngine.Object.FindObjectsByType<UghButton>(FindObjectsSortMode.None).Where(b => b.gameObject.activeInHierarchy).Select(b => b.name).OrderBy(n => n).ToArray();
+			string joined = string.Join(", ", names);
+			if (joined == s_LastButtons) return;
+			s_LastButtons = joined;
+			Log.AppendLine(string.Format("[{0:0.00}] [buttons] {1}", t, joined));
 		}
 
 		// normalized screen position of an active object's visual center, seen by the camera that renders its layer
@@ -163,7 +238,8 @@ namespace DSSRecovery
 				UnityEngine.Object.DestroyImmediate(tex); rt.Release();
 				Log.AppendLine(string.Format("[{0:0.00}] [shot] {1} ({2} cameras: {3})", t, Path.GetFileName(f), cams.Count, string.Join(", ", cams.Select(c => c.name).ToArray())));
 				var player = GameObject.FindGameObjectWithTag("Player");
-				if (player != null) Log.AppendLine(string.Format("[{0:0.00}] [player] {1} pos {2} fwd {3}", t, player.name, player.transform.position, player.transform.forward));
+				if (player != null) try { Log.AppendLine(string.Format("[{0:0.00}] [player] {1} pos {2} fwd {3} lap {4} place {5}", t, player.name, player.transform.position, player.transform.forward, RaceManager.GetCarLap(player), RaceManager.GetCarPosition(player))); } catch (Exception) { Log.AppendLine("[player] " + player.name + " pos " + player.transform.position); }
+				LogButtons(t);
 			}
 			catch (Exception e) { Log.AppendLine("[shot failed] " + e.Message); }
 		}

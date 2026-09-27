@@ -20,7 +20,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | Etapa 1 — Arranque → Menú principal | 0 | 0 KB | 713 | 0 |
 | Etapa 2 — Menú → selección → carga de la carrera | 0 | 0 KB | 494 | 11 |
 | Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados) | 15 | 6 KB | 477 | 7 |
-| Etapa 4 — Sistemas completos | 1342 | 263 KB | 137 | 69 |
+| Etapa 4 — Sistemas completos | 1262 | 241 KB | 217 | 69 |
 | Port Android (después de la Fase 4) | 8 | 1 KB | 0 | 0 |
 | Opcional — herramientas de depuración del equipo original | 19 | 3 KB | 0 | 0 |
 | Sin uso detectado (no se traducen salvo que aparezcan en el log) | 265 | 77 KB | 0 | 0 |
@@ -32,12 +32,11 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 ## Etapa 1 — Arranque → Menú principal
 
-**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (9) — deben tolerar quedar pendientes o adelantarse:
+**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (7) — deben tolerar quedar pendientes o adelantarse:
 
 - Etapa 4 · `AchievementListener`: `Fail`
-- Etapa 4 · `BaseEffect`: `InitComboLookup`
 - Etapa 4 · `CartCustomizerPublisher`: `Refresh`
-- Etapa 4 · `MusicPlayer`: `PlayMusic`, `UpdateVolume`, `get_Instance`
+- Etapa 4 · `MusicPlayer`: `PlayMusic`, `UpdateVolume`
 - Etapa 4 · `SoundLibrary`: `ButtonClickPlay`, `PlayRandomWhoosh`
 
 ### Framework UI propio (Ugh) — 285 métodos, 77.8 KB ARM
@@ -294,21 +293,17 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 ## Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados)
 
-**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (33) — deben tolerar quedar pendientes o adelantarse:
+**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (22) — deben tolerar quedar pendientes o adelantarse:
 
 - Etapa 4 · `AchievementListener`: `HasAchieved`
-- Etapa 4 · `BaseEffect`: `GetEffectInstance`, `isBeneficial`
-- Etapa 4 · `BoosterEffect`: `.ctor`
 - Etapa 4 · `CarAI`: `ClearStates`
 - Etapa 4 · `CarAIPathManager`: `.cctor`
 - Etapa 4 · `CarAIPathRecorder`: `FinishRecording`, `StartRecording`
-- Etapa 4 · `EffectManager`: `AddEffect`, `GetEffect`, `GetEffectCount`, `HasEffect`, `RemoveAllEffects`, `RemoveEffect`
 - Etapa 4 · `GimpedCarAI`: `.ctor`, `FixedUpdate`, `GetGimpedSnapShot`, `SetToClosestPathHead`, `Start`, `Update`
 - Etapa 4 · `MissionDialogPublisher`: `SetRollState`
 - Etapa 4 · `MissionManager`: `Signal`
 - Etapa 4 · `MusicPlayer`: `HijackMusicPlayerForSoundStings`
 - Etapa 4 · `PowerupHolder`: `AddEffect`, `ExecutePowerups`, `get_CanTakePowerup`, `get_Item`
-- Etapa 4 · `SlowdownEffect`: `.ctor`
 - Etapa 4 · `SoundLibrary`: `PlaySoundOnPlayer`
 - Etapa 4 · `SoundLibraryAddendum`: `Dispose`
 - Etapa 4 · `SoundSequencer`: `RequestPlay`
@@ -426,25 +421,25 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `BarrelLauncher/<LaunchPump>c__Iterator33` | `.ctor` (44), `Dispose` (56), `MoveNext` (328), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `BarrelSpawner` | `.ctor` (76), `OnDrawGizmos` (276), `SpawnBarrel` (764), `SpawnCheck` (72), `Start` (96), `Update` (132) |
 | `BarrelSpawner/<SpawnCheck>c__Iterator34` | `.ctor` (44), `Dispose` (56), `MoveNext` (304), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `BaseEffect` | ✅ `.cctor` (36) ⚠Etapa 3, `.ctor` (56), `DebugDump` (444), `FixedUpdate` (44), `GetComboEffectType` (440), `GetEffectInstance` (932) ⚠Etapa 3, `InitComboLookup` (188) ⚠Etapa 1, `SetUpComboLookup` (404), `get_ComboLookup` (56), `get_EffectType` (52), ✅ `get_IsMultiLevel` (52), `get_PowerLevel` (52), `isBeneficial` (56) ⚠Etapa 3, `isBeneficial` (260) ⚠Etapa 3, `set_ComboLookup` (68), `set_EffectType` (60), ✅ `set_IsMultiLevel` (60), `set_PowerLevel` (60) |
+| `BaseEffect` | ✅ `.cctor` (36) ⚠Etapa 3, ✅ `.ctor` (56), ✅ `DebugDump` (444), ✅ `FixedUpdate` (44), ✅ `GetComboEffectType` (440), ✅ `GetEffectInstance` (932) ⚠Etapa 3, ✅ `InitComboLookup` (188) ⚠Etapa 1, ✅ `SetUpComboLookup` (404), ✅ `get_ComboLookup` (56), ✅ `get_EffectType` (52), ✅ `get_IsMultiLevel` (52), ✅ `get_PowerLevel` (52), ✅ `isBeneficial` (56) ⚠Etapa 3, ✅ `isBeneficial` (260) ⚠Etapa 3, ✅ `set_ComboLookup` (68), ✅ `set_EffectType` (60), ✅ `set_IsMultiLevel` (60), ✅ `set_PowerLevel` (60) |
 | `BasePickup` | `.ctor` (52), `OnTriggerEnter` (892), `Start` (80), `Update` (328) |
 | `BasketBall` | `.ctor` (112), `OnTriggerEnter` (732), `PlayBounceSound` (116), `Update` (1012) |
 | `BoatAnchorEffect` | `.ctor` (72), `GetEffectSnapShot` (48), `Init` (620), `LaunchAnchor` (636), `Shutdown` (44), `Stack` (52), `Update` (44) |
-| `BoosterEffect` | `.ctor` (112) ⚠Etapa 3, `GetEffectSnapShot` (48), `Init` (2088), `Shutdown` (768), `Stack` (52), `Update` (44) |
+| `BoosterEffect` | ✅ `.ctor` (112) ⚠Etapa 3, ✅ `GetEffectSnapShot` (48), ✅ `Init` (2088), ✅ `Shutdown` (768), ✅ `Stack` (52), ✅ `Update` (44) |
 | `BoosterPickup` | `.ctor` (52), `GetTriggeredEffect` (132) |
 | `BreakableObject` | `.ctor` (76), `CollideBreak` (116), `Start` (44), `Update` (44) |
 | `BubbleJet` | `.ctor` (76), `OnDrawGizmos` (280), `OnTriggerStay` (232), `Start` (92) |
 | `Crab` | `.ctor` (220), `FixedUpdate` (1136), `OnDrawGizmos` (140), `OnTriggerEnter` (324), `SleepRoutine` (108), `Start` (104), `Update` (544) |
 | `Crab/<SleepRoutine>c__Iterator36` | `.ctor` (44), `Dispose` (56), `MoveNext` (248), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `EffectManager` | `.ctor` (104), `AddEffect` (640) ⚠Etapa 3, `FixedUpdate` (336), `GetEffect` (112) ⚠Etapa 3, `GetEffectCount` (340) ⚠Etapa 3, `GetEffectListCopy` (252), `GetHighestPoweredEffect` (352), `GetStrongestEffect` (364), `HasEffect` (356) ⚠Etapa 3, `HasEffectOfLevel` (376), `RemoveAllEffects` (448) ⚠Etapa 3, `RemoveEffect` (148) ⚠Etapa 3, `SetEffectList` (72), `Start` (44), `Update` (716) |
+| `EffectManager` | ✅ `.ctor` (104), ✅ `AddEffect` (640) ⚠Etapa 3, ✅ `FixedUpdate` (336), ✅ `GetEffect` (112) ⚠Etapa 3, ✅ `GetEffectCount` (340) ⚠Etapa 3, ✅ `GetEffectListCopy` (252), ✅ `GetHighestPoweredEffect` (352), ✅ `GetStrongestEffect` (364), ✅ `HasEffect` (356) ⚠Etapa 3, ✅ `HasEffectOfLevel` (376), ✅ `RemoveAllEffects` (448) ⚠Etapa 3, ✅ `RemoveEffect` (148) ⚠Etapa 3, ✅ `SetEffectList` (72), ✅ `Start` (44), ✅ `Update` (716) |
 | `ExplodingBarrel` | `.ctor` (112), `Explode` (72), `LifeCountdown` (72), `OnCollisionEnter` (64), `OnTriggerEnter` (468), `Start` (92), `Update` (304) |
 | `ExplodingBarrel/<Explode>c__Iterator38` | `.ctor` (44), `Dispose` (56), `MoveNext` (536), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `ExplodingBarrel/<LifeCountdown>c__Iterator37` | `.ctor` (44), `Dispose` (56), `MoveNext` (260), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `Explosion` | `.ctor` (52), `ExplosionDeath` (72), `Start` (172), `Update` (44) |
 | `Explosion/<ExplosionDeath>c__Iterator24` | `.ctor` (44), `Dispose` (56), `MoveNext` (208), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `FlipEffect` | `.ctor` (176), `GetEffectSnapShot` (48), `Init` (1220), `Shutdown` (464), `Stack` (52), `Update` (516) |
-| `GuidedJumpEffect` | `.ctor` (692), `FixedUpdate` (616), `GetEffectSnapShot` (144), `Init` (560), `Shutdown` (204), `Stack` (52), `Update` (288) |
-| `GuidedJumpTrigger` | `.ctor` (52), `OnDrawGizmos` (780), `OnTriggerEnter` (364) |
+| `FlipEffect` | ✅ `.ctor` (176), ✅ `GetEffectSnapShot` (48), ✅ `Init` (1220), ✅ `Shutdown` (464), ✅ `Stack` (52), ✅ `Update` (516) |
+| `GuidedJumpEffect` | ✅ `.ctor` (692), ✅ `FixedUpdate` (616), ✅ `GetEffectSnapShot` (144), ✅ `Init` (560), ✅ `Shutdown` (204), ✅ `Stack` (52), ✅ `Update` (288) |
+| `GuidedJumpTrigger` | ✅ `.ctor` (52), ✅ `OnDrawGizmos` (780), ✅ `OnTriggerEnter` (364) |
 | `InRaceAquirePickupListener` | `.ctor` (60), `CheckMetrics` (368), `CheckMetricsPump` (72), `IsAvailable` (72), `Postrace` (84), `Prerace` (44), `Reward` (64), `Start` (88), `Update` (44) |
 | `InRaceAquirePickupListener/<CheckMetricsPump>c__IteratorC` | `.ctor` (44), `Dispose` (56), `MoveNext` (224), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `LaserLogic` | `.ctor` (112), `ApplyError` (216), `SetParent` (60), `SetTarget` (60), `Update` (704) |
@@ -486,10 +481,10 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `RocketRideRemover` | `.ctor` (52), `OnTriggerEnter` (180), `Start` (44), `Update` (44) |
 | `ShieldEffect` | `.ctor` (112), `GetEffectSnapShot` (48), `Init` (972), `Shutdown` (300), `Stack` (52), `Update` (368), `get_Reflective` (64) |
 | `ShieldPickup` | `.ctor` (52), `GetTriggeredEffect` (132) |
-| `ShockedEffect` | `.ctor` (104), `GetEffectSnapShot` (48), `Init` (684), `Shutdown` (44), `Stack` (76), `Update` (44) |
+| `ShockedEffect` | ✅ `.ctor` (104), ✅ `GetEffectSnapShot` (48), ✅ `Init` (684), ✅ `Shutdown` (44), ✅ `Stack` (76), ✅ `Update` (44) |
 | `ShotDroneAI` | `.ctor` (76), `FixedUpdate` (44), `SetParent` (60), `Shoot` (812), `Start` (72), `Update` (388) |
-| `SkidEffect` | `.ctor` (88), `GetEffectSnapShot` (48), `Init` (92), `Shutdown` (44), `Stack` (52), `Update` (236) |
-| `SlowdownEffect` | `.ctor` (104) ⚠Etapa 3, `GetEffectSnapShot` (48), `Init` (44), `Shutdown` (184), `Stack` (52), `Update` (44) |
+| `SkidEffect` | ✅ `.ctor` (88), ✅ `GetEffectSnapShot` (48), ✅ `Init` (92), ✅ `Shutdown` (44), ✅ `Stack` (52), ✅ `Update` (236) |
+| `SlowdownEffect` | ✅ `.ctor` (104) ⚠Etapa 3, ✅ `GetEffectSnapShot` (48), ✅ `Init` (44), ✅ `Shutdown` (184), ✅ `Stack` (52), ✅ `Update` (44) |
 | `SmashEffect` | `.ctor` (104), `GetEffectSnapShot` (48), `Init` (476), `Shutdown` (200), `Stack` (52), `Update` (44) |
 | `SpreadMineEffect` | `.ctor` (96), `GetEffectSnapShot` (48), `Init` (52), `LaunchSpreader` (596), `Shutdown` (44), `Stack` (52), `Start` (44), `Update` (44) |
 | `SpringTrigger` | `.ctor` (52), `OnDrawGizmos` (236), `OnTriggerEnter` (164) |
@@ -502,7 +497,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `UFOLogic` | `.ctor` (436), `FireLaser` (1220), `FixedUpdate` (2604), `OnDrawGizmos` (144), `SetParent` (60), `SetSecondUFO` (60), `StartFlyaway` (72), `Update` (444) |
 | `WhoopieCushion` | `.ctor` (52), `Explode` (72), `OnCollisionEnter` (64), `OnTriggerEnter` (428), `Start` (68) |
 | `WhoopieCushion/<Explode>c__Iterator3E` | `.ctor` (44), `Dispose` (56), `MoveNext` (424), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `WipeoutEffect` | `.ctor` (192), `GetEffectSnapShot` (48), `Init` (1200), `Shutdown` (552), `Stack` (52), `Update` (576) |
+| `WipeoutEffect` | ✅ `.ctor` (192), ✅ `GetEffectSnapShot` (48), ✅ `Init` (1200), ✅ `Shutdown` (552), ✅ `Stack` (52), ✅ `Update` (576) |
 
 ### Misiones y logros internos — 472 métodos, 55.4 KB ARM
 
@@ -626,7 +621,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `CharacterVOController` | ✅ `.ctor` (196), ✅ `PickClip` (336), ✅ `PlayCelebrate` (72) ⚠Etapa 3, ✅ `PlayCharacterSelect` (72) ⚠Etapa 2, ✅ `PlayClip` (156), ✅ `PlayPout` (72) ⚠Etapa 3 |
 | `CharacterVOControllerGameObjectExtender` | ✅ `GetVOController` (132) ⚠Etapa 2 |
 | `ClipReference` | `.ctor` (44) |
-| `MusicPlayer` | `.cctor` (36), `.ctor` (52), `Awake` (56), `HijackMusicPlayerForSoundStings` (276) ⚠Etapa 3, `PlayMusic` (72) ⚠Etapa 1, `PlayMusic` (288) ⚠Etapa 1, `RestoreVolumeAfterSound` (72), `Start` (104), `StopMusic` (92), `Update` (152), `UpdateVolume` (100) ⚠Etapa 1, `get_Exists` (64), `get_Instance` (248) ⚠Etapa 1 |
+| `MusicPlayer` | ✅ `.cctor` (36), ✅ `.ctor` (52), `Awake` (56), `HijackMusicPlayerForSoundStings` (276) ⚠Etapa 3, `PlayMusic` (72) ⚠Etapa 1, `PlayMusic` (288) ⚠Etapa 1, `RestoreVolumeAfterSound` (72), `Start` (104), `StopMusic` (92), `Update` (152), `UpdateVolume` (100) ⚠Etapa 1, ✅ `get_Exists` (64), ✅ `get_Instance` (248) ⚠Etapa 1 |
 | `MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25` | `.ctor` (44), `Dispose` (56), `MoveNext` (172), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `SoundLibrary` | `.cctor` (36), `.ctor` (52), `Awake` (388), `ButtonClickPlay` (116) ⚠Etapa 1, `GetClip` (108), `GetClipHash` (108), `GetClipName` (112), `GetInstanceOfSource` (468), `ManuallyAddClip` (184), `ManuallyRemoveClip` (160), `PauseCameraSound` (348), `PlayClipOnSource` (312), `PlayOneShotClipOnSource` (164), `PlayRandomWhoosh` (188) ⚠Etapa 1, `PlaySoundOnCamera` (248), `PlaySoundOnPlayer` (172) ⚠Etapa 3, `StopClipOnSource` (76), `StopSoundOnCamera` (176), `Update` (76), `get_HashToNameBank` (52), `get_Instance` (248), `get_NameToHashBank` (52), `get_Present` (64), `get_SoundBank` (52) |
 | `SoundLibrary/ClipHashDictionary` | `.ctor` (188), `get_Item` (112), `set_Item` (164) |

@@ -9,21 +9,32 @@ public class MusicPlayer : MonoBehaviour
 
 	private bool paused;
 
+	// RECUPERADO-AOT MusicPlayer::get_Instance token 0x060002f8 @0x000ed238
+	// (Adelantado de la Etapa 4 en 3.9: la meta lo usa para la música de victoria/derrota.)
+	// ADAPTADO-U6: Object.FindObjectOfType -> U4Compat.
 	public static MusicPlayer Instance
 	{
 		get
 		{
-			RecoveryPending.Hit("MusicPlayer.get_Instance");
-			return default(MusicPlayer);
+			if (s_Instance == null)
+			{
+				s_Instance = U4Compat.FindObjectOfType(typeof(MusicPlayer)) as MusicPlayer;
+				if (s_Instance == null)
+				{
+					UnityEngine.Debug.LogWarning("There needs to be a MusicPlayer in the scene!");
+				}
+			}
+			return s_Instance;
 		}
 	}
 
+	// RECUPERADO-AOT MusicPlayer::get_Exists token 0x060002f9 @0x000ed330
+	// ADAPTADO-U6: Object.FindObjectOfType -> U4Compat.
 	public static bool Exists
 	{
 		get
 		{
-			RecoveryPending.Hit("MusicPlayer.get_Exists");
-			return default(bool);
+			return U4Compat.FindObjectOfType(typeof(MusicPlayer)) != null;
 		}
 	}
 

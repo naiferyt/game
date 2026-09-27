@@ -74,7 +74,7 @@ Volumen inicial: 476 métodos pendientes, ~123 KB de ARM. Resultado: **494 recup
   - No ejercitado: cambiar a un personaje gratuito/comprado y comprobar que persiste entre ejecuciones (hacen falta monedas; se revisará con la tienda local de piezas, Etapa 4). El menú de dificultad no forma parte del flujo PLAY (cada circuito fija su dificultad).
 - [x] 2.9 Cierre: catálogo regenerado, `RECOVERY_PROGRESS.md` y `SINCRONIZAR_A_LOCAL.md` al día.
 
-### Etapa 3 — Carrera mínima (en curso, desde 2026-09-26)
+### Etapa 3 — Carrera mínima ✅ (completada 2026-09-26)
 Objetivo: tras "Go!", **parrilla → cámara de presentación → cuenta atrás → conducir con teclado → checkpoints y vueltas →
 meta → resultados → reintentar / volver al menú**, con HUD y pausa. La IA rival (rutas grabadas, estados) es de la Etapa 4:
 aquí los rivales aparecen en la parrilla y se tolera que no conduzcan (o lo hagan en modo "gimped" si ya funciona).
@@ -110,18 +110,48 @@ Mismo ciclo por bloque: traducir → `compile_check.py` → Unity con `PlayModeR
   Sus llamadas a `EffectManager`, `PowerupHolder`, `GimpedCarAI` y `BaseEffect` siguen pendientes de la Etapa 4 (hoy devuelven 0 o null y no se entra en esos bucles). El botón Rewind abre `RewindDialogPublisher`, que también es de la Etapa 4.
   Siguen pendientes de la Etapa 3, **aplazados a la Etapa 4** por decisión de la sesión local (junto al sistema de misiones): `HUDLogic.SignalMissionStart`/`SignalMissionComplete` y sus iteradores (15 métodos).
   Ningún otro pendiente de la Etapa 4 bloquea la carrera según el análisis estático; lo confirmará el log `[RecoveryPending]` de 3.9.
-- [ ] 3.9 **Validación en Unity 6.6** (capturas en `recovery/reports/stage3/`):
-  - TEST 5 · parrilla: jugador + 5 rivales colocados en las posiciones de salida, sobre el suelo.
-  - TEST 6 · presentación y cuenta atrás (3-2-1-GO) con el HUD.
-  - TEST 7 · conducción con teclado: acelerar, frenar/marcha atrás, girar, derrapar y power-slide.
-  - TEST 8 · física: suelo, rampas, muros, saltos; `dirt_road2` de Bus Jumper; sin atravesar el terreno.
-  - TEST 9 · checkpoints (`ProgressTriggerLogic`), aviso de sentido contrario y recolocación (`ResetTrigger`).
-  - TEST 10 · vueltas: el contador avanza y el HUD muestra vuelta y posición.
-  - TEST 11 · meta → pantalla de resultados.
-  - TEST 12 · pausa: continuar, reiniciar y salir al menú.
-  - TEST 13 · resultados → reintentar y → volver al garaje; el guardado registra el mejor puesto ("Highest Place <pista>").
-  - Revisión visual: una pista de cada mundo (Kick Buttowski, Phineas and Ferb, Fish Hooks) + Bus Jumper; lightmaps, light probes (pendiente 3.4) y agua de Fish Hooks.
-- [ ] 3.10 Cierre: catálogo regenerado, `RECOVERY_PROGRESS.md` y `SINCRONIZAR_A_LOCAL.md` al día, commit "Etapa 3 completa".
+  **Adelantados en 3.9** porque la validación demostró que bloqueaban la carrera:
+  - Sistema de efectos: `EffectManager` (completo), `BaseEffect` (accesores, `isBeneficial`, `GetEffectInstance`, combos, `DebugDump`) y siete efectos. Son `BoosterEffect` (tiras de turbo), `SlowdownEffect`, `WipeoutEffect`, `ShockedEffect` (tipo 17, pistas de Phineas), `SkidEffect` y `FlipEffect` (choques), y `GuidedJumpEffect` + `GuidedJumpTrigger` (saltos de rampa: sin ellos el kart cae al hueco del salto de Kick Butt Track 1 y no completa la vuelta).
+  - Las tablas `switch` de `isBeneficial`/`GetEffectInstance` se decodificaron del parche SWITCH del binario con la herramienta nueva `forensics/scripts/switch_tables.py`.
+  - `MusicPlayer.Instance`/`Exists` (la meta usaba `Instance` → `NullReferenceException` y la carrera no terminaba).
+  - `MissionManager.GetHasStartedFirstMission`.
+  - Siguen en la Etapa 4 los power-ups (mina, misil, escudo, embestida, teletransporte, combos), `PowerupHolder`, la IA (`CarAI`, `GimpedCarAI`), el audio (`SoundLibrary`, `SoundSequencer`, resto de `MusicPlayer`) y las monedas de pista (`CoinPoint.SpawnCoins`).
+- [x] 3.9 **Validación en Unity 6.6** — capturas en `recovery/reports/stage3/`, logs `recovery/logs/playrun_s3*.log`.
+  Banco de pruebas nuevo (solo tooling, `PlayModeRunner`/`RecoveryTestInput`):
+  - `key:<Tecla>@t1-t2`: teclas simuladas.
+  - `auto@t1-t2` (admite varios tramos): piloto automático que mantiene W y gira hacia el siguiente waypoint.
+  - `load:<escena>@t`: carga directa de una escena.
+  - `hidetype:<Tipo>@t`: oculta un overlay en las capturas.
+  - En cada captura se registran la posición, vuelta y puesto del jugador y los botones de UI activos.
+  - TEST 5 · parrilla ✅: jugador y 5 rivales en las posiciones de salida, apoyados en el suelo (`TriFoot`).
+  - TEST 6 · presentación y cuenta atrás ✅: vuelo de `PreRaceCamera`, semáforo 3-2-1-GO del HUD ("6th", "Lap 0 / 3").
+  - TEST 7 · conducción con teclado ✅:
+    - acelerar (el kart acelera solo salvo al frenar, como en el original), frenar hasta ir marcha atrás, girar;
+    - derrape con medidor y power-slide ("Drifting — Let Go!") y el turbo al soltar.
+  - TEST 8 · física ✅:
+    - suelo, rampas, muros (deslizamiento por `DoRoadBoundaries`), turbos y saltos guiados en Kick Butt Track 1;
+    - vuelta completa en Bus Jumper (Kick Butt Track 2, `dirt_road2`) sin quedarse clavado ni atravesar el terreno.
+  - TEST 9 · checkpoints ✅: `ProgressTriggerLogic` cuenta las vueltas; aviso "Wrong Way!" al dar la vuelta; recolocación por calado/`ResetTrigger` tras caer.
+  - TEST 10 · vueltas ✅: "Lap n / 3" y "1st" en el HUD, monedas, mapa lateral de posiciones.
+  - TEST 11 · meta → resultados ✅: tres vueltas en ~2:10 → `PostRaceCountdown` → escena `RaceResults`:
+    - 1.º–6.º con tiempos e iconos, el jugador en azul;
+    - bonus de puesto 300 × dificultad (Easy ×1).
+  - TEST 12 · pausa ✅: botón de pausa → Resume / Restart / Quit.
+    - Continuar congela y reanuda.
+    - Reiniciar vuelve a cargar la pista con su "Go".
+    - Salir lleva a `PreFrontEnd` → garaje (selector de circuitos con el trofeo de 1.º).
+  - TEST 13 · resultados ✅: Retry → nueva carrera completa; Continue → garaje.
+    - El guardado local (`DSSRacer_save.txt`) registra `Highest Place Kick Butt!` = 0 (0 = 1.º, codificación del original).
+    - Las monedas quedan acumuladas: 700 en memoria durante la 2.ª carrera, 1000 guardadas tras ella.
+  - Revisión visual ✅: Kick Butt 1 y 2, Phineas Track 1 y Fish Hooks Track 1 (vía `load:`, porque los circuitos Pro/Master están bloqueados por la progresión original) cargan, se conducen y cuentan vueltas.
+  - Observaciones:
+    - **Doble carga de `DebugTrackStrapper`** (fiel al original, solo en la vía de depuración). Abrir una pista sin pasar por el menú necesita `DataUtility`, como en el original. Con `load:` la pista se carga dos veces (pista → Loading → pista). El `HUDLogic` de la primera carga queda suscrito a `raceInitFinishedEvent`, y su `OnRaceInit` lanza `MissingReferenceException` y corta el evento. Por eso la pantalla de carga no se cierra y el HUD muestra el texto de ejemplo. Por el menú normal no ocurre.
+    - **Medidor de derrape** (fiel). Con el temporizador a 0 el relleno tiene escala X = 0 y `UghSprite` divide los márgenes entre `lossyScale` (NaN): Unity 6 avisa "Invalid worldAABB" y "Mesh.vertices is too small" (el original tampoco llama a `Mesh.Clear`). No tiene efecto visible.
+    - **Fish Hooks** se ve muy claro (cáusticos aditivos, pendiente 3.1): comparar con el original.
+    - **Karts rivales**: no conducen (IA de la Etapa 4); el jugador gana siempre.
+    - **Monedas**: "Coins: 0" en resultados porque las monedas de pista son de la Etapa 4.
+    - **Pausa por foco**: al perder el foco la ventana, `HUDLogic.OnApplicationPause` abre la pausa (original).
+- [x] 3.10 Cierre: catálogo regenerado, `RECOVERY_PROGRESS.md`, `PENDIENTES_POR_ETAPA.md` y `SINCRONIZAR_A_LOCAL.md` al día, commit "Etapa 3 completa".
 
 ### Etapa 4 — Sistemas completos
 - [ ] (pendiente)

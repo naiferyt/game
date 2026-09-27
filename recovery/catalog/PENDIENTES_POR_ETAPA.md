@@ -50,6 +50,18 @@ Etiquetas: RECUPERADO · RECUPERADO-AOT · ADAPTADO-U6 · RECONSTRUIDO · ELIMIN
 | 3.8 | `Plane_003` (Phineas Track 2): malla 200×200 frente a collider 2×2. | oráculo de separación | Revisar visualmente. |
 | 3.9 | **Punto de entrada de pruebas**: `DebugTrackStrapper` (original) permite abrir una pista directamente con el kart por defecto. | escenas de pista | Traducirlo pronto para probar la carrera sin pasar por el menú. |
 
+
+**Estado al cerrar la Etapa 3 (2026-09-26, validación 3.9):**
+- **Resueltos:**
+  - 3.2 física validada: suelo, rampas, muros, turbos y saltos guiados.
+  - 3.3 `dirt_road2`: vuelta completa en Bus Jumper sin rebotes.
+  - 3.5 controles de PC con las teclas del ARM.
+  - 3.9 `DebugTrackStrapper` traducido. Necesita la sesión arrancada (`DataUtility`), como en el original: en pruebas se usa `load:<pista>` del `PlayModeRunner` tras `CloudStrap`.
+- **Parciales:**
+  - 3.1 `CausticsManager` traducido; el agua anima, pero Fish Hooks se ve muy claro: comparar el brillo con el original.
+  - 3.4 y 3.6: los karts y las pistas se ven correctos en las capturas; queda la comparación fina con el original (light probes y brillo de lightmaps).
+- **Sin revisar:** 3.7 y 3.8. Pasan a la revisión visual de la Etapa 4.
+- **Nuevos, fieles al original** (ver `RECOVERY_PROGRESS.md` §3.9): doble carga de la vía de depuración y avisos NaN del medidor de derrape.
 ---
 
 ## Etapa 4 — Sistemas completos
