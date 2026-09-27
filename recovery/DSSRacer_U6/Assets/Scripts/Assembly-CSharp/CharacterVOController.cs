@@ -51,9 +51,18 @@ public class CharacterVOController : MonoBehaviour
 
 	// RECUPERADO-AOT CharacterVOController::PlayClip token 0x060002ee @0x000ecf18
 	// ADAPTADO-U6: Component.audio -> GetComponent<AudioSource>().
+	// ADAPTADO-U6: spatialBlend = 0. In Unity 4 2D/3D was a property of the clip, and every voice clip of the original
+	// was imported 2D (m_3D = false; they are the only 2D clips of the game). Unity 5+ decides it on the source, which
+	// is 3D here (logarithmic from 1 m), so the voices were barely audible from the chase camera.
+	// Also skips a null clip (Crash and Soos have no voice clips in the original data): Unity 6 logs a warning for it.
 	private void PlayClip(AudioClip clip)
 	{
 		AudioSource component = GetComponent<AudioSource>();
+		if (clip == null)
+		{
+			return;
+		}
+		component.spatialBlend = 0f;
 		if (!component.isPlaying)
 		{
 			component.volume = DataUtility.Instance.localOptions.sfxVolumeLevel;

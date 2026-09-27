@@ -133,13 +133,6 @@ public class GimpedCarAI : MonoBehaviour
 	// the kart back to (wall distance - kart width) from the track line.
 	private void DoRoadBoundaries()
 	{
-		// MODIFICADO (petición del usuario, 2026-09-27; no está en el original): no walls while the kart is in the air.
-		// The closest waypoint is searched in 3D, so over the Kick Butt 1 jump pit a rival flying on the left-hand
-		// recorded line got the waypoint of the road 15 units below and was pinned in mid-air to its wall for seconds.
-		if (IsInAir)
-		{
-			return;
-		}
 		WaypointLogic waypointLogic = WaypointLogic.FindClosestWaypoint(base.transform.position, false);
 		if (waypointLogic == null)
 		{
@@ -153,6 +146,17 @@ public class GimpedCarAI : MonoBehaviour
 		float wallDistanceAtPoint = waypointLogic.GetWallDistanceAtPoint(base.transform.position);
 		if (waypointLogic.projectsWalls && !(magnitude + GetComponent<Collider>().bounds.size.x < wallDistanceAtPoint))
 		{
+			// MODIFICADO (petición del usuario, 2026-09-27; no está en el original): a rival is not pushed back while in the
+			// air, nor when the next point of its own recorded line is beyond the same wall. The closest waypoint is searched
+			// in 3D, so it can belong to another stretch: over the Kick Butt 1 jump pit it was the road 15 units below (rival
+			// pinned in mid-air up to 13 s) and on the Dirt Devils split road it was the main road (rival pinned for the rest
+			// of the race).
+			Vector3 toTargetWall = waypointLogic.GetTrackPoint(targetPos) + waypointLogic.GetWallOffsetForPoint(targetPos) - targetPos;
+			toTargetWall.y = 0f;
+			if (IsInAir || !(toTargetWall.magnitude + GetComponent<Collider>().bounds.size.x < waypointLogic.GetWallDistanceAtPoint(targetPos)))
+			{
+				return;
+			}
 			vector.Normalize();
 			bumpVelocity -= vector * Vector3.Dot(bumpVelocity, vector);
 			Vector3 position = trackPoint + wallOffsetForPoint - vector * (wallDistanceAtPoint - GetComponent<Collider>().bounds.size.x);
