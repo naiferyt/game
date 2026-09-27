@@ -7,11 +7,16 @@
 # Usage: sh forensics/scripts/mcs_check/compile_check.sh   (needs mono-mcs)
 HERE=$(cd "$(dirname "$0")" && pwd)
 ROOT=$HERE/../../..
-A=$ROOT/recovery/DSSRacer_U6/Assets
+SRC=$ROOT/recovery/DSSRacer_U6/Assets
 U4=$ROOT/phase1_analysis/ipa_unpacked/Payload/DSSRacing.app/Data/Managed/UnityEngine.dll
 OUT=${TMPDIR:-/tmp}/dss_compile_check; mkdir -p "$OUT"
+# Work on a copy with u6_rewrites.sed applied (Unity 6 statics of UnityEngine.Object that no shim can add).
+A=$OUT/src; rm -rf "$A"; mkdir -p "$A"
+(cd "$SRC" && find . -name '*.cs' -not -path '*/Editor/*' | while read -r f; do
+	mkdir -p "$A/$(dirname "$f")"; sed -f "$HERE/u6_rewrites.sed" "$f" > "$A/$f"; done)
+rm -f "$OUT/Assembly-CSharp-firstpass.dll" "$OUT/Assembly-CSharp.dll"
 # Unity 6-only compatibility code (uses APIs absent from Unity 4.3): not checkable here.
-U6ONLY=LegacyLightmapRestorer.cs
+U6ONLY="-not -name LegacyLightmapRestorer.cs -not -name LegacyLightProbes.cs -not -name PcFrameRate.cs -not -name RecoveryPlayerTest.cs"
 NOWARN=-nowarn:0108,0114,0162,0168,0169,0219,0414,0618,0649,0672
 IGNORE=$(grep -v '^#' "$HERE/u6_only_errors.txt" | paste -sd'|' -)
 check() {   # $1 = log; prints real errors, returns 1 if any
@@ -28,6 +33,6 @@ echo "firstpass:"; check "$OUT/fp.log" || exit 1
 # without the per-file failures being fatal is not possible with mcs, so fall back to the previous build.
 [ -f "$OUT/Assembly-CSharp-firstpass.dll" ] || { echo "no firstpass assembly"; exit 1; }
 mcs -target:library $NOWARN -r:"$U4" -r:"$OUT/shim.dll" -r:"$OUT/Assembly-CSharp-firstpass.dll" -out:"$OUT/Assembly-CSharp.dll" \
-	$(find "$A" -name '*.cs' -not -path "$A/Plugins/*" -not -path '*/Editor/*' -not -name "$U6ONLY") > "$OUT/cs.log" 2>&1
+	$(find "$A" -name '*.cs' -not -path "$A/Plugins/*" -not -path '*/Editor/*' $U6ONLY) > "$OUT/cs.log" 2>&1
 echo "Assembly-CSharp:"; check "$OUT/cs.log" || exit 1
 echo "compile_check: OK"
