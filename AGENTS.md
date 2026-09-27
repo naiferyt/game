@@ -174,6 +174,7 @@ bash forensics/scripts/run_player.sh <nombre> 1920 1080 60 "obj:Play Button@6;..
 - **Interfaz Ugh:** la cámara mide 9,6 unidades de alto y el ancho sigue al aspecto. `UghCamera.Update` recoloca la interfaz al cambiar el tamaño de la ventana.
 - **Textos de la interfaz:** la fuente bitmap `Assets/Font/CCUpUpAndAway.asset` lleva `m_Ascent: 0` a propósito (Unity 4 medía los glifos desde la línea superior). No la restaures a 48.75: todos los textos bajarían fuera de sus recuadros. Se comprueba con `DSSRecovery.FontProbe.Run`.
 - **Barrido de colisión del kart** (`CarCollider.DoMovement`): ignora solapes iniciales y triggers, como PhysX 2.8. El radio `bounds.size.x` (2,4) es el del original; no lo cambies.
+- **Cambios pedidos por el usuario** (etiqueta `// MODIFICADO (petición del usuario…)`, no fieles al ARM, no los reviertas): el kart ignora contactos a ras de suelo (rampa de Kick Butt 1) y los bots no aplican muros en el aire (`GimpedCarAI.DoRoadBoundaries`).
 - **Partículas:** sus materiales se restauraron con `forensics/scripts/fix_particle_materials.py`; el volcado `badmat` del arnés lista renderers sin material.
 - **Probar circuitos Pro/Master:** usa una copia del guardado con `Highest Place <pista>::0;;` para las 9 pistas en `LifeTimeMetrics`. El menú previo exige pulsar primero la flecha del tipo de carrera (`0.0625,0.49`, `0.547,0.495`), luego `obj:Play Button` y en pista `obj:Go Button`. Al arrancar, cierra las ventanas de logro con `obj:Input Blocker Invisible` (3 veces, cada 3 s).
 

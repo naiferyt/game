@@ -651,6 +651,13 @@ public class CarCollider : MonoBehaviour
 				continue;
 			}
 			CarCollider component = gameObject.GetComponent<CarCollider>();
+			// MODIFICADO (petición del usuario, 2026-09-27; no está en el original): on the ground, props touched no higher
+			// than 0.5 above the kart's underside are ignored, like a step offset. The sweep sphere (radius = kart width)
+			// reaches below the road and hit the Collide block under the Kick Butt 1 ramp, braking the kart from 53 to 27.
+			if (!component && lastRoadContact != null && raycastHit.point.y < base.transform.position.y - attributes.groundHeight + 0.5f)
+			{
+				continue;
+			}
 			if ((bool)component)
 			{
 				EffectManager component2 = component.GetComponent<EffectManager>();

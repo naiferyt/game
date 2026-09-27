@@ -133,6 +133,13 @@ public class GimpedCarAI : MonoBehaviour
 	// the kart back to (wall distance - kart width) from the track line.
 	private void DoRoadBoundaries()
 	{
+		// MODIFICADO (petición del usuario, 2026-09-27; no está en el original): no walls while the kart is in the air.
+		// The closest waypoint is searched in 3D, so over the Kick Butt 1 jump pit a rival flying on the left-hand
+		// recorded line got the waypoint of the road 15 units below and was pinned in mid-air to its wall for seconds.
+		if (IsInAir)
+		{
+			return;
+		}
 		WaypointLogic waypointLogic = WaypointLogic.FindClosestWaypoint(base.transform.position, false);
 		if (waypointLogic == null)
 		{

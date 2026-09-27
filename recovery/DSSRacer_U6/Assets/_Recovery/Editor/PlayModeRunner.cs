@@ -32,6 +32,9 @@ namespace DSSRecovery
 		// kart trace: "trace@<from>-<to>" logs the player's position, speed and the sweep hits of CarCollider.DoMovement every 0.05 s (stage 4.10)
 		static readonly List<Vector2> s_TraceRanges = new List<Vector2>();
 		static float s_NextTrace;
+		// rival trace: "aitrace@<from>-<to>" logs every AI kart (position, speed, jump effect, air state) every 0.1 s
+		static readonly List<Vector2> s_AiTraceRanges = new List<Vector2>();
+		static float s_NextAiTrace;
 		static string s_LastButtons = "";
 		// average frame rate between screenshots (stage 4.1)
 		static int s_FpsFrame = -1;
@@ -78,7 +81,7 @@ namespace DSSRecovery
 			Log.Length = 0;
 			s_Start = EditorApplication.timeSinceStartup;
 			EditorApplication.update -= Tick; EditorApplication.update += Tick;
-			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear(); s_Keys.Clear(); s_AutoRanges.Clear(); s_AutoOn = false; s_TraceRanges.Clear(); s_NextTrace = 0f; s_Loads.Clear(); s_FpsFrame = -1; s_LastButtons = "";
+			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear(); s_Keys.Clear(); s_AutoRanges.Clear(); s_AutoOn = false; s_TraceRanges.Clear(); s_NextTrace = 0f; s_Spawned.Clear(); s_AiTraceRanges.Clear(); s_NextAiTrace = 0f; s_Loads.Clear(); s_FpsFrame = -1; s_LastButtons = "";
 			foreach (var p in SessionState.GetString(K + "shots", "").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
 				s_ShotTimes.Add(float.Parse(p, System.Globalization.CultureInfo.InvariantCulture));
 			foreach (var c in SessionState.GetString(K + "clicks", "").Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
@@ -89,9 +92,30 @@ namespace DSSRecovery
 					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), "#hide#" + at[0].Substring(9)));
 					continue;
 				}
+				if (at[0] == "spawnanims")
+				{
+					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), "#spawnanims#"));
+					continue;
+				}
+				if (at[0] == "spawnai")
+				{
+					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), "#spawnai#"));
+					continue;
+				}
+				if (at[0] == "closeups")
+				{
+					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), "#close#"));
+					continue;
+				}
 				if (at[0].StartsWith("load:"))
 				{
 					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), at[0].Substring(5)));
+					continue;
+				}
+				if (at[0] == "aitrace")
+				{
+					var ar = at[1].Split('-');
+					s_AiTraceRanges.Add(new Vector2(float.Parse(ar[0], System.Globalization.CultureInfo.InvariantCulture), float.Parse(ar[1], System.Globalization.CultureInfo.InvariantCulture)));
 					continue;
 				}
 				if (at[0] == "trace")
@@ -162,6 +186,9 @@ namespace DSSRecovery
 			while (s_Loads.Count > 0 && t >= s_Loads[0].Key)
 			{
 				string what = s_Loads[0].Value;
+				if (what == "#close#") { CloseUps(t); s_Loads.RemoveAt(0); continue; }
+				if (what == "#spawnai#") { SpawnAllAi(t); s_Loads.RemoveAt(0); continue; }
+				if (what == "#spawnanims#") { SpawnAllAi(t, true); s_Loads.RemoveAt(0); continue; }
 				if (what.StartsWith("#hide#"))
 				{
 					// test-only: hides every active instance of a component type (e.g. an overlay covering the screenshots)
@@ -179,11 +206,25 @@ namespace DSSRecovery
 			}
 			AutoPilot(t);
 			Trace(t);
+			AiTrace(t);
 			while (s_ShotTimes.Count > 0 && t >= s_ShotTimes[0])
 			{
 				Shot(t); s_ShotTimes.RemoveAt(0);
 			}
 			if (t >= SessionState.GetFloat(K + "seconds", 10f)) Finish();
+		}
+
+		static void AiTrace(float t)
+		{
+			if (t < s_NextAiTrace || !s_AiTraceRanges.Any(r => t >= r.x && t < r.y)) return;
+			s_NextAiTrace = t + 0.1f;
+			foreach (var ai in UnityEngine.Object.FindObjectsByType<GimpedCarAI>(FindObjectsSortMode.None))
+			{
+				var cc = ai.GetComponent<CarCollider>();
+				bool jump = cc != null && cc.EffectMgr != null && cc.EffectMgr.HasEffect(typeof(GuidedJumpEffect));
+				string fx = cc != null && cc.EffectMgr != null ? string.Join("+", new[] { typeof(GuidedJumpEffect), typeof(FlipEffect), typeof(WipeoutEffect), typeof(TeleportEffect) }.Where(ty => cc.EffectMgr.HasEffect(ty)).Select(ty => ty.Name.Replace("Effect", "")).ToArray()) : "";
+				Log.AppendLine(string.Format("[{0:0.00}] [ai] {1} pos {2} v {3:0.0} air {4} fx {5} lap {6}", t, ai.name, ai.transform.position.ToString("F1"), ai.LinearVelocity, ai.IsInAir ? 1 : 0, fx, RaceManager.GetCarLap(ai.gameObject)));
+			}
 		}
 
 		static void Trace(float t)
@@ -296,6 +337,71 @@ namespace DSSRecovery
 			catch (Exception e) { Log.AppendLine("[shot failed] " + e.Message); }
 		}
 
+		// "spawnai@t": every rival prefab (Resources/cart assets/ai carts) is placed in a row 30 units above the player,
+		// without its driving scripts, playing its driving animation; the next "closeups" photographs them too
+		static readonly List<Transform> s_Spawned = new List<Transform>();
+		static void SpawnAllAi(float t, bool everyClip = false)
+		{
+			var player = GameObject.FindGameObjectWithTag("Player");
+			if (player == null) return;
+			string[] clipKinds = everyClip ? new[] { "driving", "turnLeft", "turnRight", "cheering", "handsUp", "fist", "wave", "idle", "sitting" } : new[] { "driving" };
+			int row = 0;
+			foreach (var prefab in Resources.LoadAll<GameObject>("cart assets/ai carts").Concat(everyClip ? Resources.LoadAll<GameObject>("cart assets/characters") : new GameObject[0]))
+			{
+				for (int col = 0; col < clipKinds.Length; col++)
+				{
+					var go = UnityEngine.Object.Instantiate(prefab, player.transform.position + Vector3.up * (30f + 10f * col) + player.transform.right * (10f * row - 60f), player.transform.rotation);
+					go.name = "spawn_" + prefab.name + (everyClip ? "_" + clipKinds[col] : "");
+					foreach (var mb in go.GetComponentsInChildren<MonoBehaviour>(true)) if (mb.GetType().Assembly.GetName().Name == "Assembly-CSharp") mb.enabled = false;
+					foreach (var a in go.GetComponentsInChildren<Animation>(true))
+					{
+						var clip = a.Cast<AnimationState>().Select(s => s.name).FirstOrDefault(n => n.EndsWith("_" + clipKinds[col], StringComparison.OrdinalIgnoreCase));
+						if (clip != null) { a[clip].wrapMode = WrapMode.Loop; a.Play(clip); }
+						if (!everyClip) Log.AppendLine(string.Format("[{0:0.00}] [spawn] {1} anim {2} clips {3}", t, go.name, clip ?? "-", string.Join(",", a.Cast<AnimationState>().Select(s => s.name).ToArray())));
+					}
+					s_Spawned.Add(go.transform);
+				}
+				row++;
+			}
+		}
+
+		// "closeups@t": a front and a side close-up of every kart (and its driver) with a temporary camera that copies
+		// the race camera's culling mask, plus the skinned meshes of each kart (to spot broken characters)
+		static void CloseUps(float t)
+		{
+			var main = UnityEngine.Object.FindObjectsByType<Camera>(FindObjectsSortMode.None).Where(c => c.enabled && c.gameObject.activeInHierarchy && !c.name.Contains("UghCamera")).OrderByDescending(c => c.depth).FirstOrDefault();
+			string dir = Path.Combine(LogDir, "screens"); Directory.CreateDirectory(dir);
+			var karts = UnityEngine.Object.FindObjectsByType<CarCollider>(FindObjectsSortMode.None).Select(c => c.transform).Where(x => !s_Spawned.Contains(x)).Concat(s_Spawned.Where(x => x != null)).ToList();
+			foreach (var kart in karts)
+			{
+				foreach (var smr in kart.GetComponentsInChildren<SkinnedMeshRenderer>(true))
+				{
+					var m = smr.sharedMesh;
+					Log.AppendLine(string.Format("[{0:0.00}] [skin] {1} / {2}: mesh {3} verts {4} bones {5}/{6} bindposes {7} weights {8} bounds {9} mats {10}", t, kart.name, smr.name,
+						m != null ? m.name : "null", m != null ? m.vertexCount : 0, smr.bones.Count(b => b != null), smr.bones.Length, m != null ? m.bindposes.Length : 0,
+						m != null ? m.boneWeights.Length : 0, smr.bounds.size.ToString("F2"), string.Join("+", smr.sharedMaterials.Select(x => x == null ? "null" : x.name + "(" + x.shader.name + ")").ToArray())));
+				}
+				for (int side = 0; side < 2; side++)
+				{
+					var go = new GameObject("closeup cam");
+					var cam = go.AddComponent<Camera>();
+					if (main != null) { cam.cullingMask = main.cullingMask; cam.clearFlags = main.clearFlags; cam.backgroundColor = main.backgroundColor; }
+					cam.fieldOfView = 40f; cam.nearClipPlane = 0.1f;
+					Vector3 dirv = side == 0 ? kart.forward : kart.right;
+					go.transform.position = kart.position + dirv * 4.5f + kart.up * 1.8f;
+					go.transform.LookAt(kart.position + kart.up * 1.0f);
+					var rt = new RenderTexture(640, 480, 24); cam.targetTexture = rt; cam.Render();
+					RenderTexture.active = rt;
+					var tex = new Texture2D(640, 480, TextureFormat.RGB24, false); tex.ReadPixels(new Rect(0, 0, 640, 480), 0, 0); tex.Apply();
+					RenderTexture.active = null;
+					string f = Path.Combine(dir, string.Format("playrun_{0}_close_{1}_{2}.png", SessionState.GetString(K + "name", "run"), kart.name.Replace(" ", "_"), side == 0 ? "front" : "side"));
+					File.WriteAllBytes(f, tex.EncodeToPNG());
+					UnityEngine.Object.DestroyImmediate(tex); rt.Release(); UnityEngine.Object.DestroyImmediate(go);
+				}
+				Log.AppendLine(string.Format("[{0:0.00}] [closeup] {1}", t, kart.name));
+			}
+		}
+
 		// state dump at the end: active root objects + all fields of the first instance of each requested component type
 		static void Dump()
 		{
@@ -315,6 +421,31 @@ namespace DSSRecovery
 							(tm.text ?? "").Replace("\n", "\\n"), tm.transform.parent != null ? tm.transform.parent.name + "/" + tm.name : tm.name,
 							tm.transform.position, tm.transform.lossyScale, tm.characterSize, r != null ? r.bounds.size.ToString() : "-", r != null && r.enabled));
 					}
+					continue;
+				}
+				if (tn.StartsWith("wp:"))
+				{
+					// closest waypoint to x_y_z and the DoRoadBoundaries test there (kart width 2.4): margin >= 0 pushes the kart
+					var xyz = tn.Substring(3).Split('_').Select(s => float.Parse(s, System.Globalization.CultureInfo.InvariantCulture)).ToArray();
+					var pos = new Vector3(xyz[0], xyz[1], xyz[2]);
+					var wp = WaypointLogic.FindClosestWaypoint(pos, false);
+					if (wp == null) { Log.AppendLine("[dump] wp " + pos + ": none"); continue; }
+					Vector3 tp = wp.GetTrackPoint(pos), wo = wp.GetWallOffsetForPoint(pos);
+					Vector3 d = tp + wo - pos; d.y = 0f;
+					float wd = wp.GetWallDistanceAtPoint(pos);
+					Log.AppendLine(string.Format("[dump] wp {0}: closest '{1}' at {2} walls {3} trackPoint {4} wallOffset {5} wallDist {6:0.00} dist {7:0.00} margin {8:0.00} -> pushed to {9}",
+						pos, wp.name, wp.transform.position.ToString("F1"), wp.projectsWalls, tp.ToString("F1"), wo.ToString("F2"), wd, d.magnitude, d.magnitude + 2.4f - wd,
+						(tp + wo - d.normalized * (wd - 2.4f)).ToString("F1")));
+					continue;
+				}
+				if (tn.StartsWith("raydown:"))
+				{
+					// every hit of a downward ray (layers Ground | Collide, as ShadowBlob) from x_y_z, triggers included
+					var xyz = tn.Substring(8).Split('_').Select(s => float.Parse(s, System.Globalization.CultureInfo.InvariantCulture)).ToArray();
+					var from = new Vector3(xyz[0], xyz[1], xyz[2]);
+					foreach (var h in Physics.RaycastAll(from, Vector3.down, 200f, 1280, QueryTriggerInteraction.Collide).OrderBy(h => h.distance))
+						Log.AppendLine(string.Format("[dump] raydown {0}: '{1}' {2} layer {3}{4} point {5} normal {6}", from, PathOf(h.collider.transform), h.collider.GetType().Name,
+							h.collider.gameObject.layer, h.collider.isTrigger ? " trigger" : "", h.point.ToString("F2"), h.normal.ToString("F2")));
 					continue;
 				}
 				if (tn.StartsWith("cols:"))
