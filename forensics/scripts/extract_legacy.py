@@ -37,6 +37,11 @@ def parse_body(body):
     out = {}; cur = None
     for line in body.split('\n')[2:]:
         if not line.strip(): continue
+        # list items first: "  - {fileID: ...}" also matches the key pattern below (Stage 4.9 fix, see fix_particle_materials.py)
+        m = re.match(r'^  - (.*)$', line)
+        if m and cur is not None:
+            if not isinstance(out[cur], list): out[cur] = []
+            out[cur].append(parse_value(m.group(1))); continue
         m = re.match(r'^  ([^ :][^:]*): ?(.*)$', line)
         if m:
             k, v = m.group(1), m.group(2)

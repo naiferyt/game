@@ -272,6 +272,23 @@ namespace DSSRecovery
 					}
 					continue;
 				}
+				if (tn == "badmat")
+				{
+					// renderers that would draw magenta: no material, or a shader that is missing / unsupported
+					foreach (var r in UnityEngine.Object.FindObjectsByType<Renderer>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+					{
+						foreach (var m in r.sharedMaterials)
+						{
+							bool bad = m == null || m.shader == null || !m.shader.isSupported || m.shader.name == "Hidden/InternalErrorShader";
+							if (!bad) continue;
+							var p = r.transform; string path = p.name;
+							while (p.parent != null) { p = p.parent; path = p.name + "/" + path; }
+							Log.AppendLine(string.Format("[dump] badmat {0} '{1}' active {2} material {3} shader {4}", r.GetType().Name, path, r.gameObject.activeInHierarchy,
+								m == null ? "null" : m.name, m == null || m.shader == null ? "null" : m.shader.name));
+						}
+					}
+					continue;
+				}
 				if (tn.StartsWith("obj:"))
 				{
 					var root = UnityEngine.Object.FindObjectsByType<Transform>(FindObjectsInactive.Include, FindObjectsSortMode.None).FirstOrDefault(x => x.name == tn.Substring(4));
