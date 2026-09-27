@@ -29,6 +29,9 @@ namespace DSSRecovery
 		// autopilot: "auto@<from>-<to>" holds W and steers the player's kart toward the waypoint ahead (stage 3 tests)
 		static readonly List<Vector2> s_AutoRanges = new List<Vector2>();
 		static bool s_AutoOn;
+		// kart trace: "trace@<from>-<to>" logs the player's position, speed and the sweep hits of CarCollider.DoMovement every 0.05 s (stage 4.10)
+		static readonly List<Vector2> s_TraceRanges = new List<Vector2>();
+		static float s_NextTrace;
 		static string s_LastButtons = "";
 		// average frame rate between screenshots (stage 4.1)
 		static int s_FpsFrame = -1;
@@ -75,7 +78,7 @@ namespace DSSRecovery
 			Log.Length = 0;
 			s_Start = EditorApplication.timeSinceStartup;
 			EditorApplication.update -= Tick; EditorApplication.update += Tick;
-			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear(); s_Keys.Clear(); s_AutoRanges.Clear(); s_AutoOn = false; s_Loads.Clear(); s_FpsFrame = -1; s_LastButtons = "";
+			s_ShotTimes.Clear(); s_Clicks.Clear(); s_ObjClicks.Clear(); s_Keys.Clear(); s_AutoRanges.Clear(); s_AutoOn = false; s_TraceRanges.Clear(); s_NextTrace = 0f; s_Loads.Clear(); s_FpsFrame = -1; s_LastButtons = "";
 			foreach (var p in SessionState.GetString(K + "shots", "").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
 				s_ShotTimes.Add(float.Parse(p, System.Globalization.CultureInfo.InvariantCulture));
 			foreach (var c in SessionState.GetString(K + "clicks", "").Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
@@ -89,6 +92,12 @@ namespace DSSRecovery
 				if (at[0].StartsWith("load:"))
 				{
 					s_Loads.Add(new KeyValuePair<float, string>(float.Parse(at[1], System.Globalization.CultureInfo.InvariantCulture), at[0].Substring(5)));
+					continue;
+				}
+				if (at[0] == "trace")
+				{
+					var tr = at[1].Split('-');
+					s_TraceRanges.Add(new Vector2(float.Parse(tr[0], System.Globalization.CultureInfo.InvariantCulture), float.Parse(tr[1], System.Globalization.CultureInfo.InvariantCulture)));
 					continue;
 				}
 				if (at[0] == "auto")
@@ -169,11 +178,47 @@ namespace DSSRecovery
 				s_Loads.RemoveAt(0);
 			}
 			AutoPilot(t);
+			Trace(t);
 			while (s_ShotTimes.Count > 0 && t >= s_ShotTimes[0])
 			{
 				Shot(t); s_ShotTimes.RemoveAt(0);
 			}
 			if (t >= SessionState.GetFloat(K + "seconds", 10f)) Finish();
+		}
+
+		static void Trace(float t)
+		{
+			if (t < s_NextTrace || !s_TraceRanges.Any(r => t >= r.x && t < r.y)) return;
+			s_NextTrace = t + 0.05f;
+			var player = GameObject.FindGameObjectWithTag("Player");
+			if (player == null) return;
+			var cc = player.GetComponent<CarCollider>(); var col = player.GetComponent<Collider>();
+			if (cc == null || col == null) return;
+			Vector3 v = cc.GetVelocity();
+			var hits = Physics.SphereCastAll(player.transform.position, col.bounds.size.x, v.normalized, v.magnitude * Time.fixedDeltaTime, 1536, QueryTriggerInteraction.Ignore)
+				.Where(h => h.transform.gameObject != player)
+				.Select(h => PathOf(h.collider.transform) + "[" + h.collider.GetType().Name + " L" + h.collider.gameObject.layer + (h.collider.isTrigger ? " trigger" : "") + "]"
+					+ (h.distance == 0f && h.point == Vector3.zero ? "(overlap)" : string.Format("(d {0:0.00} p {1} n {2})", h.distance, h.point, h.normal)));
+			// DoRoadBoundaries margin (>= 0 means the waypoint wall is pushing the kart), ground contact and heading
+			var bf = System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance;
+			var wp = WaypointLogic.FindClosestWaypoint(player.transform.position, false);
+			bool grounded = (typeof(CarCollider).GetField("lastRoadContact", bf).GetValue(cc) as GameObject) != null;
+			string wall = "-";
+			if (wp != null)
+			{
+				Vector3 pos = player.transform.position;
+				Vector3 d = wp.GetTrackPoint(pos) + wp.GetWallOffsetForPoint(pos) - pos; d.y = 0f;
+				wall = string.Format("{0:0.00}{1}", d.magnitude + col.bounds.size.x - wp.GetWallDistanceAtPoint(pos), wp.projectsWalls ? "" : "(off)") + " wp " + wp.name;
+			}
+			Log.AppendLine(string.Format("[{0:0.00}] [trace] pos {1} speed {2:0.0} vy {3:0.0} r {5:0.00} {6} fwd {7} ground {8} wall {9} hits {4}", t, player.transform.position, v.magnitude, v.y, string.Join(", ", hits.ToArray()), col.bounds.size.x, col.GetType().Name,
+				player.transform.forward.ToString("F2"), grounded ? 1 : 0, wall));
+		}
+
+		static string PathOf(Transform x)
+		{
+			string s = x.name;
+			for (var p = x.parent; p != null; p = p.parent) s = p.name + "/" + s;
+			return s;
 		}
 
 		static void AutoPilot(float t)
@@ -269,6 +314,19 @@ namespace DSSRecovery
 						Log.AppendLine(string.Format("[dump] text '{0}' on '{1}' pos {2} lossyScale {3} charSize {4} size {5} renderer {6}",
 							(tm.text ?? "").Replace("\n", "\\n"), tm.transform.parent != null ? tm.transform.parent.name + "/" + tm.name : tm.name,
 							tm.transform.position, tm.transform.lossyScale, tm.characterSize, r != null ? r.bounds.size.ToString() : "-", r != null && r.enabled));
+					}
+					continue;
+				}
+				if (tn.StartsWith("cols:"))
+				{
+					// colliders whose hierarchy path contains the text (or whose GameObject has a component of that type): layer, trigger, world bounds
+					string key = tn.Substring(5);
+					foreach (var c in UnityEngine.Object.FindObjectsByType<Collider>(FindObjectsSortMode.None))
+					{
+						string path = PathOf(c.transform);
+						if (!path.Contains(key) && c.GetComponent(key) == null) continue;
+						Log.AppendLine(string.Format("[dump] col '{0}' {1} layer {2}{3} bounds min {4} max {5}", path, c.GetType().Name, c.gameObject.layer,
+							c.isTrigger ? " trigger" : "", c.bounds.min, c.bounds.max));
 					}
 					continue;
 				}

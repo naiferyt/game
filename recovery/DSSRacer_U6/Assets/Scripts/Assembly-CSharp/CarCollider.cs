@@ -619,7 +619,7 @@ public class CarCollider : MonoBehaviour
 	// Sphere-casts the frame's displacement against Cars | Collide (1536). Kart hits: with the (always on)
 	// dummied player collision the kart is pushed back and skids unless shielded, the other AI gets bumped;
 	// smash/shield combinations flip either kart. Prop hits: CollideBreak message, slide along the surface.
-	// ADAPTADO-U6: Component.collider -> GetComponent<Collider>(); FindChild -> Find.
+	// ADAPTADO-U6: Component.collider -> GetComponent<Collider>(); FindChild -> Find; sweep without triggers or initial overlaps (below).
 	private void DoMovement()
 	{
 		Vector3 vector = velocity * Time.deltaTime;
@@ -628,10 +628,23 @@ public class CarCollider : MonoBehaviour
 		bool flag = carEffectMgr.HasEffect(typeof(ShieldEffect));
 		bool flag2 = carEffectMgr.HasEffectOfLevel(typeof(ShieldEffect), 2);
 		bool flag3 = carEffectMgr.HasEffect(typeof(SmashEffect));
-		RaycastHit[] array = Physics.SphereCastAll(base.gameObject.transform.position, GetComponent<Collider>().bounds.size.x, vector.normalized, vector.magnitude, 1536);
+		// ADAPTADO-U6: QueryTriggerInteraction.Ignore. PhysX 2.8 sweeps never reported trigger shapes, but Unity 5.2+
+		// applies queriesHitTriggers (on in this project, as Unity 4's raycastsHitTriggers) to sweeps too: the kart
+		// stopped dead in front of hazard triggers on the Collide layer (Doof's Tower robot laser, 45 -> 5) and
+		// brushed the ResetTrigger volumes under the road.
+		RaycastHit[] array = Physics.SphereCastAll(base.gameObject.transform.position, GetComponent<Collider>().bounds.size.x, vector.normalized, vector.magnitude, 1536, QueryTriggerInteraction.Ignore);
 		for (int i = 0; i < array.Length; i++)
 		{
 			RaycastHit raycastHit = array[i];
+			// ADAPTADO-U6: Unity 4's PhysX 2.8 sweeps never reported colliders the sphere already overlapped at the
+			// start; Unity 5+ returns them with distance 0 and point (0,0,0). This code takes the contact normal as
+			// (position - point), so each overlapped collider would brake the kart every frame in a direction
+			// pointing away from the world origin: karts crawled up the Kick Butt 1 ramp (the sweep sphere sits
+			// inside the Collide block under the slope) and stuck on kerbs. Initial overlaps are skipped as in U4.
+			if (raycastHit.distance == 0f && raycastHit.point == Vector3.zero)
+			{
+				continue;
+			}
 			GameObject gameObject = raycastHit.transform.gameObject;
 			if (gameObject == base.gameObject)
 			{
