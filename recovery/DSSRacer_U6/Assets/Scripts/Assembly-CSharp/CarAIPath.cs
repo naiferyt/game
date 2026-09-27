@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class CarAIPath
 {
+	// RECUPERADO-AOT CarAIPath/PathPoint::.ctor token 0x06000003 @0x000c095c (trivial constructor)
 	[Serializable]
 	public class PathPoint
 	{

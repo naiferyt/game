@@ -46,13 +46,13 @@ def build(name, srcs, extra):
     csc = os.path.join(CLOUD, 'roslyn', 'tasks', 'netcore', 'bincore', 'csc.dll') if IS_CLOUD else CSC
     p = subprocess.run(['dotnet', csc, '@' + rsp], capture_output=True, text=True, encoding='utf8', errors='replace')
     errs = [l for l in p.stdout.splitlines() if ': error ' in l]
+    if p.returncode != 0 and not errs:   # the compiler itself failed to run: never report that as "0 errors"
+        errs = ['compiler failed (exit %d): %s' % (p.returncode, (p.stdout + p.stderr).strip()[:400])]
     if IS_CLOUD:
         pats = [l.strip() for l in open(os.path.join(HERE, 'cloud_u6_only.txt'), encoding='utf8') if l.strip() and not l.startswith('#')]
         kept = [e for e in errs if not any(re.search(pt, e) for pt in pats)]
-        if len(kept) != len(errs): print('   (cloud: %d Unity 6-only API errors ignored, see cloud_u6_only.txt)' % (len(errs) - len(kept)))
+        if len(kept) != len(errs): print('   (%s, cloud: %d Unity 6-only API errors ignored, see cloud_u6_only.txt)' % (name, len(errs) - len(kept)))
         errs = kept
-    if p.returncode != 0 and not errs:   # the compiler itself failed to run: never report that as "0 errors"
-        errs = ['compiler failed (exit %d): %s' % (p.returncode, (p.stdout + p.stderr).strip()[:400])]
     return errs
 
 
