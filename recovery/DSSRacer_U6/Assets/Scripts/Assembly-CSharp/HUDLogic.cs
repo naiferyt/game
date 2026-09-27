@@ -587,18 +587,141 @@ public class HUDLogic : UghPublisher
 		StartCoroutine(DisplayNotificationCoroutine(text, duration));
 	}
 
+	// RECUPERADO-AOT HUDLogic::SignalMissionStart token 0x06000766 @0x0013b930
+	// RECUPERADO-AOT HUDLogic/<SignalMissionStart>c__Iterator7D::MoveNext token 0x06000ac9 @0x001607b8
+	// RECUPERADO-AOT HUDLogic/<SignalMissionStart>c__Iterator7D::<>m__34 token 0x06000acc @0x00161730 (arrow target predicate)
+	// Mission task banner: drops in (or, after a previous mission, slides out and back in) with the task text, and
+	// points the tutorial arrow at the mission's HUD target when the mission has one.
+	// ADAPTADO-U6: Component.animation -> GetComponent<Animation>().
 	[DebuggerHidden]
 	public IEnumerator SignalMissionStart(bool hadPreviousMission)
 	{
-		RecoveryPending.Hit("HUDLogic.SignalMissionStart");
-		yield break;
+		BaseMission mission = playerCar.GetComponent<MissionManager>().GetCurrentMission();
+		UnityEngine.Debug.Log("Mission Name: " + mission.GetCurrentMissionName() + " Untranslated: " + mission.GetCurrentUntranslatedMissionName());
+		Transform tutDisplay = transforms["TaskDisplay"];
+		Transform arrow = transforms["Tutorial Arrow"];
+		ArrowTarget at = Array.Find(tutorialArrowTargets, (ArrowTarget x) => x.name == mission.GetCurrentUntranslatedMissionName());
+		Transform target = null;
+		if (at != null)
+		{
+			UnityEngine.Debug.LogWarning("Found an arrow target!");
+			target = at.target;
+		}
+		else
+		{
+			UnityEngine.Debug.LogWarning("Did not find an arrow target!");
+		}
+		arrow.gameObject.SetActive(false);
+		Vector3 closedPos = Vector3.zero;
+		Vector3 openPos = Vector3.up * -2f;
+		yield return 0;
+		if (!hadPreviousMission)
+		{
+			tutDisplay.localPosition = closedPos;
+			tutDisplay.gameObject.SetActive(true);
+			while (!preRace)
+			{
+				yield return null;
+			}
+			ughTexts["TaskMessage"].Text = mission.GetTaskDisplay();
+			arrow.gameObject.SetActive(mission.hasArrow);
+			arrow.GetComponent<Animation>().Stop();
+			if (mission.hasArrow)
+			{
+				if (target == null)
+				{
+					UnityEngine.Debug.LogError("this mission has no arrow target!!");
+				}
+				arrow.localPosition = new Vector3(target.position.x + mission.arrowXOffset, target.position.y + mission.arrowYOffset, -0.5f);
+				arrow.eulerAngles = new Vector3(0f, 0f, mission.arrowRotation);
+				arrow.localScale = Vector3.zero;
+			}
+			float rate = 1f / 60f;
+			float speed = 3f;
+			for (float timer = 0f; timer <= 1f; timer += rate * speed)
+			{
+				tutDisplay.localPosition = Vector3x.Berp(closedPos, openPos, timer);
+				arrow.localScale = Vector3x.Berp(Vector3.zero, Vector3.one, timer);
+				yield return new WaitForSeconds(rate);
+			}
+		}
+		else
+		{
+			tutDisplay.localPosition = closedPos;
+			tutDisplay.gameObject.SetActive(true);
+			float rate2 = 1f / 60f;
+			float speed2 = 6f;
+			for (float timer2 = 0f; timer2 <= 1f; timer2 += rate2 * speed2)
+			{
+				tutDisplay.localPosition = Vector3.Lerp(openPos, closedPos, timer2);
+				arrow.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timer2);
+				yield return new WaitForSeconds(rate2);
+			}
+			ughTexts["TaskMessage"].Text = mission.GetTaskDisplay();
+			arrow.gameObject.SetActive(mission.hasArrow);
+			if (mission.hasArrow)
+			{
+				if (target == null)
+				{
+					UnityEngine.Debug.LogError("this mission has no arrow target!!");
+				}
+				arrow.localPosition = new Vector3(target.position.x + mission.arrowXOffset, target.position.y + mission.arrowYOffset, -0.5f);
+				arrow.eulerAngles = new Vector3(0f, 0f, mission.arrowRotation);
+			}
+			speed2 = 3f;
+			for (float timer3 = 0f; timer3 <= 1f; timer3 += rate2 * speed2)
+			{
+				tutDisplay.localPosition = Vector3x.Berp(closedPos, openPos, timer3);
+				arrow.localScale = Vector3x.Berp(Vector3.zero, Vector3.one, timer3);
+				yield return new WaitForSeconds(rate2);
+			}
+		}
+		arrow.GetComponent<Animation>().Play();
 	}
 
+	// RECUPERADO-AOT HUDLogic::SignalMissionComplete token 0x06000767 @0x0013b988
+	// RECUPERADO-AOT HUDLogic/<SignalMissionComplete>c__Iterator7E::MoveNext token 0x06000ad0 @0x00161820
+	// "Mission Complete!" on the task banner: the arrow shrinks away, then after 3 s the banner either slides up
+	// (no more missions) or shows the next mission.
+	// ADAPTADO-U6: Component.animation -> GetComponent<Animation>().
 	[DebuggerHidden]
 	public IEnumerator SignalMissionComplete(bool noMoreMissions)
 	{
-		RecoveryPending.Hit("HUDLogic.SignalMissionComplete");
-		yield break;
+		Transform tutDisplay = transforms["TaskDisplay"];
+		Transform arrow = transforms["Tutorial Arrow"];
+		ughTexts["TaskMessage"].Text = Localize.Get("Mission Complete!");
+		float timer = 0f;
+		float effectLength = 3f;
+		arrow.GetComponent<Animation>().Stop();
+		while (timer < 0.5f)
+		{
+			timer += Time.deltaTime;
+			arrow.localScale = Vector3.one * Mathfx.Berp(0f, 1f, (0.5f - timer) / 0.5f);
+			yield return 0;
+		}
+		while (timer < effectLength)
+		{
+			timer += Time.deltaTime;
+			yield return 0;
+		}
+		arrow.gameObject.SetActive(false);
+		if (noMoreMissions)
+		{
+			timer = 0f;
+			effectLength = 0.8f;
+			while (timer < effectLength)
+			{
+				timer += Time.deltaTime;
+				tutDisplay.localPosition = Vector3.up * 2f - Vector3.up * 2f * Mathfx.Berp(0f, 1f, (effectLength - timer) / effectLength);
+				yield return 0;
+			}
+			tutDisplay.gameObject.SetActive(false);
+		}
+		else
+		{
+			StartCoroutine(SignalMissionStart(true));
+			yield return 0;
+		}
 	}
 
 	// RECUPERADO-AOT HUDLogic::AnimateBrakeButtonIn token 0x06000768 @0x0013b9e0
