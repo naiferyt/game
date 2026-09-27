@@ -20,10 +20,10 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | Etapa 1 — Arranque → Menú principal | 0 | 0 KB | 713 | 0 |
 | Etapa 2 — Menú → selección → carga de la carrera | 0 | 0 KB | 494 | 11 |
 | Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados) | 15 | 6 KB | 477 | 7 |
-| Etapa 4 — Sistemas completos | 1262 | 241 KB | 217 | 69 |
+| Etapa 4 — Sistemas completos | 870 | 143 KB | 610 | 69 |
 | Port Android (después de la Fase 4) | 8 | 1 KB | 0 | 0 |
 | Opcional — herramientas de depuración del equipo original | 19 | 3 KB | 0 | 0 |
-| Sin uso detectado (no se traducen salvo que aparezcan en el log) | 265 | 77 KB | 0 | 0 |
+| Sin uso detectado (no se traducen salvo que aparezcan en el log) | 264 | 77 KB | 0 | 0 |
 | Sin uso (scripts UnityScript sin referencias) | 155 | 49 KB | 0 | 0 |
 | Eliminados (servicios iOS/externos) | 0 | 0 KB | 0 | 0 |
 | Sin código nativo (abstract / extern) | 0 | 0 KB | 0 | 0 |
@@ -32,12 +32,10 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 ## Etapa 1 — Arranque → Menú principal
 
-**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (7) — deben tolerar quedar pendientes o adelantarse:
+**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (2) — deben tolerar quedar pendientes o adelantarse:
 
 - Etapa 4 · `AchievementListener`: `Fail`
 - Etapa 4 · `CartCustomizerPublisher`: `Refresh`
-- Etapa 4 · `MusicPlayer`: `PlayMusic`, `UpdateVolume`
-- Etapa 4 · `SoundLibrary`: `ButtonClickPlay`, `PlayRandomWhoosh`
 
 ### Framework UI propio (Ugh) — 285 métodos, 77.8 KB ARM
 
@@ -293,20 +291,11 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 ## Etapa 3 — Carrera mínima (conducir, vueltas, meta, resultados)
 
-**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (22) — deben tolerar quedar pendientes o adelantarse:
+**Métodos de etapas posteriores que el flujo original ya ejecuta aquí** (4) — deben tolerar quedar pendientes o adelantarse:
 
 - Etapa 4 · `AchievementListener`: `HasAchieved`
-- Etapa 4 · `CarAI`: `ClearStates`
-- Etapa 4 · `CarAIPathManager`: `.cctor`
-- Etapa 4 · `CarAIPathRecorder`: `FinishRecording`, `StartRecording`
-- Etapa 4 · `GimpedCarAI`: `.ctor`, `FixedUpdate`, `GetGimpedSnapShot`, `SetToClosestPathHead`, `Start`, `Update`
 - Etapa 4 · `MissionDialogPublisher`: `SetRollState`
 - Etapa 4 · `MissionManager`: `Signal`
-- Etapa 4 · `MusicPlayer`: `HijackMusicPlayerForSoundStings`
-- Etapa 4 · `PowerupHolder`: `AddEffect`, `ExecutePowerups`, `get_CanTakePowerup`, `get_Item`
-- Etapa 4 · `SoundLibrary`: `PlaySoundOnPlayer`
-- Etapa 4 · `SoundLibraryAddendum`: `Dispose`
-- Etapa 4 · `SoundSequencer`: `RequestPlay`
 
 ### HUD, pausa y resultados — 181 métodos, 55.3 KB ARM
 
@@ -422,11 +411,11 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `BarrelSpawner` | `.ctor` (76), `OnDrawGizmos` (276), `SpawnBarrel` (764), `SpawnCheck` (72), `Start` (96), `Update` (132) |
 | `BarrelSpawner/<SpawnCheck>c__Iterator34` | `.ctor` (44), `Dispose` (56), `MoveNext` (304), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `BaseEffect` | ✅ `.cctor` (36) ⚠Etapa 3, ✅ `.ctor` (56), ✅ `DebugDump` (444), ✅ `FixedUpdate` (44), ✅ `GetComboEffectType` (440), ✅ `GetEffectInstance` (932) ⚠Etapa 3, ✅ `InitComboLookup` (188) ⚠Etapa 1, ✅ `SetUpComboLookup` (404), ✅ `get_ComboLookup` (56), ✅ `get_EffectType` (52), ✅ `get_IsMultiLevel` (52), ✅ `get_PowerLevel` (52), ✅ `isBeneficial` (56) ⚠Etapa 3, ✅ `isBeneficial` (260) ⚠Etapa 3, ✅ `set_ComboLookup` (68), ✅ `set_EffectType` (60), ✅ `set_IsMultiLevel` (60), ✅ `set_PowerLevel` (60) |
-| `BasePickup` | `.ctor` (52), `OnTriggerEnter` (892), `Start` (80), `Update` (328) |
+| `BasePickup` | ✅ `.ctor` (52), ✅ `OnTriggerEnter` (892), ✅ `Start` (80), ✅ `Update` (328) |
 | `BasketBall` | `.ctor` (112), `OnTriggerEnter` (732), `PlayBounceSound` (116), `Update` (1012) |
-| `BoatAnchorEffect` | `.ctor` (72), `GetEffectSnapShot` (48), `Init` (620), `LaunchAnchor` (636), `Shutdown` (44), `Stack` (52), `Update` (44) |
+| `BoatAnchorEffect` | ✅ `.ctor` (72), ✅ `GetEffectSnapShot` (48), ✅ `Init` (620), ✅ `LaunchAnchor` (636), ✅ `Shutdown` (44), ✅ `Stack` (52), ✅ `Update` (44) |
 | `BoosterEffect` | ✅ `.ctor` (112) ⚠Etapa 3, ✅ `GetEffectSnapShot` (48), ✅ `Init` (2088), ✅ `Shutdown` (768), ✅ `Stack` (52), ✅ `Update` (44) |
-| `BoosterPickup` | `.ctor` (52), `GetTriggeredEffect` (132) |
+| `BoosterPickup` | ✅ `.ctor` (52), ✅ `GetTriggeredEffect` (132) |
 | `BreakableObject` | `.ctor` (76), `CollideBreak` (116), `Start` (44), `Update` (44) |
 | `BubbleJet` | `.ctor` (76), `OnDrawGizmos` (280), `OnTriggerStay` (232), `Start` (92) |
 | `Crab` | `.ctor` (220), `FixedUpdate` (1136), `OnDrawGizmos` (140), `OnTriggerEnter` (324), `SleepRoutine` (108), `Start` (104), `Update` (544) |
@@ -443,15 +432,15 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `InRaceAquirePickupListener` | `.ctor` (60), `CheckMetrics` (368), `CheckMetricsPump` (72), `IsAvailable` (72), `Postrace` (84), `Prerace` (44), `Reward` (64), `Start` (88), `Update` (44) |
 | `InRaceAquirePickupListener/<CheckMetricsPump>c__IteratorC` | `.ctor` (44), `Dispose` (56), `MoveNext` (224), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `LaserLogic` | `.ctor` (112), `ApplyError` (216), `SetParent` (60), `SetTarget` (60), `Update` (704) |
-| `MineAI` | `.ctor` (160), `ArmMine` (72), `KillAI` (88), `OnTriggerEnter` (1744), `SetOwner` (60), `Start` (80), `Update` (1496), `get_IsArmed` (52) |
-| `MineAI/<ArmMine>c__Iterator3` | `.ctor` (44), `Dispose` (56), `MoveNext` (264), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `MineEffect` | `.ctor` (112), `GetEffectSnapShot` (48), `Init` (148), `Shutdown` (44), `Stack` (112), `Update` (428) |
+| `MineAI` | ✅ `.ctor` (160), ✅ `ArmMine` (72), ✅ `KillAI` (88), ✅ `OnTriggerEnter` (1744), ✅ `SetOwner` (60), ✅ `Start` (80), ✅ `Update` (1496), ✅ `get_IsArmed` (52) |
+| `MineAI/<ArmMine>c__Iterator3` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (264), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `MineEffect` | ✅ `.ctor` (112), ✅ `GetEffectSnapShot` (48), ✅ `Init` (148), ✅ `Shutdown` (44), ✅ `Stack` (112), ✅ `Update` (428) |
 | `MineNotifyPublisher` | `.ctor` (52), `FadeIn` (72), `FadeOut` (72), `Lifetime` (72), `SetDisplayName` (100), `Start` (80) |
 | `MineNotifyPublisher/<FadeIn>c__Iterator84` | `.ctor` (44), `Dispose` (56), `MoveNext` (972), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `MineNotifyPublisher/<FadeOut>c__Iterator85` | `.ctor` (44), `Dispose` (56), `MoveNext` (692), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `MineNotifyPublisher/<Lifetime>c__Iterator83` | `.ctor` (44), `Dispose` (56), `MoveNext` (460), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `MinePickup` | `.ctor` (52), `GetTriggeredEffect` (132) |
-| `MineSpreaderAI` | `.ctor` (168), `Explode` (324), `LaunchUpdate` (264), `SetOwner` (60), `SpreadMines` (628), `Start` (924), `Update` (148) |
+| `MinePickup` | ✅ `.ctor` (52), ✅ `GetTriggeredEffect` (132) |
+| `MineSpreaderAI` | ✅ `.ctor` (168), ✅ `Explode` (324), ✅ `LaunchUpdate` (264), ✅ `SetOwner` (60), ✅ `SpreadMines` (628), ✅ `Start` (924), ✅ `Update` (148) |
 | `ParticleLibrary` | ✅ `.cctor` (36), ✅ `.ctor` (52), ✅ `Awake` (56), ✅ `GetPrefab` (388) ⚠Etapa 2, ✅ `Start` (88), ✅ `Update` (44), ✅ `get_Instance` (248) ⚠Etapa 2 |
 | `ParticleLibrary/ParticlePrefab` | ✅ `.ctor` (44) |
 | `ParticleReducer` | `.ctor` (52), `Start` (572) |
@@ -459,39 +448,39 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `ParticleReducer/PlatformProfile` | `.ctor` (44) |
 | `PickupCoinsPerRaceAchievementListener` | `.ctor` (52), `CheckCarMetrics` (240), `CheckMetricsPump` (72), `IsAvailable` (72), `Postrace` (84), `Prerace` (44), `Reward` (64), `Start` (88), `Update` (44) |
 | `PickupCoinsPerRaceAchievementListener/<CheckMetricsPump>c__Iterator12` | `.ctor` (44), `Dispose` (56), `MoveNext` (224), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PickupSpawner` | `.ctor` (84), `OnDrawGizmos` (276), `SpawnCheck` (72), `SpawnPickup` (968), `Start` (52), `Update` (132) |
-| `PickupSpawner/<SpawnCheck>c__Iterator30` | `.ctor` (44), `Dispose` (56), `MoveNext` (304), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `PickupSpawner` | ✅ `.ctor` (84), ✅ `OnDrawGizmos` (276), ✅ `SpawnCheck` (72), ✅ `SpawnPickup` (968), ✅ `Start` (52), ✅ `Update` (132) |
+| `PickupSpawner/<SpawnCheck>c__Iterator30` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (304), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 | `PieAttack` | `.ctor` (112), `Explode` (80), `ExplodeCoroutine` (72), `LifeCountdown` (72), `OnCollisionEnter` (64), `OnTriggerEnter` (788), `Start` (92), `Update` (304) |
 | `PieAttack/<ExplodeCoroutine>c__Iterator3A` | `.ctor` (44), `Dispose` (56), `MoveNext` (168), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `PieAttack/<LifeCountdown>c__Iterator39` | `.ctor` (44), `Dispose` (56), `MoveNext` (212), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PieHitEffect` | `.ctor` (76), `GetEffectSnapShot` (48), `Init` (352), `Shutdown` (44), `Stack` (52), `Update` (44) |
+| `PieHitEffect` | ✅ `.ctor` (76), ✅ `GetEffectSnapShot` (48), ✅ `Init` (352), ✅ `Shutdown` (44), ✅ `Stack` (52), ✅ `Update` (44) |
 | `PieLauncher` | `.ctor` (100), `OnDrawGizmos` (156), `ShootPieCoroutine` (72), `Start` (72) |
 | `PieLauncher/<ShootPieCoroutine>c__Iterator3C` | `.ctor` (44), `Dispose` (56), `MoveNext` (872), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `PieLauncher/<Start>c__Iterator3B` | `.ctor` (44), `Dispose` (56), `MoveNext` (256), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `PieSplat` | `.ctor` (76), `Start` (72) |
 | `PieSplat/<Start>c__Iterator2E` | `.ctor` (44), `Dispose` (56), `MoveNext` (1700), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PowerupHolder` | `.ctor` (100), `AddEffect` (384) ⚠Etapa 3, `Awake` (112), `ClearEffectsInReserve` (96), `ExecutePowerups` (1904) ⚠Etapa 3, `HasEffect` (360), `PowerupComboCheck` (1436), `Update` (244), `get_CanTakePowerup` (92) ⚠Etapa 3, `get_Item` (128) ⚠Etapa 3, `get_numEffects` (64) |
-| `PowerupMagnet` | `.ctor` (252), `FixedUpdate` (900), `GetEffectSnapShot` (48), `Init` (760), `Shutdown` (216), `Stack` (52), `Start` (44), `Update` (764) |
+| `PowerupHolder` | ✅ `.ctor` (100), ✅ `AddEffect` (384) ⚠Etapa 3, ✅ `Awake` (112), ✅ `ClearEffectsInReserve` (96), ✅ `ExecutePowerups` (1904) ⚠Etapa 3, ✅ `HasEffect` (360), ✅ `PowerupComboCheck` (1436), ✅ `Update` (244), ✅ `get_CanTakePowerup` (92) ⚠Etapa 3, ✅ `get_Item` (128) ⚠Etapa 3, ✅ `get_numEffects` (64) |
+| `PowerupMagnet` | ✅ `.ctor` (252), ✅ `FixedUpdate` (900), ✅ `GetEffectSnapShot` (48), ✅ `Init` (760), ✅ `Shutdown` (216), ✅ `Stack` (52), ✅ `Start` (44), ✅ `Update` (764) |
 | `PyroTechnics` | `.ctor` (52), `OnTriggerEnter` (456), `Start` (44), `Update` (44) |
-| `RandomShotEffect` | `.ctor` (96), `FixedUpdate` (44), `GetEffectSnapShot` (48), `Init` (772), `Shutdown` (148), `Stack` (52), `Start` (44), `Update` (44) |
-| `RocketAI` | `.ctor` (136), `BurnUpdate` (1232), `Explode` (320), `FixedUpdate` (560), `LaunchUpdate` (572), `SetOwner` (60), `SetRiderEffect` (68), `SetTarget` (120), `Start` (1116), `StrikeTarget` (992), `Update` (140) |
-| `RocketEffect` | `.ctor` (184), `GetEffectSnapShot` (48), `Init` (1024), `LaunchRocket` (588), `Shutdown` (44), `Stack` (52), `Update` (228) |
-| `RocketPickup` | `.ctor` (52), `GetTriggeredEffect` (132) |
-| `RocketRideEffect` | `.ctor` (132), `DetachFromRocket` (572), `GetEffectSnapShot` (48), `Init` (492), `LaunchRocket` (1064), `Shutdown` (232), `Stack` (52), `Update` (180) |
+| `RandomShotEffect` | ✅ `.ctor` (96), ✅ `FixedUpdate` (44), ✅ `GetEffectSnapShot` (48), ✅ `Init` (772), ✅ `Shutdown` (148), ✅ `Stack` (52), ✅ `Start` (44), ✅ `Update` (44) |
+| `RocketAI` | ✅ `.ctor` (136), ✅ `BurnUpdate` (1232), ✅ `Explode` (320), ✅ `FixedUpdate` (560), ✅ `LaunchUpdate` (572), ✅ `SetOwner` (60), ✅ `SetRiderEffect` (68), ✅ `SetTarget` (120), ✅ `Start` (1116), ✅ `StrikeTarget` (992), ✅ `Update` (140) |
+| `RocketEffect` | ✅ `.ctor` (184), ✅ `GetEffectSnapShot` (48), ✅ `Init` (1024), ✅ `LaunchRocket` (588), ✅ `Shutdown` (44), ✅ `Stack` (52), ✅ `Update` (228) |
+| `RocketPickup` | ✅ `.ctor` (52), ✅ `GetTriggeredEffect` (132) |
+| `RocketRideEffect` | ✅ `.ctor` (132), ✅ `DetachFromRocket` (572), ✅ `GetEffectSnapShot` (48), ✅ `Init` (492), ✅ `LaunchRocket` (1064), ✅ `Shutdown` (232), ✅ `Stack` (52), ✅ `Update` (180) |
 | `RocketRideRemover` | `.ctor` (52), `OnTriggerEnter` (180), `Start` (44), `Update` (44) |
-| `ShieldEffect` | `.ctor` (112), `GetEffectSnapShot` (48), `Init` (972), `Shutdown` (300), `Stack` (52), `Update` (368), `get_Reflective` (64) |
-| `ShieldPickup` | `.ctor` (52), `GetTriggeredEffect` (132) |
+| `ShieldEffect` | ✅ `.ctor` (112), ✅ `GetEffectSnapShot` (48), ✅ `Init` (972), ✅ `Shutdown` (300), ✅ `Stack` (52), ✅ `Update` (368), ✅ `get_Reflective` (64) |
+| `ShieldPickup` | ✅ `.ctor` (52), ✅ `GetTriggeredEffect` (132) |
 | `ShockedEffect` | ✅ `.ctor` (104), ✅ `GetEffectSnapShot` (48), ✅ `Init` (684), ✅ `Shutdown` (44), ✅ `Stack` (76), ✅ `Update` (44) |
 | `ShotDroneAI` | `.ctor` (76), `FixedUpdate` (44), `SetParent` (60), `Shoot` (812), `Start` (72), `Update` (388) |
 | `SkidEffect` | ✅ `.ctor` (88), ✅ `GetEffectSnapShot` (48), ✅ `Init` (92), ✅ `Shutdown` (44), ✅ `Stack` (52), ✅ `Update` (236) |
 | `SlowdownEffect` | ✅ `.ctor` (104) ⚠Etapa 3, ✅ `GetEffectSnapShot` (48), ✅ `Init` (44), ✅ `Shutdown` (184), ✅ `Stack` (52), ✅ `Update` (44) |
-| `SmashEffect` | `.ctor` (104), `GetEffectSnapShot` (48), `Init` (476), `Shutdown` (200), `Stack` (52), `Update` (44) |
-| `SpreadMineEffect` | `.ctor` (96), `GetEffectSnapShot` (48), `Init` (52), `LaunchSpreader` (596), `Shutdown` (44), `Stack` (52), `Start` (44), `Update` (44) |
+| `SmashEffect` | ✅ `.ctor` (104), ✅ `GetEffectSnapShot` (48), ✅ `Init` (476), ✅ `Shutdown` (200), ✅ `Stack` (52), ✅ `Update` (44) |
+| `SpreadMineEffect` | ✅ `.ctor` (96), ✅ `GetEffectSnapShot` (48), ✅ `Init` (52), ✅ `LaunchSpreader` (596), ✅ `Shutdown` (44), ✅ `Stack` (52), ✅ `Start` (44), ✅ `Update` (44) |
 | `SpringTrigger` | `.ctor` (52), `OnDrawGizmos` (236), `OnTriggerEnter` (164) |
-| `TeleportEffect` | `.ctor` (200), `GetEffectSnapShot` (48), `Init` (252), `Shutdown` (204), `Stack` (52), `Update` (496) |
+| `TeleportEffect` | ✅ `.ctor` (200), ✅ `GetEffectSnapShot` (48), ✅ `Init` (252), ✅ `Shutdown` (204), ✅ `Stack` (52), ✅ `Update` (496) |
 | `TeleportTrigger` | `.ctor` (52), `OnDrawGizmos` (460), `OnTriggerEnter` (336) |
 | `TripLine` | `.ctor` (52), `OnTriggerEnter` (240), `Start` (44), `Update` (44) |
-| `TripLineEffect` | `.ctor` (96), `GetEffectSnapShot` (48), `Init` (1132), `Shutdown` (188), `Stack` (52), `Start` (44), `Update` (368) |
+| `TripLineEffect` | ✅ `.ctor` (96), ✅ `GetEffectSnapShot` (48), ✅ `Init` (1132), ✅ `Shutdown` (188), ✅ `Stack` (52), ✅ `Start` (44), ✅ `Update` (368) |
 | `TurkeyGooShooter` | `.ctor` (116), `Start` (72) |
 | `TurkeyGooShooter/<Start>c__Iterator3D` | `.ctor` (44), `Dispose` (56), `MoveNext` (480), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `UFOLogic` | `.ctor` (436), `FireLaser` (1220), `FixedUpdate` (2604), `OnDrawGizmos` (144), `SetParent` (60), `SetSecondUFO` (60), `StartFlyaway` (72), `Update` (444) |
@@ -575,29 +564,29 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
-| `BaseCarAIState` | `.ctor` (44) |
-| `CarAI` | `.ctor` (1016), `AIEvaluationPump` (72), `AddState` (488), `ClearStates` (352) ⚠Etapa 3, `DriveTowardPoint` (144), `DriveWithFacing` (848), `EvaluateStates` (1900), `FixedUpdate` (112), `OnDrawGizmos` (1432), `Start` (512), `StateDone` (216), `TestForAvoidBadTerrain` (364), `TestForHarassCar` (244), `TestForHitBeneficialTerrain` (544), `TestForNoticePickup` (620), `TestForPowerupUsage` (180), `Update` (120) |
-| `CarAI/<AIEvaluationPump>c__Iterator0` | `.ctor` (44), `Dispose` (56), `MoveNext` (284), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `CarAI/<EvaluateStates>c__AnonStorey8F` | `.ctor` (44), `<>m__1` (80) |
-| `CarAIPath` | `.ctor` (44), `GetSizeEstimate` (64) |
-| `CarAIPath/PathPoint` | `.ctor` (44) |
-| `CarAIPathManager` | `.cctor` (36) ⚠Etapa 3, `.ctor` (52), `AddPath` (220), `GetPathByIndex` (168), `GetPathCount` (108), `GetPathIndex` (228), `GetRandomPath` (196), `OnDisable` (68), `OnDrawGizmos` (644), `OnEnable` (104), `ProduceInstance` (168) |
-| `CarAIPathManager/<GetPathIndex>c__AnonStorey8E` | `.ctor` (44), `<>m__0` (72) |
-| `CarAIPathRecorder` | `.ctor` (104), `DeltaCompressPath` (800), `DistanceCompressPath` (500), `DistanceCompressPathWithGroundChecking` (2232), `FinishRecording` (160) ⚠Etapa 3, `StartRecording` (112) ⚠Etapa 3, `Update` (300) |
-| `CarAIPersonality` | `.ctor` (376), `Start` (144), `get_stateWeightMap` (768) |
-| `CarAIPersonality/PersonalityTrait` | `.ctor` (68) |
-| `DriveAvoidTerrainAIState` | `.ctor` (84), `FixedUpdate` (1004), `GetAIStateEnum` (48), `Init` (580), `Shutdown` (44), `Update` (548) |
-| `DriveHitBeneficialAIState` | `.ctor` (84), `FixedUpdate` (432), `GetAIStateEnum` (48), `Init` (716), `Shutdown` (44), `Update` (536) |
-| `DrivePickupAIState` | `.ctor` (44), `FixedUpdate` (136), `GetAIStateEnum` (48), `Init` (848), `Shutdown` (44), `Update` (452) |
-| `DriveWaypointsCarAIState` | `.ctor` (84), `FixedUpdate` (104), `GetAIStateEnum` (48), `Init` (112), `Shutdown` (44), `Update` (988) |
-| `ForwardForceAI` | `.ctor` (160), `FixedUpdate` (248), `Start` (192) |
-| `GimpedCarAI` | `.ctor` (504) ⚠Etapa 3, `AggressionTherapyCoroutine` (72), `Bump` (320), `DoCarCollisions` (1340), `DoRoadBoundaries` (1336), `FixedUpdate` (2804) ⚠Etapa 3, `GetGimpedSnapShot` (92) ⚠Etapa 3, `PowerupUseEvaluationCoroutinue` (72), `SetGimpedSnapShot` (604), `SetNewPath` (556), `SetNextPoint` (580), `SetToClosestPathHead` (456) ⚠Etapa 3, `Start` (568) ⚠Etapa 3, `Update` (60) ⚠Etapa 3, `get_Direction` (216), `get_IsInAir` (200), `get_LinearVelocity` (64), `get_Velocity` (64), `set_LinearVelocity` (68) |
-| `GimpedCarAI/<AggressionTherapyCoroutine>c__Iterator2` | `.ctor` (44), `Dispose` (56), `MoveNext` (532), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `GimpedCarAI/<PowerupUseEvaluationCoroutinue>c__Iterator1` | `.ctor` (44), `Dispose` (56), `MoveNext` (468), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `PathMoverAI` | `.ctor` (244), `FixedUpdate` (752), `Start` (164), `StartTransition` (296) |
-| `SphereMoverAI` | `.ctor` (76), `CollisionReflect` (1020), `DoMovement` (148), `FixedUpdate` (52), `OnDrawGizmos` (44), `Start` (212), `Update` (44), `UpdateTarget` (276) |
-| `SphereMoverCollider` | `.ctor` (52), `OnTriggerEnter` (144), `Start` (44), `Update` (44) |
-| `UsePowerupAIState` | `.ctor` (116), `DoMineEffectExecute` (584), `DoRocketEffectExecute` (264), `DoShieldEffectExecute` (868), `FixedUpdate` (44), `GetAIStateEnum` (48), `Init` (44), `Shutdown` (44), `Update` (356) |
+| `BaseCarAIState` | ✅ `.ctor` (44) |
+| `CarAI` | ✅ `.ctor` (1016), ✅ `AIEvaluationPump` (72), ✅ `AddState` (488), ✅ `ClearStates` (352) ⚠Etapa 3, ✅ `DriveTowardPoint` (144), ✅ `DriveWithFacing` (848), ✅ `EvaluateStates` (1900), ✅ `FixedUpdate` (112), ✅ `OnDrawGizmos` (1432), ✅ `Start` (512), ✅ `StateDone` (216), ✅ `TestForAvoidBadTerrain` (364), ✅ `TestForHarassCar` (244), ✅ `TestForHitBeneficialTerrain` (544), ✅ `TestForNoticePickup` (620), ✅ `TestForPowerupUsage` (180), ✅ `Update` (120) |
+| `CarAI/<AIEvaluationPump>c__Iterator0` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (284), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `CarAI/<EvaluateStates>c__AnonStorey8F` | ✅ `.ctor` (44), ✅ `<>m__1` (80) |
+| `CarAIPath` | ✅ `.ctor` (44), ✅ `GetSizeEstimate` (64) |
+| `CarAIPath/PathPoint` | ✅ `.ctor` (44) |
+| `CarAIPathManager` | ✅ `.cctor` (36) ⚠Etapa 3, ✅ `.ctor` (52), ✅ `AddPath` (220), ✅ `GetPathByIndex` (168), ✅ `GetPathCount` (108), ✅ `GetPathIndex` (228), ✅ `GetRandomPath` (196), ✅ `OnDisable` (68), ✅ `OnDrawGizmos` (644), ✅ `OnEnable` (104), ✅ `ProduceInstance` (168) |
+| `CarAIPathManager/<GetPathIndex>c__AnonStorey8E` | ✅ `.ctor` (44), ✅ `<>m__0` (72) |
+| `CarAIPathRecorder` | ✅ `.ctor` (104), ✅ `DeltaCompressPath` (800), ✅ `DistanceCompressPath` (500), ✅ `DistanceCompressPathWithGroundChecking` (2232), ✅ `FinishRecording` (160) ⚠Etapa 3, ✅ `StartRecording` (112) ⚠Etapa 3, ✅ `Update` (300) |
+| `CarAIPersonality` | ✅ `.ctor` (376), ✅ `Start` (144), ✅ `get_stateWeightMap` (768) |
+| `CarAIPersonality/PersonalityTrait` | ✅ `.ctor` (68) |
+| `DriveAvoidTerrainAIState` | ✅ `.ctor` (84), ✅ `FixedUpdate` (1004), ✅ `GetAIStateEnum` (48), ✅ `Init` (580), ✅ `Shutdown` (44), ✅ `Update` (548) |
+| `DriveHitBeneficialAIState` | ✅ `.ctor` (84), ✅ `FixedUpdate` (432), ✅ `GetAIStateEnum` (48), ✅ `Init` (716), ✅ `Shutdown` (44), ✅ `Update` (536) |
+| `DrivePickupAIState` | ✅ `.ctor` (44), ✅ `FixedUpdate` (136), ✅ `GetAIStateEnum` (48), ✅ `Init` (848), ✅ `Shutdown` (44), ✅ `Update` (452) |
+| `DriveWaypointsCarAIState` | ✅ `.ctor` (84), ✅ `FixedUpdate` (104), ✅ `GetAIStateEnum` (48), ✅ `Init` (112), ✅ `Shutdown` (44), ✅ `Update` (988) |
+| `ForwardForceAI` | ✅ `.ctor` (160), ✅ `FixedUpdate` (248), ✅ `Start` (192) |
+| `GimpedCarAI` | ✅ `.ctor` (504) ⚠Etapa 3, ✅ `AggressionTherapyCoroutine` (72), ✅ `Bump` (320), ✅ `DoCarCollisions` (1340), ✅ `DoRoadBoundaries` (1336), ✅ `FixedUpdate` (2804) ⚠Etapa 3, ✅ `GetGimpedSnapShot` (92) ⚠Etapa 3, ✅ `PowerupUseEvaluationCoroutinue` (72), ✅ `SetGimpedSnapShot` (604), ✅ `SetNewPath` (556), ✅ `SetNextPoint` (580), ✅ `SetToClosestPathHead` (456) ⚠Etapa 3, ✅ `Start` (568) ⚠Etapa 3, ✅ `Update` (60) ⚠Etapa 3, ✅ `get_Direction` (216), ✅ `get_IsInAir` (200), ✅ `get_LinearVelocity` (64), ✅ `get_Velocity` (64), ✅ `set_LinearVelocity` (68) |
+| `GimpedCarAI/<AggressionTherapyCoroutine>c__Iterator2` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (532), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `GimpedCarAI/<PowerupUseEvaluationCoroutinue>c__Iterator1` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (468), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `PathMoverAI` | ✅ `.ctor` (244), ✅ `FixedUpdate` (752), ✅ `Start` (164), ✅ `StartTransition` (296) |
+| `SphereMoverAI` | ✅ `.ctor` (76), ✅ `CollisionReflect` (1020), ✅ `DoMovement` (148), ✅ `FixedUpdate` (52), ✅ `OnDrawGizmos` (44), ✅ `Start` (212), ✅ `Update` (44), ✅ `UpdateTarget` (276) |
+| `SphereMoverCollider` | ✅ `.ctor` (52), ✅ `OnTriggerEnter` (144), ✅ `Start` (44), ✅ `Update` (44) |
+| `UsePowerupAIState` | ✅ `.ctor` (116), ✅ `DoMineEffectExecute` (584), ✅ `DoRocketEffectExecute` (264), ✅ `DoShieldEffectExecute` (868), ✅ `FixedUpdate` (44), ✅ `GetAIStateEnum` (48), ✅ `Init` (44), ✅ `Shutdown` (44), ✅ `Update` (356) |
 
 ### Personalización del kart — 90 métodos, 30.4 KB ARM
 
@@ -620,27 +609,27 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `AudioManager` | ✅ `.cctor` (36), ✅ `.ctor` (84), ✅ `OnDisable` (68), ✅ `OnEnable` (68), ✅ `get_SoundEffectsVolume` (144) ⚠Etapa 1, ✅ `get_instance` (248) ⚠Etapa 1, ✅ `set_SoundEffectsVolume` (108) |
 | `CharacterVOController` | ✅ `.ctor` (196), ✅ `PickClip` (336), ✅ `PlayCelebrate` (72) ⚠Etapa 3, ✅ `PlayCharacterSelect` (72) ⚠Etapa 2, ✅ `PlayClip` (156), ✅ `PlayPout` (72) ⚠Etapa 3 |
 | `CharacterVOControllerGameObjectExtender` | ✅ `GetVOController` (132) ⚠Etapa 2 |
-| `ClipReference` | `.ctor` (44) |
-| `MusicPlayer` | ✅ `.cctor` (36), ✅ `.ctor` (52), `Awake` (56), `HijackMusicPlayerForSoundStings` (276) ⚠Etapa 3, `PlayMusic` (72) ⚠Etapa 1, `PlayMusic` (288) ⚠Etapa 1, `RestoreVolumeAfterSound` (72), `Start` (104), `StopMusic` (92), `Update` (152), `UpdateVolume` (100) ⚠Etapa 1, ✅ `get_Exists` (64), ✅ `get_Instance` (248) ⚠Etapa 1 |
-| `MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25` | `.ctor` (44), `Dispose` (56), `MoveNext` (172), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `SoundLibrary` | `.cctor` (36), `.ctor` (52), `Awake` (388), `ButtonClickPlay` (116) ⚠Etapa 1, `GetClip` (108), `GetClipHash` (108), `GetClipName` (112), `GetInstanceOfSource` (468), `ManuallyAddClip` (184), `ManuallyRemoveClip` (160), `PauseCameraSound` (348), `PlayClipOnSource` (312), `PlayOneShotClipOnSource` (164), `PlayRandomWhoosh` (188) ⚠Etapa 1, `PlaySoundOnCamera` (248), `PlaySoundOnPlayer` (172) ⚠Etapa 3, `StopClipOnSource` (76), `StopSoundOnCamera` (176), `Update` (76), `get_HashToNameBank` (52), `get_Instance` (248), `get_NameToHashBank` (52), `get_Present` (64), `get_SoundBank` (52) |
-| `SoundLibrary/ClipHashDictionary` | `.ctor` (188), `get_Item` (112), `set_Item` (164) |
-| `SoundLibrary/HashClipDictionary` | `.ctor` (188), `get_Item` (112), `set_Item` (160) |
-| `SoundLibrary/SoundClipDictionary` | `.ctor` (188), `get_Count` (64), `get_Item` (112), `set_Item` (224) |
-| `SoundLibrary/SoundClipReference` | `.ctor` (44) |
-| `SoundLibraryAddendum` | `.ctor` (52), `Dispose` (52) ⚠Etapa 3, `OnDisable` (128), `OnEnable` (132) |
-| `SoundPackage` | `.ctor` (52) |
-| `SoundPackageLoadReference` | `.ctor` (44) |
-| `SoundPackageManager` | `.cctor` (36), `.ctor` (136), `CleaningPass` (780), `GetClip` (112), `IsClipLoaded` (72), `IsPackageLoaded` (232), `LoadPackage` (304), `LoadPackageCoroutine` (88), `UnloadPackage` (228), `get_Instance` (248), `get_Present` (64) |
-| `SoundPackageManager/<IsPackageLoaded>c__AnonStorey96` | `.ctor` (44), `<>m__11` (76) |
-| `SoundPackageManager/<LoadPackage>c__AnonStorey94` | `.ctor` (44), `<>m__F` (76) |
-| `SoundPackageManager/<LoadPackageCoroutine>c__Iterator31` | `.ctor` (44), `Dispose` (56), `MoveNext` (732), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
-| `SoundPackageManager/<UnloadPackage>c__AnonStorey95` | `.ctor` (44), `<>m__10` (76) |
-| `SoundPackageReference` | `.ctor` (44) |
-| `SoundSequencer` | `.ctor` (124), `Awake` (180), `DetermineSoundsToPlay` (512), `GetNewSourceAndPlay` (256), `PauseSounds` (364), `Recycle` (72), `RequestPlay` (180) ⚠Etapa 3, `RequestPlayLoop` (108), `SearchUsedList` (500), `SetPriority` (88), `StopLoopingSound` (388), `StopSounds` (352), `UnpauseSounds` (364), `Update` (124), `get_isPaused` (52) |
-| `SoundSequencer/<Recycle>c__Iterator26` | `.ctor` (44), `Dispose` (56), `MoveNext` (220), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
+| `ClipReference` | ✅ `.ctor` (44) |
+| `MusicPlayer` | ✅ `.cctor` (36), ✅ `.ctor` (52), ✅ `Awake` (56), ✅ `HijackMusicPlayerForSoundStings` (276) ⚠Etapa 3, ✅ `PlayMusic` (72) ⚠Etapa 1, ✅ `PlayMusic` (288) ⚠Etapa 1, ✅ `RestoreVolumeAfterSound` (72), ✅ `Start` (104), ✅ `StopMusic` (92), ✅ `Update` (152), ✅ `UpdateVolume` (100) ⚠Etapa 1, ✅ `get_Exists` (64), ✅ `get_Instance` (248) ⚠Etapa 1 |
+| `MusicPlayer/<RestoreVolumeAfterSound>c__Iterator25` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (172), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `SoundLibrary` | ✅ `.cctor` (36), ✅ `.ctor` (52), ✅ `Awake` (388), ✅ `ButtonClickPlay` (116) ⚠Etapa 1, ✅ `GetClip` (108), ✅ `GetClipHash` (108), ✅ `GetClipName` (112), ✅ `GetInstanceOfSource` (468), ✅ `ManuallyAddClip` (184), ✅ `ManuallyRemoveClip` (160), ✅ `PauseCameraSound` (348), ✅ `PlayClipOnSource` (312), ✅ `PlayOneShotClipOnSource` (164), ✅ `PlayRandomWhoosh` (188) ⚠Etapa 1, ✅ `PlaySoundOnCamera` (248), ✅ `PlaySoundOnPlayer` (172) ⚠Etapa 3, ✅ `StopClipOnSource` (76), ✅ `StopSoundOnCamera` (176), ✅ `Update` (76), ✅ `get_HashToNameBank` (52), ✅ `get_Instance` (248), ✅ `get_NameToHashBank` (52), ✅ `get_Present` (64), ✅ `get_SoundBank` (52) |
+| `SoundLibrary/ClipHashDictionary` | ✅ `.ctor` (188), ✅ `get_Item` (112), ✅ `set_Item` (164) |
+| `SoundLibrary/HashClipDictionary` | ✅ `.ctor` (188), ✅ `get_Item` (112), ✅ `set_Item` (160) |
+| `SoundLibrary/SoundClipDictionary` | ✅ `.ctor` (188), ✅ `get_Count` (64), ✅ `get_Item` (112), ✅ `set_Item` (224) |
+| `SoundLibrary/SoundClipReference` | ✅ `.ctor` (44) |
+| `SoundLibraryAddendum` | ✅ `.ctor` (52), ✅ `Dispose` (52) ⚠Etapa 3, ✅ `OnDisable` (128), ✅ `OnEnable` (132) |
+| `SoundPackage` | ✅ `.ctor` (52) |
+| `SoundPackageLoadReference` | ✅ `.ctor` (44) |
+| `SoundPackageManager` | ✅ `.cctor` (36), ✅ `.ctor` (136), ✅ `CleaningPass` (780), ✅ `GetClip` (112), ✅ `IsClipLoaded` (72), ✅ `IsPackageLoaded` (232), ✅ `LoadPackage` (304), ✅ `LoadPackageCoroutine` (88), ✅ `UnloadPackage` (228), ✅ `get_Instance` (248), ✅ `get_Present` (64) |
+| `SoundPackageManager/<IsPackageLoaded>c__AnonStorey96` | ✅ `.ctor` (44), ✅ `<>m__11` (76) |
+| `SoundPackageManager/<LoadPackage>c__AnonStorey94` | ✅ `.ctor` (44), ✅ `<>m__F` (76) |
+| `SoundPackageManager/<LoadPackageCoroutine>c__Iterator31` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (732), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
+| `SoundPackageManager/<UnloadPackage>c__AnonStorey95` | ✅ `.ctor` (44), ✅ `<>m__10` (76) |
+| `SoundPackageReference` | ✅ `.ctor` (44) |
+| `SoundSequencer` | ✅ `.ctor` (124), ✅ `Awake` (180), ✅ `DetermineSoundsToPlay` (512), ✅ `GetNewSourceAndPlay` (256), ✅ `PauseSounds` (364), ✅ `Recycle` (72), ✅ `RequestPlay` (180) ⚠Etapa 3, ✅ `RequestPlayLoop` (108), ✅ `SearchUsedList` (500), ✅ `SetPriority` (88), ✅ `StopLoopingSound` (388), ✅ `StopSounds` (352), ✅ `UnpauseSounds` (364), ✅ `Update` (124), ✅ `get_isPaused` (52) |
+| `SoundSequencer/<Recycle>c__Iterator26` | ✅ `.ctor` (44), ✅ `Dispose` (56), ✅ `MoveNext` (220), ✅ `Reset` (64), ✅ `System.Collections.Generic.IEnumerator<object>.get_Current` (52), ✅ `System.Collections.IEnumerator.get_Current` (52) |
 
-### Utilidades compartidas — 88 métodos, 15.0 KB ARM
+### Utilidades compartidas — 89 métodos, 15.1 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
@@ -651,7 +640,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `EdgePixels` | ✅ `.ctor` (44), ✅ `get_xSum` (76), ✅ `get_ySum` (76) |
 | `Mathfx` | ✅ `.ctor` (44), ✅ `Bounce` (688), ✅ `ClampAngle` (284), ✅ `Coserp` (240), ✅ `DragBounce` (256), ✅ `Exponential` (196), ✅ `Exponential` (160), ✅ `Hermite` (196), ✅ `Lerp` (124), ✅ `Parameter` (340), ✅ `Sinerp` (212) |
 | `MiniJSON` | ✅ `.ctor` (44), ✅ `getLastErrorIndex` (56), ✅ `getLastErrorSnippet` (256), ✅ `lastDecodeSuccessful` (72), ✅ `serializeObjectOrArray` (340) |
-| `PIDVectorController` | `.ctor` (432), `.ctor` (360), `CalculateOutput` (692) |
+| `PIDVectorController` | ✅ `.ctor` (432), ✅ `.ctor` (360), ✅ `CalculateOutput` (692), ✅ `SetPoint` (88) |
 | `ParticleSystemDestroy` | `.ctor` (52), `Start` (72) |
 | `ParticleSystemDestroy/<Start>c__Iterator27` | `.ctor` (44), `Dispose` (56), `MoveNext` (492), `Reset` (64), `System.Collections.Generic.IEnumerator<object>.get_Current` (52), `System.Collections.IEnumerator.get_Current` (52) |
 | `Rangef` | ✅ `InverseLerp` (132), ✅ `get_Range` (76), ✅ `get_random` (108) |
@@ -724,7 +713,7 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 
 ## Sin uso detectado (no se traducen salvo que aparezcan en el log)
 
-### Utilidades compartidas — 265 métodos, 76.9 KB ARM
+### Utilidades compartidas — 264 métodos, 76.8 KB ARM
 
 | Clase | Métodos (bytes ARM) |
 |---|---|
@@ -753,7 +742,6 @@ Generado por `forensics/scripts/method_catalog.py` + `catalog_md.py` a partir de
 | `MiniJsonExtensions` | `arrayListFromJson` (112), `hashtableFromJson` (112), `toJson` (52), `toJson` (52) |
 | `ObjectGroupList` | `.ctor` (68), `Awake` (56), `get_CurrentState` (52), `set_CurrentState` (348) |
 | `PIDController` | `.ctor` (236), `.ctor` (168), `CalculateOutput` (268), `SetPoint` (68) |
-| `PIDVectorController` | `SetPoint` (88) |
 | `Perlin` | `.cctor` (120), `.ctor` (44), `Noise` (1544), `Noise` (2964), `NoiseNormalized` (180), `fade` (168), `grad` (324), `grad2` (328), `lerp` (104) |
 | `Quaternionx` | `.ctor` (44), `QuaternionToMatrix4x4` (1260) |
 | `Rectx` | `.ctor` (44), `AddScreenMargin` (412), `DoesContain` (436), `GetBottomLeft` (280), `GetCenter` (356), `WillFitIn` (244) |
